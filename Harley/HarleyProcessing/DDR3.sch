@@ -30,13 +30,14 @@ LIBS:contrib
 LIBS:valves
 LIBS:DCDC_Converters
 LIBS:artix7
-LIBS:mt41k128m16
 LIBS:OSCILLATOR
+LIBS:mt41k128m16
+LIBS:HarleyProcessing-cache
 EELAYER 25 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
-Sheet 9 9
+Sheet 9 10
 Title ""
 Date ""
 Rev ""
@@ -1225,29 +1226,31 @@ Connection ~ 5050 5600
 Connection ~ 5150 5600
 $Comp
 L MT41K128M16 U3
-U 1 1 56A07B08
+U 1 1 56A165E8
 P 4450 3300
-F 0 "U3" H 3050 5050 50  0000 C CNN
-F 1 "MT41K128M16" H 2500 1250 50  0000 C CNN
+F 0 "U3" H 4300 5279 50  0000 C CNN
+F 1 "MT41K128M16" H 4300 5187 50  0000 C CNN
 F 2 "BGA:WBGA96C80P6X16_90X1300X120" H 3400 3350 50  0001 C CNN
-F 3 "http://www.micron.com/~/media/documents/products/data-sheet/dram/ddr3/2gb_1_35v_ddr3l.pdf" H 3400 3350 50  0001 C CNN
-F 4 "Micron" H 4450 3300 60  0001 C CNN "MFN"
-F 5 "MT41K128M16JT-107 IT:K" H 4450 3300 60  0001 C CNN "MFP"
-F 6 "arrow" H 4450 3300 60  0001 C CNN "D1"
-F 7 "mouser" H 4450 3300 60  0001 C CNN "D2"
-F 8 "MT41K128M16JT-107 IT:K" H 4450 3300 60  0001 C CNN "D1PN"
-F 9 "https://www.arrow.com/en/products/mt41k128m16jt-107itk/micron-technology?&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart#page-1" H 4450 3300 60  0001 C CNN "D1PL"
-F 10 "BGA96" H 4450 3300 60  0001 C CNN "Package"
-F 11 "_" H 4450 3300 60  0000 C CNN "Description"
-F 12 "_" H 4450 3300 60  0001 C CNN "Voltage"
-F 13 "_" H 4450 3300 60  0001 C CNN "Power"
-F 14 "_" H 4450 3300 60  0001 C CNN "Tolerance"
-F 15 "_" H 4450 3300 60  0001 C CNN "Temperature"
-F 16 "_" H 4450 3300 60  0001 C CNN "ReverseVoltage"
-F 17 "_" H 4450 3300 60  0001 C CNN "ForwardVoltage"
-F 18 "_" H 4450 3300 60  0001 C CNN "Cont.Current"
-F 19 "_" H 4450 3300 60  0001 C CNN "Frequency"
-F 20 "_" H 4450 3300 60  0001 C CNN "ResonnanceFreq"
+F 3 "https://www.micron.com/~/media/documents/products/data-sheet/dram/ddr3/2gb_1_35v_ddr3l.pdf" H 3400 3350 50  0001 C CNN
+F 4 "Micron" H 4450 3300 50  0001 C CNN "MFN"
+F 5 "MT41K128M16JT-107 IT:K" H 4450 3300 50  0001 C CNN "MFP"
+F 6 "digikey" H 4450 3300 50  0001 C CNN "D1"
+F 7 "mouser" H 4450 3300 50  0001 C CNN "D2"
+F 8 "MT41K128M16JT-107 IT:K" H 4450 3300 50  0001 C CNN "D1PN"
+F 9 "https://www.arrow.com/en/products/mt41k128m16jt-107itk/micron-technology?&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart#page-1" H 4450 3300 50  0001 C CNN "D1PL"
+F 10 "_" H 4450 3300 50  0001 C CNN "D2PN"
+F 11 "_" H 4450 3300 50  0001 C CNN "D2PL"
+F 12 "BGA96" H 4450 3300 50  0001 C CNN "Package"
+F 13 "_" H 4450 3300 50  0001 C CNN "Description"
+F 14 "_" H 4450 3300 50  0001 C CNN "Voltage"
+F 15 "_" H 4450 3300 50  0001 C CNN "Power"
+F 16 "_" H 4450 3300 50  0001 C CNN "Tolerance"
+F 17 "_" H 4450 3300 50  0001 C CNN "Temperature"
+F 18 "_" H 4450 3300 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 4450 3300 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 4450 3300 50  0001 C CNN "Cont.Current"
+F 21 "_" H 4450 3300 50  0001 C CNN "Frequency"
+F 22 "_" H 4450 3300 50  0001 C CNN "ResonnanceFreq"
 	1    4450 3300
 	1    0    0    -1  
 $EndComp

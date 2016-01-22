@@ -1,6 +1,15 @@
 EESchema Schematic File Version 2
-LIBS:power
+LIBS:artix7
+LIBS:cameras
+LIBS:DCDC_Converters
 LIBS:device
+LIBS:generic_ic
+LIBS:IMU
+LIBS:mt41k128m16
+LIBS:OSCILLATOR
+LIBS:usb3_connector
+LIBS:usb_controller
+LIBS:power
 LIBS:transistors
 LIBS:conn
 LIBS:linear
@@ -28,16 +37,12 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:DCDC_Converters
-LIBS:artix7
-LIBS:OSCILLATOR
-LIBS:mt41k128m16
-LIBS:HarleyProcessing-cache
+LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 10
+Sheet 4 14
 Title ""
 Date ""
 Rev ""
@@ -49,7 +54,7 @@ Comment4 ""
 $EndDescr
 $Comp
 L xc7a50tcsg324pkg U1
-U 2 1 56A03C5F
+U 1 1 56A03C5F
 P 3900 3750
 F 0 "U1" H 3850 4516 50  0000 C CNN
 F 1 "xc7a50tcsg324pkg" H 3850 4424 50  0000 C CNN
@@ -74,7 +79,7 @@ F 19 "_" H 3900 3750 50  0001 C CNN "ForwardVoltage"
 F 20 "_" H 3900 3750 50  0001 C CNN "Cont.Current"
 F 21 "_" H 3900 3750 50  0001 C CNN "Frequency"
 F 22 "_" H 3900 3750 50  0001 C CNN "ResonnanceFreq"
-	2    3900 3750
+	1    3900 3750
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

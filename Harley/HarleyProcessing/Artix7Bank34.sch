@@ -30,13 +30,14 @@ LIBS:contrib
 LIBS:valves
 LIBS:DCDC_Converters
 LIBS:artix7
-LIBS:mt41k128m16
 LIBS:OSCILLATOR
+LIBS:mt41k128m16
+LIBS:HarleyProcessing-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 9
+Sheet 5 10
 Title ""
 Date ""
 Rev ""
