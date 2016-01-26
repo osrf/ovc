@@ -9,6 +9,7 @@ LIBS:mt41k128m16
 LIBS:OSCILLATOR
 LIBS:usb3_connector
 LIBS:usb_controller
+LIBS:i2c_flash
 LIBS:power
 LIBS:transistors
 LIBS:conn
@@ -37,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -53,93 +53,93 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Sheet
-S 600  950  500  150 
+S 600  1850 500  150 
 U 56A15E51
 F0 "Sheet56A15E50" 60
 F1 "FX3.sch" 60
 $EndSheet
-Text Notes 600  750  0    200  ~ 40
+Text Notes 600  1650 0    200  ~ 40
 FX3
-Text Notes 650  1700 0    200  ~ 40
+Text Notes 600  850  0    200  ~ 40
 PowerSupplies
 $Sheet
-S 650  1850 500  150 
+S 600  1000 500  150 
 U 56A15E7E
 F0 "Sheet56A15E7D" 60
 F1 "PowerSupplies.sch" 60
 $EndSheet
-Text Notes 650  2550 0    200  ~ 40
+Text Notes 550  5150 0    200  ~ 40
 FPGA Banks
 $Sheet
-S 650  2650 500  150 
+S 600  6200 500  150 
 U 56A15EBE
 F0 "Sheet56A15EBD" 60
 F1 "Artix7Config.sch" 60
 $EndSheet
 $Sheet
-S 650  3100 500  150 
+S 2400 6250 500  150 
 U 56A15EDF
 F0 "Sheet56A15EDE" 60
 F1 "Artix7Bank14.sch" 60
 $EndSheet
 $Sheet
-S 650  3450 500  150 
+S 2350 5600 500  150 
 U 56A15EED
 F0 "Sheet56A15EEC" 60
 F1 "Artix7Bank15.sch" 60
 $EndSheet
 $Sheet
-S 650  3800 500  150 
+S 600  6850 500  150 
 U 56A15EFD
 F0 "Sheet56A15EFC" 60
 F1 "Artix7Bank16.sch" 60
 $EndSheet
 $Sheet
-S 650  4150 500  150 
+S 2350 7000 500  150 
 U 56A15F09
 F0 "Sheet56A15F08" 60
 F1 "Artix7Bank34.sch" 60
 $EndSheet
 $Sheet
-S 650  4500 500  150 
+S 600  7550 500  150 
 U 56A15F1C
 F0 "Sheet56A15F1B" 60
 F1 "Artix7Bank35.sch" 60
 $EndSheet
 $Sheet
-S 650  4850 500  150 
+S 650  5600 500  150 
 U 56A15F2C
 F0 "Sheet56A15F2B" 60
 F1 "Artix7Power.sch" 60
 $EndSheet
-Text Notes 650  5550 0    200  ~ 40
+Text Notes 4750 5600 0    200  ~ 40
 DDR3
 $Sheet
-S 700  5650 500  150 
+S 4800 5700 500  150 
 U 56A15F6A
 F0 "Sheet56A15F69" 60
 F1 "DDR3.sch" 60
 $EndSheet
-Text Notes 650  6250 0    200  ~ 40
+Text Notes 4750 6300 0    200  ~ 40
 Imager
 $Sheet
-S 700  6450 500  150 
+S 4800 6500 500  150 
 U 56A15F8B
 F0 "Sheet56A15F8A" 60
 F1 "Imager.sch" 60
 $EndSheet
-Text Notes 650  7000 0    200  ~ 40
+Text Notes 4750 7050 0    200  ~ 40
 IMU
 $Sheet
-S 700  7150 500  150 
+S 4800 7200 500  150 
 U 56A15FB2
 F0 "Sheet56A15FB1" 60
 F1 "IMU.sch" 60
 $EndSheet
-Text Notes 2250 7000 0    200  ~ 40
+Text Notes 550  2450 0    200  ~ 40
 USB3
 $Sheet
-S 2300 7150 500  150 
+S 600  2600 500  150 
 U 56A16009
 F0 "Sheet56A16008" 60
 F1 "USB3.sch" 60
@@ -147,155 +147,546 @@ $EndSheet
 $Comp
 L CONN_02X30 P5
 U 1 1 56A16099
-P 7650 3400
-F 0 "P5" H 7650 5066 50  0000 C CNN
-F 1 "CONN_02X30" H 7650 4974 50  0000 C CNN
-F 2 "Hirose:DF40C_60DP_0-4V" H 7650 2900 50  0001 C CNN
-F 3 "" H 7650 2900 50  0000 C CNN
-F 4 "_" H 7650 3400 60  0001 C CNN "MFN"
-F 5 "_" H 7650 3400 60  0001 C CNN "MFP"
-F 6 "digikey" H 7650 3400 60  0001 C CNN "D1"
-F 7 "mouser" H 7650 3400 60  0001 C CNN "D2"
-F 8 "_" H 7650 3400 60  0001 C CNN "D1PN"
-F 9 "_" H 7650 3400 60  0001 C CNN "D1PL"
-F 10 "_" H 7650 3400 60  0001 C CNN "D2PN"
-F 11 "_" H 7650 3400 60  0001 C CNN "D2PL"
-F 12 "_" H 7650 3400 60  0001 C CNN "Package"
-F 13 "_" H 7650 3400 60  0000 C CNN "Description"
-F 14 "_" H 7650 3400 60  0001 C CNN "Voltage"
-F 15 "_" H 7650 3400 60  0001 C CNN "Power"
-F 16 "_" H 7650 3400 60  0001 C CNN "Tolerance"
-F 17 "_" H 7650 3400 60  0001 C CNN "Temperature"
-F 18 "_" H 7650 3400 60  0001 C CNN "ReverseVoltage"
-F 19 "_" H 7650 3400 60  0001 C CNN "ForwardVoltage"
-F 20 "_" H 7650 3400 60  0001 C CNN "Cont.Current"
-F 21 "_" H 7650 3400 60  0001 C CNN "Frequency"
-F 22 "_" H 7650 3400 60  0001 C CNN "ResonnanceFreq"
-	1    7650 3400
+P 9950 3350
+F 0 "P5" H 9950 5016 50  0000 C CNN
+F 1 "CONN_02X30" H 9950 4924 50  0000 C CNN
+F 2 "Hirose:DF40C_60DP_0-4V" H 9950 2850 50  0001 C CNN
+F 3 "" H 9950 2850 50  0000 C CNN
+F 4 "_" H 9950 3350 60  0001 C CNN "MFN"
+F 5 "_" H 9950 3350 60  0001 C CNN "MFP"
+F 6 "digikey" H 9950 3350 60  0001 C CNN "D1"
+F 7 "mouser" H 9950 3350 60  0001 C CNN "D2"
+F 8 "_" H 9950 3350 60  0001 C CNN "D1PN"
+F 9 "_" H 9950 3350 60  0001 C CNN "D1PL"
+F 10 "_" H 9950 3350 60  0001 C CNN "D2PN"
+F 11 "_" H 9950 3350 60  0001 C CNN "D2PL"
+F 12 "_" H 9950 3350 60  0001 C CNN "Package"
+F 13 "_" H 9950 3350 60  0000 C CNN "Description"
+F 14 "_" H 9950 3350 60  0001 C CNN "Voltage"
+F 15 "_" H 9950 3350 60  0001 C CNN "Power"
+F 16 "_" H 9950 3350 60  0001 C CNN "Tolerance"
+F 17 "_" H 9950 3350 60  0001 C CNN "Temperature"
+F 18 "_" H 9950 3350 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 9950 3350 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 9950 3350 60  0001 C CNN "Cont.Current"
+F 21 "_" H 9950 3350 60  0001 C CNN "Frequency"
+F 22 "_" H 9950 3350 60  0001 C CNN "ResonnanceFreq"
+	1    9950 3350
 	1    0    0    -1  
 $EndComp
 $Comp
 L CONN_02X05 P3
 U 1 1 56A1614E
-P 5300 6600
-F 0 "P3" H 5300 7016 50  0000 C CNN
-F 1 "CONN_02X05" H 5300 6924 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x05_Pitch1.27mm" H 5300 5400 50  0001 C CNN
-F 3 "" H 5300 5400 50  0000 C CNN
-	1    5300 6600
+P 7700 2150
+F 0 "P3" H 7700 2566 50  0000 C CNN
+F 1 "CONN_02X05" H 7700 2474 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x05_Pitch1.27mm" H 7700 950 50  0001 C CNN
+F 3 "" H 7700 950 50  0000 C CNN
+	1    7700 2150
 	1    0    0    -1  
 $EndComp
 $Comp
 L CONN_02X05 P4
 U 1 1 56A16236
-P 5300 7350
-F 0 "P4" H 5300 7766 50  0000 C CNN
-F 1 "CONN_02X05" H 5300 7674 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x05_Pitch1.27mm" H 5300 6150 50  0001 C CNN
-F 3 "" H 5300 6150 50  0000 C CNN
-	1    5300 7350
+P 7700 2900
+F 0 "P4" H 7700 3316 50  0000 C CNN
+F 1 "CONN_02X05" H 7700 3224 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x05_Pitch1.27mm" H 7700 1700 50  0001 C CNN
+F 3 "" H 7700 1700 50  0000 C CNN
+	1    7700 2900
 	1    0    0    -1  
 $EndComp
-Text Notes 5000 5950 0    200  ~ 40
-JTAG
-Text Notes 6800 1550 0    200  ~ 40
+Text Notes 6950 1500 0    200  ~ 40
+JTAG/DEBUG
+Text Notes 9100 1500 0    200  ~ 40
 ToNextBiker
 $Comp
 L OSCILLATOR U11
 U 1 1 56A274A0
-P 3850 5800
-F 0 "U11" H 3850 6166 50  0000 C CNN
-F 1 "OSCILLATOR" H 3850 6074 50  0000 C CNN
-F 2 "Oscillator:8y" H 3700 5800 50  0001 C CNN
-F 3 "http://www.abracon.com/Oscillators/ASFL1.pdf" H 3700 5900 50  0001 C CNN
-F 4 "_" H 3800 5900 50  0001 C CNN "MFN"
-F 5 "_" H 3800 5900 50  0001 C CNN "MFP"
-F 6 "digikey" H 3800 5900 50  0001 C CNN "D1"
-F 7 "mouser" H 3800 5900 50  0001 C CNN "D2"
-F 8 "_" H 3800 5900 50  0001 C CNN "D1PN"
-F 9 "_" H 3800 5900 50  0001 C CNN "D1PL"
-F 10 "_" H 3800 5900 50  0001 C CNN "D2PN"
-F 11 "_" H 3800 5900 50  0001 C CNN "D2PL"
-F 12 "_" H 3800 5900 50  0001 C CNN "Package"
-F 13 "_" H 3800 5900 50  0001 C CNN "Description"
-F 14 "_" H 3800 5900 50  0001 C CNN "Voltage"
-F 15 "_" H 3800 5900 50  0001 C CNN "Power"
-F 16 "_" H 3800 5900 50  0001 C CNN "Tolerance"
-F 17 "_" H 3800 5900 50  0001 C CNN "Temperature"
-F 18 "_" H 3800 5900 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 3800 5900 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 3800 5900 50  0001 C CNN "Cont.Current"
-F 21 "_" H 3800 5900 50  0001 C CNN "Frequency"
-F 22 "_" H 3800 5900 50  0001 C CNN "ResonnanceFreq"
-	1    3850 5800
+P 1400 4150
+F 0 "U11" H 1400 4516 50  0000 C CNN
+F 1 "OSCILLATOR" H 1400 4424 50  0000 C CNN
+F 2 "Oscillator:8y" H 1250 4150 50  0001 C CNN
+F 3 "http://www.abracon.com/Oscillators/ASFL1.pdf" H 1250 4250 50  0001 C CNN
+F 4 "_" H 1350 4250 50  0001 C CNN "MFN"
+F 5 "_" H 1350 4250 50  0001 C CNN "MFP"
+F 6 "digikey" H 1350 4250 50  0001 C CNN "D1"
+F 7 "mouser" H 1350 4250 50  0001 C CNN "D2"
+F 8 "_" H 1350 4250 50  0001 C CNN "D1PN"
+F 9 "_" H 1350 4250 50  0001 C CNN "D1PL"
+F 10 "_" H 1350 4250 50  0001 C CNN "D2PN"
+F 11 "_" H 1350 4250 50  0001 C CNN "D2PL"
+F 12 "_" H 1350 4250 50  0001 C CNN "Package"
+F 13 "_" H 1350 4250 50  0001 C CNN "Description"
+F 14 "_" H 1350 4250 50  0001 C CNN "Voltage"
+F 15 "_" H 1350 4250 50  0001 C CNN "Power"
+F 16 "_" H 1350 4250 50  0001 C CNN "Tolerance"
+F 17 "_" H 1350 4250 50  0001 C CNN "Temperature"
+F 18 "_" H 1350 4250 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 1350 4250 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 1350 4250 50  0001 C CNN "Cont.Current"
+F 21 "_" H 1350 4250 50  0001 C CNN "Frequency"
+F 22 "_" H 1350 4250 50  0001 C CNN "ResonnanceFreq"
+	1    1400 4150
 	1    0    0    -1  
 $EndComp
-Text Notes 3150 4050 0    60   ~ 0
-Different Oscillator for DDR and FPGA ?
-Text GLabel 4250 5900 2    60   Input ~ 0
+Text GLabel 1800 4250 2    60   Input ~ 0
 FPGA_CLK
 $Comp
-L GND #PWR1
+L GND #PWR01
 U 1 1 56A28A7E
-P 3450 5900
-F 0 "#PWR1" H 3450 5650 50  0001 C CNN
-F 1 "GND" H 3458 5726 50  0000 C CNN
-F 2 "" H 3450 5900 60  0000 C CNN
-F 3 "" H 3450 5900 60  0000 C CNN
-	1    3450 5900
+P 1000 4250
+F 0 "#PWR01" H 1000 4000 50  0001 C CNN
+F 1 "GND" H 1008 4076 50  0000 C CNN
+F 2 "" H 1000 4250 60  0000 C CNN
+F 3 "" H 1000 4250 60  0000 C CNN
+	1    1000 4250
 	1    0    0    -1  
 $EndComp
 $Comp
 L C C160
 U 1 1 56A28A9C
-P 3250 5750
-F 0 "C160" H 3150 5850 50  0000 L CNN
-F 1 "10n" H 3100 5650 50  0000 L CNN
-F 2 "Dipoles_SMD:C_0402" H 3288 5600 50  0001 C CNN
-F 3 "" H 3250 5750 50  0001 C CNN
-F 4 "_" H 3250 5750 50  0001 C CNN "MFN"
-F 5 "_" H 3250 5750 50  0001 C CNN "MFP"
-F 6 "digikey" H 3250 5750 50  0001 C CNN "D1"
-F 7 "mouser" H 3250 5750 50  0001 C CNN "D2"
-F 8 "_" H 3250 5750 50  0001 C CNN "D1PN"
-F 9 "_" H 3250 5750 50  0001 C CNN "D1PL"
-F 10 "_" H 3250 5750 50  0001 C CNN "D2PN"
-F 11 "_" H 3250 5750 50  0001 C CNN "D2PL"
-F 12 "0402" H 3250 5750 50  0001 C CNN "Package"
-F 13 "_" H 3365 5658 50  0000 L CNN "Description"
-F 14 "6.3" H 3250 5750 50  0001 C CNN "Voltage"
-F 15 "_" H 3250 5750 50  0001 C CNN "Power"
-F 16 "10%" H 3250 5750 50  0001 C CNN "Tolerance"
-F 17 "X5R" H 3250 5750 50  0001 C CNN "Temperature"
-F 18 "_" H 3250 5750 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 3250 5750 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 3250 5750 50  0001 C CNN "Cont.Current"
-F 21 "_" H 3250 5750 50  0001 C CNN "Frequency"
-F 22 "_" H 3250 5750 50  0001 C CNN "ResonnanceFreq"
-	1    3250 5750
+P 800 4100
+F 0 "C160" H 700 4200 50  0000 L CNN
+F 1 "10n" H 650 4000 50  0000 L CNN
+F 2 "Dipoles_SMD:C_0402" H 838 3950 50  0001 C CNN
+F 3 "" H 800 4100 50  0001 C CNN
+F 4 "_" H 800 4100 50  0001 C CNN "MFN"
+F 5 "_" H 800 4100 50  0001 C CNN "MFP"
+F 6 "digikey" H 800 4100 50  0001 C CNN "D1"
+F 7 "mouser" H 800 4100 50  0001 C CNN "D2"
+F 8 "_" H 800 4100 50  0001 C CNN "D1PN"
+F 9 "_" H 800 4100 50  0001 C CNN "D1PL"
+F 10 "_" H 800 4100 50  0001 C CNN "D2PN"
+F 11 "_" H 800 4100 50  0001 C CNN "D2PL"
+F 12 "0402" H 800 4100 50  0001 C CNN "Package"
+F 13 "_" H 915 4008 50  0000 L CNN "Description"
+F 14 "6.3" H 800 4100 50  0001 C CNN "Voltage"
+F 15 "_" H 800 4100 50  0001 C CNN "Power"
+F 16 "10%" H 800 4100 50  0001 C CNN "Tolerance"
+F 17 "X5R" H 800 4100 50  0001 C CNN "Temperature"
+F 18 "_" H 800 4100 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 800 4100 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 800 4100 50  0001 C CNN "Cont.Current"
+F 21 "_" H 800 4100 50  0001 C CNN "Frequency"
+F 22 "_" H 800 4100 50  0001 C CNN "ResonnanceFreq"
+	1    800  4100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3250 5900 3450 5900
+	800  4250 1000 4250
 Wire Wire Line
-	3450 5700 3450 5400
+	1000 4050 1000 3750
 Wire Wire Line
-	3250 5400 4250 5400
+	800  3750 1800 3750
 Wire Wire Line
-	3250 5400 3250 5600
+	800  3750 800  3950
 Wire Wire Line
-	4250 5400 4250 5700
-Connection ~ 3450 5400
+	1800 3750 1800 4050
+Connection ~ 1000 3750
 $Comp
-L +2V5 #PWR2
+L +2V5 #PWR02
 U 1 1 56A28C22
-P 3900 5400
-F 0 "#PWR2" H 3900 5250 50  0001 C CNN
-F 1 "+2V5" H 3918 5574 50  0000 C CNN
-F 2 "" H 3900 5400 60  0000 C CNN
-F 3 "" H 3900 5400 60  0000 C CNN
-	1    3900 5400
+P 1450 3750
+F 0 "#PWR02" H 1450 3600 50  0001 C CNN
+F 1 "+2V5" H 1468 3924 50  0000 C CNN
+F 2 "" H 1450 3750 60  0000 C CNN
+F 3 "" H 1450 3750 60  0000 C CNN
+	1    1450 3750
 	1    0    0    -1  
 $EndComp
-Connection ~ 3900 5400
+Connection ~ 1450 3750
+Text Notes 650  5450 0    100  ~ 20
+Power
+Text Notes 600  6700 0    100  ~ 20
+CMOS Bank (3V3)
+Text Notes 600  7350 0    100  ~ 20
+DDR3 Bank (1V35)
+Text Notes 600  6050 0    100  ~ 20
+Config
+Text Notes 2350 5450 0    100  ~ 20
+Camera LVDS Bank
+Text Notes 2350 6100 0    100  ~ 20
+LVDS to next board Bank
+Text Notes 2350 6800 0    100  ~ 20
+FX3 Bank
+Wire Notes Line
+	500  5250 4450 5250
+Wire Notes Line
+	4450 5250 4450 7800
+$Comp
+L M24M02 U12
+U 1 1 56A391D7
+P 4250 2250
+F 0 "U12" H 4300 2682 50  0000 C CNN
+F 1 "24LC128T-I/MNY" H 4300 2590 50  0000 C CNN
+F 2 "Housings_TDFN:8-TDFN_2x3_1EP" H 4250 2250 50  0001 C CNN
+F 3 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en011851" H 4250 2250 50  0001 C CNN
+F 4 "Microchip" H 4250 2250 50  0001 C CNN "MFN"
+F 5 "24LC128T-I/MNY" H 4250 2250 50  0001 C CNN "MFP"
+F 6 "digikey" H 4250 2250 50  0001 C CNN "D1"
+F 7 "mouser" H 4250 2250 50  0001 C CNN "D2"
+F 8 "24LC128T-I/MNY" H 4250 2250 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/24LC128T-I%2FMNY/24LC128T-I%2FMNYCT-ND/2385857" H 4250 2250 50  0001 C CNN "D1PL"
+F 10 "_" H 4250 2250 50  0001 C CNN "D2PN"
+F 11 "_" H 4250 2250 50  0001 C CNN "D2PL"
+F 12 "_" H 4250 2250 50  0001 C CNN "Package"
+F 13 "_" H 4250 2250 50  0001 C CNN "Description"
+F 14 "_" H 4250 2250 50  0001 C CNN "Voltage"
+F 15 "_" H 4250 2250 50  0001 C CNN "Power"
+F 16 "_" H 4250 2250 50  0001 C CNN "Tolerance"
+F 17 "_" H 4250 2250 50  0001 C CNN "Temperature"
+F 18 "_" H 4250 2250 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 4250 2250 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 4250 2250 50  0001 C CNN "Cont.Current"
+F 21 "_" H 4250 2250 50  0001 C CNN "Frequency"
+F 22 "_" H 4250 2250 50  0001 C CNN "ResonnanceFreq"
+	1    4250 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R18
+U 1 1 56A394A8
+P 5300 2100
+F 0 "R18" H 5370 2192 50  0000 L CNN
+F 1 "10k" H 5370 2100 50  0000 L CNN
+F 2 "Dipoles_SMD:C_0201" V 5230 2100 30  0001 C CNN
+F 3 "" H 5300 2100 30  0001 C CNN
+F 4 "_" H 5300 2100 50  0001 C CNN "MFN"
+F 5 "_" H 5300 2100 50  0001 C CNN "MFP"
+F 6 "digikey" H 5300 2100 50  0001 C CNN "D1"
+F 7 "mouser" H 5300 2100 50  0001 C CNN "D2"
+F 8 "_" H 5300 2100 50  0001 C CNN "D1PN"
+F 9 "_" H 5300 2100 50  0001 C CNN "D1PL"
+F 10 "_" H 5300 2100 50  0001 C CNN "D2PN"
+F 11 "_" H 5300 2100 50  0001 C CNN "D2PL"
+F 12 "0402" H 5300 2100 50  0001 C CNN "Package"
+F 13 "_" H 5370 2008 50  0000 L CNN "Description"
+F 14 "_" H 5300 2100 50  0001 C CNN "Voltage"
+F 15 "1/16" H 5300 2100 50  0001 C CNN "Power"
+F 16 "1%" H 5300 2100 50  0001 C CNN "Tolerance"
+F 17 "_" H 5300 2100 50  0001 C CNN "Temperature"
+F 18 "_" H 5300 2100 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 5300 2100 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 5300 2100 50  0001 C CNN "Cont.Current"
+F 21 "_" H 5300 2100 50  0001 C CNN "Frequency"
+F 22 "_" H 5300 2100 50  0001 C CNN "ResonnanceFreq"
+	1    5300 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R17
+U 1 1 56A39561
+P 5100 2200
+F 0 "R17" H 5170 2292 50  0000 L CNN
+F 1 "10k" H 5170 2200 50  0000 L CNN
+F 2 "Dipoles_SMD:C_0201" V 5030 2200 30  0001 C CNN
+F 3 "" H 5100 2200 30  0001 C CNN
+F 4 "_" H 5100 2200 50  0001 C CNN "MFN"
+F 5 "_" H 5100 2200 50  0001 C CNN "MFP"
+F 6 "digikey" H 5100 2200 50  0001 C CNN "D1"
+F 7 "mouser" H 5100 2200 50  0001 C CNN "D2"
+F 8 "_" H 5100 2200 50  0001 C CNN "D1PN"
+F 9 "_" H 5100 2200 50  0001 C CNN "D1PL"
+F 10 "_" H 5100 2200 50  0001 C CNN "D2PN"
+F 11 "_" H 5100 2200 50  0001 C CNN "D2PL"
+F 12 "0402" H 5100 2200 50  0001 C CNN "Package"
+F 13 "_" H 5170 2108 50  0000 L CNN "Description"
+F 14 "_" H 5100 2200 50  0001 C CNN "Voltage"
+F 15 "1/16" H 5100 2200 50  0001 C CNN "Power"
+F 16 "1%" H 5100 2200 50  0001 C CNN "Tolerance"
+F 17 "_" H 5100 2200 50  0001 C CNN "Temperature"
+F 18 "_" H 5100 2200 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 5100 2200 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 5100 2200 50  0001 C CNN "Cont.Current"
+F 21 "_" H 5100 2200 50  0001 C CNN "Frequency"
+F 22 "_" H 5100 2200 50  0001 C CNN "ResonnanceFreq"
+	1    5100 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 2250 5400 2250
+Wire Wire Line
+	4750 2350 5400 2350
+Text GLabel 5400 2350 2    60   Input ~ 0
+FLASH_SDA
+Text GLabel 5400 2250 2    60   Input ~ 0
+FLASH_SCL
+Connection ~ 5300 2250
+Connection ~ 5100 2350
+Wire Wire Line
+	4750 2050 4750 1900
+Wire Wire Line
+	4750 1900 5300 1900
+Wire Wire Line
+	5300 1900 5300 1950
+Wire Wire Line
+	5100 2050 5100 1900
+Connection ~ 5100 1900
+NoConn ~ 3850 2050
+NoConn ~ 3850 2150
+Wire Wire Line
+	3850 2250 3850 2500
+Connection ~ 3850 2350
+$Comp
+L GND #PWR03
+U 1 1 56A39901
+P 3850 2500
+F 0 "#PWR03" H 3850 2250 50  0001 C CNN
+F 1 "GND" H 3858 2326 50  0000 C CNN
+F 2 "" H 3850 2500 50  0000 C CNN
+F 3 "" H 3850 2500 50  0000 C CNN
+	1    3850 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 2150 4800 2150
+Wire Wire Line
+	4800 2150 4800 2500
+$Comp
+L GND #PWR04
+U 1 1 56A3A17A
+P 4800 2500
+F 0 "#PWR04" H 4800 2250 50  0001 C CNN
+F 1 "GND" H 4808 2326 50  0000 C CNN
+F 2 "" H 4800 2500 50  0000 C CNN
+F 3 "" H 4800 2500 50  0000 C CNN
+	1    4800 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L +2V5 #PWR05
+U 1 1 56A3A9E8
+P 5100 1900
+F 0 "#PWR05" H 5100 1750 50  0001 C CNN
+F 1 "+2V5" H 5118 2074 50  0000 C CNN
+F 2 "" H 5100 1900 50  0000 C CNN
+F 3 "" H 5100 1900 50  0000 C CNN
+	1    5100 1900
+	1    0    0    -1  
+$EndComp
+Text GLabel 7450 3000 0    60   Input ~ 0
+FPGA_JTAG_TDI
+Text GLabel 7450 3100 0    60   Input ~ 0
+FPGA_JTAG_TDO
+Text GLabel 7450 2900 0    60   Input ~ 0
+FPGA_JTAG_TMS
+Text GLabel 7450 2800 0    60   Input ~ 0
+FPGA_JTAG_TCK
+Text GLabel 9700 1900 0    60   Input ~ 0
+P_LVDS1-
+Text GLabel 9700 2000 0    60   Input ~ 0
+P_LVDS1+
+Text GLabel 9700 2200 0    60   Input ~ 0
+P_LVDS2-
+Text GLabel 9700 2300 0    60   Input ~ 0
+P_LVDS2+
+Text GLabel 9700 2500 0    60   Input ~ 0
+P_LVDS3-
+Text GLabel 9700 2600 0    60   Input ~ 0
+P_LVDS3+
+Text GLabel 9700 2800 0    60   Input ~ 0
+P_LVDS4-
+Text GLabel 9700 2900 0    60   Input ~ 0
+P_LVDS4+
+Text GLabel 9700 3100 0    60   Input ~ 0
+P_LVDS5-
+Text GLabel 9700 3200 0    60   Input ~ 0
+P_LVDS5+
+Text GLabel 9700 3400 0    60   Input ~ 0
+P_LVDS6-
+Text GLabel 9700 3500 0    60   Input ~ 0
+P_LVDS6+
+Text GLabel 9700 3700 0    60   Input ~ 0
+P_LVDS7-
+Text GLabel 9700 3800 0    60   Input ~ 0
+P_LVDS7+
+Text GLabel 9700 4000 0    60   Input ~ 0
+P_LVDS8-
+Text GLabel 9700 4100 0    60   Input ~ 0
+P_LVDS8+
+$Comp
+L +5V #PWR06
+U 1 1 56A32AF3
+P 10500 4400
+F 0 "#PWR06" H 10500 4250 50  0001 C CNN
+F 1 "+5V" H 10518 4574 50  0000 C CNN
+F 2 "" H 10500 4400 50  0000 C CNN
+F 3 "" H 10500 4400 50  0000 C CNN
+	1    10500 4400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10200 4200 10200 4800
+Connection ~ 10200 4700
+Connection ~ 10200 4600
+Connection ~ 10200 4500
+Connection ~ 10200 4400
+Wire Wire Line
+	10200 4400 10500 4400
+Connection ~ 10200 2000
+Connection ~ 10200 2100
+Connection ~ 10200 2200
+Connection ~ 10200 2300
+Wire Wire Line
+	10200 2100 11000 2100
+$Comp
+L GND #PWR07
+U 1 1 56A32C49
+P 10400 2100
+F 0 "#PWR07" H 10400 1850 50  0001 C CNN
+F 1 "GND" H 10408 1926 50  0000 C CNN
+F 2 "" H 10400 2100 50  0000 C CNN
+F 3 "" H 10400 2100 50  0000 C CNN
+	1    10400 2100
+	1    0    0    -1  
+$EndComp
+Text GLabel 9700 4300 0    60   Input ~ 0
+P_LVDS9-
+Text GLabel 9700 4400 0    60   Input ~ 0
+P_LVDS9+
+Text GLabel 9700 4600 0    60   Input ~ 0
+P_LVDS10-
+Text GLabel 9700 4700 0    60   Input ~ 0
+P_LVDS10+
+Text GLabel 10200 2500 2    60   Input ~ 0
+P_LVDS11-
+Text GLabel 10200 2600 2    60   Input ~ 0
+P_LVDS11+
+Text GLabel 10200 2800 2    60   Input ~ 0
+P_LVDS12-
+Text GLabel 10200 2900 2    60   Input ~ 0
+P_LVDS12+
+Text GLabel 10200 3800 2    60   Input ~ 0
+FPGA_SS_INIT_B
+Text GLabel 10200 4000 2    60   Input ~ 0
+FPGA_SS_DONE
+Text GLabel 10200 3900 2    60   Input ~ 0
+FPGA_SS_PROGRAM_B
+Text GLabel 10200 3700 2    60   Input ~ 0
+FPGA_SS_CCLK
+Text GLabel 10200 4100 2    60   Input ~ 0
+FPGA_SS_DOUT
+Connection ~ 10200 4300
+Wire Wire Line
+	9700 2100 8900 2100
+Wire Wire Line
+	8900 2100 8900 4950
+Wire Wire Line
+	9700 2400 8900 2400
+Connection ~ 8900 2400
+Wire Wire Line
+	9700 2700 8900 2700
+Connection ~ 8900 2700
+Wire Wire Line
+	9700 3000 8900 3000
+Connection ~ 8900 3000
+Wire Wire Line
+	9700 3300 8900 3300
+Connection ~ 8900 3300
+Wire Wire Line
+	9700 3600 8900 3600
+Connection ~ 8900 3600
+Wire Wire Line
+	8900 3900 9700 3900
+Connection ~ 8900 3900
+Wire Wire Line
+	9700 4200 8900 4200
+Connection ~ 8900 4200
+Wire Wire Line
+	9700 4500 8900 4500
+Connection ~ 8900 4500
+Wire Wire Line
+	9700 4800 8900 4800
+Connection ~ 8900 4800
+$Comp
+L GND #PWR08
+U 1 1 56A6B257
+P 8900 4950
+F 0 "#PWR08" H 8900 4700 50  0001 C CNN
+F 1 "GND" H 8908 4776 50  0000 C CNN
+F 2 "" H 8900 4950 50  0000 C CNN
+F 3 "" H 8900 4950 50  0000 C CNN
+	1    8900 4950
+	1    0    0    -1  
+$EndComp
+Text GLabel 10200 3100 2    60   Input ~ 0
+P_LVDS13-
+Text GLabel 10200 3200 2    60   Input ~ 0
+P_LVDS13+
+Text GLabel 10200 3400 2    60   Input ~ 0
+P_LVDS14-
+Text GLabel 10200 3500 2    60   Input ~ 0
+P_LVDS14+
+Wire Wire Line
+	10200 2400 10200 1900
+Wire Wire Line
+	10200 3600 11000 3600
+Wire Wire Line
+	11000 3600 11000 2100
+Wire Wire Line
+	10200 3300 11000 3300
+Connection ~ 11000 3300
+Wire Wire Line
+	10200 3000 11000 3000
+Connection ~ 11000 3000
+Wire Wire Line
+	10200 2700 11000 2700
+Connection ~ 11000 2700
+Connection ~ 10400 2100
+Text GLabel 7950 2700 2    60   Input ~ 0
+IMU_INT1
+Text GLabel 7450 2700 0    60   Input ~ 0
+CAM_monitor1
+$Comp
+L CONN_01X06 P6
+U 1 1 56A82153
+P 7950 3850
+F 0 "P6" H 8027 3888 50  0000 L CNN
+F 1 "CONN_01X06" H 8027 3796 50  0000 L CNN
+F 2 "Connectors:GRPB061VWTC" H 8027 3803 50  0001 L CNN
+F 3 "" H 7950 3850 50  0000 C CNN
+F 4 "_" H 7950 3850 60  0001 C CNN "MFN"
+F 5 "_" H 7950 3850 60  0001 C CNN "MFP"
+F 6 "digikey" H 7950 3850 60  0001 C CNN "D1"
+F 7 "mouser" H 7950 3850 60  0001 C CNN "D2"
+F 8 "_" H 7950 3850 60  0001 C CNN "D1PN"
+F 9 "_" H 7950 3850 60  0001 C CNN "D1PL"
+F 10 "_" H 7950 3850 60  0001 C CNN "D2PN"
+F 11 "_" H 7950 3850 60  0001 C CNN "D2PL"
+F 12 "_" H 7950 3850 60  0001 C CNN "Package"
+F 13 "_" H 8027 3750 60  0001 L CNN "Description"
+F 14 "_" H 7950 3850 60  0001 C CNN "Voltage"
+F 15 "_" H 7950 3850 60  0001 C CNN "Power"
+F 16 "_" H 7950 3850 60  0001 C CNN "Tolerance"
+F 17 "_" H 7950 3850 60  0001 C CNN "Temperature"
+F 18 "_" H 7950 3850 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 7950 3850 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 7950 3850 60  0001 C CNN "Cont.Current"
+F 21 "_" H 7950 3850 60  0001 C CNN "Frequency"
+F 22 "_" H 7950 3850 60  0001 C CNN "ResonnanceFreq"
+	1    7950 3850
+	1    0    0    -1  
+$EndComp
+Text GLabel 7750 3800 0    60   Input ~ 0
+FX3_JTAG_TMS
+Text GLabel 7750 3900 0    60   Input ~ 0
+FX3_JTAG_TDO
+Text GLabel 7750 3600 0    60   Input ~ 0
+FX3_JTAG_TCK
+Text GLabel 7750 3700 0    60   Input ~ 0
+FX3_JTAG_TDI
+Text GLabel 7750 4000 0    60   Input ~ 0
+FX3_JTAG_TRST
+$Comp
+L GND #PWR09
+U 1 1 56A821F1
+P 7750 4100
+F 0 "#PWR09" H 7750 3850 50  0001 C CNN
+F 1 "GND" H 7758 3926 50  0000 C CNN
+F 2 "" H 7750 4100 50  0000 C CNN
+F 3 "" H 7750 4100 50  0000 C CNN
+	1    7750 4100
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

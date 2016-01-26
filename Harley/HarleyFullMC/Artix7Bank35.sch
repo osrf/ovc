@@ -9,6 +9,7 @@ LIBS:mt41k128m16
 LIBS:OSCILLATOR
 LIBS:usb3_connector
 LIBS:usb_controller
+LIBS:i2c_flash
 LIBS:power
 LIBS:transistors
 LIBS:conn
@@ -37,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -176,10 +176,10 @@ Wire Wire Line
 	5750 4500 8000 4500
 Connection ~ 6100 4500
 $Comp
-L GND #PWR74
+L GND #PWR71
 U 1 1 56A272E2
 P 6100 4500
-F 0 "#PWR74" H 6100 4250 50  0001 C CNN
+F 0 "#PWR71" H 6100 4250 50  0001 C CNN
 F 1 "GND" H 6108 4326 50  0000 C CNN
 F 2 "" H 6100 4500 50  0000 C CNN
 F 3 "" H 6100 4500 50  0000 C CNN
@@ -420,10 +420,10 @@ Connection ~ 4950 3700
 Connection ~ 4950 3600
 Connection ~ 4950 3500
 $Comp
-L +1V35 #PWR52
+L +1V35 #PWR53
 U 1 1 56A288FE
 P 5150 3600
-F 0 "#PWR52" H 5150 3450 50  0001 C CNN
+F 0 "#PWR53" H 5150 3450 50  0001 C CNN
 F 1 "+1V35" H 5168 3774 50  0000 C CNN
 F 2 "" H 5150 3600 50  0000 C CNN
 F 3 "" H 5150 3600 50  0000 C CNN
@@ -433,14 +433,104 @@ $EndComp
 Wire Wire Line
 	5150 3600 4950 3600
 $Comp
-L +1V35 #PWR71
+L +1V35 #PWR69
 U 1 1 56A29C80
 P 5750 4200
-F 0 "#PWR71" H 5750 4050 50  0001 C CNN
+F 0 "#PWR69" H 5750 4050 50  0001 C CNN
 F 1 "+1V35" H 5768 4374 50  0000 C CNN
 F 2 "" H 5750 4200 50  0000 C CNN
 F 3 "" H 5750 4200 50  0000 C CNN
 	1    5750 4200
 	1    0    0    -1  
 $EndComp
+Text GLabel 4950 1800 2    60   Input ~ 0
+DDR_DQL0
+Text GLabel 4950 1900 2    60   Input ~ 0
+DDR_DQL1
+Text GLabel 4950 2200 2    60   Input ~ 0
+DDR_DQL2
+Text GLabel 4950 2300 2    60   Input ~ 0
+DDR_DQL3
+Text GLabel 4950 2400 2    60   Input ~ 0
+DDR_DQL4
+Text GLabel 4950 2500 2    60   Input ~ 0
+DDR_DQL5
+Text GLabel 4950 2600 2    60   Input ~ 0
+DDR_DQL6
+Text GLabel 4950 2700 2    60   Input ~ 0
+DDR_DQL7
+Text GLabel 4950 2800 2    60   Input ~ 0
+DDR_DQU0
+Text GLabel 4950 2900 2    60   Input ~ 0
+DDR_DQU1
+Text GLabel 4950 3000 2    60   Input ~ 0
+DDR_DQU2
+Text GLabel 4950 3100 2    60   Input ~ 0
+DDR_DQU3
+Text GLabel 1250 1400 0    60   Input ~ 0
+DDR_DQU4
+Text GLabel 1250 1500 0    60   Input ~ 0
+DDR_DQU5
+Text GLabel 1250 1600 0    60   Input ~ 0
+DDR_DQU6
+Text GLabel 1250 1700 0    60   Input ~ 0
+DDR_DQU7
+Text GLabel 4950 2100 2    60   Input ~ 0
+DDR_DQSL+
+Text GLabel 4950 2000 2    60   Input ~ 0
+DDR_DQSL-
+Text GLabel 4950 3300 2    60   Input ~ 0
+DDR_DQSU+
+Text GLabel 4950 3200 2    60   Input ~ 0
+DDR_DQSU-
+Text GLabel 1250 2200 0    60   Input ~ 0
+DDR_A0
+Text GLabel 1250 2300 0    60   Input ~ 0
+DDR_A1
+Text GLabel 1250 2400 0    60   Input ~ 0
+DDR_A2
+Text GLabel 1250 2500 0    60   Input ~ 0
+DDR_A3
+Text GLabel 1250 2600 0    60   Input ~ 0
+DDR_A4
+Text GLabel 1250 2700 0    60   Input ~ 0
+DDR_A5
+Text GLabel 1250 2800 0    60   Input ~ 0
+DDR_A6
+Text GLabel 1250 2900 0    60   Input ~ 0
+DDR_A7
+Text GLabel 1250 3000 0    60   Input ~ 0
+DDR_A8
+Text GLabel 1250 3100 0    60   Input ~ 0
+DDR_A9
+Text GLabel 1250 3200 0    60   Input ~ 0
+DDR_A10
+Text GLabel 1250 3300 0    60   Input ~ 0
+DDR_A11
+Text GLabel 4950 1700 2    60   Input ~ 0
+DDR_A12
+Text GLabel 1250 2100 0    60   Input ~ 0
+DDR_CLK+
+Text GLabel 1250 2000 0    60   Input ~ 0
+DDR_CLK-
+Text GLabel 1250 3600 0    60   Input ~ 0
+DDR_CKE
+Text GLabel 4950 1300 2    60   Input ~ 0
+DDR_RAS#
+Text GLabel 4950 1400 2    60   Input ~ 0
+DDR_CAS#
+Text GLabel 4950 1500 2    60   Input ~ 0
+DDR_WE#
+Text GLabel 1250 3800 0    60   Input ~ 0
+DDR_BA0
+Text GLabel 1250 3900 0    60   Input ~ 0
+DDR_BA1
+Text GLabel 1250 4000 0    60   Input ~ 0
+DDR_BA2
+Text GLabel 1250 3700 0    60   Input ~ 0
+DDR_ODT
+Text GLabel 4950 1600 2    60   Input ~ 0
+DDR_A13
+Text GLabel 1250 1300 0    60   Input ~ 0
+DDR_RST#
 $EndSCHEMATC

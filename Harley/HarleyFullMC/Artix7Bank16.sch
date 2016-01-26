@@ -9,6 +9,7 @@ LIBS:mt41k128m16
 LIBS:OSCILLATOR
 LIBS:usb3_connector
 LIBS:usb_controller
+LIBS:i2c_flash
 LIBS:power
 LIBS:transistors
 LIBS:conn
@@ -37,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -174,10 +174,10 @@ F 22 "_" H 5850 3950 50  0001 C CNN "ResonnanceFreq"
 $EndComp
 Connection ~ 5650 4100
 $Comp
-L GND #PWR70
+L GND #PWR68
 U 1 1 56A2F91D
 P 5650 4100
-F 0 "#PWR70" H 5650 3850 50  0001 C CNN
+F 0 "#PWR68" H 5650 3850 50  0001 C CNN
 F 1 "GND" H 5658 3926 50  0000 C CNN
 F 2 "" H 5650 4100 50  0000 C CNN
 F 3 "" H 5650 4100 50  0000 C CNN
@@ -186,10 +186,10 @@ F 3 "" H 5650 4100 50  0000 C CNN
 $EndComp
 Connection ~ 5650 3800
 $Comp
-L +3V3 #PWR69
+L +3V3 #PWR67
 U 1 1 56A2F9ED
 P 5650 3800
-F 0 "#PWR69" H 5650 3650 50  0001 C CNN
+F 0 "#PWR67" H 5650 3650 50  0001 C CNN
 F 1 "+3V3" H 5668 3974 50  0000 C CNN
 F 2 "" H 5650 3800 50  0000 C CNN
 F 3 "" H 5650 3800 50  0000 C CNN
@@ -197,10 +197,10 @@ F 3 "" H 5650 3800 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3V3 #PWR50
+L +3V3 #PWR52
 U 1 1 56A30138
 P 5050 3000
-F 0 "#PWR50" H 5050 2850 50  0001 C CNN
+F 0 "#PWR52" H 5050 2850 50  0001 C CNN
 F 1 "+3V3" H 5068 3174 50  0000 C CNN
 F 2 "" H 5050 3000 50  0000 C CNN
 F 3 "" H 5050 3000 50  0000 C CNN
@@ -214,29 +214,23 @@ Wire Wire Line
 Wire Wire Line
 	5850 4100 5300 4100
 Text GLabel 1250 3000 0    60   Input ~ 0
+CAM_CLK_PLL
+Text GLabel 4650 2900 2    60   Input ~ 0
+CAM_trigger1
+Text GLabel 4650 2800 2    60   Input ~ 0
+CAM_trigger0
+Text GLabel 4650 2700 2    60   Input ~ 0
+CAM_monitor0
+Text GLabel 1250 2600 0    60   Input ~ 0
 CAM_RST#
 Text GLabel 1250 2800 0    60   Input ~ 0
-CAM_trigger2
-Text GLabel 1250 2700 0    60   Input ~ 0
-CAM_trigger1
-Text GLabel 1250 2600 0    60   Input ~ 0
-CAM_trigger0
-Text GLabel 4700 2900 2    60   Input ~ 0
-CAM_monitor0
-Text GLabel 2250 4900 0    60   Input ~ 0
-CAM_monitor1
-Text GLabel 1250 2900 0    60   Input ~ 0
-CAM_CLK_PLL
-Text GLabel 1200 3100 0    60   Input ~ 0
 CAM_SS#
-Text GLabel 4650 2700 2    60   Input ~ 0
-SPI_MISO
-Text GLabel 4650 2800 2    60   Input ~ 0
+Text GLabel 1250 3100 0    60   Input ~ 0
+IMU_SS#
+Text GLabel 1250 2700 0    60   Input ~ 0
+SPI_MOSI
+Text GLabel 1250 2900 0    60   Input ~ 0
 SPI_SCK
 Text GLabel 4650 2600 2    60   Input ~ 0
-SPI_MOSI
-Text GLabel 2250 5400 0    60   Input ~ 0
-IMU_INT1
-Text GLabel 2250 5500 0    60   Input ~ 0
-IMU_SS#
+SPI_MISO
 $EndSCHEMATC
