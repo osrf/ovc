@@ -38,6 +38,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -200,47 +201,17 @@ Text Notes 6950 1500 0    200  ~ 40
 JTAG/DEBUG
 Text Notes 9100 1500 0    200  ~ 40
 ToNextBiker
-$Comp
-L OSCILLATOR U11
-U 1 1 56A274A0
-P 1400 4150
-F 0 "U11" H 1400 4516 50  0000 C CNN
-F 1 "OSCILLATOR" H 1400 4424 50  0000 C CNN
-F 2 "Oscillator:8y" H 1250 4150 50  0001 C CNN
-F 3 "http://www.abracon.com/Oscillators/ASFL1.pdf" H 1250 4250 50  0001 C CNN
-F 4 "_" H 1350 4250 50  0001 C CNN "MFN"
-F 5 "_" H 1350 4250 50  0001 C CNN "MFP"
-F 6 "digikey" H 1350 4250 50  0001 C CNN "D1"
-F 7 "mouser" H 1350 4250 50  0001 C CNN "D2"
-F 8 "_" H 1350 4250 50  0001 C CNN "D1PN"
-F 9 "_" H 1350 4250 50  0001 C CNN "D1PL"
-F 10 "_" H 1350 4250 50  0001 C CNN "D2PN"
-F 11 "_" H 1350 4250 50  0001 C CNN "D2PL"
-F 12 "_" H 1350 4250 50  0001 C CNN "Package"
-F 13 "_" H 1350 4250 50  0001 C CNN "Description"
-F 14 "_" H 1350 4250 50  0001 C CNN "Voltage"
-F 15 "_" H 1350 4250 50  0001 C CNN "Power"
-F 16 "_" H 1350 4250 50  0001 C CNN "Tolerance"
-F 17 "_" H 1350 4250 50  0001 C CNN "Temperature"
-F 18 "_" H 1350 4250 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 1350 4250 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 1350 4250 50  0001 C CNN "Cont.Current"
-F 21 "_" H 1350 4250 50  0001 C CNN "Frequency"
-F 22 "_" H 1350 4250 50  0001 C CNN "ResonnanceFreq"
-	1    1400 4150
-	1    0    0    -1  
-$EndComp
-Text GLabel 1800 4250 2    60   Input ~ 0
+Text GLabel 2350 4300 2    60   Input ~ 0
 FPGA_CLK
 $Comp
 L GND #PWR01
 U 1 1 56A28A7E
-P 1000 4250
-F 0 "#PWR01" H 1000 4000 50  0001 C CNN
-F 1 "GND" H 1008 4076 50  0000 C CNN
-F 2 "" H 1000 4250 60  0000 C CNN
-F 3 "" H 1000 4250 60  0000 C CNN
-	1    1000 4250
+P 800 4300
+F 0 "#PWR01" H 800 4050 50  0001 C CNN
+F 1 "GND" H 808 4126 50  0000 C CNN
+F 2 "" H 800 4300 60  0000 C CNN
+F 3 "" H 800 4300 60  0000 C CNN
+	1    800  4300
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -274,16 +245,9 @@ F 22 "_" H 800 4100 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	800  4250 1000 4250
-Wire Wire Line
-	1000 4050 1000 3750
-Wire Wire Line
-	800  3750 1800 3750
+	800  4250 800  4300
 Wire Wire Line
 	800  3750 800  3950
-Wire Wire Line
-	1800 3750 1800 4050
-Connection ~ 1000 3750
 $Comp
 L +2V5 #PWR02
 U 1 1 56A28C22
@@ -619,11 +583,11 @@ P_LVDS14-
 Text GLabel 10200 3500 2    60   Input ~ 0
 P_LVDS14+
 Wire Wire Line
-	10200 2400 10200 1900
+	10200 1900 10200 2400
 Wire Wire Line
-	10200 3600 11000 3600
+	11000 3600 10200 3600
 Wire Wire Line
-	11000 3600 11000 2100
+	11000 2100 11000 3600
 Wire Wire Line
 	10200 3300 11000 3300
 Connection ~ 11000 3300
@@ -689,4 +653,64 @@ F 3 "" H 7750 4100 50  0000 C CNN
 	1    7750 4100
 	1    0    0    -1  
 $EndComp
+Text GLabel 7450 2350 0    60   Input ~ 0
+FX3_LED/DEBUG
+Text GLabel 7450 2250 0    60   Input ~ 0
+FX3_UART_TX
+Text GLabel 7450 2150 0    60   Input ~ 0
+FX3_UART_RX
+$Comp
+L GND #PWR010
+U 1 1 56A9E407
+P 7450 1950
+F 0 "#PWR010" H 7450 1700 50  0001 C CNN
+F 1 "GND" V 7458 1822 50  0000 R CNN
+F 2 "" H 7450 1950 50  0000 C CNN
+F 3 "" H 7450 1950 50  0000 C CNN
+	1    7450 1950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1900 4300 2350 4300
+Wire Wire Line
+	1100 4100 1100 3750
+Connection ~ 1100 3750
+$Comp
+L OSCILLATOR U11
+U 1 1 56AB2628
+P 1500 4200
+F 0 "U11" H 1500 4566 50  0000 C CNN
+F 1 "OSCILLATOR" H 1500 4474 50  0000 C CNN
+F 2 "Oscillator:8y" H 1350 4200 50  0001 C CNN
+F 3 "http://www.abracon.com/Oscillators/ASFL1.pdf" H 1350 4300 50  0001 C CNN
+F 4 "_" H 1450 4300 50  0001 C CNN "MFN"
+F 5 "_" H 1450 4300 50  0001 C CNN "MFP"
+F 6 "digikey" H 1450 4300 50  0001 C CNN "D1"
+F 7 "mouser" H 1450 4300 50  0001 C CNN "D2"
+F 8 "_" H 1450 4300 50  0001 C CNN "D1PN"
+F 9 "_" H 1450 4300 50  0001 C CNN "D1PL"
+F 10 "_" H 1450 4300 50  0001 C CNN "D2PN"
+F 11 "_" H 1450 4300 50  0001 C CNN "D2PL"
+F 12 "_" H 1450 4300 50  0001 C CNN "Package"
+F 13 "_" H 1450 4300 50  0001 C CNN "Description"
+F 14 "_" H 1450 4300 50  0001 C CNN "Voltage"
+F 15 "_" H 1450 4300 50  0001 C CNN "Power"
+F 16 "_" H 1450 4300 50  0001 C CNN "Tolerance"
+F 17 "_" H 1450 4300 50  0001 C CNN "Temperature"
+F 18 "_" H 1450 4300 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 1450 4300 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 1450 4300 50  0001 C CNN "Cont.Current"
+F 21 "_" H 1450 4300 50  0001 C CNN "Frequency"
+F 22 "_" H 1450 4300 50  0001 C CNN "ResonnanceFreq"
+	1    1500 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 3750 1900 4100
+Wire Wire Line
+	800  3750 1900 3750
+Wire Wire Line
+	800  4300 1100 4300
+Text GLabel 7950 2350 2    60   Input ~ 0
+FX3_RST#
 $EndSCHEMATC

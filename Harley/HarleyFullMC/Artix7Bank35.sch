@@ -38,6 +38,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -443,37 +444,37 @@ F 3 "" H 5750 4200 50  0000 C CNN
 	1    5750 4200
 	1    0    0    -1  
 $EndComp
-Text GLabel 4950 1800 2    60   Input ~ 0
-DDR_DQL0
 Text GLabel 4950 1900 2    60   Input ~ 0
+DDR_DQL0
+Text GLabel 4950 2300 2    60   Input ~ 0
 DDR_DQL1
 Text GLabel 4950 2200 2    60   Input ~ 0
 DDR_DQL2
-Text GLabel 4950 2300 2    60   Input ~ 0
+Text GLabel 4950 1800 2    60   Input ~ 0
 DDR_DQL3
 Text GLabel 4950 2400 2    60   Input ~ 0
 DDR_DQL4
-Text GLabel 4950 2500 2    60   Input ~ 0
-DDR_DQL5
 Text GLabel 4950 2600 2    60   Input ~ 0
+DDR_DQL5
+Text GLabel 4950 2500 2    60   Input ~ 0
 DDR_DQL6
 Text GLabel 4950 2700 2    60   Input ~ 0
 DDR_DQL7
-Text GLabel 4950 2800 2    60   Input ~ 0
-DDR_DQU0
-Text GLabel 4950 2900 2    60   Input ~ 0
-DDR_DQU1
-Text GLabel 4950 3000 2    60   Input ~ 0
-DDR_DQU2
-Text GLabel 4950 3100 2    60   Input ~ 0
-DDR_DQU3
 Text GLabel 1250 1400 0    60   Input ~ 0
-DDR_DQU4
-Text GLabel 1250 1500 0    60   Input ~ 0
-DDR_DQU5
+DDR_DQU0
 Text GLabel 1250 1600 0    60   Input ~ 0
-DDR_DQU6
+DDR_DQU1
+Text GLabel 1250 1500 0    60   Input ~ 0
+DDR_DQU2
 Text GLabel 1250 1700 0    60   Input ~ 0
+DDR_DQU3
+Text GLabel 4950 2800 2    60   Input ~ 0
+DDR_DQU4
+Text GLabel 4950 2900 2    60   Input ~ 0
+DDR_DQU5
+Text GLabel 4950 3000 2    60   Input ~ 0
+DDR_DQU6
+Text GLabel 4950 3100 2    60   Input ~ 0
 DDR_DQU7
 Text GLabel 4950 2100 2    60   Input ~ 0
 DDR_DQSL+
@@ -483,53 +484,53 @@ Text GLabel 4950 3300 2    60   Input ~ 0
 DDR_DQSU+
 Text GLabel 4950 3200 2    60   Input ~ 0
 DDR_DQSU-
-Text GLabel 1250 2200 0    60   Input ~ 0
-DDR_A0
-Text GLabel 1250 2300 0    60   Input ~ 0
-DDR_A1
 Text GLabel 1250 2400 0    60   Input ~ 0
+DDR_A0
+Text GLabel 4950 1600 2    60   Input ~ 0
+DDR_A1
+Text GLabel 1250 3600 0    60   Input ~ 0
 DDR_A2
 Text GLabel 1250 2500 0    60   Input ~ 0
 DDR_A3
-Text GLabel 1250 2600 0    60   Input ~ 0
+Text GLabel 1250 3900 0    60   Input ~ 0
 DDR_A4
-Text GLabel 1250 2700 0    60   Input ~ 0
+Text GLabel 1250 4000 0    60   Input ~ 0
 DDR_A5
-Text GLabel 1250 2800 0    60   Input ~ 0
+Text GLabel 1250 3300 0    60   Input ~ 0
 DDR_A6
-Text GLabel 1250 2900 0    60   Input ~ 0
+Text GLabel 4950 1400 2    60   Input ~ 0
 DDR_A7
-Text GLabel 1250 3000 0    60   Input ~ 0
+Text GLabel 4950 1700 2    60   Input ~ 0
 DDR_A8
-Text GLabel 1250 3100 0    60   Input ~ 0
+Text GLabel 4950 1300 2    60   Input ~ 0
 DDR_A9
 Text GLabel 1250 3200 0    60   Input ~ 0
 DDR_A10
-Text GLabel 1250 3300 0    60   Input ~ 0
+Text GLabel 1250 3800 0    60   Input ~ 0
 DDR_A11
-Text GLabel 4950 1700 2    60   Input ~ 0
+Text GLabel 1250 3700 0    60   Input ~ 0
 DDR_A12
 Text GLabel 1250 2100 0    60   Input ~ 0
 DDR_CLK+
 Text GLabel 1250 2000 0    60   Input ~ 0
 DDR_CLK-
-Text GLabel 1250 3600 0    60   Input ~ 0
+Text GLabel 1250 2900 0    60   Input ~ 0
 DDR_CKE
-Text GLabel 4950 1300 2    60   Input ~ 0
+Text GLabel 1250 2700 0    60   Input ~ 0
 DDR_RAS#
-Text GLabel 4950 1400 2    60   Input ~ 0
+Text GLabel 1250 2600 0    60   Input ~ 0
 DDR_CAS#
-Text GLabel 4950 1500 2    60   Input ~ 0
+Text GLabel 1250 2200 0    60   Input ~ 0
 DDR_WE#
-Text GLabel 1250 3800 0    60   Input ~ 0
+Text GLabel 1250 3000 0    60   Input ~ 0
 DDR_BA0
-Text GLabel 1250 3900 0    60   Input ~ 0
+Text GLabel 1250 2800 0    60   Input ~ 0
 DDR_BA1
-Text GLabel 1250 4000 0    60   Input ~ 0
+Text GLabel 1250 3100 0    60   Input ~ 0
 DDR_BA2
-Text GLabel 1250 3700 0    60   Input ~ 0
+Text GLabel 1250 2300 0    60   Input ~ 0
 DDR_ODT
-Text GLabel 4950 1600 2    60   Input ~ 0
+Text GLabel 4950 1500 2    60   Input ~ 0
 DDR_A13
 Text GLabel 1250 1300 0    60   Input ~ 0
 DDR_RST#

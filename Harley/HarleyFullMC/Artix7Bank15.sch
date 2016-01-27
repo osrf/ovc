@@ -38,6 +38,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -367,4 +368,8 @@ Text GLabel 2500 2500 0    60   Input ~ 0
 P_LVDS11-
 Text GLabel 2500 2400 0    60   Input ~ 0
 P_LVDS11+
+Text GLabel 2500 3500 0    60   Input ~ 0
+FPGADebug1
+Text GLabel 2500 3400 0    60   Input ~ 0
+FPGADebug2
 $EndSCHEMATC

@@ -38,6 +38,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -393,22 +394,8 @@ Text GLabel 2050 2650 0    60   Input ~ 0
 FX3_SLWR#
 Text GLabel 2050 1250 0    60   Input ~ 0
 FX3_SLOE#
-Text GLabel 2050 2450 0    60   Input ~ 0
-FX3_SLRD#
-Text GLabel 6450 3150 2    60   Input ~ 0
-FX3_FLAGD
-Text GLabel 6450 1650 2    60   Input ~ 0
-FX3_FLAGA
-Text GLabel 2050 1350 0    60   Input ~ 0
-FX3_FLAGB
 Text GLabel 2050 2150 0    60   Input ~ 0
 FX3_FLAGC
-Text GLabel 6450 1850 2    60   Input ~ 0
-FX3_A0
-Text GLabel 2050 1450 0    60   Input ~ 0
-FX3_DQ31
-Text GLabel 6450 1750 2    60   Input ~ 0
-FX3_PKT_END#
 Text GLabel 6450 1350 2    60   Input ~ 0
 FX3_DQ11
 Text GLabel 2050 2350 0    60   Input ~ 0
@@ -439,4 +426,12 @@ Text GLabel 2050 1150 0    60   Input ~ 0
 FX3_A1
 Text GLabel 2050 3650 0    60   Input ~ 0
 FX3_DQ17
+Text GLabel 2050 2450 0    60   Input ~ 0
+FX3_DQ31
+Text GLabel 6450 3150 2    60   Input ~ 0
+FX3_DQ29
+Text GLabel 6450 1850 2    60   Input ~ 0
+FX3_DQ27
+Text GLabel 6450 1650 2    60   Input ~ 0
+FX3_A0
 $EndSCHEMATC

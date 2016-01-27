@@ -38,6 +38,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -295,7 +296,7 @@ $EndComp
 Wire Wire Line
 	6950 4050 8100 4050
 Wire Wire Line
-	8100 3750 6950 3750
+	6950 3750 8100 3750
 Wire Wire Line
 	5800 3500 5800 4000
 Connection ~ 5800 3600
@@ -317,36 +318,42 @@ Wire Wire Line
 	5800 3700 5950 3700
 Text GLabel 2400 3800 0    60   Input ~ 0
 FX3_DQ0
-Text GLabel 2400 3400 0    60   Input ~ 0
-FX3_DQ1
-Text GLabel 2400 1900 0    60   Input ~ 0
-FX3_DQ2
 Text GLabel 2400 1800 0    60   Input ~ 0
+FX3_DQ1
+Text GLabel 2400 2500 0    60   Input ~ 0
+FX3_DQ2
+Text GLabel 2400 1500 0    60   Input ~ 0
 FX3_DQ3
-Text GLabel 2400 2000 0    60   Input ~ 0
+Text GLabel 2400 1900 0    60   Input ~ 0
 FX3_DQ4
-Text GLabel 2400 2100 0    60   Input ~ 0
+Text GLabel 2400 1700 0    60   Input ~ 0
 FX3_DQ5
 Text GLabel 2400 3900 0    60   Input ~ 0
 FX3_DQ6
-Text GLabel 2400 1700 0    60   Input ~ 0
-FX3_DQ7
-Text GLabel 5800 2900 2    60   Input ~ 0
-FX3_DQ15
 Text GLabel 2400 4100 0    60   Input ~ 0
+FX3_DQ7
+Text GLabel 2400 2000 0    60   Input ~ 0
+FX3_DQ15
+Text GLabel 2400 2100 0    60   Input ~ 0
 FX3_DQ24
-Text GLabel 2400 3300 0    60   Input ~ 0
-FX3_DQ27
-Text GLabel 5800 1700 2    60   Input ~ 0
-FX3_DQ26
-Text GLabel 2400 4000 0    60   Input ~ 0
-FX3_DQ30
-Text GLabel 5800 1500 2    60   Input ~ 0
-FX3_DQ28
 Text GLabel 5800 1800 2    60   Input ~ 0
-FX3_DQ29
-Text GLabel 2400 2400 0    60   Input ~ 0
+FX3_DQ26
+Text GLabel 5800 2900 2    60   Input ~ 0
+FX3_DQ30
+Text GLabel 5800 3200 2    60   Input ~ 0
+FX3_DQ28
+Text GLabel 2400 2200 0    60   Input ~ 0
 Artix_FX3_CLK
-Text GLabel 2400 2300 0    60   Input ~ 0
+Text GLabel 2400 4000 0    60   Input ~ 0
+FX3_FLAGB
+Text GLabel 5800 1700 2    60   Input ~ 0
+FX3_FLAGD
+Text GLabel 2400 3400 0    60   Input ~ 0
+FX3_SLRD#
+Text GLabel 2400 3300 0    60   Input ~ 0
+FX3_PKT_END#
+Text GLabel 2400 3700 0    60   Input ~ 0
+FX3_FLAGA
+Text GLabel 2400 2400 0    60   Input ~ 0
 FPGA_CLK
 $EndSCHEMATC
