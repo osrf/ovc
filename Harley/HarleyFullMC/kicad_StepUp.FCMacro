@@ -1,0 +1,1290 @@
+# -*- coding: utf8 -*-
+#****************************************************************************
+#*                                                                          *
+#*   Kicad STEPUP (TM) (3D kicad board and models to STEP) for FreeCAD      *
+#*   3D exporter for FreeCAD                                                *
+#*   Copyright (c) 2015                                                     *
+#*   Maurice easyw@katamail.com                                             *
+#*                                                                          *
+#*   Kicad STEPUP (TM) is a TradeMark and cannot be freely useable          *
+#*                                                                          *
+#*   code partially based on:                                               *
+#*      Printed Circuit Board Workbench for FreeCAD  FreeCAD-PCB            *
+#*      Copyright (c) 2013, 2014, 2015                                      *
+#*      marmni <marmni@onet.eu>                                             *
+#*                                                                          *
+#*      and IDF import for FreeCAD                                          *
+#*      (c) Milos Koutny (milos.koutny@gmail.com) 2012                      *
+#*                                                                          *
+#*                                                                          *
+#*   This program is free software; you can redistribute it and/or modify   *
+#*   it under the terms of the GNU Affero General Public License            *
+#*   as published by the Free Software Foundation to ensure cooperation     *
+#*   with the community in the case of network server software;             *
+#*   for detail see the LICENCE text file.                                  *
+#*   http://www.gnu.org/licenses/agpl-3.0.en.html                           *
+#*   Moreover you have to include the original author copyright             *
+#*   kicad StepUP made by Maurice easyw@katamail.com                        *
+#*                                                                          *
+#*   This program is distributed in the hope that it will be useful,        *
+#*   but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+#*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
+#*   GNU Library General Public License for more details.                   *
+#*                                                                          *
+#*   You should have received a copy of the GNU Library General Public      *
+#*   License along with this program; if not, write to the Free Software    *
+#*   Foundation, Inc.,                                                      *
+#*   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA           *
+#*                                                                          *
+#****************************************************************************
+
+# added messages on missing emn files
+# added messages on missing models
+# added path to adapt your KISYS3DMOD
+# added blacklist for unwanted modules
+# added messages on blacklisted modules
+# added pcb color attribute
+# added bounding box option
+# added bounding box white list to leave real model on connector or peripheral models
+# added auxorigin, base origin, base point placement option
+# added vrml models z-rotation angle
+# added virtual models option
+# added fusion export option
+# added saving in native format, export to STEP
+# added arcs and circles for calculate board position
+# added idf_to_origin flag for version >6091
+# added reset properties for FC 016 bug
+# added ${KIPRJMOD} support
+# added multi 3D vrml model support
+# added compatibility to kicad version >=3
+# added auto color assigning in bboxes
+# added minimum volume per model
+# added minimum height per model
+# updated findPcbCenter method
+# added support for .stp extension beside .step
+# added support for .igs extension beside .step
+# added support for .iges extension beside .step
+
+##todo
+#...
+
+__title__ = "kicad_StepUp"
+__author__ = "maurice & mg"
+__Comment__ = 'Kicad STEPUP(TM) (3D kicad board and models exported to STEP) for FreeCAD'
+
+___ver___ = "1.0.1.9  25/11/2015"
+
+
+import time
+
+current_milli_time = lambda: int(round(time.time() * 1000))
+
+models3D_prefix = ''
+blacklisted_model_elements=''
+#col=''; col='0.0,0.5,0.0,green';  # color
+col=''; col='0.0,0.0,1.0,blue';  # color
+bbox=0
+
+bbox_r_col=(0.411765, 0.411765, 0.411765)  #dimgrey
+bbox_c_col=(0.823529, 0.411765, 0.117647)  #chocolate
+bbox_x_col=(0.862745, 0.862745, 0.862745) #gainsboro
+bbox_l_col=(0.333333, 0.333333, 0.333333) #sgidarkgrey
+bbox_IC_col=(0.156863, 0.156863, 0.156863)  #sgiverydarkgrey
+bbox_default_col=(0.439216, 0.501961, 0.564706)  #slategrey
+#(0.6,0.4,0.2) brown
+volume_minimum=0 #0.8  ##1 #mm^3, 0 skipped #global var default
+height_minimum=0 #0.8  ##1 #mm, 0 skipped   #global var default
+
+## to debug quickly put show_messages=False
+show_messages=True
+#show_messages=False # mauitest
+
+### only for internal debug
+#logging=True # mauitest
+logging=False
+
+### from release 6091 this flag enables the option to place IDF exported to origin
+### it should be in ksu-config.cfg file
+idf_to_origin=True
+#idf_to_origin=False
+
+## moved to ksu-config.cfg file
+# ##########################################################
+# #Configuration parameters below - use standard slashes / #
+# ##########################################################
+# models3D_prefix = ''
+# ## put here your KISYS3DMOD path
+# models3D_prefix = '/usr/local/share/kicad/modules/packages3d/'
+#
+# ## put here your model names that you don't want to load (e.g. smallest ones)
+# blacklisted_model_elements=''
+# blacklisted_model_elements='r0603,c0603'
+# if blacklisted_model_elements != '':
+# blacklisted_models=blacklisted_model_elements.split(",")
+
+import FreeCAD, Draft
+import Idf
+import ImportGui
+from math import sqrt, atan, sin, cos, radians, degrees, pi
+
+import re
+import sys, os , argparse
+import __builtin__
+if FreeCAD.GuiUp:
+    from PySide import QtCore, QtGui
+
+# myfile2 = open('./test-2.txt', 'w')
+
+## getting 3D models path
+default_value='missing'
+# print 'KISYS3DMOD='
+FreeCAD.Console.PrintMessage('KISYS3DMOD='+os.getenv('KISYS3DMOD', default_value)+'\r\n')
+
+filePath = os.path.dirname(os.path.abspath(__file__))
+FreeCAD.Console.PrintMessage(filePath+"\r\n")
+
+if logging:
+    f_log = open('./log.log','w')
+    f_log.write(filePath+"\n") #\n its enough in write
+
+
+fullfilePath3D = filePath+os.sep+sys.argv[2]
+ext = os.path.splitext(os.path.basename(sys.argv[2]))[1]
+aux_orig=0;base_orig=0;base_point=0
+bbox_all=0; bbox_list=0; whitelisted_model_elements=''
+fusion=False
+addVirtual=0
+if ext == '.cfg':
+    # fullfilePath3D = filePath+os.sep+'ksu-config.cfg'
+    if os.path.exists(fullfilePath3D):
+        FreeCAD.Console.PrintMessage("opening "+ fullfilePath3D)
+        f= open(fullfilePath3D, "r")
+        path3D = f.readlines()
+        #reply = QtGui.QMessageBox.information(None,"Info ...","... using module(s) prefix path\n"+ path3D[0])
+    else:
+        FreeCAD.Console.PrintMessage("error missing "+ fullfilePath3D+'\r\n')
+        reply = QtGui.QMessageBox.information(None,"Error ...","... missing \r\n"+ fullfilePath3D+"\r\nhave you configured your "+file3DpathName+"?")
+
+    ## extracting config values
+    t=0; bbox_all=0; bbox_list=0; whitelisted_model_elements=''
+    addVirtual=0
+    for n in range(len(path3D)):
+        print path3D[n] +';'+ str(len (path3D[n]))
+        if (path3D[n][0].find('#')==-1):  #if first char is '#' -> comment
+            if len (path3D[n]) >1:
+                t+=1
+                if t==1:
+                    models3D_prefix = path3D[n].strip('\r\n')
+                if t==2:
+                    if path3D[n].find('none') !=-1:
+                        blacklisted_model_elements=''
+                    elif path3D[n].find('volume') !=-1:
+                        vval=path3D[n].strip('\r\n')
+                        vvalue=vval.split("=")
+                        volume_minimum=float(vvalue[1])
+                        #reply = QtGui.QMessageBox.information(None,"info ...","volume "+str(volume_minimum))
+                    elif path3D[n].find('height') !=-1:
+                        vval=path3D[n].strip('\r\n')
+                        vvalue=vval.split("=")
+                        height_minimum=float(vvalue[1])
+                        #reply = QtGui.QMessageBox.information(None,"info ...","height "+str(height_minimum))
+                    else:
+                        blacklisted_model_elements=path3D[n].strip('\r\n')
+                        blacklisted_models=blacklisted_model_elements.split(",")
+                if t==3:
+                    col=path3D[n].strip('\r\n')
+                    FreeCAD.Console.PrintMessage(path3D[n])
+                    #reply = QtGui.QMessageBox.information(None,"info ...","color "+col)
+                if t==4:
+                    if path3D[n].find('ALL') !=-1:
+                        bbox_all=1
+                        whitelisted_model_elements=''
+                    else:
+                        if path3D[n].find('LIST') !=-1:
+                            bbox_list=1
+                            whitelisted_model_elements=path3D[n].strip('\r\n')
+                            #whitelisted_models=whitelisted_model_elements.split(",")
+                if t==5:
+                    if path3D[n].find('AuxOrigin') !=-1:
+                        aux_orig=1
+                        whitelisted_model_elements=''
+                    if path3D[n].find('BaseOrigin') !=-1:
+                        base_orig=1
+                    if path3D[n].find('BasePoint') !=-1:
+                        base_point=1
+                        basepoint=path3D[n].strip('\r\n')
+                        coords_BP=basepoint.split(";")
+                        xp=float(coords_BP[1]);yp=float(coords_BP[2])
+                    if path3D[n].find('AutoAdjust') !=-1:
+                        idf_to_origin=False
+                if t==6:
+                    if path3D[n].find('addVirtual') !=-1:
+                        addVirtual=1
+                if t==7:
+                    if path3D[n].find('fuseAll') !=-1:
+                        fusion=True
+    # sleep
+    #print models3D_prefix, blacklisted_model_elements
+
+
+
+def insert_return(string, index):
+    return string[:index] + '\r\n' + string[index:]
+
+##  getAuxAxisOrigin
+def getAuxAxisOrigin():
+    match = re.search(r'\(aux_axis_origin (.+?) (.+?)\)', Kicad_Board)
+    return [float(match.group(1)), float(match.group(2))];
+## color
+#FreeCADGui.ActiveDocument.getObject("Board_outline").ShapeColor = (0.3333,0.3333,0.4980)
+col= col.split(',')
+colr=float(col[0]);colg=float(col[1]);colb=float(col[2])
+
+fileName=sys.argv[1][:-4]
+fullfilePath = filePath+os.sep+sys.argv[1]
+if os.path.exists(fullfilePath):
+    FreeCAD.Console.PrintMessage("opening "+ fullfilePath)
+else:
+    FreeCAD.Console.PrintMessage("error missing "+ fullfilePath+'\r\n')
+    reply = QtGui.QMessageBox.information(None,"Error ...","... missing \r\n"+ fullfilePath+"\r\nhave you exported your board in IDF?")
+
+ext = os.path.splitext(os.path.basename(sys.argv[1]))[1]
+
+if ext!='.emn':
+    reply = QtGui.QMessageBox.information(None,"error ...",".emn file ha to be used\r\n\r\n"+"have you exported your board in IDF?")
+    quit() # quit at this point
+
+# fullfilePath = filePath+os.sep+sys.argv[1][:-4]+'.emn'
+# if os.path.exists(fullfilePath):
+#     FreeCAD.Console.PrintMessage("opening "+ fullfilePath)
+# else:
+#     FreeCAD.Console.PrintMessage("error missing "+ fullfilePath+'\r\n')
+#     reply = QtGui.QMessageBox.information(None,"Error ...","... missing \r\n"+ fullfilePath+"\r\nhave you exported your board in IDF?")
+
+#coloring board
+FreeCADGui.ActiveDocument.getObject("Board_outline").ShapeColor = (colr,colg,colb)
+
+fullfilePath = filePath+os.sep+sys.argv[1][:-4]+'.kicad_pcb'
+if os.path.exists(fullfilePath):
+    FreeCAD.Console.PrintMessage("opening "+ fullfilePath)
+else:
+    FreeCAD.Console.PrintMessage("error missing "+ fullfilePath+'\r\n')
+    reply = QtGui.QMessageBox.information(None,"Error ...","... missing \r\n"+ fullfilePath)
+
+
+if App.getDocument(FreeCAD.ActiveDocument.Name).getObject("Step_Lib")== None:
+    msg="... Idf \'importing file\' bug\r\n"+FreeCAD.getHomePath()+ "Mod/Idf/Idflibs/ [path error]\r\n"
+    msg+="in windows you need to change Idf.py in Mod/Idf with the one bundled with kicad StepUp macro"
+    ## reply = QtGui.QMessageBox.information(None,"Error ...", msg)
+    FreeCAD.Console.PrintMessage(msg+"\r\n")
+    doc = FreeCAD.ActiveDocument
+    #doc.addObject("App::DocumentObjectGroup", "EMP_Models")
+    doc.addObject("App::DocumentObjectGroup", "Step_Lib")
+    doc.addObject("App::DocumentObjectGroup", "Step_Models")
+
+else:
+    FreeCAD.Console.PrintMessage(FreeCAD.getHomePath()+ "Mod/Idf/Idflibs/ [path fine]\r\n")
+
+App.getDocument(FreeCAD.ActiveDocument.Name).getObject("EMP_Models").removeObjectsFromDocument()
+App.getDocument(FreeCAD.ActiveDocument.Name).removeObject("EMP_Models")
+App.getDocument(FreeCAD.ActiveDocument.Name).getObject("Step_Lib").removeObjectsFromDocument()
+App.getDocument(FreeCAD.ActiveDocument.Name).removeObject("Step_Lib")
+
+# checking FC version requirement
+######################################################################
+FreeCAD.Console.PrintMessage("FC Version \r\n")
+FreeCAD.Console.PrintMessage(FreeCAD.Version())
+FC_majorV=FreeCAD.Version()[0]
+FC_minorV=FreeCAD.Version()[1]
+FreeCAD.Console.PrintMessage('FC Version '+FC_majorV+FC_minorV+'\r\n')
+
+msg1="use ONLY FreeCAD STABLE version 0.15 or later\r\n"
+#msg1+="to generate your STEP and VRML models\r\nFC 016 dev version results are still unpredictable"
+msg1+="to generate your STEP and VRML models\r\n"
+if int(FC_majorV) <= 0:
+    if int(FC_minorV) < 15:
+        reply = QtGui.QMessageBox.information(None,"Warning! ...",msg1)
+
+msg=''
+if (fusion==True):
+    msg+="you have chosen: fuse modules to board\r\nbe careful ... fusion can be heavy or generate FC crash"
+    msg+="when fusing a lot of objects\r\nplease consider to use bbox or blacklist small objects\r\n\r\n"
+
+if idf_to_origin==True:
+    msg+="IDF board has to be exported to Xref=0; Yref=0\r\n\r\n"
+    # msg+="IDF board has NOT to be exported to real placement\r\npcbnew version < 6091\r\n\r\n"
+else:
+    msg+="IDF board has to be exported to real placement (Auto Adjust)\r\n\r\n"
+    # msg+="IDF board has NOT to be exported to Xref=0; Yref=0\r\npcbnew version >=6091\r\n\r\n"
+
+if models3D_prefix != '' and models3D_prefix != './' and models3D_prefix != '.\\':
+    if (show_messages==True):
+        reply = QtGui.QMessageBox.information(None,"Info ...",msg+"... using module(s) prefix path\r\n"+ models3D_prefix)
+else:
+    if (show_messages==True):
+        reply = QtGui.QMessageBox.information(None,"Info ...",msg+"... using module(s) prefix path\r\n'script folder'")
+
+start_time=current_milli_time()
+
+xMax=0; xmin=0; yMax=0; ymin=0
+Kicad_Board = ''
+Kicad_Board += open(fullfilePath, 'rU').read()
+# print Kicad_Board
+
+def reset_prop(obj,doc,App,Gui):
+    #sel = FreeCADGui.Selection.getSelection()
+    FreeCAD.Console.PrintMessage('\r\nresetting props\r\n')
+    ##try:
+    #App.ActiveDocument.getObject(sel[0].Name).Placement=App.Placement(App.Vector(0,0,0), App.Rotation(App.Vector(0,0,1),0), App.Vector(0,0,0))
+    #newObj =App.ActiveDocument.addObject('Part::Feature','Part__Feature')
+    newObj =App.ActiveDocument.addObject('Part::Feature',obj.Name)
+    newObj.Shape=App.ActiveDocument.getObject(obj.Name).Shape
+    App.ActiveDocument.ActiveObject.Label=App.ActiveDocument.getObject(obj.Name).Label
+    final_Label=App.ActiveDocument.getObject(obj.Name).Label
+    FreeCAD.Console.PrintMessage(final_Label+'\r\n')
+    Gui.ActiveDocument.ActiveObject.ShapeColor=Gui.ActiveDocument.getObject(obj.Name).ShapeColor
+    Gui.ActiveDocument.ActiveObject.LineColor=Gui.ActiveDocument.getObject(obj.Name).LineColor
+    Gui.ActiveDocument.ActiveObject.PointColor=Gui.ActiveDocument.getObject(obj.Name).PointColor
+    Gui.ActiveDocument.ActiveObject.DiffuseColor=Gui.ActiveDocument.getObject(obj.Name).DiffuseColor
+    App.ActiveDocument.recompute()
+    newObjCommon=App.activeDocument().addObject("Part::MultiCommon","Common")
+    newObjCommon.Shapes = [App.activeDocument().getObject(obj.Name),App.activeDocument().getObject(newObj.Name),]
+    Gui.activeDocument().getObject(obj.Name).Visibility=False
+    Gui.activeDocument().getObject(newObj.Name).Visibility=False
+    Gui.ActiveDocument.Common.ShapeColor=Gui.ActiveDocument.getObject(obj.Name).ShapeColor
+    Gui.ActiveDocument.Common.DisplayMode=Gui.ActiveDocument.getObject(obj.Name).DisplayMode
+    ##App.ActiveDocument.removeObject("Part__Feature002")
+    App.ActiveDocument.recompute()
+    ###App.ActiveDocument.removeObject(obj.Name)
+    ###App.ActiveDocument.removeObject(newObj.Name)
+    # sleep
+    App.ActiveDocument.addObject('Part::Feature','Common').Shape=App.ActiveDocument.Common.Shape
+    App.ActiveDocument.ActiveObject.Label=final_Label
+    rstObj=App.ActiveDocument.ActiveObject
+    #
+    Gui.ActiveDocument.ActiveObject.ShapeColor=Gui.ActiveDocument.Common.ShapeColor
+    Gui.ActiveDocument.ActiveObject.LineColor=Gui.ActiveDocument.Common.LineColor
+    Gui.ActiveDocument.ActiveObject.PointColor=Gui.ActiveDocument.Common.PointColor
+    Gui.ActiveDocument.ActiveObject.DiffuseColor=Gui.ActiveDocument.Common.DiffuseColor
+    ##App.getDocument("Unnamed").removeObject("Part__Feature")
+    ##App.getDocument("Unnamed").removeObject("Part__Feature001")
+    App.ActiveDocument.removeObject("Common")
+    App.ActiveDocument.recompute()
+    #
+    ##App.getDocument("Unnamed").removeObject("Common")
+    #del __objs__
+    ##except Exception:
+    ##    App.Console.PrintError("Select one object" + "\n")
+    return rstObj
+
+def reset_prop_shapes(obj,doc,App,Gui):
+
+    s=obj.Shape
+    FreeCAD.Console.PrintMessage('\r\nresetting props #2\r\n')
+    r=[]
+    t=s.copy()
+    for i in t.childShapes():
+        c=i.copy()
+        c.Placement=t.Placement.multiply(c.Placement)
+        r.append((i,c))
+
+    w=t.replaceShape(r)
+    w.Placement=App.Placement()
+    Part.show(w)
+    FreeCAD.Console.PrintMessage(w)
+    FreeCAD.Console.PrintMessage('\r\n')
+
+    Gui.ActiveDocument.ActiveObject.ShapeColor=Gui.ActiveDocument.Part__Feature.ShapeColor
+    Gui.ActiveDocument.ActiveObject.LineColor=Gui.ActiveDocument.Part__Feature.LineColor
+    Gui.ActiveDocument.ActiveObject.PointColor=Gui.ActiveDocument.Part__Feature.PointColor
+    Gui.ActiveDocument.ActiveObject.DiffuseColor=Gui.ActiveDocument.Part__Feature.DiffuseColor
+
+
+    new_label=obj.Label
+    App.ActiveDocument.removeObject(obj.Name)
+    App.ActiveDocument.recompute()
+
+    App.ActiveDocument.ActiveObject.Label=new_label
+    rstObj=App.ActiveDocument.ActiveObject
+    FreeCAD.Console.PrintMessage(rstObj)
+    FreeCAD.Console.PrintMessage('\r\n')
+
+    return rstObj
+
+
+def getPCBThickness():
+    return float(re.findall(r'\(thickness (.+?)\)', Kicad_Board)[0])
+
+def getPCBVersion():
+    return int(re.findall(r'\(kicad_pcb \(version (.+?)\)', Kicad_Board)[0])
+
+def getPCBArea():
+    area = (re.findall(r'\(area (.+?)\)', Kicad_Board)[0])
+    # print area
+    return area
+
+
+def getArc_minMax(xC,xA,yC,yA,alpha):
+
+    # x1=xA start point; x2=xC center; xB end point; alpha=angle
+    global xMax, xmin, yMax, ymin
+    j=0
+    R=sqrt((xA-xC)**2+(yA-yC)**2)
+    FreeCAD.Console.PrintMessage('R = '+str(R))
+    if (xA>=xC) and (yA<yC):
+        beta=atan(abs(xA-xC)/abs(yA-yC))
+        j=1; ABeta=(alpha+beta)
+        FreeCAD.Console.PrintMessage(str(degrees(beta))+" beta "+ str(degrees(ABeta))+" ABeta\r\n")
+        #cases if (xA>xC) and (yA<yC):
+        if ABeta >= beta and ABeta <= pi/2:
+            xB=R*sin(alpha+beta)+xC
+            xMax=max(xB,xMax)
+            xmin= min(xA,xmin)
+            yB=yC-R*cos(alpha+beta)
+            yMax= max(yB, yMax)
+            ymin= min(yA, ymin)
+        if ABeta >pi/2 and ABeta <=pi:
+            xMax = max(R+xC,xMax)
+            xB=R*sin(alpha+beta)+xC
+            xmin = min(xA, xB, xmin)
+            # yB = yC+R*cos(pi-(alpha+beta))
+            yB=yC-R*cos(alpha+beta)
+            yMax = max(yB, yMax)
+            ymin = min(yA, ymin)
+        if ABeta >pi and ABeta <=3/2*pi:
+            xB=R*sin(alpha+beta)+xC
+            xMax=max(R+xC,xMax)
+            xmin = min(xB,xmin)
+            yB=yC-R*cos(alpha+beta)
+            yMax = max(yC+R, yMax)
+            ymin = min(yA, ymin)
+        if ABeta >3/2*pi and ABeta <= 2*pi:
+            xB=R*sin(alpha+beta)+xC
+            xMax=max(R+xC,xMax)
+            xmin = min(xC-R,xmin)
+            yB=yC-R*cos(alpha+beta)
+            yMax = max(yC+R, yMax)
+            ymin = min(yA, yB, ymin)
+        if ABeta >2*pi and ABeta <= 2*pi+beta:
+            xmin = min(xC-R,xmin)
+            xMax = max(R+xC,xMax)
+            ymin = min(yC-R, ymin)
+            yMax = max(yC+R, yMax)
+
+    if (xA>xC) and (yA>=yC):
+        beta=atan(abs(yA-yC)/abs(xA-xC))
+        j=2; ABeta=(alpha+beta)
+        FreeCAD.Console.PrintMessage(str(degrees(beta))+" beta "+ str(degrees(ABeta))+" ABeta\r\n")
+        yB=yC+R*sin(ABeta)
+        xB=xC+R*cos(ABeta)
+        if ABeta >= beta and ABeta <= pi/2:
+            xMax=max(xA,xMax)
+            xmin= min(xB,xmin)
+            yMax= max(yB, yMax)
+            ymin= min(yA, ymin)
+        if ABeta > pi/2 and ABeta <= pi:
+            xmin= min(xB,xmin)
+            xMax=max(xA,xMax)
+            ymin= min(yA, yB, ymin)
+            yMax= max(yC+R, yMax)
+        if ABeta > pi and ABeta <= 3/2*pi:
+            xmin= min(xC-R,xmin)
+            xMax=max(xA,xMax)
+            ymin= min(yB, ymin)
+            yMax= max(yC+R, yMax)
+        if ABeta > 3/2*pi and ABeta <= 2*pi:
+            xmin= min(xC-R,xmin)
+            xMax= max(xA,xB,xMax)
+            ymin= min(yC-R, ymin)
+            yMax= max(yC+R, yMax)
+        if ABeta > 2*pi and ABeta <= beta+2*pi:
+            xmin= min(xC-R,xmin)
+            xMax= max(xC+R,xMax)
+            ymin= min(yC-R, ymin)
+            yMax= max(yC+R, yMax)
+    if (xA<=xC) and (yA>yC):
+        beta=atan(abs(xA-xC)/abs(yA-yC))
+        j=3; ABeta=(alpha+beta)
+        FreeCAD.Console.PrintMessage(str(degrees(beta))+" beta "+ str(degrees(ABeta))+" ABeta\r\n")
+        yB=yC+R*cos(ABeta)
+        xB=xC-R*sin(ABeta)
+        if ABeta >= beta and ABeta <= pi/2:
+            xMax= max(xA,xMax)
+            xmin= min(xB,xmin)
+            yMax= max(yA, yMax)
+            ymin= min(yB, ymin)
+        if ABeta > pi/2 and ABeta <= pi:
+            xmin= min(xC-R,xmin)
+            xMax= max(xA,xB,xMax)
+            ymin= min(yB,ymin)
+            yMax= max(yA,yMax)
+        if ABeta > pi and ABeta <= 3/2*pi:
+            xmin= min(xC-R,xmin)
+            xMax= max(xB,xMax)
+            ymin= min(yC-R, ymin)
+            yMax= max(yA, yMax)
+        if ABeta > 3/2*pi and ABeta <= 2*pi:
+            xmin= min(xC-R,xmin)
+            xMax= max(xC+R,xMax)
+            ymin= min(yC-R, ymin)
+            yMax= max(yA,yB, yMax)
+        if ABeta > 2*pi and ABeta <= beta+2*pi:
+            xmin= min(xC-R,xmin)
+            xMax= max(xC+R,xMax)
+            ymin= min(yC-R, ymin)
+            yMax= max(yC+R, yMax)
+
+    if (xA<xC) and (yA<=yC):
+        beta=atan(abs(yA-yC)/abs(xA-xC))
+        j=4; ABeta=(alpha+beta)
+        FreeCAD.Console.PrintMessage(str(degrees(beta))+" beta "+ str(degrees(ABeta))+" ABeta\r\n")
+        yB=yC-R*sin(ABeta)
+        xB=xC-R*cos(ABeta)
+        if ABeta >= beta and ABeta <= pi/2:
+            xMax= max(xB,xMax)
+            xmin= min(xA,xmin)
+            yMax= max(yA, yMax)
+            ymin= min(yB, ymin)
+        if ABeta > pi/2 and ABeta <= pi:
+            xmin= min(xA,xmin)
+            xMax= max(xB,xMax)
+            ymin= min(yC-R,ymin)
+            yMax= max(yA,yB,yMax)
+        if ABeta > pi and ABeta <= 3/2*pi:
+            xmin= min(xA,xmin)
+            xMax= max(xC+R,xMax)
+            ymin= min(yC-R, ymin)
+            yMax= max(yB, yMax)
+        if ABeta > 3/2*pi and ABeta <= 2*pi:
+            xmin= min(xA,xB,xmin)
+            xMax= max(xC+R,xMax)
+            ymin= min(yC-R,ymin)
+            yMax= max(yC+R, yMax)
+        if ABeta > 2*pi and ABeta <= beta+2*pi:
+            xmin= min(xC-R,xmin)
+            xMax= max(xC+R,xMax)
+            ymin= min(yC-R, ymin)
+            yMax= max(yC+R, yMax)
+
+
+    if logging:
+        f_log.write('xC='+str(xC)+';yC='+str(yC)+';xA='+str(xA)+';yA='+str(yA)+'\n') # python will convert \n to os.linesep
+    # print("hi there", file=f)
+    FreeCAD.Console.PrintMessage(str(j)+" case j\r\n")
+    FreeCAD.Console.PrintMessage('xC='+str(xC)+';yC='+str(yC)+';xA='+str(xA)+';yA='+str(yA)+'\r\n')
+    #print x1,x2,y1,y2
+    #calculating xmin of arc
+    R=sqrt((xA-xC)**2+(yA-yC)**2)
+    FreeCAD.Console.PrintMessage('R = '+str(R))
+
+    FreeCAD.Console.PrintMessage(str(xMax)+" xMax\r\n")
+    FreeCAD.Console.PrintMessage(str(xmin)+" xmin\r\n")
+    ## if xmin==0: xmin=x1
+    ## if ymin==0: ymin=y1
+    ## xmin = min(x1,x2,xmin)
+    ## ymin = min(y1,y2,ymin)
+    ## xMax = max(x1,x2,xMax)
+    ## yMax = max(y1,y2,yMax)
+    # print xMax, xmin, yMax, ymin
+    # print pcbarcs[n]
+    #print (pcbarcs[n][8:].split(' ')[0])
+
+    return 0
+
+Kicad_Board_elaborated=''
+Levels = {}
+def Elaborate_Kicad_Board(filename):
+    global xMax, xmin, yMax, ymin
+    # Kicad_Board_elaborated = __builtin__.open(filename, "r").read()[1:]
+    Kicad_Board_elaborated = open(filename, "r").read()[1:]
+    modified = ''
+    j = 0; txt = ''; start = 0; s=0
+    for i in Kicad_Board_elaborated:
+        if i in ['"', "'"] and s == 0:
+            s = 1
+        elif i in ['"', "'"] and s == 1:
+            s = 0
+        if s == 0:
+            if i == '(':
+                j += 1
+                start = 1
+            elif i == ')':
+                j -= 1
+        txt += i
+
+        if j == 0 and start == 1:
+            modified += '[start]' + txt.strip() + '[stop]'
+            txt = ''
+            start = 0
+
+    layers = re.search(r'\[start\]\(layers(.+?)\)\[stop\]', modified, re.MULTILINE|re.DOTALL).group(0)
+    for k in re.findall(r'\((.*?) (.*?) .*?\)', layers):
+        Levels[k[1]] = int(k[0])
+        if Levels[k[1]] == Edge_Cuts_lvl: ##Edge.Cuts pcb version 4
+            #myfile3.write(str(k)[8:-2]+'\r\n')
+            pcbEdgeName=str(k)[8:-2]
+
+    pcblines = re.findall(r'\[start\]\(gr_line(.+?)\)\[stop\]', modified, re.MULTILINE|re.DOTALL)
+    #for k in re.findall(r'\(gr_line(.*?) (.*?) .*?\)', pcblines):
+    n=0
+    for m in pcblines:
+        #myfile2.write(m+'\r\n')
+        if pcblines[n].find(pcbEdgeName) !=-1:
+            #print pcblines[n]
+            coords= (pcblines[n][8:])
+            coords= coords.split(' ')
+            x1=float(coords[0])
+            y1=float(coords[1][:-1])
+            x2=float(coords[3])
+            y2=float(coords[4][:-1])
+            print x1,x2,y1,y2
+            if xmin==0: xmin=x1
+            if ymin==0: ymin=y1
+            xmin = min(x1,x2,xmin)
+            ymin = min(y1,y2,ymin)
+            xMax = max(x1,x2,xMax)
+            yMax = max(y1,y2,yMax)
+            # print xMax, xmin, yMax, ymin
+        n=n+1
+    ###
+
+    pcbcircles = re.findall(r'\[start\]\(gr_circle(.+?)\)\[stop\]', modified, re.MULTILINE|re.DOTALL)
+    n=0
+    for m in pcbcircles:
+        #myfile2.write(m+'\r\n')
+        if pcbcircles[n].find(pcbEdgeName) !=-1:
+            #print pcblines[n]
+            coords= (pcbcircles[n][9:])
+            coords= coords.split(' ')
+            x1=float(coords[0])
+            y1=float(coords[1][:-1])
+            x2=float(coords[3])
+            y2=float(coords[4][:-1])
+            print x1,x2,y1,y2
+            R=sqrt((x1-x2)**2+(y1-y2)**2)
+            print R
+            if xmin==0: xmin=x1
+            if ymin==0: ymin=y1
+            xmin = min(x1-R,xmin)
+            ymin = min(y1-R,ymin)
+            xMax = max(x1+R,xMax)
+            yMax = max(y1+R,yMax)
+            print xmin, ymin, xMax, yMax
+            # print xMax, xmin, yMax, ymin
+        n=n+1
+    ###
+    pcbarcs = re.findall(r'\[start\]\(gr_arc(.+?)\)\[stop\]', modified, re.MULTILINE|re.DOTALL)
+    #for k in re.findall(r'\(gr_line(.*?) (.*?) .*?\)', pcblines):
+    n=0
+    for m in pcbarcs:
+        if pcbarcs[n].find(pcbEdgeName) !=-1:
+            coords= (pcbarcs[n][8:])
+            coords= coords.split(' ')
+            x1=float(coords[0])       # center x
+            y1=float(coords[1][:-1])  # center y
+            x2=float(coords[3])       # start point x
+            y2=float(coords[4][:-1])  # start point y
+
+            angle=float(coords[6][:-1]) # arc angle
+            FreeCAD.Console.PrintMessage(coords[6][:-1]+" angle\r\n")
+            alpha=radians(angle)
+            ## if xmin==0: xmin=x1
+            ## if ymin==0: ymin=y1
+            getArc_minMax(x1,x2,y1,y2,alpha)
+
+        n=n+1
+
+    if logging:
+        f_log.write(modified+"\n") #\n its enough in write
+    return modified
+
+
+def getParts(PCB_Models):
+        PCB_Models = []
+        for i in re.findall(r'\[start\]\(module(.+?)\)\[stop\]', Kicad_Board_elaborated, re.MULTILINE|re.DOTALL):
+            ### print i
+            [x, y, rot] = re.search(r'\(at\s+([0-9\.-]*?)\s+([0-9\.-]*?)(\s+[0-9\.-]*?|)\)', i).groups()
+            layer = re.search(r'\(layer\s+(.+?)\)', i).groups()[0]
+            x = float(x)
+            y = float(y) * (-1)
+            if rot == '':
+                rot = 0.0
+            else:
+                rot = float(rot)
+            #rot=rot-rotz  #adding vrml module z-rotation
+            ### print layer
+            if Levels[layer] == Top_lvl:  # top
+                side = "Top"
+            else:
+                side = "Bottom"
+                rot *= -1
+            #model = re.search(r'\(model\s+(.+?)\.wrl',i)
+            model_name='no3Dmodel'
+            #side='noLayer'
+            model_list= re.findall(r'\(model\s+(.+?)\.wrl',i)
+            #[x, y, rot] = re.search(r'\(at\s+([0-9\.-]*?)\s+([0-9\.-]*?)(\s+[0-9\.-]*?|)\)', i).groups()
+            #layer = re.search(r'\(layer\s+(.+?)\)', i).groups()[0]
+            #rotz_vrml = re.findall(r'\(rotate\s+(.+?)\)', i)
+            for j in range(0,len(model_list)):
+                # print i
+                #[x, y, rot] = re.findall(r'\(at\s+([0-9\.-]*?)\s+([0-9\.-]*?)(\s+[0-9\.-]*?|)\)', i)[j]
+                #rotz_vrml = re.search(r'\(rotate\s+(.+?)\)', i)
+                rotz_vrml = re.findall(r'\(rotate\s+(.+?)\)', i)
+                rotz=''
+                if rotz_vrml:
+                    #rotz=rotz_vrml.group(j)
+                    rotz=rotz_vrml[j]
+                    FreeCAD.Console.PrintMessage("rotz:"+rotz+"\r\n")
+                    #if logging:
+                    #    f_log.write(rotz + " MAUI rotz\n") #\n its enough in write
+                    #rotz=rotz[13:-1]
+                    rotz=rotz[5:]
+                    #FreeCAD.Console.PrintMessage("rotz:"+rotz+"\r\n")
+                    temp=rotz.split(" ")
+                    #FreeCAD.Console.PrintMessage("rotz temp:"+temp[2]+"\r\n")
+                    rotz=temp[2]
+                    FreeCAD.Console.PrintMessage("rotate vrml: "+rotz+"\r\n")
+                if rotz=='':
+                    rotz=0.0
+                else:
+                    rotz=float(rotz)
+                rot=rot-rotz  #adding vrml module z-rotation
+                model=model_list[j]+'.wrl'
+                print model
+                #virtual = re.search(r'\(attr\s+(.+?)virtual\)',i)
+                virtual=0
+                if (i.find("virtual")!=-1):
+                    virtual=1
+                if (virtual==1 and addVirtual==0):
+                    model_name='no3Dmodel'
+                    side='noLayer'
+                else:
+                    if model:
+                        # print model.group(0)
+                        #model_name=model.group(0)[6:]
+                        if logging:
+                            f_log.write(model) #\n its enough in write
+                            f_log.write(" MAUI model\n")
+                        #model_name=model[6:]
+                        model_name=model
+                        #model_name=model_name[1:]
+                        if logging:
+                            f_log.write(model_name) #\n its enough in write
+                            f_log.write(" MAUI model_name\n")
+                        #print model_name
+                    else:
+                        model_name='no3Dmodel'
+                        side='noLayer'
+
+                    line = []
+                    line.append(model_name)
+                    line.append(x)
+                    line.append(y)
+                    line.append(rot)
+                    line.append(side)
+                    PCB_Models.append(line)
+            ##virtual = re.search(r'\(attr\s+(.+?)virtual\)',i)
+
+        ####
+        # print i
+        # print PCB_EL
+        return PCB_Models
+
+version=getPCBVersion()
+if version < 3:
+    reply = QtGui.QMessageBox.information(None,"Error ...","... KICAD pcb version "+ str(version)+" not supported \r\n"+"\r\nplease open and save your board with the latest kicad version")
+    sys.exit("pcb version not supported")
+if version==3:
+    Edge_Cuts_lvl=28
+    Top_lvl=15
+if version>=4:
+    Edge_Cuts_lvl=44
+    Top_lvl=0
+
+print 'kicad_pcb version %s' % (getPCBVersion())
+print 'PCBThickness %smm' % (getPCBThickness())
+
+area= getPCBArea()
+area_coords= area.split()
+# print area_coords[0]
+xm=float(area_coords[0]); xM=float(area_coords[2]); ym=float(area_coords[1]); yM=float(area_coords[3])
+print 'area coordinates xM,xm,yM,ym', xM,xm,yM,ym
+#print area
+
+def createSolidBBox(model3D):
+    selEx=model3D
+    selEx = FreeCADGui.Selection.getSelectionEx()
+    objs = [selobj.Object for selobj in selEx]
+    if len(objs) == 1:
+        s = objs[0].Shape
+        name=objs[0].Label
+        App.Console.PrintMessage(name+" name \r\n")
+        # boundBox
+        boundBox_ = s.BoundBox
+        boundBoxLX = boundBox_.XLength
+        boundBoxLY = boundBox_.YLength
+        boundBoxLZ = boundBox_.ZLength
+
+        a = str(boundBox_)
+        a,b = a.split('(')
+        c = b.split(',')
+        oripl_X = float(c[0])
+        oripl_Y = float(c[1])
+        oripl_Z = float(c[2])
+
+        App.Console.PrintMessage(str(boundBox_)+"\r\n")
+        App.Console.PrintMessage("Rectangle : "+str(boundBox_.XLength)+" x "+str(boundBox_.YLength)+" x "+str(boundBox_.ZLength)+"\r\n")
+        App.Console.PrintMessage("_____________________"+"\r\n")
+        App.Console.PrintMessage("x: "+str(oripl_X)+" y: "+str(oripl_Y)+"z: "+str(oripl_Z)+"\r\n")
+
+        obj=App.ActiveDocument.addObject('Part::Feature',name)
+        obj.Shape=Part.makeBox(boundBox_.XLength, boundBox_.YLength, boundBox_.ZLength, App.Vector(oripl_X,oripl_Y,oripl_Z), App.Vector(0,0,01))
+
+        # Part.show(cube)
+        App.Console.PrintMessage("cube name "+ obj.Name+'\r\n')
+        ### App.ActiveDocument.recompute()
+    else:
+        App.Console.PrintMessage("Select a single part object !"+"\r\n")
+    #end bbox macro
+
+    name=obj.Name
+    App.Console.PrintMessage("bbox name "+name+"\r\n")
+    return name
+
+    del objs
+
+
+
+def findPcbCenter(pcbName):
+
+    pcb = FreeCAD.ActiveDocument.getObject(pcbName)
+    s=pcb.Shape
+    name=pcb.Label
+    # boundBox
+    boundBox_ = s.BoundBox
+    boundBoxLX = boundBox_.XLength
+    boundBoxLY = boundBox_.YLength
+    boundBoxLZ = boundBox_.ZLength
+
+    center = s.BoundBox.Center
+    App.Console.PrintMessage(center)
+    App.Console.PrintMessage("["+str(center.x)+"],["+str(center.y)+"] center of pcb\r\n")
+    a = str(boundBox_)
+    a,b = a.split('(')
+    c = b.split(',')
+    oripl_X = float(c[0])
+    oripl_Y = float(c[1])
+    oripl_Z = float(c[2])
+
+    App.Console.PrintMessage(str(boundBox_)+"\r\n")
+    App.Console.PrintMessage("Rectangle : "+str(boundBox_.XLength)+" x "+str(boundBox_.YLength)+" x "+str(boundBox_.ZLength)+"\r\n")
+    App.Console.PrintMessage("_____________________"+"\r\n")
+    App.Console.PrintMessage("x: "+str(oripl_X)+" y: "+str(oripl_Y)+"z: "+str(oripl_Z)+"\r\n")
+
+    center_x=center.x; center_y=center.y
+    bb_x=boundBox_.XLength; bb_y=boundBox_.YLength
+    ## obj=App.ActiveDocument.addObject('Part::Feature',name)
+    ## obj.Shape=Part.makeBox(boundBox_.XLength, boundBox_.YLength, boundBox_.ZLength, App.Vector(oripl_X,oripl_Y,oripl_Z), App.Vector(0,0,01))
+    ##
+    ## # Part.show(cube)
+    ## App.Console.PrintMessage("cube name "+ obj.Name+'\r\n')
+    ## ### App.ActiveDocument.recompute()
+    ##
+    ## name=obj.Name
+    ## App.Console.PrintMessage("bbox name "+name+"\r\n")
+
+    return center_x, center_y, bb_x, bb_y
+
+Kicad_Board_elaborated = Elaborate_Kicad_Board(fullfilePath)
+
+modules = []
+modules = getParts(modules)
+for i in range(len(modules)):
+    for j in range(len(modules[i])):
+        #print len(modules[i])
+        print modules[i][j]
+
+## pos objs x,-y
+## pos board xm+(xM-xm)/2
+## pos board -(ym+(yM-ym)/2)
+
+FreeCAD.Console.PrintMessage("base point x"+str(xm+(xM-xm)/2)+" y "+str(-(ym+(yM-ym)/2))+"\r\n")
+# xM=area_coords[0]; xm=area_coords[1]; yM=area_coords[2]; ym=area_coords[3]
+##FreeCAD.ActiveDocument.getObject("Board_outline").Placement = App.Placement(App.Vector(xm+(xM-xm)/2,-(ym+(yM-ym)/2),0),App.Rotation(App.Vector(0,0,1),0))
+
+center_x, center_y, bb_x, bb_y = findPcbCenter("Board_outline")
+
+## using PcbCenter
+xMax=center_x+bb_x/2
+xmin=center_x-bb_x/2
+yMax=center_y+bb_y/2
+ymin=center_y-bb_y/2
+
+off_x=0; off_y=0  #offset of the board & modules
+
+if (aux_orig==1):
+    xp=getAuxAxisOrigin()[0]; yp=-getAuxAxisOrigin()[1]  #offset of the board & modules
+    ##off_x=-xp+xmin+(xMax-xmin)/2; off_y=-yp-(ymin+(yMax-ymin)/2)  #offset of the board & modules
+    off_x=-xp+center_x;off_y=-yp+center_y
+if (base_orig==1):
+    ##off_x=xmin+(xMax-xmin)/2; off_y=-(ymin+(yMax-ymin)/2)  #offset of the board & modules
+    off_x=center_x;off_y=center_y
+if (base_point==1):
+    ##off_x=-xp+xmin+(xMax-xmin)/2; off_y=-yp-(ymin+(yMax-ymin)/2)  #offset of the board & modules
+    #off_x=-xp+center_x;off_y=-yp+center_y
+    off_x=-xp+center_x;off_y=-yp+center_y
+
+
+## test maui board_base_point_x=(xMax-xmin)/2-off_x
+## test maui board_base_point_y=-((yMax-ymin)/2)-off_y
+#real_board_pos_x=xmin+(xMax-xmin)/2
+#real_board_pos_y=-(ymin+(yMax-ymin)/2)
+## using PcbCenter
+real_board_pos_x=center_x
+real_board_pos_y=center_y
+
+
+# doc = FreeCAD.ActiveDocument
+if idf_to_origin == True:
+    board_base_point_x=-off_x
+    board_base_point_y=-off_y
+else:
+## using PcbCenter
+    #board_base_point_x=xmin+(xMax-xmin)/2-off_x
+    #board_base_point_y=-(ymin+(yMax-ymin)/2)-off_y
+    board_base_point_x=center_x-off_x
+    board_base_point_y=center_y-off_y
+
+FreeCAD.ActiveDocument.getObject("Board_outline").Placement = App.Placement(App.Vector(board_base_point_x,board_base_point_y,0),App.Rotation(App.Vector(0,0,1),0))
+## FreeCAD.ActiveDocument.getObject("Board_outline").Placement = App.Placement(App.Vector(-off_x,-off_y,0),App.Rotation(App.Vector(0,0,1),0))
+Gui.SendMsgToActiveView("ViewFit")
+#ImportGui.insert(u"./c0603.step","demo_5D_vrml_from_step")
+
+missing_models = ''
+for i in range(len(modules)):
+    step_module=modules[i][0]
+    FreeCAD.Console.PrintMessage(modules[i])
+    FreeCAD.Console.PrintMessage('\r\n')
+    #FreeCAD.Console.PrintMessage('step-module '+step_module+'\r\n')
+    if (step_module.find('${KIPRJMOD}')!=-1):  #local 3D path
+        step_module=step_module.replace('${KIPRJMOD}', '.')
+        FreeCAD.Console.PrintMessage('adjusting Local Path\r\n')
+        FreeCAD.Console.PrintMessage('step-module-replaced '+step_module+'\r\n')
+    if step_module != 'no3Dmodel':
+        step_module=step_module[:-3]+'step'
+        step_module2=step_module[:-4]+'stp'
+        step_module3=step_module[:-4]+'iges'
+        step_module4=step_module[:-4]+'igs'
+        model_name=step_module[:-5]
+        last_slash_pos1=model_name.rfind('/')
+        last_slash_pos2=model_name.rfind('\\')
+        last_slash_pos=max(last_slash_pos1,last_slash_pos2)
+        model_name=model_name[last_slash_pos+1:]
+        FreeCAD.Console.PrintMessage('model name '+model_name+'\r\n')
+    else:
+        model_name='no3Dmodel'
+    blacklisted=0
+    if blacklisted_model_elements != '':
+        if blacklisted_model_elements.find(model_name) != -1:
+            blacklisted=1
+    ###
+    if (blacklisted==0):
+        if step_module != 'no3Dmodel':
+            module_path='not-found'
+            step_module=step_module.replace('"', '')  # name with spaces
+            if os.path.exists(models3D_prefix+step_module):
+                module_path=models3D_prefix+step_module
+            else:
+                if os.path.exists(step_module): # absolute path
+                    module_path=step_module
+            #adding .stp support
+            if os.path.exists(models3D_prefix+step_module2) and (module_path=='not-found'):
+                module_path=models3D_prefix+step_module2
+            else:
+                if os.path.exists(step_module2) and (module_path=='not-found'): # absolute path
+                    module_path=step_module2
+            #adding .iges support
+            if os.path.exists(models3D_prefix+step_module3) and (module_path=='not-found'):
+                module_path=models3D_prefix+step_module3
+            else:
+                if os.path.exists(step_module3) and (module_path=='not-found'): # absolute path
+                    module_path=step_module3
+            #adding .igs support
+            if os.path.exists(models3D_prefix+step_module4) and (module_path=='not-found'):
+                module_path=models3D_prefix+step_module4
+            else:
+                if os.path.exists(step_module4) and (module_path=='not-found'): # absolute path
+                    module_path=step_module4
+
+            if module_path!='not-found':
+                #Gui.Selection.removeSelection(App.activeDocument().ActiveObject)  mauitemp volume diff
+                FreeCAD.Console.PrintMessage("opening "+ module_path)
+                ImportGui.insert(module_path,FreeCAD.ActiveDocument.Name)
+                pos_x=modules[i][1]-off_x
+                pos_y=modules[i][2]-off_y
+                rot=modules[i][3]
+                step_layer=modules[i][4]
+
+                impPart=FreeCAD.ActiveDocument.ActiveObject
+                FreeCAD.Console.PrintMessage("module"+step_module+"\r\n")
+                impPart.Label = impPart.Label + '_'
+                FreeCAD.Console.PrintMessage("selection 3D model "+ impPart.Name+'\r\n')
+                impPart=reset_prop_shapes(impPart,FreeCAD.ActiveDocument, FreeCAD,Gui)
+                model3D=impPart.Name
+                FreeCAD.Console.PrintMessage("impPart "+ impPart.Name+'\r\n')
+                obj = App.ActiveDocument.getObject(model3D)
+                Gui.Selection.addSelection(obj)
+                obj=FreeCAD.ActiveDocument.ActiveObject
+
+                #volume_minimum=1
+                myPart=App.ActiveDocument.getObject(obj.Name)   #mauitemp min vol
+                if myPart.Shape.Volume>volume_minimum:  #mauitemp min vol
+                    if myPart.Shape.BoundBox.ZMax>height_minimum:  #mauitemp min height
+                        if (height_minimum!=0):
+                            FreeCAD.Console.PrintMessage("height > Min height "+ str(myPart.Shape.BoundBox.ZMax) + " "+impPart.Name+'\r\n')
+                        if (volume_minimum!=0):
+                            FreeCAD.Console.PrintMessage("Volume > Min Volume "+ str(myPart.Shape.Volume) + " "+impPart.Name+'\r\n')
+                        if (bbox_all==1) or (bbox_list==1):
+                                if whitelisted_model_elements.find(model_name) == -1:
+                                    bboxName=createSolidBBox(model3D)
+                        if step_layer == 'Top':
+                            impPart.Placement = App.Placement(App.Vector(pos_x,pos_y,0),App.Rotation(App.Vector(0,0,1),rot))
+                            if (bbox_all==1) or (bbox_list==1):
+                                if whitelisted_model_elements.find(model_name) == -1:
+                                    bbox_col=bbox_default_col
+                                    FreeCAD.Console.PrintMessage("bboxName "+ bboxName +'\r\n')
+                                    FreeCAD.Console.PrintMessage("bboxName "+str(bboxName.upper().startswith('R'))+'\r\n')
+                                    if (bboxName.upper().startswith('X')):
+                                        bbox_col=bbox_x_col
+                                    if (bboxName.upper().startswith('L')):
+                                        bbox_col=bbox_l_col
+                                    if (bboxName.upper().startswith('R')):
+                                        bbox_col=bbox_r_col
+                                    if (bboxName.upper().startswith('C')):
+                                        bbox_col=bbox_c_col
+                                    if (bboxName.upper().startswith('S')|bboxName.upper().startswith('Q')|bboxName.upper().startswith('D')|bboxName.upper().startswith('T')):
+                                        bbox_col=bbox_IC_col
+                                    obj = App.ActiveDocument.getObject(bboxName)
+                                    obj.Placement = App.Placement(App.Vector(pos_x,pos_y,0),App.Rotation(App.Vector(0,0,1),rot))
+                                    FreeCADGui.ActiveDocument.getObject(bboxName).ShapeColor=bbox_col
+                                    Gui.Selection.addSelection(obj)
+                                    FreeCAD.Console.PrintMessage("selection 3D model "+ obj.Name+'\r\n')
+                                    FreeCAD.ActiveDocument.getObject("Step_Models").addObject(obj)
+                            Gui.Selection.addSelection(impPart)
+
+                            FreeCAD.ActiveDocument.getObject("Step_Models").addObject(impPart)
+                            if (bbox_all==1) or (bbox_list==1):
+                                if whitelisted_model_elements.find(model_name) == -1:
+                                    App.activeDocument().removeObject(impPart.Name)
+                        #App.activeDocument().removeObject(impPart.Name)
+                        ###
+                        else:
+                        #Bottom
+                        #Bottom
+                            impPart.Placement = App.Placement(App.Vector(pos_x,pos_y,-getPCBThickness()),App.Rotation(App.Vector(0,1,0),180))
+                            #obj.Placement = impPart.Placement
+                            shape=impPart.Shape.copy()
+                            shape.Placement=impPart.Placement;
+                            shape.rotate((pos_x,pos_y,-getPCBThickness()),(0,0,1),-rot+180)
+                            impPart.Placement=shape.Placement
+                            if (bbox_all==1) or (bbox_list==1):
+                                if whitelisted_model_elements.find(model_name) == -1:
+                                    bbox_col=bbox_default_col
+                                    if (bboxName.upper().startswith('X')):
+                                        bbox_col=bbox_x_col
+                                    if (bboxName.upper().startswith('L')):
+                                        bbox_col=bbox_l_col
+                                    if (bboxName.upper().startswith('R')):
+                                        bbox_col=bbox_r_col
+                                    if (bboxName.upper().startswith('C')):
+                                        bbox_col=bbox_c_col
+                                    if (bboxName.upper().startswith('S')|bboxName.upper().startswith('Q')|bboxName.upper().startswith('D')|bboxName.upper().startswith('T')):
+                                        bbox_col=bbox_IC_col
+                                    obj = App.ActiveDocument.getObject(bboxName)
+                                    Gui.Selection.addSelection(obj)
+                                    obj.Placement = App.Placement(App.Vector(pos_x,pos_y,-getPCBThickness()),App.Rotation(App.Vector(0,1,0),180))
+                                    shape2=obj.Shape.copy()
+                                    shape2.Placement=obj.Placement;
+                                    shape2.rotate((pos_x,pos_y,-getPCBThickness()),(0,0,1),-rot+180)
+                                    obj.Placement=shape2.Placement
+                                    FreeCADGui.ActiveDocument.getObject(bboxName).ShapeColor=bbox_col
+                                    Gui.Selection.addSelection(obj)
+                                    App.ActiveDocument.getObject(obj.Name)
+                                    FreeCAD.ActiveDocument.getObject("Step_Models").addObject(obj)
+                            Gui.Selection.addSelection(impPart)
+                            App.ActiveDocument.getObject(impPart.Name)
+                            FreeCAD.ActiveDocument.getObject("Step_Models").addObject(impPart)
+                            if (bbox_all==1) or (bbox_list==1):
+                                if whitelisted_model_elements.find(model_name) == -1:
+                                    App.activeDocument().removeObject(impPart.Name)
+                            #Part.show(shape)
+                            #Part.show(shape2)
+                            FreeCAD.Console.PrintMessage("todo ...\r\n")
+                    else:  #mauitemp min height
+                        App.activeDocument().removeObject(obj.Name)
+                else:  #mauitemp min vol
+                    App.activeDocument().removeObject(obj.Name)
+
+            ###
+            else:
+                FreeCAD.Console.PrintMessage("error missing "+ models3D_prefix+step_module+'\r\n')
+                test = missing_models.find(step_module)
+                if test is -1:
+                    missing_models += models3D_prefix+step_module+'\r\n' #matched
+        ###
+    ###
+###
+#sleep
+App.ActiveDocument.recompute()
+if missing_models != '':
+    reply = QtGui.QMessageBox.information(None,"Error ...","... missing module(s)\r\n"+ missing_models)
+#if blacklisted_model_elements != '':
+#    FreeCAD.Console.PrintMessage("black-listed module "+ '\n'.join(map(str, blacklisted_models)))
+#    reply = QtGui.QMessageBox.information(None,"Info ...","... black-listed module(s)\n"+ '\n'.join(map(str, blacklisted_models)))
+#    #FreeCAD.Console.PrintMessage("black-listed module "+ '\n'.join(map(str, blacklisted_models)))
+
+
+Gui.SendMsgToActiveView("ViewFit")
+doc = FreeCAD.ActiveDocument
+
+if (show_messages==True):
+    Gui.activeDocument().activeView().viewAxometric()
+
+## exporting
+__objs__=[]
+
+
+for obj in doc.Objects:
+    # do what you want to automate
+    if (obj.Label!="Board_Geoms") and (obj.Label!="Step_Models"):
+        Gui.Selection.addSelection(obj)
+        __objs__.append(obj)
+
+## board=doc.getObject("Board_Geoms")
+## mods=doc.getObject("Step_Models")
+##
+## Gui.Selection.removeSelection(board)
+## Gui.Selection.removeSelection(mods)
+
+
+if (bbox_all==1) or (bbox_list==1):
+    fpath=filePath+os.sep+doc.Label+"_bbox"+'.step'
+else:
+    fpath=filePath+os.sep+doc.Label+'.step'
+ImportGui.export(__objs__,fpath)
+
+#fusion=False
+## be careful ... fusion can be heavy or generate FC crash with a lot of objects
+## please consider to use bbox or blacklist small objs
+if (fusion==True):
+    # Fuse objects
+    doc.addObject("Part::MultiFuse","Fusion")
+    doc.Fusion.Shapes = __objs__
+#    doc.ActiveObject.Label=doc.Name+"_union"
+    doc.recompute()
+    doc.addObject('Part::Feature','Fusion').Shape=App.ActiveDocument.Fusion.Shape
+    if (bbox_all==1) or (bbox_list==1):
+        doc.ActiveObject.Label=doc.Name+"_bbox_union"
+    else:
+        doc.ActiveObject.Label=doc.Name+"_union"
+    Gui.ActiveDocument.ActiveObject.ShapeColor=Gui.ActiveDocument.Fusion.ShapeColor
+    Gui.ActiveDocument.ActiveObject.LineColor=Gui.ActiveDocument.Fusion.LineColor
+    Gui.ActiveDocument.ActiveObject.PointColor=Gui.ActiveDocument.Fusion.PointColor
+    Gui.ActiveDocument.ActiveObject.DiffuseColor=Gui.ActiveDocument.Fusion.DiffuseColor
+    # Remove the fusion object
+    doc.removeObject("Fusion")
+    doc.recompute()
+
+    fobjs=[]
+    fused_obj=doc.ActiveObject
+    FreeCAD.Console.PrintMessage(fused_obj)
+    fobjs.append(fused_obj)
+    if (bbox_all==1) or (bbox_list==1):
+        fpath=filePath+os.sep+doc.Label+"_bbox_union"+'.step'
+    else:
+        fpath=filePath+os.sep+doc.Label+"_union"+'.step'
+    FreeCAD.Console.PrintMessage(fpath+" fusion path \r\n")
+    FreeCAD.Console.PrintMessage(fobjs)
+    #Export fused object
+    ImportGui.export(fobjs,fpath)
+    App.activeDocument().recompute()
+    del fobjs
+
+    #ImportGui.export(doc.ActiveObject,filePath+os.sep+doc.Label+'.step')
+
+for obj in doc.Objects:
+   # do what you want to automate
+   Gui.Selection.removeSelection(obj)
+
+if blacklisted_model_elements != '':
+    FreeCAD.Console.PrintMessage("black-listed module "+ '\r\n'.join(map(str, blacklisted_models)))
+    if (show_messages==True):
+        reply = QtGui.QMessageBox.information(None,"Info ...","... black-listed module(s)\r\n"+ '\r\n'.join(map(str, blacklisted_models)))
+    #FreeCAD.Console.PrintMessage("black-listed module "+ '\r\n'.join(map(str, blacklisted_models)))
+
+del __objs__
+## Save to disk in native format
+App.ActiveDocument=None
+Gui.ActiveDocument=None
+App.setActiveDocument(doc.Name)
+App.ActiveDocument=App.getDocument(doc.Name)
+Gui.ActiveDocument=Gui.getDocument(doc.Name)
+if (bbox_all==1) or (bbox_list==1):
+    fpath=filePath+os.sep+doc.Name+"_bbox"
+else:
+    fpath=filePath+os.sep+doc.Name
+if (fusion==True):
+    fpath=fpath+"_union"
+FreeCAD.Console.PrintMessage(fpath+".FCStd"+"\r\n")
+App.getDocument(doc.Name).saveAs(fpath+".FCStd")
+App.ActiveDocument.recompute()
+
+App.getDocument(doc.Name).Label = doc.Name
+Gui.SendMsgToActiveView("Save")
+App.getDocument(doc.Name).save()
+
+msgpath=filePath+os.sep+doc.Name
+if (bbox_all==1) or (bbox_list==1):
+    msgpath=msgpath+"_bbox"
+
+msg="kicad StepUp ver. "+___ver___
+msg+="\r\nfile exported\r\n"+msgpath+'.step'
+#if len(msgpath)>15:
+#    insert_return(msgpath, 15)
+if (fusion==True):
+    msgpath=msgpath+"_union"
+    msg+="\r\nfused file exported\r\n"+msgpath+'.step'
+
+if (idf_to_origin==True):
+    new_pos_x=board_base_point_x+real_board_pos_x
+    new_pos_y=board_base_point_y+real_board_pos_y
+else:
+    new_pos_x=board_base_point_x
+    new_pos_y=board_base_point_y
+#msg+="\r\nBoard Placed @ "+str(board_base_point_x)+";"+str(board_base_point_y)+";0.0"
+#msg+="\r\nBoard Placed @ "+"{0:.3f}".format(new_pos_x)+";"+"{0:.3f}".format(new_pos_y)+";0.0"
+msg+="\r\nBoard Placed @ "+str(new_pos_x)+";"+str(new_pos_y)+";0.0"
+#msg+="\r\nBoard Placed @ "+"{0:.3f}".format(new_pos_x).rstrip('0')+";"+"{0:.3f}".format(new_pos_y).rstrip('0')+";0.0"
+#msg+="\r\nkicad pcb pos: ("+str(real_board_pos_x)+";"+str(real_board_pos_y)+";"+str(getPCBThickness()/2)+")"
+msg+="\r\nkicad pcb pos: ("+"{0:.3f}".format(real_board_pos_x)+";"+"{0:.3f}".format(real_board_pos_y)+";"+"{0:.2f}".format(getPCBThickness()/2)+")"
+
+if (bbox_all==1) or (bbox_list==1):
+    msg+="\r\nbounding box modules applied"
+
+if (volume_minimum!=0):
+    msg+="\r\nmodules with volume less then "+str(volume_minimum)+"mm^3 not included"
+
+if (height_minimum!=0):
+    msg+="\r\nmodules with height less then "+str(height_minimum)+"mm not included"
+
+end_milli_time = current_milli_time()
+running_time=(end_milli_time-start_time)/1000
+msg+="\r\nrunning time: "+str(running_time)+"sec"
+
+if (show_messages==True):
+    reply = QtGui.QMessageBox.information(None,"Info ...",msg)
+
+if logging:
+    f_log.close() # you can omit in most cases as the destructor will call it
+
+# Macro End +++++++++++++++++++++++++++++++++++++++++++++++++

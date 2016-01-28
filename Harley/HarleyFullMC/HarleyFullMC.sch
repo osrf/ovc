@@ -38,6 +38,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -488,7 +489,7 @@ Text GLabel 5400 2350 2    60   Input ~ 0
 FLASH_SDA
 Text GLabel 5400 2250 2    60   Input ~ 0
 FLASH_SCL
-Text GLabel 7950 2900 2    60   Input ~ 0
+Text GLabel 7950 3100 2    60   Input ~ 0
 FPGA_JTAG_TDI
 Text GLabel 7950 3000 2    60   Input ~ 0
 FPGA_JTAG_TDO
@@ -574,15 +575,13 @@ Text GLabel 7750 3600 0    60   Input ~ 0
 FX3_JTAG_TCK
 Text GLabel 7750 3700 0    60   Input ~ 0
 FX3_JTAG_TDI
-Text GLabel 7750 4000 0    60   Input ~ 0
-FX3_JTAG_TRST
 Text GLabel 5450 3250 0    60   Input ~ 0
 FX3_LED/DEBUG
-Text GLabel 7450 2250 0    60   Input ~ 0
-FX3_UART_TX
 Text GLabel 7450 2150 0    60   Input ~ 0
-FX3_UART_RX
+FX3_UART_TX
 Text GLabel 7450 2050 0    60   Input ~ 0
+FX3_UART_RX
+Text GLabel 7450 2250 0    60   Input ~ 0
 FX3_RST#
 Wire Wire Line
 	800  4250 800  4300
@@ -825,7 +824,7 @@ F 3 "" H 6150 3700 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 5450 3700 0    60   Input ~ 0
-FPGADebug1
+FPGADebug2
 $Comp
 L LED D2
 U 1 1 56AAB830
@@ -890,4 +889,26 @@ Text GLabel 7450 3000 0    60   Input ~ 0
 FPGADebug1
 Text GLabel 7450 3100 0    60   Input ~ 0
 FPGADebug2
+$Comp
+L GND #PWR014
+U 1 1 56AA8A08
+P 7950 2900
+F 0 "#PWR014" H 7950 2650 50  0001 C CNN
+F 1 "GND" V 7958 2772 50  0000 R CNN
+F 2 "" H 7950 2900 50  0000 C CNN
+F 3 "" H 7950 2900 50  0000 C CNN
+	1    7950 2900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L +2V5 #PWR015
+U 1 1 56AA938A
+P 7750 4000
+F 0 "#PWR015" H 7750 3850 50  0001 C CNN
+F 1 "+2V5" V 7768 4128 50  0000 L CNN
+F 2 "" H 7750 4000 50  0000 C CNN
+F 3 "" H 7750 4000 50  0000 C CNN
+	1    7750 4000
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC
