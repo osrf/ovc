@@ -38,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -147,28 +146,6 @@ F 3 "" H 4450 3050 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR50
-U 1 1 56A187AE
-P 4750 900
-F 0 "#PWR50" H 4750 750 50  0001 C CNN
-F 1 "+5V" H 4750 1040 50  0000 C CNN
-F 2 "" H 4750 900 60  0000 C CNN
-F 3 "" H 4750 900 60  0000 C CNN
-	1    4750 900 
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR51
-U 1 1 56A187B4
-P 4750 1200
-F 0 "#PWR51" H 4750 950 50  0001 C CNN
-F 1 "GND" H 4750 1050 50  0000 C CNN
-F 2 "" H 4750 1200 60  0000 C CNN
-F 3 "" H 4750 1200 60  0000 C CNN
-	1    4750 1200
-	1    0    0    -1  
-$EndComp
-$Comp
 L +5V #PWR46
 U 1 1 56A187BA
 P 4450 1850
@@ -177,36 +154,6 @@ F 1 "+5V" H 4450 1990 50  0000 C CNN
 F 2 "" H 4450 1850 60  0000 C CNN
 F 3 "" H 4450 1850 60  0000 C CNN
 	1    4450 1850
-	1    0    0    -1  
-$EndComp
-$Comp
-L CONN_01X04 J2
-U 1 1 56A24E0A
-P 5000 1050
-F 0 "J2" H 5078 1187 50  0000 L CNN
-F 1 "CONN_01X04" H 5078 1095 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch1.27mm" H 5078 1003 50  0000 L CNN
-F 3 "" H 5000 1050 50  0000 C CNN
-F 4 "_" H 5000 1050 60  0001 C CNN "MFN"
-F 5 "_" H 5000 1050 60  0001 C CNN "MFP"
-F 6 "digikey" H 5000 1050 60  0001 C CNN "D1"
-F 7 "mouser" H 5000 1050 60  0001 C CNN "D2"
-F 8 "_" H 5000 1050 60  0001 C CNN "D1PN"
-F 9 "_" H 5000 1050 60  0001 C CNN "D1PL"
-F 10 "_" H 5000 1050 60  0001 C CNN "D2PN"
-F 11 "_" H 5000 1050 60  0001 C CNN "D2PL"
-F 12 "_" H 5000 1050 60  0001 C CNN "Package"
-F 13 "_" H 5078 904 60  0000 L CNN "Description"
-F 14 "_" H 5000 1050 60  0001 C CNN "Voltage"
-F 15 "_" H 5000 1050 60  0001 C CNN "Power"
-F 16 "_" H 5000 1050 60  0001 C CNN "Tolerance"
-F 17 "_" H 5000 1050 60  0001 C CNN "Temperature"
-F 18 "_" H 5000 1050 60  0001 C CNN "ReverseVoltage"
-F 19 "_" H 5000 1050 60  0001 C CNN "ForwardVoltage"
-F 20 "_" H 5000 1050 60  0001 C CNN "Cont.Current"
-F 21 "_" H 5000 1050 60  0001 C CNN "Frequency"
-F 22 "_" H 5000 1050 60  0001 C CNN "ResonnanceFreq"
-	1    5000 1050
 	1    0    0    -1  
 $EndComp
 Text GLabel 4450 2250 0    60   Input ~ 12
@@ -237,10 +184,6 @@ Text GLabel 4450 1950 0    60   Input ~ 0
 USB_HS_D-
 Text GLabel 4450 2050 0    60   Input ~ 0
 USB_HS_D+
-Text GLabel 4800 1000 0    60   Input ~ 0
-USB_HS_D-
-Text GLabel 4800 1100 0    60   Input ~ 0
-USB_HS_D+
 Wire Wire Line
 	4450 2650 4450 3050
 Wire Wire Line
@@ -263,10 +206,6 @@ Wire Wire Line
 	5250 3700 5550 3700
 Wire Wire Line
 	5250 3800 5550 3800
-Wire Wire Line
-	4750 900  4800 900 
-Wire Wire Line
-	4750 1200 4800 1200
 Wire Wire Line
 	4450 3050 4950 3050
 Connection ~ 4450 2750
