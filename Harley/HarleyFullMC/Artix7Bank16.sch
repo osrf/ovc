@@ -38,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -173,7 +172,6 @@ F 22 "_" H 5850 3950 50  0001 C CNN "ResonnanceFreq"
 	1    5850 3950
 	1    0    0    -1  
 $EndComp
-Connection ~ 5650 4100
 $Comp
 L GND #PWR68
 U 1 1 56A2F91D
@@ -185,7 +183,6 @@ F 3 "" H 5650 4100 50  0000 C CNN
 	1    5650 4100
 	1    0    0    -1  
 $EndComp
-Connection ~ 5650 3800
 $Comp
 L +3V3 #PWR67
 U 1 1 56A2F9ED
@@ -208,12 +205,6 @@ F 3 "" H 5050 3000 50  0000 C CNN
 	1    5050 3000
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	4650 3000 5050 3000
-Wire Wire Line
-	5300 3800 5850 3800
-Wire Wire Line
-	5850 4100 5300 4100
 Text GLabel 1250 3000 0    60   Input ~ 0
 CAM_CLK_PLL
 Text GLabel 4650 2900 2    60   Input ~ 0
@@ -234,4 +225,12 @@ Text GLabel 1250 2900 0    60   Input ~ 0
 SPI_SCK
 Text GLabel 4650 2600 2    60   Input ~ 0
 SPI_MISO
+Wire Wire Line
+	4650 3000 5050 3000
+Wire Wire Line
+	5300 3800 5850 3800
+Wire Wire Line
+	5850 4100 5300 4100
+Connection ~ 5650 4100
+Connection ~ 5650 3800
 $EndSCHEMATC

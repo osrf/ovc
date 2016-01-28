@@ -38,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -274,14 +273,6 @@ F 22 "_" H 7500 3900 50  0001 C CNN "ResonnanceFreq"
 	1    7500 3900
 	1    0    0    -1  
 $EndComp
-Connection ~ 7150 4050
-Connection ~ 7900 4050
-Connection ~ 7700 4050
-Connection ~ 7500 4050
-Connection ~ 7900 3750
-Connection ~ 7700 3750
-Connection ~ 7500 3750
-Connection ~ 7150 3750
 $Comp
 L +2V5 #PWR78
 U 1 1 56A2BBB0
@@ -293,16 +284,6 @@ F 3 "" H 6950 3750 50  0000 C CNN
 	1    6950 3750
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6950 4050 8100 4050
-Wire Wire Line
-	6950 3750 8100 3750
-Wire Wire Line
-	5800 3500 5800 4000
-Connection ~ 5800 3600
-Connection ~ 5800 3700
-Connection ~ 5800 3800
-Connection ~ 5800 3900
 $Comp
 L +2V5 #PWR70
 U 1 1 56A2BC20
@@ -314,8 +295,6 @@ F 3 "" H 5950 3700 50  0000 C CNN
 	1    5950 3700
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5800 3700 5950 3700
 Text GLabel 2400 3800 0    60   Input ~ 0
 FX3_DQ0
 Text GLabel 2400 1800 0    60   Input ~ 0
@@ -356,4 +335,24 @@ Text GLabel 2400 3700 0    60   Input ~ 0
 FX3_FLAGA
 Text GLabel 2400 2400 0    60   Input ~ 0
 FPGA_CLK
+Wire Wire Line
+	6950 4050 8100 4050
+Wire Wire Line
+	6950 3750 8100 3750
+Wire Wire Line
+	5800 3500 5800 4000
+Wire Wire Line
+	5800 3700 5950 3700
+Connection ~ 7150 4050
+Connection ~ 7900 4050
+Connection ~ 7700 4050
+Connection ~ 7500 4050
+Connection ~ 7900 3750
+Connection ~ 7700 3750
+Connection ~ 7500 3750
+Connection ~ 7150 3750
+Connection ~ 5800 3600
+Connection ~ 5800 3700
+Connection ~ 5800 3800
+Connection ~ 5800 3900
 $EndSCHEMATC

@@ -38,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -1184,6 +1183,14 @@ Text GLabel 3700 1900 2    60   Input ~ 0
 CAM_CLK_OUT-
 Text GLabel 3700 2000 2    60   Input ~ 0
 CAM_CLK_OUT+
+Text GLabel 1700 2500 0    60   Input ~ 0
+SPI_MISO
+Text GLabel 1700 2600 0    60   Input ~ 0
+SPI_SCK
+Text GLabel 1700 2400 0    60   Input ~ 0
+SPI_MOSI
+Text GLabel 3700 3500 2    60   Input ~ 0
+CAM_monitor1
 Wire Wire Line
 	2000 1200 2200 1200
 Wire Wire Line
@@ -1330,12 +1337,4 @@ Connection ~ 1400 6000
 Connection ~ 1200 6000
 Connection ~ 1800 1900
 Connection ~ 1800 2200
-Text GLabel 1700 2500 0    60   Input ~ 0
-SPI_MISO
-Text GLabel 1700 2600 0    60   Input ~ 0
-SPI_SCK
-Text GLabel 1700 2400 0    60   Input ~ 0
-SPI_MOSI
-Text GLabel 3700 3500 2    60   Input ~ 0
-CAM_monitor1
 $EndSCHEMATC

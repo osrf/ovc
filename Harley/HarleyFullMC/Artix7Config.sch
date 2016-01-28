@@ -38,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -124,14 +123,6 @@ F 3 "" H 8450 2800 50  0000 C CNN
 	1    8450 2800
 	1    0    0    -1  
 $EndComp
-Text GLabel 2700 2500 0    60   Input ~ 0
-FPGA_SS_INIT_B
-Text GLabel 2700 2100 0    60   Input ~ 0
-FPGA_SS_DONE
-Text GLabel 2700 2900 0    60   Input ~ 0
-FPGA_SS_PROGRAM_B
-Text GLabel 2700 1900 0    60   Input ~ 0
-FPGA_SS_CCLK
 $Comp
 L R FB6
 U 1 1 56A49703
@@ -162,18 +153,6 @@ F 22 "_" H 9600 2300 50  0001 C CNN "ResonnanceFreq"
 	1    9600 2300
 	0    1    1    0   
 $EndComp
-Text GLabel 2700 3000 0    60   Input ~ 0
-FPGA_JTAG_TCK
-Text GLabel 7100 2000 2    60   Input ~ 0
-FPGA_JTAG_TDI
-Text GLabel 7100 2100 2    60   Input ~ 0
-FPGA_JTAG_TDO
-Text GLabel 7100 2200 2    60   Input ~ 0
-FPGA_JTAG_TMS
-Text Label 2950 2400 0    60   ~ 0
-GND_ADC
-Text Label 7150 3000 0    60   ~ 0
-GND_ADC
 $Comp
 L GND #PWR31
 U 1 1 56A4B4D1
@@ -215,45 +194,6 @@ F 22 "_" H 2950 2500 50  0001 C CNN "ResonnanceFreq"
 	1    2950 2500
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7100 2500 8450 2500
-Wire Wire Line
-	9450 2300 7100 2300
-Wire Wire Line
-	7100 2400 8200 2400
-Wire Wire Line
-	8200 2400 8200 2800
-Wire Wire Line
-	7500 2800 8450 2800
-Wire Wire Line
-	2950 2400 4000 2400
-Wire Wire Line
-	7100 2900 7150 2900
-Wire Wire Line
-	7150 2800 7150 3000
-Wire Wire Line
-	7100 2800 7150 2800
-Connection ~ 7150 2900
-Wire Wire Line
-	7100 2600 7650 2600
-Wire Wire Line
-	7650 2600 7650 2800
-Connection ~ 8450 2800
-Wire Wire Line
-	7100 2700 7500 2700
-Wire Wire Line
-	7500 2700 7500 2800
-Connection ~ 7650 2800
-Wire Wire Line
-	3550 2800 4000 2800
-Wire Wire Line
-	3550 1450 3550 2800
-Wire Wire Line
-	4000 2700 3550 2700
-Connection ~ 3550 2700
-Wire Wire Line
-	4000 2600 3550 2600
-Connection ~ 3550 2600
 $Comp
 L +2V5 #PWR36
 U 1 1 56A4C0C1
@@ -265,13 +205,6 @@ F 3 "" H 3550 1450 50  0000 C CNN
 	1    3550 1450
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4000 2200 3750 2200
-Wire Wire Line
-	3750 2200 3750 3300
-Wire Wire Line
-	4000 2300 3750 2300
-Connection ~ 3750 2300
 $Comp
 L GND #PWR37
 U 1 1 56A4C95B
@@ -283,20 +216,6 @@ F 3 "" H 3750 3300 50  0000 C CNN
 	1    3750 3300
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2700 2500 4000 2500
-Wire Wire Line
-	2700 2900 4000 2900
-Wire Wire Line
-	2700 3000 4000 3000
-Wire Wire Line
-	2700 2100 4000 2100
-Wire Wire Line
-	3650 2000 4000 2000
-Wire Wire Line
-	3650 1550 3650 2000
-Wire Wire Line
-	2700 1900 4000 1900
 $Comp
 L R R19
 U 1 1 56A4D1CF
@@ -327,9 +246,6 @@ F 22 "_" H 2850 1700 50  0001 C CNN "ResonnanceFreq"
 	1    2850 1700
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2850 1550 3650 1550
-Connection ~ 3550 1550
 $Comp
 L R R21
 U 1 1 56A4D613
@@ -360,12 +276,6 @@ F 22 "_" H 3400 1700 50  0001 C CNN "ResonnanceFreq"
 	1    3400 1700
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3400 1850 3400 2900
-Connection ~ 3400 2900
-Wire Wire Line
-	2850 1850 2850 2500
-Connection ~ 2850 2500
 $Comp
 L +2V5 #PWR91
 U 1 1 56A4DF2C
@@ -388,7 +298,6 @@ F 3 "" H 9750 2300 50  0000 C CNN
 	1    9750 2300
 	1    0    0    -1  
 $EndComp
-Connection ~ 8200 2800
 $Comp
 L C C116
 U 1 1 56A4E258
@@ -449,10 +358,6 @@ F 22 "_" H 9250 2450 50  0001 C CNN "ResonnanceFreq"
 	1    9250 2450
 	1    0    0    -1  
 $EndComp
-Connection ~ 9250 2300
-Connection ~ 9000 2300
-Wire Wire Line
-	9000 2600 9250 2600
 $Comp
 L GND #PWR93
 U 1 1 56A4E6AF
@@ -464,6 +369,100 @@ F 3 "" H 9150 2600 50  0000 C CNN
 	1    9150 2600
 	1    0    0    -1  
 $EndComp
+Text GLabel 2700 2500 0    60   Input ~ 0
+FPGA_SS_INIT_B
+Text GLabel 2700 2100 0    60   Input ~ 0
+FPGA_SS_DONE
+Text GLabel 2700 2900 0    60   Input ~ 0
+FPGA_SS_PROGRAM_B
+Text GLabel 2700 1900 0    60   Input ~ 0
+FPGA_SS_CCLK
+Text GLabel 2700 3000 0    60   Input ~ 0
+FPGA_JTAG_TCK
+Text GLabel 7100 2000 2    60   Input ~ 0
+FPGA_JTAG_TDI
+Text GLabel 7100 2100 2    60   Input ~ 0
+FPGA_JTAG_TDO
+Text GLabel 7100 2200 2    60   Input ~ 0
+FPGA_JTAG_TMS
+Text Label 2950 2400 0    60   ~ 0
+GND_ADC
+Text Label 7150 3000 0    60   ~ 0
+GND_ADC
+Wire Wire Line
+	7100 2500 8450 2500
+Wire Wire Line
+	9450 2300 7100 2300
+Wire Wire Line
+	7100 2400 8200 2400
+Wire Wire Line
+	8200 2400 8200 2800
+Wire Wire Line
+	7500 2800 8450 2800
+Wire Wire Line
+	2950 2400 4000 2400
+Wire Wire Line
+	7100 2900 7150 2900
+Wire Wire Line
+	7150 2800 7150 3000
+Wire Wire Line
+	7100 2800 7150 2800
+Wire Wire Line
+	7100 2600 7650 2600
+Wire Wire Line
+	7650 2600 7650 2800
+Wire Wire Line
+	7100 2700 7500 2700
+Wire Wire Line
+	7500 2700 7500 2800
+Wire Wire Line
+	3550 2800 4000 2800
+Wire Wire Line
+	3550 1450 3550 2800
+Wire Wire Line
+	4000 2700 3550 2700
+Wire Wire Line
+	4000 2600 3550 2600
+Wire Wire Line
+	4000 2200 3750 2200
+Wire Wire Line
+	3750 2200 3750 3300
+Wire Wire Line
+	4000 2300 3750 2300
+Wire Wire Line
+	2700 2500 4000 2500
+Wire Wire Line
+	2700 2900 4000 2900
+Wire Wire Line
+	2700 3000 4000 3000
+Wire Wire Line
+	2700 2100 4000 2100
+Wire Wire Line
+	3650 2000 4000 2000
+Wire Wire Line
+	3650 1550 3650 2000
+Wire Wire Line
+	2700 1900 4000 1900
+Wire Wire Line
+	2850 1550 3650 1550
+Wire Wire Line
+	3400 1850 3400 2900
+Wire Wire Line
+	2850 1850 2850 2500
+Wire Wire Line
+	9000 2600 9250 2600
+Connection ~ 7150 2900
+Connection ~ 8450 2800
+Connection ~ 7650 2800
+Connection ~ 3550 2700
+Connection ~ 3550 2600
+Connection ~ 3750 2300
+Connection ~ 3550 1550
+Connection ~ 3400 2900
+Connection ~ 2850 2500
+Connection ~ 8200 2800
+Connection ~ 9250 2300
+Connection ~ 9000 2300
 Connection ~ 9150 2600
 Connection ~ 3400 1550
 $EndSCHEMATC

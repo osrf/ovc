@@ -38,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -54,10 +53,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L USB_3.1_microB P1
+L USB_3.1_microB J1
 U 1 1 56A18764
 P 4950 2250
-F 0 "P1" H 4800 1600 50  0000 C CNN
+F 0 "J1" H 4800 1600 50  0000 C CNN
 F 1 "USB_3.1_microB" H 4850 2950 50  0000 C CNN
 F 2 "Connectors:USB3_Micro-B" H 4750 2150 50  0001 C CNN
 F 3 "http://media.digikey.com/pdf/Data%20Sheets/Amphenol%20PDFs/GSB4_Series_USB_31_rev2.pdf" V 4750 2150 50  0001 C CNN
@@ -179,6 +178,36 @@ F 3 "" H 4450 1850 60  0000 C CNN
 	1    4450 1850
 	1    0    0    -1  
 $EndComp
+$Comp
+L CONN_01X04 J2
+U 1 1 56A24E0A
+P 5000 1050
+F 0 "J2" H 5078 1187 50  0000 L CNN
+F 1 "CONN_01X04" H 5078 1095 50  0000 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch1.27mm" H 5078 1003 50  0000 L CNN
+F 3 "" H 5000 1050 50  0000 C CNN
+F 4 "_" H 5000 1050 60  0001 C CNN "MFN"
+F 5 "_" H 5000 1050 60  0001 C CNN "MFP"
+F 6 "digikey" H 5000 1050 60  0001 C CNN "D1"
+F 7 "mouser" H 5000 1050 60  0001 C CNN "D2"
+F 8 "_" H 5000 1050 60  0001 C CNN "D1PN"
+F 9 "_" H 5000 1050 60  0001 C CNN "D1PL"
+F 10 "_" H 5000 1050 60  0001 C CNN "D2PN"
+F 11 "_" H 5000 1050 60  0001 C CNN "D2PL"
+F 12 "_" H 5000 1050 60  0001 C CNN "Package"
+F 13 "_" H 5078 904 60  0000 L CNN "Description"
+F 14 "_" H 5000 1050 60  0001 C CNN "Voltage"
+F 15 "_" H 5000 1050 60  0001 C CNN "Power"
+F 16 "_" H 5000 1050 60  0001 C CNN "Tolerance"
+F 17 "_" H 5000 1050 60  0001 C CNN "Temperature"
+F 18 "_" H 5000 1050 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 5000 1050 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 5000 1050 60  0001 C CNN "Cont.Current"
+F 21 "_" H 5000 1050 60  0001 C CNN "Frequency"
+F 22 "_" H 5000 1050 60  0001 C CNN "ResonnanceFreq"
+	1    5000 1050
+	1    0    0    -1  
+$EndComp
 Text GLabel 4450 2250 0    60   Input ~ 12
 SS_TX-
 Text GLabel 4450 2350 0    60   Input ~ 12
@@ -237,38 +266,8 @@ Wire Wire Line
 	4750 900  4800 900 
 Wire Wire Line
 	4750 1200 4800 1200
-Connection ~ 4450 2750
 Wire Wire Line
 	4450 3050 4950 3050
+Connection ~ 4450 2750
 NoConn ~ 4450 2150
-$Comp
-L CONN_01X04 P2
-U 1 1 56A24E0A
-P 5000 1050
-F 0 "P2" H 5078 1187 50  0000 L CNN
-F 1 "CONN_01X04" H 5078 1095 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch1.27mm" H 5078 1003 50  0000 L CNN
-F 3 "" H 5000 1050 50  0000 C CNN
-F 4 "_" H 5000 1050 60  0001 C CNN "MFN"
-F 5 "_" H 5000 1050 60  0001 C CNN "MFP"
-F 6 "digikey" H 5000 1050 60  0001 C CNN "D1"
-F 7 "mouser" H 5000 1050 60  0001 C CNN "D2"
-F 8 "_" H 5000 1050 60  0001 C CNN "D1PN"
-F 9 "_" H 5000 1050 60  0001 C CNN "D1PL"
-F 10 "_" H 5000 1050 60  0001 C CNN "D2PN"
-F 11 "_" H 5000 1050 60  0001 C CNN "D2PL"
-F 12 "_" H 5000 1050 60  0001 C CNN "Package"
-F 13 "_" H 5078 904 60  0000 L CNN "Description"
-F 14 "_" H 5000 1050 60  0001 C CNN "Voltage"
-F 15 "_" H 5000 1050 60  0001 C CNN "Power"
-F 16 "_" H 5000 1050 60  0001 C CNN "Tolerance"
-F 17 "_" H 5000 1050 60  0001 C CNN "Temperature"
-F 18 "_" H 5000 1050 60  0001 C CNN "ReverseVoltage"
-F 19 "_" H 5000 1050 60  0001 C CNN "ForwardVoltage"
-F 20 "_" H 5000 1050 60  0001 C CNN "Cont.Current"
-F 21 "_" H 5000 1050 60  0001 C CNN "Frequency"
-F 22 "_" H 5000 1050 60  0001 C CNN "ResonnanceFreq"
-	1    5000 1050
-	1    0    0    -1  
-$EndComp
 $EndSCHEMATC

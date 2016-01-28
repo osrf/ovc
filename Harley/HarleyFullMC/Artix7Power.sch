@@ -38,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -83,53 +82,6 @@ F 22 "_" H 2800 2400 50  0001 C CNN "ResonnanceFreq"
 	7    2800 2400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1600 800  1600 4100
-Wire Wire Line
-	4000 800  4000 2000
-Connection ~ 4000 1900
-Connection ~ 4000 1800
-Connection ~ 4000 1700
-Connection ~ 4000 1600
-Connection ~ 4000 1500
-Connection ~ 4000 1400
-Connection ~ 4000 1300
-Connection ~ 4000 1200
-Connection ~ 4000 1100
-Connection ~ 4000 1000
-Connection ~ 4000 900 
-Connection ~ 1600 900 
-Connection ~ 1600 1000
-Connection ~ 1600 1100
-Connection ~ 1600 1200
-Connection ~ 1600 1300
-Connection ~ 1600 1400
-Connection ~ 1600 1500
-Connection ~ 1600 1600
-Connection ~ 1600 1700
-Connection ~ 1600 1800
-Connection ~ 1600 1900
-Connection ~ 1600 2000
-Connection ~ 1600 2100
-Connection ~ 1600 2200
-Connection ~ 1600 2300
-Connection ~ 1600 2400
-Connection ~ 1600 2500
-Connection ~ 1600 2600
-Connection ~ 1600 2700
-Connection ~ 1600 2800
-Connection ~ 1600 2900
-Connection ~ 1600 3000
-Connection ~ 1600 3100
-Connection ~ 1600 3200
-Connection ~ 1600 3300
-Connection ~ 1600 3400
-Connection ~ 1600 3500
-Connection ~ 1600 3600
-Connection ~ 1600 3700
-Connection ~ 1600 3800
-Connection ~ 1600 3900
-Connection ~ 1600 4000
 $Comp
 L GND #PWR42
 U 1 1 56A04CDF
@@ -152,20 +104,6 @@ F 3 "" H 1600 4100 50  0000 C CNN
 	1    1600 4100
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4000 2500 4000 4000
-Connection ~ 4000 2800
-Connection ~ 4000 2900
-Connection ~ 4000 3000
-Connection ~ 4000 3100
-Connection ~ 4000 3200
-Connection ~ 4000 3300
-Connection ~ 4000 3400
-Connection ~ 4000 3500
-Connection ~ 4000 3600
-Connection ~ 4000 3700
-Connection ~ 4000 3800
-Connection ~ 4000 3900
 $Comp
 L +1V0 #PWR44
 U 1 1 56A27FDD
@@ -177,18 +115,6 @@ F 3 "" H 4150 2600 50  0000 C CNN
 	1    4150 2600
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4100 1800 4000 1800
-Wire Wire Line
-	4000 2100 4000 2400
-Connection ~ 4000 2300
-Connection ~ 4000 2200
-Wire Wire Line
-	4000 2300 4100 2300
-Connection ~ 4000 2700
-Connection ~ 4000 2600
-Wire Wire Line
-	4150 2600 4000 2600
 $Comp
 L C C107
 U 1 1 56A1F139
@@ -702,50 +628,6 @@ F 22 "_" H 5300 1950 50  0001 C CNN "ResonnanceFreq"
 	1    5300 1950
 	1    0    0    -1  
 $EndComp
-Text Label 5500 1050 2    60   ~ 0
-VDD
-Text Notes 5600 850  0    60   ~ 0
-VCCINT
-Text Notes 5600 1650 0    60   ~ 0
-VCCBRAM
-Text Label 5450 1800 2    60   ~ 0
-VDD
-Text Notes 5700 2450 0    60   ~ 0
-VCCAUX
-Text Label 5650 2650 2    60   ~ 0
-VCCAUX
-Wire Wire Line
-	5300 2100 5650 2100
-Wire Wire Line
-	5300 1800 5650 1800
-Wire Wire Line
-	5300 2950 6600 2950
-Wire Wire Line
-	5200 2650 6600 2650
-Connection ~ 6750 1050
-Connection ~ 6550 1050
-Connection ~ 6350 1050
-Connection ~ 6000 1050
-Connection ~ 5800 1050
-Connection ~ 5600 1050
-Connection ~ 6750 1350
-Connection ~ 6550 1350
-Connection ~ 6350 1350
-Connection ~ 5600 1350
-Connection ~ 5800 1350
-Connection ~ 6000 1350
-Connection ~ 6950 1050
-Connection ~ 6950 1350
-Connection ~ 6400 2650
-Connection ~ 6200 2650
-Connection ~ 6000 2650
-Connection ~ 5750 2650
-Connection ~ 5550 2650
-Connection ~ 5550 2950
-Connection ~ 5750 2950
-Connection ~ 6200 2950
-Connection ~ 6400 2950
-Connection ~ 6000 2950
 $Comp
 L +1V0 #PWR57
 U 1 1 56A2E7B1
@@ -798,10 +680,6 @@ F 22 "_" H 6000 2800 50  0001 C CNN "ResonnanceFreq"
 	1    6000 2800
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5300 1050 7150 1050
-Wire Wire Line
-	5300 1350 7150 1350
 $Comp
 L C C111
 U 1 1 56A1F2B1
@@ -854,5 +732,126 @@ F 3 "" H 5200 2650 50  0000 C CNN
 	1    5200 2650
 	1    0    0    -1  
 $EndComp
+Text Label 5500 1050 2    60   ~ 0
+VDD
+Text Notes 5600 850  0    60   ~ 0
+VCCINT
+Text Notes 5600 1650 0    60   ~ 0
+VCCBRAM
+Text Label 5450 1800 2    60   ~ 0
+VDD
+Text Notes 5700 2450 0    60   ~ 0
+VCCAUX
+Text Label 5650 2650 2    60   ~ 0
+VCCAUX
+Wire Wire Line
+	1600 800  1600 4100
+Wire Wire Line
+	4000 800  4000 2000
+Wire Wire Line
+	4000 2500 4000 4000
+Wire Wire Line
+	4100 1800 4000 1800
+Wire Wire Line
+	4000 2100 4000 2400
+Wire Wire Line
+	4000 2300 4100 2300
+Wire Wire Line
+	4150 2600 4000 2600
+Wire Wire Line
+	5300 2100 5650 2100
+Wire Wire Line
+	5300 1800 5650 1800
+Wire Wire Line
+	5300 2950 6600 2950
+Wire Wire Line
+	5200 2650 6600 2650
+Wire Wire Line
+	5300 1050 7150 1050
+Wire Wire Line
+	5300 1350 7150 1350
+Connection ~ 4000 1900
+Connection ~ 4000 1800
+Connection ~ 4000 1700
+Connection ~ 4000 1600
+Connection ~ 4000 1500
+Connection ~ 4000 1400
+Connection ~ 4000 1300
+Connection ~ 4000 1200
+Connection ~ 4000 1100
+Connection ~ 4000 1000
+Connection ~ 4000 900 
+Connection ~ 1600 900 
+Connection ~ 1600 1000
+Connection ~ 1600 1100
+Connection ~ 1600 1200
+Connection ~ 1600 1300
+Connection ~ 1600 1400
+Connection ~ 1600 1500
+Connection ~ 1600 1600
+Connection ~ 1600 1700
+Connection ~ 1600 1800
+Connection ~ 1600 1900
+Connection ~ 1600 2000
+Connection ~ 1600 2100
+Connection ~ 1600 2200
+Connection ~ 1600 2300
+Connection ~ 1600 2400
+Connection ~ 1600 2500
+Connection ~ 1600 2600
+Connection ~ 1600 2700
+Connection ~ 1600 2800
+Connection ~ 1600 2900
+Connection ~ 1600 3000
+Connection ~ 1600 3100
+Connection ~ 1600 3200
+Connection ~ 1600 3300
+Connection ~ 1600 3400
+Connection ~ 1600 3500
+Connection ~ 1600 3600
+Connection ~ 1600 3700
+Connection ~ 1600 3800
+Connection ~ 1600 3900
+Connection ~ 1600 4000
+Connection ~ 4000 2800
+Connection ~ 4000 2900
+Connection ~ 4000 3000
+Connection ~ 4000 3100
+Connection ~ 4000 3200
+Connection ~ 4000 3300
+Connection ~ 4000 3400
+Connection ~ 4000 3500
+Connection ~ 4000 3600
+Connection ~ 4000 3700
+Connection ~ 4000 3800
+Connection ~ 4000 3900
+Connection ~ 4000 2300
+Connection ~ 4000 2200
+Connection ~ 4000 2700
+Connection ~ 4000 2600
+Connection ~ 6750 1050
+Connection ~ 6550 1050
+Connection ~ 6350 1050
+Connection ~ 6000 1050
+Connection ~ 5800 1050
+Connection ~ 5600 1050
+Connection ~ 6750 1350
+Connection ~ 6550 1350
+Connection ~ 6350 1350
+Connection ~ 5600 1350
+Connection ~ 5800 1350
+Connection ~ 6000 1350
+Connection ~ 6950 1050
+Connection ~ 6950 1350
+Connection ~ 6400 2650
+Connection ~ 6200 2650
+Connection ~ 6000 2650
+Connection ~ 5750 2650
+Connection ~ 5550 2650
+Connection ~ 5550 2950
+Connection ~ 5750 2950
+Connection ~ 6200 2950
+Connection ~ 6400 2950
+Connection ~ 6000 2950
 Connection ~ 5300 2650
 $EndSCHEMATC

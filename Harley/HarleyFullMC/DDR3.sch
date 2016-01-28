@@ -38,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A3 16535 11693
@@ -981,6 +980,36 @@ F 22 "_" H 3650 7050 50  0001 C CNN "ResonnanceFreq"
 	1    3650 7050
 	1    0    0    -1  
 $EndComp
+$Comp
+L MT41K128M16 U6
+U 1 1 56A1B629
+P 3950 3550
+F 0 "U6" H 3800 5529 50  0000 C CNN
+F 1 "MT41K128M16" H 3800 5437 50  0000 C CNN
+F 2 "BGA:WBGA96C80P6X16_80X1400X110" H 2900 3600 50  0001 C CNN
+F 3 "https://www.micron.com/~/media/documents/products/data-sheet/dram/ddr3/2gb_1_35v_ddr3l.pdf" H 2900 3600 50  0001 C CNN
+F 4 "Micron" H 3950 3550 50  0001 C CNN "MFN"
+F 5 "MT41K128M16JT-107 IT:K" H 3950 3550 50  0001 C CNN "MFP"
+F 6 "digikey" H 3950 3550 50  0001 C CNN "D1"
+F 7 "mouser" H 3950 3550 50  0001 C CNN "D2"
+F 8 "MT41K128M16JT-107 IT:K" H 3950 3550 50  0001 C CNN "D1PN"
+F 9 "https://www.arrow.com/en/products/mt41k128m16jt-107itk/micron-technology?&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart#page-1" H 3950 3550 50  0001 C CNN "D1PL"
+F 10 "_" H 3950 3550 50  0001 C CNN "D2PN"
+F 11 "_" H 3950 3550 50  0001 C CNN "D2PL"
+F 12 "BGA96" H 3950 3550 50  0001 C CNN "Package"
+F 13 "_" H 3950 3550 50  0001 C CNN "Description"
+F 14 "_" H 3950 3550 50  0001 C CNN "Voltage"
+F 15 "_" H 3950 3550 50  0001 C CNN "Power"
+F 16 "_" H 3950 3550 50  0001 C CNN "Tolerance"
+F 17 "_" H 3950 3550 50  0001 C CNN "Temperature"
+F 18 "_" H 3950 3550 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 3950 3550 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 3950 3550 50  0001 C CNN "Cont.Current"
+F 21 "_" H 3950 3550 50  0001 C CNN "Frequency"
+F 22 "_" H 3950 3550 50  0001 C CNN "ResonnanceFreq"
+	1    3950 3550
+	1    0    0    -1  
+$EndComp
 Text Notes 3300 1200 0    200  ~ 0
 SDRAM DDR3L
 Text GLabel 2850 1600 0    60   Input ~ 0
@@ -1143,6 +1172,10 @@ Wire Wire Line
 	2200 3050 2200 2950
 Wire Wire Line
 	2000 2950 2250 2950
+Wire Wire Line
+	5350 5850 5350 5750
+Wire Wire Line
+	2650 5850 5350 5850
 Connection ~ 4850 1750
 Connection ~ 4550 1750
 Connection ~ 2300 8300
@@ -1200,16 +1233,6 @@ Connection ~ 2950 1750
 Connection ~ 1700 1900
 Connection ~ 1700 2100
 Connection ~ 2200 2950
-NoConn ~ 5350 5250
-NoConn ~ 5350 5150
-NoConn ~ 5350 5050
-NoConn ~ 5350 4950
-NoConn ~ 5350 4850
-NoConn ~ 5350 4750
-Wire Wire Line
-	5350 5850 5350 5750
-Wire Wire Line
-	2650 5850 5350 5850
 Connection ~ 2750 5850
 Connection ~ 2850 5850
 Connection ~ 2950 5850
@@ -1230,34 +1253,10 @@ Connection ~ 4350 5850
 Connection ~ 4450 5850
 Connection ~ 4550 5850
 Connection ~ 4650 5850
-$Comp
-L MT41K128M16 U6
-U 1 1 56A1B629
-P 3950 3550
-F 0 "U6" H 3800 5529 50  0000 C CNN
-F 1 "MT41K128M16" H 3800 5437 50  0000 C CNN
-F 2 "BGA:WBGA96C80P6X16_80X1400X110" H 2900 3600 50  0001 C CNN
-F 3 "https://www.micron.com/~/media/documents/products/data-sheet/dram/ddr3/2gb_1_35v_ddr3l.pdf" H 2900 3600 50  0001 C CNN
-F 4 "Micron" H 3950 3550 50  0001 C CNN "MFN"
-F 5 "MT41K128M16JT-107 IT:K" H 3950 3550 50  0001 C CNN "MFP"
-F 6 "digikey" H 3950 3550 50  0001 C CNN "D1"
-F 7 "mouser" H 3950 3550 50  0001 C CNN "D2"
-F 8 "MT41K128M16JT-107 IT:K" H 3950 3550 50  0001 C CNN "D1PN"
-F 9 "https://www.arrow.com/en/products/mt41k128m16jt-107itk/micron-technology?&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart#page-1" H 3950 3550 50  0001 C CNN "D1PL"
-F 10 "_" H 3950 3550 50  0001 C CNN "D2PN"
-F 11 "_" H 3950 3550 50  0001 C CNN "D2PL"
-F 12 "BGA96" H 3950 3550 50  0001 C CNN "Package"
-F 13 "_" H 3950 3550 50  0001 C CNN "Description"
-F 14 "_" H 3950 3550 50  0001 C CNN "Voltage"
-F 15 "_" H 3950 3550 50  0001 C CNN "Power"
-F 16 "_" H 3950 3550 50  0001 C CNN "Tolerance"
-F 17 "_" H 3950 3550 50  0001 C CNN "Temperature"
-F 18 "_" H 3950 3550 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 3950 3550 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 3950 3550 50  0001 C CNN "Cont.Current"
-F 21 "_" H 3950 3550 50  0001 C CNN "Frequency"
-F 22 "_" H 3950 3550 50  0001 C CNN "ResonnanceFreq"
-	1    3950 3550
-	1    0    0    -1  
-$EndComp
+NoConn ~ 5350 5250
+NoConn ~ 5350 5150
+NoConn ~ 5350 5050
+NoConn ~ 5350 4950
+NoConn ~ 5350 4850
+NoConn ~ 5350 4750
 $EndSCHEMATC

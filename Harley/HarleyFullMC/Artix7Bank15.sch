@@ -38,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -274,14 +273,6 @@ F 22 "_" H 8000 3600 50  0001 C CNN "ResonnanceFreq"
 	1    8000 3600
 	1    0    0    -1  
 $EndComp
-Connection ~ 7650 3750
-Connection ~ 8400 3750
-Connection ~ 8200 3750
-Connection ~ 8000 3750
-Connection ~ 8400 3450
-Connection ~ 8200 3450
-Connection ~ 8000 3450
-Connection ~ 7650 3450
 $Comp
 L +2V5 #PWR81
 U 1 1 56A2B6B9
@@ -293,10 +284,6 @@ F 3 "" H 7450 3450 50  0000 C CNN
 	1    7450 3450
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7450 3750 8600 3750
-Wire Wire Line
-	8600 3450 7450 3450
 $Comp
 L +2V5 #PWR75
 U 1 1 56A2B717
@@ -308,14 +295,6 @@ F 3 "" H 6550 3400 50  0000 C CNN
 	1    6550 3400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6400 3200 6400 3700
-Connection ~ 6400 3300
-Connection ~ 6400 3400
-Connection ~ 6400 3500
-Connection ~ 6400 3600
-Wire Wire Line
-	6400 3400 6550 3400
 Text GLabel 6400 2100 2    60   Input ~ 0
 CAM_DOUT0-
 Text GLabel 6400 2000 2    60   Input ~ 0
@@ -372,4 +351,24 @@ Text GLabel 2500 3500 0    60   Input ~ 0
 FPGADebug1
 Text GLabel 2500 3400 0    60   Input ~ 0
 FPGADebug2
+Wire Wire Line
+	7450 3750 8600 3750
+Wire Wire Line
+	8600 3450 7450 3450
+Wire Wire Line
+	6400 3200 6400 3700
+Wire Wire Line
+	6400 3400 6550 3400
+Connection ~ 7650 3750
+Connection ~ 8400 3750
+Connection ~ 8200 3750
+Connection ~ 8000 3750
+Connection ~ 8400 3450
+Connection ~ 8200 3450
+Connection ~ 8000 3450
+Connection ~ 7650 3450
+Connection ~ 6400 3300
+Connection ~ 6400 3400
+Connection ~ 6400 3500
+Connection ~ 6400 3600
 $EndSCHEMATC

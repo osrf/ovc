@@ -38,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -53,8 +52,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text Notes 1200 800  0    60   ~ 0
-Use both IMU and Camera on same SPI 
 $Comp
 L LSM6DS3 U3
 U 1 1 56A18FC9
@@ -159,27 +156,6 @@ F 3 "" H 1650 2050 60  0000 C CNN
 	1    1650 2050
 	1    0    0    -1  
 $EndComp
-Text GLabel 2800 1800 2    60   Input ~ 0
-IMU_SS#
-Text GLabel 1800 1700 0    60   Input ~ 0
-IMU_INT1
-Text GLabel 1800 1800 0    60   Input ~ 0
-IMU_INT2
-Wire Wire Line
-	2300 2600 2400 2600
-Wire Wire Line
-	1800 2000 1800 2100
-Wire Wire Line
-	1800 2050 1650 2050
-Connection ~ 1800 2050
-NoConn ~ 2500 1300
-NoConn ~ 1800 2200
-Text GLabel 1800 1900 0    60   Input ~ 0
-SPI_MISO
-Text GLabel 2800 2000 2    60   Input ~ 0
-SPI_MOSI
-Text GLabel 2800 1900 2    60   Input ~ 0
-SPI_SCK
 $Comp
 L C C16
 U 1 1 56A19001
@@ -210,14 +186,6 @@ F 22 "_" H 1700 1300 50  0001 C CNN "ResonnanceFreq"
 	1    1700 1300
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2300 1300 2300 1150
-Wire Wire Line
-	2300 1150 1700 1150
-Wire Wire Line
-	2400 1300 2400 1100
-Wire Wire Line
-	2400 1100 2900 1100
 $Comp
 L +2V5 #PWR27
 U 1 1 56A871D3
@@ -240,4 +208,35 @@ F 3 "" H 2900 1400 50  0000 C CNN
 	1    2900 1400
 	1    0    0    -1  
 $EndComp
+Text Notes 1200 800  0    60   ~ 0
+Use both IMU and Camera on same SPI 
+Text GLabel 2800 1800 2    60   Input ~ 0
+IMU_SS#
+Text GLabel 1800 1700 0    60   Input ~ 0
+IMU_INT1
+Text GLabel 1800 1800 0    60   Input ~ 0
+IMU_INT2
+Text GLabel 1800 1900 0    60   Input ~ 0
+SPI_MISO
+Text GLabel 2800 2000 2    60   Input ~ 0
+SPI_MOSI
+Text GLabel 2800 1900 2    60   Input ~ 0
+SPI_SCK
+Wire Wire Line
+	2300 2600 2400 2600
+Wire Wire Line
+	1800 2000 1800 2100
+Wire Wire Line
+	1800 2050 1650 2050
+Wire Wire Line
+	2300 1300 2300 1150
+Wire Wire Line
+	2300 1150 1700 1150
+Wire Wire Line
+	2400 1300 2400 1100
+Wire Wire Line
+	2400 1100 2900 1100
+Connection ~ 1800 2050
+NoConn ~ 2500 1300
+NoConn ~ 1800 2200
 $EndSCHEMATC

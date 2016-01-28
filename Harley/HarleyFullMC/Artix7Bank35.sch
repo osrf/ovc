@@ -38,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -173,9 +172,6 @@ F 22 "_" H 7250 4350 50  0001 C CNN "ResonnanceFreq"
 	1    7250 4350
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5750 4500 8000 4500
-Connection ~ 6100 4500
 $Comp
 L GND #PWR71
 U 1 1 56A272E2
@@ -397,29 +393,6 @@ F 22 "_" H 7600 4350 50  0001 C CNN "ResonnanceFreq"
 	1    7600 4350
 	1    0    0    -1  
 $EndComp
-Connection ~ 6300 4500
-Connection ~ 7800 4500
-Connection ~ 7600 4500
-Connection ~ 7250 4500
-Connection ~ 7050 4500
-Connection ~ 6850 4500
-Connection ~ 6650 4500
-Wire Wire Line
-	5750 4200 8000 4200
-Connection ~ 7800 4200
-Connection ~ 7600 4200
-Connection ~ 7250 4200
-Connection ~ 7050 4200
-Connection ~ 6850 4200
-Connection ~ 6650 4200
-Connection ~ 6300 4200
-Connection ~ 6100 4200
-Wire Wire Line
-	4950 3400 4950 3900
-Connection ~ 4950 3800
-Connection ~ 4950 3700
-Connection ~ 4950 3600
-Connection ~ 4950 3500
 $Comp
 L +1V35 #PWR53
 U 1 1 56A288FE
@@ -431,8 +404,6 @@ F 3 "" H 5150 3600 50  0000 C CNN
 	1    5150 3600
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5150 3600 4950 3600
 $Comp
 L +1V35 #PWR69
 U 1 1 56A29C80
@@ -534,4 +505,32 @@ Text GLabel 4950 1500 2    60   Input ~ 0
 DDR_A13
 Text GLabel 1250 1300 0    60   Input ~ 0
 DDR_RST#
+Wire Wire Line
+	5750 4500 8000 4500
+Wire Wire Line
+	5750 4200 8000 4200
+Wire Wire Line
+	4950 3400 4950 3900
+Wire Wire Line
+	5150 3600 4950 3600
+Connection ~ 6100 4500
+Connection ~ 6300 4500
+Connection ~ 7800 4500
+Connection ~ 7600 4500
+Connection ~ 7250 4500
+Connection ~ 7050 4500
+Connection ~ 6850 4500
+Connection ~ 6650 4500
+Connection ~ 7800 4200
+Connection ~ 7600 4200
+Connection ~ 7250 4200
+Connection ~ 7050 4200
+Connection ~ 6850 4200
+Connection ~ 6650 4200
+Connection ~ 6300 4200
+Connection ~ 6100 4200
+Connection ~ 4950 3800
+Connection ~ 4950 3700
+Connection ~ 4950 3600
+Connection ~ 4950 3500
 $EndSCHEMATC

@@ -38,7 +38,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyFullMC-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -173,9 +172,6 @@ F 22 "_" H 9100 3900 50  0001 C CNN "ResonnanceFreq"
 	1    9100 3900
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7600 4050 9100 4050
-Connection ~ 7950 4050
 $Comp
 L GND #PWR87
 U 1 1 56A2A8DB
@@ -307,17 +303,6 @@ F 22 "_" H 8500 3900 50  0001 C CNN "ResonnanceFreq"
 	1    8500 3900
 	1    0    0    -1  
 $EndComp
-Connection ~ 8150 4050
-Connection ~ 8900 4050
-Connection ~ 8700 4050
-Connection ~ 8500 4050
-Wire Wire Line
-	7600 3750 9100 3750
-Connection ~ 8900 3750
-Connection ~ 8700 3750
-Connection ~ 8500 3750
-Connection ~ 8150 3750
-Connection ~ 7950 3750
 $Comp
 L +2V5 #PWR86
 U 1 1 56A2AA1B
@@ -329,12 +314,6 @@ F 3 "" H 7950 3750 50  0000 C CNN
 	1    7950 3750
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6450 3350 6450 3850
-Connection ~ 6450 3450
-Connection ~ 6450 3550
-Connection ~ 6450 3650
-Connection ~ 6450 3750
 $Comp
 L +2V5 #PWR76
 U 1 1 56A2AA9D
@@ -346,8 +325,6 @@ F 3 "" H 6600 3550 50  0000 C CNN
 	1    6600 3550
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6450 3550 6600 3550
 Text GLabel 2050 3350 0    60   Input ~ 0
 FPGA_SS_DIN
 Text GLabel 6450 2250 2    60   Input ~ 0
@@ -434,4 +411,26 @@ Text GLabel 6450 1850 2    60   Input ~ 0
 FX3_DQ27
 Text GLabel 6450 1650 2    60   Input ~ 0
 FX3_A0
+Wire Wire Line
+	7600 4050 9100 4050
+Wire Wire Line
+	7600 3750 9100 3750
+Wire Wire Line
+	6450 3350 6450 3850
+Wire Wire Line
+	6450 3550 6600 3550
+Connection ~ 7950 4050
+Connection ~ 8150 4050
+Connection ~ 8900 4050
+Connection ~ 8700 4050
+Connection ~ 8500 4050
+Connection ~ 8900 3750
+Connection ~ 8700 3750
+Connection ~ 8500 3750
+Connection ~ 8150 3750
+Connection ~ 7950 3750
+Connection ~ 6450 3450
+Connection ~ 6450 3550
+Connection ~ 6450 3650
+Connection ~ 6450 3750
 $EndSCHEMATC
