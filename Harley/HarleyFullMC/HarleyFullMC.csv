@@ -10,7 +10,7 @@
 "U3","ST_LSM6DS3","STMicroelectronics","LSM6DS3TR","digikey","497-15383","http://www.digikey.com/product-detail/en/LSM6DS3TR/497-15383-1-ND/5180534","mouser","_","_",1
 "J1","USB_3.1_microB","Amphenol Commercial Products","GSB443133HR","digikey","GSB443133HR","http://www.digikey.com/product-detail/en/GSB443133HR/GSB443133HRCT-ND/4936161","mouser","_","_",1
 "R11","240","Panasonic","ERJ-1GEF2400C","digikey","P240AB","http://www.digikey.com/product-detail/en/ERJ-1GEF2400C/P240ABDKR-ND/575358","mouser","_","_",1
-"J3;J4;J6","CONN_01X06","DNP","DNP","digikey","DNP","DNP","mouser","DNP","DNP",3
+"J3;J4;J6;R24;R25;R26","R","DNP","DNP","digikey","DNP","DNP","mouser","_","_",6
 "J5","DF40C_60DP_0-4V","Hirose","DF40C-60DP-0.4V(51) ","digikey"," H11628CT","http://www.digikey.com/product-detail/en/DF40C-60DP-0.4V%2851%29/H11628CT-ND/1969507","mouser","_","_",1
 "U9","CYUSB3014","Cypress","CYUSB3014-BZXC","digikey","428-3182","http://www.digikey.com/product-detail/en/CYUSB3014-BZXC/428-3182-ND/3679585","mouser","727-CYUSB3014-BZXC ","http://www.mouser.fr/ProductDetail/Cypress-Semiconductor/CYUSB3014-BZXC/?qs=xP2cAaN2A3Wt%252bQariFLwRg%3d%3d",1
 "R10","90.9k","Vishay","CRCW040290K9FKED","digikey","541-90.9KL","http://www.digikey.com/product-detail/en/CRCW040290K9FKED/541-90.9KLCT-ND/1183346","mouser","_","_",1
@@ -25,6 +25,7 @@
 "R3","100","Vishay","CRCW0402100RFKED","digikey","541-100LCT","http://www.digikey.com/product-detail/en/CRCW0402100RFKED/541-100LCT-ND/1183009","mouser","_","_",1
 "R1;R19;R21","4.7k","Vishay","CRCW02016K7FKED","digikey","541-4.70KAAB","http://www.digikey.com/product-detail/en/CRCW02014K70FKED/541-4.70KAABCT-ND/1968253","mouser","_","_",3
 "R12","2k","Vishay","CRCW02012K0FNED","digikey","541-2.00KAB","http://www.digikey.com/product-detail/en/CRCW02012K00FNED/541-2.00KABCT-ND/2720672","mouser","_","_",1
+"R23","1M","Vishay","CRCW02011M00FNED","digikey","541-1.00MAB","http://www.digikey.com/product-detail/en/CRCW02011M00FNED/541-1.00MABTR-ND/1178507","mouser","_","_",1
 "R6;R7","1k","Vishay","CRCW02011K00FNED","digikey","541-1.00KAB","http://www.digikey.com/product-detail/en/CRCW02011K00FNED/541-1.00KABCT-ND/1183599","mouser","_","_",2
 "R17;R18","10k","Vishay","CRCW020110K0FKED","digikey","541-10.0KAB","http://www.digikey.com/product-detail/en/CRCW020110K0FNED/541-10.0KABTR-ND/1178493","mouser","_","_",2
 "C104","100u","TDK","C3216X5R0J107M160AB","digikey","445-6008","http://www.digikey.com/product-detail/en/C3216X5R0J107M160AB/445-6008-1-ND/2444049","mouser","_","_",1
@@ -39,7 +40,7 @@
 "C43;C57","15p","TDK","C1005CH1H150J050BA","digikey","445-10834","http://www.digikey.com/product-detail/en/C1005CH1H150J050BA/445-10834-1-ND/3952500","mouser","_","_",2
 "C55","3.3n","TDK","C0603X5R1E332K030BA","digikey","445-4699","http://www.digikey.com/product-detail/en/C0603X5R1E332K030BA/445-4699-1-ND/2050305","mouser","_","_",1
 "C37;C41;C45;C49;C51;C53","2.2n","TDK","C0603X5R1E101K030BA","digikey","445-4683","http://www.digikey.com/product-detail/en/C0603X5R1E101K030BA/445-4683-1-ND/2050289","mouser","_","_",6
-"C59","4.7n","TDK","C0603X5R1C472K030BA","digikey","445-1792","http://www.digikey.com/product-detail/en/C0603X5R1C472K030BA/445-1792-1-ND/701156","mouser","_","_",1
+"C126;C59","4.7n","TDK","C0603X5R1C472K030BA","digikey","445-1792","http://www.digikey.com/product-detail/en/C0603X5R1C472K030BA/445-1792-1-ND/701156","mouser","_","_",2
 "C100;C101;C26;C38;C42;C62;C63;C91;C92;C94;C95;C96;C97;C98;C99","10n","TDK","C0603X5R1A103K030BA","digikey","445-1793","http://www.digikey.com/product-detail/en/C0603X5R1A103K030BA/445-1793-1-ND/701157","mouser","_","_",15
 "C111;C112;C115;C116;C117;C119;C120;C121;C122;C123;C124;C128;C134;C135;C136;C137;C138;C139;C140;C144;C146;C147;C149;C150;C151;C153;C155;C156;C157;C158;C159;C54;C56;C60","470n","TDK","C0603X5R0J474K030BC","digikey","445-13653","http://www.digikey.com/product-detail/en/C0603X5R0J474K030BC/445-13653-1-ND/3955319","mouser","_","_",34
 "C23;C58","1u","TDK","C0603X5R0J105M030BC","digikey","445-8008","http://www.digikey.com/product-detail/en/C0603X5R0J105M030BC/445-8008-1-ND/2792131","mouser","_","_",2
