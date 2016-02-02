@@ -32,6 +32,7 @@
 "C105;C108;C118;C131;C148;C29;C33;C64;C65;C69;C70","47u","TDK","C2012X5R1A476M125AC","digikey","445-8239","http://www.digikey.com/product-detail/en/C2012X5R1A476M125AC/445-8239-1-ND/2812081","mouser","_","_",11
 "C102;C61;C74;C82","22u","TDK","C2012X5R0J226K125AB","digikey","445-7679","http://www.digikey.com/product-detail/en/C2012X5R0J226K125AB/445-7679-1-ND/2733751","mouser","_","_",4
 "C2;C47;C67","10u","TDK","C1608X5R0J106K080AB","digikey","445-7492","http://www.digikey.com/product-detail/en/C1608X5R0J106K080AB/445-7492-1-ND/2733564","mouser","_","_",3
+"C126","4.7n","TDK","C1005X7S2A472K050BB","digikey","445-6026","http://www.digikey.com/product-detail/en/C1005X7S2A472K050BB/445-6026-1-ND/2444067","mouser","_","_",1
 "C160","10n","TDK","C1005X7R1C103K050BA","digikey","445-1262","http://www.digikey.com/product-detail/en/C1005X7R1C103K050BA/445-1262-1-ND/567728","mouser","_","_",1
 "C13;C17;C18;C21;C28;C32;C36;C40","1u","TDK","C1005X5R1C105K050BC","digikey","445-4978","http://www.digikey.com/product-detail/en/C1005X5R1C105K050BC/445-4978-1-ND/2093592","mouser","_","_",8
 "C10;C106;C107;C109;C110;C113;C114;C132;C133;C14;C141;C142;C143;C145;C152;C154;C19;C22;C25;C27;C30;C31;C34;C39;C5;C8","4.7u","TDK","C1005X5R0J475K050BC","digikey","445-5947","http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987","avnet","C1005X5R0J475K050BC/BKN","http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1",26
@@ -40,7 +41,7 @@
 "C43;C57","15p","TDK","C1005CH1H150J050BA","digikey","445-10834","http://www.digikey.com/product-detail/en/C1005CH1H150J050BA/445-10834-1-ND/3952500","mouser","_","_",2
 "C55","3.3n","TDK","C0603X5R1E332K030BA","digikey","445-4699","http://www.digikey.com/product-detail/en/C0603X5R1E332K030BA/445-4699-1-ND/2050305","mouser","_","_",1
 "C37;C41;C45;C49;C51;C53","2.2n","TDK","C0603X5R1E101K030BA","digikey","445-4683","http://www.digikey.com/product-detail/en/C0603X5R1E101K030BA/445-4683-1-ND/2050289","mouser","_","_",6
-"C126;C59","4.7n","TDK","C0603X5R1C472K030BA","digikey","445-1792","http://www.digikey.com/product-detail/en/C0603X5R1C472K030BA/445-1792-1-ND/701156","mouser","_","_",2
+"C59","4.7n","TDK","C0603X5R1C472K030BA","digikey","445-1792","http://www.digikey.com/product-detail/en/C0603X5R1C472K030BA/445-1792-1-ND/701156","mouser","_","_",1
 "C100;C101;C26;C38;C42;C62;C63;C91;C92;C94;C95;C96;C97;C98;C99","10n","TDK","C0603X5R1A103K030BA","digikey","445-1793","http://www.digikey.com/product-detail/en/C0603X5R1A103K030BA/445-1793-1-ND/701157","mouser","_","_",15
 "C111;C112;C115;C116;C117;C119;C120;C121;C122;C123;C124;C128;C134;C135;C136;C137;C138;C139;C140;C144;C146;C147;C149;C150;C151;C153;C155;C156;C157;C158;C159;C54;C56;C60","470n","TDK","C0603X5R0J474K030BC","digikey","445-13653","http://www.digikey.com/product-detail/en/C0603X5R0J474K030BC/445-13653-1-ND/3955319","mouser","_","_",34
 "C23;C58","1u","TDK","C0603X5R0J105M030BC","digikey","445-8008","http://www.digikey.com/product-detail/en/C0603X5R0J105M030BC/445-8008-1-ND/2792131","mouser","_","_",2

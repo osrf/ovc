@@ -339,9 +339,9 @@ Text GLabel 6450 2850 2    60   Input ~ 0
 P_LVDS9-
 Text GLabel 6450 2750 2    60   Input ~ 0
 P_LVDS9+
-Text GLabel 2050 2850 0    60   Input ~ 0
-P_LVDS10-
 Text GLabel 2050 2750 0    60   Input ~ 0
+P_LVDS10-
+Text GLabel 2050 2850 0    60   Input ~ 0
 P_LVDS10+
 Text GLabel 2050 1850 0    60   Input ~ 0
 P_LVDS12-

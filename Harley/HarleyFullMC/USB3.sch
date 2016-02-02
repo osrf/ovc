@@ -244,22 +244,22 @@ U 1 1 56AC4ADD
 P 5100 3200
 F 0 "C126" H 5215 3292 50  0000 L CNN
 F 1 "4.7n" H 5215 3200 50  0000 L CNN
-F 2 "Dipoles_SMD:C_0201" H 5138 3050 50  0001 C CNN
-F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf" H 5100 3200 50  0001 C CNN
+F 2 "Dipoles_SMD:C_0402" H 5138 3050 50  0001 C CNN
+F 3 "https://product.tdk.com/info/en/catalog/spec/mlccspec_commercial_general_midvoltage_en.pdf" H 5100 3200 50  0001 C CNN
 F 4 "TDK" H 5100 3200 50  0001 C CNN "MFN"
-F 5 "C0603X5R1C472K030BA" H 5100 3200 50  0001 C CNN "MFP"
+F 5 "C1005X7S2A472K050BB" H 5100 3200 50  0001 C CNN "MFP"
 F 6 "digikey" H 5100 3200 50  0001 C CNN "D1"
 F 7 "mouser" H 5100 3200 50  0001 C CNN "D2"
-F 8 "445-1793" H 5100 3200 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/C0603X5R1C472K030BA/445-1792-1-ND/701156" H 5100 3200 50  0001 C CNN "D1PL"
+F 8 "445-6026" H 5100 3200 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/C1005X7S2A472K050BB/445-6026-1-ND/2444067" H 5100 3200 50  0001 C CNN "D1PL"
 F 10 "_" H 5100 3200 50  0001 C CNN "D2PN"
 F 11 "_" H 5100 3200 50  0001 C CNN "D2PL"
 F 12 "0402" H 5100 3200 50  0001 C CNN "Package"
 F 13 "_" H 5215 3108 50  0000 L CNN "Description"
-F 14 "6.3" H 5100 3200 50  0001 C CNN "Voltage"
+F 14 "100" H 5100 3200 50  0001 C CNN "Voltage"
 F 15 "_" H 5100 3200 50  0001 C CNN "Power"
 F 16 "10%" H 5100 3200 50  0001 C CNN "Tolerance"
-F 17 "X5R" H 5100 3200 50  0001 C CNN "Temperature"
+F 17 "X7s" H 5100 3200 50  0001 C CNN "Temperature"
 F 18 "_" H 5100 3200 50  0001 C CNN "ReverseVoltage"
 F 19 "_" H 5100 3200 50  0001 C CNN "ForwardVoltage"
 F 20 "_" H 5100 3200 50  0001 C CNN "Cont.Current"
