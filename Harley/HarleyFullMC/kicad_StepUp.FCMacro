@@ -174,7 +174,8 @@ if ext == '.cfg':
             if len (path3D[n]) >1:
                 t+=1
                 if t==1:
-                    models3D_prefix = path3D[n].strip('\r\n')
+                    #models3D_prefix = path3D[n].strip('\r\n')
+                    models3D_prefix = os.path.expandvars('$KISYS3DMOD')
                 if t==2:
                     if path3D[n].find('none') !=-1:
                         blacklisted_model_elements=''
@@ -958,7 +959,6 @@ else:
 FreeCAD.ActiveDocument.getObject("Board_outline").Placement = App.Placement(App.Vector(board_base_point_x,board_base_point_y,0),App.Rotation(App.Vector(0,0,1),0))
 ## FreeCAD.ActiveDocument.getObject("Board_outline").Placement = App.Placement(App.Vector(-off_x,-off_y,0),App.Rotation(App.Vector(0,0,1),0))
 Gui.SendMsgToActiveView("ViewFit")
-#ImportGui.insert(u"./c0603.step","demo_5D_vrml_from_step")
 
 missing_models = ''
 for i in range(len(modules)):
@@ -992,26 +992,26 @@ for i in range(len(modules)):
         if step_module != 'no3Dmodel':
             module_path='not-found'
             step_module=step_module.replace('"', '')  # name with spaces
-            if os.path.exists(models3D_prefix+step_module):
-                module_path=models3D_prefix+step_module
+            if os.path.exists(os.path.join(models3D_prefix,step_module)):
+                module_path=os.path.join(models3D_prefix,step_module)
             else:
                 if os.path.exists(step_module): # absolute path
                     module_path=step_module
             #adding .stp support
-            if os.path.exists(models3D_prefix+step_module2) and (module_path=='not-found'):
-                module_path=models3D_prefix+step_module2
+            if os.path.exists(os.path.join(models3D_prefix,step_module2)) and (module_path=='not-found'):
+                module_path=os.path.join(models3D_prefix,step_module2)
             else:
                 if os.path.exists(step_module2) and (module_path=='not-found'): # absolute path
                     module_path=step_module2
             #adding .iges support
-            if os.path.exists(models3D_prefix+step_module3) and (module_path=='not-found'):
-                module_path=models3D_prefix+step_module3
+            if os.path.exists(os.path.join(models3D_prefix,step_module3)) and (module_path=='not-found'):
+                module_path=os.path.join(models3D_prefix,step_module3)
             else:
                 if os.path.exists(step_module3) and (module_path=='not-found'): # absolute path
                     module_path=step_module3
             #adding .igs support
-            if os.path.exists(models3D_prefix+step_module4) and (module_path=='not-found'):
-                module_path=models3D_prefix+step_module4
+            if os.path.exists(os.path.join(models3D_prefix,step_module4)) and (module_path=='not-found'):
+                module_path=os.path.join(models3D_prefix,step_module4)
             else:
                 if os.path.exists(step_module4) and (module_path=='not-found'): # absolute path
                     module_path=step_module4
