@@ -60,12 +60,12 @@ F 0 "U1" H 4450 4066 50  0000 C CNN
 F 1 "xc7a50tcsg324pkg" H 4450 3974 50  0000 C CNN
 F 2 "BGA:BGA324C80P18X18_1500X1500X150" H 4500 2400 50  0001 C CNN
 F 3 "http://www.xilinx.com/support/documentation/data_sheets/ds180_7Series_Overview.pdf" H 4500 2400 50  0001 C CNN
-F 4 "_" H 4500 2400 50  0001 C CNN "MFN"
-F 5 "_" H 4500 2400 50  0001 C CNN "MFP"
-F 6 "digikey" H 4500 2400 50  0001 C CNN "D1"
-F 7 "mouser" H 4500 2400 50  0001 C CNN "D2"
-F 8 "_" H 4500 2400 50  0001 C CNN "D1PN"
-F 9 "_" H 4500 2400 50  0001 C CNN "D1PL"
+F 4 "Xilinx" H 4500 2400 50  0001 C CNN "MFN"
+F 5 "XC7A50T-2CSG324C" H 4500 2400 50  0001 C CNN "MFP"
+F 6 "avnet" H 4500 2400 50  0001 C CNN "D1"
+F 7 "_" H 4500 2400 50  0001 C CNN "D2"
+F 8 "XC7A50T-2CSG324C" H 4500 2400 50  0001 C CNN "D1PN"
+F 9 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=XC7A50T-2CSG324C&mfr=XLX&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 4500 2400 50  0001 C CNN "D1PL"
 F 10 "_" H 4500 2400 50  0001 C CNN "D2PN"
 F 11 "_" H 4500 2400 50  0001 C CNN "D2PL"
 F 12 "BGA324" H 4500 2400 50  0001 C CNN "Package"
@@ -93,11 +93,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 7450 3600 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 7450 3600 50  0001 C CNN "MFP"
 F 6 "digikey" H 7450 3600 50  0001 C CNN "D1"
-F 7 "mouser" H 7450 3600 50  0001 C CNN "D2"
+F 7 "avnet" H 7450 3600 50  0001 C CNN "D2"
 F 8 "445-5947" H 7450 3600 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 7450 3600 50  0001 C CNN "D1PL"
-F 10 "_" H 7450 3600 50  0001 C CNN "D2PN"
-F 11 "_" H 7450 3600 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 7450 3600 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 7450 3600 50  0001 C CNN "D2PL"
 F 12 "0402" H 7450 3600 50  0001 C CNN "Package"
 F 13 "_" H 7450 3600 50  0000 C CNN "Description"
 F 14 "6.3" H 7450 3600 50  0001 C CNN "Voltage"
@@ -143,10 +143,10 @@ F 22 "_" H 8600 3600 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR82
+L GND #PWR78
 U 1 1 56A2B641
 P 7450 3750
-F 0 "#PWR82" H 7450 3500 50  0001 C CNN
+F 0 "#PWR78" H 7450 3500 50  0001 C CNN
 F 1 "GND" H 7458 3576 50  0000 C CNN
 F 2 "" H 7450 3750 50  0000 C CNN
 F 3 "" H 7450 3750 50  0000 C CNN
@@ -164,11 +164,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 7650 3600 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 7650 3600 50  0001 C CNN "MFP"
 F 6 "digikey" H 7650 3600 50  0001 C CNN "D1"
-F 7 "mouser" H 7650 3600 50  0001 C CNN "D2"
+F 7 "avnet" H 7650 3600 50  0001 C CNN "D2"
 F 8 "445-5947" H 7650 3600 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 7650 3600 50  0001 C CNN "D1PL"
-F 10 "_" H 7650 3600 50  0001 C CNN "D2PN"
-F 11 "_" H 7650 3600 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 7650 3600 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 7650 3600 50  0001 C CNN "D2PL"
 F 12 "0402" H 7650 3600 50  0001 C CNN "Package"
 F 13 "_" H 7650 3600 50  0000 C CNN "Description"
 F 14 "6.3" H 7650 3600 50  0001 C CNN "Voltage"
@@ -274,10 +274,10 @@ F 22 "_" H 8000 3600 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L +2V5 #PWR81
+L +2V5 #PWR77
 U 1 1 56A2B6B9
 P 7450 3450
-F 0 "#PWR81" H 7450 3300 50  0001 C CNN
+F 0 "#PWR77" H 7450 3300 50  0001 C CNN
 F 1 "+2V5" H 7468 3624 50  0000 C CNN
 F 2 "" H 7450 3450 50  0000 C CNN
 F 3 "" H 7450 3450 50  0000 C CNN
@@ -285,10 +285,10 @@ F 3 "" H 7450 3450 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +2V5 #PWR75
+L +2V5 #PWR71
 U 1 1 56A2B717
 P 6550 3400
-F 0 "#PWR75" H 6550 3250 50  0001 C CNN
+F 0 "#PWR71" H 6550 3250 50  0001 C CNN
 F 1 "+2V5" H 6568 3574 50  0000 C CNN
 F 2 "" H 6550 3400 50  0000 C CNN
 F 3 "" H 6550 3400 50  0000 C CNN
@@ -349,8 +349,6 @@ Text GLabel 2500 2400 0    60   Input ~ 0
 P_LVDS11+
 Text GLabel 2500 3500 0    60   Input ~ 0
 FPGADebug1
-Text GLabel 2500 3400 0    60   Input ~ 0
-FPGADebug2
 Wire Wire Line
 	7450 3750 8600 3750
 Wire Wire Line
@@ -371,4 +369,8 @@ Connection ~ 6400 3300
 Connection ~ 6400 3400
 Connection ~ 6400 3500
 Connection ~ 6400 3600
+Text GLabel 6400 2200 2    60   Input ~ 0
+FPGADebug2
+Text GLabel 2500 3400 0    60   Input ~ 0
+FPGA_LED
 $EndSCHEMATC

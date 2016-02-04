@@ -60,12 +60,12 @@ F 0 "U1" H 4250 4216 50  0000 C CNN
 F 1 "xc7a50tcsg324pkg" H 4250 4124 50  0000 C CNN
 F 2 "BGA:BGA324C80P18X18_1500X1500X150" H 4250 2550 50  0001 C CNN
 F 3 "http://www.xilinx.com/support/documentation/data_sheets/ds180_7Series_Overview.pdf" H 4250 2550 50  0001 C CNN
-F 4 "_" H 4250 2550 50  0001 C CNN "MFN"
-F 5 "_" H 4250 2550 50  0001 C CNN "MFP"
-F 6 "digikey" H 4250 2550 50  0001 C CNN "D1"
-F 7 "mouser" H 4250 2550 50  0001 C CNN "D2"
-F 8 "_" H 4250 2550 50  0001 C CNN "D1PN"
-F 9 "_" H 4250 2550 50  0001 C CNN "D1PL"
+F 4 "Xilinx" H 4250 2550 50  0001 C CNN "MFN"
+F 5 "XC7A50T-2CSG324C" H 4250 2550 50  0001 C CNN "MFP"
+F 6 "avnet" H 4250 2550 50  0001 C CNN "D1"
+F 7 "_" H 4250 2550 50  0001 C CNN "D2"
+F 8 "XC7A50T-2CSG324C" H 4250 2550 50  0001 C CNN "D1PN"
+F 9 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=XC7A50T-2CSG324C&mfr=XLX&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 4250 2550 50  0001 C CNN "D1PL"
 F 10 "_" H 4250 2550 50  0001 C CNN "D2PN"
 F 11 "_" H 4250 2550 50  0001 C CNN "D2PL"
 F 12 "BGA324" H 4250 2550 50  0001 C CNN "Package"
@@ -89,20 +89,20 @@ P 7600 3900
 F 0 "C148" H 7650 4000 50  0000 L CNN
 F 1 "47u" H 7650 3800 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805" H 7638 3750 50  0001 C CNN
-F 3 "" H 7600 3900 50  0001 C CNN
-F 4 "_" H 7600 3900 50  0001 C CNN "MFN"
-F 5 "_" H 7600 3900 50  0001 C CNN "MFP"
+F 3 "https://product.tdk.com/info/en/catalog/datasheets/mlcc_commercial_general_en.pdf" H 7600 3900 50  0001 C CNN
+F 4 "TDK" H 7600 3900 50  0001 C CNN "MFN"
+F 5 "C2012X5R1A476M125AC" H 7600 3900 50  0001 C CNN "MFP"
 F 6 "digikey" H 7600 3900 50  0001 C CNN "D1"
 F 7 "mouser" H 7600 3900 50  0001 C CNN "D2"
-F 8 "_" H 7600 3900 50  0001 C CNN "D1PN"
-F 9 "_" H 7600 3900 50  0001 C CNN "D1PL"
+F 8 "445-8239" H 7600 3900 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/C2012X5R1A476M125AC/445-8239-1-ND/2812081" H 7600 3900 50  0001 C CNN "D1PL"
 F 10 "_" H 7600 3900 50  0001 C CNN "D2PN"
 F 11 "_" H 7600 3900 50  0001 C CNN "D2PL"
-F 12 "0402" H 7600 3900 50  0001 C CNN "Package"
+F 12 "0805" H 7600 3900 50  0001 C CNN "Package"
 F 13 "_" H 7715 3808 50  0001 L CNN "Description"
-F 14 "6.3" H 7600 3900 50  0001 C CNN "Voltage"
+F 14 "10" H 7600 3900 50  0001 C CNN "Voltage"
 F 15 "_" H 7600 3900 50  0001 C CNN "Power"
-F 16 "10%" H 7600 3900 50  0001 C CNN "Tolerance"
+F 16 "20%" H 7600 3900 50  0001 C CNN "Tolerance"
 F 17 "X5R" H 7600 3900 50  0001 C CNN "Temperature"
 F 18 "_" H 7600 3900 50  0001 C CNN "ReverseVoltage"
 F 19 "_" H 7600 3900 50  0001 C CNN "ForwardVoltage"
@@ -123,11 +123,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 7950 3900 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 7950 3900 50  0001 C CNN "MFP"
 F 6 "digikey" H 7950 3900 50  0001 C CNN "D1"
-F 7 "mouser" H 7950 3900 50  0001 C CNN "D2"
+F 7 "avnet" H 7950 3900 50  0001 C CNN "D2"
 F 8 "445-5947" H 7950 3900 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 7950 3900 50  0001 C CNN "D1PL"
-F 10 "_" H 7950 3900 50  0001 C CNN "D2PN"
-F 11 "_" H 7950 3900 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 7950 3900 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 7950 3900 50  0001 C CNN "D2PL"
 F 12 "0402" H 7950 3900 50  0001 C CNN "Package"
 F 13 "_" H 7950 3900 50  0000 C CNN "Description"
 F 14 "6.3" H 7950 3900 50  0001 C CNN "Voltage"
@@ -173,10 +173,10 @@ F 22 "_" H 9100 3900 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR87
+L GND #PWR82
 U 1 1 56A2A8DB
 P 7950 4050
-F 0 "#PWR87" H 7950 3800 50  0001 C CNN
+F 0 "#PWR82" H 7950 3800 50  0001 C CNN
 F 1 "GND" H 7958 3876 50  0000 C CNN
 F 2 "" H 7950 4050 50  0000 C CNN
 F 3 "" H 7950 4050 50  0000 C CNN
@@ -194,11 +194,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 8150 3900 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 8150 3900 50  0001 C CNN "MFP"
 F 6 "digikey" H 8150 3900 50  0001 C CNN "D1"
-F 7 "mouser" H 8150 3900 50  0001 C CNN "D2"
+F 7 "avnet" H 8150 3900 50  0001 C CNN "D2"
 F 8 "445-5947" H 8150 3900 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 8150 3900 50  0001 C CNN "D1PL"
-F 10 "_" H 8150 3900 50  0001 C CNN "D2PN"
-F 11 "_" H 8150 3900 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 8150 3900 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 8150 3900 50  0001 C CNN "D2PL"
 F 12 "0402" H 8150 3900 50  0001 C CNN "Package"
 F 13 "_" H 8150 3900 50  0000 C CNN "Description"
 F 14 "6.3" H 8150 3900 50  0001 C CNN "Voltage"
@@ -304,10 +304,10 @@ F 22 "_" H 8500 3900 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L +2V5 #PWR86
+L +2V5 #PWR81
 U 1 1 56A2AA1B
 P 7950 3750
-F 0 "#PWR86" H 7950 3600 50  0001 C CNN
+F 0 "#PWR81" H 7950 3600 50  0001 C CNN
 F 1 "+2V5" H 7968 3924 50  0000 C CNN
 F 2 "" H 7950 3750 50  0000 C CNN
 F 3 "" H 7950 3750 50  0000 C CNN
@@ -315,10 +315,10 @@ F 3 "" H 7950 3750 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +2V5 #PWR76
+L +2V5 #PWR72
 U 1 1 56A2AA9D
 P 6600 3550
-F 0 "#PWR76" H 6600 3400 50  0001 C CNN
+F 0 "#PWR72" H 6600 3400 50  0001 C CNN
 F 1 "+2V5" H 6618 3724 50  0000 C CNN
 F 2 "" H 6600 3550 50  0000 C CNN
 F 3 "" H 6600 3550 50  0000 C CNN
@@ -339,9 +339,9 @@ Text GLabel 6450 2850 2    60   Input ~ 0
 P_LVDS9-
 Text GLabel 6450 2750 2    60   Input ~ 0
 P_LVDS9+
-Text GLabel 2050 2850 0    60   Input ~ 0
-P_LVDS10-
 Text GLabel 2050 2750 0    60   Input ~ 0
+P_LVDS10-
+Text GLabel 2050 2850 0    60   Input ~ 0
 P_LVDS10+
 Text GLabel 2050 1850 0    60   Input ~ 0
 P_LVDS12-

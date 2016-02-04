@@ -64,10 +64,10 @@ F 3 "" H 3550 1200 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3V3 #PWR18
+L +3V3 #PWR17
 U 1 1 56A19DF2
 P 2000 1200
-F 0 "#PWR18" H 2000 1050 50  0001 C CNN
+F 0 "#PWR17" H 2000 1050 50  0001 C CNN
 F 1 "+3V3" H 2000 1340 50  0000 C CNN
 F 2 "" H 2000 1200 60  0000 C CNN
 F 3 "" H 2000 1200 60  0000 C CNN
@@ -75,10 +75,10 @@ F 3 "" H 2000 1200 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR34
+L GND #PWR32
 U 1 1 56A19DF8
 P 3400 4500
-F 0 "#PWR34" H 3400 4250 50  0001 C CNN
+F 0 "#PWR32" H 3400 4250 50  0001 C CNN
 F 1 "GND" H 3400 4350 50  0000 C CNN
 F 2 "" H 3400 4500 60  0000 C CNN
 F 3 "" H 3400 4500 60  0000 C CNN
@@ -86,10 +86,10 @@ F 3 "" H 3400 4500 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR20
+L GND #PWR19
 U 1 1 56A19DFE
 P 2200 4500
-F 0 "#PWR20" H 2200 4250 50  0001 C CNN
+F 0 "#PWR19" H 2200 4250 50  0001 C CNN
 F 1 "GND" H 2200 4350 50  0000 C CNN
 F 2 "" H 2200 4500 60  0000 C CNN
 F 3 "" H 2200 4500 60  0000 C CNN
@@ -127,10 +127,10 @@ F 22 "_" H 2050 3000 50  0001 C CNN "ResonnanceFreq"
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR11
+L GND #PWR9
 U 1 1 56A19E1D
 P 1450 3000
-F 0 "#PWR11" H 1450 2750 50  0001 C CNN
+F 0 "#PWR9" H 1450 2750 50  0001 C CNN
 F 1 "GND" H 1450 2850 50  0000 C CNN
 F 2 "" H 1450 3000 60  0000 C CNN
 F 3 "" H 1450 3000 60  0000 C CNN
@@ -168,10 +168,10 @@ F 22 "_" H 1000 6600 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L +1V8 #PWR7
+L +1V8 #PWR5
 U 1 1 56A19E3C
 P 1000 6450
-F 0 "#PWR7" H 1000 6300 50  0001 C CNN
+F 0 "#PWR5" H 1000 6300 50  0001 C CNN
 F 1 "+1V8" H 1000 6590 50  0000 C CNN
 F 2 "" H 1000 6450 60  0000 C CNN
 F 3 "" H 1000 6450 60  0000 C CNN
@@ -179,10 +179,10 @@ F 3 "" H 1000 6450 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3V3 #PWR3
+L +3V3 #PWR1
 U 1 1 56A19E42
 P 1000 4850
-F 0 "#PWR3" H 1000 4700 50  0001 C CNN
+F 0 "#PWR1" H 1000 4700 50  0001 C CNN
 F 1 "+3V3" H 1000 4990 50  0000 C CNN
 F 2 "" H 1000 4850 60  0000 C CNN
 F 3 "" H 1000 4850 60  0000 C CNN
@@ -190,10 +190,10 @@ F 3 "" H 1000 4850 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR4
+L GND #PWR2
 U 1 1 56A19E48
 P 1000 5150
-F 0 "#PWR4" H 1000 4900 50  0001 C CNN
+F 0 "#PWR2" H 1000 4900 50  0001 C CNN
 F 1 "GND" H 1000 5000 50  0000 C CNN
 F 2 "" H 1000 5150 60  0000 C CNN
 F 3 "" H 1000 5150 60  0000 C CNN
@@ -201,10 +201,10 @@ F 3 "" H 1000 5150 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR8
+L GND #PWR6
 U 1 1 56A19E4E
 P 1000 6750
-F 0 "#PWR8" H 1000 6500 50  0001 C CNN
+F 0 "#PWR6" H 1000 6500 50  0001 C CNN
 F 1 "GND" H 1000 6600 50  0000 C CNN
 F 2 "" H 1000 6750 60  0000 C CNN
 F 3 "" H 1000 6750 60  0000 C CNN
@@ -216,15 +216,15 @@ L NOIP1SN1300A, U4
 U 1 1 56A19E67
 P 2800 2900
 F 0 "U4" H 2700 4850 60  0000 C CNN
-F 1 "NOIP1SE1300A-QDI" H 2800 1200 60  0000 C CNN
-F 2 "ONSemi:CLCC48_0.8mm" H 2700 4150 60  0001 C CNN
+F 1 "NOIP1SN1300A-QDI" H 2800 1200 60  0000 C CNN
+F 2 "LCC:LCC101.6P1422X1422X165-48" H 2700 4150 60  0001 C CNN
 F 3 "http://www.onsemi.com/pub_link/Collateral/PB_NOIP1SN1300A-D.PDF" H 2700 4150 60  0001 C CNN
 F 4 "ON Semi" H 2800 2900 50  0001 C CNN "MFN"
-F 5 "NOIP1SE1300A-QDI" H 2800 2900 50  0001 C CNN "MFP"
+F 5 "NOIP1SN1300A-QDI" H 2800 2900 50  0001 C CNN "MFP"
 F 6 "_" H 2800 2900 50  0001 C CNN "D1"
 F 7 "_" H 2800 2900 50  0001 C CNN "D2"
-F 8 "NOIP1SE1300A-QDI" H 2800 2900 50  0001 C CNN "D1PN"
-F 9 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=EUR&langId=-1&slnk=e&term=NOIP1SE1300A-QDI&mfr=ONS&CMP=KNC-Octopart_VSE&c=EUR&l=-1" H 2800 2900 50  0001 C CNN "D1PL"
+F 8 "NOIP1SN1300A-QDI" H 2800 2900 50  0001 C CNN "D1PN"
+F 9 "https://www.arrow.com/en/products/noip1sn1300a-qdi/on-semiconductor?&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart&&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart#page-1" H 2800 2900 50  0001 C CNN "D1PL"
 F 10 "_" H 2800 2900 50  0001 C CNN "D2PN"
 F 11 "_" H 2800 2900 50  0001 C CNN "D2PL"
 F 12 "CLCC48" H 2800 2900 50  0001 C CNN "Package"
@@ -342,11 +342,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 2400 5000 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 2400 5000 50  0001 C CNN "MFP"
 F 6 "digikey" H 2400 5000 50  0001 C CNN "D1"
-F 7 "mouser" H 2400 5000 50  0001 C CNN "D2"
+F 7 "avnet" H 2400 5000 50  0001 C CNN "D2"
 F 8 "445-5947" H 2400 5000 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 2400 5000 50  0001 C CNN "D1PL"
-F 10 "_" H 2400 5000 50  0001 C CNN "D2PN"
-F 11 "_" H 2400 5000 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 2400 5000 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 2400 5000 50  0001 C CNN "D2PL"
 F 12 "0402" H 2400 5000 50  0001 C CNN "Package"
 F 13 "_" H 2400 5000 50  0000 C CNN "Description"
 F 14 "6.3" H 2400 5000 50  0001 C CNN "Voltage"
@@ -362,10 +362,10 @@ F 22 "_" H 2400 5000 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3V3 #PWR5
+L +3V3 #PWR3
 U 1 1 56A19ED1
 P 1000 5600
-F 0 "#PWR5" H 1000 5450 50  0001 C CNN
+F 0 "#PWR3" H 1000 5450 50  0001 C CNN
 F 1 "+3V3" H 1000 5740 50  0000 C CNN
 F 2 "" H 1000 5600 60  0000 C CNN
 F 3 "" H 1000 5600 60  0000 C CNN
@@ -373,10 +373,10 @@ F 3 "" H 1000 5600 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR6
+L GND #PWR4
 U 1 1 56A19ED7
 P 1000 6000
-F 0 "#PWR6" H 1000 5750 50  0001 C CNN
+F 0 "#PWR4" H 1000 5750 50  0001 C CNN
 F 1 "GND" H 1000 5850 50  0000 C CNN
 F 2 "" H 1000 6000 60  0000 C CNN
 F 3 "" H 1000 6000 60  0000 C CNN
@@ -664,11 +664,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 2600 5000 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 2600 5000 50  0001 C CNN "MFP"
 F 6 "digikey" H 2600 5000 50  0001 C CNN "D1"
-F 7 "mouser" H 2600 5000 50  0001 C CNN "D2"
+F 7 "avnet" H 2600 5000 50  0001 C CNN "D2"
 F 8 "445-5947" H 2600 5000 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 2600 5000 50  0001 C CNN "D1PL"
-F 10 "_" H 2600 5000 50  0001 C CNN "D2PN"
-F 11 "_" H 2600 5000 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 2600 5000 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 2600 5000 50  0001 C CNN "D2PL"
 F 12 "0402" H 2600 5000 50  0001 C CNN "Package"
 F 13 "_" H 2600 5000 50  0000 C CNN "Description"
 F 14 "6.3" H 2600 5000 50  0001 C CNN "Voltage"
@@ -694,11 +694,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 2800 5000 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 2800 5000 50  0001 C CNN "MFP"
 F 6 "digikey" H 2800 5000 50  0001 C CNN "D1"
-F 7 "mouser" H 2800 5000 50  0001 C CNN "D2"
+F 7 "avnet" H 2800 5000 50  0001 C CNN "D2"
 F 8 "445-5947" H 2800 5000 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 2800 5000 50  0001 C CNN "D1PL"
-F 10 "_" H 2800 5000 50  0001 C CNN "D2PN"
-F 11 "_" H 2800 5000 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 2800 5000 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 2800 5000 50  0001 C CNN "D2PL"
 F 12 "0402" H 2800 5000 50  0001 C CNN "Package"
 F 13 "_" H 2800 5000 50  0000 C CNN "Description"
 F 14 "6.3" H 2800 5000 50  0001 C CNN "Voltage"
@@ -724,11 +724,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 3000 5000 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 3000 5000 50  0001 C CNN "MFP"
 F 6 "digikey" H 3000 5000 50  0001 C CNN "D1"
-F 7 "mouser" H 3000 5000 50  0001 C CNN "D2"
+F 7 "avnet" H 3000 5000 50  0001 C CNN "D2"
 F 8 "445-5947" H 3000 5000 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 3000 5000 50  0001 C CNN "D1PL"
-F 10 "_" H 3000 5000 50  0001 C CNN "D2PN"
-F 11 "_" H 3000 5000 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 3000 5000 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 3000 5000 50  0001 C CNN "D2PL"
 F 12 "0402" H 3000 5000 50  0001 C CNN "Package"
 F 13 "_" H 3000 5000 50  0000 C CNN "Description"
 F 14 "6.3" H 3000 5000 50  0001 C CNN "Voltage"
@@ -754,11 +754,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 1000 5850 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 1000 5850 50  0001 C CNN "MFP"
 F 6 "digikey" H 1000 5850 50  0001 C CNN "D1"
-F 7 "mouser" H 1000 5850 50  0001 C CNN "D2"
+F 7 "avnet" H 1000 5850 50  0001 C CNN "D2"
 F 8 "445-5947" H 1000 5850 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 1000 5850 50  0001 C CNN "D1PL"
-F 10 "_" H 1000 5850 50  0001 C CNN "D2PN"
-F 11 "_" H 1000 5850 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 1000 5850 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 1000 5850 50  0001 C CNN "D2PL"
 F 12 "0402" H 1000 5850 50  0001 C CNN "Package"
 F 13 "_" H 1000 5850 50  0000 C CNN "Description"
 F 14 "6.3" H 1000 5850 50  0001 C CNN "Voltage"
@@ -784,11 +784,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 1200 5850 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 1200 5850 50  0001 C CNN "MFP"
 F 6 "digikey" H 1200 5850 50  0001 C CNN "D1"
-F 7 "mouser" H 1200 5850 50  0001 C CNN "D2"
+F 7 "avnet" H 1200 5850 50  0001 C CNN "D2"
 F 8 "445-5947" H 1200 5850 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 1200 5850 50  0001 C CNN "D1PL"
-F 10 "_" H 1200 5850 50  0001 C CNN "D2PN"
-F 11 "_" H 1200 5850 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 1200 5850 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 1200 5850 50  0001 C CNN "D2PL"
 F 12 "0402" H 1200 5850 50  0001 C CNN "Package"
 F 13 "_" H 1200 5850 50  0000 C CNN "Description"
 F 14 "6.3" H 1200 5850 50  0001 C CNN "Voltage"
@@ -814,11 +814,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 1400 5850 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 1400 5850 50  0001 C CNN "MFP"
 F 6 "digikey" H 1400 5850 50  0001 C CNN "D1"
-F 7 "mouser" H 1400 5850 50  0001 C CNN "D2"
+F 7 "avnet" H 1400 5850 50  0001 C CNN "D2"
 F 8 "445-5947" H 1400 5850 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 1400 5850 50  0001 C CNN "D1PL"
-F 10 "_" H 1400 5850 50  0001 C CNN "D2PN"
-F 11 "_" H 1400 5850 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 1400 5850 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 1400 5850 50  0001 C CNN "D2PL"
 F 12 "0402" H 1400 5850 50  0001 C CNN "Package"
 F 13 "_" H 1400 5850 50  0000 C CNN "Description"
 F 14 "6.3" H 1400 5850 50  0001 C CNN "Voltage"
@@ -844,11 +844,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 1600 5850 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 1600 5850 50  0001 C CNN "MFP"
 F 6 "digikey" H 1600 5850 50  0001 C CNN "D1"
-F 7 "mouser" H 1600 5850 50  0001 C CNN "D2"
+F 7 "avnet" H 1600 5850 50  0001 C CNN "D2"
 F 8 "445-5947" H 1600 5850 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 1600 5850 50  0001 C CNN "D1PL"
-F 10 "_" H 1600 5850 50  0001 C CNN "D2PN"
-F 11 "_" H 1600 5850 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 1600 5850 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 1600 5850 50  0001 C CNN "D2PL"
 F 12 "0402" H 1600 5850 50  0001 C CNN "Package"
 F 13 "_" H 1600 5850 50  0000 C CNN "Description"
 F 14 "6.3" H 1600 5850 50  0001 C CNN "Voltage"
@@ -874,11 +874,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 1900 6600 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 1900 6600 50  0001 C CNN "MFP"
 F 6 "digikey" H 1900 6600 50  0001 C CNN "D1"
-F 7 "mouser" H 1900 6600 50  0001 C CNN "D2"
+F 7 "avnet" H 1900 6600 50  0001 C CNN "D2"
 F 8 "445-5947" H 1900 6600 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 1900 6600 50  0001 C CNN "D1PL"
-F 10 "_" H 1900 6600 50  0001 C CNN "D2PN"
-F 11 "_" H 1900 6600 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 1900 6600 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 1900 6600 50  0001 C CNN "D2PL"
 F 12 "0402" H 1900 6600 50  0001 C CNN "Package"
 F 13 "_" H 1900 6600 50  0000 C CNN "Description"
 F 14 "6.3" H 1900 6600 50  0001 C CNN "Voltage"
@@ -904,11 +904,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 2100 6600 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 2100 6600 50  0001 C CNN "MFP"
 F 6 "digikey" H 2100 6600 50  0001 C CNN "D1"
-F 7 "mouser" H 2100 6600 50  0001 C CNN "D2"
+F 7 "avnet" H 2100 6600 50  0001 C CNN "D2"
 F 8 "445-5947" H 2100 6600 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 2100 6600 50  0001 C CNN "D1PL"
-F 10 "_" H 2100 6600 50  0001 C CNN "D2PN"
-F 11 "_" H 2100 6600 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 2100 6600 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 2100 6600 50  0001 C CNN "D2PL"
 F 12 "0402" H 2100 6600 50  0001 C CNN "Package"
 F 13 "_" H 2100 6600 50  0000 C CNN "Description"
 F 14 "6.3" H 2100 6600 50  0001 C CNN "Voltage"
@@ -934,11 +934,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 2300 6600 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 2300 6600 50  0001 C CNN "MFP"
 F 6 "digikey" H 2300 6600 50  0001 C CNN "D1"
-F 7 "mouser" H 2300 6600 50  0001 C CNN "D2"
+F 7 "avnet" H 2300 6600 50  0001 C CNN "D2"
 F 8 "445-5947" H 2300 6600 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 2300 6600 50  0001 C CNN "D1PL"
-F 10 "_" H 2300 6600 50  0001 C CNN "D2PN"
-F 11 "_" H 2300 6600 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 2300 6600 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 2300 6600 50  0001 C CNN "D2PL"
 F 12 "0402" H 2300 6600 50  0001 C CNN "Package"
 F 13 "_" H 2300 6600 50  0000 C CNN "Description"
 F 14 "6.3" H 2300 6600 50  0001 C CNN "Voltage"
@@ -964,11 +964,11 @@ F 3 "http://product.tdk.com/en/catalog/datasheets/mlcc_commercial_general_en.pdf
 F 4 "TDK" H 2500 6600 50  0001 C CNN "MFN"
 F 5 "C1005X5R0J475K050BC" H 2500 6600 50  0001 C CNN "MFP"
 F 6 "digikey" H 2500 6600 50  0001 C CNN "D1"
-F 7 "mouser" H 2500 6600 50  0001 C CNN "D2"
+F 7 "avnet" H 2500 6600 50  0001 C CNN "D2"
 F 8 "445-5947" H 2500 6600 50  0001 C CNN "D1PN"
 F 9 "http://www.digikey.com/product-detail/en/C1005X5R0J475K050BC/445-5947-1-ND/2443987" H 2500 6600 50  0001 C CNN "D1PL"
-F 10 "_" H 2500 6600 50  0001 C CNN "D2PN"
-F 11 "_" H 2500 6600 50  0001 C CNN "D2PL"
+F 10 "C1005X5R0J475K050BC/BKN" H 2500 6600 50  0001 C CNN "D2PN"
+F 11 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=C1005X5R0J475K050BC%252FBKN&mfr=TDK&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 2500 6600 50  0001 C CNN "D2PL"
 F 12 "0402" H 2500 6600 50  0001 C CNN "Package"
 F 13 "_" H 2500 6600 50  0000 C CNN "Description"
 F 14 "6.3" H 2500 6600 50  0001 C CNN "Voltage"
