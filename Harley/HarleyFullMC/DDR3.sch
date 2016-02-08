@@ -989,11 +989,11 @@ F 1 "MT41K128M16" H 3800 5437 50  0000 C CNN
 F 2 "BGA:WBGA96C80P6X16_80X1400X110" H 2900 3600 50  0001 C CNN
 F 3 "https://www.micron.com/~/media/documents/products/data-sheet/dram/ddr3/2gb_1_35v_ddr3l.pdf" H 2900 3600 50  0001 C CNN
 F 4 "Micron" H 3950 3550 50  0001 C CNN "MFN"
-F 5 "MT41K128M16JT-107 IT:K" H 3950 3550 50  0001 C CNN "MFP"
-F 6 "digikey" H 3950 3550 50  0001 C CNN "D1"
+F 5 "MT41K128M16JT-125:K TR" H 3950 3550 50  0001 C CNN "MFP"
+F 6 "arrow" H 3950 3550 50  0001 C CNN "D1"
 F 7 "mouser" H 3950 3550 50  0001 C CNN "D2"
-F 8 "MT41K128M16JT-107 IT:K" H 3950 3550 50  0001 C CNN "D1PN"
-F 9 "https://www.arrow.com/en/products/mt41k128m16jt-107itk/micron-technology?&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart#page-1" H 3950 3550 50  0001 C CNN "D1PL"
+F 8 "MT41K128M16JT-125:K TR" H 3950 3550 50  0001 C CNN "D1PN"
+F 9 "https://www.arrow.com/en/products/mt41k128m16jt-125ktr/micron-technology" H 3950 3550 50  0001 C CNN "D1PL"
 F 10 "_" H 3950 3550 50  0001 C CNN "D2PN"
 F 11 "_" H 3950 3550 50  0001 C CNN "D2PL"
 F 12 "BGA96" H 3950 3550 50  0001 C CNN "Package"
