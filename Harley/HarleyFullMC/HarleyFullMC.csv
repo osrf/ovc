@@ -1,10 +1,10 @@
 "Designator","Value","MFN","MFP","D1","D1PN","D1PL","D2","D2PN","D2PL",Qty
-"U1","xc7a50tcsg324pkg","Xilinx","XC7A50T-2CSG324C","avnet","XC7A50T-2CSG324C","http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=XC7A50T-2CSG324C&mfr=XLX&CMP=KNC-Octopart_VSE&c=USD&l=-1","_","_","_",1
+"U1","xc7a100tcsg324pkg","Xilinx","XC7A100T-2CSG324I","digikey","122-1881","http://www.digikey.com/product-detail/en/XC7A100T-2CSG324I/122-1881-ND/3925808","_","_","_",1
 "C20;C24;C4;C7","100u","AVX","TPSB107M010R0400","digikey","478-5231","http://www.digikey.com/product-detail/en/TPSB107M010R0400/478-5231-1-ND/1913301","mouser","_","_",4
 "C35","10u","AVX","TCJA106M016R0200","digikey","478-3451","http://www.digikey.com/product-detail/en/TCJA106M016R0200/478-3451-1-ND/998456","mouser","_","_",1
 "U8","IC10pins","Littelfuse Inc","SP3010-04UTG","digikey","F3507","http://www.digikey.com/product-detail/en/SP3010-04UTG/F3507CT-ND/2297266","mouser","_","_",1
 "U4","NOIP1SN1300A-QDI","ON Semi","NOIP1SN1300A-QDI","_","NOIP1SN1300A-QDI","https://www.arrow.com/en/products/noip1sn1300a-qdi/on-semiconductor?&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart&&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart#page-1","_","_","_",1
-"U6","MT41K128M16","Micron","MT41K128M16JT-107 IT:K","digikey","MT41K128M16JT-107 IT:K","https://www.arrow.com/en/products/mt41k128m16jt-107itk/micron-technology?&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart#page-1","mouser","_","_",1
+"U6","MT41K128M16","Micron","MT41K128M16JT-125:K TR","arrow","MT41K128M16JT-125:K TR","https://www.arrow.com/en/products/mt41k128m16jt-125ktr/micron-technology","mouser","_","_",1
 "FB1;FB2;FB3;FB4","600","TDK","MPZ1608S601ATA00","digikey","445-2205","http://www.digikey.com/product-detail/en/MPZ1608S601ATA00/445-2205-1-ND/765103","mouser","_","_",4
 "U10;U2;U7","LTM4622","Linear","LTM4622EV#PBF","digikey","LTM4622EV#PBF","http://www.digikey.com/product-detail/en/LTM4622EV%23PBF/LTM4622EV%23PBF-ND/5361650","element14","LTM4622EV#PBF","http://sg.element14.com/linear-technology/ltm4622ev-pbf/dc-dc-conv-buck-1mhz-lga-25/dp/2492751?ost=2492751&selectedCategoryId=&CMP=GRHB-OCTOPART",3
 "U3","ST_LSM6DS3","STMicroelectronics","LSM6DS3TR","digikey","497-15383","http://www.digikey.com/product-detail/en/LSM6DS3TR/497-15383-1-ND/5180534","mouser","_","_",1

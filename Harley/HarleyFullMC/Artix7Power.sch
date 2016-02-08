@@ -53,19 +53,19 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L xc7a50tcsg324pkg U1
+L xc7a100tcsg324pkg U1
 U 7 1 56A05411
 P 2800 2400
 F 0 "U1" H 2800 4266 50  0000 C CNN
-F 1 "xc7a50tcsg324pkg" H 2800 4174 50  0000 C CNN
+F 1 "xc7a100tcsg324pkg" H 2800 4174 50  0000 C CNN
 F 2 "BGA:BGA324C80P18X18_1500X1500X150" H 2800 2400 50  0001 C CNN
 F 3 "http://www.xilinx.com/support/documentation/data_sheets/ds180_7Series_Overview.pdf" H 2800 2400 50  0001 C CNN
 F 4 "Xilinx" H 2800 2400 50  0001 C CNN "MFN"
-F 5 "XC7A50T-2CSG324C" H 2800 2400 50  0001 C CNN "MFP"
-F 6 "avnet" H 2800 2400 50  0001 C CNN "D1"
+F 5 "XC7A100T-2CSG324I" H 2800 2400 50  0001 C CNN "MFP"
+F 6 "digikey" H 2800 2400 50  0001 C CNN "D1"
 F 7 "_" H 2800 2400 50  0001 C CNN "D2"
-F 8 "XC7A50T-2CSG324C" H 2800 2400 50  0001 C CNN "D1PN"
-F 9 "http://avnetexpress.avnet.com/store/em/EMController?action=products&catalogId=500201&storeId=500201&N=0&defaultCurrency=USD&langId=-1&slnk=e&term=XC7A50T-2CSG324C&mfr=XLX&CMP=KNC-Octopart_VSE&c=USD&l=-1" H 2800 2400 50  0001 C CNN "D1PL"
+F 8 "122-1881" H 2800 2400 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/XC7A100T-2CSG324I/122-1881-ND/3925808" H 2800 2400 50  0001 C CNN "D1PL"
 F 10 "_" H 2800 2400 50  0001 C CNN "D2PN"
 F 11 "_" H 2800 2400 50  0001 C CNN "D2PL"
 F 12 "BGA324" H 2800 2400 50  0001 C CNN "Package"
