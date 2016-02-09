@@ -1,7 +1,7 @@
 #!/bin/bash
 set -o errexit
 set -o verbose
-FAB=harley_rev_a
+FAB=harley_rev_a2
 rm -rf $FAB
 mkdir $FAB
 cp gerbers/* $FAB
