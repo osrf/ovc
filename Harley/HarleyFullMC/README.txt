@@ -1,3 +1,4 @@
+HARLEY-CAM, REV A2
 =====================
 PCB Fabrication notes:
 =====================
