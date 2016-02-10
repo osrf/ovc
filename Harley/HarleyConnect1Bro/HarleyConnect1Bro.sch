@@ -80,9 +80,9 @@ F 3 "" H 1250 5250 50  0000 C CNN
 	1    1250 5250
 	1    0    0    -1  
 $EndComp
-Text GLabel 2050 2200 0    60   Input ~ 0
-P_LVDS1-
 Text GLabel 2050 2300 0    60   Input ~ 0
+P_LVDS1-
+Text GLabel 2050 2200 0    60   Input ~ 0
 P_LVDS1+
 Text GLabel 2050 2500 0    60   Input ~ 0
 P_LVDS2-
@@ -112,13 +112,13 @@ Text GLabel 2050 4300 0    60   Input ~ 0
 P_LVDS8-
 Text GLabel 2050 4400 0    60   Input ~ 0
 P_LVDS8+
-Text GLabel 2050 5000 0    60   Input ~ 0
-P_LVDS9-
-Text GLabel 2050 4900 0    60   Input ~ 0
-P_LVDS9+
 Text GLabel 2050 4700 0    60   Input ~ 0
-P_LVDS10-
+P_LVDS9-
 Text GLabel 2050 4600 0    60   Input ~ 0
+P_LVDS9+
+Text GLabel 2050 5000 0    60   Input ~ 0
+P_LVDS10-
+Text GLabel 2050 4900 0    60   Input ~ 0
 P_LVDS10+
 Text GLabel 2050 2800 0    60   Input ~ 0
 P_LVDS11-
@@ -272,9 +272,9 @@ Text GLabel 5800 4250 0    60   Input ~ 0
 P_LVDS8-
 Text GLabel 5800 4350 0    60   Input ~ 0
 P_LVDS8+
-Text GLabel 5800 4550 0    60   Input ~ 0
-P_LVDS9-
 Text GLabel 5800 4650 0    60   Input ~ 0
+P_LVDS9-
+Text GLabel 5800 4550 0    60   Input ~ 0
 P_LVDS9+
 Text GLabel 5800 4850 0    60   Input ~ 0
 P_LVDS10-
@@ -368,42 +368,12 @@ Wire Wire Line
 Text GLabel 6300 3950 2    60   Input ~ 0
 FPGA_SS_DIN
 $Comp
-L CONN_02X30 J1
-U 1 1 56BAD293
-P 2300 3650
-F 0 "J1" H 2300 5316 50  0000 C CNN
-F 1 "DF40HC(4.0)-60DS-0.4V(51)" H 2300 5224 50  0000 C CNN
-F 2 "Hirose:DF40C_60DS_0-4V" H 2300 3150 50  0001 C CNN
-F 3 "http://www.hirose.co.jp/cataloge_hp/ed_DF40_20140305.pdf" H 2300 3150 50  0001 C CNN
-F 4 "Hirose" H 2300 3650 60  0001 C CNN "MFN"
-F 5 "DF40HC(4.0)-60DS-0.4V(51)" H 2300 3650 60  0001 C CNN "MFP"
-F 6 "digikey" H 2300 3650 60  0001 C CNN "D1"
-F 7 "mouser" H 2300 3650 60  0001 C CNN "D2"
-F 8 "H11918" H 2300 3650 60  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/DF40HC%284.0%29-60DS-0.4V%2851%29/H11918CT-ND/2530300" H 2300 3650 60  0001 C CNN "D1PL"
-F 10 "_" H 2300 3650 60  0001 C CNN "D2PN"
-F 11 "_" H 2300 3650 60  0001 C CNN "D2PL"
-F 12 "_" H 2300 3650 60  0001 C CNN "Package"
-F 13 "_" H 2300 3650 60  0000 C CNN "Description"
-F 14 "_" H 2300 3650 60  0001 C CNN "Voltage"
-F 15 "_" H 2300 3650 60  0001 C CNN "Power"
-F 16 "_" H 2300 3650 60  0001 C CNN "Tolerance"
-F 17 "_" H 2300 3650 60  0001 C CNN "Temperature"
-F 18 "_" H 2300 3650 60  0001 C CNN "ReverseVoltage"
-F 19 "_" H 2300 3650 60  0001 C CNN "ForwardVoltage"
-F 20 "_" H 2300 3650 60  0001 C CNN "Cont.Current"
-F 21 "_" H 2300 3650 60  0001 C CNN "Frequency"
-F 22 "_" H 2300 3650 60  0001 C CNN "ResonnanceFreq"
-	1    2300 3650
-	1    0    0    -1  
-$EndComp
-$Comp
 L CONN_02X30 J2
 U 1 1 56BAD2B1
 P 6050 3600
 F 0 "J2" H 6050 5266 50  0000 C CNN
-F 1 "DF40HC(4.0)-60DS-0.4V(51)" H 6050 5174 50  0000 C CNN
-F 2 "Hirose:DF40C_60DS_0-4V" H 6050 3100 50  0001 C CNN
+F 1 "DDF40HC(4.0)_60DS_0-4V" H 6050 5174 50  0000 C CNN
+F 2 "Hirose:DF40HC(4.0)_60DS_0-4V" H 6050 3100 50  0001 C CNN
 F 3 "http://www.hirose.co.jp/cataloge_hp/ed_DF40_20140305.pdf" H 6050 3100 50  0001 C CNN
 F 4 "Hirose" H 6050 3600 60  0001 C CNN "MFN"
 F 5 "DF40HC(4.0)-60DS-0.4V(51)" H 6050 3600 60  0001 C CNN "MFP"
@@ -427,4 +397,36 @@ F 22 "_" H 6050 3600 60  0001 C CNN "ResonnanceFreq"
 	1    6050 3600
 	1    0    0    -1  
 $EndComp
+$Comp
+L CONN_02X30 J1
+U 1 1 56BB7E44
+P 2300 3650
+F 0 "J1" H 2300 5316 50  0000 C CNN
+F 1 "DDF40HC(4.0)_60DS_0-4V" H 2300 5224 50  0000 C CNN
+F 2 "Hirose:DF40HC(4.0)_60DS_0-4V" H 2300 3150 50  0001 C CNN
+F 3 "http://www.hirose.co.jp/cataloge_hp/ed_DF40_20140305.pdf" H 2300 3150 50  0001 C CNN
+F 4 "Hirose" H 2300 3650 60  0001 C CNN "MFN"
+F 5 "DF40HC(4.0)-60DS-0.4V(51)" H 2300 3650 60  0001 C CNN "MFP"
+F 6 "digikey" H 2300 3650 60  0001 C CNN "D1"
+F 7 "mouser" H 2300 3650 60  0001 C CNN "D2"
+F 8 "H11918" H 2300 3650 60  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/DF40HC%284.0%29-60DS-0.4V%2851%29/H11918CT-ND/2530300" H 2300 3650 60  0001 C CNN "D1PL"
+F 10 "_" H 2300 3650 60  0001 C CNN "D2PN"
+F 11 "_" H 2300 3650 60  0001 C CNN "D2PL"
+F 12 "_" H 2300 3650 60  0001 C CNN "Package"
+F 13 "_" H 2300 3650 60  0000 C CNN "Description"
+F 14 "_" H 2300 3650 60  0001 C CNN "Voltage"
+F 15 "_" H 2300 3650 60  0001 C CNN "Power"
+F 16 "_" H 2300 3650 60  0001 C CNN "Tolerance"
+F 17 "_" H 2300 3650 60  0001 C CNN "Temperature"
+F 18 "_" H 2300 3650 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 2300 3650 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 2300 3650 60  0001 C CNN "Cont.Current"
+F 21 "_" H 2300 3650 60  0001 C CNN "Frequency"
+F 22 "_" H 2300 3650 60  0001 C CNN "ResonnanceFreq"
+	1    2300 3650
+	1    0    0    -1  
+$EndComp
+Text Notes 3150 850  0    60   ~ 0
+USE 10 mil traces with 7mil interspace
 $EndSCHEMATC
