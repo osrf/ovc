@@ -1,9 +1,9 @@
 (kicad_pcb (version 4) (host pcbnew 0.201602101416+6546~42~ubuntu14.04.1-product)
 
   (general
-    (links 0)
+    (links 116)
     (no_connects 0)
-    (area 11.924999 99.424999 324.075001 119.575001)
+    (area 11.924999 96.498 324.075001 120.704381)
     (thickness 1.6)
     (drawings 12)
     (tracks 2368)
@@ -238,7 +238,7 @@
   )
 
   (module Mounting:MountingHoleM2 (layer F.Cu) (tedit 56906D48) (tstamp 56BDEFEB)
-    (at 249.3 101.6)
+    (at 243 101.6)
     (descr "MountingHole M2 screws")
     (tags "M2 Mount Hole")
     (fp_text reference REF** (at 0.1 4.4) (layer F.SilkS) hide
@@ -696,7 +696,7 @@
   )
 
   (module Mounting:MountingHoleM2 (layer F.Cu) (tedit 56906D48) (tstamp 56BDEFD8)
-    (at 83 101.6)
+    (at 93 101.6)
     (descr "MountingHole M2 screws")
     (tags "M2 Mount Hole")
     (fp_text reference REF** (at 0.1 4.4) (layer F.SilkS) hide
@@ -712,15 +712,15 @@
     (pad MNT thru_hole circle (at 0 0) (size 2.54 2.54) (drill 2.15) (layers *.Cu *.Mask F.SilkS))
   )
 
-  (gr_line (start 263 102) (end 324 102) (layer Edge.Cuts) (width 0.15))
-  (gr_line (start 97 102) (end 235.5 102) (layer Edge.Cuts) (width 0.15))
-  (gr_line (start 12 102) (end 69 102) (layer Edge.Cuts) (width 0.15))
-  (gr_line (start 263 102) (end 263 99.5) (layer Edge.Cuts) (width 0.15) (tstamp 56BDEFEA))
-  (gr_line (start 235.5 99.5) (end 263 99.5) (layer Edge.Cuts) (width 0.15) (tstamp 56BDEFE9))
-  (gr_line (start 235.5 102) (end 235.5 99.5) (layer Edge.Cuts) (width 0.15) (tstamp 56BDEFE8))
-  (gr_line (start 69 99.5) (end 97 99.5) (layer Edge.Cuts) (width 0.15))
-  (gr_line (start 97 102) (end 97 99.5) (layer Edge.Cuts) (width 0.15) (tstamp 56BBF41D))
-  (gr_line (start 69 102) (end 69 99.5) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 256.7 102) (end 324 102) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 107 102) (end 229.2 102) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 12 102) (end 79 102) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 256.7 102) (end 256.7 99.5) (layer Edge.Cuts) (width 0.15) (tstamp 56BDEFEA))
+  (gr_line (start 229.2 99.5) (end 256.7 99.5) (layer Edge.Cuts) (width 0.15) (tstamp 56BDEFE9))
+  (gr_line (start 229.2 102) (end 229.2 99.5) (layer Edge.Cuts) (width 0.15) (tstamp 56BDEFE8))
+  (gr_line (start 79 99.5) (end 107 99.5) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 107 102) (end 107 99.5) (layer Edge.Cuts) (width 0.15) (tstamp 56BBF41D))
+  (gr_line (start 79 102) (end 79 99.5) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 324 119.5) (end 324 102) (layer Edge.Cuts) (width 0.15) (tstamp 56BBCC1D))
   (gr_line (start 12 119.5) (end 12 102) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 12 119.5) (end 324 119.5) (layer Edge.Cuts) (width 0.15))
