@@ -1,8 +1,8 @@
 (export (version D)
   (design
     (source /home/mikael/work/kicad_ws/opencam/hardware/Harley/HarleyConnect2Bros/HarleyConnect2Bros.sch)
-    (date "Wed 10 Feb 2016 05:11:11 PM PST")
-    (tool "Eeschema 0.201602101416+6546~42~ubuntu14.04.1-product")
+    (date "Fri 12 Feb 2016 05:22:30 PM PST")
+    (tool "Eeschema 0.201602111419+6548~42~ubuntu14.04.1-product")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title)
