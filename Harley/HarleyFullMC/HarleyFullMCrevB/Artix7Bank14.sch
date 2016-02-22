@@ -79,8 +79,8 @@ F 19 "_" H 4250 2550 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 4250 2550 50 0001 C CNN "Cont.Current"
 F 21 "_" H 4250 2550 50 0001 C CNN "Frequency"
 F 22 "_" H 4250 2550 50 0001 C CNN "ResonnanceFreq"
-	2    4250 2550
-	1    0    0    -1  
+ 2 4250 2550
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C148
@@ -109,8 +109,8 @@ F 19 "_" H 7600 3900 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 7600 3900 50 0001 C CNN "Cont.Current"
 F 21 "_" H 7600 3900 50 0001 C CNN "Frequency"
 F 22 "_" H 7600 3900 50 0001 C CNN "ResonnanceFreq"
-	1    7600 3900
-	1    0    0    -1  
+ 1 7600 3900
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C152
@@ -139,8 +139,8 @@ F 19 "_" H 7950 3900 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 7950 3900 50 0001 C CNN "Cont.Current"
 F 21 "_" H 7950 3900 50 0001 C CNN "Frequency"
 F 22 "_" H 7950 3900 50 0001 C CNN "ResonnanceFreq"
-	1    7950 3900
-	1    0    0    -1  
+ 1 7950 3900
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C159
@@ -169,8 +169,8 @@ F 19 "_" H 9100 3900 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 9100 3900 50 0001 C CNN "Cont.Current"
 F 21 "_" H 9100 3900 50 0001 C CNN "Frequency"
 F 22 "_" H 9100 3900 50 0001 C CNN "ResonnanceFreq"
-	1    9100 3900
-	1    0    0    -1  
+ 1 9100 3900
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR063
@@ -180,8 +180,8 @@ F 0 "#PWR063" H 7950 3800 50 0001 C CNN
 F 1 "GND" H 7958 3876 50 0000 C CNN
 F 2 "" H 7950 4050 50 0000 C CNN
 F 3 "" H 7950 4050 50 0000 C CNN
-	1    7950 4050
-	1    0    0    -1  
+ 1 7950 4050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C154
@@ -210,8 +210,8 @@ F 19 "_" H 8150 3900 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 8150 3900 50 0001 C CNN "Cont.Current"
 F 21 "_" H 8150 3900 50 0001 C CNN "Frequency"
 F 22 "_" H 8150 3900 50 0001 C CNN "ResonnanceFreq"
-	1    8150 3900
-	1    0    0    -1  
+ 1 8150 3900
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C158
@@ -240,8 +240,8 @@ F 19 "_" H 8900 3900 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 8900 3900 50 0001 C CNN "Cont.Current"
 F 21 "_" H 8900 3900 50 0001 C CNN "Frequency"
 F 22 "_" H 8900 3900 50 0001 C CNN "ResonnanceFreq"
-	1    8900 3900
-	1    0    0    -1  
+ 1 8900 3900
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C157
@@ -270,8 +270,8 @@ F 19 "_" H 8700 3900 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 8700 3900 50 0001 C CNN "Cont.Current"
 F 21 "_" H 8700 3900 50 0001 C CNN "Frequency"
 F 22 "_" H 8700 3900 50 0001 C CNN "ResonnanceFreq"
-	1    8700 3900
-	1    0    0    -1  
+ 1 8700 3900
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C156
@@ -300,8 +300,8 @@ F 19 "_" H 8500 3900 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 8500 3900 50 0001 C CNN "Cont.Current"
 F 21 "_" H 8500 3900 50 0001 C CNN "Frequency"
 F 22 "_" H 8500 3900 50 0001 C CNN "ResonnanceFreq"
-	1    8500 3900
-	1    0    0    -1  
+ 1 8500 3900
+ 1 0 0 -1 
 $EndComp
 $Comp
 L +2V5 #PWR064
@@ -311,8 +311,8 @@ F 0 "#PWR064" H 7950 3600 50 0001 C CNN
 F 1 "+2V5" H 7968 3924 50 0000 C CNN
 F 2 "" H 7950 3750 50 0000 C CNN
 F 3 "" H 7950 3750 50 0000 C CNN
-	1    7950 3750
-	1    0    0    -1  
+ 1 7950 3750
+ 1 0 0 -1 
 $EndComp
 $Comp
 L +2V5 #PWR065
@@ -322,103 +322,103 @@ F 0 "#PWR065" H 6600 3400 50 0001 C CNN
 F 1 "+2V5" H 6618 3724 50 0000 C CNN
 F 2 "" H 6600 3550 50 0000 C CNN
 F 3 "" H 6600 3550 50 0000 C CNN
-	1    6600 3550
-	1    0    0    -1  
+ 1 6600 3550
+ 1 0 0 -1 
 $EndComp
-Text GLabel 2050 3350 0    60   Input ~ 0
+Text GLabel 2050 3350 0 60 Input ~ 0
 FPGA_SS_DIN
-Text GLabel 6450 2250 2    60   Input ~ 0
+Text GLabel 6450 2250 2 60 Input ~ 0
 P_LVDS6-
-Text GLabel 6450 2150 2    60   Input ~ 0
+Text GLabel 6450 2150 2 60 Input ~ 0
 P_LVDS6+
-Text GLabel 6450 1950 2    60   Input ~ 0
+Text GLabel 6450 1950 2 60 Input ~ 0
 P_LVDS7-
-Text GLabel 6450 2050 2    60   Input ~ 0
+Text GLabel 6450 2050 2 60 Input ~ 0
 P_LVDS7+
-Text GLabel 6450 2850 2    60   Input ~ 0
+Text GLabel 6450 2850 2 60 Input ~ 0
 P_LVDS9-
-Text GLabel 6450 2750 2    60   Input ~ 0
+Text GLabel 6450 2750 2 60 Input ~ 0
 P_LVDS9+
-Text GLabel 2050 2750 0    60   Input ~ 0
+Text GLabel 2050 2750 0 60 Input ~ 0
 P_LVDS10-
-Text GLabel 2050 2850 0    60   Input ~ 0
+Text GLabel 2050 2850 0 60 Input ~ 0
 P_LVDS10+
-Text GLabel 2050 1850 0    60   Input ~ 0
+Text GLabel 2050 1850 0 60 Input ~ 0
 P_LVDS12-
-Text GLabel 2050 1750 0    60   Input ~ 0
+Text GLabel 2050 1750 0 60 Input ~ 0
 P_LVDS12+
-Text GLabel 2050 1550 0    60   Input ~ 0
+Text GLabel 2050 1550 0 60 Input ~ 0
 P_LVDS8-
-Text GLabel 2050 1650 0    60   Input ~ 0
+Text GLabel 2050 1650 0 60 Input ~ 0
 P_LVDS8+
-Text GLabel 2050 2050 0    60   Input ~ 0
+Text GLabel 2050 2050 0 60 Input ~ 0
 P_LVDS13-
-Text GLabel 2050 1950 0    60   Input ~ 0
+Text GLabel 2050 1950 0 60 Input ~ 0
 P_LVDS13+
-Text GLabel 6450 2650 2    60   Input ~ 0
+Text GLabel 6450 2650 2 60 Input ~ 0
 P_LVDS14-
-Text GLabel 6450 2550 2    60   Input ~ 0
+Text GLabel 6450 2550 2 60 Input ~ 0
 P_LVDS14+
-Text GLabel 2050 3550 0    60   Input ~ 0
+Text GLabel 2050 3550 0 60 Input ~ 0
 FX3_DQ12
-Text GLabel 2050 3950 0    60   Input ~ 0
+Text GLabel 2050 3950 0 60 Input ~ 0
 FX3_DQ13
-Text GLabel 2050 2950 0    60   Input ~ 0
+Text GLabel 2050 2950 0 60 Input ~ 0
 FX3_DQ18
-Text GLabel 6450 1250 2    60   Input ~ 0
+Text GLabel 6450 1250 2 60 Input ~ 0
 FX3_SLCS#
-Text GLabel 2050 2650 0    60   Input ~ 0
+Text GLabel 2050 2650 0 60 Input ~ 0
 FX3_SLWR#
-Text GLabel 2050 1250 0    60   Input ~ 0
+Text GLabel 2050 1250 0 60 Input ~ 0
 FX3_SLOE#
-Text GLabel 2050 2150 0    60   Input ~ 0
+Text GLabel 2050 2150 0 60 Input ~ 0
 FX3_FLAGC
-Text GLabel 6450 1350 2    60   Input ~ 0
+Text GLabel 6450 1350 2 60 Input ~ 0
 FX3_DQ11
-Text GLabel 2050 2350 0    60   Input ~ 0
+Text GLabel 2050 2350 0 60 Input ~ 0
 FPGA_SS_DOUT
-Text GLabel 2050 3750 0    60   Input ~ 0
+Text GLabel 2050 3750 0 60 Input ~ 0
 FX3_DQ9
-Text GLabel 2050 3150 0    60   Input ~ 0
+Text GLabel 2050 3150 0 60 Input ~ 0
 FX3_DQ10
-Text GLabel 2050 3850 0    60   Input ~ 0
+Text GLabel 2050 3850 0 60 Input ~ 0
 FX3_DQ8
-Text GLabel 2050 3050 0    60   Input ~ 0
+Text GLabel 2050 3050 0 60 Input ~ 0
 FX3_DQ16
-Text GLabel 2050 2550 0    60   Input ~ 0
+Text GLabel 2050 2550 0 60 Input ~ 0
 FX3_DQ20
-Text GLabel 6450 2950 2    60   Input ~ 0
+Text GLabel 6450 2950 2 60 Input ~ 0
 FX3_DQ21
-Text GLabel 6450 2450 2    60   Input ~ 0
+Text GLabel 6450 2450 2 60 Input ~ 0
 FX3_DQ22
-Text GLabel 2050 2250 0    60   Input ~ 0
+Text GLabel 2050 2250 0 60 Input ~ 0
 FX3_DQ19
-Text GLabel 6450 1450 2    60   Input ~ 0
+Text GLabel 6450 1450 2 60 Input ~ 0
 FX3_DQ25
-Text GLabel 2050 3250 0    60   Input ~ 0
+Text GLabel 2050 3250 0 60 Input ~ 0
 FX3_DQ23
-Text GLabel 6450 1550 2    60   Input ~ 0
+Text GLabel 6450 1550 2 60 Input ~ 0
 FX3_DQ14
-Text GLabel 2050 1150 0    60   Input ~ 0
+Text GLabel 2050 1150 0 60 Input ~ 0
 FX3_A1
-Text GLabel 2050 3650 0    60   Input ~ 0
+Text GLabel 2050 3650 0 60 Input ~ 0
 FX3_DQ17
-Text GLabel 2050 2450 0    60   Input ~ 0
+Text GLabel 2050 2450 0 60 Input ~ 0
 FX3_DQ31
-Text GLabel 6450 3150 2    60   Input ~ 0
+Text GLabel 6450 3150 2 60 Input ~ 0
 FX3_DQ29
-Text GLabel 6450 1850 2    60   Input ~ 0
+Text GLabel 6450 1850 2 60 Input ~ 0
 FX3_DQ27
-Text GLabel 6450 1650 2    60   Input ~ 0
+Text GLabel 6450 1650 2 60 Input ~ 0
 FX3_A0
 Wire Wire Line
-	7600 4050 9100 4050
+ 7600 4050 9100 4050
 Wire Wire Line
-	7600 3750 9100 3750
+ 7600 3750 9100 3750
 Wire Wire Line
-	6450 3350 6450 3850
+ 6450 3350 6450 3850
 Wire Wire Line
-	6450 3550 6600 3550
+ 6450 3550 6600 3550
 Connection ~ 7950 4050
 Connection ~ 8150 4050
 Connection ~ 8900 4050

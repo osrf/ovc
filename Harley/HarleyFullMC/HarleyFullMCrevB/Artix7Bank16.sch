@@ -79,8 +79,8 @@ F 19 "_" H 2950 2800 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 2950 2800 50 0001 C CNN "Cont.Current"
 F 21 "_" H 2950 2800 50 0001 C CNN "Frequency"
 F 22 "_" H 2950 2800 50 0001 C CNN "ResonnanceFreq"
-	4    2950 2800
-	1    0    0    -1  
+ 4 2950 2800
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C108
@@ -109,8 +109,8 @@ F 19 "_" H 5300 3950 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 5300 3950 50 0001 C CNN "Cont.Current"
 F 21 "_" H 5300 3950 50 0001 C CNN "Frequency"
 F 22 "_" H 5300 3950 50 0001 C CNN "ResonnanceFreq"
-	1    5300 3950
-	1    0    0    -1  
+ 1 5300 3950
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C114
@@ -139,8 +139,8 @@ F 19 "_" H 5650 3950 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 5650 3950 50 0001 C CNN "Cont.Current"
 F 21 "_" H 5650 3950 50 0001 C CNN "Frequency"
 F 22 "_" H 5650 3950 50 0001 C CNN "ResonnanceFreq"
-	1    5650 3950
-	1    0    0    -1  
+ 1 5650 3950
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C128
@@ -169,8 +169,8 @@ F 19 "_" H 5850 3950 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 5850 3950 50 0001 C CNN "Cont.Current"
 F 21 "_" H 5850 3950 50 0001 C CNN "Frequency"
 F 22 "_" H 5850 3950 50 0001 C CNN "ResonnanceFreq"
-	1    5850 3950
-	1    0    0    -1  
+ 1 5850 3950
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR069
@@ -180,8 +180,8 @@ F 0 "#PWR069" H 5650 3850 50 0001 C CNN
 F 1 "GND" H 5658 3926 50 0000 C CNN
 F 2 "" H 5650 4100 50 0000 C CNN
 F 3 "" H 5650 4100 50 0000 C CNN
-	1    5650 4100
-	1    0    0    -1  
+ 1 5650 4100
+ 1 0 0 -1 
 $EndComp
 $Comp
 L +3V3 #PWR070
@@ -191,8 +191,8 @@ F 0 "#PWR070" H 5650 3650 50 0001 C CNN
 F 1 "+3V3" H 5668 3974 50 0000 C CNN
 F 2 "" H 5650 3800 50 0000 C CNN
 F 3 "" H 5650 3800 50 0000 C CNN
-	1    5650 3800
-	1    0    0    -1  
+ 1 5650 3800
+ 1 0 0 -1 
 $EndComp
 $Comp
 L +3V3 #PWR071
@@ -202,35 +202,35 @@ F 0 "#PWR071" H 5050 2850 50 0001 C CNN
 F 1 "+3V3" H 5068 3174 50 0000 C CNN
 F 2 "" H 5050 3000 50 0000 C CNN
 F 3 "" H 5050 3000 50 0000 C CNN
-	1    5050 3000
-	-1   0    0    1   
+ 1 5050 3000
+ -1 0 0 1 
 $EndComp
-Text GLabel 1250 3000 0    60   Input ~ 0
+Text GLabel 1250 3000 0 60 Input ~ 0
 CAM_CLK_PLL
-Text GLabel 4650 2900 2    60   Input ~ 0
+Text GLabel 4650 2900 2 60 Input ~ 0
 CAM_trigger1
-Text GLabel 4650 2800 2    60   Input ~ 0
+Text GLabel 4650 2800 2 60 Input ~ 0
 CAM_trigger0
-Text GLabel 4650 2700 2    60   Input ~ 0
+Text GLabel 4650 2700 2 60 Input ~ 0
 CAM_monitor0
-Text GLabel 1250 2600 0    60   Input ~ 0
+Text GLabel 1250 2600 0 60 Input ~ 0
 CAM_RST#
-Text GLabel 1250 2800 0    60   Input ~ 0
+Text GLabel 1250 2800 0 60 Input ~ 0
 CAM_SS#
-Text GLabel 1250 3100 0    60   Input ~ 0
+Text GLabel 1250 3100 0 60 Input ~ 0
 IMU_SS#
-Text GLabel 1250 2700 0    60   Input ~ 0
+Text GLabel 1250 2700 0 60 Input ~ 0
 SPI_MOSI
-Text GLabel 1250 2900 0    60   Input ~ 0
+Text GLabel 1250 2900 0 60 Input ~ 0
 SPI_SCK
-Text GLabel 4650 2600 2    60   Input ~ 0
+Text GLabel 4650 2600 2 60 Input ~ 0
 SPI_MISO
 Wire Wire Line
-	4650 3000 5050 3000
+ 4650 3000 5050 3000
 Wire Wire Line
-	5300 3800 5850 3800
+ 5300 3800 5850 3800
 Wire Wire Line
-	5850 4100 5300 4100
+ 5850 4100 5300 4100
 Connection ~ 5650 4100
 Connection ~ 5650 3800
 $EndSCHEMATC

@@ -79,8 +79,8 @@ F 19 "_" H 2300 2100 60 0001 C CNN "ForwardVoltage"
 F 20 "_" H 2300 2100 60 0001 C CNN "Cont.Current"
 F 21 "_" H 2300 2100 60 0001 C CNN "Frequency"
 F 22 "_" H 2300 2100 60 0001 C CNN "ResonnanceFreq"
-	1    2300 2100
-	1    0    0    -1  
+ 1 2300 2100
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR0107
@@ -90,8 +90,8 @@ F 0 "#PWR0107" H 2300 2350 50 0001 C CNN
 F 1 "GND" H 2300 2450 50 0000 C CNN
 F 2 "" H 2300 2600 60 0000 C CNN
 F 3 "" H 2300 2600 60 0000 C CNN
-	1    2300 2600
-	1    0    0    -1  
+ 1 2300 2600
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C12
@@ -120,8 +120,8 @@ F 19 "_" H 2900 1250 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 2900 1250 50 0001 C CNN "Cont.Current"
 F 21 "_" H 2900 1250 50 0001 C CNN "Frequency"
 F 22 "_" H 2900 1250 50 0001 C CNN "ResonnanceFreq"
-	1    2900 1250
-	1    0    0    -1  
+ 1 2900 1250
+ 1 0 0 -1 
 $EndComp
 $Comp
 L +1V8 #PWR0108
@@ -131,8 +131,8 @@ F 0 "#PWR0108" H 1700 1000 50 0001 C CNN
 F 1 "+1V8" H 1700 1290 50 0000 C CNN
 F 2 "" H 1700 1150 60 0000 C CNN
 F 3 "" H 1700 1150 60 0000 C CNN
-	1    1700 1150
-	1    0    0    -1  
+ 1 1700 1150
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR0109
@@ -142,8 +142,8 @@ F 0 "#PWR0109" H 1700 1200 50 0001 C CNN
 F 1 "GND" H 1700 1300 50 0000 C CNN
 F 2 "" H 1700 1450 60 0000 C CNN
 F 3 "" H 1700 1450 60 0000 C CNN
-	1    1700 1450
-	1    0    0    -1  
+ 1 1700 1450
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR0110
@@ -153,8 +153,8 @@ F 0 "#PWR0110" H 1650 1800 50 0001 C CNN
 F 1 "GND" H 1650 1900 50 0000 C CNN
 F 2 "" H 1650 2050 60 0000 C CNN
 F 3 "" H 1650 2050 60 0000 C CNN
-	1    1650 2050
-	1    0    0    -1  
+ 1 1650 2050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C16
@@ -183,8 +183,8 @@ F 19 "_" H 1700 1300 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 1700 1300 50 0001 C CNN "Cont.Current"
 F 21 "_" H 1700 1300 50 0001 C CNN "Frequency"
 F 22 "_" H 1700 1300 50 0001 C CNN "ResonnanceFreq"
-	1    1700 1300
-	1    0    0    -1  
+ 1 1700 1300
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR0111
@@ -194,8 +194,8 @@ F 0 "#PWR0111" H 2900 1150 50 0001 C CNN
 F 1 "GND" H 2908 1226 50 0000 C CNN
 F 2 "" H 2900 1400 50 0000 C CNN
 F 3 "" H 2900 1400 50 0000 C CNN
-	1    2900 1400
-	1    0    0    -1  
+ 1 2900 1400
+ 1 0 0 -1 
 $EndComp
 $Comp
 L +3V3 #PWR0112
@@ -205,37 +205,37 @@ F 0 "#PWR0112" H 2900 950 50 0001 C CNN
 F 1 "+3V3" H 2918 1274 50 0000 C CNN
 F 2 "" H 2900 1100 50 0000 C CNN
 F 3 "" H 2900 1100 50 0000 C CNN
-	1    2900 1100
-	1    0    0    -1  
+ 1 2900 1100
+ 1 0 0 -1 
 $EndComp
-Text Notes 1200 800  0    60   ~ 0
+Text Notes 1200 800 0 60 ~ 0
 Use both IMU and Camera on same SPI 
-Text GLabel 2800 1800 2    60   Input ~ 0
+Text GLabel 2800 1800 2 60 Input ~ 0
 IMU_SS#
-Text GLabel 1800 1700 0    60   Input ~ 0
+Text GLabel 1800 1700 0 60 Input ~ 0
 IMU_INT1
-Text GLabel 1800 1800 0    60   Input ~ 0
+Text GLabel 1800 1800 0 60 Input ~ 0
 IMU_INT2
-Text GLabel 1800 1900 0    60   Input ~ 0
+Text GLabel 1800 1900 0 60 Input ~ 0
 SPI_MISO
-Text GLabel 2800 2000 2    60   Input ~ 0
+Text GLabel 2800 2000 2 60 Input ~ 0
 SPI_MOSI
-Text GLabel 2800 1900 2    60   Input ~ 0
+Text GLabel 2800 1900 2 60 Input ~ 0
 SPI_SCK
 Wire Wire Line
-	2300 2600 2400 2600
+ 2300 2600 2400 2600
 Wire Wire Line
-	1800 2000 1800 2100
+ 1800 2000 1800 2100
 Wire Wire Line
-	1800 2050 1650 2050
+ 1800 2050 1650 2050
 Wire Wire Line
-	2300 1300 2300 1150
+ 2300 1300 2300 1150
 Wire Wire Line
-	2300 1150 1700 1150
+ 2300 1150 1700 1150
 Wire Wire Line
-	2400 1300 2400 1100
+ 2400 1300 2400 1100
 Wire Wire Line
-	2400 1100 2900 1100
+ 2400 1100 2900 1100
 Connection ~ 1800 2050
 NoConn ~ 2500 1300
 NoConn ~ 1800 2200

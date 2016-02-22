@@ -79,8 +79,8 @@ F 19 "_" H 4950 2250 60 0001 C CNN "ForwardVoltage"
 F 20 "_" H 4950 2250 60 0001 C CNN "Cont.Current"
 F 21 "_" H 4950 2250 60 0001 C CNN "Frequency"
 F 22 "_" H 4950 2250 60 0001 C CNN "ResonnanceFreq"
-	1    4950 2250
-	1    0    0    -1  
+ 1 4950 2250
+ 1 0 0 -1 
 $EndComp
 $Comp
 L IC10pins U8
@@ -109,8 +109,8 @@ F 19 "_" H 4850 4050 60 0001 C CNN "ForwardVoltage"
 F 20 "_" H 4850 4050 60 0001 C CNN "Cont.Current"
 F 21 "_" H 4850 4050 60 0001 C CNN "Frequency"
 F 22 "_" H 4850 4050 60 0001 C CNN "ResonnanceFreq"
-	1    4850 4050
-	1    0    0    -1  
+ 1 4850 4050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR0113
@@ -120,8 +120,8 @@ F 0 "#PWR0113" H 4450 3800 50 0001 C CNN
 F 1 "GND" H 4450 3900 50 0000 C CNN
 F 2 "" H 4450 4050 60 0000 C CNN
 F 3 "" H 4450 4050 60 0000 C CNN
-	1    4450 4050
-	1    0    0    -1  
+ 1 4450 4050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR0114
@@ -131,8 +131,8 @@ F 0 "#PWR0114" H 5400 3800 50 0001 C CNN
 F 1 "GND" H 5400 3900 50 0000 C CNN
 F 2 "" H 5400 4050 60 0000 C CNN
 F 3 "" H 5400 4050 60 0000 C CNN
-	1    5400 4050
-	1    0    0    -1  
+ 1 5400 4050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR0115
@@ -142,8 +142,8 @@ F 0 "#PWR0115" H 4450 2900 50 0001 C CNN
 F 1 "GND" H 4450 3000 50 0000 C CNN
 F 2 "" H 4450 3150 60 0000 C CNN
 F 3 "" H 4450 3150 60 0000 C CNN
-	1    4450 3150
-	1    0    0    -1  
+ 1 4450 3150
+ 1 0 0 -1 
 $EndComp
 $Comp
 L +5V #PWR0116
@@ -153,8 +153,8 @@ F 0 "#PWR0116" H 4450 1700 50 0001 C CNN
 F 1 "+5V" H 4450 1990 50 0000 C CNN
 F 2 "" H 4450 1850 60 0000 C CNN
 F 3 "" H 4450 1850 60 0000 C CNN
-	1    4450 1850
-	1    0    0    -1  
+ 1 4450 1850
+ 1 0 0 -1 
 $EndComp
 $Comp
 L R R23
@@ -183,8 +183,8 @@ F 19 "_" H 4800 3200 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 4800 3200 50 0001 C CNN "Cont.Current"
 F 21 "_" H 4800 3200 50 0001 C CNN "Frequency"
 F 22 "_" H 4800 3200 50 0001 C CNN "ResonnanceFreq"
-	1    4800 3200
-	1    0    0    -1  
+ 1 4800 3200
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C126
@@ -213,8 +213,8 @@ F 19 "_" H 5100 3200 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 5100 3200 50 0001 C CNN "Cont.Current"
 F 21 "_" H 5100 3200 50 0001 C CNN "Frequency"
 F 22 "_" H 5100 3200 50 0001 C CNN "ResonnanceFreq"
-	1    5100 3200
-	1    0    0    -1  
+ 1 5100 3200
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR0117
@@ -224,63 +224,63 @@ F 0 "#PWR0117" H 4950 3100 50 0001 C CNN
 F 1 "GND" H 4958 3176 50 0000 C CNN
 F 2 "" H 4950 3350 50 0000 C CNN
 F 3 "" H 4950 3350 50 0000 C CNN
-	1    4950 3350
-	1    0    0    -1  
+ 1 4950 3350
+ 1 0 0 -1 
 $EndComp
-Text GLabel 4450 2250 0    60   Input ~ 12
+Text GLabel 4450 2250 0 60 Input ~ 12
 SS_TX-
-Text GLabel 4450 2350 0    60   Input ~ 12
+Text GLabel 4450 2350 0 60 Input ~ 12
 SS_TX+
-Text GLabel 4450 2450 0    60   Input ~ 12
+Text GLabel 4450 2450 0 60 Input ~ 12
 SS_RX-
-Text GLabel 4450 2550 0    60   Input ~ 12
+Text GLabel 4450 2550 0 60 Input ~ 12
 SS_RX+
-Text GLabel 4200 3850 0    60   Input ~ 12
+Text GLabel 4200 3850 0 60 Input ~ 12
 SS_TX-
-Text GLabel 4200 3950 0    60   Input ~ 12
+Text GLabel 4200 3950 0 60 Input ~ 12
 SS_TX+
-Text GLabel 4200 4150 0    60   Input ~ 12
+Text GLabel 4200 4150 0 60 Input ~ 12
 SS_RX-
-Text GLabel 4200 4250 0    60   Input ~ 12
+Text GLabel 4200 4250 0 60 Input ~ 12
 SS_RX+
-Text GLabel 5550 3850 2    60   Input ~ 12
+Text GLabel 5550 3850 2 60 Input ~ 12
 SS_TX-
-Text GLabel 5550 3950 2    60   Input ~ 12
+Text GLabel 5550 3950 2 60 Input ~ 12
 SS_TX+
-Text GLabel 5550 4150 2    60   Input ~ 12
+Text GLabel 5550 4150 2 60 Input ~ 12
 SS_RX-
-Text GLabel 5550 4250 2    60   Input ~ 12
+Text GLabel 5550 4250 2 60 Input ~ 12
 SS_RX+
-Text GLabel 4450 1950 0    60   Input ~ 0
+Text GLabel 4450 1950 0 60 Input ~ 0
 USB_HS_D-
-Text GLabel 4450 2050 0    60   Input ~ 0
+Text GLabel 4450 2050 0 60 Input ~ 0
 USB_HS_D+
 Wire Wire Line
-	4450 2650 4450 3150
+ 4450 2650 4450 3150
 Wire Wire Line
-	4450 4050 4550 4050
+ 4450 4050 4550 4050
 Wire Wire Line
-	5400 4050 5250 4050
+ 5400 4050 5250 4050
 Wire Wire Line
-	4200 4150 4550 4150
+ 4200 4150 4550 4150
 Wire Wire Line
-	4200 4250 4550 4250
+ 4200 4250 4550 4250
 Wire Wire Line
-	4200 3850 4550 3850
+ 4200 3850 4550 3850
 Wire Wire Line
-	4550 3950 4200 3950
+ 4550 3950 4200 3950
 Wire Wire Line
-	5250 3850 5550 3850
+ 5250 3850 5550 3850
 Wire Wire Line
-	5250 3950 5550 3950
+ 5250 3950 5550 3950
 Wire Wire Line
-	5250 4150 5550 4150
+ 5250 4150 5550 4150
 Wire Wire Line
-	5250 4250 5550 4250
+ 5250 4250 5550 4250
 Wire Wire Line
-	4800 3050 5100 3050
+ 4800 3050 5100 3050
 Wire Wire Line
-	4800 3350 5100 3350
+ 4800 3350 5100 3350
 Connection ~ 4450 2750
 Connection ~ 4950 3050
 Connection ~ 4950 3350

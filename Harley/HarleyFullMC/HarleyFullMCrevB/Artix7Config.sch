@@ -79,8 +79,8 @@ F 19 "_" H 5600 2400 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 5600 2400 50 0001 C CNN "Cont.Current"
 F 21 "_" H 5600 2400 50 0001 C CNN "Frequency"
 F 22 "_" H 5600 2400 50 0001 C CNN "ResonnanceFreq"
-	1    5600 2400
-	1    0    0    -1  
+ 1 5600 2400
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C118
@@ -109,8 +109,8 @@ F 19 "_" H 8450 2650 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 8450 2650 50 0001 C CNN "Cont.Current"
 F 21 "_" H 8450 2650 50 0001 C CNN "Frequency"
 F 22 "_" H 8450 2650 50 0001 C CNN "ResonnanceFreq"
-	1    8450 2650
-	1    0    0    -1  
+ 1 8450 2650
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR056
@@ -120,8 +120,8 @@ F 0 "#PWR056" H 8450 2550 50 0001 C CNN
 F 1 "GND" H 8458 2626 50 0000 C CNN
 F 2 "" H 8450 2800 50 0000 C CNN
 F 3 "" H 8450 2800 50 0000 C CNN
-	1    8450 2800
-	1    0    0    -1  
+ 1 8450 2800
+ 1 0 0 -1 
 $EndComp
 $Comp
 L R FB6
@@ -150,8 +150,8 @@ F 19 "_" H 9600 2300 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 9600 2300 50 0001 C CNN "Cont.Current"
 F 21 "_" H 9600 2300 50 0001 C CNN "Frequency"
 F 22 "_" H 9600 2300 50 0001 C CNN "ResonnanceFreq"
-	1    9600 2300
-	0    1    1    0   
+ 1 9600 2300
+ 0 1 1 0 
 $EndComp
 $Comp
 L GND #PWR057
@@ -161,8 +161,8 @@ F 0 "#PWR057" H 2950 2350 50 0001 C CNN
 F 1 "GND" H 2958 2426 50 0000 C CNN
 F 2 "" H 2950 2600 50 0000 C CNN
 F 3 "" H 2950 2600 50 0000 C CNN
-	1    2950 2600
-	1    0    0    -1  
+ 1 2950 2600
+ 1 0 0 -1 
 $EndComp
 $Comp
 L R_Small FB5
@@ -191,8 +191,8 @@ F 19 "_" H 2950 2500 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 2950 2500 50 0001 C CNN "Cont.Current"
 F 21 "_" H 2950 2500 50 0001 C CNN "Frequency"
 F 22 "_" H 2950 2500 50 0001 C CNN "ResonnanceFreq"
-	1    2950 2500
-	1    0    0    -1  
+ 1 2950 2500
+ 1 0 0 -1 
 $EndComp
 $Comp
 L +2V5 #PWR058
@@ -202,8 +202,8 @@ F 0 "#PWR058" H 3550 1300 50 0001 C CNN
 F 1 "+2V5" H 3568 1624 50 0000 C CNN
 F 2 "" H 3550 1450 50 0000 C CNN
 F 3 "" H 3550 1450 50 0000 C CNN
-	1    3550 1450
-	1    0    0    -1  
+ 1 3550 1450
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR059
@@ -213,8 +213,8 @@ F 0 "#PWR059" H 3750 3050 50 0001 C CNN
 F 1 "GND" H 3758 3126 50 0000 C CNN
 F 2 "" H 3750 3300 50 0000 C CNN
 F 3 "" H 3750 3300 50 0000 C CNN
-	1    3750 3300
-	1    0    0    -1  
+ 1 3750 3300
+ 1 0 0 -1 
 $EndComp
 $Comp
 L R R19
@@ -243,8 +243,8 @@ F 19 "_" H 2850 1700 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 2850 1700 50 0001 C CNN "Cont.Current"
 F 21 "_" H 2850 1700 50 0001 C CNN "Frequency"
 F 22 "_" H 2850 1700 50 0001 C CNN "ResonnanceFreq"
-	1    2850 1700
-	1    0    0    -1  
+ 1 2850 1700
+ 1 0 0 -1 
 $EndComp
 $Comp
 L R R21
@@ -273,8 +273,8 @@ F 19 "_" H 3400 1700 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 3400 1700 50 0001 C CNN "Cont.Current"
 F 21 "_" H 3400 1700 50 0001 C CNN "Frequency"
 F 22 "_" H 3400 1700 50 0001 C CNN "ResonnanceFreq"
-	1    3400 1700
-	1    0    0    -1  
+ 1 3400 1700
+ 1 0 0 -1 
 $EndComp
 $Comp
 L +2V5 #PWR060
@@ -284,8 +284,8 @@ F 0 "#PWR060" H 8450 2350 50 0001 C CNN
 F 1 "+2V5" H 8468 2674 50 0000 C CNN
 F 2 "" H 8450 2500 50 0000 C CNN
 F 3 "" H 8450 2500 50 0000 C CNN
-	1    8450 2500
-	1    0    0    -1  
+ 1 8450 2500
+ 1 0 0 -1 
 $EndComp
 $Comp
 L +1V8 #PWR061
@@ -295,8 +295,8 @@ F 0 "#PWR061" H 9750 2150 50 0001 C CNN
 F 1 "+1V8" H 9768 2474 50 0000 C CNN
 F 2 "" H 9750 2300 50 0000 C CNN
 F 3 "" H 9750 2300 50 0000 C CNN
-	1    9750 2300
-	1    0    0    -1  
+ 1 9750 2300
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C116
@@ -325,8 +325,8 @@ F 19 "_" H 9000 2450 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 9000 2450 50 0001 C CNN "Cont.Current"
 F 21 "_" H 9000 2450 50 0001 C CNN "Frequency"
 F 22 "_" H 9000 2450 50 0001 C CNN "ResonnanceFreq"
-	1    9000 2450
-	1    0    0    -1  
+ 1 9000 2450
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C125
@@ -355,8 +355,8 @@ F 19 "_" H 9250 2450 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 9250 2450 50 0001 C CNN "Cont.Current"
 F 21 "_" H 9250 2450 50 0001 C CNN "Frequency"
 F 22 "_" H 9250 2450 50 0001 C CNN "ResonnanceFreq"
-	1    9250 2450
-	1    0    0    -1  
+ 1 9250 2450
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR062
@@ -366,91 +366,91 @@ F 0 "#PWR062" H 9150 2350 50 0001 C CNN
 F 1 "GND" H 9158 2426 50 0000 C CNN
 F 2 "" H 9150 2600 50 0000 C CNN
 F 3 "" H 9150 2600 50 0000 C CNN
-	1    9150 2600
-	1    0    0    -1  
+ 1 9150 2600
+ 1 0 0 -1 
 $EndComp
-Text GLabel 2700 2500 0    60   Input ~ 0
+Text GLabel 2700 2500 0 60 Input ~ 0
 FPGA_SS_INIT_B
-Text GLabel 2700 2100 0    60   Input ~ 0
+Text GLabel 2700 2100 0 60 Input ~ 0
 FPGA_SS_DONE
-Text GLabel 2700 2900 0    60   Input ~ 0
+Text GLabel 2700 2900 0 60 Input ~ 0
 FPGA_SS_PROGRAM_B
-Text GLabel 2700 1900 0    60   Input ~ 0
+Text GLabel 2700 1900 0 60 Input ~ 0
 FPGA_SS_CCLK
-Text GLabel 2700 3000 0    60   Input ~ 0
+Text GLabel 2700 3000 0 60 Input ~ 0
 FPGA_JTAG_TCK
-Text GLabel 7100 2000 2    60   Input ~ 0
+Text GLabel 7100 2000 2 60 Input ~ 0
 FPGA_JTAG_TDI
-Text GLabel 7100 2100 2    60   Input ~ 0
+Text GLabel 7100 2100 2 60 Input ~ 0
 FPGA_JTAG_TDO
-Text GLabel 7100 2200 2    60   Input ~ 0
+Text GLabel 7100 2200 2 60 Input ~ 0
 FPGA_JTAG_TMS
-Text Label 2950 2400 0    60   ~ 0
+Text Label 2950 2400 0 60 ~ 0
 GND_ADC
-Text Label 7150 3000 0    60   ~ 0
+Text Label 7150 3000 0 60 ~ 0
 GND_ADC
 Wire Wire Line
-	7100 2500 8450 2500
+ 7100 2500 8450 2500
 Wire Wire Line
-	9450 2300 7100 2300
+ 9450 2300 7100 2300
 Wire Wire Line
-	7100 2400 8200 2400
+ 7100 2400 8200 2400
 Wire Wire Line
-	8200 2400 8200 2800
+ 8200 2400 8200 2800
 Wire Wire Line
-	7500 2800 8450 2800
+ 7500 2800 8450 2800
 Wire Wire Line
-	2950 2400 4000 2400
+ 2950 2400 4000 2400
 Wire Wire Line
-	7100 2900 7150 2900
+ 7100 2900 7150 2900
 Wire Wire Line
-	7150 2800 7150 3000
+ 7150 2800 7150 3000
 Wire Wire Line
-	7100 2800 7150 2800
+ 7100 2800 7150 2800
 Wire Wire Line
-	7100 2600 7650 2600
+ 7100 2600 7650 2600
 Wire Wire Line
-	7650 2600 7650 2800
+ 7650 2600 7650 2800
 Wire Wire Line
-	7100 2700 7500 2700
+ 7100 2700 7500 2700
 Wire Wire Line
-	7500 2700 7500 2800
+ 7500 2700 7500 2800
 Wire Wire Line
-	3550 2800 4000 2800
+ 3550 2800 4000 2800
 Wire Wire Line
-	3550 1450 3550 2800
+ 3550 1450 3550 2800
 Wire Wire Line
-	4000 2700 3550 2700
+ 4000 2700 3550 2700
 Wire Wire Line
-	4000 2600 3550 2600
+ 4000 2600 3550 2600
 Wire Wire Line
-	4000 2200 3750 2200
+ 4000 2200 3750 2200
 Wire Wire Line
-	3750 2200 3750 3300
+ 3750 2200 3750 3300
 Wire Wire Line
-	4000 2300 3750 2300
+ 4000 2300 3750 2300
 Wire Wire Line
-	2700 2500 4000 2500
+ 2700 2500 4000 2500
 Wire Wire Line
-	2700 2900 4000 2900
+ 2700 2900 4000 2900
 Wire Wire Line
-	2700 3000 4000 3000
+ 2700 3000 4000 3000
 Wire Wire Line
-	2700 2100 4000 2100
+ 2700 2100 4000 2100
 Wire Wire Line
-	3650 2000 4000 2000
+ 3650 2000 4000 2000
 Wire Wire Line
-	3650 1550 3650 2000
+ 3650 1550 3650 2000
 Wire Wire Line
-	2700 1900 4000 1900
+ 2700 1900 4000 1900
 Wire Wire Line
-	2850 1550 3650 1550
+ 2850 1550 3650 1550
 Wire Wire Line
-	3400 1850 3400 2900
+ 3400 1850 3400 2900
 Wire Wire Line
-	2850 1850 2850 2500
+ 2850 1850 2850 2500
 Wire Wire Line
-	9000 2600 9250 2600
+ 9000 2600 9250 2600
 Connection ~ 7150 2900
 Connection ~ 8450 2800
 Connection ~ 7650 2800

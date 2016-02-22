@@ -60,8 +60,8 @@ F 0 "#PWR088" H 5350 5600 50 0001 C CNN
 F 1 "GND" H 5350 5700 50 0000 C CNN
 F 2 "" H 5350 5850 60 0000 C CNN
 F 3 "" H 5350 5850 60 0000 C CNN
-	1    5350 5850
-	1    0    0    -1  
+ 1 5350 5850
+ 1 0 0 -1 
 $EndComp
 $Comp
 L R R11
@@ -90,8 +90,8 @@ F 19 "_" H 5350 5600 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 5350 5600 50 0001 C CNN "Cont.Current"
 F 21 "_" H 5350 5600 50 0001 C CNN "Frequency"
 F 22 "_" H 5350 5600 50 0001 C CNN "ResonnanceFreq"
-	1    5350 5600
-	1    0    0    -1  
+ 1 5350 5600
+ 1 0 0 -1 
 $EndComp
 $Comp
 L R R6
@@ -120,8 +120,8 @@ F 19 "_" H 2500 7850 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 2500 7850 50 0001 C CNN "Cont.Current"
 F 21 "_" H 2500 7850 50 0001 C CNN "Frequency"
 F 22 "_" H 2500 7850 50 0001 C CNN "ResonnanceFreq"
-	1    2500 7850
-	1    0    0    -1  
+ 1 2500 7850
+ 1 0 0 -1 
 $EndComp
 $Comp
 L R R7
@@ -150,8 +150,8 @@ F 19 "_" H 2500 8150 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 2500 8150 50 0001 C CNN "Cont.Current"
 F 21 "_" H 2500 8150 50 0001 C CNN "Frequency"
 F 22 "_" H 2500 8150 50 0001 C CNN "ResonnanceFreq"
-	1    2500 8150
-	1    0    0    -1  
+ 1 2500 8150
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR089
@@ -161,8 +161,8 @@ F 0 "#PWR089" H 2500 8050 50 0001 C CNN
 F 1 "GND" H 2500 8150 50 0000 C CNN
 F 2 "" H 2500 8300 60 0000 C CNN
 F 3 "" H 2500 8300 60 0000 C CNN
-	1    2500 8300
-	1    0    0    -1  
+ 1 2500 8300
+ 1 0 0 -1 
 $EndComp
 $Comp
 L R R12
@@ -191,8 +191,8 @@ F 19 "_" H 6250 2000 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 6250 2000 50 0001 C CNN "Cont.Current"
 F 21 "_" H 6250 2000 50 0001 C CNN "Frequency"
 F 22 "_" H 6250 2000 50 0001 C CNN "ResonnanceFreq"
-	1    6250 2000
-	1    0    0    -1  
+ 1 6250 2000
+ 1 0 0 -1 
 $EndComp
 $Comp
 L R R1
@@ -221,8 +221,8 @@ F 19 "_" H 1300 2350 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 1300 2350 50 0001 C CNN "Cont.Current"
 F 21 "_" H 1300 2350 50 0001 C CNN "Frequency"
 F 22 "_" H 1300 2350 50 0001 C CNN "ResonnanceFreq"
-	1    1300 2350
-	1    0    0    -1  
+ 1 1300 2350
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR090
@@ -232,8 +232,8 @@ F 0 "#PWR090" H 1300 2250 50 0001 C CNN
 F 1 "GND" H 1300 2350 50 0000 C CNN
 F 2 "" H 1300 2500 60 0000 C CNN
 F 3 "" H 1300 2500 60 0000 C CNN
-	1    1300 2500
-	1    0    0    -1  
+ 1 1300 2500
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C37
@@ -262,8 +262,8 @@ F 19 "_" H 2850 6450 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 2850 6450 50 0001 C CNN "Cont.Current"
 F 21 "_" H 2850 6450 50 0001 C CNN "Frequency"
 F 22 "_" H 2850 6450 50 0001 C CNN "ResonnanceFreq"
-	1    2850 6450
-	1    0    0    -1  
+ 1 2850 6450
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C41
@@ -292,8 +292,8 @@ F 19 "_" H 3050 6450 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 3050 6450 50 0001 C CNN "Cont.Current"
 F 21 "_" H 3050 6450 50 0001 C CNN "Frequency"
 F 22 "_" H 3050 6450 50 0001 C CNN "ResonnanceFreq"
-	1    3050 6450
-	1    0    0    -1  
+ 1 3050 6450
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C45
@@ -322,8 +322,8 @@ F 19 "_" H 3250 6450 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 3250 6450 50 0001 C CNN "Cont.Current"
 F 21 "_" H 3250 6450 50 0001 C CNN "Frequency"
 F 22 "_" H 3250 6450 50 0001 C CNN "ResonnanceFreq"
-	1    3250 6450
-	1    0    0    -1  
+ 1 3250 6450
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C49
@@ -352,8 +352,8 @@ F 19 "_" H 3450 6450 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 3450 6450 50 0001 C CNN "Cont.Current"
 F 21 "_" H 3450 6450 50 0001 C CNN "Frequency"
 F 22 "_" H 3450 6450 50 0001 C CNN "ResonnanceFreq"
-	1    3450 6450
-	1    0    0    -1  
+ 1 3450 6450
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C51
@@ -382,8 +382,8 @@ F 19 "_" H 3650 6450 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 3650 6450 50 0001 C CNN "Cont.Current"
 F 21 "_" H 3650 6450 50 0001 C CNN "Frequency"
 F 22 "_" H 3650 6450 50 0001 C CNN "ResonnanceFreq"
-	1    3650 6450
-	1    0    0    -1  
+ 1 3650 6450
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C53
@@ -412,8 +412,8 @@ F 19 "_" H 3850 6450 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 3850 6450 50 0001 C CNN "Cont.Current"
 F 21 "_" H 3850 6450 50 0001 C CNN "Frequency"
 F 22 "_" H 3850 6450 50 0001 C CNN "ResonnanceFreq"
-	1    3850 6450
-	1    0    0    -1  
+ 1 3850 6450
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C55
@@ -442,8 +442,8 @@ F 19 "_" H 4050 6450 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 4050 6450 50 0001 C CNN "Cont.Current"
 F 21 "_" H 4050 6450 50 0001 C CNN "Frequency"
 F 22 "_" H 4050 6450 50 0001 C CNN "ResonnanceFreq"
-	1    4050 6450
-	1    0    0    -1  
+ 1 4050 6450
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C59
@@ -472,8 +472,8 @@ F 19 "_" H 4250 6450 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 4250 6450 50 0001 C CNN "Cont.Current"
 F 21 "_" H 4250 6450 50 0001 C CNN "Frequency"
 F 22 "_" H 4250 6450 50 0001 C CNN "ResonnanceFreq"
-	1    4250 6450
-	1    0    0    -1  
+ 1 4250 6450
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C62
@@ -502,8 +502,8 @@ F 19 "_" H 4450 6450 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 4450 6450 50 0001 C CNN "Cont.Current"
 F 21 "_" H 4450 6450 50 0001 C CNN "Frequency"
 F 22 "_" H 4450 6450 50 0001 C CNN "ResonnanceFreq"
-	1    4450 6450
-	1    0    0    -1  
+ 1 4450 6450
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR091
@@ -513,8 +513,8 @@ F 0 "#PWR091" H 2850 6350 50 0001 C CNN
 F 1 "GND" H 2850 6450 50 0000 C CNN
 F 2 "" H 2850 6600 60 0000 C CNN
 F 3 "" H 2850 6600 60 0000 C CNN
-	1    2850 6600
-	1    0    0    -1  
+ 1 2850 6600
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C38
@@ -543,8 +543,8 @@ F 19 "_" H 2850 7050 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 2850 7050 50 0001 C CNN "Cont.Current"
 F 21 "_" H 2850 7050 50 0001 C CNN "Frequency"
 F 22 "_" H 2850 7050 50 0001 C CNN "ResonnanceFreq"
-	1    2850 7050
-	1    0    0    -1  
+ 1 2850 7050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C42
@@ -573,8 +573,8 @@ F 19 "_" H 3050 7050 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 3050 7050 50 0001 C CNN "Cont.Current"
 F 21 "_" H 3050 7050 50 0001 C CNN "Frequency"
 F 22 "_" H 3050 7050 50 0001 C CNN "ResonnanceFreq"
-	1    3050 7050
-	1    0    0    -1  
+ 1 3050 7050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C46
@@ -603,8 +603,8 @@ F 19 "_" H 3250 7050 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 3250 7050 50 0001 C CNN "Cont.Current"
 F 21 "_" H 3250 7050 50 0001 C CNN "Frequency"
 F 22 "_" H 3250 7050 50 0001 C CNN "ResonnanceFreq"
-	1    3250 7050
-	1    0    0    -1  
+ 1 3250 7050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C54
@@ -633,8 +633,8 @@ F 19 "_" H 3850 7050 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 3850 7050 50 0001 C CNN "Cont.Current"
 F 21 "_" H 3850 7050 50 0001 C CNN "Frequency"
 F 22 "_" H 3850 7050 50 0001 C CNN "ResonnanceFreq"
-	1    3850 7050
-	1    0    0    -1  
+ 1 3850 7050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C56
@@ -663,8 +663,8 @@ F 19 "_" H 4050 7050 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 4050 7050 50 0001 C CNN "Cont.Current"
 F 21 "_" H 4050 7050 50 0001 C CNN "Frequency"
 F 22 "_" H 4050 7050 50 0001 C CNN "ResonnanceFreq"
-	1    4050 7050
-	1    0    0    -1  
+ 1 4050 7050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C60
@@ -693,8 +693,8 @@ F 19 "_" H 4250 7050 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 4250 7050 50 0001 C CNN "Cont.Current"
 F 21 "_" H 4250 7050 50 0001 C CNN "Frequency"
 F 22 "_" H 4250 7050 50 0001 C CNN "ResonnanceFreq"
-	1    4250 7050
-	1    0    0    -1  
+ 1 4250 7050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C63
@@ -723,8 +723,8 @@ F 19 "_" H 4450 7050 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 4450 7050 50 0001 C CNN "Cont.Current"
 F 21 "_" H 4450 7050 50 0001 C CNN "Frequency"
 F 22 "_" H 4450 7050 50 0001 C CNN "ResonnanceFreq"
-	1    4450 7050
-	1    0    0    -1  
+ 1 4450 7050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR092
@@ -734,8 +734,8 @@ F 0 "#PWR092" H 2850 6950 50 0001 C CNN
 F 1 "GND" H 2850 7050 50 0000 C CNN
 F 2 "" H 2850 7200 60 0000 C CNN
 F 3 "" H 2850 7200 60 0000 C CNN
-	1    2850 7200
-	1    0    0    -1  
+ 1 2850 7200
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C58
@@ -764,8 +764,8 @@ F 19 "_" H 4150 7650 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 4150 7650 50 0001 C CNN "Cont.Current"
 F 21 "_" H 4150 7650 50 0001 C CNN "Frequency"
 F 22 "_" H 4150 7650 50 0001 C CNN "ResonnanceFreq"
-	1    4150 7650
-	1    0    0    -1  
+ 1 4150 7650
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C61
@@ -794,8 +794,8 @@ F 19 "_" H 4350 7650 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 4350 7650 50 0001 C CNN "Cont.Current"
 F 21 "_" H 4350 7650 50 0001 C CNN "Frequency"
 F 22 "_" H 4350 7650 50 0001 C CNN "ResonnanceFreq"
-	1    4350 7650
-	1    0    0    -1  
+ 1 4350 7650
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR093
@@ -805,8 +805,8 @@ F 0 "#PWR093" H 4250 7550 50 0001 C CNN
 F 1 "GND" H 4250 7650 50 0000 C CNN
 F 2 "" H 4250 7800 60 0000 C CNN
 F 3 "" H 4250 7800 60 0000 C CNN
-	1    4250 7800
-	1    0    0    -1  
+ 1 4250 7800
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C26
@@ -835,8 +835,8 @@ F 19 "_" H 2300 8150 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 2300 8150 50 0001 C CNN "Cont.Current"
 F 21 "_" H 2300 8150 50 0001 C CNN "Frequency"
 F 22 "_" H 2300 8150 50 0001 C CNN "ResonnanceFreq"
-	1    2300 8150
-	1    0    0    -1  
+ 1 2300 8150
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C23
@@ -865,8 +865,8 @@ F 19 "_" H 2100 8150 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 2100 8150 50 0001 C CNN "Cont.Current"
 F 21 "_" H 2100 8150 50 0001 C CNN "Frequency"
 F 22 "_" H 2100 8150 50 0001 C CNN "ResonnanceFreq"
-	1    2100 8150
-	1    0    0    -1  
+ 1 2100 8150
+ 1 0 0 -1 
 $EndComp
 $Comp
 L R_Small R2
@@ -895,8 +895,8 @@ F 19 "_" H 1700 2000 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 1700 2000 50 0001 C CNN "Cont.Current"
 F 21 "_" H 1700 2000 50 0001 C CNN "Frequency"
 F 22 "_" H 1700 2000 50 0001 C CNN "ResonnanceFreq"
-	1    1700 2000
-	1    0    0    -1  
+ 1 1700 2000
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR094
@@ -906,8 +906,8 @@ F 0 "#PWR094" H 1700 2000 50 0001 C CNN
 F 1 "GND" H 1700 2100 50 0000 C CNN
 F 2 "" H 1700 2250 60 0000 C CNN
 F 3 "" H 1700 2250 60 0000 C CNN
-	1    1700 2250
-	1    0    0    -1  
+ 1 1700 2250
+ 1 0 0 -1 
 $EndComp
 $Comp
 L GND #PWR095
@@ -917,8 +917,8 @@ F 0 "#PWR095" H 2000 2700 50 0001 C CNN
 F 1 "GND" H 2000 2800 50 0000 C CNN
 F 2 "" H 2000 2950 60 0000 C CNN
 F 3 "" H 2000 2950 60 0000 C CNN
-	1    2000 2950
-	1    0    0    -1  
+ 1 2000 2950
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C50
@@ -947,8 +947,8 @@ F 19 "_" H 3450 7050 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 3450 7050 50 0001 C CNN "Cont.Current"
 F 21 "_" H 3450 7050 50 0001 C CNN "Frequency"
 F 22 "_" H 3450 7050 50 0001 C CNN "ResonnanceFreq"
-	1    3450 7050
-	1    0    0    -1  
+ 1 3450 7050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L C C52
@@ -977,8 +977,8 @@ F 19 "_" H 3650 7050 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 3650 7050 50 0001 C CNN "Cont.Current"
 F 21 "_" H 3650 7050 50 0001 C CNN "Frequency"
 F 22 "_" H 3650 7050 50 0001 C CNN "ResonnanceFreq"
-	1    3650 7050
-	1    0    0    -1  
+ 1 3650 7050
+ 1 0 0 -1 
 $EndComp
 $Comp
 L MT41K128M16 U6
@@ -1007,175 +1007,175 @@ F 19 "_" H 3950 3550 50 0001 C CNN "ForwardVoltage"
 F 20 "_" H 3950 3550 50 0001 C CNN "Cont.Current"
 F 21 "_" H 3950 3550 50 0001 C CNN "Frequency"
 F 22 "_" H 3950 3550 50 0001 C CNN "ResonnanceFreq"
-	1    3950 3550
-	1    0    0    -1  
+ 1 3950 3550
+ 1 0 0 -1 
 $EndComp
-Text Notes 3300 1200 0    200  ~ 0
+Text Notes 3300 1200 0 200 ~ 0
 SDRAM DDR3L
-Text GLabel 2850 1600 0    60   Input ~ 0
+Text GLabel 2850 1600 0 60 Input ~ 0
 DDR_VDD
-Text GLabel 4750 1600 0    60   Input ~ 0
+Text GLabel 4750 1600 0 60 Input ~ 0
 DDR_VREF
-Text GLabel 2250 3650 0    60   Input ~ 0
+Text GLabel 2250 3650 0 60 Input ~ 0
 DDR_A0
-Text GLabel 2250 3750 0    60   Input ~ 0
+Text GLabel 2250 3750 0 60 Input ~ 0
 DDR_A1
-Text GLabel 2250 3850 0    60   Input ~ 0
+Text GLabel 2250 3850 0 60 Input ~ 0
 DDR_A2
-Text GLabel 2250 3950 0    60   Input ~ 0
+Text GLabel 2250 3950 0 60 Input ~ 0
 DDR_A3
-Text GLabel 2250 4050 0    60   Input ~ 0
+Text GLabel 2250 4050 0 60 Input ~ 0
 DDR_A4
-Text GLabel 2250 4150 0    60   Input ~ 0
+Text GLabel 2250 4150 0 60 Input ~ 0
 DDR_A5
-Text GLabel 2250 4250 0    60   Input ~ 0
+Text GLabel 2250 4250 0 60 Input ~ 0
 DDR_A6
-Text GLabel 2250 4350 0    60   Input ~ 0
+Text GLabel 2250 4350 0 60 Input ~ 0
 DDR_A7
-Text GLabel 2250 4450 0    60   Input ~ 0
+Text GLabel 2250 4450 0 60 Input ~ 0
 DDR_A8
-Text GLabel 2250 4550 0    60   Input ~ 0
+Text GLabel 2250 4550 0 60 Input ~ 0
 DDR_A9
-Text GLabel 2250 4650 0    60   Input ~ 0
+Text GLabel 2250 4650 0 60 Input ~ 0
 DDR_A10
-Text GLabel 2250 4750 0    60   Input ~ 0
+Text GLabel 2250 4750 0 60 Input ~ 0
 DDR_A11
-Text GLabel 2250 4850 0    60   Input ~ 0
+Text GLabel 2250 4850 0 60 Input ~ 0
 DDR_A12
-Text GLabel 5350 2450 2    60   Input ~ 0
+Text GLabel 5350 2450 2 60 Input ~ 0
 DDR_DQL0
-Text GLabel 5350 2550 2    60   Input ~ 0
+Text GLabel 5350 2550 2 60 Input ~ 0
 DDR_DQL1
-Text GLabel 5350 2650 2    60   Input ~ 0
+Text GLabel 5350 2650 2 60 Input ~ 0
 DDR_DQL2
-Text GLabel 5350 2750 2    60   Input ~ 0
+Text GLabel 5350 2750 2 60 Input ~ 0
 DDR_DQL3
-Text GLabel 5350 2850 2    60   Input ~ 0
+Text GLabel 5350 2850 2 60 Input ~ 0
 DDR_DQL4
-Text GLabel 5350 2950 2    60   Input ~ 0
+Text GLabel 5350 2950 2 60 Input ~ 0
 DDR_DQL5
-Text GLabel 5350 3050 2    60   Input ~ 0
+Text GLabel 5350 3050 2 60 Input ~ 0
 DDR_DQL6
-Text GLabel 5350 3150 2    60   Input ~ 0
+Text GLabel 5350 3150 2 60 Input ~ 0
 DDR_DQL7
-Text GLabel 5350 3350 2    60   Input ~ 0
+Text GLabel 5350 3350 2 60 Input ~ 0
 DDR_DQU0
-Text GLabel 5350 3450 2    60   Input ~ 0
+Text GLabel 5350 3450 2 60 Input ~ 0
 DDR_DQU1
-Text GLabel 5350 3550 2    60   Input ~ 0
+Text GLabel 5350 3550 2 60 Input ~ 0
 DDR_DQU2
-Text GLabel 5350 3650 2    60   Input ~ 0
+Text GLabel 5350 3650 2 60 Input ~ 0
 DDR_DQU3
-Text GLabel 5350 3750 2    60   Input ~ 0
+Text GLabel 5350 3750 2 60 Input ~ 0
 DDR_DQU4
-Text GLabel 5350 3850 2    60   Input ~ 0
+Text GLabel 5350 3850 2 60 Input ~ 0
 DDR_DQU5
-Text GLabel 5350 3950 2    60   Input ~ 0
+Text GLabel 5350 3950 2 60 Input ~ 0
 DDR_DQU6
-Text GLabel 5350 4050 2    60   Input ~ 0
+Text GLabel 5350 4050 2 60 Input ~ 0
 DDR_DQU7
-Text GLabel 5350 4250 2    60   Input ~ 0
+Text GLabel 5350 4250 2 60 Input ~ 0
 DDR_DQSL+
-Text GLabel 5350 4350 2    60   Input ~ 0
+Text GLabel 5350 4350 2 60 Input ~ 0
 DDR_DQSL-
-Text GLabel 5350 4450 2    60   Input ~ 0
+Text GLabel 5350 4450 2 60 Input ~ 0
 DDR_DQSU+
-Text GLabel 5350 4550 2    60   Input ~ 0
+Text GLabel 5350 4550 2 60 Input ~ 0
 DDR_DQSU-
-Text GLabel 1550 1950 0    60   Input ~ 0
+Text GLabel 1550 1950 0 60 Input ~ 0
 DDR_CLK+
-Text GLabel 1550 2050 0    60   Input ~ 0
+Text GLabel 1550 2050 0 60 Input ~ 0
 DDR_CLK-
-Text GLabel 1300 2150 0    60   Input ~ 0
+Text GLabel 1300 2150 0 60 Input ~ 0
 DDR_CKE
-Text GLabel 2250 2550 0    60   Input ~ 0
+Text GLabel 2250 2550 0 60 Input ~ 0
 DDR_RAS#
-Text GLabel 2250 2650 0    60   Input ~ 0
+Text GLabel 2250 2650 0 60 Input ~ 0
 DDR_CAS#
-Text GLabel 2250 2750 0    60   Input ~ 0
+Text GLabel 2250 2750 0 60 Input ~ 0
 DDR_WE#
-Text GLabel 2250 3250 0    60   Input ~ 0
+Text GLabel 2250 3250 0 60 Input ~ 0
 DDR_BA0
-Text GLabel 2250 3350 0    60   Input ~ 0
+Text GLabel 2250 3350 0 60 Input ~ 0
 DDR_BA1
-Text GLabel 2250 3450 0    60   Input ~ 0
+Text GLabel 2250 3450 0 60 Input ~ 0
 DDR_BA2
-Text GLabel 2650 8000 2    60   Input ~ 0
+Text GLabel 2650 8000 2 60 Input ~ 0
 DDR_VREF
-Text GLabel 6250 2250 2    60   Input ~ 0
+Text GLabel 6250 2250 2 60 Input ~ 0
 DDR_RST#
-Text GLabel 2250 2350 0    60   Input ~ 0
+Text GLabel 2250 2350 0 60 Input ~ 0
 DDR_ODT
-Text GLabel 4700 6900 2    60   Output ~ 0
+Text GLabel 4700 6900 2 60 Output ~ 0
 DDR_VDD
-Text GLabel 4500 7500 2    60   Output ~ 0
+Text GLabel 4500 7500 2 60 Output ~ 0
 DDR_VDD
-Text GLabel 4700 6300 2    60   Output ~ 0
+Text GLabel 4700 6300 2 60 Output ~ 0
 DDR_VDD
-Text GLabel 2250 4950 0    60   Input ~ 0
+Text GLabel 2250 4950 0 60 Input ~ 0
 DDR_A13
-Text GLabel 2500 7600 0    60   Input ~ 0
+Text GLabel 2500 7600 0 60 Input ~ 0
 DDR_VDD
-Text GLabel 6250 1850 0    60   Input ~ 0
+Text GLabel 6250 1850 0 60 Input ~ 0
 DDR_VDD
 Wire Wire Line
-	2500 7600 2500 7700
+ 2500 7600 2500 7700
 Wire Wire Line
-	2100 8300 2500 8300
+ 2100 8300 2500 8300
 Wire Wire Line
-	4150 7800 4350 7800
+ 4150 7800 4350 7800
 Wire Wire Line
-	4150 7500 4500 7500
+ 4150 7500 4500 7500
 Wire Wire Line
-	2850 7200 4450 7200
+ 2850 7200 4450 7200
 Wire Wire Line
-	2850 6900 4700 6900
+ 2850 6900 4700 6900
 Wire Wire Line
-	2850 6600 4450 6600
+ 2850 6600 4450 6600
 Wire Wire Line
-	2850 6300 4700 6300
+ 2850 6300 4700 6300
 Wire Wire Line
-	4750 1750 4750 1600
+ 4750 1750 4750 1600
 Wire Wire Line
-	2850 1600 2850 1750
+ 2850 1600 2850 1750
 Wire Wire Line
-	1300 2150 1300 2200
+ 1300 2150 1300 2200
 Wire Wire Line
-	2250 2150 1300 2150
+ 2250 2150 1300 2150
 Wire Wire Line
-	6250 2250 6250 2150
+ 6250 2250 6250 2150
 Wire Wire Line
-	5350 2250 6250 2250
+ 5350 2250 6250 2250
 Wire Wire Line
-	2100 8000 2650 8000
+ 2100 8000 2650 8000
 Wire Wire Line
-	4750 1750 4950 1750
+ 4750 1750 4950 1750
 Wire Wire Line
-	2850 1750 4650 1750
+ 2850 1750 4650 1750
 Wire Wire Line
-	1550 2100 2250 2100
+ 1550 2100 2250 2100
 Wire Wire Line
-	1550 2100 1550 2050
+ 1550 2100 1550 2050
 Wire Wire Line
-	1550 1950 1550 1900
+ 1550 1950 1550 1900
 Wire Wire Line
-	1550 1900 2250 1900
+ 1550 1900 2250 1900
 Wire Wire Line
-	2250 1900 2250 1950
+ 2250 1900 2250 1950
 Wire Wire Line
-	2250 2100 2250 2050
+ 2250 2100 2250 2050
 Wire Wire Line
-	1700 2250 2250 2250
+ 1700 2250 2250 2250
 Wire Wire Line
-	2250 3050 2200 3050
+ 2250 3050 2200 3050
 Wire Wire Line
-	2200 3050 2200 2950
+ 2200 3050 2200 2950
 Wire Wire Line
-	2000 2950 2250 2950
+ 2000 2950 2250 2950
 Wire Wire Line
-	5350 5850 5350 5750
+ 5350 5850 5350 5750
 Wire Wire Line
-	2650 5850 5350 5850
+ 2650 5850 5350 5850
 Connection ~ 4850 1750
 Connection ~ 4550 1750
 Connection ~ 2300 8300
