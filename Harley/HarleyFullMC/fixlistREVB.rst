@@ -16,6 +16,6 @@ FX3:
 Tantalum Bulk Capacitors
 ***********************
 - Change footprint of tantalum capacitors to display polarization DONE
-
-biker-gang connector:
+biker-gang connector
+****
 - try to increase clearance around J5, since the receptacle will have a slightly larger footprint than the header. This may be impossible, but if it's possible to move C48 to the bottom side, that would help. Otherwise we could replace C48 with an 0201 size so that hopefully it won't interfere with the receptacle.
