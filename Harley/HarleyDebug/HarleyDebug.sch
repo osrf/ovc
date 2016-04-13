@@ -1,0 +1,304 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L CONN_02X07 P2
+U 1 1 570E71E9
+P 5500 3900
+F 0 "P2" H 5500 4611 50  0000 C CNN
+F 1 "CONN_02X07" H 5500 4520 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x07" H 5500 4429 50  0000 C CNN
+F 3 "" H 5500 2700 50  0000 C CNN
+F 4 "_" H 5500 3900 60  0001 C CNN "MFN"
+F 5 "_" H 5500 3900 60  0001 C CNN "MFP"
+F 6 "digikey" H 5500 3900 60  0001 C CNN "D1"
+F 7 "mouser" H 5500 3900 60  0001 C CNN "D2"
+F 8 "_" H 5500 3900 60  0001 C CNN "D1PN"
+F 9 "_" H 5500 3900 60  0001 C CNN "D1PL"
+F 10 "_" H 5500 3900 60  0001 C CNN "D2PN"
+F 11 "_" H 5500 3900 60  0001 C CNN "D2PL"
+F 12 "_" H 5500 3900 60  0001 C CNN "Package"
+F 13 "_" H 5500 4330 60  0000 C CNN "Description"
+F 14 "_" H 5500 3900 60  0001 C CNN "Voltage"
+F 15 "_" H 5500 3900 60  0001 C CNN "Power"
+F 16 "_" H 5500 3900 60  0001 C CNN "Tolerance"
+F 17 "_" H 5500 3900 60  0001 C CNN "Temperature"
+F 18 "_" H 5500 3900 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 5500 3900 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 5500 3900 60  0001 C CNN "Cont.Current"
+F 21 "_" H 5500 3900 60  0001 C CNN "Frequency"
+F 22 "_" H 5500 3900 60  0001 C CNN "ResonnanceFreq"
+	1    5500 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 3600 5250 4300
+Connection ~ 5250 4200
+$Comp
+L GND #PWR01
+U 1 1 570E7262
+P 5250 4300
+F 0 "#PWR01" H 5250 4050 50  0001 C CNN
+F 1 "GND" H 5258 4127 50  0000 C CNN
+F 2 "" H 5250 4300 50  0000 C CNN
+F 3 "" H 5250 4300 50  0000 C CNN
+	1    5250 4300
+	1    0    0    -1  
+$EndComp
+Connection ~ 5250 4100
+Connection ~ 5250 4000
+Connection ~ 5250 3900
+Connection ~ 5250 3800
+Connection ~ 5250 3700
+$Comp
+L +2V5 #PWR02
+U 1 1 570E7282
+P 5850 3600
+F 0 "#PWR02" H 5850 3450 50  0001 C CNN
+F 1 "+2V5" H 5868 3773 50  0000 C CNN
+F 2 "" H 5850 3600 50  0000 C CNN
+F 3 "" H 5850 3600 50  0000 C CNN
+	1    5850 3600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 3600 5750 3600
+Text GLabel 5750 3800 2    60   Input ~ 0
+FPGA_JTAG_TCK
+Text GLabel 5750 3700 2    60   Input ~ 0
+FPGA_JTAG_TMS
+Text GLabel 5750 3900 2    60   Input ~ 0
+FPGA_JTAG_TDO
+Text GLabel 5750 4000 2    60   Input ~ 0
+FPGA_JTAG_TDI
+NoConn ~ 5750 4100
+NoConn ~ 5750 4200
+Text Notes 5100 3100 0    118  ~ 24
+Xilinx JTAG
+$Comp
+L CONN_02X05 P1
+U 1 1 570E732B
+P 2050 3850
+F 0 "P1" H 2050 4461 50  0000 C CNN
+F 1 "CONN_02X05" H 2050 4370 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x05_Pitch1.27mm" H 2050 4279 50  0000 C CNN
+F 3 "" H 2050 2650 50  0000 C CNN
+F 4 "_" H 2050 3850 60  0001 C CNN "MFN"
+F 5 "_" H 2050 3850 60  0001 C CNN "MFP"
+F 6 "digikey" H 2050 3850 60  0001 C CNN "D1"
+F 7 "mouser" H 2050 3850 60  0001 C CNN "D2"
+F 8 "_" H 2050 3850 60  0001 C CNN "D1PN"
+F 9 "_" H 2050 3850 60  0001 C CNN "D1PL"
+F 10 "_" H 2050 3850 60  0001 C CNN "D2PN"
+F 11 "_" H 2050 3850 60  0001 C CNN "D2PL"
+F 12 "_" H 2050 3850 60  0001 C CNN "Package"
+F 13 "_" H 2050 4180 60  0000 C CNN "Description"
+F 14 "_" H 2050 3850 60  0001 C CNN "Voltage"
+F 15 "_" H 2050 3850 60  0001 C CNN "Power"
+F 16 "_" H 2050 3850 60  0001 C CNN "Tolerance"
+F 17 "_" H 2050 3850 60  0001 C CNN "Temperature"
+F 18 "_" H 2050 3850 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 2050 3850 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 2050 3850 60  0001 C CNN "Cont.Current"
+F 21 "_" H 2050 3850 60  0001 C CNN "Frequency"
+F 22 "_" H 2050 3850 60  0001 C CNN "ResonnanceFreq"
+	1    2050 3850
+	1    0    0    -1  
+$EndComp
+Text GLabel 1800 3650 0    60   Input ~ 0
+CAM_monitor1
+Text GLabel 2300 3650 2    60   Input ~ 0
+IMU_INT1
+Text GLabel 1800 3750 0    60   Input ~ 0
+FPGA_JTAG_TCK
+Text GLabel 1800 3850 0    60   Input ~ 0
+FPGA_JTAG_TMS
+Text GLabel 2300 3950 2    60   Input ~ 0
+FPGA_JTAG_TDO
+Text GLabel 2300 4050 2    60   Input ~ 0
+FPGA_JTAG_TDI
+Text GLabel 1800 3950 0    60   Input ~ 0
+FPGADebug1
+Text GLabel 1800 4050 0    60   Input ~ 0
+FPGADebug2
+Wire Wire Line
+	2300 3850 2550 3850
+Wire Wire Line
+	2550 3850 2550 4200
+$Comp
+L GND #PWR03
+U 1 1 570E74AF
+P 2550 4200
+F 0 "#PWR03" H 2550 3950 50  0001 C CNN
+F 1 "GND" H 2558 4027 50  0000 C CNN
+F 2 "" H 2550 4200 50  0000 C CNN
+F 3 "" H 2550 4200 50  0000 C CNN
+	1    2550 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 3750 2550 3750
+Wire Wire Line
+	2550 3750 2550 3450
+$Comp
+L +2V5 #PWR04
+U 1 1 570E74D6
+P 2550 3450
+F 0 "#PWR04" H 2550 3300 50  0001 C CNN
+F 1 "+2V5" H 2568 3623 50  0000 C CNN
+F 2 "" H 2550 3450 50  0000 C CNN
+F 3 "" H 2550 3450 50  0000 C CNN
+	1    2550 3450
+	1    0    0    -1  
+$EndComp
+Text Notes 1000 3150 0    118  ~ 24
+HarleyFullMC Connector
+Text Notes 4600 2000 0    118  ~ 24
+FPGA Debug signals (2V5)
+Text GLabel 5400 1100 0    60   Input ~ 0
+IMU_INT1
+Text GLabel 5400 1000 0    60   Input ~ 0
+CAM_monitor1
+Text GLabel 5400 2350 0    60   Input ~ 0
+FPGADebug1
+Text GLabel 5400 2450 0    60   Input ~ 0
+FPGADebug2
+Text Notes 4250 800  0    118  ~ 24
+Camera/IMU monitoring (CMOS 3V3)
+$Comp
+L CONN_01X03 P3
+U 1 1 570E7C0F
+P 5600 1100
+F 0 "P3" H 5518 573 50  0000 C CNN
+F 1 "CONN_01X03" H 5518 664 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03" H 5518 755 50  0000 C CNN
+F 3 "" H 5600 1100 50  0000 C CNN
+F 4 "_" H 5600 1100 60  0001 C CNN "MFN"
+F 5 "_" H 5600 1100 60  0001 C CNN "MFP"
+F 6 "digikey" H 5600 1100 60  0001 C CNN "D1"
+F 7 "mouser" H 5600 1100 60  0001 C CNN "D2"
+F 8 "_" H 5600 1100 60  0001 C CNN "D1PN"
+F 9 "_" H 5600 1100 60  0001 C CNN "D1PL"
+F 10 "_" H 5600 1100 60  0001 C CNN "D2PN"
+F 11 "_" H 5600 1100 60  0001 C CNN "D2PL"
+F 12 "_" H 5600 1100 60  0001 C CNN "Package"
+F 13 "_" H 5518 854 60  0000 C CNN "Description"
+F 14 "_" H 5600 1100 60  0001 C CNN "Voltage"
+F 15 "_" H 5600 1100 60  0001 C CNN "Power"
+F 16 "_" H 5600 1100 60  0001 C CNN "Tolerance"
+F 17 "_" H 5600 1100 60  0001 C CNN "Temperature"
+F 18 "_" H 5600 1100 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 5600 1100 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 5600 1100 60  0001 C CNN "Cont.Current"
+F 21 "_" H 5600 1100 60  0001 C CNN "Frequency"
+F 22 "_" H 5600 1100 60  0001 C CNN "ResonnanceFreq"
+	1    5600 1100
+	1    0    0    1   
+$EndComp
+$Comp
+L CONN_01X04 P4
+U 1 1 570E7C37
+P 5600 2400
+F 0 "P4" H 5677 2536 50  0000 L CNN
+F 1 "CONN_01X04" H 5677 2445 50  0000 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x04" H 5677 2354 50  0000 L CNN
+F 3 "" H 5600 2400 50  0000 C CNN
+F 4 "_" H 5600 2400 60  0001 C CNN "MFN"
+F 5 "_" H 5600 2400 60  0001 C CNN "MFP"
+F 6 "digikey" H 5600 2400 60  0001 C CNN "D1"
+F 7 "mouser" H 5600 2400 60  0001 C CNN "D2"
+F 8 "_" H 5600 2400 60  0001 C CNN "D1PN"
+F 9 "_" H 5600 2400 60  0001 C CNN "D1PL"
+F 10 "_" H 5600 2400 60  0001 C CNN "D2PN"
+F 11 "_" H 5600 2400 60  0001 C CNN "D2PL"
+F 12 "_" H 5600 2400 60  0001 C CNN "Package"
+F 13 "_" H 5677 2255 60  0000 L CNN "Description"
+F 14 "_" H 5600 2400 60  0001 C CNN "Voltage"
+F 15 "_" H 5600 2400 60  0001 C CNN "Power"
+F 16 "_" H 5600 2400 60  0001 C CNN "Tolerance"
+F 17 "_" H 5600 2400 60  0001 C CNN "Temperature"
+F 18 "_" H 5600 2400 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 5600 2400 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 5600 2400 60  0001 C CNN "Cont.Current"
+F 21 "_" H 5600 2400 60  0001 C CNN "Frequency"
+F 22 "_" H 5600 2400 60  0001 C CNN "ResonnanceFreq"
+	1    5600 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR05
+U 1 1 570E7C89
+P 5400 1200
+F 0 "#PWR05" H 5400 950 50  0001 C CNN
+F 1 "GND" H 5408 1027 50  0000 C CNN
+F 2 "" H 5400 1200 50  0000 C CNN
+F 3 "" H 5400 1200 50  0000 C CNN
+	1    5400 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR06
+U 1 1 570E7CA5
+P 5400 2550
+F 0 "#PWR06" H 5400 2300 50  0001 C CNN
+F 1 "GND" H 5408 2377 50  0000 C CNN
+F 2 "" H 5400 2550 50  0000 C CNN
+F 3 "" H 5400 2550 50  0000 C CNN
+	1    5400 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L +2V5 #PWR07
+U 1 1 570E7CC1
+P 5200 2250
+F 0 "#PWR07" H 5200 2100 50  0001 C CNN
+F 1 "+2V5" H 5218 2423 50  0000 C CNN
+F 2 "" H 5200 2250 50  0000 C CNN
+F 3 "" H 5200 2250 50  0000 C CNN
+	1    5200 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 2250 5400 2250
+$EndSCHEMATC
