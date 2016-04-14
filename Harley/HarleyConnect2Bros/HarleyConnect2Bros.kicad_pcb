@@ -1,11 +1,11 @@
 (kicad_pcb (version 4) (host pcbnew 0.201603210401+6634~43~ubuntu14.04.1-product)
 
   (general
-    (links 0)
+    (links 116)
     (no_connects 0)
     (area 11.924999 95.924999 251.575001 120.575001)
     (thickness 1.6)
-    (drawings 32)
+    (drawings 33)
     (tracks 3249)
     (zones 0)
     (modules 16)
@@ -2042,6 +2042,9 @@
       (xy 10.025052 0.790222)) (layer B.SilkS) (width 0.1))
   )
 
+  (gr_text "HarleyConnect2Bros\nREV.A" (at 196.1 105.1) (layer B.SilkS) (tstamp 570FBFC7)
+    (effects (font (size 1.5 1.5) (thickness 0.3)) (justify mirror))
+  )
   (gr_text "HarleyConnect2Bros\nREV.A" (at 196.1 105.1) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
