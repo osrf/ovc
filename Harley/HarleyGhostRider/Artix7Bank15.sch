@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:connectors
 LIBS:conn
 LIBS:device
 LIBS:artix7
@@ -142,10 +143,10 @@ F 22 "_" H 8600 3600 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR058
+L GND #PWR060
 U 1 1 56A2B641
 P 7450 3750
-F 0 "#PWR058" H 7450 3500 50  0001 C CNN
+F 0 "#PWR060" H 7450 3500 50  0001 C CNN
 F 1 "GND" H 7458 3576 50  0000 C CNN
 F 2 "" H 7450 3750 50  0000 C CNN
 F 3 "" H 7450 3750 50  0000 C CNN
@@ -273,10 +274,10 @@ F 22 "_" H 8000 3600 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L +2V5 #PWR059
+L +2V5 #PWR061
 U 1 1 56A2B6B9
 P 7450 3450
-F 0 "#PWR059" H 7450 3300 50  0001 C CNN
+F 0 "#PWR061" H 7450 3300 50  0001 C CNN
 F 1 "+2V5" H 7468 3624 50  0000 C CNN
 F 2 "" H 7450 3450 50  0000 C CNN
 F 3 "" H 7450 3450 50  0000 C CNN
@@ -284,10 +285,10 @@ F 3 "" H 7450 3450 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +2V5 #PWR060
+L +2V5 #PWR062
 U 1 1 56A2B717
 P 6750 6850
-F 0 "#PWR060" H 6750 6700 50  0001 C CNN
+F 0 "#PWR062" H 6750 6700 50  0001 C CNN
 F 1 "+2V5" H 6768 7024 50  0000 C CNN
 F 2 "" H 6750 6850 50  0000 C CNN
 F 3 "" H 6750 6850 50  0000 C CNN
@@ -462,4 +463,14 @@ Text GLabel 2700 6650 0    60   Input ~ 0
 Python_lvds_clk-
 Text GLabel 6600 5150 2    60   Input ~ 0
 FPGA_LED
+Text GLabel 2700 6450 0    60   Input ~ 0
+FPGA_Ddg1
+Text GLabel 6600 5650 2    60   Input ~ 0
+FPGA_Ddg2
+Text GLabel 2700 5150 0    60   Input ~ 0
+FPGA_Ddg3
+Text GLabel 2700 5850 0    60   Input ~ 0
+FPGA_Ddg4
+Text GLabel 2700 6850 0    60   Input ~ 0
+FPGA_Ddg5
 $EndSCHEMATC
