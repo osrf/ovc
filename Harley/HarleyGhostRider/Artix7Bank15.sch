@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:conn
 LIBS:device
 LIBS:artix7
 LIBS:OSCILLATOR
@@ -10,7 +11,6 @@ LIBS:i2c_flash
 LIBS:generic_ic
 LIBS:power
 LIBS:transistors
-LIBS:conn
 LIBS:linear
 LIBS:regul
 LIBS:74xx
@@ -142,10 +142,10 @@ F 22 "_" H 8600 3600 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR056
+L GND #PWR058
 U 1 1 56A2B641
 P 7450 3750
-F 0 "#PWR056" H 7450 3500 50  0001 C CNN
+F 0 "#PWR058" H 7450 3500 50  0001 C CNN
 F 1 "GND" H 7458 3576 50  0000 C CNN
 F 2 "" H 7450 3750 50  0000 C CNN
 F 3 "" H 7450 3750 50  0000 C CNN
@@ -273,10 +273,10 @@ F 22 "_" H 8000 3600 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L +2V5 #PWR057
+L +2V5 #PWR059
 U 1 1 56A2B6B9
 P 7450 3450
-F 0 "#PWR057" H 7450 3300 50  0001 C CNN
+F 0 "#PWR059" H 7450 3300 50  0001 C CNN
 F 1 "+2V5" H 7468 3624 50  0000 C CNN
 F 2 "" H 7450 3450 50  0000 C CNN
 F 3 "" H 7450 3450 50  0000 C CNN
@@ -284,10 +284,10 @@ F 3 "" H 7450 3450 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +2V5 #PWR058
+L +2V5 #PWR060
 U 1 1 56A2B717
 P 6750 6850
-F 0 "#PWR058" H 6750 6700 50  0001 C CNN
+F 0 "#PWR060" H 6750 6700 50  0001 C CNN
 F 1 "+2V5" H 6768 7024 50  0000 C CNN
 F 2 "" H 6750 6850 50  0000 C CNN
 F 3 "" H 6750 6850 50  0000 C CNN
@@ -408,62 +408,58 @@ Text GLabel 6600 6350 2    60   Input ~ 0
 Python1_DOUT0+
 Text GLabel 6600 6250 2    60   Input ~ 0
 Python1_DOUT0-
-Text GLabel 6600 6550 2    60   Input ~ 0
+Text GLabel 2700 4650 0    60   Input ~ 0
 Python1_DOUT1+
-Text GLabel 6600 6450 2    60   Input ~ 0
+Text GLabel 2700 4750 0    60   Input ~ 0
 Python1_DOUT1-
 Text GLabel 2700 7150 0    60   Input ~ 0
-Python1_DOUT2+
-Text GLabel 2700 7050 0    60   Input ~ 0
-Python1_DOUT2-
-Text GLabel 6600 4550 2    60   Input ~ 0
-Python1_DOUT3+
-Text GLabel 2700 7250 0    60   Input ~ 0
 Python1_DOUT3-
+Text GLabel 2700 7050 0    60   Input ~ 0
+Python1_DOUT3+
+Text GLabel 6600 4550 2    60   Input ~ 0
+Python3_SYNC-
+Text GLabel 2700 7250 0    60   Input ~ 0
+Python3_SYNC+
 Text GLabel 2700 5450 0    60   Input ~ 0
 Python1_clk_return-
 Text GLabel 2700 5550 0    60   Input ~ 0
 Python1_clk_return+
-Text GLabel 2700 4650 0    60   Input ~ 0
+Text GLabel 6600 6550 2    60   Input ~ 0
 Python1_SYNC+
-Text GLabel 2700 4750 0    60   Input ~ 0
+Text GLabel 6600 6450 2    60   Input ~ 0
 Python1_SYNC-
 Text GLabel 2700 5650 0    60   Input ~ 0
 Python2_SYNC+
 Text GLabel 2700 5750 0    60   Input ~ 0
 Python2_SYNC-
-Text GLabel 6600 6100 2    60   Input ~ 0
-Python3_DOUT1+
-Text GLabel 6600 6000 2    60   Input ~ 0
-Python3_DOUT1-
-Text GLabel 6600 4750 2    60   Input ~ 0
-Python3_DOUT3+
+Text GLabel 6600 6050 2    60   Input ~ 0
+Python1_DOUT2+
+Text GLabel 6600 6150 2    60   Input ~ 0
+Python1_DOUT2-
 Text GLabel 6600 4650 2    60   Input ~ 0
-Python3_DOUT3-
+Python3_DOUT0+
+Text GLabel 6600 4750 2    60   Input ~ 0
+Python3_DOUT0-
 Text GLabel 2700 5250 0    60   Input ~ 0
 Python2_clk_return-
 Text GLabel 2700 5350 0    60   Input ~ 0
 Python2_clk_return+
-Text GLabel 2700 4850 0    60   Input ~ 0
-SPI_MOSI
-Text GLabel 2700 4950 0    60   Input ~ 0
-SPI_MISO
-Text GLabel 2700 5050 0    60   Input ~ 0
-SPI_SCK
-Text GLabel 2700 5150 0    60   Input ~ 0
-Python1_CS#
-Text GLabel 6600 5050 2    60   Input ~ 0
-Python2_CS#
-Text GLabel 6600 5150 2    60   Input ~ 0
-Python3_CS#
-Text GLabel 6600 5250 2    60   Input ~ 0
-IMU_CS#
-Text GLabel 6600 5350 2    60   Input ~ 0
-Python1_Monitor
 Text GLabel 6600 5450 2    60   Input ~ 0
-Python2_Monitor
-Text GLabel 6600 5550 2    60   Input ~ 0
-Python3_Monitor
-Text GLabel 6600 5850 2    60   Input ~ 0
+IMU_CS#
+Text GLabel 2700 5050 0    60   Input ~ 0
 Python_Trigger
+Text GLabel 6600 5250 2    60   Input ~ 0
+Python1_Monitor
+Text GLabel 6600 5550 2    60   Input ~ 0
+Python3_CS#
+Text GLabel 6600 5050 2    60   Input ~ 0
+Python2_Monitor
+Text GLabel 2700 6950 0    60   Input ~ 0
+Python3_Monitor
+Text GLabel 2700 6750 0    60   Input ~ 0
+Python_lvds_clk+
+Text GLabel 2700 6650 0    60   Input ~ 0
+Python_lvds_clk-
+Text GLabel 6600 5150 2    60   Input ~ 0
+FPGA_LED
 $EndSCHEMATC

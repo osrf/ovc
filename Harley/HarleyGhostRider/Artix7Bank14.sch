@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:conn
 LIBS:device
 LIBS:artix7
 LIBS:OSCILLATOR
@@ -10,7 +11,6 @@ LIBS:i2c_flash
 LIBS:generic_ic
 LIBS:power
 LIBS:transistors
-LIBS:conn
 LIBS:linear
 LIBS:regul
 LIBS:74xx
@@ -172,10 +172,10 @@ F 22 "_" H 9100 3900 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR053
+L GND #PWR055
 U 1 1 56A2A8DB
 P 7950 4050
-F 0 "#PWR053" H 7950 3800 50  0001 C CNN
+F 0 "#PWR055" H 7950 3800 50  0001 C CNN
 F 1 "GND" H 7958 3876 50  0000 C CNN
 F 2 "" H 7950 4050 50  0000 C CNN
 F 3 "" H 7950 4050 50  0000 C CNN
@@ -303,10 +303,10 @@ F 22 "_" H 8500 3900 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L +2V5 #PWR054
+L +2V5 #PWR056
 U 1 1 56A2AA1B
 P 7950 3750
-F 0 "#PWR054" H 7950 3600 50  0001 C CNN
+F 0 "#PWR056" H 7950 3600 50  0001 C CNN
 F 1 "+2V5" H 7968 3924 50  0000 C CNN
 F 2 "" H 7950 3750 50  0000 C CNN
 F 3 "" H 7950 3750 50  0000 C CNN
@@ -314,10 +314,10 @@ F 3 "" H 7950 3750 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +2V5 #PWR055
+L +2V5 #PWR057
 U 1 1 56A2AA9D
 P 6600 3550
-F 0 "#PWR055" H 6600 3400 50  0001 C CNN
+F 0 "#PWR057" H 6600 3400 50  0001 C CNN
 F 1 "+2V5" H 6618 3724 50  0000 C CNN
 F 2 "" H 6600 3550 50  0000 C CNN
 F 3 "" H 6600 3550 50  0000 C CNN
@@ -400,17 +400,13 @@ Connection ~ 6450 3450
 Connection ~ 6450 3550
 Connection ~ 6450 3650
 Connection ~ 6450 3750
-Text GLabel 6450 2050 2    60   Input ~ 0
-Python2_DOUT0+
 Text GLabel 6450 1950 2    60   Input ~ 0
-Python2_DOUT0-
-Text GLabel 2050 1450 0    60   Input ~ 0
 Python2_DOUT1+
-Text GLabel 2050 1350 0    60   Input ~ 0
+Text GLabel 6450 2050 2    60   Input ~ 0
 Python2_DOUT1-
-Text GLabel 2050 1650 0    60   Input ~ 0
-Python2_DOUT2+
 Text GLabel 2050 1550 0    60   Input ~ 0
+Python2_DOUT2+
+Text GLabel 2050 1650 0    60   Input ~ 0
 Python2_DOUT2-
 Text GLabel 2050 1850 0    60   Input ~ 0
 Python2_DOUT3+
@@ -420,16 +416,20 @@ Text GLabel 2050 1950 0    60   Input ~ 0
 Python3_clk_return-
 Text GLabel 2050 2050 0    60   Input ~ 0
 Python3_clk_return+
-Text GLabel 2050 2850 0    60   Input ~ 0
-Python3_DOUT0+
-Text GLabel 2050 2750 0    60   Input ~ 0
-Python3_DOUT0-
 Text GLabel 6450 2850 2    60   Input ~ 0
 Python3_DOUT2+
 Text GLabel 6450 2750 2    60   Input ~ 0
 Python3_DOUT2-
+Text GLabel 2050 2850 0    60   Input ~ 0
+Python3_DOUT3+
+Text GLabel 2050 2750 0    60   Input ~ 0
+Python3_DOUT3-
 Text GLabel 6450 2250 2    60   Input ~ 0
-Python3_SYNC+
+Python3_DOUT1+
 Text GLabel 6450 2150 2    60   Input ~ 0
-Python3_SYNC-
+Python3_DOUT1-
+Text GLabel 6450 2650 2    60   Input ~ 0
+Python2_DOUT0+
+Text GLabel 6450 2550 2    60   Input ~ 0
+Python2_DOUT0-
 $EndSCHEMATC
