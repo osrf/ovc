@@ -240,13 +240,13 @@ P 1500 4200
 F 0 "U11" H 1500 4566 50  0000 C CNN
 F 1 "OSCILLATOR" H 1500 4474 50  0000 C CNN
 F 2 "Oscillator:ASDMB" H 1350 4200 50  0001 C CNN
-F 3 "http://www.abracon.com/Oscillators/ASFL1.pdf" H 1350 4300 50  0001 C CNN
+F 3 "http://www.abracon.com/Oscillators/ASDMB.pdf" H 1350 4300 50  0001 C CNN
 F 4 "Abracon" H 1450 4300 50  0001 C CNN "MFN"
-F 5 " ASDMB-100.000MHZ-XY-T " H 1450 4300 50  0001 C CNN "MFP"
+F 5 "ASDMB-48.000MHZ-EC-T" H 1450 4300 50  0001 C CNN "MFP"
 F 6 "digikey" H 1450 4300 50  0001 C CNN "D1"
 F 7 "mouser" H 1450 4300 50  0001 C CNN "D2"
-F 8 "535-11147" H 1450 4300 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/ASDMB-100.000MHZ-XY-T/535-11147-2-ND/2623808" H 1450 4300 50  0001 C CNN "D1PL"
+F 8 "535-12100" H 1450 4300 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/abracon-llc/ASDMB-48.000MHZ-EC-T/535-12100-1-ND/4199686" H 1450 4300 50  0001 C CNN "D1PL"
 F 10 "_" H 1450 4300 50  0001 C CNN "D2PN"
 F 11 "_" H 1450 4300 50  0001 C CNN "D2PL"
 F 12 "_" H 1450 4300 50  0001 C CNN "Package"
@@ -469,9 +469,9 @@ DDR3L1 Bank (1V35)
 Text Notes 600  6050 0    100  ~ 20
 Config
 Text Notes 2400 7350 0    100  ~ 20
-DDR3L2 Bank (1V35)
+LVDS Bank (Python1 and 2)
 Text Notes 2350 6350 0    100  ~ 20
-FX3 + LVDS Bank
+FX3 Bank
 Text GLabel 5400 2350 2    60   Input ~ 0
 FLASH_SDA
 Text GLabel 5400 2250 2    60   Input ~ 0
@@ -531,9 +531,9 @@ Connection ~ 1100 3750
 NoConn ~ 3850 2050
 NoConn ~ 3850 2150
 Text Notes 600  6700 0    100  ~ 20
-Unused Bank For Now
+CMOS Bank
 Text Notes 2350 5550 0    100  ~ 20
-FX3 + LVDS Bank
+FX3 + Python3 LVDS Bank
 Text GLabel 9600 3200 0    60   Input ~ 0
 Python1_DOUT0+
 Text GLabel 9600 3300 0    60   Input ~ 0
@@ -683,7 +683,7 @@ $EndComp
 Wire Wire Line
 	8500 3100 9600 3100
 Wire Wire Line
-	8500 1600 8500 6400
+	8500 1500 8500 6400
 Wire Wire Line
 	8500 3400 9600 3400
 Connection ~ 8500 3400
@@ -760,35 +760,35 @@ F 3 "" H 8500 6400 50  0000 C CNN
 $EndComp
 Text GLabel 9600 1400 0    60   Input ~ 0
 SPI_MOSI
-Text GLabel 9600 1500 0    60   Input ~ 0
-SPI_MISO
-Text GLabel 9600 1700 0    60   Input ~ 0
-SPI_SCK
-Text GLabel 9600 1900 0    60   Input ~ 0
-Python1_CS#
-Text GLabel 9600 2000 0    60   Input ~ 0
-Python2_CS#
-Text GLabel 9600 2100 0    60   Input ~ 0
-Python3_CS#
-Text GLabel 9600 2200 0    60   Input ~ 0
-IMU_CS#
-Text GLabel 9600 2300 0    60   Input ~ 0
-Python1_Monitor
 Text GLabel 9600 2400 0    60   Input ~ 0
-Python2_Monitor
+SPI_MISO
+Text GLabel 9600 1600 0    60   Input ~ 0
+SPI_SCK
+Text GLabel 9600 1800 0    60   Input ~ 0
+Python1_CS#
+Text GLabel 9600 1900 0    60   Input ~ 0
+Python2_CS#
+Text GLabel 9600 2000 0    60   Input ~ 0
+Python3_CS#
+Text GLabel 9600 2100 0    60   Input ~ 0
+IMU_CS#
 Text GLabel 9600 2500 0    60   Input ~ 0
-Python3_Monitor
+Python1_Monitor
 Text GLabel 9600 2600 0    60   Input ~ 0
+Python2_Monitor
+Text GLabel 9600 2700 0    60   Input ~ 0
+Python3_Monitor
+Text GLabel 9600 2200 0    60   Input ~ 0
 Python_Trigger
 Connection ~ 8500 3100
 Connection ~ 8500 2800
-Connection ~ 8500 1800
+Connection ~ 8500 1700
 Wire Wire Line
 	8500 2800 9600 2800
 Wire Wire Line
-	8500 1800 9600 1800
+	8500 1700 9600 1700
 Wire Wire Line
-	8500 1600 9600 1600
+	8500 1500 9600 1500
 Wire Wire Line
 	10100 5400 11000 5400
 Connection ~ 11000 5400
@@ -897,7 +897,7 @@ U 1 1 57200EE6
 P 6850 4000
 F 0 "P2" H 6850 4461 50  0000 C CNN
 F 1 "CONN_02X02" H 6850 4370 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x02_Pitch1.27mm" H 6850 4279 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x02_Pitch1.27mm" H 6850 4279 50  0001 C CNN
 F 3 "" H 6850 2800 50  0000 C CNN
 F 4 "_" H 6850 4000 60  0001 C CNN "MFN"
 F 5 "_" H 6850 4000 60  0001 C CNN "MFP"
@@ -943,6 +943,8 @@ F 3 "" H 7100 3950 50  0000 C CNN
 	1    7100 3950
 	1    0    0    -1  
 $EndComp
-Text GLabel 9600 2700 0    60   Input ~ 0
+Text GLabel 9600 2300 0    60   Input ~ 0
 Python_RST#
+Text GLabel 10100 3000 2    60   Input ~ 0
+EXT_Trigger
 $EndSCHEMATC

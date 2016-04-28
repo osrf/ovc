@@ -401,18 +401,6 @@ Connection ~ 6450 3450
 Connection ~ 6450 3550
 Connection ~ 6450 3650
 Connection ~ 6450 3750
-Text GLabel 6450 1950 2    60   Input ~ 0
-Python2_DOUT1+
-Text GLabel 6450 2050 2    60   Input ~ 0
-Python2_DOUT1-
-Text GLabel 2050 1550 0    60   Input ~ 0
-Python2_DOUT2+
-Text GLabel 2050 1650 0    60   Input ~ 0
-Python2_DOUT2-
-Text GLabel 2050 1850 0    60   Input ~ 0
-Python2_DOUT3+
-Text GLabel 2050 1750 0    60   Input ~ 0
-Python2_DOUT3-
 Text GLabel 2050 1950 0    60   Input ~ 0
 Python3_clk_return-
 Text GLabel 2050 2050 0    60   Input ~ 0
@@ -429,8 +417,12 @@ Text GLabel 6450 2250 2    60   Input ~ 0
 Python3_DOUT1+
 Text GLabel 6450 2150 2    60   Input ~ 0
 Python3_DOUT1-
+Text GLabel 6450 1950 2    60   Input ~ 0
+Python3_SYNC-
+Text GLabel 6450 2050 2    60   Input ~ 0
+Python3_SYNC+
 Text GLabel 6450 2650 2    60   Input ~ 0
-Python2_DOUT0+
+Python3_DOUT0+
 Text GLabel 6450 2550 2    60   Input ~ 0
-Python2_DOUT0-
+Python3_DOUT0-
 $EndSCHEMATC

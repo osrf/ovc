@@ -315,96 +315,6 @@ Connection ~ 6600 6750
 Connection ~ 6600 6850
 Connection ~ 6600 6950
 Connection ~ 6600 7050
-Text GLabel 1600 1200 0    60   Input ~ 0
-DDR3L2_DQU0
-Text GLabel 1600 1400 0    60   Input ~ 0
-DDR3L2_DQU1
-Text GLabel 1600 1300 0    60   Input ~ 0
-DDR3L2_DQU2
-Text GLabel 1600 1500 0    60   Input ~ 0
-DDR3L2_DQU3
-Text GLabel 1600 2100 0    60   Input ~ 0
-DDR3L2_A0
-Text GLabel 1600 3600 0    60   Input ~ 0
-DDR3L2_A2
-Text GLabel 1600 2200 0    60   Input ~ 0
-DDR3L2_A3
-Text GLabel 8500 1100 2    60   Input ~ 0
-DDR3L2_A4
-Text GLabel 1600 3100 0    60   Input ~ 0
-DDR3L2_A5
-Text GLabel 1600 3500 0    60   Input ~ 0
-DDR3L2_A6
-Text GLabel 1600 3400 0    60   Input ~ 0
-DDR3L2_A10
-Text GLabel 1600 3800 0    60   Input ~ 0
-DDR3L2_A11
-Text GLabel 1600 3700 0    60   Input ~ 0
-DDR3L2_A12
-Text GLabel 1600 1900 0    60   Input ~ 0
-DDR3L2_CLK+
-Text GLabel 1600 1800 0    60   Input ~ 0
-DDR3L2_CLK-
-Text GLabel 1600 2600 0    60   Input ~ 0
-DDR3L2_CKE
-Text GLabel 1600 2400 0    60   Input ~ 0
-DDR3L2_RAS#
-Text GLabel 1600 2300 0    60   Input ~ 0
-DDR3L2_CAS#
-Text GLabel 1600 3000 0    60   Input ~ 0
-DDR3L2_WE#
-Text GLabel 1600 2700 0    60   Input ~ 0
-DDR3L2_BA0
-Text GLabel 1600 2500 0    60   Input ~ 0
-DDR3L2_BA1
-Text GLabel 1600 2800 0    60   Input ~ 0
-DDR3L2_BA2
-Text GLabel 1600 2000 0    60   Input ~ 0
-DDR3L2_ODT
-Text GLabel 1600 1000 0    60   Input ~ 0
-DDR3L2_RST#
-Text GLabel 1600 3300 0    60   Input ~ 0
-DDR3L2_DQL0
-Text GLabel 8500 1700 2    60   Input ~ 0
-DDR3L2_DQL1
-Text GLabel 8500 1600 2    60   Input ~ 0
-DDR3L2_DQL2
-Text GLabel 1600 3200 0    60   Input ~ 0
-DDR3L2_DQL3
-Text GLabel 8500 2000 2    60   Input ~ 0
-DDR3L2_DQL4
-Text GLabel 8500 2200 2    60   Input ~ 0
-DDR3L2_DQL5
-Text GLabel 8500 2100 2    60   Input ~ 0
-DDR3L2_DQL6
-Text GLabel 8500 2300 2    60   Input ~ 0
-DDR3L2_DQL7
-Text GLabel 8500 2600 2    60   Input ~ 0
-DDR3L2_DQU4
-Text GLabel 8500 2700 2    60   Input ~ 0
-DDR3L2_DQU5
-Text GLabel 8500 2800 2    60   Input ~ 0
-DDR3L2_DQU6
-Text GLabel 8500 2900 2    60   Input ~ 0
-DDR3L2_DQU7
-Text GLabel 8500 1900 2    60   Input ~ 0
-DDR3L2_DQSL+
-Text GLabel 8500 1800 2    60   Input ~ 0
-DDR3L2_DQSL-
-Text GLabel 8500 3100 2    60   Input ~ 0
-DDR3L2_DQSU+
-Text GLabel 8500 3000 2    60   Input ~ 0
-DDR3L2_DQSU-
-Text GLabel 8500 1500 2    60   Input ~ 0
-DDR3L2_A1
-Text GLabel 8500 1300 2    60   Input ~ 0
-DDR3L2_A7
-Text GLabel 1600 2900 0    60   Input ~ 0
-DDR3L2_A8
-Text GLabel 8500 1200 2    60   Input ~ 0
-DDR3L2_A9
-Text GLabel 8500 1400 2    60   Input ~ 0
-DDR3L2_A13
 Text GLabel 6600 6350 2    60   Input ~ 0
 Python1_DOUT0+
 Text GLabel 6600 6250 2    60   Input ~ 0
@@ -417,10 +327,6 @@ Text GLabel 2700 7150 0    60   Input ~ 0
 Python1_DOUT3-
 Text GLabel 2700 7050 0    60   Input ~ 0
 Python1_DOUT3+
-Text GLabel 6600 4550 2    60   Input ~ 0
-Python3_SYNC-
-Text GLabel 2700 7250 0    60   Input ~ 0
-Python3_SYNC+
 Text GLabel 2700 5450 0    60   Input ~ 0
 Python1_clk_return-
 Text GLabel 2700 5550 0    60   Input ~ 0
@@ -429,41 +335,31 @@ Text GLabel 6600 6550 2    60   Input ~ 0
 Python1_SYNC+
 Text GLabel 6600 6450 2    60   Input ~ 0
 Python1_SYNC-
-Text GLabel 2700 5650 0    60   Input ~ 0
+Text GLabel 2700 7250 0    60   Input ~ 0
 Python2_SYNC+
-Text GLabel 2700 5750 0    60   Input ~ 0
+Text GLabel 6600 4550 2    60   Input ~ 0
 Python2_SYNC-
 Text GLabel 6600 6050 2    60   Input ~ 0
 Python1_DOUT2+
 Text GLabel 6600 6150 2    60   Input ~ 0
 Python1_DOUT2-
-Text GLabel 6600 4650 2    60   Input ~ 0
-Python3_DOUT0+
-Text GLabel 6600 4750 2    60   Input ~ 0
-Python3_DOUT0-
 Text GLabel 2700 5250 0    60   Input ~ 0
 Python2_clk_return-
 Text GLabel 2700 5350 0    60   Input ~ 0
 Python2_clk_return+
 Text GLabel 6600 5450 2    60   Input ~ 0
-IMU_CS#
-Text GLabel 2700 5050 0    60   Input ~ 0
 Python_Trigger
-Text GLabel 6600 5250 2    60   Input ~ 0
-Python1_Monitor
-Text GLabel 6600 5550 2    60   Input ~ 0
-Python3_CS#
-Text GLabel 6600 5050 2    60   Input ~ 0
+Text GLabel 2700 5050 0    60   Input ~ 0
 Python2_Monitor
-Text GLabel 2700 6950 0    60   Input ~ 0
-Python3_Monitor
-Text GLabel 2700 6750 0    60   Input ~ 0
-Python_lvds_clk+
-Text GLabel 2700 6650 0    60   Input ~ 0
-Python_lvds_clk-
+Text GLabel 6600 5250 2    60   Input ~ 0
+Python_RST#
+Text GLabel 6600 5550 2    60   Input ~ 0
+IMU_CS#
+Text GLabel 6600 5050 2    60   Input ~ 0
+SPI_MISO
 Text GLabel 6600 5150 2    60   Input ~ 0
 FPGA_LED
-Text GLabel 2700 6450 0    60   Input ~ 0
+Text GLabel 6600 5350 2    60   Input ~ 0
 FPGA_Ddg1
 Text GLabel 6600 5650 2    60   Input ~ 0
 FPGA_Ddg2
@@ -471,6 +367,28 @@ Text GLabel 2700 5150 0    60   Input ~ 0
 FPGA_Ddg3
 Text GLabel 2700 5850 0    60   Input ~ 0
 FPGA_Ddg4
+Text GLabel 6600 4650 2    60   Input ~ 0
+Python2_DOUT2+
+Text GLabel 6600 4750 2    60   Input ~ 0
+Python2_DOUT2-
+Text GLabel 2700 6150 0    60   Input ~ 0
+Python2_DOUT3+
+Text GLabel 2700 6050 0    60   Input ~ 0
+Python2_DOUT3-
+Text GLabel 2700 6250 0    60   Input ~ 0
+Python2_DOUT1+
+Text GLabel 2700 6350 0    60   Input ~ 0
+Python2_DOUT1-
+Text GLabel 2700 6450 0    60   Input ~ 0
+Python2_DOUT0+
+Text GLabel 2700 6550 0    60   Input ~ 0
+Python2_DOUT0-
 Text GLabel 2700 6850 0    60   Input ~ 0
-FPGA_Ddg5
+EXT_Trigger
+Text GLabel 2700 6750 0    60   Input ~ 0
+Python_lvds_clk+
+Text GLabel 2700 6650 0    60   Input ~ 0
+Python_lvds_clk-
+Text GLabel 2700 6950 0    60   Input ~ 0
+Python1_Monitor
 $EndSCHEMATC

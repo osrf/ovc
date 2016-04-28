@@ -184,17 +184,19 @@ Wire Wire Line
 Text GLabel 1250 2800 0    60   Input ~ 0
 SPI_MOSI
 Text GLabel 1250 2900 0    60   Input ~ 0
-SPI_MISO
-Text GLabel 4650 2600 2    60   Input ~ 0
 SPI_SCK
-Text GLabel 4650 2700 2    60   Input ~ 0
-Python2_CS#
-Text GLabel 1250 2600 0    60   Input ~ 0
+Text GLabel 4650 2600 2    60   Input ~ 0
 Python1_CS#
+Text GLabel 4650 2700 2    60   Input ~ 0
+Python3_CS#
+Text GLabel 1250 2600 0    60   Input ~ 0
+Python2_CS#
 Text GLabel 1250 2700 0    60   Input ~ 0
 FPGA_DEBUG1
 Text GLabel 4650 2800 2    60   Input ~ 0
 FPGA_DEBUG2
 Text GLabel 4650 2900 2    60   Input ~ 0
-Python_RST#
+Python3_Monitor
+Text GLabel 1250 3000 0    60   Input ~ 0
+FPGA_Ddg5
 $EndSCHEMATC

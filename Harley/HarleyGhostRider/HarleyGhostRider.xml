@@ -2,8 +2,8 @@
 <export version="D">
   <design>
     <source>/home/mikael/work/kicad_ws/opencam/hardware/Harley/HarleyGhostRider/HarleyGhostRider.sch</source>
-    <date>Tue 26 Apr 2016 12:59:58 PM PDT</date>
-    <tool>Eeschema 0.201604261218+6712~44~ubuntu14.04.1-product</tool>
+    <date>Thu 28 Apr 2016 01:17:35 PM PDT</date>
+    <tool>Eeschema 0.201604271216+6712~44~ubuntu14.04.1-product</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title/>
@@ -223,14 +223,14 @@
     <comp ref="U11">
       <value>OSCILLATOR</value>
       <footprint>Oscillator:ASDMB</footprint>
-      <datasheet>http://www.abracon.com/Oscillators/ASFL1.pdf</datasheet>
+      <datasheet>http://www.abracon.com/Oscillators/ASDMB.pdf</datasheet>
       <fields>
         <field name="MFN">Abracon</field>
-        <field name="MFP"> ASDMB-100.000MHZ-XY-T </field>
+        <field name="MFP">ASDMB-48.000MHZ-EC-T</field>
         <field name="D1">digikey</field>
         <field name="D2">mouser</field>
-        <field name="D1PN">535-11147</field>
-        <field name="D1PL">http://www.digikey.com/product-detail/en/ASDMB-100.000MHZ-XY-T/535-11147-2-ND/2623808</field>
+        <field name="D1PN">535-12100</field>
+        <field name="D1PL">http://www.digikey.com/product-detail/en/abracon-llc/ASDMB-48.000MHZ-EC-T/535-12100-1-ND/4199686</field>
         <field name="D2PN">_</field>
         <field name="D2PL">_</field>
         <field name="Package">_</field>
@@ -6411,17 +6411,20 @@
     </libpart>
   </libparts>
   <libraries>
-    <library logical="conn">
-      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/conn.lib</uri>
+    <library logical="connectors">
+      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/connectors.lib</uri>
     </library>
     <library logical="device">
       <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/device.lib</uri>
     </library>
-    <library logical="connectors">
-      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/connectors.lib</uri>
+    <library logical="conn">
+      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/conn.lib</uri>
     </library>
     <library logical="artix7">
       <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/artix7.lib</uri>
+    </library>
+    <library logical="DCDC_Converters">
+      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/DCDC_Converters.lib</uri>
     </library>
     <library logical="OSCILLATOR">
       <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/OSCILLATOR.lib</uri>
@@ -6429,14 +6432,11 @@
     <library logical="mt41k128m16">
       <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/mt41k128m16.lib</uri>
     </library>
-    <library logical="usb_controller">
-      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/usb_controller.lib</uri>
-    </library>
-    <library logical="DCDC_Converters">
-      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/DCDC_Converters.lib</uri>
-    </library>
     <library logical="usb3_connector">
       <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/usb3_connector.lib</uri>
+    </library>
+    <library logical="usb_controller">
+      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/usb_controller.lib</uri>
     </library>
     <library logical="generic_ic">
       <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/generic_ic.lib</uri>
@@ -6461,7 +6461,7 @@
       <node ref="U1" pin="A16"/>
       <node ref="P1" pin="39"/>
     </net>
-    <net code="4" name="Python1_Monitor">
+    <net code="4" name="Python_RST#">
       <node ref="P1" pin="19"/>
       <node ref="U1" pin="B12"/>
     </net>
@@ -6490,16 +6490,16 @@
       <node ref="P1" pin="67"/>
     </net>
     <net code="11" name="Python1_DOUT3-">
-      <node ref="U1" pin="E18"/>
       <node ref="P1" pin="57"/>
+      <node ref="U1" pin="E18"/>
     </net>
     <net code="12" name="Python1_DOUT0+">
-      <node ref="U1" pin="A15"/>
       <node ref="P1" pin="37"/>
+      <node ref="U1" pin="A15"/>
     </net>
-    <net code="13" name="Python_RST#">
-      <node ref="U1" pin="D9"/>
+    <net code="13" name="Python3_Monitor">
       <node ref="P1" pin="27"/>
+      <node ref="U1" pin="D9"/>
     </net>
     <net code="14" name="Python3_clk_return-">
       <node ref="P1" pin="99"/>
@@ -6510,20 +6510,20 @@
       <node ref="P1" pin="79"/>
     </net>
     <net code="16" name="Python3_SYNC-">
-      <node ref="U1" pin="G18"/>
       <node ref="P1" pin="69"/>
+      <node ref="U1" pin="G18"/>
     </net>
     <net code="17" name="Python2_DOUT2+">
-      <node ref="U1" pin="N16"/>
       <node ref="P1" pin="84"/>
+      <node ref="U1" pin="N16"/>
     </net>
     <net code="18" name="Python2_DOUT0-">
       <node ref="U1" pin="M13"/>
       <node ref="P1" pin="74"/>
     </net>
     <net code="19" name="FPGA_JTAG_TDO">
-      <node ref="P1" pin="54"/>
       <node ref="U1" pin="E13"/>
+      <node ref="P1" pin="54"/>
     </net>
     <net code="20" name="FPGA_Ddg1">
       <node ref="U1" pin="H15"/>
@@ -6533,12 +6533,12 @@
       <node ref="P1" pin="34"/>
     </net>
     <net code="22" name="Python_lvds_clk+">
-      <node ref="U1" pin="D14"/>
       <node ref="P1" pin="24"/>
+      <node ref="U1" pin="D14"/>
     </net>
     <net code="23" name="Python3_DOUT3-">
-      <node ref="U1" pin="U18"/>
       <node ref="P1" pin="93"/>
+      <node ref="U1" pin="U18"/>
     </net>
     <net code="24" name="Python3_DOUT0+">
       <node ref="U1" pin="J18"/>
@@ -6553,24 +6553,24 @@
       <node ref="P1" pin="43"/>
     </net>
     <net code="27" name="Python1_SYNC-">
-      <node ref="P1" pin="33"/>
       <node ref="U1" pin="A14"/>
+      <node ref="P1" pin="33"/>
     </net>
-    <net code="28" name="Python3_Monitor">
-      <node ref="U1" pin="C16"/>
+    <net code="28" name="Python1_Monitor">
       <node ref="P1" pin="23"/>
+      <node ref="U1" pin="C16"/>
     </net>
-    <net code="29" name="Python2_CS#">
-      <node ref="P1" pin="13"/>
+    <net code="29" name="Python3_CS#">
       <node ref="U1" pin="A10"/>
+      <node ref="P1" pin="13"/>
     </net>
     <net code="30" name="Python2_DOUT3-">
       <node ref="P1" pin="92"/>
       <node ref="U1" pin="R17"/>
     </net>
-    <net code="31" name="IMU_CS#">
-      <node ref="P1" pin="17"/>
+    <net code="31" name="Python_Trigger">
       <node ref="U1" pin="A11"/>
+      <node ref="P1" pin="17"/>
     </net>
     <net code="32" name="Python2_DOUT2-">
       <node ref="P1" pin="86"/>
@@ -6592,8 +6592,8 @@
       <node ref="U1" pin="D17"/>
     </net>
     <net code="37" name="Python_lvds_clk-">
-      <node ref="U1" pin="C14"/>
       <node ref="P1" pin="26"/>
+      <node ref="U1" pin="C14"/>
     </net>
     <net code="38" name="Python3_DOUT2+">
       <node ref="U1" pin="R18"/>
@@ -6611,26 +6611,26 @@
       <node ref="P1" pin="45"/>
       <node ref="U1" pin="B18"/>
     </net>
-    <net code="42" name="Python_Trigger">
+    <net code="42" name="Python2_Monitor">
       <node ref="P1" pin="25"/>
       <node ref="U1" pin="C15"/>
     </net>
-    <net code="43" name="Python3_CS#">
+    <net code="43" name="IMU_CS#">
       <node ref="P1" pin="15"/>
       <node ref="U1" pin="B11"/>
     </net>
     <net code="44" name="GND">
+      <node ref="U9" pin="K3"/>
+      <node ref="U9" pin="L3"/>
       <node ref="U9" pin="E2"/>
       <node ref="U9" pin="L2"/>
-      <node ref="C149" pin="2"/>
-      <node ref="C153" pin="2"/>
-      <node ref="U9" pin="K4"/>
-      <node ref="C151" pin="2"/>
-      <node ref="U9" pin="K3"/>
-      <node ref="U9" pin="G1"/>
-      <node ref="U9" pin="L1"/>
       <node ref="U9" pin="B4"/>
-      <node ref="U9" pin="L3"/>
+      <node ref="U9" pin="G1"/>
+      <node ref="C153" pin="2"/>
+      <node ref="C151" pin="2"/>
+      <node ref="C149" pin="2"/>
+      <node ref="U9" pin="K4"/>
+      <node ref="U9" pin="L1"/>
       <node ref="U9" pin="B2"/>
       <node ref="C140" pin="2"/>
       <node ref="C137" pin="2"/>
@@ -6782,6 +6782,7 @@
       <node ref="C42" pin="2"/>
       <node ref="P1" pin="52"/>
       <node ref="P1" pin="22"/>
+      <node ref="P1" pin="3"/>
       <node ref="P1" pin="71"/>
       <node ref="P1" pin="41"/>
       <node ref="P1" pin="70"/>
@@ -6797,8 +6798,7 @@
       <node ref="C61" pin="2"/>
       <node ref="U11" pin="2"/>
       <node ref="C26" pin="2"/>
-      <node ref="P1" pin="9"/>
-      <node ref="P1" pin="5"/>
+      <node ref="P1" pin="7"/>
       <node ref="P1" pin="94"/>
       <node ref="P1" pin="53"/>
       <node ref="P1" pin="82"/>
@@ -7031,8 +7031,8 @@
       <node ref="D1" pin="1"/>
     </net>
     <net code="56" name="FPGA_LED">
-      <node ref="U1" pin="B13"/>
       <node ref="D2" pin="1"/>
+      <node ref="U1" pin="B13"/>
     </net>
     <net code="57" name="Net-(D1-Pad2)">
       <node ref="D1" pin="2"/>
@@ -7053,8 +7053,8 @@
     <net code="61" name="FX3_RST#">
       <node ref="R3" pin="2"/>
       <node ref="U9" pin="C5"/>
-      <node ref="C6" pin="2"/>
       <node ref="J3" pin="2"/>
+      <node ref="C6" pin="2"/>
     </net>
     <net code="62" name="Net-(P1-Pad40)">
       <node ref="P1" pin="40"/>
@@ -7062,29 +7062,29 @@
     <net code="63" name="FPGA_Ddg6">
       <node ref="P1" pin="30"/>
     </net>
-    <net code="64" name="SPI_SCK">
+    <net code="64" name="Python1_CS#">
+      <node ref="P1" pin="9"/>
       <node ref="U1" pin="A9"/>
-      <node ref="P1" pin="7"/>
     </net>
-    <net code="65" name="FPGA_JTAG_TCK">
+    <net code="65" name="SPI_SCK">
+      <node ref="P1" pin="5"/>
+      <node ref="U1" pin="B8"/>
+    </net>
+    <net code="66" name="FPGA_JTAG_TCK">
       <node ref="P1" pin="50"/>
       <node ref="U1" pin="E10"/>
     </net>
-    <net code="66" name="SPI_MISO">
-      <node ref="P1" pin="3"/>
-      <node ref="U1" pin="B8"/>
-    </net>
     <net code="67" name="SPI_MOSI">
-      <node ref="U1" pin="A8"/>
       <node ref="P1" pin="1"/>
+      <node ref="U1" pin="A8"/>
     </net>
     <net code="68" name="Python1_clk_return+">
-      <node ref="U1" pin="F15"/>
       <node ref="P1" pin="61"/>
+      <node ref="U1" pin="F15"/>
     </net>
     <net code="69" name="FPGA_Ddg2">
-      <node ref="U1" pin="F14"/>
       <node ref="P1" pin="42"/>
+      <node ref="U1" pin="F14"/>
     </net>
     <net code="70" name="FPGA_Ddg5">
       <node ref="P1" pin="32"/>
@@ -7106,11 +7106,11 @@
       <node ref="P1" pin="31"/>
       <node ref="U1" pin="A13"/>
     </net>
-    <net code="75" name="Python2_Monitor">
+    <net code="75" name="SPI_MISO">
       <node ref="P1" pin="21"/>
       <node ref="U1" pin="B14"/>
     </net>
-    <net code="76" name="Python1_CS#">
+    <net code="76" name="Python2_CS#">
       <node ref="P1" pin="11"/>
       <node ref="U1" pin="B9"/>
     </net>
@@ -7139,8 +7139,8 @@
       <node ref="P1" pin="14"/>
       <node ref="P1" pin="2"/>
       <node ref="P1" pin="6"/>
-      <node ref="U9" pin="E11"/>
       <node ref="P1" pin="8"/>
+      <node ref="U9" pin="E11"/>
       <node ref="J1" pin="1"/>
       <node ref="P1" pin="10"/>
       <node ref="P1" pin="4"/>
