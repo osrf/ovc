@@ -360,20 +360,20 @@ SPI_MISO
 Text GLabel 6600 5150 2    60   Input ~ 0
 FPGA_LED
 Text GLabel 6600 5350 2    60   Input ~ 0
-FPGA_Ddg1
+FPGA_Dbg5
 Text GLabel 6600 5650 2    60   Input ~ 0
-FPGA_Ddg2
+FPGA_Dbg2
 Text GLabel 2700 5150 0    60   Input ~ 0
-FPGA_Ddg3
+FPGA_Dbg3
 Text GLabel 2700 5850 0    60   Input ~ 0
-FPGA_Ddg4
+FPGA_Dbg1
 Text GLabel 6600 4650 2    60   Input ~ 0
 Python2_DOUT2+
 Text GLabel 6600 4750 2    60   Input ~ 0
 Python2_DOUT2-
-Text GLabel 2700 6150 0    60   Input ~ 0
-Python2_DOUT3+
 Text GLabel 2700 6050 0    60   Input ~ 0
+Python2_DOUT3+
+Text GLabel 2700 6150 0    60   Input ~ 0
 Python2_DOUT3-
 Text GLabel 2700 6250 0    60   Input ~ 0
 Python2_DOUT1+
@@ -384,7 +384,7 @@ Python2_DOUT0+
 Text GLabel 2700 6550 0    60   Input ~ 0
 Python2_DOUT0-
 Text GLabel 2700 6850 0    60   Input ~ 0
-EXT_Trigger
+FPGA_Dbg4
 Text GLabel 2700 6750 0    60   Input ~ 0
 Python_lvds_clk+
 Text GLabel 2700 6650 0    60   Input ~ 0

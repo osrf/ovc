@@ -198,5 +198,5 @@ FPGA_DEBUG2
 Text GLabel 4650 2900 2    60   Input ~ 0
 Python3_Monitor
 Text GLabel 1250 3000 0    60   Input ~ 0
-FPGA_Ddg5
+EXT_Trigger
 $EndSCHEMATC
