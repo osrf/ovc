@@ -111,17 +111,17 @@ Text GLabel 1700 1600 0    60   Input ~ 0
 Python_lvds_clk+
 Text GLabel 1700 1700 0    60   Input ~ 0
 Python_lvds_clk-
-Text GLabel 3100 1700 2    60   Input ~ 0
-Python1_lvds_clk-
 Text GLabel 3100 1600 2    60   Input ~ 0
+Python1_lvds_clk-
+Text GLabel 3100 1700 2    60   Input ~ 0
 Python1_lvds_clk+
-Text GLabel 3100 2000 2    60   Input ~ 0
-Python2_lvds_clk-
-Text GLabel 3100 1900 2    60   Input ~ 0
-Python2_lvds_clk+
 Text GLabel 3100 2600 2    60   Input ~ 0
-Python3_lvds_clk-
+Python2_lvds_clk-
 Text GLabel 3100 2500 2    60   Input ~ 0
+Python2_lvds_clk+
+Text GLabel 3100 2000 2    60   Input ~ 0
+Python3_lvds_clk-
+Text GLabel 3100 1900 2    60   Input ~ 0
 Python3_lvds_clk+
 Wire Wire Line
 	1900 2300 2100 2300
@@ -322,9 +322,9 @@ Wire Wire Line
 	6650 1500 6800 1500
 Wire Wire Line
 	6800 1500 6800 1400
-Text GLabel 5700 2100 0    60   Input ~ 0
-Python1_CS#
 Text GLabel 5700 2200 0    60   Input ~ 0
+Python1_CS#
+Text GLabel 5700 2100 0    60   Input ~ 0
 Python2_CS#
 Text GLabel 5700 2300 0    60   Input ~ 0
 Python3_CS#
@@ -338,9 +338,9 @@ Text GLabel 5700 1900 0    60   Input ~ 0
 SPI_MOSI
 Text GLabel 5700 2000 0    60   Input ~ 0
 SPI_SCK
-Text GLabel 6650 2100 2    60   Input ~ 0
-Python1_CS#_3V3
 Text GLabel 6650 2200 2    60   Input ~ 0
+Python1_CS#_3V3
+Text GLabel 6650 2100 2    60   Input ~ 0
 Python2_CS#_3V3
 Text GLabel 6650 2300 2    60   Input ~ 0
 Python3_CS#_3V3
@@ -484,21 +484,21 @@ F 22 "_" H 9650 2200 60  0001 C CNN "ResonnanceFreq"
 $EndComp
 Text Notes 9100 1000 0    60   ~ 12
 Inbound (Sensors -> FPGA)
-Text GLabel 10100 2500 2    60   Input ~ 0
+Text GLabel 9150 2200 0    60   Input ~ 0
 Python1_Monitor
-Text GLabel 10100 2400 2    60   Input ~ 0
+Text GLabel 9150 2100 0    60   Input ~ 0
 Python2_Monitor
-Text GLabel 10100 2300 2    60   Input ~ 0
+Text GLabel 9150 2000 0    60   Input ~ 0
 Python3_Monitor
-Text GLabel 10100 2600 2    60   Input ~ 0
-SPI_MISO
-Text GLabel 9150 2500 0    60   Input ~ 0
-Python1_Monitor_3V3
-Text GLabel 9150 2400 0    60   Input ~ 0
-Python2_Monitor_3V3
 Text GLabel 9150 2300 0    60   Input ~ 0
+SPI_MISO
+Text GLabel 10100 2200 2    60   Input ~ 0
+Python1_Monitor_3V3
+Text GLabel 10100 2100 2    60   Input ~ 0
+Python2_Monitor_3V3
+Text GLabel 10100 2000 2    60   Input ~ 0
 Python3_Monitor_3V3
-Text GLabel 9150 2600 0    60   Input ~ 0
+Text GLabel 10100 2300 2    60   Input ~ 0
 SPI_MISO_3V3
 $Comp
 L +3V3 #PWR063
@@ -513,8 +513,6 @@ F 3 "" H 9000 1300 50  0000 C CNN
 $EndComp
 Wire Wire Line
 	8350 1400 9150 1400
-Wire Wire Line
-	9000 1300 9000 1700
 $Comp
 L +2V5 #PWR064
 U 1 1 57241DC2
@@ -644,15 +642,9 @@ F 22 "_" H 10550 1550 50  0001 C CNN "ResonnanceFreq"
 	1    10550 1550
 	1    0    0    -1  
 $EndComp
-NoConn ~ 9150 1900
-NoConn ~ 9150 2000
-NoConn ~ 9150 2200
-NoConn ~ 10100 2200
-NoConn ~ 10100 2000
-NoConn ~ 10100 1900
-Text GLabel 9150 2100 0    60   Input ~ 0
+Text GLabel 10100 1900 2    60   Input ~ 0
 EXT_RX_3V3
-Text GLabel 10100 2100 2    60   Input ~ 0
+Text GLabel 9150 1900 0    60   Input ~ 0
 EXT_RX
 Wire Notes Line
 	450  3400 11200 3400
@@ -1055,8 +1047,23 @@ Wire Wire Line
 	5250 4450 5250 4300
 Connection ~ 5250 4450
 Wire Wire Line
-	3750 4350 3750 4450
+	3750 4350 3750 5050
 Connection ~ 3750 4450
 Text GLabel 5250 4000 2    60   Input ~ 0
 GNDISO
+Wire Wire Line
+	3750 5050 3950 5050
+$Comp
+L GND #PWR074
+U 1 1 5727DC34
+P 9000 1700
+F 0 "#PWR074" H 9000 1450 50  0001 C CNN
+F 1 "GND" H 9005 1527 50  0000 C CNN
+F 2 "" H 9000 1700 50  0000 C CNN
+F 3 "" H 9000 1700 50  0000 C CNN
+	1    9000 1700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9000 1300 9000 1400
 $EndSCHEMATC

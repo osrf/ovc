@@ -69,7 +69,7 @@ U 1 1 571FBCAF
 P 950 5450
 F 0 "P1" H 950 5965 50  0000 C CNN
 F 1 "CONN_02X07" H 950 5874 50  0000 C CNN
-F 2 "Connectors_Molex:Connector_MilliGrid_02x07_87832-1420" H 950 4250 50  0001 C CNN
+F 2 "Connectors:CustomJTAG" H 950 4250 50  0001 C CNN
 F 3 "http://www.molex.com/pdm_docs/sd/878322620_sd.pdf" H 950 4250 50  0001 C CNN
 F 4 "Molex" H 950 5450 60  0001 C CNN "MFN"
 F 5 "0878321420" H 950 5450 60  0001 C CNN "MFP"
@@ -123,25 +123,25 @@ F 22 "_" H 9300 3550 60  0001 C CNN "ResonnanceFreq"
 	1    9300 3550
 	1    0    0    -1  
 $EndComp
-Text GLabel 9550 6000 2    60   Input ~ 0
-SPI_MOSI
-Text GLabel 9550 5000 2    60   Input ~ 0
-SPI_MISO
-Text GLabel 9550 5800 2    60   Input ~ 0
-SPI_SCK
 Text GLabel 9550 5600 2    60   Input ~ 0
-Python1_CS#
-Text GLabel 9550 5500 2    60   Input ~ 0
-Python2_CS#
+SPI_MOSI
+Text GLabel 9550 5700 2    60   Input ~ 0
+SPI_MISO
 Text GLabel 9550 5400 2    60   Input ~ 0
+SPI_SCK
+Text GLabel 9550 5100 2    60   Input ~ 0
+Python1_CS#
+Text GLabel 9550 5200 2    60   Input ~ 0
+Python2_CS#
+Text GLabel 9550 5000 2    60   Input ~ 0
 Python3_CS#
-Text GLabel 9550 5300 2    60   Input ~ 0
-IMU_CS#
 Text GLabel 9550 4900 2    60   Input ~ 0
+IMU_CS#
+Text GLabel 9550 5800 2    60   Input ~ 0
 Python1_Monitor
-Text GLabel 9550 4800 2    60   Input ~ 0
+Text GLabel 9550 5900 2    60   Input ~ 0
 Python2_Monitor
-Text GLabel 9550 4700 2    60   Input ~ 0
+Text GLabel 9550 6000 2    60   Input ~ 0
 Python3_Monitor
 $Sheet
 S 650  3750 500  150 
@@ -149,7 +149,7 @@ U 571FBD4F
 F0 "Sheet571FBD4E" 60
 F1 "Imagers.sch" 60
 $EndSheet
-Text GLabel 9550 5200 2    60   Input ~ 0
+Text GLabel 9550 4800 2    60   Input ~ 0
 Python_Trigger
 Text GLabel 9550 3300 2    60   Input ~ 0
 Python1_DOUT0-
@@ -237,9 +237,9 @@ Text GLabel 9050 4300 0    60   Input ~ 0
 FPGA_Dbg2
 Text GLabel 9050 4500 0    60   Input ~ 0
 FPGA_Dbg3
-Text GLabel 9050 4800 0    60   Input ~ 0
+Text GLabel 9050 4600 0    60   Input ~ 0
 FPGA_Dbg5
-Text GLabel 9050 4900 0    60   Input ~ 0
+Text GLabel 9050 4700 0    60   Input ~ 0
 FPGA_Dbg6
 Text GLabel 9050 3400 0    60   Input ~ 0
 Python_lvds_clk+
@@ -300,11 +300,11 @@ F 3 "" H 8700 5300 50  0000 C CNN
 	1    0    0    1   
 $EndComp
 Wire Wire Line
-	10900 5900 9550 5900
+	10900 5500 9550 5500
 Wire Wire Line
-	10900 1000 10900 5900
+	10900 1000 10900 5500
 Wire Wire Line
-	9550 5700 10900 5700
+	9550 5300 10900 5300
 Wire Wire Line
 	9550 4600 10900 4600
 Connection ~ 10900 4600
@@ -454,7 +454,7 @@ Wire Wire Line
 	1400 5050 1400 5150
 Wire Wire Line
 	1400 5150 1200 5150
-Text GLabel 9550 5100 2    60   Input ~ 0
+Text GLabel 9550 4700 2    60   Input ~ 0
 Python_RST#
 Wire Notes Line
 	7700 6500 7700 500 
@@ -472,7 +472,6 @@ F1 "PowerSupplies.sch" 60
 $EndSheet
 Text Notes 750  700  0    60   ~ 12
 Power Supplies
-Connection ~ 10900 5700
 $Comp
 L CONN_01X03 P3
 U 1 1 5721AB3C
@@ -519,13 +518,13 @@ Text Notes 3400 800  0    60   ~ 12
 Level Shifters
 Text GLabel 6650 4350 0    60   Input ~ 0
 GNDISO
-Text GLabel 9050 4600 0    60   Input ~ 0
+Text GLabel 9050 4900 0    60   Input ~ 0
 EXT_TX
-Text GLabel 9050 4700 0    60   Input ~ 0
+Text GLabel 9050 4800 0    60   Input ~ 0
 EXT_RX
-Text GLabel 6650 4150 0    60   Input ~ 0
-EXT_TX_ISO
 Text GLabel 6650 4250 0    60   Input ~ 0
+EXT_TX_ISO
+Text GLabel 6650 4150 0    60   Input ~ 0
 EXT_RX_ISO
 $Comp
 L CONN_01X06 P4
@@ -559,4 +558,26 @@ F 22 "_" H 4150 4200 60  0001 C CNN "ResonnanceFreq"
 $EndComp
 Wire Wire Line
 	8050 3500 9050 3500
+Connection ~ 10900 5300
+Text GLabel 3950 4050 0    60   Input ~ 0
+FPGA_Dbg1
+Text GLabel 3950 4150 0    60   Input ~ 0
+FPGA_Dbg2
+Text GLabel 3950 4250 0    60   Input ~ 0
+FPGA_Dbg3
+Text GLabel 3950 4350 0    60   Input ~ 0
+FPGA_Dbg5
+Text GLabel 3950 4450 0    60   Input ~ 0
+FPGA_Dbg6
+$Comp
+L GND #PWR?
+U 1 1 5728557E
+P 3950 3950
+F 0 "#PWR?" H 3950 3700 50  0001 C CNN
+F 1 "GND" H 3955 3777 50  0000 C CNN
+F 2 "" H 3950 3950 50  0000 C CNN
+F 3 "" H 3950 3950 50  0000 C CNN
+	1    3950 3950
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC
