@@ -37,7 +37,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyGhostRider-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -406,23 +405,23 @@ Python3_clk_return-
 Text GLabel 2050 2050 0    60   Input ~ 0
 Python3_clk_return+
 Text GLabel 6450 2850 2    60   Input ~ 0
-Python3_DOUT2+
-Text GLabel 6450 2750 2    60   Input ~ 0
-Python3_DOUT2-
-Text GLabel 2050 2750 0    60   Input ~ 0
-Python3_DOUT3+
-Text GLabel 2050 2850 0    60   Input ~ 0
-Python3_DOUT3-
-Text GLabel 6450 2250 2    60   Input ~ 0
-Python3_DOUT1+
-Text GLabel 6450 2150 2    60   Input ~ 0
 Python3_DOUT1-
-Text GLabel 6450 2050 2    60   Input ~ 0
+Text GLabel 6450 2750 2    60   Input ~ 0
+Python3_DOUT1+
+Text GLabel 2050 2750 0    60   Input ~ 0
+Python3_DOUT0-
+Text GLabel 2050 2850 0    60   Input ~ 0
+Python3_DOUT0+
+Text GLabel 6450 2250 2    60   Input ~ 0
+Python3_SYNC+
+Text GLabel 6450 2150 2    60   Input ~ 0
 Python3_SYNC-
 Text GLabel 6450 1950 2    60   Input ~ 0
-Python3_SYNC+
-Text GLabel 6450 2650 2    60   Input ~ 0
-Python3_DOUT0+
+Python3_DOUT2+
+Text GLabel 6450 2050 2    60   Input ~ 0
+Python3_DOUT2-
 Text GLabel 6450 2550 2    60   Input ~ 0
-Python3_DOUT0-
+Python3_DOUT3-
+Text GLabel 6450 2650 2    60   Input ~ 0
+Python3_DOUT3+
 $EndSCHEMATC

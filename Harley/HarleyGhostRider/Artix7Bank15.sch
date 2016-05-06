@@ -37,7 +37,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyGhostRider-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -315,34 +314,18 @@ Connection ~ 6600 6750
 Connection ~ 6600 6850
 Connection ~ 6600 6950
 Connection ~ 6600 7050
-Text GLabel 6600 6350 2    60   Input ~ 0
-Python1_DOUT0+
-Text GLabel 6600 6250 2    60   Input ~ 0
-Python1_DOUT0-
-Text GLabel 2700 4650 0    60   Input ~ 0
-Python1_DOUT1+
-Text GLabel 2700 4750 0    60   Input ~ 0
-Python1_DOUT1-
-Text GLabel 2700 7150 0    60   Input ~ 0
-Python1_DOUT3-
-Text GLabel 2700 7050 0    60   Input ~ 0
-Python1_DOUT3+
 Text GLabel 2700 5450 0    60   Input ~ 0
 Python1_clk_return-
 Text GLabel 2700 5550 0    60   Input ~ 0
 Python1_clk_return+
-Text GLabel 6600 6550 2    60   Input ~ 0
-Python1_SYNC+
 Text GLabel 6600 6450 2    60   Input ~ 0
+Python1_SYNC+
+Text GLabel 6600 6550 2    60   Input ~ 0
 Python1_SYNC-
 Text GLabel 2700 7250 0    60   Input ~ 0
-Python2_SYNC+
-Text GLabel 6600 4550 2    60   Input ~ 0
 Python2_SYNC-
-Text GLabel 6600 6050 2    60   Input ~ 0
-Python1_DOUT2+
-Text GLabel 6600 6150 2    60   Input ~ 0
-Python1_DOUT2-
+Text GLabel 6600 4550 2    60   Input ~ 0
+Python2_SYNC+
 Text GLabel 2700 5250 0    60   Input ~ 0
 Python2_clk_return-
 Text GLabel 2700 5350 0    60   Input ~ 0
@@ -368,21 +351,21 @@ FPGA_Dbg3
 Text GLabel 2700 5850 0    60   Input ~ 0
 FPGA_Dbg1
 Text GLabel 6600 4650 2    60   Input ~ 0
-Python2_DOUT2+
-Text GLabel 6600 4750 2    60   Input ~ 0
-Python2_DOUT2-
-Text GLabel 2700 6050 0    60   Input ~ 0
-Python2_DOUT3+
-Text GLabel 2700 6150 0    60   Input ~ 0
-Python2_DOUT3-
-Text GLabel 2700 6250 0    60   Input ~ 0
-Python2_DOUT1+
-Text GLabel 2700 6350 0    60   Input ~ 0
-Python2_DOUT1-
-Text GLabel 2700 6450 0    60   Input ~ 0
 Python2_DOUT0+
-Text GLabel 2700 6550 0    60   Input ~ 0
+Text GLabel 6600 4750 2    60   Input ~ 0
 Python2_DOUT0-
+Text GLabel 2700 6050 0    60   Input ~ 0
+Python2_DOUT1+
+Text GLabel 2700 6150 0    60   Input ~ 0
+Python2_DOUT1-
+Text GLabel 2700 6250 0    60   Input ~ 0
+Python2_DOUT2-
+Text GLabel 2700 6350 0    60   Input ~ 0
+Python2_DOUT2+
+Text GLabel 2700 6450 0    60   Input ~ 0
+Python2_DOUT3-
+Text GLabel 2700 6550 0    60   Input ~ 0
+Python2_DOUT3+
 Text GLabel 2700 6850 0    60   Input ~ 0
 FPGA_Dbg4
 Text GLabel 2700 6750 0    60   Input ~ 0
@@ -391,4 +374,20 @@ Text GLabel 2700 6650 0    60   Input ~ 0
 Python_lvds_clk-
 Text GLabel 2700 6950 0    60   Input ~ 0
 Python1_Monitor
+Text GLabel 6600 6350 2    60   Input ~ 0
+Python1_DOUT3-
+Text GLabel 6600 6250 2    60   Input ~ 0
+Python1_DOUT3+
+Text GLabel 2700 4750 0    60   Input ~ 0
+Python1_DOUT2+
+Text GLabel 2700 4650 0    60   Input ~ 0
+Python1_DOUT2-
+Text GLabel 6600 6150 2    60   Input ~ 0
+Python1_DOUT1+
+Text GLabel 6600 6050 2    60   Input ~ 0
+Python1_DOUT1-
+Text GLabel 2700 7150 0    60   Input ~ 0
+Python1_DOUT0+
+Text GLabel 2700 7050 0    60   Input ~ 0
+Python1_DOUT0-
 $EndSCHEMATC

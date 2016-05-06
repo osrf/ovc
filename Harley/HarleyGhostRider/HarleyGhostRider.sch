@@ -37,7 +37,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyGhostRider-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -534,61 +533,61 @@ Text Notes 600  6700 0    100  ~ 20
 CMOS Bank
 Text Notes 2350 5550 0    100  ~ 20
 FX3 + Python3 LVDS Bank
-Text GLabel 9600 4500 0    60   Input ~ 0
-Python1_DOUT0+
-Text GLabel 9600 4400 0    60   Input ~ 0
-Python1_DOUT0-
-Text GLabel 9600 4200 0    60   Input ~ 0
-Python1_DOUT1+
-Text GLabel 9600 4100 0    60   Input ~ 0
-Python1_DOUT1-
-Text GLabel 9600 3900 0    60   Input ~ 0
-Python1_DOUT2+
-Text GLabel 9600 3800 0    60   Input ~ 0
-Python1_DOUT2-
-Text GLabel 9600 3600 0    60   Input ~ 0
-Python1_DOUT3+
 Text GLabel 9600 3500 0    60   Input ~ 0
+Python1_DOUT0+
+Text GLabel 9600 3600 0    60   Input ~ 0
+Python1_DOUT0-
+Text GLabel 9600 3800 0    60   Input ~ 0
+Python1_DOUT1+
+Text GLabel 9600 3900 0    60   Input ~ 0
+Python1_DOUT1-
+Text GLabel 9600 4100 0    60   Input ~ 0
+Python1_DOUT2+
+Text GLabel 9600 4200 0    60   Input ~ 0
+Python1_DOUT2-
+Text GLabel 9600 4400 0    60   Input ~ 0
+Python1_DOUT3+
+Text GLabel 9600 4500 0    60   Input ~ 0
 Python1_DOUT3-
-Text GLabel 9600 3200 0    60   Input ~ 0
-Python1_clk_return-
 Text GLabel 9600 3300 0    60   Input ~ 0
+Python1_clk_return-
+Text GLabel 9600 3200 0    60   Input ~ 0
 Python1_clk_return+
-Text GLabel 10100 2800 2    60   Input ~ 0
-Python2_DOUT0+
-Text GLabel 10100 2700 2    60   Input ~ 0
-Python2_DOUT0-
-Text GLabel 10100 2500 2    60   Input ~ 0
-Python2_DOUT1+
-Text GLabel 10100 2400 2    60   Input ~ 0
-Python2_DOUT1-
 Text GLabel 10100 2200 2    60   Input ~ 0
-Python2_DOUT2+
+Python2_DOUT0+
 Text GLabel 10100 2100 2    60   Input ~ 0
-Python2_DOUT2-
+Python2_DOUT0-
 Text GLabel 10100 1900 2    60   Input ~ 0
-Python2_DOUT3+
+Python2_DOUT1+
 Text GLabel 10100 1800 2    60   Input ~ 0
+Python2_DOUT1-
+Text GLabel 10100 2400 2    60   Input ~ 0
+Python2_DOUT2+
+Text GLabel 10100 2500 2    60   Input ~ 0
+Python2_DOUT2-
+Text GLabel 10100 2700 2    60   Input ~ 0
+Python2_DOUT3+
+Text GLabel 10100 2800 2    60   Input ~ 0
 Python2_DOUT3-
 Text GLabel 10100 3300 2    60   Input ~ 0
 Python2_clk_return-
 Text GLabel 10100 3400 2    60   Input ~ 0
 Python2_clk_return+
-Text GLabel 9600 2700 0    60   Input ~ 0
-Python3_DOUT0+
-Text GLabel 9600 2600 0    60   Input ~ 0
-Python3_DOUT0-
-Text GLabel 9600 2400 0    60   Input ~ 0
-Python3_DOUT1+
-Text GLabel 9600 2300 0    60   Input ~ 0
-Python3_DOUT1-
-Text GLabel 9600 2100 0    60   Input ~ 0
-Python3_DOUT2+
-Text GLabel 9600 2000 0    60   Input ~ 0
-Python3_DOUT2-
-Text GLabel 9600 1800 0    60   Input ~ 0
-Python3_DOUT3+
 Text GLabel 9600 1700 0    60   Input ~ 0
+Python3_DOUT0+
+Text GLabel 9600 1800 0    60   Input ~ 0
+Python3_DOUT0-
+Text GLabel 9600 2000 0    60   Input ~ 0
+Python3_DOUT1+
+Text GLabel 9600 2100 0    60   Input ~ 0
+Python3_DOUT1-
+Text GLabel 9600 3000 0    60   Input ~ 0
+Python3_DOUT2+
+Text GLabel 9600 2900 0    60   Input ~ 0
+Python3_DOUT2-
+Text GLabel 9600 2700 0    60   Input ~ 0
+Python3_DOUT3+
+Text GLabel 9600 2600 0    60   Input ~ 0
 Python3_DOUT3-
 Text GLabel 9600 1400 0    60   Input ~ 0
 Python3_clk_return-
@@ -598,17 +597,17 @@ Text GLabel 10100 5200 2    60   Input ~ 0
 Python_lvds_clk+
 Text GLabel 10100 5100 2    60   Input ~ 0
 Python_lvds_clk-
-Text GLabel 9600 4800 0    60   Input ~ 0
-Python1_SYNC+
 Text GLabel 9600 4700 0    60   Input ~ 0
+Python1_SYNC+
+Text GLabel 9600 4800 0    60   Input ~ 0
 Python1_SYNC-
-Text GLabel 10100 3100 2    60   Input ~ 0
-Python2_SYNC+
 Text GLabel 10100 3000 2    60   Input ~ 0
+Python2_SYNC+
+Text GLabel 10100 3100 2    60   Input ~ 0
 Python2_SYNC-
-Text GLabel 9600 3000 0    60   Input ~ 0
+Text GLabel 9600 2400 0    60   Input ~ 0
 Python3_SYNC+
-Text GLabel 9600 2900 0    60   Input ~ 0
+Text GLabel 9600 2300 0    60   Input ~ 0
 Python3_SYNC-
 Wire Wire Line
 	10100 6300 10100 5700
@@ -685,13 +684,13 @@ Wire Wire Line
 Wire Wire Line
 	8500 6200 8500 1300
 Wire Wire Line
-	8500 4300 9600 4300
+	8500 3700 9600 3700
 Connection ~ 8500 4300
 Wire Wire Line
 	8500 4000 9600 4000
 Connection ~ 8500 4000
 Wire Wire Line
-	8500 3700 9600 3700
+	8500 4300 9600 4300
 Connection ~ 8500 3700
 Wire Wire Line
 	8500 3400 9600 3400
@@ -807,13 +806,13 @@ Connection ~ 11000 1500
 Wire Wire Line
 	10100 1400 11000 1400
 Connection ~ 11000 1400
-Text GLabel 10100 4000 2    60   Input ~ 0
-FPGA_JTAG_TMS
-Text GLabel 10100 3700 2    60   Input ~ 0
-FPGA_JTAG_TDO
-Text GLabel 10100 3900 2    60   Input ~ 0
-FPGA_JTAG_TCK
 Text GLabel 10100 3600 2    60   Input ~ 0
+FPGA_JTAG_TMS
+Text GLabel 10100 3900 2    60   Input ~ 0
+FPGA_JTAG_TDO
+Text GLabel 10100 3700 2    60   Input ~ 0
+FPGA_JTAG_TCK
+Text GLabel 10100 4000 2    60   Input ~ 0
 FPGA_JTAG_TDI
 Text GLabel 7100 4050 2    60   Input ~ 0
 FPGA_DEBUG1
