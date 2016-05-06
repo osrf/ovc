@@ -219,9 +219,9 @@ Text GLabel 9050 2500 0    60   Input ~ 0
 Python2_DOUT3-
 Text GLabel 9050 2400 0    60   Input ~ 0
 Python2_DOUT3+
-Text GLabel 9050 3100 0    60   Input ~ 0
-Python2_clk_return+
 Text GLabel 9050 3000 0    60   Input ~ 0
+Python2_clk_return+
+Text GLabel 9050 3100 0    60   Input ~ 0
 Python2_clk_return-
 Text GLabel 9050 3700 0    60   Input ~ 0
 FPGA_JTAG_TCK
@@ -232,18 +232,18 @@ FPGA_JTAG_TDI
 Text GLabel 9050 3600 0    60   Input ~ 0
 FPGA_JTAG_TMS
 Text GLabel 9050 4300 0    60   Input ~ 0
-FPGA_Dbg1
+FPGA_Signal2
 Text GLabel 9050 4600 0    60   Input ~ 0
-FPGA_Dbg2
+FPGA_Signal4
 Text GLabel 9050 4700 0    60   Input ~ 0
-FPGA_Dbg3
+FPGA_Signal5
 Text GLabel 9050 4800 0    60   Input ~ 0
-FPGA_Dbg5
+FPGA_Signal6
 Text GLabel 9050 4900 0    60   Input ~ 0
-FPGA_Dbg6
-Text GLabel 9050 3400 0    60   Input ~ 0
-Python_lvds_clk+
+FPGA_Signal7
 Text GLabel 9050 3300 0    60   Input ~ 0
+Python_lvds_clk+
+Text GLabel 9050 3400 0    60   Input ~ 0
 Python_lvds_clk-
 Wire Wire Line
 	8900 6000 9050 6000
@@ -475,22 +475,22 @@ Power Supplies
 Text Notes 3400 650  0    60   ~ 12
 Level Shifters
 Text GLabel 9050 4500 0    60   Input ~ 0
-EXT_TX
+FPGA_Signal3
 Text GLabel 9050 4200 0    60   Input ~ 0
-EXT_RX
+FPGA_Signal1
 Wire Wire Line
 	8050 3500 9050 3500
 Connection ~ 10900 5300
 Text GLabel 5800 3850 0    60   Input ~ 0
-FPGA_Dbg1
+FPGA_Signal2
 Text GLabel 5800 3950 0    60   Input ~ 0
-FPGA_Dbg2
+FPGA_Signal4
 Text GLabel 5800 4050 0    60   Input ~ 0
-FPGA_Dbg3
+FPGA_Signal5
 Text GLabel 5800 4150 0    60   Input ~ 0
-FPGA_Dbg5
+FPGA_Signal6
 Text GLabel 5800 4250 0    60   Input ~ 0
-FPGA_Dbg6
+FPGA_Signal7
 Text Notes 4200 5200 0    60   ~ 12
 Clock Distribution
 $Comp
@@ -549,9 +549,9 @@ Wire Wire Line
 	5150 5600 5450 5600
 Wire Wire Line
 	4150 5600 3950 5600
-Text GLabel 3400 5750 0    60   Input ~ 0
-Python_lvds_clk+
 Text GLabel 3400 6050 0    60   Input ~ 0
+Python_lvds_clk+
+Text GLabel 3400 5750 0    60   Input ~ 0
 Python_lvds_clk-
 Text GLabel 5150 5800 2    60   Input ~ 0
 Python1_lvds_clk-
@@ -763,9 +763,9 @@ F 22 "_" H 6050 4100 60  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 Text GLabel 6300 3950 2    60   Input ~ 0
-EXT_TX
+FPGA_Signal3
 Text GLabel 6300 3850 2    60   Input ~ 0
-EXT_RX
+FPGA_Signal1
 $Comp
 L GND #PWR012
 U 1 1 572BF014

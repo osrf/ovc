@@ -37,6 +37,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:HarleyGhostRider-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -569,9 +570,9 @@ Text GLabel 10100 2700 2    60   Input ~ 0
 Python2_DOUT3+
 Text GLabel 10100 2800 2    60   Input ~ 0
 Python2_DOUT3-
-Text GLabel 10100 3300 2    60   Input ~ 0
-Python2_clk_return-
 Text GLabel 10100 3400 2    60   Input ~ 0
+Python2_clk_return-
+Text GLabel 10100 3300 2    60   Input ~ 0
 Python2_clk_return+
 Text GLabel 9600 1700 0    60   Input ~ 0
 Python3_DOUT0+
@@ -593,9 +594,9 @@ Text GLabel 9600 1400 0    60   Input ~ 0
 Python3_clk_return-
 Text GLabel 9600 1500 0    60   Input ~ 0
 Python3_clk_return+
-Text GLabel 10100 5200 2    60   Input ~ 0
+Text GLabel 10100 3600 2    60   Input ~ 0
 Python_lvds_clk+
-Text GLabel 10100 5100 2    60   Input ~ 0
+Text GLabel 10100 3700 2    60   Input ~ 0
 Python_lvds_clk-
 Text GLabel 9600 4700 0    60   Input ~ 0
 Python1_SYNC+
@@ -610,7 +611,7 @@ Python3_SYNC+
 Text GLabel 9600 2300 0    60   Input ~ 0
 Python3_SYNC-
 Wire Wire Line
-	10100 6300 10100 5700
+	10100 5700 10100 6300
 Connection ~ 10100 6200
 Connection ~ 10100 6100
 Connection ~ 10100 6000
@@ -632,7 +633,7 @@ F 3 "" H 10300 6300 50  0000 C CNN
 	1    0    0    1   
 $EndComp
 Wire Wire Line
-	10100 5600 10100 5400
+	10100 5400 10100 5600
 Connection ~ 10100 5500
 Wire Wire Line
 	10100 5500 10350 5500
@@ -655,7 +656,7 @@ U 1 1 571C0741
 P 9850 3850
 F 0 "P1" H 9850 6465 50  0000 C CNN
 F 1 "CONN_02X50" H 9850 6374 50  0000 C CNN
-F 2 "Hirose:DF40C_100DP_0-4V" H 9850 4300 50  0000 C CNN
+F 2 "Hirose:DF40C_100DP_0-4V" H 9850 4300 50  0001 C CNN
 F 3 "" H 9850 4300 50  0000 C CNN
 F 4 "_" H 9850 3850 60  0001 C CNN "MFN"
 F 5 "_" H 9850 3850 60  0001 C CNN "MFP"
@@ -682,7 +683,7 @@ $EndComp
 Wire Wire Line
 	8500 4600 9600 4600
 Wire Wire Line
-	8500 6200 8500 1300
+	8500 1300 8500 5800
 Wire Wire Line
 	8500 3700 9600 3700
 Connection ~ 8500 4300
@@ -714,11 +715,9 @@ Wire Wire Line
 	8500 1600 9600 1600
 Connection ~ 8500 1600
 Wire Wire Line
-	10100 5300 11000 5300
+	11000 5300 10100 5300
 Wire Wire Line
-	11000 5300 11000 1350
-Wire Wire Line
-	10100 5000 11000 5000
+	11000 1350 11000 5300
 Connection ~ 11000 5000
 Wire Wire Line
 	10100 3800 11000 3800
@@ -757,37 +756,36 @@ F 3 "" H 8500 1300 50  0000 C CNN
 	1    8500 1300
 	1    0    0    1   
 $EndComp
-Text GLabel 9600 6300 0    60   Input ~ 0
-SPI_MOSI
-Text GLabel 9600 5300 0    60   Input ~ 0
-SPI_MISO
-Text GLabel 9600 6100 0    60   Input ~ 0
-SPI_SCK
 Text GLabel 9600 5900 0    60   Input ~ 0
-Python1_CS#
-Text GLabel 9600 5800 0    60   Input ~ 0
-Python2_CS#
+SPI_MOSI
+Text GLabel 9600 6000 0    60   Input ~ 0
+SPI_MISO
 Text GLabel 9600 5700 0    60   Input ~ 0
-Python3_CS#
-Text GLabel 9600 5600 0    60   Input ~ 0
-IMU_CS#
-Text GLabel 9600 5200 0    60   Input ~ 0
-Python1_Monitor
-Text GLabel 9600 5100 0    60   Input ~ 0
-Python2_Monitor
-Text GLabel 9600 5000 0    60   Input ~ 0
-Python3_Monitor
+SPI_SCK
+Text GLabel 9600 5400 0    60   Input ~ 0
+Python1_CS#
 Text GLabel 9600 5500 0    60   Input ~ 0
+Python2_CS#
+Text GLabel 9600 5300 0    60   Input ~ 0
+Python3_CS#
+Text GLabel 9600 5200 0    60   Input ~ 0
+IMU_CS#
+Text GLabel 9600 6100 0    60   Input ~ 0
+Python1_Monitor
+Text GLabel 9600 6200 0    60   Input ~ 0
+Python2_Monitor
+Text GLabel 9600 6300 0    60   Input ~ 0
+Python3_Monitor
+Text GLabel 9600 5100 0    60   Input ~ 0
 Python_Trigger
 Connection ~ 8500 4600
 Connection ~ 8500 4900
-Connection ~ 8500 6000
 Wire Wire Line
 	8500 4900 9600 4900
 Wire Wire Line
-	8500 6000 9600 6000
+	8500 5600 9600 5600
 Wire Wire Line
-	8500 6200 9600 6200
+	8500 5800 9600 5800
 Wire Wire Line
 	10100 2300 11000 2300
 Connection ~ 11000 2300
@@ -806,13 +804,13 @@ Connection ~ 11000 1500
 Wire Wire Line
 	10100 1400 11000 1400
 Connection ~ 11000 1400
-Text GLabel 10100 3600 2    60   Input ~ 0
-FPGA_JTAG_TMS
 Text GLabel 10100 3900 2    60   Input ~ 0
+FPGA_JTAG_TMS
+Text GLabel 10100 4200 2    60   Input ~ 0
 FPGA_JTAG_TDO
-Text GLabel 10100 3700 2    60   Input ~ 0
-FPGA_JTAG_TCK
 Text GLabel 10100 4000 2    60   Input ~ 0
+FPGA_JTAG_TCK
+Text GLabel 10100 4300 2    60   Input ~ 0
 FPGA_JTAG_TDI
 Text GLabel 7100 4050 2    60   Input ~ 0
 FPGA_DEBUG1
@@ -878,18 +876,18 @@ F 22 "_" H 5100 2200 50  0001 C CNN "ResonnanceFreq"
 	1    5100 2200
 	1    0    0    -1  
 $EndComp
-Text GLabel 10100 4200 2    60   Input ~ 0
-FPGA_Dbg1
-Text GLabel 10100 4300 2    60   Input ~ 0
-FPGA_Dbg2
-Text GLabel 10100 4500 2    60   Input ~ 0
-FPGA_Dbg3
 Text GLabel 10100 4600 2    60   Input ~ 0
-FPGA_Dbg4
-Text GLabel 10100 4800 2    60   Input ~ 0
-FPGA_Dbg5
+FPGA_Signal2
 Text GLabel 10100 4900 2    60   Input ~ 0
-FPGA_Dbg6
+FPGA_Signal4
+Text GLabel 10100 5000 2    60   Input ~ 0
+FPGA_Signal5
+Text GLabel 10100 4800 2    60   Input ~ 0
+FPGA_Signal3
+Text GLabel 10100 5100 2    60   Input ~ 0
+FPGA_Signal6
+Text GLabel 10100 5200 2    60   Input ~ 0
+FPGA_Signal7
 $Comp
 L CONN_02X02 P2
 U 1 1 57200EE6
@@ -942,8 +940,9 @@ F 3 "" H 7100 3950 50  0000 C CNN
 	1    7100 3950
 	1    0    0    -1  
 $EndComp
-Text GLabel 9600 5400 0    60   Input ~ 0
+Text GLabel 9600 5000 0    60   Input ~ 0
 Python_RST#
-Text GLabel 10100 4700 2    60   Input ~ 0
-EXT_Trigger
+Text GLabel 10100 4500 2    60   Input ~ 0
+FPGA_Signal1
+Connection ~ 8500 5600
 $EndSCHEMATC
