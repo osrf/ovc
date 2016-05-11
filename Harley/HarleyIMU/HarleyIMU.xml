@@ -2,8 +2,8 @@
 <export version="D">
   <design>
     <source>/home/mikael/work/kicad_ws/opencam/hardware/Harley/HarleyIMU/HarleyIMU.sch</source>
-    <date>Tue 10 May 2016 09:54:48 AM PDT</date>
-    <tool>Eeschema 4.1.0-alpha+201605091531+6781~44~ubuntu14.04.1-product</tool>
+    <date>Wed 11 May 2016 04:40:04 PM PDT</date>
+    <tool>Eeschema 4.1.0-alpha+201605101537+6787~44~ubuntu14.04.1-product</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title/>
@@ -138,14 +138,14 @@
       <value>CONN_01X03</value>
       <footprint>Pin_Headers:Pin_Header_Straight_1x03</footprint>
       <fields>
-        <field name="MFN">_</field>
-        <field name="MFP">_</field>
+        <field name="MFN">DNP</field>
+        <field name="MFP">DNP</field>
         <field name="D1">digikey</field>
         <field name="D2">mouser</field>
-        <field name="D1PN">_</field>
-        <field name="D1PL">_</field>
-        <field name="D2PN">_</field>
-        <field name="D2PL">_</field>
+        <field name="D1PN">DNP</field>
+        <field name="D1PL">DNP</field>
+        <field name="D2PN">DNP</field>
+        <field name="D2PL">DNP</field>
         <field name="Package">_</field>
         <field name="Description">_</field>
         <field name="Voltage">_</field>
@@ -281,13 +281,14 @@
     <comp ref="P1">
       <value>CONN_01X12</value>
       <footprint>Pin_Headers:Pin_Header_Straight_1x12</footprint>
+      <datasheet>DNP</datasheet>
       <fields>
-        <field name="MFN">_</field>
-        <field name="MFP">_</field>
+        <field name="MFN">DNP</field>
+        <field name="MFP">DNP</field>
         <field name="D1">digikey</field>
         <field name="D2">mouser</field>
-        <field name="D1PN">_</field>
-        <field name="D1PL">_</field>
+        <field name="D1PN">DNP</field>
+        <field name="D1PL">DNP</field>
         <field name="D2PN">_</field>
         <field name="D2PL">_</field>
         <field name="Package">_</field>
@@ -564,177 +565,173 @@
     </libpart>
   </libparts>
   <libraries>
+    <library logical="voltage_translators">
+      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/voltage_translators.lib</uri>
+    </library>
+    <library logical="conn">
+      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/conn.lib</uri>
+    </library>
     <library logical="IMU">
       <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/IMU.lib</uri>
     </library>
     <library logical="device">
       <uri>/usr/share/kicad/library/device.lib</uri>
     </library>
-    <library logical="conn">
-      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/conn.lib</uri>
-    </library>
-    <library logical="voltage_translators">
-      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/voltage_translators.lib</uri>
-    </library>
     <library logical="regul">
       <uri>/usr/share/kicad/library/regul.lib</uri>
     </library>
   </libraries>
   <nets>
-    <net code="1" name="Net-(U2-Pad7)">
-      <node ref="U2" pin="7"/>
-    </net>
-    <net code="2" name="+2V5">
-      <node ref="R2" pin="1"/>
+    <net code="1" name="+2V5">
       <node ref="R1" pin="1"/>
-      <node ref="U2" pin="2"/>
       <node ref="P1" pin="3"/>
+      <node ref="R2" pin="1"/>
+      <node ref="U2" pin="2"/>
       <node ref="U2" pin="8"/>
     </net>
-    <net code="3" name="Net-(U2-Pad10)">
-      <node ref="U2" pin="10"/>
-    </net>
-    <net code="4" name="IMU_RST#">
+    <net code="2" name="IMU_RST#">
       <node ref="U2" pin="11"/>
       <node ref="U3" pin="21"/>
     </net>
-    <net code="5" name="IMU_RX">
+    <net code="3" name="IMU_RX">
       <node ref="U2" pin="12"/>
       <node ref="U3" pin="13"/>
       <node ref="P2" pin="2"/>
     </net>
-    <net code="6" name="IMU_TX">
-      <node ref="P2" pin="1"/>
-      <node ref="U3" pin="12"/>
+    <net code="4" name="IMU_TX">
       <node ref="U2" pin="13"/>
+      <node ref="U3" pin="12"/>
+      <node ref="P2" pin="1"/>
     </net>
-    <net code="7" name="IMU_SYNC_OUT">
+    <net code="5" name="IMU_SYNC_OUT">
       <node ref="U2" pin="14"/>
       <node ref="U3" pin="9"/>
     </net>
-    <net code="8" name="3V">
+    <net code="6" name="3V">
+      <node ref="U1" pin="5"/>
       <node ref="C2" pin="1"/>
       <node ref="U2" pin="15"/>
-      <node ref="U1" pin="5"/>
     </net>
-    <net code="9" name="IMU_TARE">
+    <net code="7" name="IMU_TARE">
       <node ref="U3" pin="7"/>
       <node ref="U2" pin="16"/>
     </net>
-    <net code="10" name="GND">
-      <node ref="U3" pin="28"/>
-      <node ref="U3" pin="18"/>
-      <node ref="C2" pin="2"/>
-      <node ref="C3" pin="2"/>
-      <node ref="U3" pin="30"/>
-      <node ref="P2" pin="3"/>
-      <node ref="U3" pin="4"/>
-      <node ref="U3" pin="3"/>
-      <node ref="U3" pin="2"/>
-      <node ref="P1" pin="11"/>
-      <node ref="P1" pin="12"/>
-      <node ref="U1" pin="2"/>
-      <node ref="C1" pin="2"/>
-      <node ref="U3" pin="1"/>
-      <node ref="U2" pin="9"/>
-    </net>
-    <net code="11" name="Net-(U1-Pad4)">
+    <net code="8" name="Net-(U1-Pad4)">
       <node ref="U1" pin="4"/>
     </net>
-    <net code="12" name="+3V3">
-      <node ref="C3" pin="1"/>
+    <net code="9" name="+3V3">
       <node ref="U3" pin="11"/>
+      <node ref="P1" pin="2"/>
+      <node ref="C1" pin="1"/>
+      <node ref="U1" pin="1"/>
       <node ref="U3" pin="10"/>
       <node ref="U1" pin="3"/>
-      <node ref="U1" pin="1"/>
-      <node ref="C1" pin="1"/>
-      <node ref="P1" pin="2"/>
+      <node ref="C3" pin="1"/>
     </net>
-    <net code="13" name="IMU_SYNC_OUT_2V5">
-      <node ref="U2" pin="3"/>
-      <node ref="P1" pin="7"/>
-    </net>
-    <net code="14" name="IMU_TX_2V5">
-      <node ref="U2" pin="4"/>
-      <node ref="P1" pin="8"/>
-    </net>
-    <net code="15" name="IMU_RX_2V5">
-      <node ref="P1" pin="9"/>
-      <node ref="U2" pin="5"/>
-    </net>
-    <net code="16" name="IMU_RST#_2V5">
-      <node ref="P1" pin="10"/>
-      <node ref="U2" pin="6"/>
-    </net>
-    <net code="17" name="+5V">
+    <net code="10" name="+5V">
       <node ref="P1" pin="1"/>
     </net>
-    <net code="18" name="IMU_TARE_2V5">
-      <node ref="U2" pin="1"/>
-      <node ref="P1" pin="6"/>
+    <net code="11" name="IMU_RST#_2V5">
+      <node ref="U2" pin="6"/>
+      <node ref="P1" pin="10"/>
     </net>
-    <net code="19" name="Net-(D2-Pad2)">
-      <node ref="R2" pin="2"/>
+    <net code="12" name="Net-(D2-Pad2)">
       <node ref="D2" pin="2"/>
+      <node ref="R2" pin="2"/>
     </net>
-    <net code="20" name="Net-(D1-Pad2)">
+    <net code="13" name="GND">
+      <node ref="C1" pin="2"/>
+      <node ref="U3" pin="2"/>
+      <node ref="U3" pin="3"/>
+      <node ref="U3" pin="4"/>
+      <node ref="P2" pin="3"/>
+      <node ref="P1" pin="11"/>
+      <node ref="U3" pin="30"/>
+      <node ref="C3" pin="2"/>
+      <node ref="P1" pin="12"/>
+      <node ref="U1" pin="2"/>
+      <node ref="U2" pin="9"/>
+      <node ref="U2" pin="7"/>
+      <node ref="C2" pin="2"/>
+      <node ref="U2" pin="10"/>
+      <node ref="U3" pin="18"/>
+      <node ref="U3" pin="28"/>
+      <node ref="U3" pin="1"/>
+    </net>
+    <net code="14" name="Net-(D1-Pad2)">
       <node ref="R1" pin="2"/>
       <node ref="D1" pin="2"/>
     </net>
-    <net code="21" name="FPGA_Signal1">
+    <net code="15" name="FPGA_Signal1">
       <node ref="D2" pin="1"/>
       <node ref="P1" pin="4"/>
     </net>
-    <net code="22" name="FPGA_Signal2">
+    <net code="16" name="FPGA_Signal2">
       <node ref="D1" pin="1"/>
       <node ref="P1" pin="5"/>
     </net>
-    <net code="23" name="Net-(U3-Pad29)">
+    <net code="17" name="IMU_TARE_2V5">
+      <node ref="U2" pin="1"/>
+      <node ref="P1" pin="6"/>
+    </net>
+    <net code="18" name="IMU_SYNC_OUT_2V5">
+      <node ref="P1" pin="7"/>
+      <node ref="U2" pin="3"/>
+    </net>
+    <net code="19" name="IMU_TX_2V5">
+      <node ref="P1" pin="8"/>
+      <node ref="U2" pin="4"/>
+    </net>
+    <net code="20" name="IMU_RX_2V5">
+      <node ref="P1" pin="9"/>
+      <node ref="U2" pin="5"/>
+    </net>
+    <net code="21" name="Net-(U3-Pad29)">
       <node ref="U3" pin="29"/>
     </net>
-    <net code="24" name="Net-(U3-Pad19)">
+    <net code="22" name="Net-(U3-Pad19)">
       <node ref="U3" pin="19"/>
     </net>
-    <net code="25" name="Net-(U3-Pad8)">
+    <net code="23" name="Net-(U3-Pad8)">
       <node ref="U3" pin="8"/>
     </net>
-    <net code="26" name="Net-(U3-Pad14)">
+    <net code="24" name="Net-(U3-Pad14)">
       <node ref="U3" pin="14"/>
     </net>
-    <net code="27" name="Net-(U3-Pad15)">
+    <net code="25" name="Net-(U3-Pad15)">
       <node ref="U3" pin="15"/>
     </net>
-    <net code="28" name="Net-(U3-Pad20)">
+    <net code="26" name="Net-(U3-Pad20)">
       <node ref="U3" pin="20"/>
     </net>
-    <net code="29" name="Net-(U3-Pad24)">
+    <net code="27" name="Net-(U3-Pad24)">
       <node ref="U3" pin="24"/>
     </net>
-    <net code="30" name="Net-(U3-Pad25)">
+    <net code="28" name="Net-(U3-Pad25)">
       <node ref="U3" pin="25"/>
     </net>
-    <net code="31" name="Net-(U3-Pad26)">
+    <net code="29" name="Net-(U3-Pad26)">
       <node ref="U3" pin="26"/>
     </net>
-    <net code="32" name="Net-(U3-Pad27)">
+    <net code="30" name="Net-(U3-Pad27)">
       <node ref="U3" pin="27"/>
     </net>
-    <net code="33" name="Net-(U3-Pad5)">
+    <net code="31" name="Net-(U3-Pad5)">
       <node ref="U3" pin="5"/>
     </net>
-    <net code="34" name="Net-(U3-Pad6)">
+    <net code="32" name="Net-(U3-Pad6)">
       <node ref="U3" pin="6"/>
     </net>
-    <net code="35" name="Net-(U3-Pad22)">
+    <net code="33" name="Net-(U3-Pad22)">
       <node ref="U3" pin="22"/>
     </net>
-    <net code="36" name="Net-(U3-Pad23)">
+    <net code="34" name="Net-(U3-Pad23)">
       <node ref="U3" pin="23"/>
     </net>
-    <net code="37" name="Net-(U3-Pad16)">
+    <net code="35" name="Net-(U3-Pad16)">
       <node ref="U3" pin="16"/>
     </net>
-    <net code="38" name="Net-(U3-Pad17)">
+    <net code="36" name="Net-(U3-Pad17)">
       <node ref="U3" pin="17"/>
     </net>
   </nets>
