@@ -1,4 +1,4 @@
-update=Fri 29 Apr 2016 03:25:57 PM PDT
+update=Tue 10 May 2016 09:53:05 PM PDT
 version=1
 last_client=kicad
 [general]
@@ -29,16 +29,16 @@ version=1
 NetIExt=net
 [eeschema]
 version=1
-LibDir=
+LibDir=../../../../osrf_hw
 [eeschema/libraries]
-LibName1=/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/isolators
-LibName2=/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/DCDC_Converters
-LibName3=/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/voltage_translators
-LibName4=/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/conn
-LibName5=/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/device
-LibName6=/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/connectors
-LibName7=/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/cameras
-LibName8=/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/IMU
+LibName1=kicad_libraries/isolators
+LibName2=kicad_libraries/DCDC_Converters
+LibName3=kicad_libraries/voltage_translators
+LibName4=kicad_libraries/conn
+LibName5=kicad_libraries/device
+LibName6=kicad_libraries/connectors
+LibName7=kicad_libraries/cameras
+LibName8=kicad_libraries/IMU
 LibName9=power
 LibName10=device
 LibName11=transistors
@@ -68,3 +68,14 @@ LibName34=opto
 LibName35=atmel
 LibName36=contrib
 LibName37=valves
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
+ERC_TestSimilarLabels=1
