@@ -245,13 +245,13 @@ P 1000 5150
 F 0 "C1" H 1025 5250 50  0000 L CNN
 F 1 "100u" H 1025 5050 50  0000 L CNN
 F 2 "Dipoles_SMD:C_1210Polarized" H 1038 5000 50  0001 C CNN
-F 3 "http://datasheets.avx.com/tps.pdf" H 1000 5150 50  0001 C CNN
+F 3 "http://datasheets.avx.com/f95.pdf" H 1000 5150 50  0001 C CNN
 F 4 "AVX Corporation" H 1000 5150 50  0001 C CNN "MFN"
-F 5 "TPSB107M010R0400" H 1000 5150 50  0001 C CNN "MFP"
+F 5 "F951A107MBAAQ2" H 1000 5150 50  0001 C CNN "MFP"
 F 6 "digikey" H 1000 5150 50  0001 C CNN "D1"
 F 7 "mouser" H 1000 5150 50  0001 C CNN "D2"
-F 8 "478-5231" H 1000 5150 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/TPSB107M010R0400/478-5231-1-ND/1913301" H 1000 5150 50  0001 C CNN "D1PL"
+F 8 "478-8423" H 1000 5150 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/avx-corporation/F951A107MBAAQ2/478-8423-1-ND/4005558" H 1000 5150 50  0001 C CNN "D1PL"
 F 10 "_" H 1000 5150 50  0001 C CNN "D2PN"
 F 11 "_" H 1000 5150 50  0001 C CNN "D2PL"
 F 12 "1210" H 1000 5150 50  0001 C CNN "Package"
@@ -348,96 +348,6 @@ F 1 "GND" H 1000 6000 50  0000 C CNN
 F 2 "" H 1000 6150 60  0000 C CNN
 F 3 "" H 1000 6150 60  0000 C CNN
 	1    1000 6150
-	1    0    0    -1  
-$EndComp
-$Comp
-L C C4
-U 1 1 571FC72B
-P 1200 5150
-F 0 "C4" H 1225 5250 50  0000 L CNN
-F 1 "100u" H 1225 5050 50  0000 L CNN
-F 2 "Dipoles_SMD:C_1210Polarized" H 1238 5000 50  0001 C CNN
-F 3 "http://datasheets.avx.com/tps.pdf" H 1200 5150 50  0001 C CNN
-F 4 "AVX Corporation" H 1200 5150 50  0001 C CNN "MFN"
-F 5 "TPSB107M010R0400" H 1200 5150 50  0001 C CNN "MFP"
-F 6 "digikey" H 1200 5150 50  0001 C CNN "D1"
-F 7 "mouser" H 1200 5150 50  0001 C CNN "D2"
-F 8 "478-5231" H 1200 5150 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/TPSB107M010R0400/478-5231-1-ND/1913301" H 1200 5150 50  0001 C CNN "D1PL"
-F 10 "_" H 1200 5150 50  0001 C CNN "D2PN"
-F 11 "_" H 1200 5150 50  0001 C CNN "D2PL"
-F 12 "1210" H 1200 5150 50  0001 C CNN "Package"
-F 13 "_" H 1200 5150 50  0000 C CNN "Description"
-F 14 "10" H 1200 5150 50  0001 C CNN "Voltage"
-F 15 "_" H 1200 5150 50  0001 C CNN "Power"
-F 16 "20%" H 1200 5150 50  0001 C CNN "Tolerance"
-F 17 "_" H 1200 5150 50  0001 C CNN "Temperature"
-F 18 "_" H 1200 5150 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 1200 5150 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 1200 5150 50  0001 C CNN "Cont.Current"
-F 21 "_" H 1200 5150 50  0001 C CNN "Frequency"
-F 22 "_" H 1200 5150 50  0001 C CNN "ResonnanceFreq"
-	1    1200 5150
-	1    0    0    -1  
-$EndComp
-$Comp
-L C C17
-U 1 1 571FC745
-P 1950 6000
-F 0 "C17" H 1975 6100 50  0000 L CNN
-F 1 "100u" H 1975 5900 50  0000 L CNN
-F 2 "Dipoles_SMD:C_1210Polarized" H 1988 5850 50  0001 C CNN
-F 3 "http://datasheets.avx.com/tps.pdf" H 1950 6000 50  0001 C CNN
-F 4 "AVX Corporation" H 1950 6000 50  0001 C CNN "MFN"
-F 5 "TPSB107M010R0400" H 1950 6000 50  0001 C CNN "MFP"
-F 6 "digikey" H 1950 6000 50  0001 C CNN "D1"
-F 7 "mouser" H 1950 6000 50  0001 C CNN "D2"
-F 8 "478-5231" H 1950 6000 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/TPSB107M010R0400/478-5231-1-ND/1913301" H 1950 6000 50  0001 C CNN "D1PL"
-F 10 "_" H 1950 6000 50  0001 C CNN "D2PN"
-F 11 "_" H 1950 6000 50  0001 C CNN "D2PL"
-F 12 "1210" H 1950 6000 50  0001 C CNN "Package"
-F 13 "_" H 1950 6000 50  0000 C CNN "Description"
-F 14 "10" H 1950 6000 50  0001 C CNN "Voltage"
-F 15 "_" H 1950 6000 50  0001 C CNN "Power"
-F 16 "20%" H 1950 6000 50  0001 C CNN "Tolerance"
-F 17 "_" H 1950 6000 50  0001 C CNN "Temperature"
-F 18 "_" H 1950 6000 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 1950 6000 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 1950 6000 50  0001 C CNN "Cont.Current"
-F 21 "_" H 1950 6000 50  0001 C CNN "Frequency"
-F 22 "_" H 1950 6000 50  0001 C CNN "ResonnanceFreq"
-	1    1950 6000
-	1    0    0    -1  
-$EndComp
-$Comp
-L C C20
-U 1 1 571FC75F
-P 2150 6000
-F 0 "C20" H 2175 6100 50  0000 L CNN
-F 1 "100u" H 2175 5900 50  0000 L CNN
-F 2 "Dipoles_SMD:C_1210Polarized" H 2188 5850 50  0001 C CNN
-F 3 "http://datasheets.avx.com/tps.pdf" H 2150 6000 50  0001 C CNN
-F 4 "AVX Corporation" H 2150 6000 50  0001 C CNN "MFN"
-F 5 "TPSB107M010R0400" H 2150 6000 50  0001 C CNN "MFP"
-F 6 "digikey" H 2150 6000 50  0001 C CNN "D1"
-F 7 "mouser" H 2150 6000 50  0001 C CNN "D2"
-F 8 "478-5231" H 2150 6000 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/TPSB107M010R0400/478-5231-1-ND/1913301" H 2150 6000 50  0001 C CNN "D1PL"
-F 10 "_" H 2150 6000 50  0001 C CNN "D2PN"
-F 11 "_" H 2150 6000 50  0001 C CNN "D2PL"
-F 12 "1210" H 2150 6000 50  0001 C CNN "Package"
-F 13 "_" H 2150 6000 50  0000 C CNN "Description"
-F 14 "10" H 2150 6000 50  0001 C CNN "Voltage"
-F 15 "_" H 2150 6000 50  0001 C CNN "Power"
-F 16 "20%" H 2150 6000 50  0001 C CNN "Tolerance"
-F 17 "_" H 2150 6000 50  0001 C CNN "Temperature"
-F 18 "_" H 2150 6000 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 2150 6000 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 2150 6000 50  0001 C CNN "Cont.Current"
-F 21 "_" H 2150 6000 50  0001 C CNN "Frequency"
-F 22 "_" H 2150 6000 50  0001 C CNN "ResonnanceFreq"
-	1    2150 6000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1854,36 +1764,6 @@ F 22 "_" H 9150 6950 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C32
-U 1 1 5721FD5D
-P 7350 5350
-F 0 "C32" H 7375 5450 50  0000 L CNN
-F 1 "100u" H 7375 5250 50  0000 L CNN
-F 2 "Dipoles_SMD:C_1210Polarized" H 7388 5200 50  0001 C CNN
-F 3 "http://datasheets.avx.com/tps.pdf" H 7350 5350 50  0001 C CNN
-F 4 "AVX Corporation" H 7350 5350 50  0001 C CNN "MFN"
-F 5 "TPSB107M010R0400" H 7350 5350 50  0001 C CNN "MFP"
-F 6 "digikey" H 7350 5350 50  0001 C CNN "D1"
-F 7 "mouser" H 7350 5350 50  0001 C CNN "D2"
-F 8 "478-5231" H 7350 5350 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/TPSB107M010R0400/478-5231-1-ND/1913301" H 7350 5350 50  0001 C CNN "D1PL"
-F 10 "_" H 7350 5350 50  0001 C CNN "D2PN"
-F 11 "_" H 7350 5350 50  0001 C CNN "D2PL"
-F 12 "1210" H 7350 5350 50  0001 C CNN "Package"
-F 13 "_" H 7350 5350 50  0000 C CNN "Description"
-F 14 "10" H 7350 5350 50  0001 C CNN "Voltage"
-F 15 "_" H 7350 5350 50  0001 C CNN "Power"
-F 16 "20%" H 7350 5350 50  0001 C CNN "Tolerance"
-F 17 "_" H 7350 5350 50  0001 C CNN "Temperature"
-F 18 "_" H 7350 5350 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 7350 5350 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 7350 5350 50  0001 C CNN "Cont.Current"
-F 21 "_" H 7350 5350 50  0001 C CNN "Frequency"
-F 22 "_" H 7350 5350 50  0001 C CNN "ResonnanceFreq"
-	1    7350 5350
-	1    0    0    -1  
-$EndComp
-$Comp
 L C C40
 U 1 1 5721FD76
 P 7850 5350
@@ -1963,96 +1843,6 @@ F 1 "GND" H 7350 6200 50  0000 C CNN
 F 2 "" H 7350 6350 60  0000 C CNN
 F 3 "" H 7350 6350 60  0000 C CNN
 	1    7350 6350
-	1    0    0    -1  
-$EndComp
-$Comp
-L C C35
-U 1 1 5721FDB4
-P 7550 5350
-F 0 "C35" H 7575 5450 50  0000 L CNN
-F 1 "100u" H 7575 5250 50  0000 L CNN
-F 2 "Dipoles_SMD:C_1210Polarized" H 7588 5200 50  0001 C CNN
-F 3 "http://datasheets.avx.com/tps.pdf" H 7550 5350 50  0001 C CNN
-F 4 "AVX Corporation" H 7550 5350 50  0001 C CNN "MFN"
-F 5 "TPSB107M010R0400" H 7550 5350 50  0001 C CNN "MFP"
-F 6 "digikey" H 7550 5350 50  0001 C CNN "D1"
-F 7 "mouser" H 7550 5350 50  0001 C CNN "D2"
-F 8 "478-5231" H 7550 5350 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/TPSB107M010R0400/478-5231-1-ND/1913301" H 7550 5350 50  0001 C CNN "D1PL"
-F 10 "_" H 7550 5350 50  0001 C CNN "D2PN"
-F 11 "_" H 7550 5350 50  0001 C CNN "D2PL"
-F 12 "1210" H 7550 5350 50  0001 C CNN "Package"
-F 13 "_" H 7550 5350 50  0000 C CNN "Description"
-F 14 "10" H 7550 5350 50  0001 C CNN "Voltage"
-F 15 "_" H 7550 5350 50  0001 C CNN "Power"
-F 16 "20%" H 7550 5350 50  0001 C CNN "Tolerance"
-F 17 "_" H 7550 5350 50  0001 C CNN "Temperature"
-F 18 "_" H 7550 5350 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 7550 5350 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 7550 5350 50  0001 C CNN "Cont.Current"
-F 21 "_" H 7550 5350 50  0001 C CNN "Frequency"
-F 22 "_" H 7550 5350 50  0001 C CNN "ResonnanceFreq"
-	1    7550 5350
-	1    0    0    -1  
-$EndComp
-$Comp
-L C C46
-U 1 1 5721FDCD
-P 8300 6200
-F 0 "C46" H 8325 6300 50  0000 L CNN
-F 1 "100u" H 8325 6100 50  0000 L CNN
-F 2 "Dipoles_SMD:C_1210Polarized" H 8338 6050 50  0001 C CNN
-F 3 "http://datasheets.avx.com/tps.pdf" H 8300 6200 50  0001 C CNN
-F 4 "AVX Corporation" H 8300 6200 50  0001 C CNN "MFN"
-F 5 "TPSB107M010R0400" H 8300 6200 50  0001 C CNN "MFP"
-F 6 "digikey" H 8300 6200 50  0001 C CNN "D1"
-F 7 "mouser" H 8300 6200 50  0001 C CNN "D2"
-F 8 "478-5231" H 8300 6200 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/TPSB107M010R0400/478-5231-1-ND/1913301" H 8300 6200 50  0001 C CNN "D1PL"
-F 10 "_" H 8300 6200 50  0001 C CNN "D2PN"
-F 11 "_" H 8300 6200 50  0001 C CNN "D2PL"
-F 12 "1210" H 8300 6200 50  0001 C CNN "Package"
-F 13 "_" H 8300 6200 50  0000 C CNN "Description"
-F 14 "10" H 8300 6200 50  0001 C CNN "Voltage"
-F 15 "_" H 8300 6200 50  0001 C CNN "Power"
-F 16 "20%" H 8300 6200 50  0001 C CNN "Tolerance"
-F 17 "_" H 8300 6200 50  0001 C CNN "Temperature"
-F 18 "_" H 8300 6200 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 8300 6200 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 8300 6200 50  0001 C CNN "Cont.Current"
-F 21 "_" H 8300 6200 50  0001 C CNN "Frequency"
-F 22 "_" H 8300 6200 50  0001 C CNN "ResonnanceFreq"
-	1    8300 6200
-	1    0    0    -1  
-$EndComp
-$Comp
-L C C49
-U 1 1 5721FDE6
-P 8500 6200
-F 0 "C49" H 8525 6300 50  0000 L CNN
-F 1 "100u" H 8525 6100 50  0000 L CNN
-F 2 "Dipoles_SMD:C_1210Polarized" H 8538 6050 50  0001 C CNN
-F 3 "http://datasheets.avx.com/tps.pdf" H 8500 6200 50  0001 C CNN
-F 4 "AVX Corporation" H 8500 6200 50  0001 C CNN "MFN"
-F 5 "TPSB107M010R0400" H 8500 6200 50  0001 C CNN "MFP"
-F 6 "digikey" H 8500 6200 50  0001 C CNN "D1"
-F 7 "mouser" H 8500 6200 50  0001 C CNN "D2"
-F 8 "478-5231" H 8500 6200 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/TPSB107M010R0400/478-5231-1-ND/1913301" H 8500 6200 50  0001 C CNN "D1PL"
-F 10 "_" H 8500 6200 50  0001 C CNN "D2PN"
-F 11 "_" H 8500 6200 50  0001 C CNN "D2PL"
-F 12 "1210" H 8500 6200 50  0001 C CNN "Package"
-F 13 "_" H 8500 6200 50  0000 C CNN "Description"
-F 14 "10" H 8500 6200 50  0001 C CNN "Voltage"
-F 15 "_" H 8500 6200 50  0001 C CNN "Power"
-F 16 "20%" H 8500 6200 50  0001 C CNN "Tolerance"
-F 17 "_" H 8500 6200 50  0001 C CNN "Temperature"
-F 18 "_" H 8500 6200 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 8500 6200 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 8500 6200 50  0001 C CNN "Cont.Current"
-F 21 "_" H 8500 6200 50  0001 C CNN "Frequency"
-F 22 "_" H 8500 6200 50  0001 C CNN "ResonnanceFreq"
-	1    8500 6200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -2786,36 +2576,6 @@ F 22 "_" H 14850 6950 50  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C61
-U 1 1 57220543
-P 13050 5350
-F 0 "C61" H 13075 5450 50  0000 L CNN
-F 1 "100u" H 13075 5250 50  0000 L CNN
-F 2 "Dipoles_SMD:C_1210Polarized" H 13088 5200 50  0001 C CNN
-F 3 "http://datasheets.avx.com/tps.pdf" H 13050 5350 50  0001 C CNN
-F 4 "AVX Corporation" H 13050 5350 50  0001 C CNN "MFN"
-F 5 "TPSB107M010R0400" H 13050 5350 50  0001 C CNN "MFP"
-F 6 "digikey" H 13050 5350 50  0001 C CNN "D1"
-F 7 "mouser" H 13050 5350 50  0001 C CNN "D2"
-F 8 "478-5231" H 13050 5350 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/TPSB107M010R0400/478-5231-1-ND/1913301" H 13050 5350 50  0001 C CNN "D1PL"
-F 10 "_" H 13050 5350 50  0001 C CNN "D2PN"
-F 11 "_" H 13050 5350 50  0001 C CNN "D2PL"
-F 12 "1210" H 13050 5350 50  0001 C CNN "Package"
-F 13 "_" H 13050 5350 50  0000 C CNN "Description"
-F 14 "10" H 13050 5350 50  0001 C CNN "Voltage"
-F 15 "_" H 13050 5350 50  0001 C CNN "Power"
-F 16 "20%" H 13050 5350 50  0001 C CNN "Tolerance"
-F 17 "_" H 13050 5350 50  0001 C CNN "Temperature"
-F 18 "_" H 13050 5350 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 13050 5350 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 13050 5350 50  0001 C CNN "Cont.Current"
-F 21 "_" H 13050 5350 50  0001 C CNN "Frequency"
-F 22 "_" H 13050 5350 50  0001 C CNN "ResonnanceFreq"
-	1    13050 5350
-	1    0    0    -1  
-$EndComp
-$Comp
 L C C69
 U 1 1 5722055C
 P 13550 5350
@@ -2895,96 +2655,6 @@ F 1 "GND" H 13050 6200 50  0000 C CNN
 F 2 "" H 13050 6350 60  0000 C CNN
 F 3 "" H 13050 6350 60  0000 C CNN
 	1    13050 6350
-	1    0    0    -1  
-$EndComp
-$Comp
-L C C64
-U 1 1 5722059A
-P 13250 5350
-F 0 "C64" H 13275 5450 50  0000 L CNN
-F 1 "100u" H 13275 5250 50  0000 L CNN
-F 2 "Dipoles_SMD:C_1210Polarized" H 13288 5200 50  0001 C CNN
-F 3 "http://datasheets.avx.com/tps.pdf" H 13250 5350 50  0001 C CNN
-F 4 "AVX Corporation" H 13250 5350 50  0001 C CNN "MFN"
-F 5 "TPSB107M010R0400" H 13250 5350 50  0001 C CNN "MFP"
-F 6 "digikey" H 13250 5350 50  0001 C CNN "D1"
-F 7 "mouser" H 13250 5350 50  0001 C CNN "D2"
-F 8 "478-5231" H 13250 5350 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/TPSB107M010R0400/478-5231-1-ND/1913301" H 13250 5350 50  0001 C CNN "D1PL"
-F 10 "_" H 13250 5350 50  0001 C CNN "D2PN"
-F 11 "_" H 13250 5350 50  0001 C CNN "D2PL"
-F 12 "1210" H 13250 5350 50  0001 C CNN "Package"
-F 13 "_" H 13250 5350 50  0000 C CNN "Description"
-F 14 "10" H 13250 5350 50  0001 C CNN "Voltage"
-F 15 "_" H 13250 5350 50  0001 C CNN "Power"
-F 16 "20%" H 13250 5350 50  0001 C CNN "Tolerance"
-F 17 "_" H 13250 5350 50  0001 C CNN "Temperature"
-F 18 "_" H 13250 5350 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 13250 5350 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 13250 5350 50  0001 C CNN "Cont.Current"
-F 21 "_" H 13250 5350 50  0001 C CNN "Frequency"
-F 22 "_" H 13250 5350 50  0001 C CNN "ResonnanceFreq"
-	1    13250 5350
-	1    0    0    -1  
-$EndComp
-$Comp
-L C C75
-U 1 1 572205B3
-P 14000 6200
-F 0 "C75" H 14025 6300 50  0000 L CNN
-F 1 "100u" H 14025 6100 50  0000 L CNN
-F 2 "Dipoles_SMD:C_1210Polarized" H 14038 6050 50  0001 C CNN
-F 3 "http://datasheets.avx.com/tps.pdf" H 14000 6200 50  0001 C CNN
-F 4 "AVX Corporation" H 14000 6200 50  0001 C CNN "MFN"
-F 5 "TPSB107M010R0400" H 14000 6200 50  0001 C CNN "MFP"
-F 6 "digikey" H 14000 6200 50  0001 C CNN "D1"
-F 7 "mouser" H 14000 6200 50  0001 C CNN "D2"
-F 8 "478-5231" H 14000 6200 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/TPSB107M010R0400/478-5231-1-ND/1913301" H 14000 6200 50  0001 C CNN "D1PL"
-F 10 "_" H 14000 6200 50  0001 C CNN "D2PN"
-F 11 "_" H 14000 6200 50  0001 C CNN "D2PL"
-F 12 "1210" H 14000 6200 50  0001 C CNN "Package"
-F 13 "_" H 14000 6200 50  0000 C CNN "Description"
-F 14 "10" H 14000 6200 50  0001 C CNN "Voltage"
-F 15 "_" H 14000 6200 50  0001 C CNN "Power"
-F 16 "20%" H 14000 6200 50  0001 C CNN "Tolerance"
-F 17 "_" H 14000 6200 50  0001 C CNN "Temperature"
-F 18 "_" H 14000 6200 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 14000 6200 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 14000 6200 50  0001 C CNN "Cont.Current"
-F 21 "_" H 14000 6200 50  0001 C CNN "Frequency"
-F 22 "_" H 14000 6200 50  0001 C CNN "ResonnanceFreq"
-	1    14000 6200
-	1    0    0    -1  
-$EndComp
-$Comp
-L C C78
-U 1 1 572205CC
-P 14200 6200
-F 0 "C78" H 14225 6300 50  0000 L CNN
-F 1 "100u" H 14225 6100 50  0000 L CNN
-F 2 "Dipoles_SMD:C_1210Polarized" H 14238 6050 50  0001 C CNN
-F 3 "http://datasheets.avx.com/tps.pdf" H 14200 6200 50  0001 C CNN
-F 4 "AVX Corporation" H 14200 6200 50  0001 C CNN "MFN"
-F 5 "TPSB107M010R0400" H 14200 6200 50  0001 C CNN "MFP"
-F 6 "digikey" H 14200 6200 50  0001 C CNN "D1"
-F 7 "mouser" H 14200 6200 50  0001 C CNN "D2"
-F 8 "478-5231" H 14200 6200 50  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/TPSB107M010R0400/478-5231-1-ND/1913301" H 14200 6200 50  0001 C CNN "D1PL"
-F 10 "_" H 14200 6200 50  0001 C CNN "D2PN"
-F 11 "_" H 14200 6200 50  0001 C CNN "D2PL"
-F 12 "1210" H 14200 6200 50  0001 C CNN "Package"
-F 13 "_" H 14200 6200 50  0000 C CNN "Description"
-F 14 "10" H 14200 6200 50  0001 C CNN "Voltage"
-F 15 "_" H 14200 6200 50  0001 C CNN "Power"
-F 16 "20%" H 14200 6200 50  0001 C CNN "Tolerance"
-F 17 "_" H 14200 6200 50  0001 C CNN "Temperature"
-F 18 "_" H 14200 6200 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 14200 6200 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 14200 6200 50  0001 C CNN "Cont.Current"
-F 21 "_" H 14200 6200 50  0001 C CNN "Frequency"
-F 22 "_" H 14200 6200 50  0001 C CNN "ResonnanceFreq"
-	1    14200 6200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -3762,4 +3432,334 @@ Connection ~ 2000 4450
 Wire Wire Line
 	2200 4550 2000 4550
 Connection ~ 2000 4550
+$Comp
+L C C4
+U 1 1 5733D02A
+P 1200 5150
+F 0 "C4" H 1225 5250 50  0000 L CNN
+F 1 "100u" H 1225 5050 50  0000 L CNN
+F 2 "Dipoles_SMD:C_1210Polarized" H 1238 5000 50  0001 C CNN
+F 3 "http://datasheets.avx.com/f95.pdf" H 1200 5150 50  0001 C CNN
+F 4 "AVX Corporation" H 1200 5150 50  0001 C CNN "MFN"
+F 5 "F951A107MBAAQ2" H 1200 5150 50  0001 C CNN "MFP"
+F 6 "digikey" H 1200 5150 50  0001 C CNN "D1"
+F 7 "mouser" H 1200 5150 50  0001 C CNN "D2"
+F 8 "478-8423" H 1200 5150 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/avx-corporation/F951A107MBAAQ2/478-8423-1-ND/4005558" H 1200 5150 50  0001 C CNN "D1PL"
+F 10 "_" H 1200 5150 50  0001 C CNN "D2PN"
+F 11 "_" H 1200 5150 50  0001 C CNN "D2PL"
+F 12 "1210" H 1200 5150 50  0001 C CNN "Package"
+F 13 "_" H 1200 5150 50  0000 C CNN "Description"
+F 14 "10" H 1200 5150 50  0001 C CNN "Voltage"
+F 15 "_" H 1200 5150 50  0001 C CNN "Power"
+F 16 "20%" H 1200 5150 50  0001 C CNN "Tolerance"
+F 17 "_" H 1200 5150 50  0001 C CNN "Temperature"
+F 18 "_" H 1200 5150 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 1200 5150 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 1200 5150 50  0001 C CNN "Cont.Current"
+F 21 "_" H 1200 5150 50  0001 C CNN "Frequency"
+F 22 "_" H 1200 5150 50  0001 C CNN "ResonnanceFreq"
+	1    1200 5150
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C17
+U 1 1 5733D9BF
+P 1950 6000
+F 0 "C17" H 1975 6100 50  0000 L CNN
+F 1 "100u" H 1975 5900 50  0000 L CNN
+F 2 "Dipoles_SMD:C_1210Polarized" H 1988 5850 50  0001 C CNN
+F 3 "http://datasheets.avx.com/f95.pdf" H 1950 6000 50  0001 C CNN
+F 4 "AVX Corporation" H 1950 6000 50  0001 C CNN "MFN"
+F 5 "F951A107MBAAQ2" H 1950 6000 50  0001 C CNN "MFP"
+F 6 "digikey" H 1950 6000 50  0001 C CNN "D1"
+F 7 "mouser" H 1950 6000 50  0001 C CNN "D2"
+F 8 "478-8423" H 1950 6000 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/avx-corporation/F951A107MBAAQ2/478-8423-1-ND/4005558" H 1950 6000 50  0001 C CNN "D1PL"
+F 10 "_" H 1950 6000 50  0001 C CNN "D2PN"
+F 11 "_" H 1950 6000 50  0001 C CNN "D2PL"
+F 12 "1210" H 1950 6000 50  0001 C CNN "Package"
+F 13 "_" H 1950 6000 50  0000 C CNN "Description"
+F 14 "10" H 1950 6000 50  0001 C CNN "Voltage"
+F 15 "_" H 1950 6000 50  0001 C CNN "Power"
+F 16 "20%" H 1950 6000 50  0001 C CNN "Tolerance"
+F 17 "_" H 1950 6000 50  0001 C CNN "Temperature"
+F 18 "_" H 1950 6000 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 1950 6000 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 1950 6000 50  0001 C CNN "Cont.Current"
+F 21 "_" H 1950 6000 50  0001 C CNN "Frequency"
+F 22 "_" H 1950 6000 50  0001 C CNN "ResonnanceFreq"
+	1    1950 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C20
+U 1 1 5733D9D8
+P 2150 6000
+F 0 "C20" H 2175 6100 50  0000 L CNN
+F 1 "100u" H 2175 5900 50  0000 L CNN
+F 2 "Dipoles_SMD:C_1210Polarized" H 2188 5850 50  0001 C CNN
+F 3 "http://datasheets.avx.com/f95.pdf" H 2150 6000 50  0001 C CNN
+F 4 "AVX Corporation" H 2150 6000 50  0001 C CNN "MFN"
+F 5 "F951A107MBAAQ2" H 2150 6000 50  0001 C CNN "MFP"
+F 6 "digikey" H 2150 6000 50  0001 C CNN "D1"
+F 7 "mouser" H 2150 6000 50  0001 C CNN "D2"
+F 8 "478-8423" H 2150 6000 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/avx-corporation/F951A107MBAAQ2/478-8423-1-ND/4005558" H 2150 6000 50  0001 C CNN "D1PL"
+F 10 "_" H 2150 6000 50  0001 C CNN "D2PN"
+F 11 "_" H 2150 6000 50  0001 C CNN "D2PL"
+F 12 "1210" H 2150 6000 50  0001 C CNN "Package"
+F 13 "_" H 2150 6000 50  0000 C CNN "Description"
+F 14 "10" H 2150 6000 50  0001 C CNN "Voltage"
+F 15 "_" H 2150 6000 50  0001 C CNN "Power"
+F 16 "20%" H 2150 6000 50  0001 C CNN "Tolerance"
+F 17 "_" H 2150 6000 50  0001 C CNN "Temperature"
+F 18 "_" H 2150 6000 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 2150 6000 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 2150 6000 50  0001 C CNN "Cont.Current"
+F 21 "_" H 2150 6000 50  0001 C CNN "Frequency"
+F 22 "_" H 2150 6000 50  0001 C CNN "ResonnanceFreq"
+	1    2150 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C32
+U 1 1 5733E56F
+P 7350 5350
+F 0 "C32" H 7375 5450 50  0000 L CNN
+F 1 "100u" H 7375 5250 50  0000 L CNN
+F 2 "Dipoles_SMD:C_1210Polarized" H 7388 5200 50  0001 C CNN
+F 3 "http://datasheets.avx.com/f95.pdf" H 7350 5350 50  0001 C CNN
+F 4 "AVX Corporation" H 7350 5350 50  0001 C CNN "MFN"
+F 5 "F951A107MBAAQ2" H 7350 5350 50  0001 C CNN "MFP"
+F 6 "digikey" H 7350 5350 50  0001 C CNN "D1"
+F 7 "mouser" H 7350 5350 50  0001 C CNN "D2"
+F 8 "478-8423" H 7350 5350 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/avx-corporation/F951A107MBAAQ2/478-8423-1-ND/4005558" H 7350 5350 50  0001 C CNN "D1PL"
+F 10 "_" H 7350 5350 50  0001 C CNN "D2PN"
+F 11 "_" H 7350 5350 50  0001 C CNN "D2PL"
+F 12 "1210" H 7350 5350 50  0001 C CNN "Package"
+F 13 "_" H 7350 5350 50  0000 C CNN "Description"
+F 14 "10" H 7350 5350 50  0001 C CNN "Voltage"
+F 15 "_" H 7350 5350 50  0001 C CNN "Power"
+F 16 "20%" H 7350 5350 50  0001 C CNN "Tolerance"
+F 17 "_" H 7350 5350 50  0001 C CNN "Temperature"
+F 18 "_" H 7350 5350 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 7350 5350 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 7350 5350 50  0001 C CNN "Cont.Current"
+F 21 "_" H 7350 5350 50  0001 C CNN "Frequency"
+F 22 "_" H 7350 5350 50  0001 C CNN "ResonnanceFreq"
+	1    7350 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C35
+U 1 1 5733E588
+P 7550 5350
+F 0 "C35" H 7575 5450 50  0000 L CNN
+F 1 "100u" H 7575 5250 50  0000 L CNN
+F 2 "Dipoles_SMD:C_1210Polarized" H 7588 5200 50  0001 C CNN
+F 3 "http://datasheets.avx.com/f95.pdf" H 7550 5350 50  0001 C CNN
+F 4 "AVX Corporation" H 7550 5350 50  0001 C CNN "MFN"
+F 5 "F951A107MBAAQ2" H 7550 5350 50  0001 C CNN "MFP"
+F 6 "digikey" H 7550 5350 50  0001 C CNN "D1"
+F 7 "mouser" H 7550 5350 50  0001 C CNN "D2"
+F 8 "478-8423" H 7550 5350 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/avx-corporation/F951A107MBAAQ2/478-8423-1-ND/4005558" H 7550 5350 50  0001 C CNN "D1PL"
+F 10 "_" H 7550 5350 50  0001 C CNN "D2PN"
+F 11 "_" H 7550 5350 50  0001 C CNN "D2PL"
+F 12 "1210" H 7550 5350 50  0001 C CNN "Package"
+F 13 "_" H 7550 5350 50  0000 C CNN "Description"
+F 14 "10" H 7550 5350 50  0001 C CNN "Voltage"
+F 15 "_" H 7550 5350 50  0001 C CNN "Power"
+F 16 "20%" H 7550 5350 50  0001 C CNN "Tolerance"
+F 17 "_" H 7550 5350 50  0001 C CNN "Temperature"
+F 18 "_" H 7550 5350 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 7550 5350 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 7550 5350 50  0001 C CNN "Cont.Current"
+F 21 "_" H 7550 5350 50  0001 C CNN "Frequency"
+F 22 "_" H 7550 5350 50  0001 C CNN "ResonnanceFreq"
+	1    7550 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C46
+U 1 1 5733EC9B
+P 8300 6200
+F 0 "C46" H 8325 6300 50  0000 L CNN
+F 1 "100u" H 8325 6100 50  0000 L CNN
+F 2 "Dipoles_SMD:C_1210Polarized" H 8338 6050 50  0001 C CNN
+F 3 "http://datasheets.avx.com/f95.pdf" H 8300 6200 50  0001 C CNN
+F 4 "AVX Corporation" H 8300 6200 50  0001 C CNN "MFN"
+F 5 "F951A107MBAAQ2" H 8300 6200 50  0001 C CNN "MFP"
+F 6 "digikey" H 8300 6200 50  0001 C CNN "D1"
+F 7 "mouser" H 8300 6200 50  0001 C CNN "D2"
+F 8 "478-8423" H 8300 6200 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/avx-corporation/F951A107MBAAQ2/478-8423-1-ND/4005558" H 8300 6200 50  0001 C CNN "D1PL"
+F 10 "_" H 8300 6200 50  0001 C CNN "D2PN"
+F 11 "_" H 8300 6200 50  0001 C CNN "D2PL"
+F 12 "1210" H 8300 6200 50  0001 C CNN "Package"
+F 13 "_" H 8300 6200 50  0000 C CNN "Description"
+F 14 "10" H 8300 6200 50  0001 C CNN "Voltage"
+F 15 "_" H 8300 6200 50  0001 C CNN "Power"
+F 16 "20%" H 8300 6200 50  0001 C CNN "Tolerance"
+F 17 "_" H 8300 6200 50  0001 C CNN "Temperature"
+F 18 "_" H 8300 6200 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 8300 6200 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 8300 6200 50  0001 C CNN "Cont.Current"
+F 21 "_" H 8300 6200 50  0001 C CNN "Frequency"
+F 22 "_" H 8300 6200 50  0001 C CNN "ResonnanceFreq"
+	1    8300 6200
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C49
+U 1 1 5733ECB4
+P 8500 6200
+F 0 "C49" H 8525 6300 50  0000 L CNN
+F 1 "100u" H 8525 6100 50  0000 L CNN
+F 2 "Dipoles_SMD:C_1210Polarized" H 8538 6050 50  0001 C CNN
+F 3 "http://datasheets.avx.com/f95.pdf" H 8500 6200 50  0001 C CNN
+F 4 "AVX Corporation" H 8500 6200 50  0001 C CNN "MFN"
+F 5 "F951A107MBAAQ2" H 8500 6200 50  0001 C CNN "MFP"
+F 6 "digikey" H 8500 6200 50  0001 C CNN "D1"
+F 7 "mouser" H 8500 6200 50  0001 C CNN "D2"
+F 8 "478-8423" H 8500 6200 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/avx-corporation/F951A107MBAAQ2/478-8423-1-ND/4005558" H 8500 6200 50  0001 C CNN "D1PL"
+F 10 "_" H 8500 6200 50  0001 C CNN "D2PN"
+F 11 "_" H 8500 6200 50  0001 C CNN "D2PL"
+F 12 "1210" H 8500 6200 50  0001 C CNN "Package"
+F 13 "_" H 8500 6200 50  0000 C CNN "Description"
+F 14 "10" H 8500 6200 50  0001 C CNN "Voltage"
+F 15 "_" H 8500 6200 50  0001 C CNN "Power"
+F 16 "20%" H 8500 6200 50  0001 C CNN "Tolerance"
+F 17 "_" H 8500 6200 50  0001 C CNN "Temperature"
+F 18 "_" H 8500 6200 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 8500 6200 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 8500 6200 50  0001 C CNN "Cont.Current"
+F 21 "_" H 8500 6200 50  0001 C CNN "Frequency"
+F 22 "_" H 8500 6200 50  0001 C CNN "ResonnanceFreq"
+	1    8500 6200
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C61
+U 1 1 5733F64F
+P 13050 5350
+F 0 "C61" H 13075 5450 50  0000 L CNN
+F 1 "100u" H 13075 5250 50  0000 L CNN
+F 2 "Dipoles_SMD:C_1210Polarized" H 13088 5200 50  0001 C CNN
+F 3 "http://datasheets.avx.com/f95.pdf" H 13050 5350 50  0001 C CNN
+F 4 "AVX Corporation" H 13050 5350 50  0001 C CNN "MFN"
+F 5 "F951A107MBAAQ2" H 13050 5350 50  0001 C CNN "MFP"
+F 6 "digikey" H 13050 5350 50  0001 C CNN "D1"
+F 7 "mouser" H 13050 5350 50  0001 C CNN "D2"
+F 8 "478-8423" H 13050 5350 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/avx-corporation/F951A107MBAAQ2/478-8423-1-ND/4005558" H 13050 5350 50  0001 C CNN "D1PL"
+F 10 "_" H 13050 5350 50  0001 C CNN "D2PN"
+F 11 "_" H 13050 5350 50  0001 C CNN "D2PL"
+F 12 "1210" H 13050 5350 50  0001 C CNN "Package"
+F 13 "_" H 13050 5350 50  0000 C CNN "Description"
+F 14 "10" H 13050 5350 50  0001 C CNN "Voltage"
+F 15 "_" H 13050 5350 50  0001 C CNN "Power"
+F 16 "20%" H 13050 5350 50  0001 C CNN "Tolerance"
+F 17 "_" H 13050 5350 50  0001 C CNN "Temperature"
+F 18 "_" H 13050 5350 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 13050 5350 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 13050 5350 50  0001 C CNN "Cont.Current"
+F 21 "_" H 13050 5350 50  0001 C CNN "Frequency"
+F 22 "_" H 13050 5350 50  0001 C CNN "ResonnanceFreq"
+	1    13050 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C64
+U 1 1 5733F668
+P 13250 5350
+F 0 "C64" H 13275 5450 50  0000 L CNN
+F 1 "100u" H 13275 5250 50  0000 L CNN
+F 2 "Dipoles_SMD:C_1210Polarized" H 13288 5200 50  0001 C CNN
+F 3 "http://datasheets.avx.com/f95.pdf" H 13250 5350 50  0001 C CNN
+F 4 "AVX Corporation" H 13250 5350 50  0001 C CNN "MFN"
+F 5 "F951A107MBAAQ2" H 13250 5350 50  0001 C CNN "MFP"
+F 6 "digikey" H 13250 5350 50  0001 C CNN "D1"
+F 7 "mouser" H 13250 5350 50  0001 C CNN "D2"
+F 8 "478-8423" H 13250 5350 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/avx-corporation/F951A107MBAAQ2/478-8423-1-ND/4005558" H 13250 5350 50  0001 C CNN "D1PL"
+F 10 "_" H 13250 5350 50  0001 C CNN "D2PN"
+F 11 "_" H 13250 5350 50  0001 C CNN "D2PL"
+F 12 "1210" H 13250 5350 50  0001 C CNN "Package"
+F 13 "_" H 13250 5350 50  0000 C CNN "Description"
+F 14 "10" H 13250 5350 50  0001 C CNN "Voltage"
+F 15 "_" H 13250 5350 50  0001 C CNN "Power"
+F 16 "20%" H 13250 5350 50  0001 C CNN "Tolerance"
+F 17 "_" H 13250 5350 50  0001 C CNN "Temperature"
+F 18 "_" H 13250 5350 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 13250 5350 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 13250 5350 50  0001 C CNN "Cont.Current"
+F 21 "_" H 13250 5350 50  0001 C CNN "Frequency"
+F 22 "_" H 13250 5350 50  0001 C CNN "ResonnanceFreq"
+	1    13250 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C75
+U 1 1 5733FE45
+P 14000 6200
+F 0 "C75" H 14025 6300 50  0000 L CNN
+F 1 "100u" H 14025 6100 50  0000 L CNN
+F 2 "Dipoles_SMD:C_1210Polarized" H 14038 6050 50  0001 C CNN
+F 3 "http://datasheets.avx.com/f95.pdf" H 14000 6200 50  0001 C CNN
+F 4 "AVX Corporation" H 14000 6200 50  0001 C CNN "MFN"
+F 5 "F951A107MBAAQ2" H 14000 6200 50  0001 C CNN "MFP"
+F 6 "digikey" H 14000 6200 50  0001 C CNN "D1"
+F 7 "mouser" H 14000 6200 50  0001 C CNN "D2"
+F 8 "478-8423" H 14000 6200 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/avx-corporation/F951A107MBAAQ2/478-8423-1-ND/4005558" H 14000 6200 50  0001 C CNN "D1PL"
+F 10 "_" H 14000 6200 50  0001 C CNN "D2PN"
+F 11 "_" H 14000 6200 50  0001 C CNN "D2PL"
+F 12 "1210" H 14000 6200 50  0001 C CNN "Package"
+F 13 "_" H 14000 6200 50  0000 C CNN "Description"
+F 14 "10" H 14000 6200 50  0001 C CNN "Voltage"
+F 15 "_" H 14000 6200 50  0001 C CNN "Power"
+F 16 "20%" H 14000 6200 50  0001 C CNN "Tolerance"
+F 17 "_" H 14000 6200 50  0001 C CNN "Temperature"
+F 18 "_" H 14000 6200 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 14000 6200 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 14000 6200 50  0001 C CNN "Cont.Current"
+F 21 "_" H 14000 6200 50  0001 C CNN "Frequency"
+F 22 "_" H 14000 6200 50  0001 C CNN "ResonnanceFreq"
+	1    14000 6200
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C78
+U 1 1 5733FE5E
+P 14200 6200
+F 0 "C78" H 14225 6300 50  0000 L CNN
+F 1 "100u" H 14225 6100 50  0000 L CNN
+F 2 "Dipoles_SMD:C_1210Polarized" H 14238 6050 50  0001 C CNN
+F 3 "http://datasheets.avx.com/f95.pdf" H 14200 6200 50  0001 C CNN
+F 4 "AVX Corporation" H 14200 6200 50  0001 C CNN "MFN"
+F 5 "F951A107MBAAQ2" H 14200 6200 50  0001 C CNN "MFP"
+F 6 "digikey" H 14200 6200 50  0001 C CNN "D1"
+F 7 "mouser" H 14200 6200 50  0001 C CNN "D2"
+F 8 "478-8423" H 14200 6200 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/avx-corporation/F951A107MBAAQ2/478-8423-1-ND/4005558" H 14200 6200 50  0001 C CNN "D1PL"
+F 10 "_" H 14200 6200 50  0001 C CNN "D2PN"
+F 11 "_" H 14200 6200 50  0001 C CNN "D2PL"
+F 12 "1210" H 14200 6200 50  0001 C CNN "Package"
+F 13 "_" H 14200 6200 50  0000 C CNN "Description"
+F 14 "10" H 14200 6200 50  0001 C CNN "Voltage"
+F 15 "_" H 14200 6200 50  0001 C CNN "Power"
+F 16 "20%" H 14200 6200 50  0001 C CNN "Tolerance"
+F 17 "_" H 14200 6200 50  0001 C CNN "Temperature"
+F 18 "_" H 14200 6200 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 14200 6200 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 14200 6200 50  0001 C CNN "Cont.Current"
+F 21 "_" H 14200 6200 50  0001 C CNN "Frequency"
+F 22 "_" H 14200 6200 50  0001 C CNN "ResonnanceFreq"
+	1    14200 6200
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
