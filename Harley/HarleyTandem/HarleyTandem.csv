@@ -5,7 +5,7 @@
 4,1,"U8","LTM4622","Linear","LTM4622EY#PBF","digikey","LTM4622EY#PBF","http://www.digikey.com/product-detail/en/LTM4622EY%2523PBF/LTM4622EY%2523PBF-ND/5965236?WT.z_cid=ref_octopart_dkc_buynow&site=us","mouser","_","_"
 5,1,"U3","ST_LSM6DS3","STMicroelectronics","LSM6DS3TR","digikey","497-15383","http://www.digikey.com/product-detail/en/LSM6DS3TR/497-15383-1-ND/5180534","mouser","_","_"
 6,12,"C1;C4;C17;C20;C32;C35;C46;C49;C61;C64;C75;C78","100u","AVX Corporation","F951A107MBAAQ2","digikey","478-8423","http://www.digikey.com/product-detail/en/avx-corporation/F951A107MBAAQ2/478-8423-1-ND/4005558","mouser","_","_"
-7,1,"P1;P3","CONN_01X12","DNP","DNP","digikey","DNP","DNP","mouser","_","_"
+7,1,"P1;P3;P4","CONN_01X04","DNP","DNP","digikey","DNP","DNP","mouser","_","_"
 8,1,"P2","CONN_02X50","Hirose","DF40HC(3.0)-100DS-0.4V(58)","digikey","H124602","http://www.digikey.com/product-detail/en/hirose-electric-co-ltd/DF40HC%283.0%29-100DS-0.4V%2858%29/H124602CT-ND/5155905","mouser","_","_"
 9,3,"R2;R4;R6","47k","Vishay","CRCW040247K0FKED","digikey","541-47.0KL","http://www.digikey.com/product-detail/en/CRCW040247K0FKED/541-47.0KLCT-ND/1183313","mouser","_","_"
 10,1,"R9","30.1k","Vishay","CRCW040230K1FKED","digikey","541-30.1KL","http://www.digikey.com/product-detail/en/CRCW040230K1FKED/541-30.1KLCT-ND/1183290","mouser","_","_"
