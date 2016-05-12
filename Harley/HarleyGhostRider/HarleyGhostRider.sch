@@ -804,13 +804,13 @@ Connection ~ 11000 1500
 Wire Wire Line
 	10100 1400 11000 1400
 Connection ~ 11000 1400
-Text GLabel 10100 4300 2    60   Input ~ 0
-FPGA_JTAG_TMS
-Text GLabel 10100 4000 2    60   Input ~ 0
-FPGA_JTAG_TDO
-Text GLabel 10100 4200 2    60   Input ~ 0
-FPGA_JTAG_TCK
 Text GLabel 10100 3900 2    60   Input ~ 0
+FPGA_JTAG_TMS
+Text GLabel 10100 4200 2    60   Input ~ 0
+FPGA_JTAG_TDO
+Text GLabel 10100 4000 2    60   Input ~ 0
+FPGA_JTAG_TCK
+Text GLabel 10100 4300 2    60   Input ~ 0
 FPGA_JTAG_TDI
 Text GLabel 7100 4050 2    60   Input ~ 0
 FPGA_DEBUG1

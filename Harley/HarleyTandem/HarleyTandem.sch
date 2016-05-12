@@ -223,13 +223,13 @@ Text GLabel 9050 3000 0    60   Input ~ 0
 Python2_clk_return+
 Text GLabel 9050 3100 0    60   Input ~ 0
 Python2_clk_return-
-Text GLabel 9050 3900 0    60   Input ~ 0
-FPGA_JTAG_TCK
 Text GLabel 9050 3700 0    60   Input ~ 0
+FPGA_JTAG_TCK
+Text GLabel 9050 3900 0    60   Input ~ 0
 FPGA_JTAG_TDO
-Text GLabel 9050 3600 0    60   Input ~ 0
-FPGA_JTAG_TDI
 Text GLabel 9050 4000 0    60   Input ~ 0
+FPGA_JTAG_TDI
+Text GLabel 9050 3600 0    60   Input ~ 0
 FPGA_JTAG_TMS
 Text GLabel 9050 4300 0    60   Input ~ 0
 FPGA_Signal2
@@ -429,29 +429,29 @@ F 3 "" H 600 5750 50  0000 C CNN
 	1    600  5750
 	1    0    0    -1  
 $EndComp
-Text GLabel 1200 5350 2    60   Input ~ 0
-FPGA_JTAG_TDI
-Text GLabel 1200 5650 2    60   Input ~ 0
-FPGA_JTAG_TMS
 Text GLabel 1200 5550 2    60   Input ~ 0
+FPGA_JTAG_TDI
+Text GLabel 1200 5250 2    60   Input ~ 0
+FPGA_JTAG_TMS
+Text GLabel 1200 5350 2    60   Input ~ 0
 FPGA_JTAG_TCK
 Text GLabel 1200 5450 2    60   Input ~ 0
 FPGA_JTAG_TDO
 $Comp
 L +2V5 #PWR06
 U 1 1 571FFDAE
-P 1400 5850
-F 0 "#PWR06" H 1400 5700 50  0001 C CNN
-F 1 "+2V5" H 1415 6023 50  0000 C CNN
-F 2 "" H 1400 5850 50  0000 C CNN
-F 3 "" H 1400 5850 50  0000 C CNN
-	1    1400 5850
-	1    0    0    1   
+P 1400 5050
+F 0 "#PWR06" H 1400 4900 50  0001 C CNN
+F 1 "+2V5" H 1415 5223 50  0000 C CNN
+F 2 "" H 1400 5050 50  0000 C CNN
+F 3 "" H 1400 5050 50  0000 C CNN
+	1    1400 5050
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1400 5850 1400 5750
+	1400 5050 1400 5150
 Wire Wire Line
-	1400 5750 1200 5750
+	1400 5150 1200 5150
 Text GLabel 9550 4700 2    60   Input ~ 0
 Python_RST#
 Wire Notes Line
@@ -587,8 +587,6 @@ F 3 "" H 4050 7150 50  0000 C CNN
 $EndComp
 Text Notes 2900 6250 0    60   ~ 0
 SFOUT = 00 for LVDS mode
-Text Notes 5250 6450 0    60   ~ 0
-Leave unconnected ?
 Wire Wire Line
 	4050 7100 4450 7100
 Connection ~ 4050 7100
@@ -774,7 +772,7 @@ P 6750 2350
 F 0 "P3" H 6828 2444 50  0000 L CNN
 F 1 "CONN_01X12" H 6828 2353 50  0000 L CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x12" H 6827 2307 50  0001 L CNN
-F 3 "DNP" H 6750 2350 50  0000 C CNN
+F 3 "DNP" H 6750 2350 50  0001 C CNN
 F 4 "DNP" H 6750 2350 60  0001 C CNN "MFN"
 F 5 "DNP" H 6750 2350 60  0001 C CNN "MFP"
 F 6 "digikey" H 6750 2350 60  0001 C CNN "D1"
@@ -784,7 +782,7 @@ F 9 "DNP" H 6750 2350 60  0001 C CNN "D1PL"
 F 10 "_" H 6750 2350 60  0001 C CNN "D2PN"
 F 11 "_" H 6750 2350 60  0001 C CNN "D2PL"
 F 12 "_" H 6750 2350 60  0001 C CNN "Package"
-F 13 "_" H 6828 2254 60  0000 L CNN "Description"
+F 13 "_" H 6828 2254 60  0001 L CNN "Description"
 F 14 "_" H 6750 2350 60  0001 C CNN "Voltage"
 F 15 "_" H 6750 2350 60  0001 C CNN "Power"
 F 16 "_" H 6750 2350 60  0001 C CNN "Tolerance"
@@ -827,6 +825,6 @@ Wire Wire Line
 	6150 1650 6150 1900
 Wire Wire Line
 	6150 1900 6550 1900
-NoConn ~ 1200 5150
-NoConn ~ 1200 5250
+NoConn ~ 1200 5650
+NoConn ~ 1200 5750
 $EndSCHEMATC
