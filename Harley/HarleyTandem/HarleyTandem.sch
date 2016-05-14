@@ -34,7 +34,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyTandem-cache
 EELAYER 25 0
 EELAYER END
 $Descr USLetter 11000 8500
@@ -563,33 +562,19 @@ Text GLabel 5150 6100 2    60   Input ~ 0
 Python3_lvds_clk-
 Text GLabel 5150 6200 2    60   Input ~ 0
 Python3_lvds_clk+
-Wire Wire Line
-	3950 6500 4150 6500
-Wire Wire Line
-	3950 5400 3950 6500
-Wire Wire Line
-	4150 6200 4050 6200
-Wire Wire Line
-	4050 6200 4050 7150
-Wire Wire Line
-	4150 6300 4050 6300
-Connection ~ 4050 6300
 $Comp
 L GND #PWR09
 U 1 1 572BEE99
-P 4050 7150
-F 0 "#PWR09" H 4050 6900 50  0001 C CNN
-F 1 "GND" H 4055 6977 50  0000 C CNN
-F 2 "" H 4050 7150 50  0000 C CNN
-F 3 "" H 4050 7150 50  0000 C CNN
-	1    4050 7150
+P 4450 7200
+F 0 "#PWR09" H 4450 6950 50  0001 C CNN
+F 1 "GND" H 4455 7027 50  0000 C CNN
+F 2 "" H 4450 7200 50  0000 C CNN
+F 3 "" H 4450 7200 50  0000 C CNN
+	1    4450 7200
 	1    0    0    -1  
 $EndComp
 Text Notes 2900 6250 0    60   ~ 0
 SFOUT = 00 for LVDS mode
-Wire Wire Line
-	4050 7100 4450 7100
-Connection ~ 4050 7100
 $Comp
 L GND #PWR010
 U 1 1 572BEEA3
@@ -827,4 +812,23 @@ Wire Wire Line
 	6150 1900 6550 1900
 NoConn ~ 1200 5650
 NoConn ~ 1200 5750
+Wire Wire Line
+	4450 7200 4450 7100
+Wire Wire Line
+	4550 7200 4550 7100
+Wire Wire Line
+	4050 7200 4550 7200
+Connection ~ 4450 7200
+Wire Wire Line
+	3950 5400 3950 6500
+Wire Wire Line
+	3950 6500 4150 6500
+Wire Wire Line
+	4150 6300 4050 6300
+Wire Wire Line
+	4050 6200 4050 7200
+Connection ~ 4050 7200
+Wire Wire Line
+	4150 6200 4050 6200
+Connection ~ 4050 6300
 $EndSCHEMATC
