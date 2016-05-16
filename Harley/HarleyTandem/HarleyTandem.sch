@@ -34,6 +34,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:HarleyTandem-cache
 EELAYER 25 0
 EELAYER END
 $Descr USLetter 11000 8500
@@ -202,9 +203,9 @@ Text GLabel 9050 1800 0    60   Input ~ 0
 Python2_DOUT0-
 Text GLabel 9050 1900 0    60   Input ~ 0
 Python2_DOUT0+
-Text GLabel 9050 2800 0    60   Input ~ 0
-Python2_SYNC-
 Text GLabel 9050 2700 0    60   Input ~ 0
+Python2_SYNC-
+Text GLabel 9050 2800 0    60   Input ~ 0
 Python2_SYNC+
 Text GLabel 9050 1500 0    60   Input ~ 0
 Python2_DOUT1-

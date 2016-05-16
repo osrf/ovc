@@ -37,7 +37,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyGhostRider-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -602,9 +601,9 @@ Text GLabel 9600 4700 0    60   Input ~ 0
 Python1_SYNC+
 Text GLabel 9600 4800 0    60   Input ~ 0
 Python1_SYNC-
-Text GLabel 10100 3000 2    60   Input ~ 0
-Python2_SYNC+
 Text GLabel 10100 3100 2    60   Input ~ 0
+Python2_SYNC+
+Text GLabel 10100 3000 2    60   Input ~ 0
 Python2_SYNC-
 Text GLabel 9600 2400 0    60   Input ~ 0
 Python3_SYNC+
