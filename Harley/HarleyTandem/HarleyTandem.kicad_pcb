@@ -1,4 +1,4 @@
-(kicad_pcb (version 4) (host pcbnew 4.1.0-alpha+201605160747+6807~44~ubuntu14.04.1-product)
+(kicad_pcb (version 4) (host pcbnew 4.1.0-alpha+201605160746+6807~44~ubuntu16.04.1-product)
 
   (general
     (links 484)
@@ -5402,7 +5402,6 @@
     (descr "Half top half bottom Xilinx JTAG")
     (tags "Xilinx JTAG")
     (path /571FBCAF)
-    (attr smd)
     (fp_text reference P1 (at -9.3 0.6 90) (layer B.SilkS)
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
