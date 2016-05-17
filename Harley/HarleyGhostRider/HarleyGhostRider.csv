@@ -4,10 +4,10 @@
 3,1,"U8","IC10pins","Littelfuse Inc","SP3010-04UTG","digikey","F3507","http://www.digikey.com/product-detail/en/SP3010-04UTG/F3507CT-ND/2297266","mouser","_","_"
 4,1,"U6","MT41K128M16","Micron","MT41K128M16JT-125:K","arrow","MT41K128M16JT-125:K","https://www.arrow.com/en/products/mt41k128m16jt-125ktr/micron-technology","mouser","_","_"
 5,4,"FB1;FB2;FB3;FB4","600","TDK","MPZ1608S601ATA00","digikey","445-2205","http://www.digikey.com/product-detail/en/MPZ1608S601ATA00/445-2205-1-ND/765103","mouser","_","_"
-6,2,"U2;U7","LTM4622","Linear","LTM4622EY#PBF","digikey","LTM4622EY#PBF","http://www.digikey.com/product-detail/en/LTM4622EY%2523PBF/LTM4622EY%2523PBF-ND/5965236?WT.z_cid=ref_octopart_dkc_buynow&site=us","mouser",,
+6,2,"U2;U7","LTM4622","Linear","LTM4622EY#PBF","digikey","LTM4622EY#PBF","http://www.digikey.com/product-detail/en/LTM4622EY%2523PBF/LTM4622EY%2523PBF-ND/5965236?WT.z_cid=ref_octopart_dkc_buynow&site=us","mouser","_","_"
 7,1,"J1","USB_3.1_microB","Amphenol Commercial Products","GSB443133HR","digikey","GSB443133HR","http://www.digikey.com/product-detail/en/GSB443133HR/GSB443133HRCT-ND/4936161","mouser","_","_"
 8,1,"R2","80.6","Panasonic","ERJ-1GEF80R6C","digikey","P80.6AB","http://www.digikey.com/product-detail/en/ERJ-1GEF80R6C/P80.6ABCT-ND/1467375","mouser","_","_"
-9,1,"R15","6.04k","Panasonic","ERJ-1GEF6041C","digikey","P6.04KABTR","http://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-1GEF6041C/P6.04KABTR-ND/1467094","mouser","_","_"
+9,1,"R15","6.04k","Panasonic","ERJ-1GEF6041C","digikey","P6.04KABTR","https://www.digikey.com/product-detail/en/ERJ-1GEF6041C/P6.04KABTR-ND/1467094","mouser","_","_"
 10,1,"R11","240","Panasonic","ERJ-1GEF2400C","digikey","P240AB","http://www.digikey.com/product-detail/en/ERJ-1GEF2400C/P240ABDKR-ND/575358","mouser","_","_"
 11,1,"J3;P2","CONN_02X02","DNP","DNP","digikey","DNP","DNP","mouser","DNP","DNP"
 12,2,"R24;R25","R","DNP","DNP","digikey","DNP","DNP","mouser","_","_"
