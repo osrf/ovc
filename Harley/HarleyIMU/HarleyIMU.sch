@@ -33,6 +33,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:HarleyIMU-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -368,7 +369,7 @@ F 5 "MIC5365-3.0YC5-TR" H 2150 5400 60  0001 C CNN "MFP"
 F 6 "digikey" H 2150 5400 60  0001 C CNN "D1"
 F 7 "mouser" H 2150 5400 60  0001 C CNN "D2"
 F 8 "576-3191" H 2150 5400 60  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/vishay-dale/CRCW0603200RFKEAHP/541-200SCT-ND/5326826" H 2150 5400 60  0001 C CNN "D1PL"
+F 9 "http://www.digikey.com/product-detail/en/microchip-technology/MIC5365-3.0YC5-TR/576-3191-1-ND/1868228" H 2150 5400 60  0001 C CNN "D1PL"
 F 10 "_" H 2150 5400 60  0001 C CNN "D2PN"
 F 11 "_" H 2150 5400 60  0001 C CNN "D2PL"
 F 12 "_" H 2150 5400 60  0001 C CNN "Package"
