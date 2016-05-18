@@ -324,9 +324,9 @@ Python1_SYNC+
 Text GLabel 6600 6550 2    60   Input ~ 0
 Python1_SYNC-
 Text GLabel 2700 7250 0    60   Input ~ 0
-Python2_SYNC-
-Text GLabel 6600 4550 2    60   Input ~ 0
 Python2_SYNC+
+Text GLabel 6600 4550 2    60   Input ~ 0
+Python2_SYNC-
 Text GLabel 2700 5250 0    60   Input ~ 0
 Python2_clk_return-
 Text GLabel 2700 5350 0    60   Input ~ 0
