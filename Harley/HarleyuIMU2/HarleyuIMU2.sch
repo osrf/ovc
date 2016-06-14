@@ -89,9 +89,9 @@ Level shifting
 Text GLabel 4550 2950 0    60   Input ~ 0
 IMU_RST#_2V5
 Text GLabel 4550 3050 0    60   Input ~ 0
-IMU_RX_2V5
+IMU_RX0_2V5
 Text GLabel 4550 3150 0    60   Input ~ 0
-IMU_TX_2V5
+IMU_TX0_2V5
 $Comp
 L LED D1
 U 1 1 5730DE99
@@ -153,39 +153,9 @@ F 22 "_" H 9100 4700 60  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 Text GLabel 9200 5050 0    60   Input ~ 0
-IMU_TX
+IMU_TX0
 Text GLabel 9200 5150 0    60   Input ~ 0
-IMU_RX
-$Comp
-L TXB0106PWR U2
-U 1 1 57310454
-P 5050 3050
-F 0 "U2" H 5025 4349 60  0000 C CNN
-F 1 "TXB0106PWR" H 5025 4243 60  0000 C CNN
-F 2 "Housings_SSOP:TSSOP-16_4.4x5mm_Pitch0.65mm" H 5025 4137 60  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/txb0106.pdf" H 5050 3050 60  0001 C CNN
-F 4 "Texas Instruments" H 5050 3050 60  0001 C CNN "MFN"
-F 5 "TXB0106PWR" H 5050 3050 60  0001 C CNN "MFP"
-F 6 "digikey" H 5050 3050 60  0001 C CNN "D1"
-F 7 "mouser" H 5050 3050 60  0001 C CNN "D2"
-F 8 "296-23759" H 5050 3050 60  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/texas-instruments/TXB0106PWR/296-23759-2-ND/1951119" H 5050 3050 60  0001 C CNN "D1PL"
-F 10 "_" H 5050 3050 60  0001 C CNN "D2PN"
-F 11 "_" H 5050 3050 60  0001 C CNN "D2PL"
-F 12 "_" H 5050 3050 60  0001 C CNN "Package"
-F 13 "_" H 5025 4031 60  0000 C CNN "Description"
-F 14 "_" H 5050 3050 60  0001 C CNN "Voltage"
-F 15 "_" H 5050 3050 60  0001 C CNN "Power"
-F 16 "_" H 5050 3050 60  0001 C CNN "Tolerance"
-F 17 "_" H 5050 3050 60  0001 C CNN "Temperature"
-F 18 "_" H 5050 3050 60  0001 C CNN "ReverseVoltage"
-F 19 "_" H 5050 3050 60  0001 C CNN "ForwardVoltage"
-F 20 "_" H 5050 3050 60  0001 C CNN "Cont.Current"
-F 21 "_" H 5050 3050 60  0001 C CNN "Frequency"
-F 22 "_" H 5050 3050 60  0001 C CNN "ResonnanceFreq"
-	1    5050 3050
-	1    0    0    -1  
-$EndComp
+IMU_RX0
 $Comp
 L +2V5 #PWR04
 U 1 1 57310832
@@ -204,9 +174,9 @@ Wire Wire Line
 Text GLabel 5500 2950 2    60   Input ~ 0
 IMU_RST#
 Text GLabel 5500 3050 2    60   Input ~ 0
-IMU_RX
+IMU_RX0
 Text GLabel 5500 3150 2    60   Input ~ 0
-IMU_TX
+IMU_TX0
 $Comp
 L GND #PWR05
 U 1 1 57310C00
@@ -219,13 +189,13 @@ F 3 "" H 5150 4150 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5150 4150 5150 3950
-Text GLabel 1750 2700 0    60   Input ~ 0
-IMU_RST#_2V5
-Text GLabel 1750 2600 0    60   Input ~ 0
-IMU_RX_2V5
+	5150 3950 5150 4150
 Text GLabel 1750 2500 0    60   Input ~ 0
-IMU_TX_2V5
+IMU_RST#_2V5
+Text GLabel 1750 2400 0    60   Input ~ 0
+IMU_RX0_2V5
+Text GLabel 1750 2300 0    60   Input ~ 0
+IMU_TX0_2V5
 Text GLabel 8900 4700 0    60   Input ~ 0
 FPGA_Signal1
 Text GLabel 8900 4350 0    60   Input ~ 0
@@ -451,27 +421,25 @@ $EndComp
 $Comp
 L +3V3 #PWR010
 U 1 1 575B5986
-P 7550 1800
-F 0 "#PWR010" H 7550 1650 50  0001 C CNN
-F 1 "+3V3" H 7565 1973 50  0000 C CNN
-F 2 "" H 7550 1800 50  0000 C CNN
-F 3 "" H 7550 1800 50  0000 C CNN
-	1    7550 1800
+P 7100 1800
+F 0 "#PWR010" H 7100 1650 50  0001 C CNN
+F 1 "+3V3" H 7115 1973 50  0000 C CNN
+F 2 "" H 7100 1800 50  0000 C CNN
+F 3 "" H 7100 1800 50  0000 C CNN
+	1    7100 1800
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7900 1950 7550 1950
+	7900 1950 7100 1950
 Wire Wire Line
-	7550 1950 7550 1800
+	7100 1950 7100 1800
 Text GLabel 9750 2700 2    60   Input ~ 0
-IMU_RX
+IMU_RX0
 Text GLabel 9750 2600 2    60   Input ~ 0
-IMU_TX
+IMU_TX0
 NoConn ~ 7900 2100
 NoConn ~ 7900 2200
 NoConn ~ 7900 2300
-NoConn ~ 7900 2400
-NoConn ~ 7900 2500
 NoConn ~ 7900 2600
 NoConn ~ 7900 2700
 Text GLabel 7900 2800 0    60   Input ~ 0
@@ -483,42 +451,42 @@ SYNCHRONISATION SIGNAL ??
 $Comp
 L C C1
 U 1 1 575B5F6E
-P 7550 2100
-F 0 "C1" H 7665 2146 50  0000 L CNN
-F 1 "100n" H 7665 2055 50  0000 L CNN
-F 2 "Dipoles_SMD:C_0603" H 7588 1950 50  0000 C CNN
-F 3 "" H 7550 2100 50  0000 C CNN
-F 4 "_" H 7550 2100 60  0001 C CNN "MFN"
-F 5 "_" H 7550 2100 60  0001 C CNN "MFP"
-F 6 "digikey" H 7550 2100 60  0001 C CNN "D1"
-F 7 "mouser" H 7550 2100 60  0001 C CNN "D2"
-F 8 "_" H 7550 2100 60  0001 C CNN "D1PN"
-F 9 "_" H 7550 2100 60  0001 C CNN "D1PL"
-F 10 "_" H 7550 2100 60  0001 C CNN "D2PN"
-F 11 "_" H 7550 2100 60  0001 C CNN "D2PL"
-F 12 "_" H 7550 2100 60  0001 C CNN "Package"
-F 13 "_" H 7550 2100 60  0000 C CNN "Description"
-F 14 "_" H 7550 2100 60  0001 C CNN "Voltage"
-F 15 "_" H 7550 2100 60  0001 C CNN "Power"
-F 16 "_" H 7550 2100 60  0001 C CNN "Tolerance"
-F 17 "_" H 7550 2100 60  0001 C CNN "Temperature"
-F 18 "_" H 7550 2100 60  0001 C CNN "ReverseVoltage"
-F 19 "_" H 7550 2100 60  0001 C CNN "ForwardVoltage"
-F 20 "_" H 7550 2100 60  0001 C CNN "Cont.Current"
-F 21 "_" H 7550 2100 60  0001 C CNN "Frequency"
-F 22 "_" H 7550 2100 60  0001 C CNN "ResonnanceFreq"
-	1    7550 2100
+P 7100 2100
+F 0 "C1" H 7215 2146 50  0000 L CNN
+F 1 "100n" H 7215 2055 50  0000 L CNN
+F 2 "Dipoles_SMD:C_0603" H 7138 1950 50  0000 C CNN
+F 3 "" H 7100 2100 50  0000 C CNN
+F 4 "_" H 7100 2100 60  0001 C CNN "MFN"
+F 5 "_" H 7100 2100 60  0001 C CNN "MFP"
+F 6 "digikey" H 7100 2100 60  0001 C CNN "D1"
+F 7 "mouser" H 7100 2100 60  0001 C CNN "D2"
+F 8 "_" H 7100 2100 60  0001 C CNN "D1PN"
+F 9 "_" H 7100 2100 60  0001 C CNN "D1PL"
+F 10 "_" H 7100 2100 60  0001 C CNN "D2PN"
+F 11 "_" H 7100 2100 60  0001 C CNN "D2PL"
+F 12 "_" H 7100 2100 60  0001 C CNN "Package"
+F 13 "_" H 7100 2100 60  0000 C CNN "Description"
+F 14 "_" H 7100 2100 60  0001 C CNN "Voltage"
+F 15 "_" H 7100 2100 60  0001 C CNN "Power"
+F 16 "_" H 7100 2100 60  0001 C CNN "Tolerance"
+F 17 "_" H 7100 2100 60  0001 C CNN "Temperature"
+F 18 "_" H 7100 2100 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 7100 2100 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 7100 2100 60  0001 C CNN "Cont.Current"
+F 21 "_" H 7100 2100 60  0001 C CNN "Frequency"
+F 22 "_" H 7100 2100 60  0001 C CNN "ResonnanceFreq"
+	1    7100 2100
 	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR011
 U 1 1 575B5FCD
-P 7550 2250
-F 0 "#PWR011" H 7550 2000 50  0001 C CNN
-F 1 "GND" H 7555 2077 50  0000 C CNN
-F 2 "" H 7550 2250 50  0000 C CNN
-F 3 "" H 7550 2250 50  0000 C CNN
-	1    7550 2250
+P 7100 2250
+F 0 "#PWR011" H 7100 2000 50  0001 C CNN
+F 1 "GND" H 7105 2077 50  0000 C CNN
+F 2 "" H 7100 2250 50  0000 C CNN
+F 3 "" H 7100 2250 50  0000 C CNN
+	1    7100 2250
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -579,8 +547,50 @@ Wire Wire Line
 	8800 5250 9200 5250
 Wire Wire Line
 	9200 5450 8400 5450
-NoConn ~ 4550 2750
-NoConn ~ 4550 2850
-NoConn ~ 5500 2750
-NoConn ~ 5500 2850
+$Comp
+L TXB0106PWR U2
+U 1 1 57310454
+P 5050 3050
+F 0 "U2" H 5025 4349 60  0000 C CNN
+F 1 "TXB0106PWR" H 5025 4243 60  0000 C CNN
+F 2 "Housings_SSOP:TSSOP-16_4.4x5mm_Pitch0.65mm" H 5025 4137 60  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/txb0106.pdf" H 5050 3050 60  0001 C CNN
+F 4 "Texas Instruments" H 5050 3050 60  0001 C CNN "MFN"
+F 5 "TXB0106PWR" H 5050 3050 60  0001 C CNN "MFP"
+F 6 "digikey" H 5050 3050 60  0001 C CNN "D1"
+F 7 "mouser" H 5050 3050 60  0001 C CNN "D2"
+F 8 "296-23759" H 5050 3050 60  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/texas-instruments/TXB0106PWR/296-23759-2-ND/1951119" H 5050 3050 60  0001 C CNN "D1PL"
+F 10 "_" H 5050 3050 60  0001 C CNN "D2PN"
+F 11 "_" H 5050 3050 60  0001 C CNN "D2PL"
+F 12 "_" H 5050 3050 60  0001 C CNN "Package"
+F 13 "_" H 5025 4031 60  0000 C CNN "Description"
+F 14 "_" H 5050 3050 60  0001 C CNN "Voltage"
+F 15 "_" H 5050 3050 60  0001 C CNN "Power"
+F 16 "_" H 5050 3050 60  0001 C CNN "Tolerance"
+F 17 "_" H 5050 3050 60  0001 C CNN "Temperature"
+F 18 "_" H 5050 3050 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 5050 3050 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 5050 3050 60  0001 C CNN "Cont.Current"
+F 21 "_" H 5050 3050 60  0001 C CNN "Frequency"
+F 22 "_" H 5050 3050 60  0001 C CNN "ResonnanceFreq"
+	1    5050 3050
+	1    0    0    -1  
+$EndComp
+Text GLabel 7900 2400 0    60   Input ~ 0
+IMU_RX1
+Text GLabel 7900 2500 0    60   Input ~ 0
+IMU_TX1
+Text GLabel 5500 2850 2    60   Input ~ 0
+IMU_RX1
+Text GLabel 5500 2750 2    60   Input ~ 0
+IMU_TX1
+Text GLabel 4550 2850 0    60   Input ~ 0
+IMU_RX1_2V5
+Text GLabel 4550 2750 0    60   Input ~ 0
+IMU_TX1_2V5
+Text GLabel 1750 2600 0    60   Input ~ 0
+IMU_RX1_2V5
+Text GLabel 1750 2700 0    60   Input ~ 0
+IMU_TX1_2V5
 $EndSCHEMATC
