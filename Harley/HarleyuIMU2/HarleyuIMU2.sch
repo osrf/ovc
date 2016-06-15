@@ -596,8 +596,6 @@ IMU_TX1_2V5
 Wire Wire Line
 	7900 1850 7100 1850
 Connection ~ 7100 1850
-Text Notes 6300 3450 0    60   ~ 0
-Do we need reset?\nIf yes: Pullup\notherwise leave unconnected
 $Comp
 L R R3
 U 1 1 57603F9B
