@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/home/mikael/work/kicad_ws/opencam/hardware/Harley/HarleyuIMU2/HarleyuIMU2.sch</source>
+    <date>Thu 16 Jun 2016 06:31:29 PM PDT</date>
+    <tool>Eeschema 4.1.0-alpha+201606131201+6926~45~ubuntu16.04.1-product</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>HarleyuIMU2.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="D1">
+      <value>GREEN</value>
+      <footprint>LEDs:LED_0603</footprint>
+      <datasheet>http://www.kingbrightusa.com/images/catalog/SPEC/APT1608CGCK.pdf</datasheet>
+      <fields>
+        <field name="MFN">Kingbright</field>
+        <field name="MFP">APT1608CGCK</field>
+        <field name="D1">digikey</field>
+        <field name="D2">mouser</field>
+        <field name="D1PN">754-1116</field>
+        <field name="D1PL">http://www.digikey.com/product-detail/en/APT1608CGCK/754-1116-1-ND/1747833</field>
+        <field name="D2PN">_</field>
+        <field name="D2PL">_</field>
+        <field name="Package">_</field>
+        <field name="Description">_</field>
+        <field name="Voltage">_</field>
+        <field name="Power">_</field>
+        <field name="Tolerance">_</field>
+        <field name="Temperature">_</field>
+        <field name="ReverseVoltage">_</field>
+        <field name="ForwardVoltage">_</field>
+        <field name="Cont.Current">_</field>
+        <field name="Frequency">_</field>
+        <field name="ResonnanceFreq">_</field>
+      </fields>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5730DE99</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>RED</value>
+      <footprint>LEDs:LED_0603</footprint>
+      <datasheet>http://www.kingbrightusa.com/images/catalog/SPEC/APT1608SURCK.pdf</datasheet>
+      <fields>
+        <field name="MFN">Kingbright</field>
+        <field name="MFP">APT1608SURCK</field>
+        <field name="D1">digikey</field>
+        <field name="D2">mouser</field>
+        <field name="D1PN">754-1123</field>
+        <field name="D1PL">http://www.digikey.com/product-detail/en/APT1608SURCK/754-1123-1-ND/1747840</field>
+        <field name="D2PN">_</field>
+        <field name="D2PL">_</field>
+        <field name="Package">_</field>
+        <field name="Description">_</field>
+        <field name="Voltage">_</field>
+        <field name="Power">_</field>
+        <field name="Tolerance">_</field>
+        <field name="Temperature">_</field>
+        <field name="ReverseVoltage">_</field>
+        <field name="ForwardVoltage">_</field>
+        <field name="Cont.Current">_</field>
+        <field name="Frequency">_</field>
+        <field name="ResonnanceFreq">_</field>
+      </fields>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5730DEBD</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>200</value>
+      <footprint>Dipoles_SMD:R_0603</footprint>
+      <datasheet>http://www.vishay.com/docs/20035/dcrcwe3.pdf</datasheet>
+      <fields>
+        <field name="MFN">Vishay</field>
+        <field name="MFP">CRCW0603200RFKEAHP</field>
+        <field name="D1">digikey</field>
+        <field name="D2">mouser</field>
+        <field name="D1PN">541-200S</field>
+        <field name="D1PL">http://www.digikey.com/product-detail/en/vishay-dale/CRCW0603200RFKEAHP/541-200SCT-ND/5326826</field>
+        <field name="D2PN">_</field>
+        <field name="D2PL">_</field>
+        <field name="Package">0603</field>
+        <field name="Description">_</field>
+        <field name="Voltage">_</field>
+        <field name="Power">1/4</field>
+        <field name="Tolerance">1%</field>
+        <field name="Temperature">_</field>
+        <field name="ReverseVoltage">_</field>
+        <field name="ForwardVoltage">_</field>
+        <field name="Cont.Current">_</field>
+        <field name="Frequency">_</field>
+        <field name="ResonnanceFreq">_</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>573112D6</tstamp>
+    </comp>
+    <comp ref="P1">
+      <value>CONN_01X12</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x12</footprint>
+      <datasheet>DNP</datasheet>
+      <fields>
+        <field name="MFN">DNP</field>
+        <field name="MFP">DNP</field>
+        <field name="D1">digikey</field>
+        <field name="D2">mouser</field>
+        <field name="D1PN">DNP</field>
+        <field name="D1PL">DNP</field>
+        <field name="D2PN">_</field>
+        <field name="D2PL">_</field>
+        <field name="Package">_</field>
+        <field name="Description">_</field>
+        <field name="Voltage">_</field>
+        <field name="Power">_</field>
+        <field name="Tolerance">_</field>
+        <field name="Temperature">_</field>
+        <field name="ReverseVoltage">_</field>
+        <field name="ForwardVoltage">_</field>
+        <field name="Cont.Current">_</field>
+        <field name="Frequency">_</field>
+        <field name="ResonnanceFreq">_</field>
+      </fields>
+      <libsource lib="conn" part="CONN_01X12"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5731597E</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>200</value>
+      <footprint>Dipoles_SMD:R_0603</footprint>
+      <datasheet>http://www.vishay.com/docs/20035/dcrcwe3.pdf</datasheet>
+      <fields>
+        <field name="MFN">Vishay</field>
+        <field name="MFP">CRCW0603200RFKEAHP</field>
+        <field name="D1">digikey</field>
+        <field name="D2">mouser</field>
+        <field name="D1PN">541-200S</field>
+        <field name="D1PL">http://www.digikey.com/product-detail/en/vishay-dale/CRCW0603200RFKEAHP/541-200SCT-ND/5326826</field>
+        <field name="D2PN">_</field>
+        <field name="D2PL">_</field>
+        <field name="Package">0603</field>
+        <field name="Description">_</field>
+        <field name="Voltage">_</field>
+        <field name="Power">1/4</field>
+        <field name="Tolerance">1%</field>
+        <field name="Temperature">_</field>
+        <field name="ReverseVoltage">_</field>
+        <field name="ForwardVoltage">_</field>
+        <field name="Cont.Current">_</field>
+        <field name="Frequency">_</field>
+        <field name="ResonnanceFreq">_</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57321A9B</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>uIMU-2</value>
+      <footprint>Housings_DFN_QFN:DFP-22_0.5mmPitch_125x155mm</footprint>
+      <datasheet>https://inertialsense.com/download/uins-2-datasheet/</datasheet>
+      <fields>
+        <field name="MFN">InertialSense</field>
+        <field name="MFP">uIMU-2</field>
+        <field name="D1">digikey</field>
+        <field name="D2">mouser</field>
+        <field name="D1PN">DNP</field>
+        <field name="D1PL">DNP</field>
+        <field name="D2PN">_</field>
+        <field name="D2PL">_</field>
+        <field name="Package">_</field>
+        <field name="Description">_</field>
+        <field name="Voltage">_</field>
+        <field name="Power">_</field>
+        <field name="Tolerance">_</field>
+        <field name="Temperature">_</field>
+        <field name="ReverseVoltage">_</field>
+        <field name="ForwardVoltage">_</field>
+        <field name="Cont.Current">_</field>
+        <field name="Frequency">_</field>
+        <field name="ResonnanceFreq">_</field>
+      </fields>
+      <libsource lib="IMU" part="uIMU-2"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>575B4F78</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>100n</value>
+      <footprint>Dipoles_SMD:C_0603</footprint>
+      <datasheet>https://product.tdk.com/info/en/catalog/datasheets/mlcc_highreliability_general_en.pdf</datasheet>
+      <fields>
+        <field name="MFN">TDK</field>
+        <field name="MFP">_CGJ3E2X7R1C104K080AA</field>
+        <field name="D1">digikey</field>
+        <field name="D2">mouser</field>
+        <field name="D1PN">445-8136</field>
+        <field name="D1PL">http://www.digikey.com/product-detail/en/tdk-corporation/CGJ3E2X7R1C104K080AA/445-8136-1-ND/2812154</field>
+        <field name="D2PN">_</field>
+        <field name="D2PL">_</field>
+        <field name="Package">0603</field>
+        <field name="Description">_</field>
+        <field name="Voltage">16</field>
+        <field name="Power">_</field>
+        <field name="Tolerance">10%</field>
+        <field name="Temperature">X7R</field>
+        <field name="ReverseVoltage">_</field>
+        <field name="ForwardVoltage">_</field>
+        <field name="Cont.Current">_</field>
+        <field name="Frequency">_</field>
+        <field name="ResonnanceFreq">_</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>575B5F6E</tstamp>
+    </comp>
+    <comp ref="P2">
+      <value>CONN_01X05</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x05</footprint>
+      <fields>
+        <field name="MFN">_</field>
+        <field name="MFP">_</field>
+        <field name="D1">digikey</field>
+        <field name="D2">mouser</field>
+        <field name="D1PN">_</field>
+        <field name="D1PL">_</field>
+        <field name="D2PN">_</field>
+        <field name="D2PL">_</field>
+        <field name="Package">_</field>
+        <field name="Description">_</field>
+        <field name="Voltage">_</field>
+        <field name="Power">_</field>
+        <field name="Tolerance">_</field>
+        <field name="Temperature">_</field>
+        <field name="ReverseVoltage">_</field>
+        <field name="ForwardVoltage">_</field>
+        <field name="Cont.Current">_</field>
+        <field name="Frequency">_</field>
+        <field name="ResonnanceFreq">_</field>
+      </fields>
+      <libsource lib="conn" part="CONN_01X05"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>575F3C4A</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>TXB0106PWR</value>
+      <footprint>Housings_SSOP:TSSOP-16_4.4x5mm_Pitch0.65mm</footprint>
+      <datasheet>http://www.ti.com/lit/ds/symlink/txb0106.pdf</datasheet>
+      <fields>
+        <field name="MFN">Texas Instruments</field>
+        <field name="MFP">TXB0106PWR</field>
+        <field name="D1">digikey</field>
+        <field name="D2">mouser</field>
+        <field name="D1PN">296-23759</field>
+        <field name="D1PL">http://www.digikey.com/product-detail/en/texas-instruments/TXB0106PWR/296-23759-2-ND/1951119</field>
+        <field name="D2PN">_</field>
+        <field name="D2PL">_</field>
+        <field name="Package">_</field>
+        <field name="Description">_</field>
+        <field name="Voltage">_</field>
+        <field name="Power">_</field>
+        <field name="Tolerance">_</field>
+        <field name="Temperature">_</field>
+        <field name="ReverseVoltage">_</field>
+        <field name="ForwardVoltage">_</field>
+        <field name="Cont.Current">_</field>
+        <field name="Frequency">_</field>
+        <field name="ResonnanceFreq">_</field>
+      </fields>
+      <libsource lib="voltage_translators" part="TXB0106PWR"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57310454</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>10k</value>
+      <footprint>Dipoles_SMD:R_0603</footprint>
+      <datasheet>http://www.vishay.com/docs/20065/rcse3.pdf</datasheet>
+      <fields>
+        <field name="MFN">Vishay</field>
+        <field name="MFP">RCS060310K0FKEA</field>
+        <field name="D1">digikey</field>
+        <field name="D2">mouser</field>
+        <field name="D1PN">541-2795</field>
+        <field name="D1PL">http://www.digikey.com/product-detail/en/vishay-dale/RCS060310K0FKEA/541-2795-1-ND/5867088</field>
+        <field name="D2PN">_</field>
+        <field name="D2PL">_</field>
+        <field name="Package">0603</field>
+        <field name="Description">_</field>
+        <field name="Voltage">_</field>
+        <field name="Power">1/4</field>
+        <field name="Tolerance">1%</field>
+        <field name="Temperature">_</field>
+        <field name="ReverseVoltage">_</field>
+        <field name="ForwardVoltage">_</field>
+        <field name="Cont.Current">_</field>
+        <field name="Frequency">_</field>
+        <field name="ResonnanceFreq">_</field>
+      </fields>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>57603F9B</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>100n</value>
+      <footprint>Dipoles_SMD:C_0603</footprint>
+      <datasheet>https://product.tdk.com/info/en/catalog/datasheets/mlcc_highreliability_general_en.pdf</datasheet>
+      <fields>
+        <field name="MFN">TDK</field>
+        <field name="MFP">_CGJ3E2X7R1C104K080AA</field>
+        <field name="D1">digikey</field>
+        <field name="D2">mouser</field>
+        <field name="D1PN">445-8136</field>
+        <field name="D1PL">http://www.digikey.com/product-detail/en/tdk-corporation/CGJ3E2X7R1C104K080AA/445-8136-1-ND/2812154</field>
+        <field name="D2PN">_</field>
+        <field name="D2PL">_</field>
+        <field name="Package">0603</field>
+        <field name="Description">_</field>
+        <field name="Voltage">16</field>
+        <field name="Power">_</field>
+        <field name="Tolerance">10%</field>
+        <field name="Temperature">X7R</field>
+        <field name="ReverseVoltage">_</field>
+        <field name="ForwardVoltage">_</field>
+        <field name="Cont.Current">_</field>
+        <field name="Frequency">_</field>
+        <field name="ResonnanceFreq">_</field>
+      </fields>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5763515D</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="device" part="C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C?</fp>
+        <fp>C_????_*</fp>
+        <fp>C_????</fp>
+        <fp>SMD*_c</fp>
+        <fp>Capacitor*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X05">
+      <description>Connector, single row, 01x05</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X05</fp>
+        <fp>Pin_Header_Angled_1X05</fp>
+        <fp>Socket_Strip_Straight_1X05</fp>
+        <fp>Socket_Strip_Angled_1X05</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X05</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+        <pin num="5" name="P5" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X12">
+      <description>Connector, single row, 01x12</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X12</fp>
+        <fp>Pin_Header_Angled_1X12</fp>
+        <fp>Socket_Strip_Straight_1X12</fp>
+        <fp>Socket_Strip_Angled_1X12</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X12</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+        <pin num="5" name="P5" type="passive"/>
+        <pin num="6" name="P6" type="passive"/>
+        <pin num="7" name="P7" type="passive"/>
+        <pin num="8" name="P8" type="passive"/>
+        <pin num="9" name="P9" type="passive"/>
+        <pin num="10" name="P10" type="passive"/>
+        <pin num="11" name="P11" type="passive"/>
+        <pin num="12" name="P12" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="LED">
+      <footprints>
+        <fp>LED-*</fp>
+        <fp>LED_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+        <fp>Resistor_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="voltage_translators" part="TXB0106PWR">
+      <description>6bit bidirectional voltage translator</description>
+      <docs>http://www.ti.com/lit/ds/symlink/txb0106.pdf</docs>
+      <footprints>
+        <fp>TSSOP-16*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TXB0106PWR</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A1" type="input"/>
+        <pin num="2" name="VCCA" type="input"/>
+        <pin num="3" name="A2" type="input"/>
+        <pin num="4" name="A3" type="input"/>
+        <pin num="5" name="A4" type="input"/>
+        <pin num="6" name="A5" type="input"/>
+        <pin num="7" name="A6" type="input"/>
+        <pin num="8" name="OE#" type="input"/>
+        <pin num="9" name="GND" type="input"/>
+        <pin num="10" name="B6" type="input"/>
+        <pin num="11" name="B5" type="input"/>
+        <pin num="12" name="B4" type="input"/>
+        <pin num="13" name="B3" type="input"/>
+        <pin num="14" name="B2" type="input"/>
+        <pin num="15" name="VCCB" type="input"/>
+        <pin num="16" name="B1" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="IMU" part="uIMU-2">
+      <description>InertialSense IMU</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">uIMU-2</field>
+      </fields>
+      <pins>
+        <pin num="1" name="NC" type="input"/>
+        <pin num="2" name="NC" type="input"/>
+        <pin num="3" name="GPSVBAT" type="input"/>
+        <pin num="4" name="G1/SDA/AN1/SV2" type="input"/>
+        <pin num="5" name="G2/SCL/AMN2" type="input"/>
+        <pin num="6" name="G6/RX1/MOSI/SV4" type="input"/>
+        <pin num="7" name="G7/TX1/MISO" type="input"/>
+        <pin num="8" name="G8/CS" type="input"/>
+        <pin num="9" name="G5/SCLK" type="input"/>
+        <pin num="10" name="G9/SV3" type="input"/>
+        <pin num="11" name="GND" type="input"/>
+        <pin num="12" name="RESET#" type="input"/>
+        <pin num="13" name="NC" type="input"/>
+        <pin num="14" name="NC" type="input"/>
+        <pin num="15" name="NC" type="input"/>
+        <pin num="16" name="NC" type="input"/>
+        <pin num="17" name="NC" type="input"/>
+        <pin num="18" name="G4/RX0/CTx/AN4/SV1" type="input"/>
+        <pin num="19" name="G3/TX0/CRx/AN3/SV0" type="input"/>
+        <pin num="20" name="TIMEPULSE" type="input"/>
+        <pin num="21" name="GND" type="input"/>
+        <pin num="22" name="VCC" type="input"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="conn">
+      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/conn.lib</uri>
+    </library>
+    <library logical="voltage_translators">
+      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/voltage_translators.lib</uri>
+    </library>
+    <library logical="IMU">
+      <uri>/home/mikael/work/kicad_ws/osrf_hw/kicad_libraries/IMU.lib</uri>
+    </library>
+    <library logical="device">
+      <uri>/usr/share/kicad/library/device.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="Net-(U1-Pad4)">
+      <node ref="U1" pin="4"/>
+    </net>
+    <net code="2" name="Net-(U1-Pad5)">
+      <node ref="U1" pin="5"/>
+    </net>
+    <net code="3" name="Net-(U1-Pad9)">
+      <node ref="U1" pin="9"/>
+    </net>
+    <net code="4" name="Net-(U1-Pad8)">
+      <node ref="U1" pin="8"/>
+    </net>
+    <net code="5" name="Net-(U1-Pad10)">
+      <node ref="U1" pin="10"/>
+    </net>
+    <net code="6" name="Net-(U1-Pad20)">
+      <node ref="U1" pin="20"/>
+    </net>
+    <net code="7" name="GND">
+      <node ref="U2" pin="7"/>
+      <node ref="U2" pin="10"/>
+      <node ref="C2" pin="2"/>
+      <node ref="C1" pin="2"/>
+      <node ref="U2" pin="9"/>
+      <node ref="P1" pin="12"/>
+      <node ref="P1" pin="11"/>
+      <node ref="U1" pin="21"/>
+      <node ref="U1" pin="11"/>
+      <node ref="P2" pin="3"/>
+    </net>
+    <net code="8" name="Net-(U1-Pad16)">
+      <node ref="U1" pin="16"/>
+    </net>
+    <net code="9" name="Net-(U1-Pad15)">
+      <node ref="U1" pin="15"/>
+    </net>
+    <net code="10" name="Net-(U1-Pad17)">
+      <node ref="U1" pin="17"/>
+    </net>
+    <net code="11" name="IMU_RX0">
+      <node ref="U2" pin="12"/>
+      <node ref="U1" pin="18"/>
+      <node ref="P2" pin="2"/>
+    </net>
+    <net code="12" name="IMU_TX0">
+      <node ref="U2" pin="11"/>
+      <node ref="U1" pin="19"/>
+      <node ref="P2" pin="1"/>
+    </net>
+    <net code="13" name="Net-(U1-Pad1)">
+      <node ref="U1" pin="1"/>
+    </net>
+    <net code="14" name="Net-(U1-Pad2)">
+      <node ref="U1" pin="2"/>
+    </net>
+    <net code="15" name="Net-(U1-Pad13)">
+      <node ref="U1" pin="13"/>
+    </net>
+    <net code="16" name="Net-(U1-Pad14)">
+      <node ref="U1" pin="14"/>
+    </net>
+    <net code="17" name="+3V3">
+      <node ref="P1" pin="2"/>
+      <node ref="U1" pin="22"/>
+      <node ref="R3" pin="1"/>
+      <node ref="P2" pin="5"/>
+      <node ref="U1" pin="3"/>
+      <node ref="C1" pin="1"/>
+      <node ref="U2" pin="15"/>
+      <node ref="C2" pin="1"/>
+    </net>
+    <net code="18" name="IMU_RST#">
+      <node ref="P2" pin="4"/>
+      <node ref="U1" pin="12"/>
+      <node ref="U2" pin="13"/>
+      <node ref="R3" pin="2"/>
+    </net>
+    <net code="19" name="IMU_TX1_2V5">
+      <node ref="U2" pin="1"/>
+      <node ref="P1" pin="10"/>
+    </net>
+    <net code="20" name="+2V5">
+      <node ref="U2" pin="2"/>
+      <node ref="U2" pin="8"/>
+      <node ref="R2" pin="1"/>
+      <node ref="R1" pin="1"/>
+      <node ref="P1" pin="3"/>
+    </net>
+    <net code="21" name="Net-(D1-Pad2)">
+      <node ref="D1" pin="2"/>
+      <node ref="R1" pin="2"/>
+    </net>
+    <net code="22" name="FPGA_Signal1">
+      <node ref="D2" pin="1"/>
+      <node ref="P1" pin="4"/>
+    </net>
+    <net code="23" name="+5V">
+      <node ref="P1" pin="1"/>
+    </net>
+    <net code="24" name="FPGA_Signal2">
+      <node ref="D1" pin="1"/>
+      <node ref="P1" pin="5"/>
+    </net>
+    <net code="25" name="IMU_TX0_2V5">
+      <node ref="U2" pin="6"/>
+      <node ref="P1" pin="6"/>
+    </net>
+    <net code="26" name="Net-(D2-Pad2)">
+      <node ref="R2" pin="2"/>
+      <node ref="D2" pin="2"/>
+    </net>
+    <net code="27" name="IMU_RX1">
+      <node ref="U2" pin="14"/>
+      <node ref="U1" pin="6"/>
+    </net>
+    <net code="28" name="IMU_TX1">
+      <node ref="U1" pin="7"/>
+      <node ref="U2" pin="16"/>
+    </net>
+    <net code="29" name="IMU_RX0_2V5">
+      <node ref="P1" pin="7"/>
+      <node ref="U2" pin="5"/>
+    </net>
+    <net code="30" name="IMU_RST#_2V5">
+      <node ref="P1" pin="8"/>
+      <node ref="U2" pin="4"/>
+    </net>
+    <net code="31" name="IMU_RX1_2V5">
+      <node ref="P1" pin="9"/>
+      <node ref="U2" pin="3"/>
+    </net>
+  </nets>
+</export>
