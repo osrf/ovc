@@ -3,7 +3,7 @@
   (general
     (links 38)
     (no_connects 0)
-    (area 7.653572 164.191666 62.846429 200.908333)
+    (area 11.924999 167.424999 58.575001 198.075001)
     (thickness 1.6)
     (drawings 24)
     (tracks 165)
@@ -1971,7 +1971,7 @@
       (net 1 +3V3))
     (model ${KIWORKSPACE}/osrf_hw_nonfree/uINS-2p2xFusionStripDown.wrl
       (at (xyz 0 0 0))
-      (scale (xyz 1 1 1))
+      (scale (xyz 0.3937 0.3937 0.3937))
       (rotate (xyz 0 0 0))
     )
   )
