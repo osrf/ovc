@@ -1,0 +1,29 @@
+**Design**
+ * LDO footprint is wrong. Chose one of the 6 different suitable components and retroute accordingly
+ * FX3 RST RC couple is wrong. Move C from 2.5V to GND
+ * Swap I2C lines for flash memory
+ * create cutout in ground plane underneath FX3 SS capacitors, as described on p.17 here: 
+   http://www.cypress.com/file/139936/download   consider tweaking layout on the east side
+   of the capacitors to try to balanace lengths a bit more, if possible... but there is a
+   tradeoff between length-skew matching and the number of bends, and I'm not sure which
+   is more important in a case like this. I suspect length matching might be more important
+   because on p.18 of that document they say that the SS lines need to be within 0.12mm (!),
+   which is sort of amazing.
+ * check USB-HS lines; p.20 of that document seems to want somewhat different rules than we have
+   currently implemented on the USB-HS traces, such as 90-ohm differential trace impedances.
+   Not sure though.
+ * that document also says to use an "LC circuit" to connect USB3 cable shield to GND. The FX3
+   development kit (DVK) schematics show an 0805 ferrite bead BLM21PG221SN1D being used in series
+   with the inbound +5V line, which might help reduce noise somewhat. Also, they show a 100nF
+   capacitor in parallel with another BLM21PG221SN1D to connect the shield to GND. I guess that's
+   the LC circuit they were describing.
+ * debug header test points for MONITOR1 would be nice (for dual/triple-slope timing). Doesn't
+   need to go back to GhostRider; just oscilloscope probe points on the imager board
+   
+ 
+**BOM only**
+
+
+**HarleyTandem**
+ * series termination resistor needed for the SCLK tree leaving the translator IC. 50 ohm seemed to work OK. Not sure what it should really be.
+ * add local LDO's for the imagers to reduce noise. Might need/want a 4v switching supply to feed the LDO's to save some power consumption.
