@@ -1,4 +1,4 @@
-(kicad_pcb (version 4) (host pcbnew 4.1.0-alpha+201607061532+6970~46~ubuntu16.04.1-product)
+(kicad_pcb (version 4) (host pcbnew 4.1.0-alpha+201607281303+6996~46~ubuntu16.04.1-product)
 
   (general
     (links 40)
@@ -1911,7 +1911,7 @@
     (tags "resistor 0603")
     (path /5763515D)
     (attr smd)
-    (fp_text reference C2 (at 0 -1.7 270) (layer F.SilkS)
+    (fp_text reference C2 (at 0 1.4 270) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value 100n (at 0 1.7 270) (layer F.Fab) hide
