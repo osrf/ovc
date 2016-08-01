@@ -33,7 +33,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:HarleyuIMU2-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -169,7 +168,7 @@ F 3 "" H 4400 2250 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4400 2250 4550 2250
+	3700 2250 4550 2250
 Wire Wire Line
 	5650 2250 5500 2250
 Text GLabel 5500 2950 2    60   Input ~ 0
@@ -674,6 +673,48 @@ F 20 "_" H 6850 2000 60  0001 C CNN "Cont.Current"
 F 21 "_" H 6850 2000 60  0001 C CNN "Frequency"
 F 22 "_" H 6850 2000 60  0001 C CNN "ResonnanceFreq"
 	1    6850 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C3
+U 1 1 579F709C
+P 3700 2400
+F 0 "C3" H 3815 2446 50  0000 L CNN
+F 1 "100n" H 3815 2355 50  0000 L CNN
+F 2 "Dipoles_SMD:C_0603" H 3738 2250 50  0001 C CNN
+F 3 "https://product.tdk.com/info/en/catalog/datasheets/mlcc_highreliability_general_en.pdf" H 3700 2400 50  0001 C CNN
+F 4 "TDK" H 3700 2400 60  0001 C CNN "MFN"
+F 5 "_CGJ3E2X7R1C104K080AA" H 3700 2400 60  0001 C CNN "MFP"
+F 6 "digikey" H 3700 2400 60  0001 C CNN "D1"
+F 7 "mouser" H 3700 2400 60  0001 C CNN "D2"
+F 8 "445-8136" H 3700 2400 60  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/tdk-corporation/CGJ3E2X7R1C104K080AA/445-8136-1-ND/2812154" H 3700 2400 60  0001 C CNN "D1PL"
+F 10 "_" H 3700 2400 60  0001 C CNN "D2PN"
+F 11 "_" H 3700 2400 60  0001 C CNN "D2PL"
+F 12 "0603" H 3700 2400 60  0001 C CNN "Package"
+F 13 "_" H 3700 2400 60  0000 C CNN "Description"
+F 14 "16" H 3700 2400 60  0001 C CNN "Voltage"
+F 15 "_" H 3700 2400 60  0001 C CNN "Power"
+F 16 "10%" H 3700 2400 60  0001 C CNN "Tolerance"
+F 17 "X7R" H 3700 2400 60  0001 C CNN "Temperature"
+F 18 "_" H 3700 2400 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 3700 2400 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 3700 2400 60  0001 C CNN "Cont.Current"
+F 21 "_" H 3700 2400 60  0001 C CNN "Frequency"
+F 22 "_" H 3700 2400 60  0001 C CNN "ResonnanceFreq"
+	1    3700 2400
+	1    0    0    -1  
+$EndComp
+Connection ~ 4400 2250
+$Comp
+L GND #PWR?
+U 1 1 579F7528
+P 3700 2550
+F 0 "#PWR?" H 3700 2300 50  0001 C CNN
+F 1 "GND" H 3705 2377 50  0000 C CNN
+F 2 "" H 3700 2550 50  0000 C CNN
+F 3 "" H 3700 2550 50  0000 C CNN
+	1    3700 2550
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
