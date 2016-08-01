@@ -1,8 +1,8 @@
 (export (version D)
   (design
-    (source /home/mquigley/hw/opencam/hardware/Harley/HarleyuIMU2/HarleyuIMU2.sch)
-    (date "Mon 01 Aug 2016 11:44:42 AM PDT")
-    (tool "Eeschema 4.1.0-alpha+201607061532+6970~46~ubuntu16.04.1-product")
+    (source /home/mikael/work/kicad_ws/opencam/hardware/Harley/HarleyuIMU2/HarleyuIMU2.sch)
+    (date "Mon 01 Aug 2016 09:40:04 AM PDT")
+    (tool "Eeschema 4.1.0-alpha+201607281303+6996~46~ubuntu16.04.1-product")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title)
