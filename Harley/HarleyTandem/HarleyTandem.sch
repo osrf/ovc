@@ -93,7 +93,7 @@ F 22 "_" H 8500 3550 60  0001 C CNN "ResonnanceFreq"
 $EndComp
 Text GLabel 8750 5600 2    60   Input ~ 0
 SPI_MOSI
-Text GLabel 8750 5700 2    60   Input ~ 0
+Text GLabel 8750 6000 2    60   Input ~ 0
 SPI_MISO
 Text GLabel 8750 5400 2    60   Input ~ 0
 SPI_SCK
@@ -105,11 +105,11 @@ Text GLabel 8750 5000 2    60   Input ~ 0
 Python3_CS#
 Text GLabel 8750 4900 2    60   Input ~ 0
 IMU_CS#
-Text GLabel 8750 5800 2    60   Input ~ 0
+Text GLabel 8750 5700 2    60   Input ~ 0
 Python1_Monitor
-Text GLabel 8750 5900 2    60   Input ~ 0
+Text GLabel 8750 5800 2    60   Input ~ 0
 Python2_Monitor
-Text GLabel 8750 6000 2    60   Input ~ 0
+Text GLabel 8750 5900 2    60   Input ~ 0
 Python3_Monitor
 $Sheet
 S 700  2400 500  150 
@@ -235,10 +235,10 @@ Wire Wire Line
 	8100 5900 8250 5900
 Connection ~ 8100 5900
 $Comp
-L +5V #PWR01
+L +5V #PWR8
 U 1 1 571FF1AE
 P 8100 6000
-F 0 "#PWR01" H 8100 5850 50  0001 C CNN
+F 0 "#PWR8" H 8100 5850 50  0001 C CNN
 F 1 "+5V" H 8115 6173 50  0000 C CNN
 F 2 "" H 8100 6000 50  0000 C CNN
 F 3 "" H 8100 6000 50  0000 C CNN
@@ -257,10 +257,10 @@ Connection ~ 8100 5200
 Wire Wire Line
 	7900 5200 7900 5300
 $Comp
-L +2V5 #PWR02
+L +2V5 #PWR7
 U 1 1 571FF205
 P 7900 5300
-F 0 "#PWR02" H 7900 5150 50  0001 C CNN
+F 0 "#PWR7" H 7900 5150 50  0001 C CNN
 F 1 "+2V5" H 7915 5473 50  0000 C CNN
 F 2 "" H 7900 5300 50  0000 C CNN
 F 3 "" H 7900 5300 50  0000 C CNN
@@ -310,10 +310,10 @@ Wire Wire Line
 	8750 1300 10100 1300
 Connection ~ 10100 1300
 $Comp
-L GND #PWR03
+L GND #PWR9
 U 1 1 571FF743
 P 10100 1000
-F 0 "#PWR03" H 10100 750 50  0001 C CNN
+F 0 "#PWR9" H 10100 750 50  0001 C CNN
 F 1 "GND" H 10105 827 50  0000 C CNN
 F 2 "" H 10100 1000 50  0000 C CNN
 F 3 "" H 10100 1000 50  0000 C CNN
@@ -321,10 +321,10 @@ F 3 "" H 10100 1000 50  0000 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L GND #PWR04
+L GND #PWR6
 U 1 1 571FF765
 P 7250 1100
-F 0 "#PWR04" H 7250 850 50  0001 C CNN
+F 0 "#PWR6" H 7250 850 50  0001 C CNN
 F 1 "GND" H 7255 927 50  0000 C CNN
 F 2 "" H 7250 1100 50  0000 C CNN
 F 3 "" H 7250 1100 50  0000 C CNN
@@ -370,14 +370,14 @@ Python_RST#
 Wire Notes Line
 	6650 6500 6650 500 
 $Sheet
-S 800  900  500  150 
+S 700  900  500  150 
 U 5720222A
 F0 "Sheet57202229" 60
 F1 "PowerSupplies.sch" 60
 $EndSheet
 Text Notes 750  700  0    60   ~ 12
 Power Supplies
-Text Notes 750  1500 0    60   ~ 12
+Text Notes 650  1500 0    60   ~ 12
 Level Shifters
 Text GLabel 8250 4500 0    60   Input ~ 0
 FPGA_Signal3
@@ -419,10 +419,10 @@ F 22 "_" H 4500 2000 60  0001 C CNN "ResonnanceFreq"
 	1    0    0    -1  
 $EndComp
 $Comp
-L +2V5 #PWR05
+L +2V5 #PWR2
 U 1 1 572BEE7D
 P 3800 1100
-F 0 "#PWR05" H 3800 950 50  0001 C CNN
+F 0 "#PWR2" H 3800 950 50  0001 C CNN
 F 1 "+2V5" H 3815 1273 50  0000 C CNN
 F 2 "" H 3800 1100 50  0000 C CNN
 F 3 "" H 3800 1100 50  0000 C CNN
@@ -430,10 +430,10 @@ F 3 "" H 3800 1100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +2V5 #PWR06
+L +2V5 #PWR4
 U 1 1 572BEE83
 P 5150 1100
-F 0 "#PWR06" H 5150 950 50  0001 C CNN
+F 0 "#PWR4" H 5150 950 50  0001 C CNN
 F 1 "+2V5" H 5165 1273 50  0000 C CNN
 F 2 "" H 5150 1100 50  0000 C CNN
 F 3 "" H 5150 1100 50  0000 C CNN
@@ -461,10 +461,10 @@ Python3_lvds_clk-
 Text GLabel 5000 1900 2    60   Input ~ 0
 Python3_lvds_clk+
 $Comp
-L GND #PWR07
+L GND #PWR3
 U 1 1 572BEE99
 P 4300 2900
-F 0 "#PWR07" H 4300 2650 50  0001 C CNN
+F 0 "#PWR3" H 4300 2650 50  0001 C CNN
 F 1 "GND" H 4305 2727 50  0000 C CNN
 F 2 "" H 4300 2900 50  0000 C CNN
 F 3 "" H 4300 2900 50  0000 C CNN
@@ -474,10 +474,10 @@ $EndComp
 Text Notes 2500 2000 0    60   ~ 0
 SFOUT = 00 for LVDS mode
 $Comp
-L GND #PWR08
+L GND #PWR1
 U 1 1 572BEEA3
 P 3500 1300
-F 0 "#PWR08" H 3500 1050 50  0001 C CNN
+F 0 "#PWR1" H 3500 1050 50  0001 C CNN
 F 1 "GND" V 3505 1172 50  0000 R CNN
 F 2 "" H 3500 1300 50  0000 C CNN
 F 3 "" H 3500 1300 50  0000 C CNN
@@ -485,10 +485,10 @@ F 3 "" H 3500 1300 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR09
+L GND #PWR5
 U 1 1 572BEEA9
 P 5600 1300
-F 0 "#PWR09" H 5600 1050 50  0001 C CNN
+F 0 "#PWR5" H 5600 1050 50  0001 C CNN
 F 1 "GND" V 5605 1172 50  0000 R CNN
 F 2 "" H 5600 1300 50  0000 C CNN
 F 3 "" H 5600 1300 50  0000 C CNN
@@ -606,7 +606,7 @@ Wire Wire Line
 	3700 1500 3700 1450
 Connection ~ 3500 1450
 $Sheet
-S 750  1700 500  150 
+S 700  1700 500  150 
 U 572C1BAD
 F0 "Sheet572C1BAC" 60
 F1 "LevelShifters.sch" 60
@@ -626,7 +626,6 @@ Wire Wire Line
 	4000 2000 3900 2000
 Wire Wire Line
 	3900 1900 3900 2900
-Connection ~ 3900 2900
 Wire Wire Line
 	4000 1900 3900 1900
 Connection ~ 3900 2000
@@ -634,4 +633,58 @@ Wire Notes Line
 	2050 3350 2050 500 
 Wire Notes Line
 	500  3350 6650 3350
+$Comp
+L CONN_01X11 P7
+U 1 1 57CC5496
+P 2000 4200
+F 0 "P7" H 2077 4339 50  0000 L CNN
+F 1 "CONN_01X11" H 2077 4248 50  0000 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x11" H 2077 4157 50  0000 L CNN
+F 3 "" H 2000 4200 50  0000 C CNN
+F 4 "_" H 2000 4200 60  0001 C CNN "MFN"
+F 5 "_" H 2000 4200 60  0001 C CNN "MFP"
+F 6 "digikey" H 2000 4200 60  0001 C CNN "D1"
+F 7 "mouser" H 2000 4200 60  0001 C CNN "D2"
+F 8 "_" H 2000 4200 60  0001 C CNN "D1PN"
+F 9 "_" H 2000 4200 60  0001 C CNN "D1PL"
+F 10 "_" H 2000 4200 60  0001 C CNN "D2PN"
+F 11 "_" H 2000 4200 60  0001 C CNN "D2PL"
+F 12 "_" H 2000 4200 60  0001 C CNN "Package"
+F 13 "_" H 2077 4058 60  0000 L CNN "Description"
+F 14 "_" H 2000 4200 60  0001 C CNN "Voltage"
+F 15 "_" H 2000 4200 60  0001 C CNN "Power"
+F 16 "_" H 2000 4200 60  0001 C CNN "Tolerance"
+F 17 "_" H 2000 4200 60  0001 C CNN "Temperature"
+F 18 "_" H 2000 4200 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 2000 4200 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 2000 4200 60  0001 C CNN "Cont.Current"
+F 21 "_" H 2000 4200 60  0001 C CNN "Frequency"
+F 22 "_" H 2000 4200 60  0001 C CNN "ResonnanceFreq"
+	1    2000 4200
+	1    0    0    -1  
+$EndComp
+Text Notes 1900 3550 0    60   ~ 12
+Debug
+Text GLabel 1800 3800 0    60   Input ~ 0
+FPGA_JTAG_TCK
+Text GLabel 1800 3900 0    60   Input ~ 0
+FPGA_JTAG_TDO
+Text GLabel 1800 4000 0    60   Input ~ 0
+FPGA_JTAG_TDI
+Text GLabel 1800 3700 0    60   Input ~ 0
+FPGA_JTAG_TMS
+Text GLabel 1800 4200 0    60   Input ~ 0
+FPGA_Signal2
+Text GLabel 1800 4400 0    60   Input ~ 0
+FPGA_Signal4
+Text GLabel 1800 4500 0    60   Input ~ 0
+FPGA_Signal5
+Text GLabel 1800 4600 0    60   Input ~ 0
+FPGA_Signal6
+Text GLabel 1800 4700 0    60   Input ~ 0
+FPGA_Signal7
+Text GLabel 1800 4300 0    60   Input ~ 0
+FPGA_Signal3
+Text GLabel 1800 4100 0    60   Input ~ 0
+FPGA_Signal1
 $EndSCHEMATC
