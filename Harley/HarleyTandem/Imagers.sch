@@ -144,10 +144,10 @@ F 2 "LCC:LCC101.6P1422X1422X165-48" H 2700 4300 60  0001 C CNN
 F 3 "http://www.onsemi.com/pub_link/Collateral/PB_NOIP1SN1300A-D.PDF" H 2700 4300 60  0001 C CNN
 F 4 "ON Semi" H 2800 3050 50  0001 C CNN "MFN"
 F 5 "NOIP1SN1300A-QDI" H 2800 3050 50  0001 C CNN "MFP"
-F 6 "_" H 2800 3050 50  0001 C CNN "D1"
-F 7 "_" H 2800 3050 50  0001 C CNN "D2"
-F 8 "NOIP1SN1300A-QDI" H 2800 3050 50  0001 C CNN "D1PN"
-F 9 "https://www.arrow.com/en/products/noip1sn1300a-qdi/on-semiconductor?&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart&&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart#page-1" H 2800 3050 50  0001 C CNN "D1PL"
+F 6 "Costumer Supplied" H 2800 3050 50  0001 C CNN "D1"
+F 7 "Costumer Supplied" H 2800 3050 50  0001 C CNN "D2"
+F 8 "Costumer Supplied" H 2800 3050 50  0001 C CNN "D1PN"
+F 9 "Costumer Supplied" H 2800 3050 50  0001 C CNN "D1PL"
 F 10 "_" H 2800 3050 50  0001 C CNN "D2PN"
 F 11 "_" H 2800 3050 50  0001 C CNN "D2PL"
 F 12 "CLCC48" H 2800 3050 50  0001 C CNN "Package"
@@ -895,10 +895,6 @@ F 22 "_" H 1800 2200 50  0001 C CNN "ResonnanceFreq"
 	1    1800 2200
 	1    0    0    -1  
 $EndComp
-Text Notes 2200 1000 0    200  ~ 0
-CAMERA
-Text Notes 850  7350 0    60   ~ 0
-decoupling copied from http://www.onsemi.com/pub_link/Collateral/HEADBOARD_SCHEMATIC.PDF
 $Comp
 L GND #PWR020
 U 1 1 571FD038
@@ -920,10 +916,10 @@ F 2 "LCC:LCC101.6P1422X1422X165-48" H 8250 4300 60  0001 C CNN
 F 3 "http://www.onsemi.com/pub_link/Collateral/PB_NOIP1SN1300A-D.PDF" H 8250 4300 60  0001 C CNN
 F 4 "ON Semi" H 8350 3050 50  0001 C CNN "MFN"
 F 5 "NOIP1SN1300A-QDI" H 8350 3050 50  0001 C CNN "MFP"
-F 6 "_" H 8350 3050 50  0001 C CNN "D1"
-F 7 "_" H 8350 3050 50  0001 C CNN "D2"
-F 8 "NOIP1SN1300A-QDI" H 8350 3050 50  0001 C CNN "D1PN"
-F 9 "https://www.arrow.com/en/products/noip1sn1300a-qdi/on-semiconductor?&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart&&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart#page-1" H 8350 3050 50  0001 C CNN "D1PL"
+F 6 "Costumer Supplied" H 8350 3050 50  0001 C CNN "D1"
+F 7 "Costumer Supplied" H 8350 3050 50  0001 C CNN "D2"
+F 8 "Costumer Supplied" H 8350 3050 50  0001 C CNN "D1PN"
+F 9 "Costumer Supplied" H 8350 3050 50  0001 C CNN "D1PL"
 F 10 "_" H 8350 3050 50  0001 C CNN "D2PN"
 F 11 "_" H 8350 3050 50  0001 C CNN "D2PL"
 F 12 "CLCC48" H 8350 3050 50  0001 C CNN "Package"
@@ -970,16 +966,6 @@ F 22 "_" H 7350 2200 50  0001 C CNN "ResonnanceFreq"
 	1    7350 2200
 	1    0    0    -1  
 $EndComp
-Text Notes 7750 1000 0    200  ~ 0
-CAMERA
-Text GLabel 7250 2050 0    60   Input ~ 0
-Python2_lvds_clk-
-Text GLabel 7250 2650 0    60   Input ~ 0
-SPI_MISO_3V3
-Text GLabel 7250 2750 0    60   Input ~ 0
-SPI_SCK_3V3
-Text GLabel 7250 2550 0    60   Input ~ 0
-SPI_MOSI_3V3
 $Comp
 L GND #PWR021
 U 1 1 571FDB9A
@@ -1053,10 +1039,10 @@ F 2 "LCC:LCC101.6P1422X1422X165-48" H 13950 4400 60  0001 C CNN
 F 3 "http://www.onsemi.com/pub_link/Collateral/PB_NOIP1SN1300A-D.PDF" H 13950 4400 60  0001 C CNN
 F 4 "ON Semi" H 14050 3150 50  0001 C CNN "MFN"
 F 5 "NOIP1SN1300A-QDI" H 14050 3150 50  0001 C CNN "MFP"
-F 6 "_" H 14050 3150 50  0001 C CNN "D1"
-F 7 "_" H 14050 3150 50  0001 C CNN "D2"
-F 8 "NOIP1SN1300A-QDI" H 14050 3150 50  0001 C CNN "D1PN"
-F 9 "https://www.arrow.com/en/products/noip1sn1300a-qdi/on-semiconductor?&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart&&utm_source=octopart&utm_medium=buynow&utm_campaign=octopart#page-1" H 14050 3150 50  0001 C CNN "D1PL"
+F 6 "Costumer Supplied" H 14050 3150 50  0001 C CNN "D1"
+F 7 "Costumer Supplied" H 14050 3150 50  0001 C CNN "D2"
+F 8 "Costumer Supplied" H 14050 3150 50  0001 C CNN "D1PN"
+F 9 "Costumer Supplied" H 14050 3150 50  0001 C CNN "D1PL"
 F 10 "_" H 14050 3150 50  0001 C CNN "D2PN"
 F 11 "_" H 14050 3150 50  0001 C CNN "D2PL"
 F 12 "CLCC48" H 14050 3150 50  0001 C CNN "Package"
@@ -1103,126 +1089,6 @@ F 22 "_" H 13050 2300 50  0001 C CNN "ResonnanceFreq"
 	1    13050 2300
 	1    0    0    -1  
 $EndComp
-Text Notes 13450 1100 0    200  ~ 0
-CAMERA
-Text GLabel 9250 2450 2    60   Input ~ 0
-Python2_DOUT0-
-Text GLabel 9250 2350 2    60   Input ~ 0
-Python2_DOUT0+
-Text GLabel 9250 3350 2    60   Input ~ 0
-Python2_SYNC-
-Text GLabel 9250 3250 2    60   Input ~ 0
-Python2_SYNC+
-Text GLabel 9250 2650 2    60   Input ~ 0
-Python2_DOUT1-
-Text GLabel 9250 2550 2    60   Input ~ 0
-Python2_DOUT1+
-Text GLabel 9250 2850 2    60   Input ~ 0
-Python2_DOUT2-
-Text GLabel 9250 2750 2    60   Input ~ 0
-Python2_DOUT2+
-Text GLabel 9250 3050 2    60   Input ~ 0
-Python2_DOUT3-
-Text GLabel 9250 2950 2    60   Input ~ 0
-Python2_DOUT3+
-Text GLabel 9250 2050 2    60   Input ~ 0
-Python2_clk_return+
-Text GLabel 9250 2150 2    60   Input ~ 0
-Python2_clk_return-
-Text GLabel 7250 2850 0    60   Input ~ 0
-Python2_CS#_3V3
-Text GLabel 7250 3400 0    60   Input ~ 0
-Python_Trigger_3V3
-Text GLabel 7250 3850 0    60   Input ~ 0
-Python_RST#_3V3
-Text GLabel 9250 3550 2    60   Input ~ 0
-Python2_Monitor0_3V3
-Text GLabel 7250 2350 0    60   Input ~ 0
-Python2_lvds_clk+
-Text GLabel 1700 2050 0    60   Input ~ 0
-Python1_lvds_clk-
-Text GLabel 1700 2650 0    60   Input ~ 0
-SPI_MISO_3V3
-Text GLabel 1700 2750 0    60   Input ~ 0
-SPI_SCK_3V3
-Text GLabel 1700 2550 0    60   Input ~ 0
-SPI_MOSI_3V3
-Text GLabel 1700 2850 0    60   Input ~ 0
-Python1_CS#_3V3
-Text GLabel 1700 3400 0    60   Input ~ 0
-Python_Trigger_3V3
-Text GLabel 1700 3850 0    60   Input ~ 0
-Python_RST#_3V3
-Text GLabel 1700 2350 0    60   Input ~ 0
-Python1_lvds_clk+
-Text GLabel 3700 2450 2    60   Input ~ 0
-Python1_DOUT0-
-Text GLabel 3700 2350 2    60   Input ~ 0
-Python1_DOUT0+
-Text GLabel 3700 3350 2    60   Input ~ 0
-Python1_SYNC-
-Text GLabel 3700 3250 2    60   Input ~ 0
-Python1_SYNC+
-Text GLabel 3700 2650 2    60   Input ~ 0
-Python1_DOUT1-
-Text GLabel 3700 2550 2    60   Input ~ 0
-Python1_DOUT1+
-Text GLabel 3700 2850 2    60   Input ~ 0
-Python1_DOUT2-
-Text GLabel 3700 2750 2    60   Input ~ 0
-Python1_DOUT2+
-Text GLabel 3700 3050 2    60   Input ~ 0
-Python1_DOUT3-
-Text GLabel 3700 2950 2    60   Input ~ 0
-Python1_DOUT3+
-Text GLabel 3700 2050 2    60   Input ~ 0
-Python1_clk_return+
-Text GLabel 3700 2150 2    60   Input ~ 0
-Python1_clk_return-
-Text GLabel 3700 3550 2    60   Input ~ 0
-Python1_Monitor0_3V3
-Text GLabel 12950 2150 0    60   Input ~ 0
-Python3_lvds_clk-
-Text GLabel 12950 2750 0    60   Input ~ 0
-SPI_MISO_3V3
-Text GLabel 12950 2850 0    60   Input ~ 0
-SPI_SCK_3V3
-Text GLabel 12950 2650 0    60   Input ~ 0
-SPI_MOSI_3V3
-Text GLabel 12950 2950 0    60   Input ~ 0
-Python3_CS#_3V3
-Text GLabel 12950 3500 0    60   Input ~ 0
-Python_Trigger_3V3
-Text GLabel 12950 3950 0    60   Input ~ 0
-Python_RST#_3V3
-Text GLabel 12950 2450 0    60   Input ~ 0
-Python3_lvds_clk+
-Text GLabel 14950 2550 2    60   Input ~ 0
-Python3_DOUT0-
-Text GLabel 14950 2450 2    60   Input ~ 0
-Python3_DOUT0+
-Text GLabel 14950 3450 2    60   Input ~ 0
-Python3_SYNC-
-Text GLabel 14950 3350 2    60   Input ~ 0
-Python3_SYNC+
-Text GLabel 14950 2750 2    60   Input ~ 0
-Python3_DOUT1-
-Text GLabel 14950 2650 2    60   Input ~ 0
-Python3_DOUT1+
-Text GLabel 14950 2950 2    60   Input ~ 0
-Python3_DOUT2-
-Text GLabel 14950 2850 2    60   Input ~ 0
-Python3_DOUT2+
-Text GLabel 14950 3150 2    60   Input ~ 0
-Python3_DOUT3-
-Text GLabel 14950 3050 2    60   Input ~ 0
-Python3_DOUT3+
-Text GLabel 14950 2150 2    60   Input ~ 0
-Python3_clk_return+
-Text GLabel 14950 2250 2    60   Input ~ 0
-Python3_clk_return-
-Text GLabel 14950 3650 2    60   Input ~ 0
-Python3_Monitor0_3V3
 $Comp
 L R R4
 U 1 1 5720DCB6
@@ -3026,6 +2892,444 @@ F 22 "_" H 14200 6200 50  0001 C CNN "ResonnanceFreq"
 	1    14200 6200
 	1    0    0    -1  
 $EndComp
+$Comp
+L CONN_01X03 P3
+U 1 1 57C7B25D
+P 3500 10700
+F 0 "P3" H 3578 10839 50  0000 L CNN
+F 1 "CONN_01X03" H 3578 10748 50  0000 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03" H 3578 10657 50  0000 L CNN
+F 3 "" H 3500 10700 50  0000 C CNN
+F 4 "DNP" H 3500 10700 60  0001 C CNN "MFN"
+F 5 "DNP" H 3500 10700 60  0001 C CNN "MFP"
+F 6 "digikey" H 3500 10700 60  0001 C CNN "D1"
+F 7 "mouser" H 3500 10700 60  0001 C CNN "D2"
+F 8 "DNP" H 3500 10700 60  0001 C CNN "D1PN"
+F 9 "DNP" H 3500 10700 60  0001 C CNN "D1PL"
+F 10 "_" H 3500 10700 60  0001 C CNN "D2PN"
+F 11 "_" H 3500 10700 60  0001 C CNN "D2PL"
+F 12 "_" H 3500 10700 60  0001 C CNN "Package"
+F 13 "_" H 3578 10558 60  0000 L CNN "Description"
+F 14 "_" H 3500 10700 60  0001 C CNN "Voltage"
+F 15 "_" H 3500 10700 60  0001 C CNN "Power"
+F 16 "_" H 3500 10700 60  0001 C CNN "Tolerance"
+F 17 "_" H 3500 10700 60  0001 C CNN "Temperature"
+F 18 "_" H 3500 10700 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 3500 10700 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 3500 10700 60  0001 C CNN "Cont.Current"
+F 21 "_" H 3500 10700 60  0001 C CNN "Frequency"
+F 22 "_" H 3500 10700 60  0001 C CNN "ResonnanceFreq"
+	1    3500 10700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L CONN_01X03 P5
+U 1 1 57C7CCF4
+P 8150 10850
+F 0 "P5" H 8228 10989 50  0000 L CNN
+F 1 "CONN_01X03" H 8228 10898 50  0000 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03" H 8228 10807 50  0000 L CNN
+F 3 "" H 8150 10850 50  0000 C CNN
+F 4 "DNP" H 8150 10850 60  0001 C CNN "MFN"
+F 5 "DNP" H 8150 10850 60  0001 C CNN "MFP"
+F 6 "digikey" H 8150 10850 60  0001 C CNN "D1"
+F 7 "mouser" H 8150 10850 60  0001 C CNN "D2"
+F 8 "DNP" H 8150 10850 60  0001 C CNN "D1PN"
+F 9 "DNP" H 8150 10850 60  0001 C CNN "D1PL"
+F 10 "_" H 8150 10850 60  0001 C CNN "D2PN"
+F 11 "_" H 8150 10850 60  0001 C CNN "D2PL"
+F 12 "_" H 8150 10850 60  0001 C CNN "Package"
+F 13 "_" H 8228 10708 60  0000 L CNN "Description"
+F 14 "_" H 8150 10850 60  0001 C CNN "Voltage"
+F 15 "_" H 8150 10850 60  0001 C CNN "Power"
+F 16 "_" H 8150 10850 60  0001 C CNN "Tolerance"
+F 17 "_" H 8150 10850 60  0001 C CNN "Temperature"
+F 18 "_" H 8150 10850 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 8150 10850 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 8150 10850 60  0001 C CNN "Cont.Current"
+F 21 "_" H 8150 10850 60  0001 C CNN "Frequency"
+F 22 "_" H 8150 10850 60  0001 C CNN "ResonnanceFreq"
+	1    8150 10850
+	-1   0    0    -1  
+$EndComp
+$Comp
+L CONN_01X03 P6
+U 1 1 57C7D5F8
+P 13350 10800
+F 0 "P6" H 13428 10939 50  0000 L CNN
+F 1 "CONN_01X03" H 13428 10848 50  0000 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03" H 13428 10757 50  0000 L CNN
+F 3 "" H 13350 10800 50  0000 C CNN
+F 4 "DNP" H 13350 10800 60  0001 C CNN "MFN"
+F 5 "DNP" H 13350 10800 60  0001 C CNN "MFP"
+F 6 "digikey" H 13350 10800 60  0001 C CNN "D1"
+F 7 "mouser" H 13350 10800 60  0001 C CNN "D2"
+F 8 "DNP" H 13350 10800 60  0001 C CNN "D1PN"
+F 9 "DNP" H 13350 10800 60  0001 C CNN "D1PL"
+F 10 "_" H 13350 10800 60  0001 C CNN "D2PN"
+F 11 "_" H 13350 10800 60  0001 C CNN "D2PL"
+F 12 "_" H 13350 10800 60  0001 C CNN "Package"
+F 13 "_" H 13428 10658 60  0000 L CNN "Description"
+F 14 "_" H 13350 10800 60  0001 C CNN "Voltage"
+F 15 "_" H 13350 10800 60  0001 C CNN "Power"
+F 16 "_" H 13350 10800 60  0001 C CNN "Tolerance"
+F 17 "_" H 13350 10800 60  0001 C CNN "Temperature"
+F 18 "_" H 13350 10800 60  0001 C CNN "ReverseVoltage"
+F 19 "_" H 13350 10800 60  0001 C CNN "ForwardVoltage"
+F 20 "_" H 13350 10800 60  0001 C CNN "Cont.Current"
+F 21 "_" H 13350 10800 60  0001 C CNN "Frequency"
+F 22 "_" H 13350 10800 60  0001 C CNN "ResonnanceFreq"
+	1    13350 10800
+	-1   0    0    -1  
+$EndComp
+$Comp
+L +3V3 #PWR027
+U 1 1 57CABC6E
+P 900 7800
+F 0 "#PWR027" H 900 7650 50  0001 C CNN
+F 1 "+3V3" H 915 7973 50  0000 C CNN
+F 2 "" H 900 7800 50  0000 C CNN
+F 3 "" H 900 7800 50  0000 C CNN
+	1    900  7800
+	1    0    0    -1  
+$EndComp
+$Comp
+L R FB1
+U 1 1 57CABC87
+P 1050 7950
+F 0 "FB1" V 1150 7950 50  0000 C CNN
+F 1 "220" V 950 7950 50  0000 C CNN
+F 2 "Dipoles_SMD:R_0603" V 980 7950 30  0001 C CNN
+F 3 "http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=FBMH1608HL221-TV&fileName=FBMH1608HL221-TV_SS&mode=specSheetDownload" H 1050 7950 30  0001 C CNN
+F 4 "Taiyo Yuden" H 1050 7950 50  0001 C CNN "MFN"
+F 5 "FBMH1608HL221-TV" H 1050 7950 50  0001 C CNN "MFP"
+F 6 "digikey" H 1050 7950 50  0001 C CNN "D1"
+F 7 "mouser" H 1050 7950 50  0001 C CNN "D2"
+F 8 "587-3813" H 1050 7950 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/taiyo-yuden/FBMH1608HL221-TV/587-3813-1-ND/4875573" H 1050 7950 50  0001 C CNN "D1PL"
+F 10 "_" H 1050 7950 50  0001 C CNN "D2PN"
+F 11 "_" H 1050 7950 50  0001 C CNN "D2PL"
+F 12 "0603" H 1050 7950 50  0001 C CNN "Package"
+F 13 "_" V 935 7950 50  0000 C CNN "Description"
+F 14 "_" H 1050 7950 50  0001 C CNN "Voltage"
+F 15 "_" H 1050 7950 50  0001 C CNN "Power"
+F 16 "_" H 1050 7950 50  0001 C CNN "Tolerance"
+F 17 "_" H 1050 7950 50  0001 C CNN "Temperature"
+F 18 "_" H 1050 7950 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 1050 7950 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 1050 7950 50  0001 C CNN "Cont.Current"
+F 21 "_" H 1050 7950 50  0001 C CNN "Frequency"
+F 22 "_" H 1050 7950 50  0001 C CNN "ResonnanceFreq"
+	1    1050 7950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L +3V3 #PWR028
+U 1 1 57CAF66A
+P 900 8700
+F 0 "#PWR028" H 900 8550 50  0001 C CNN
+F 1 "+3V3" H 915 8873 50  0000 C CNN
+F 2 "" H 900 8700 50  0000 C CNN
+F 3 "" H 900 8700 50  0000 C CNN
+	1    900  8700
+	1    0    0    -1  
+$EndComp
+$Comp
+L R FB2
+U 1 1 57CAF683
+P 1050 8850
+F 0 "FB2" V 1150 8850 50  0000 C CNN
+F 1 "1k" V 950 8850 50  0000 C CNN
+F 2 "Dipoles_SMD:R_0603" V 980 8850 30  0001 C CNN
+F 3 "http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=FBMH1608HM102-TV&fileName=FBMH1608HM102-TV_SS&mode=specSheetDownload" H 1050 8850 30  0001 C CNN
+F 4 "Taiyo Yuden" H 1050 8850 50  0001 C CNN "MFN"
+F 5 "FBMH1608HM102-TV" H 1050 8850 50  0001 C CNN "MFP"
+F 6 "digikey" H 1050 8850 50  0001 C CNN "D1"
+F 7 "mouser" H 1050 8850 50  0001 C CNN "D2"
+F 8 "587-3820" H 1050 8850 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/taiyo-yuden/FBMH1608HM102-TV/587-3820-1-ND/4875580" H 1050 8850 50  0001 C CNN "D1PL"
+F 10 "_" H 1050 8850 50  0001 C CNN "D2PN"
+F 11 "_" H 1050 8850 50  0001 C CNN "D2PL"
+F 12 "0402" H 1050 8850 50  0001 C CNN "Package"
+F 13 "_" V 935 8850 50  0000 C CNN "Description"
+F 14 "_" H 1050 8850 50  0001 C CNN "Voltage"
+F 15 "_" H 1050 8850 50  0001 C CNN "Power"
+F 16 "_" H 1050 8850 50  0001 C CNN "Tolerance"
+F 17 "_" H 1050 8850 50  0001 C CNN "Temperature"
+F 18 "_" H 1050 8850 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 1050 8850 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 1050 8850 50  0001 C CNN "Cont.Current"
+F 21 "_" H 1050 8850 50  0001 C CNN "Frequency"
+F 22 "_" H 1050 8850 50  0001 C CNN "ResonnanceFreq"
+	1    1050 8850
+	0    -1   -1   0   
+$EndComp
+$Comp
+L +1V8 #PWR029
+U 1 1 57CB1C83
+P 900 9550
+F 0 "#PWR029" H 900 9400 50  0001 C CNN
+F 1 "+1V8" H 915 9723 50  0000 C CNN
+F 2 "" H 900 9550 50  0000 C CNN
+F 3 "" H 900 9550 50  0000 C CNN
+	1    900  9550
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR030
+U 1 1 57CB3220
+P 7350 5600
+F 0 "#PWR030" H 7350 5350 50  0001 C CNN
+F 1 "GND" H 7355 5427 50  0000 C CNN
+F 2 "" H 7350 5600 50  0000 C CNN
+F 3 "" H 7350 5600 50  0000 C CNN
+	1    7350 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR031
+U 1 1 57CB330C
+P 7350 6450
+F 0 "#PWR031" H 7350 6200 50  0001 C CNN
+F 1 "GND" H 7355 6277 50  0000 C CNN
+F 2 "" H 7350 6450 50  0000 C CNN
+F 3 "" H 7350 6450 50  0000 C CNN
+	1    7350 6450
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR032
+U 1 1 57CB33F8
+P 7350 7150
+F 0 "#PWR032" H 7350 6900 50  0001 C CNN
+F 1 "GND" H 7355 6977 50  0000 C CNN
+F 2 "" H 7350 7150 50  0000 C CNN
+F 3 "" H 7350 7150 50  0000 C CNN
+	1    7350 7150
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3V3 #PWR033
+U 1 1 57CB3E9F
+P 6550 7700
+F 0 "#PWR033" H 6550 7550 50  0001 C CNN
+F 1 "+3V3" H 6565 7873 50  0000 C CNN
+F 2 "" H 6550 7700 50  0000 C CNN
+F 3 "" H 6550 7700 50  0000 C CNN
+	1    6550 7700
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3V3 #PWR034
+U 1 1 57CB3F3B
+P 6550 8600
+F 0 "#PWR034" H 6550 8450 50  0001 C CNN
+F 1 "+3V3" H 6565 8773 50  0000 C CNN
+F 2 "" H 6550 8600 50  0000 C CNN
+F 3 "" H 6550 8600 50  0000 C CNN
+	1    6550 8600
+	1    0    0    -1  
+$EndComp
+$Comp
+L +1V8 #PWR035
+U 1 1 57CB403E
+P 6550 9450
+F 0 "#PWR035" H 6550 9300 50  0001 C CNN
+F 1 "+1V8" H 6565 9623 50  0000 C CNN
+F 2 "" H 6550 9450 50  0000 C CNN
+F 3 "" H 6550 9450 50  0000 C CNN
+	1    6550 9450
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3V3 #PWR036
+U 1 1 57CB5F9A
+P 12250 7700
+F 0 "#PWR036" H 12250 7550 50  0001 C CNN
+F 1 "+3V3" H 12265 7873 50  0000 C CNN
+F 2 "" H 12250 7700 50  0000 C CNN
+F 3 "" H 12250 7700 50  0000 C CNN
+	1    12250 7700
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3V3 #PWR037
+U 1 1 57CB6036
+P 12250 8600
+F 0 "#PWR037" H 12250 8450 50  0001 C CNN
+F 1 "+3V3" H 12265 8773 50  0000 C CNN
+F 2 "" H 12250 8600 50  0000 C CNN
+F 3 "" H 12250 8600 50  0000 C CNN
+	1    12250 8600
+	1    0    0    -1  
+$EndComp
+$Comp
+L +1V8 #PWR038
+U 1 1 57CB6139
+P 12250 9450
+F 0 "#PWR038" H 12250 9300 50  0001 C CNN
+F 1 "+1V8" H 12265 9623 50  0000 C CNN
+F 2 "" H 12250 9450 50  0000 C CNN
+F 3 "" H 12250 9450 50  0000 C CNN
+	1    12250 9450
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR039
+U 1 1 57CCDEDD
+P 9650 4600
+F 0 "#PWR039" H 9650 4350 50  0001 C CNN
+F 1 "GND" H 9655 4427 50  0000 C CNN
+F 2 "" H 9650 4600 50  0000 C CNN
+F 3 "" H 9650 4600 50  0000 C CNN
+	1    9650 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR040
+U 1 1 57CCFCD2
+P 7100 4750
+F 0 "#PWR040" H 7100 4500 50  0001 C CNN
+F 1 "GND" H 7105 4577 50  0000 C CNN
+F 2 "" H 7100 4750 50  0000 C CNN
+F 3 "" H 7100 4750 50  0000 C CNN
+	1    7100 4750
+	1    0    0    -1  
+$EndComp
+Text Notes 2200 1000 0    200  ~ 0
+CAMERA
+Text Notes 850  7350 0    60   ~ 0
+decoupling copied from http://www.onsemi.com/pub_link/Collateral/HEADBOARD_SCHEMATIC.PDF
+Text Notes 7750 1000 0    200  ~ 0
+CAMERA
+Text GLabel 7250 2050 0    60   Input ~ 0
+Python2_lvds_clk-
+Text GLabel 7250 2650 0    60   Input ~ 0
+SPI_MISO_3V3
+Text GLabel 7250 2750 0    60   Input ~ 0
+SPI_SCK_3V3
+Text GLabel 7250 2550 0    60   Input ~ 0
+SPI_MOSI_3V3
+Text Notes 13450 1100 0    200  ~ 0
+CAMERA
+Text GLabel 9250 2450 2    60   Input ~ 0
+Python2_DOUT0-
+Text GLabel 9250 2350 2    60   Input ~ 0
+Python2_DOUT0+
+Text GLabel 9250 3350 2    60   Input ~ 0
+Python2_SYNC-
+Text GLabel 9250 3250 2    60   Input ~ 0
+Python2_SYNC+
+Text GLabel 9250 2650 2    60   Input ~ 0
+Python2_DOUT1-
+Text GLabel 9250 2550 2    60   Input ~ 0
+Python2_DOUT1+
+Text GLabel 9250 2850 2    60   Input ~ 0
+Python2_DOUT2-
+Text GLabel 9250 2750 2    60   Input ~ 0
+Python2_DOUT2+
+Text GLabel 9250 3050 2    60   Input ~ 0
+Python2_DOUT3-
+Text GLabel 9250 2950 2    60   Input ~ 0
+Python2_DOUT3+
+Text GLabel 9250 2050 2    60   Input ~ 0
+Python2_clk_return+
+Text GLabel 9250 2150 2    60   Input ~ 0
+Python2_clk_return-
+Text GLabel 7250 2850 0    60   Input ~ 0
+Python2_CS#_3V3
+Text GLabel 7250 3400 0    60   Input ~ 0
+Python_Trigger_3V3
+Text GLabel 7250 3850 0    60   Input ~ 0
+Python_RST#_3V3
+Text GLabel 9250 3550 2    60   Input ~ 0
+Python2_Monitor0_3V3
+Text GLabel 7250 2350 0    60   Input ~ 0
+Python2_lvds_clk+
+Text GLabel 1700 2050 0    60   Input ~ 0
+Python1_lvds_clk-
+Text GLabel 1700 2650 0    60   Input ~ 0
+SPI_MISO_3V3
+Text GLabel 1700 2750 0    60   Input ~ 0
+SPI_SCK_3V3
+Text GLabel 1700 2550 0    60   Input ~ 0
+SPI_MOSI_3V3
+Text GLabel 1700 2850 0    60   Input ~ 0
+Python1_CS#_3V3
+Text GLabel 1700 3400 0    60   Input ~ 0
+Python_Trigger_3V3
+Text GLabel 1700 3850 0    60   Input ~ 0
+Python_RST#_3V3
+Text GLabel 1700 2350 0    60   Input ~ 0
+Python1_lvds_clk+
+Text GLabel 3700 2450 2    60   Input ~ 0
+Python1_DOUT0-
+Text GLabel 3700 2350 2    60   Input ~ 0
+Python1_DOUT0+
+Text GLabel 3700 3350 2    60   Input ~ 0
+Python1_SYNC-
+Text GLabel 3700 3250 2    60   Input ~ 0
+Python1_SYNC+
+Text GLabel 3700 2650 2    60   Input ~ 0
+Python1_DOUT1-
+Text GLabel 3700 2550 2    60   Input ~ 0
+Python1_DOUT1+
+Text GLabel 3700 2850 2    60   Input ~ 0
+Python1_DOUT2-
+Text GLabel 3700 2750 2    60   Input ~ 0
+Python1_DOUT2+
+Text GLabel 3700 3050 2    60   Input ~ 0
+Python1_DOUT3-
+Text GLabel 3700 2950 2    60   Input ~ 0
+Python1_DOUT3+
+Text GLabel 3700 2050 2    60   Input ~ 0
+Python1_clk_return+
+Text GLabel 3700 2150 2    60   Input ~ 0
+Python1_clk_return-
+Text GLabel 3700 3550 2    60   Input ~ 0
+Python1_Monitor0_3V3
+Text GLabel 12950 2150 0    60   Input ~ 0
+Python3_lvds_clk-
+Text GLabel 12950 2750 0    60   Input ~ 0
+SPI_MISO_3V3
+Text GLabel 12950 2850 0    60   Input ~ 0
+SPI_SCK_3V3
+Text GLabel 12950 2650 0    60   Input ~ 0
+SPI_MOSI_3V3
+Text GLabel 12950 2950 0    60   Input ~ 0
+Python3_CS#_3V3
+Text GLabel 12950 3500 0    60   Input ~ 0
+Python_Trigger_3V3
+Text GLabel 12950 3950 0    60   Input ~ 0
+Python_RST#_3V3
+Text GLabel 12950 2450 0    60   Input ~ 0
+Python3_lvds_clk+
+Text GLabel 14950 2550 2    60   Input ~ 0
+Python3_DOUT0-
+Text GLabel 14950 2450 2    60   Input ~ 0
+Python3_DOUT0+
+Text GLabel 14950 3450 2    60   Input ~ 0
+Python3_SYNC-
+Text GLabel 14950 3350 2    60   Input ~ 0
+Python3_SYNC+
+Text GLabel 14950 2750 2    60   Input ~ 0
+Python3_DOUT1-
+Text GLabel 14950 2650 2    60   Input ~ 0
+Python3_DOUT1+
+Text GLabel 14950 2950 2    60   Input ~ 0
+Python3_DOUT2-
+Text GLabel 14950 2850 2    60   Input ~ 0
+Python3_DOUT2+
+Text GLabel 14950 3150 2    60   Input ~ 0
+Python3_DOUT3-
+Text GLabel 14950 3050 2    60   Input ~ 0
+Python3_DOUT3+
+Text GLabel 14950 2150 2    60   Input ~ 0
+Python3_clk_return+
+Text GLabel 14950 2250 2    60   Input ~ 0
+Python3_clk_return-
+Text GLabel 14950 3650 2    60   Input ~ 0
+Python3_Monitor0_3V3
 Text GLabel 1250 5750 0    60   Input ~ 0
 Python1_VDDPIX
 Text GLabel 1250 5000 0    60   Input ~ 0
@@ -3068,150 +3372,42 @@ Text GLabel 9250 3650 2    60   Input ~ 0
 Python2_Monitor1_3V3
 Text GLabel 3700 3650 2    60   Input ~ 0
 Python1_Monitor1_3V3
-$Comp
-L CONN_01X03 P3
-U 1 1 57C7B25D
-P 3500 10700
-F 0 "P3" H 3578 10839 50  0000 L CNN
-F 1 "CONN_01X03" H 3578 10748 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03" H 3578 10657 50  0000 L CNN
-F 3 "" H 3500 10700 50  0000 C CNN
-F 4 "_" H 3500 10700 60  0001 C CNN "MFN"
-F 5 "_" H 3500 10700 60  0001 C CNN "MFP"
-F 6 "digikey" H 3500 10700 60  0001 C CNN "D1"
-F 7 "mouser" H 3500 10700 60  0001 C CNN "D2"
-F 8 "_" H 3500 10700 60  0001 C CNN "D1PN"
-F 9 "_" H 3500 10700 60  0001 C CNN "D1PL"
-F 10 "_" H 3500 10700 60  0001 C CNN "D2PN"
-F 11 "_" H 3500 10700 60  0001 C CNN "D2PL"
-F 12 "_" H 3500 10700 60  0001 C CNN "Package"
-F 13 "_" H 3578 10558 60  0000 L CNN "Description"
-F 14 "_" H 3500 10700 60  0001 C CNN "Voltage"
-F 15 "_" H 3500 10700 60  0001 C CNN "Power"
-F 16 "_" H 3500 10700 60  0001 C CNN "Tolerance"
-F 17 "_" H 3500 10700 60  0001 C CNN "Temperature"
-F 18 "_" H 3500 10700 60  0001 C CNN "ReverseVoltage"
-F 19 "_" H 3500 10700 60  0001 C CNN "ForwardVoltage"
-F 20 "_" H 3500 10700 60  0001 C CNN "Cont.Current"
-F 21 "_" H 3500 10700 60  0001 C CNN "Frequency"
-F 22 "_" H 3500 10700 60  0001 C CNN "ResonnanceFreq"
-	1    3500 10700
-	-1   0    0    -1  
-$EndComp
 Text GLabel 3700 10600 2    60   Input ~ 0
 Python1_Monitor0_3V3
 Text GLabel 3700 10700 2    60   Input ~ 0
 Python1_Monitor1_3V3
 Text GLabel 3700 10800 2    60   Input ~ 0
 Python1_VDD
-$Comp
-L CONN_01X03 P5
-U 1 1 57C7CCF4
-P 8150 10850
-F 0 "P5" H 8228 10989 50  0000 L CNN
-F 1 "CONN_01X03" H 8228 10898 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03" H 8228 10807 50  0000 L CNN
-F 3 "" H 8150 10850 50  0000 C CNN
-F 4 "_" H 8150 10850 60  0001 C CNN "MFN"
-F 5 "_" H 8150 10850 60  0001 C CNN "MFP"
-F 6 "digikey" H 8150 10850 60  0001 C CNN "D1"
-F 7 "mouser" H 8150 10850 60  0001 C CNN "D2"
-F 8 "_" H 8150 10850 60  0001 C CNN "D1PN"
-F 9 "_" H 8150 10850 60  0001 C CNN "D1PL"
-F 10 "_" H 8150 10850 60  0001 C CNN "D2PN"
-F 11 "_" H 8150 10850 60  0001 C CNN "D2PL"
-F 12 "_" H 8150 10850 60  0001 C CNN "Package"
-F 13 "_" H 8228 10708 60  0000 L CNN "Description"
-F 14 "_" H 8150 10850 60  0001 C CNN "Voltage"
-F 15 "_" H 8150 10850 60  0001 C CNN "Power"
-F 16 "_" H 8150 10850 60  0001 C CNN "Tolerance"
-F 17 "_" H 8150 10850 60  0001 C CNN "Temperature"
-F 18 "_" H 8150 10850 60  0001 C CNN "ReverseVoltage"
-F 19 "_" H 8150 10850 60  0001 C CNN "ForwardVoltage"
-F 20 "_" H 8150 10850 60  0001 C CNN "Cont.Current"
-F 21 "_" H 8150 10850 60  0001 C CNN "Frequency"
-F 22 "_" H 8150 10850 60  0001 C CNN "ResonnanceFreq"
-	1    8150 10850
-	-1   0    0    -1  
-$EndComp
 Text GLabel 8350 10750 2    60   Input ~ 0
 Python2_Monitor0_3V3
 Text GLabel 8350 10850 2    60   Input ~ 0
 Python2_Monitor1_3V3
 Text GLabel 8350 10950 2    60   Input ~ 0
 Python2_VDD
-$Comp
-L CONN_01X03 P6
-U 1 1 57C7D5F8
-P 13350 10800
-F 0 "P6" H 13428 10939 50  0000 L CNN
-F 1 "CONN_01X03" H 13428 10848 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03" H 13428 10757 50  0000 L CNN
-F 3 "" H 13350 10800 50  0000 C CNN
-F 4 "_" H 13350 10800 60  0001 C CNN "MFN"
-F 5 "_" H 13350 10800 60  0001 C CNN "MFP"
-F 6 "digikey" H 13350 10800 60  0001 C CNN "D1"
-F 7 "mouser" H 13350 10800 60  0001 C CNN "D2"
-F 8 "_" H 13350 10800 60  0001 C CNN "D1PN"
-F 9 "_" H 13350 10800 60  0001 C CNN "D1PL"
-F 10 "_" H 13350 10800 60  0001 C CNN "D2PN"
-F 11 "_" H 13350 10800 60  0001 C CNN "D2PL"
-F 12 "_" H 13350 10800 60  0001 C CNN "Package"
-F 13 "_" H 13428 10658 60  0000 L CNN "Description"
-F 14 "_" H 13350 10800 60  0001 C CNN "Voltage"
-F 15 "_" H 13350 10800 60  0001 C CNN "Power"
-F 16 "_" H 13350 10800 60  0001 C CNN "Tolerance"
-F 17 "_" H 13350 10800 60  0001 C CNN "Temperature"
-F 18 "_" H 13350 10800 60  0001 C CNN "ReverseVoltage"
-F 19 "_" H 13350 10800 60  0001 C CNN "ForwardVoltage"
-F 20 "_" H 13350 10800 60  0001 C CNN "Cont.Current"
-F 21 "_" H 13350 10800 60  0001 C CNN "Frequency"
-F 22 "_" H 13350 10800 60  0001 C CNN "ResonnanceFreq"
-	1    13350 10800
-	-1   0    0    -1  
-$EndComp
 Text GLabel 13550 10700 2    60   Input ~ 0
 Python3_Monitor0_3V3
 Text GLabel 13550 10800 2    60   Input ~ 0
 Python3_Monitor1_3V3
 Text GLabel 13550 10900 2    60   Input ~ 0
 Python3_VDD
-Text GLabel 900  9200 2    60   Input ~ 0
+Text GLabel 1200 8850 2    60   Input ~ 0
 Python1_VDDPIX
-Text GLabel 900  8300 2    60   Input ~ 0
+Text GLabel 1200 7950 2    60   Input ~ 0
 Python1_VDD
-Text GLabel 900  10050 2    60   Input ~ 0
+Text GLabel 1200 9700 2    60   Input ~ 0
 Python1_1V8
-$Comp
-L R FB3
-U 1 1 57CA7288
-P 750 10050
-F 0 "FB3" V 850 10050 50  0000 C CNN
-F 1 "R" V 650 10050 50  0000 C CNN
-F 2 "Dipoles_SMD:R_0603" V 680 10050 30  0001 C CNN
-F 3 "" H 750 10050 30  0001 C CNN
-F 4 "_" H 750 10050 50  0001 C CNN "MFN"
-F 5 "_" H 750 10050 50  0001 C CNN "MFP"
-F 6 "digikey" H 750 10050 50  0001 C CNN "D1"
-F 7 "mouser" H 750 10050 50  0001 C CNN "D2"
-F 8 "_" H 750 10050 50  0001 C CNN "D1PN"
-F 9 "_" H 750 10050 50  0001 C CNN "D1PL"
-F 10 "_" H 750 10050 50  0001 C CNN "D2PN"
-F 11 "_" H 750 10050 50  0001 C CNN "D2PL"
-F 12 "0402" H 750 10050 50  0001 C CNN "Package"
-F 13 "_" V 635 10050 50  0000 C CNN "Description"
-F 14 "_" H 750 10050 50  0001 C CNN "Voltage"
-F 15 "_" H 750 10050 50  0001 C CNN "Power"
-F 16 "_" H 750 10050 50  0001 C CNN "Tolerance"
-F 17 "_" H 750 10050 50  0001 C CNN "Temperature"
-F 18 "_" H 750 10050 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 750 10050 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 750 10050 50  0001 C CNN "Cont.Current"
-F 21 "_" H 750 10050 50  0001 C CNN "Frequency"
-F 22 "_" H 750 10050 50  0001 C CNN "ResonnanceFreq"
-	1    750  10050
-	0    -1   -1   0   
-$EndComp
+Text GLabel 6850 8750 2    60   Input ~ 0
+Python2_VDDPIX
+Text GLabel 6850 7850 2    60   Input ~ 0
+Python2_VDD
+Text GLabel 6850 9600 2    60   Input ~ 0
+Python2_1V8
+Text GLabel 12550 8750 2    60   Input ~ 0
+Python3_VDDPIX
+Text GLabel 12550 7850 2    60   Input ~ 0
+Python3_VDD
+Text GLabel 12550 9600 2    60   Input ~ 0
+Python3_1V8
 Wire Wire Line
 	2000 1350 2200 1350
 Wire Wire Line
@@ -3282,55 +3478,6 @@ Wire Wire Line
 	1950 2050 1950 2250
 Wire Wire Line
 	1950 2250 2200 2250
-Connection ~ 2200 1850
-Connection ~ 2200 1550
-Connection ~ 2200 1450
-Connection ~ 3400 1450
-Connection ~ 2200 1950
-Connection ~ 1450 5000
-Connection ~ 1750 5000
-Connection ~ 1950 5000
-Connection ~ 2150 5000
-Connection ~ 2350 5000
-Connection ~ 2650 5000
-Connection ~ 2650 5300
-Connection ~ 2350 5300
-Connection ~ 2150 5300
-Connection ~ 1950 5300
-Connection ~ 1750 5300
-Connection ~ 1450 5300
-Connection ~ 1450 6600
-Connection ~ 1650 6600
-Connection ~ 1450 6900
-Connection ~ 1650 6900
-Connection ~ 2550 6600
-Connection ~ 2350 6600
-Connection ~ 2150 6600
-Connection ~ 2150 6900
-Connection ~ 2350 6900
-Connection ~ 2550 6900
-Connection ~ 2850 5300
-Connection ~ 3050 5300
-Connection ~ 2850 5000
-Connection ~ 3050 5000
-Connection ~ 1450 5850
-Connection ~ 1650 5850
-Connection ~ 1850 5850
-Connection ~ 2200 5850
-Connection ~ 2400 5850
-Connection ~ 2700 5850
-Connection ~ 2900 5850
-Connection ~ 3100 5850
-Connection ~ 3100 6150
-Connection ~ 2900 6150
-Connection ~ 2700 6150
-Connection ~ 2400 6150
-Connection ~ 2200 6150
-Connection ~ 1850 6150
-Connection ~ 1650 6150
-Connection ~ 1450 6150
-Connection ~ 1800 2050
-Connection ~ 1800 2350
 Wire Wire Line
 	7250 1350 7750 1350
 Wire Wire Line
@@ -3387,13 +3534,6 @@ Wire Wire Line
 	7500 2050 7500 2250
 Wire Wire Line
 	7500 2250 7750 2250
-Connection ~ 7750 1850
-Connection ~ 7750 1550
-Connection ~ 7750 1450
-Connection ~ 8950 1450
-Connection ~ 7750 1950
-Connection ~ 7350 2050
-Connection ~ 7350 2350
 Wire Wire Line
 	12950 1450 13450 1450
 Wire Wire Line
@@ -3450,13 +3590,6 @@ Wire Wire Line
 	13200 2150 13200 2350
 Wire Wire Line
 	13200 2350 13450 2350
-Connection ~ 13450 1950
-Connection ~ 13450 1650
-Connection ~ 13450 1550
-Connection ~ 14650 1550
-Connection ~ 13450 2050
-Connection ~ 13050 2150
-Connection ~ 13050 2450
 Wire Wire Line
 	7350 5200 9350 5200
 Wire Wire Line
@@ -3469,6 +3602,259 @@ Wire Wire Line
 	7350 6050 9400 6050
 Wire Wire Line
 	7350 6350 9400 6350
+Wire Wire Line
+	13050 5200 15050 5200
+Wire Wire Line
+	13050 5500 15050 5500
+Wire Wire Line
+	13050 6800 14850 6800
+Wire Wire Line
+	13050 7100 14850 7100
+Wire Wire Line
+	13050 5950 13050 6050
+Wire Wire Line
+	13050 6050 15100 6050
+Wire Wire Line
+	13050 6350 15100 6350
+Wire Wire Line
+	7350 6800 9150 6800
+Wire Wire Line
+	9650 4550 8950 4550
+Wire Wire Line
+	9100 4150 8950 4150
+Wire Wire Line
+	7200 3150 7000 3150
+Wire Wire Line
+	7500 3150 7750 3150
+Wire Wire Line
+	7750 3050 7600 3050
+Wire Wire Line
+	7600 3600 7750 3600
+Wire Wire Line
+	7750 3500 7600 3500
+Wire Wire Line
+	14800 4250 14800 4750
+Wire Wire Line
+	14800 4650 14650 4650
+Wire Wire Line
+	14650 4550 14800 4550
+Wire Wire Line
+	14800 4450 14650 4450
+Wire Wire Line
+	14650 4350 14800 4350
+Wire Wire Line
+	14800 4250 14650 4250
+Wire Wire Line
+	12800 3250 12700 3250
+Wire Wire Line
+	13100 3250 13450 3250
+Wire Wire Line
+	13450 3150 13250 3150
+Wire Wire Line
+	13250 3150 13250 4750
+Wire Wire Line
+	13450 3600 13250 3600
+Wire Wire Line
+	13450 3700 13250 3700
+Wire Wire Line
+	13450 4150 13250 4150
+Wire Wire Line
+	13450 4250 13250 4250
+Wire Wire Line
+	13450 4350 13250 4350
+Wire Wire Line
+	13450 4450 13250 4450
+Wire Wire Line
+	13450 4550 13250 4550
+Wire Wire Line
+	13450 4650 13250 4650
+Wire Wire Line
+	3650 4150 3650 4650
+Wire Wire Line
+	3650 4150 3400 4150
+Wire Wire Line
+	3400 4250 3650 4250
+Wire Wire Line
+	3650 4350 3400 4350
+Wire Wire Line
+	3400 4450 3650 4450
+Wire Wire Line
+	3650 4550 3400 4550
+Wire Wire Line
+	1650 3150 1450 3150
+Wire Wire Line
+	1950 3150 2200 3150
+Wire Wire Line
+	2200 3050 2000 3050
+Wire Wire Line
+	2000 3050 2000 4650
+Wire Wire Line
+	2200 3500 2000 3500
+Wire Wire Line
+	2200 3600 2000 3600
+Wire Wire Line
+	2200 4050 2000 4050
+Wire Wire Line
+	2200 4150 2000 4150
+Wire Wire Line
+	2200 4250 2000 4250
+Wire Wire Line
+	2200 4350 2000 4350
+Wire Wire Line
+	2200 4450 2000 4450
+Wire Wire Line
+	2200 4550 2000 4550
+Wire Wire Line
+	1950 1850 2200 1850
+Wire Wire Line
+	7250 1850 7750 1850
+Wire Wire Line
+	12950 1950 13450 1950
+Wire Wire Line
+	1050 6550 1250 6550
+Wire Wire Line
+	1250 6550 1250 6600
+Wire Wire Line
+	7350 6800 7350 6700
+Wire Wire Line
+	7350 6700 7150 6700
+Wire Wire Line
+	13050 6800 13050 6700
+Wire Wire Line
+	13050 6700 12900 6700
+Wire Wire Line
+	14650 3750 14950 3750
+Wire Wire Line
+	8950 3650 9250 3650
+Wire Wire Line
+	3400 3650 3700 3650
+Wire Wire Line
+	7350 7150 7350 7100
+Wire Wire Line
+	7350 6450 7350 6350
+Wire Wire Line
+	7350 5600 7350 5500
+Wire Wire Line
+	7100 4050 7750 4050
+Wire Wire Line
+	7750 4250 7350 4250
+Wire Wire Line
+	7350 4050 7350 4350
+Wire Wire Line
+	7350 4350 7750 4350
+Wire Wire Line
+	7750 4150 7250 4150
+Wire Wire Line
+	7250 4150 7250 4550
+Wire Wire Line
+	7400 4450 7750 4450
+Wire Wire Line
+	8950 4250 9650 4250
+Wire Wire Line
+	7400 4550 7400 4450
+Wire Wire Line
+	7100 4550 7400 4550
+Wire Wire Line
+	7750 4550 7500 4550
+Wire Wire Line
+	7500 4550 7500 4750
+Wire Wire Line
+	7500 4750 7100 4750
+Wire Wire Line
+	9100 4150 9100 4450
+Wire Wire Line
+	9100 4400 9650 4400
+Wire Wire Line
+	9100 4450 8950 4450
+Wire Wire Line
+	8950 4350 9100 4350
+Wire Wire Line
+	7600 3050 7600 4450
+Wire Wire Line
+	900  9550 900  9700
+Wire Wire Line
+	900  7800 900  7950
+Wire Wire Line
+	900  8700 900  8850
+Wire Wire Line
+	6550 9450 6550 9600
+Wire Wire Line
+	6550 7700 6550 7850
+Wire Wire Line
+	6550 8600 6550 8750
+Wire Wire Line
+	12250 9450 12250 9600
+Wire Wire Line
+	12250 7700 12250 7850
+Wire Wire Line
+	12250 8600 12250 8750
+Wire Wire Line
+	9650 4250 9650 4600
+Wire Wire Line
+	7100 4750 7100 4050
+Connection ~ 2200 1850
+Connection ~ 2200 1550
+Connection ~ 2200 1450
+Connection ~ 3400 1450
+Connection ~ 2200 1950
+Connection ~ 1450 5000
+Connection ~ 1750 5000
+Connection ~ 1950 5000
+Connection ~ 2150 5000
+Connection ~ 2350 5000
+Connection ~ 2650 5000
+Connection ~ 2650 5300
+Connection ~ 2350 5300
+Connection ~ 2150 5300
+Connection ~ 1950 5300
+Connection ~ 1750 5300
+Connection ~ 1450 5300
+Connection ~ 1450 6600
+Connection ~ 1650 6600
+Connection ~ 1450 6900
+Connection ~ 1650 6900
+Connection ~ 2550 6600
+Connection ~ 2350 6600
+Connection ~ 2150 6600
+Connection ~ 2150 6900
+Connection ~ 2350 6900
+Connection ~ 2550 6900
+Connection ~ 2850 5300
+Connection ~ 3050 5300
+Connection ~ 2850 5000
+Connection ~ 3050 5000
+Connection ~ 1450 5850
+Connection ~ 1650 5850
+Connection ~ 1850 5850
+Connection ~ 2200 5850
+Connection ~ 2400 5850
+Connection ~ 2700 5850
+Connection ~ 2900 5850
+Connection ~ 3100 5850
+Connection ~ 3100 6150
+Connection ~ 2900 6150
+Connection ~ 2700 6150
+Connection ~ 2400 6150
+Connection ~ 2200 6150
+Connection ~ 1850 6150
+Connection ~ 1650 6150
+Connection ~ 1450 6150
+Connection ~ 1800 2050
+Connection ~ 1800 2350
+Connection ~ 7750 1850
+Connection ~ 7750 1550
+Connection ~ 7750 1450
+Connection ~ 8950 1450
+Connection ~ 7750 1950
+Connection ~ 7350 2050
+Connection ~ 7350 2350
+Connection ~ 13450 1950
+Connection ~ 13450 1650
+Connection ~ 13450 1550
+Connection ~ 14650 1550
+Connection ~ 13450 2050
+Connection ~ 13050 2150
+Connection ~ 13050 2450
 Connection ~ 7550 5200
 Connection ~ 7850 5200
 Connection ~ 8050 5200
@@ -3511,20 +3897,6 @@ Connection ~ 8300 6350
 Connection ~ 7950 6350
 Connection ~ 7750 6350
 Connection ~ 7550 6350
-Wire Wire Line
-	13050 5200 15050 5200
-Wire Wire Line
-	13050 5500 15050 5500
-Wire Wire Line
-	13050 6800 14850 6800
-Wire Wire Line
-	13050 7100 14850 7100
-Wire Wire Line
-	13050 5950 13050 6050
-Wire Wire Line
-	13050 6050 15100 6050
-Wire Wire Line
-	13050 6350 15100 6350
 Connection ~ 13250 5200
 Connection ~ 13550 5200
 Connection ~ 13750 5200
@@ -3567,429 +3939,55 @@ Connection ~ 14000 6350
 Connection ~ 13650 6350
 Connection ~ 13450 6350
 Connection ~ 13250 6350
-Wire Wire Line
-	7350 6800 9150 6800
-Wire Wire Line
-	9650 4550 8950 4550
-Wire Wire Line
-	9100 4150 8950 4150
-Wire Wire Line
-	7200 3150 7000 3150
-Wire Wire Line
-	7500 3150 7750 3150
-Wire Wire Line
-	7750 3050 7600 3050
-Wire Wire Line
-	7600 3600 7750 3600
 Connection ~ 7600 3600
-Wire Wire Line
-	7750 3500 7600 3500
 Connection ~ 7600 3500
-Wire Wire Line
-	14800 4250 14800 4750
-Wire Wire Line
-	14800 4650 14650 4650
-Wire Wire Line
-	14650 4550 14800 4550
 Connection ~ 14800 4650
-Wire Wire Line
-	14800 4450 14650 4450
 Connection ~ 14800 4550
-Wire Wire Line
-	14650 4350 14800 4350
 Connection ~ 14800 4450
-Wire Wire Line
-	14800 4250 14650 4250
 Connection ~ 14800 4350
-Wire Wire Line
-	12800 3250 12700 3250
-Wire Wire Line
-	13100 3250 13450 3250
-Wire Wire Line
-	13450 3150 13250 3150
-Wire Wire Line
-	13250 3150 13250 4750
-Wire Wire Line
-	13450 3600 13250 3600
 Connection ~ 13250 3600
-Wire Wire Line
-	13450 3700 13250 3700
 Connection ~ 13250 3700
-Wire Wire Line
-	13450 4150 13250 4150
 Connection ~ 13250 4150
-Wire Wire Line
-	13450 4250 13250 4250
 Connection ~ 13250 4250
-Wire Wire Line
-	13450 4350 13250 4350
 Connection ~ 13250 4350
-Wire Wire Line
-	13450 4450 13250 4450
 Connection ~ 13250 4450
-Wire Wire Line
-	13450 4550 13250 4550
 Connection ~ 13250 4550
-Wire Wire Line
-	13450 4650 13250 4650
 Connection ~ 13250 4650
-Wire Wire Line
-	3650 4150 3650 4650
-Wire Wire Line
-	3650 4150 3400 4150
-Wire Wire Line
-	3400 4250 3650 4250
 Connection ~ 3650 4250
-Wire Wire Line
-	3650 4350 3400 4350
 Connection ~ 3650 4350
-Wire Wire Line
-	3400 4450 3650 4450
 Connection ~ 3650 4450
-Wire Wire Line
-	3650 4550 3400 4550
 Connection ~ 3650 4550
-Wire Wire Line
-	1650 3150 1450 3150
-Wire Wire Line
-	1950 3150 2200 3150
-Wire Wire Line
-	2200 3050 2000 3050
-Wire Wire Line
-	2000 3050 2000 4650
-Wire Wire Line
-	2200 3500 2000 3500
 Connection ~ 2000 3500
-Wire Wire Line
-	2200 3600 2000 3600
 Connection ~ 2000 3600
-Wire Wire Line
-	2200 4050 2000 4050
 Connection ~ 2000 4050
-Wire Wire Line
-	2200 4150 2000 4150
 Connection ~ 2000 4150
-Wire Wire Line
-	2200 4250 2000 4250
 Connection ~ 2000 4250
-Wire Wire Line
-	2200 4350 2000 4350
 Connection ~ 2000 4350
-Wire Wire Line
-	2200 4450 2000 4450
 Connection ~ 2000 4450
-Wire Wire Line
-	2200 4550 2000 4550
 Connection ~ 2000 4550
-Wire Wire Line
-	1950 1850 2200 1850
-Wire Wire Line
-	7250 1850 7750 1850
-Wire Wire Line
-	12950 1950 13450 1950
-Wire Wire Line
-	1050 6550 1250 6550
-Wire Wire Line
-	1250 6550 1250 6600
-Wire Wire Line
-	7350 6800 7350 6700
-Wire Wire Line
-	7350 6700 7150 6700
-Wire Wire Line
-	13050 6800 13050 6700
-Wire Wire Line
-	13050 6700 12900 6700
-Wire Wire Line
-	14650 3750 14950 3750
-Wire Wire Line
-	8950 3650 9250 3650
-Wire Wire Line
-	3400 3650 3700 3650
-Wire Wire Line
-	7350 7150 7350 7100
-Wire Wire Line
-	7350 6450 7350 6350
-Wire Wire Line
-	7350 5600 7350 5500
-Wire Wire Line
-	7100 4050 7750 4050
-Wire Wire Line
-	7750 4250 7350 4250
-Wire Wire Line
-	7350 4050 7350 4350
 Connection ~ 7350 4050
-Wire Wire Line
-	7350 4350 7750 4350
 Connection ~ 7350 4250
-Wire Wire Line
-	7750 4150 7250 4150
-Wire Wire Line
-	7250 4150 7250 4550
-Wire Wire Line
-	7400 4450 7750 4450
-Wire Wire Line
-	8950 4250 9650 4250
-Wire Wire Line
-	7400 4550 7400 4450
-Wire Wire Line
-	7100 4550 7400 4550
-Wire Wire Line
-	7750 4550 7500 4550
-Wire Wire Line
-	7500 4550 7500 4750
-Wire Wire Line
-	7500 4750 7100 4750
-Wire Wire Line
-	9100 4150 9100 4450
-Wire Wire Line
-	9100 4400 9650 4400
-Wire Wire Line
-	9100 4450 8950 4450
 Connection ~ 9100 4400
-Wire Wire Line
-	8950 4350 9100 4350
 Connection ~ 9100 4350
-Wire Wire Line
-	7600 3050 7600 4450
 Connection ~ 7600 4450
-Wire Wire Line
-	600  9900 600  10050
-$Comp
-L +3V3 #PWR027
-U 1 1 57CABC6E
-P 600 8150
-F 0 "#PWR027" H 600 8000 50  0001 C CNN
-F 1 "+3V3" H 615 8323 50  0000 C CNN
-F 2 "" H 600 8150 50  0000 C CNN
-F 3 "" H 600 8150 50  0000 C CNN
-	1    600  8150
-	1    0    0    -1  
-$EndComp
-$Comp
-L R FB1
-U 1 1 57CABC87
-P 750 8300
-F 0 "FB1" V 850 8300 50  0000 C CNN
-F 1 "R" V 650 8300 50  0000 C CNN
-F 2 "Dipoles_SMD:R_0603" V 680 8300 30  0001 C CNN
-F 3 "" H 750 8300 30  0001 C CNN
-F 4 "_" H 750 8300 50  0001 C CNN "MFN"
-F 5 "_" H 750 8300 50  0001 C CNN "MFP"
-F 6 "digikey" H 750 8300 50  0001 C CNN "D1"
-F 7 "mouser" H 750 8300 50  0001 C CNN "D2"
-F 8 "_" H 750 8300 50  0001 C CNN "D1PN"
-F 9 "_" H 750 8300 50  0001 C CNN "D1PL"
-F 10 "_" H 750 8300 50  0001 C CNN "D2PN"
-F 11 "_" H 750 8300 50  0001 C CNN "D2PL"
-F 12 "0402" H 750 8300 50  0001 C CNN "Package"
-F 13 "_" V 635 8300 50  0000 C CNN "Description"
-F 14 "_" H 750 8300 50  0001 C CNN "Voltage"
-F 15 "_" H 750 8300 50  0001 C CNN "Power"
-F 16 "_" H 750 8300 50  0001 C CNN "Tolerance"
-F 17 "_" H 750 8300 50  0001 C CNN "Temperature"
-F 18 "_" H 750 8300 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 750 8300 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 750 8300 50  0001 C CNN "Cont.Current"
-F 21 "_" H 750 8300 50  0001 C CNN "Frequency"
-F 22 "_" H 750 8300 50  0001 C CNN "ResonnanceFreq"
-	1    750  8300
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	600  8150 600  8300
-$Comp
-L +3V3 #PWR028
-U 1 1 57CAF66A
-P 600 9050
-F 0 "#PWR028" H 600 8900 50  0001 C CNN
-F 1 "+3V3" H 615 9223 50  0000 C CNN
-F 2 "" H 600 9050 50  0000 C CNN
-F 3 "" H 600 9050 50  0000 C CNN
-	1    600  9050
-	1    0    0    -1  
-$EndComp
-$Comp
-L R FB2
-U 1 1 57CAF683
-P 750 9200
-F 0 "FB2" V 850 9200 50  0000 C CNN
-F 1 "R" V 650 9200 50  0000 C CNN
-F 2 "Dipoles_SMD:R_0603" V 680 9200 30  0001 C CNN
-F 3 "" H 750 9200 30  0001 C CNN
-F 4 "_" H 750 9200 50  0001 C CNN "MFN"
-F 5 "_" H 750 9200 50  0001 C CNN "MFP"
-F 6 "digikey" H 750 9200 50  0001 C CNN "D1"
-F 7 "mouser" H 750 9200 50  0001 C CNN "D2"
-F 8 "_" H 750 9200 50  0001 C CNN "D1PN"
-F 9 "_" H 750 9200 50  0001 C CNN "D1PL"
-F 10 "_" H 750 9200 50  0001 C CNN "D2PN"
-F 11 "_" H 750 9200 50  0001 C CNN "D2PL"
-F 12 "0402" H 750 9200 50  0001 C CNN "Package"
-F 13 "_" V 635 9200 50  0000 C CNN "Description"
-F 14 "_" H 750 9200 50  0001 C CNN "Voltage"
-F 15 "_" H 750 9200 50  0001 C CNN "Power"
-F 16 "_" H 750 9200 50  0001 C CNN "Tolerance"
-F 17 "_" H 750 9200 50  0001 C CNN "Temperature"
-F 18 "_" H 750 9200 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 750 9200 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 750 9200 50  0001 C CNN "Cont.Current"
-F 21 "_" H 750 9200 50  0001 C CNN "Frequency"
-F 22 "_" H 750 9200 50  0001 C CNN "ResonnanceFreq"
-	1    750  9200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	600  9050 600  9200
-$Comp
-L +1V8 #PWR029
-U 1 1 57CB1C83
-P 600 9900
-F 0 "#PWR029" H 600 9750 50  0001 C CNN
-F 1 "+1V8" H 615 10073 50  0000 C CNN
-F 2 "" H 600 9900 50  0000 C CNN
-F 3 "" H 600 9900 50  0000 C CNN
-	1    600  9900
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR030
-U 1 1 57CB3220
-P 7350 5600
-F 0 "#PWR030" H 7350 5350 50  0001 C CNN
-F 1 "GND" H 7355 5427 50  0000 C CNN
-F 2 "" H 7350 5600 50  0000 C CNN
-F 3 "" H 7350 5600 50  0000 C CNN
-	1    7350 5600
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR031
-U 1 1 57CB330C
-P 7350 6450
-F 0 "#PWR031" H 7350 6200 50  0001 C CNN
-F 1 "GND" H 7355 6277 50  0000 C CNN
-F 2 "" H 7350 6450 50  0000 C CNN
-F 3 "" H 7350 6450 50  0000 C CNN
-	1    7350 6450
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR032
-U 1 1 57CB33F8
-P 7350 7150
-F 0 "#PWR032" H 7350 6900 50  0001 C CNN
-F 1 "GND" H 7355 6977 50  0000 C CNN
-F 2 "" H 7350 7150 50  0000 C CNN
-F 3 "" H 7350 7150 50  0000 C CNN
-	1    7350 7150
-	1    0    0    -1  
-$EndComp
-Text GLabel 6850 8750 2    60   Input ~ 0
-Python2_VDDPIX
-Text GLabel 6850 7850 2    60   Input ~ 0
-Python2_VDD
-Text GLabel 6850 9600 2    60   Input ~ 0
-Python2_1V8
-$Comp
-L R FB6
-U 1 1 57CB3E83
-P 6700 9600
-F 0 "FB6" V 6800 9600 50  0000 C CNN
-F 1 "R" V 6600 9600 50  0000 C CNN
-F 2 "Dipoles_SMD:R_0603" V 6630 9600 30  0001 C CNN
-F 3 "" H 6700 9600 30  0001 C CNN
-F 4 "_" H 6700 9600 50  0001 C CNN "MFN"
-F 5 "_" H 6700 9600 50  0001 C CNN "MFP"
-F 6 "digikey" H 6700 9600 50  0001 C CNN "D1"
-F 7 "mouser" H 6700 9600 50  0001 C CNN "D2"
-F 8 "_" H 6700 9600 50  0001 C CNN "D1PN"
-F 9 "_" H 6700 9600 50  0001 C CNN "D1PL"
-F 10 "_" H 6700 9600 50  0001 C CNN "D2PN"
-F 11 "_" H 6700 9600 50  0001 C CNN "D2PL"
-F 12 "0402" H 6700 9600 50  0001 C CNN "Package"
-F 13 "_" V 6585 9600 50  0000 C CNN "Description"
-F 14 "_" H 6700 9600 50  0001 C CNN "Voltage"
-F 15 "_" H 6700 9600 50  0001 C CNN "Power"
-F 16 "_" H 6700 9600 50  0001 C CNN "Tolerance"
-F 17 "_" H 6700 9600 50  0001 C CNN "Temperature"
-F 18 "_" H 6700 9600 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 6700 9600 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 6700 9600 50  0001 C CNN "Cont.Current"
-F 21 "_" H 6700 9600 50  0001 C CNN "Frequency"
-F 22 "_" H 6700 9600 50  0001 C CNN "ResonnanceFreq"
-	1    6700 9600
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	6550 9450 6550 9600
-$Comp
-L +3V3 #PWR033
-U 1 1 57CB3E9F
-P 6550 7700
-F 0 "#PWR033" H 6550 7550 50  0001 C CNN
-F 1 "+3V3" H 6565 7873 50  0000 C CNN
-F 2 "" H 6550 7700 50  0000 C CNN
-F 3 "" H 6550 7700 50  0000 C CNN
-	1    6550 7700
-	1    0    0    -1  
-$EndComp
-$Comp
-L R FB4
-U 1 1 57CB3EB8
-P 6700 7850
-F 0 "FB4" V 6800 7850 50  0000 C CNN
-F 1 "R" V 6600 7850 50  0000 C CNN
-F 2 "Dipoles_SMD:R_0603" V 6630 7850 30  0001 C CNN
-F 3 "" H 6700 7850 30  0001 C CNN
-F 4 "_" H 6700 7850 50  0001 C CNN "MFN"
-F 5 "_" H 6700 7850 50  0001 C CNN "MFP"
-F 6 "digikey" H 6700 7850 50  0001 C CNN "D1"
-F 7 "mouser" H 6700 7850 50  0001 C CNN "D2"
-F 8 "_" H 6700 7850 50  0001 C CNN "D1PN"
-F 9 "_" H 6700 7850 50  0001 C CNN "D1PL"
-F 10 "_" H 6700 7850 50  0001 C CNN "D2PN"
-F 11 "_" H 6700 7850 50  0001 C CNN "D2PL"
-F 12 "0402" H 6700 7850 50  0001 C CNN "Package"
-F 13 "_" V 6585 7850 50  0000 C CNN "Description"
-F 14 "_" H 6700 7850 50  0001 C CNN "Voltage"
-F 15 "_" H 6700 7850 50  0001 C CNN "Power"
-F 16 "_" H 6700 7850 50  0001 C CNN "Tolerance"
-F 17 "_" H 6700 7850 50  0001 C CNN "Temperature"
-F 18 "_" H 6700 7850 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 6700 7850 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 6700 7850 50  0001 C CNN "Cont.Current"
-F 21 "_" H 6700 7850 50  0001 C CNN "Frequency"
-F 22 "_" H 6700 7850 50  0001 C CNN "ResonnanceFreq"
-	1    6700 7850
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	6550 7700 6550 7850
-$Comp
-L +3V3 #PWR034
-U 1 1 57CB3F3B
-P 6550 8600
-F 0 "#PWR034" H 6550 8450 50  0001 C CNN
-F 1 "+3V3" H 6565 8773 50  0000 C CNN
-F 2 "" H 6550 8600 50  0000 C CNN
-F 3 "" H 6550 8600 50  0000 C CNN
-	1    6550 8600
-	1    0    0    -1  
-$EndComp
+Connection ~ 9650 4550
+Connection ~ 9650 4400
+Connection ~ 7250 4550
+Connection ~ 7100 4550
 $Comp
 L R FB5
-U 1 1 57CB3F54
+U 1 1 57D10DA1
 P 6700 8750
 F 0 "FB5" V 6800 8750 50  0000 C CNN
-F 1 "R" V 6600 8750 50  0000 C CNN
+F 1 "1k" V 6600 8750 50  0000 C CNN
 F 2 "Dipoles_SMD:R_0603" V 6630 8750 30  0001 C CNN
-F 3 "" H 6700 8750 30  0001 C CNN
-F 4 "_" H 6700 8750 50  0001 C CNN "MFN"
-F 5 "_" H 6700 8750 50  0001 C CNN "MFP"
+F 3 "http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=FBMH1608HM102-TV&fileName=FBMH1608HM102-TV_SS&mode=specSheetDownload" H 6700 8750 30  0001 C CNN
+F 4 "Taiyo Yuden" H 6700 8750 50  0001 C CNN "MFN"
+F 5 "FBMH1608HM102-TV" H 6700 8750 50  0001 C CNN "MFP"
 F 6 "digikey" H 6700 8750 50  0001 C CNN "D1"
 F 7 "mouser" H 6700 8750 50  0001 C CNN "D2"
-F 8 "_" H 6700 8750 50  0001 C CNN "D1PN"
-F 9 "_" H 6700 8750 50  0001 C CNN "D1PL"
+F 8 "587-3820" H 6700 8750 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/taiyo-yuden/FBMH1608HM102-TV/587-3820-1-ND/4875580" H 6700 8750 50  0001 C CNN "D1PL"
 F 10 "_" H 6700 8750 50  0001 C CNN "D2PN"
 F 11 "_" H 6700 8750 50  0001 C CNN "D2PL"
 F 12 "0402" H 6700 8750 50  0001 C CNN "Package"
@@ -4006,125 +4004,20 @@ F 22 "_" H 6700 8750 50  0001 C CNN "ResonnanceFreq"
 	1    6700 8750
 	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	6550 8600 6550 8750
-$Comp
-L +1V8 #PWR035
-U 1 1 57CB403E
-P 6550 9450
-F 0 "#PWR035" H 6550 9300 50  0001 C CNN
-F 1 "+1V8" H 6565 9623 50  0000 C CNN
-F 2 "" H 6550 9450 50  0000 C CNN
-F 3 "" H 6550 9450 50  0000 C CNN
-	1    6550 9450
-	1    0    0    -1  
-$EndComp
-Text GLabel 12550 8750 2    60   Input ~ 0
-Python3_VDDPIX
-Text GLabel 12550 7850 2    60   Input ~ 0
-Python3_VDD
-Text GLabel 12550 9600 2    60   Input ~ 0
-Python3_1V8
-$Comp
-L R FB9
-U 1 1 57CB5F7E
-P 12400 9600
-F 0 "FB9" V 12500 9600 50  0000 C CNN
-F 1 "R" V 12300 9600 50  0000 C CNN
-F 2 "Dipoles_SMD:R_0603" V 12330 9600 30  0001 C CNN
-F 3 "" H 12400 9600 30  0001 C CNN
-F 4 "_" H 12400 9600 50  0001 C CNN "MFN"
-F 5 "_" H 12400 9600 50  0001 C CNN "MFP"
-F 6 "digikey" H 12400 9600 50  0001 C CNN "D1"
-F 7 "mouser" H 12400 9600 50  0001 C CNN "D2"
-F 8 "_" H 12400 9600 50  0001 C CNN "D1PN"
-F 9 "_" H 12400 9600 50  0001 C CNN "D1PL"
-F 10 "_" H 12400 9600 50  0001 C CNN "D2PN"
-F 11 "_" H 12400 9600 50  0001 C CNN "D2PL"
-F 12 "0402" H 12400 9600 50  0001 C CNN "Package"
-F 13 "_" V 12285 9600 50  0000 C CNN "Description"
-F 14 "_" H 12400 9600 50  0001 C CNN "Voltage"
-F 15 "_" H 12400 9600 50  0001 C CNN "Power"
-F 16 "_" H 12400 9600 50  0001 C CNN "Tolerance"
-F 17 "_" H 12400 9600 50  0001 C CNN "Temperature"
-F 18 "_" H 12400 9600 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 12400 9600 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 12400 9600 50  0001 C CNN "Cont.Current"
-F 21 "_" H 12400 9600 50  0001 C CNN "Frequency"
-F 22 "_" H 12400 9600 50  0001 C CNN "ResonnanceFreq"
-	1    12400 9600
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	12250 9450 12250 9600
-$Comp
-L +3V3 #PWR036
-U 1 1 57CB5F9A
-P 12250 7700
-F 0 "#PWR036" H 12250 7550 50  0001 C CNN
-F 1 "+3V3" H 12265 7873 50  0000 C CNN
-F 2 "" H 12250 7700 50  0000 C CNN
-F 3 "" H 12250 7700 50  0000 C CNN
-	1    12250 7700
-	1    0    0    -1  
-$EndComp
-$Comp
-L R FB7
-U 1 1 57CB5FB3
-P 12400 7850
-F 0 "FB7" V 12500 7850 50  0000 C CNN
-F 1 "R" V 12300 7850 50  0000 C CNN
-F 2 "Dipoles_SMD:R_0603" V 12330 7850 30  0001 C CNN
-F 3 "" H 12400 7850 30  0001 C CNN
-F 4 "_" H 12400 7850 50  0001 C CNN "MFN"
-F 5 "_" H 12400 7850 50  0001 C CNN "MFP"
-F 6 "digikey" H 12400 7850 50  0001 C CNN "D1"
-F 7 "mouser" H 12400 7850 50  0001 C CNN "D2"
-F 8 "_" H 12400 7850 50  0001 C CNN "D1PN"
-F 9 "_" H 12400 7850 50  0001 C CNN "D1PL"
-F 10 "_" H 12400 7850 50  0001 C CNN "D2PN"
-F 11 "_" H 12400 7850 50  0001 C CNN "D2PL"
-F 12 "0402" H 12400 7850 50  0001 C CNN "Package"
-F 13 "_" V 12285 7850 50  0000 C CNN "Description"
-F 14 "_" H 12400 7850 50  0001 C CNN "Voltage"
-F 15 "_" H 12400 7850 50  0001 C CNN "Power"
-F 16 "_" H 12400 7850 50  0001 C CNN "Tolerance"
-F 17 "_" H 12400 7850 50  0001 C CNN "Temperature"
-F 18 "_" H 12400 7850 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 12400 7850 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 12400 7850 50  0001 C CNN "Cont.Current"
-F 21 "_" H 12400 7850 50  0001 C CNN "Frequency"
-F 22 "_" H 12400 7850 50  0001 C CNN "ResonnanceFreq"
-	1    12400 7850
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	12250 7700 12250 7850
-$Comp
-L +3V3 #PWR037
-U 1 1 57CB6036
-P 12250 8600
-F 0 "#PWR037" H 12250 8450 50  0001 C CNN
-F 1 "+3V3" H 12265 8773 50  0000 C CNN
-F 2 "" H 12250 8600 50  0000 C CNN
-F 3 "" H 12250 8600 50  0000 C CNN
-	1    12250 8600
-	1    0    0    -1  
-$EndComp
 $Comp
 L R FB8
-U 1 1 57CB604F
+U 1 1 57D116F2
 P 12400 8750
 F 0 "FB8" V 12500 8750 50  0000 C CNN
-F 1 "R" V 12300 8750 50  0000 C CNN
+F 1 "1k" V 12300 8750 50  0000 C CNN
 F 2 "Dipoles_SMD:R_0603" V 12330 8750 30  0001 C CNN
-F 3 "" H 12400 8750 30  0001 C CNN
-F 4 "_" H 12400 8750 50  0001 C CNN "MFN"
-F 5 "_" H 12400 8750 50  0001 C CNN "MFP"
+F 3 "http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=FBMH1608HM102-TV&fileName=FBMH1608HM102-TV_SS&mode=specSheetDownload" H 12400 8750 30  0001 C CNN
+F 4 "Taiyo Yuden" H 12400 8750 50  0001 C CNN "MFN"
+F 5 "FBMH1608HM102-TV" H 12400 8750 50  0001 C CNN "MFP"
 F 6 "digikey" H 12400 8750 50  0001 C CNN "D1"
 F 7 "mouser" H 12400 8750 50  0001 C CNN "D2"
-F 8 "_" H 12400 8750 50  0001 C CNN "D1PN"
-F 9 "_" H 12400 8750 50  0001 C CNN "D1PL"
+F 8 "587-3820" H 12400 8750 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/taiyo-yuden/FBMH1608HM102-TV/587-3820-1-ND/4875580" H 12400 8750 50  0001 C CNN "D1PL"
 F 10 "_" H 12400 8750 50  0001 C CNN "D2PN"
 F 11 "_" H 12400 8750 50  0001 C CNN "D2PL"
 F 12 "0402" H 12400 8750 50  0001 C CNN "Package"
@@ -4141,47 +4034,154 @@ F 22 "_" H 12400 8750 50  0001 C CNN "ResonnanceFreq"
 	1    12400 8750
 	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	12250 8600 12250 8750
 $Comp
-L +1V8 #PWR038
-U 1 1 57CB6139
-P 12250 9450
-F 0 "#PWR038" H 12250 9300 50  0001 C CNN
-F 1 "+1V8" H 12265 9623 50  0000 C CNN
-F 2 "" H 12250 9450 50  0000 C CNN
-F 3 "" H 12250 9450 50  0000 C CNN
-	1    12250 9450
-	1    0    0    -1  
+L R FB4
+U 1 1 57D13B8E
+P 6700 7850
+F 0 "FB4" V 6800 7850 50  0000 C CNN
+F 1 "220" V 6600 7850 50  0000 C CNN
+F 2 "Dipoles_SMD:R_0603" V 6630 7850 30  0001 C CNN
+F 3 "http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=FBMH1608HL221-TV&fileName=FBMH1608HL221-TV_SS&mode=specSheetDownload" H 6700 7850 30  0001 C CNN
+F 4 "Taiyo Yuden" H 6700 7850 50  0001 C CNN "MFN"
+F 5 "FBMH1608HL221-TV" H 6700 7850 50  0001 C CNN "MFP"
+F 6 "digikey" H 6700 7850 50  0001 C CNN "D1"
+F 7 "mouser" H 6700 7850 50  0001 C CNN "D2"
+F 8 "587-3813" H 6700 7850 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/taiyo-yuden/FBMH1608HL221-TV/587-3813-1-ND/4875573" H 6700 7850 50  0001 C CNN "D1PL"
+F 10 "_" H 6700 7850 50  0001 C CNN "D2PN"
+F 11 "_" H 6700 7850 50  0001 C CNN "D2PL"
+F 12 "0603" H 6700 7850 50  0001 C CNN "Package"
+F 13 "_" V 6585 7850 50  0000 C CNN "Description"
+F 14 "_" H 6700 7850 50  0001 C CNN "Voltage"
+F 15 "_" H 6700 7850 50  0001 C CNN "Power"
+F 16 "_" H 6700 7850 50  0001 C CNN "Tolerance"
+F 17 "_" H 6700 7850 50  0001 C CNN "Temperature"
+F 18 "_" H 6700 7850 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 6700 7850 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 6700 7850 50  0001 C CNN "Cont.Current"
+F 21 "_" H 6700 7850 50  0001 C CNN "Frequency"
+F 22 "_" H 6700 7850 50  0001 C CNN "ResonnanceFreq"
+	1    6700 7850
+	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR039
-U 1 1 57CCDEDD
-P 9650 4600
-F 0 "#PWR039" H 9650 4350 50  0001 C CNN
-F 1 "GND" H 9655 4427 50  0000 C CNN
-F 2 "" H 9650 4600 50  0000 C CNN
-F 3 "" H 9650 4600 50  0000 C CNN
-	1    9650 4600
-	1    0    0    -1  
+L R FB7
+U 1 1 57D1468B
+P 12400 7850
+F 0 "FB7" V 12500 7850 50  0000 C CNN
+F 1 "220" V 12300 7850 50  0000 C CNN
+F 2 "Dipoles_SMD:R_0603" V 12330 7850 30  0001 C CNN
+F 3 "http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=FBMH1608HL221-TV&fileName=FBMH1608HL221-TV_SS&mode=specSheetDownload" H 12400 7850 30  0001 C CNN
+F 4 "Taiyo Yuden" H 12400 7850 50  0001 C CNN "MFN"
+F 5 "FBMH1608HL221-TV" H 12400 7850 50  0001 C CNN "MFP"
+F 6 "digikey" H 12400 7850 50  0001 C CNN "D1"
+F 7 "mouser" H 12400 7850 50  0001 C CNN "D2"
+F 8 "587-3813" H 12400 7850 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/taiyo-yuden/FBMH1608HL221-TV/587-3813-1-ND/4875573" H 12400 7850 50  0001 C CNN "D1PL"
+F 10 "_" H 12400 7850 50  0001 C CNN "D2PN"
+F 11 "_" H 12400 7850 50  0001 C CNN "D2PL"
+F 12 "0603" H 12400 7850 50  0001 C CNN "Package"
+F 13 "_" V 12285 7850 50  0000 C CNN "Description"
+F 14 "_" H 12400 7850 50  0001 C CNN "Voltage"
+F 15 "_" H 12400 7850 50  0001 C CNN "Power"
+F 16 "_" H 12400 7850 50  0001 C CNN "Tolerance"
+F 17 "_" H 12400 7850 50  0001 C CNN "Temperature"
+F 18 "_" H 12400 7850 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 12400 7850 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 12400 7850 50  0001 C CNN "Cont.Current"
+F 21 "_" H 12400 7850 50  0001 C CNN "Frequency"
+F 22 "_" H 12400 7850 50  0001 C CNN "ResonnanceFreq"
+	1    12400 7850
+	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	9650 4250 9650 4600
-Connection ~ 9650 4550
-Connection ~ 9650 4400
 $Comp
-L GND #PWR040
-U 1 1 57CCFCD2
-P 7100 4750
-F 0 "#PWR040" H 7100 4500 50  0001 C CNN
-F 1 "GND" H 7105 4577 50  0000 C CNN
-F 2 "" H 7100 4750 50  0000 C CNN
-F 3 "" H 7100 4750 50  0000 C CNN
-	1    7100 4750
-	1    0    0    -1  
+L R FB9
+U 1 1 57D156DA
+P 12400 9600
+F 0 "FB9" V 12500 9600 50  0000 C CNN
+F 1 "220" V 12300 9600 50  0000 C CNN
+F 2 "Dipoles_SMD:R_0603" V 12330 9600 30  0001 C CNN
+F 3 "http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=FBMH1608HL221-TV&fileName=FBMH1608HL221-TV_SS&mode=specSheetDownload" H 12400 9600 30  0001 C CNN
+F 4 "Taiyo Yuden" H 12400 9600 50  0001 C CNN "MFN"
+F 5 "FBMH1608HL221-TV" H 12400 9600 50  0001 C CNN "MFP"
+F 6 "digikey" H 12400 9600 50  0001 C CNN "D1"
+F 7 "mouser" H 12400 9600 50  0001 C CNN "D2"
+F 8 "587-3813" H 12400 9600 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/taiyo-yuden/FBMH1608HL221-TV/587-3813-1-ND/4875573" H 12400 9600 50  0001 C CNN "D1PL"
+F 10 "_" H 12400 9600 50  0001 C CNN "D2PN"
+F 11 "_" H 12400 9600 50  0001 C CNN "D2PL"
+F 12 "0603" H 12400 9600 50  0001 C CNN "Package"
+F 13 "_" V 12285 9600 50  0000 C CNN "Description"
+F 14 "_" H 12400 9600 50  0001 C CNN "Voltage"
+F 15 "_" H 12400 9600 50  0001 C CNN "Power"
+F 16 "_" H 12400 9600 50  0001 C CNN "Tolerance"
+F 17 "_" H 12400 9600 50  0001 C CNN "Temperature"
+F 18 "_" H 12400 9600 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 12400 9600 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 12400 9600 50  0001 C CNN "Cont.Current"
+F 21 "_" H 12400 9600 50  0001 C CNN "Frequency"
+F 22 "_" H 12400 9600 50  0001 C CNN "ResonnanceFreq"
+	1    12400 9600
+	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	7100 4750 7100 4050
-Connection ~ 7250 4550
-Connection ~ 7100 4550
+$Comp
+L R FB6
+U 1 1 57D15B02
+P 6700 9600
+F 0 "FB6" V 6800 9600 50  0000 C CNN
+F 1 "220" V 6600 9600 50  0000 C CNN
+F 2 "Dipoles_SMD:R_0603" V 6630 9600 30  0001 C CNN
+F 3 "http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=FBMH1608HL221-TV&fileName=FBMH1608HL221-TV_SS&mode=specSheetDownload" H 6700 9600 30  0001 C CNN
+F 4 "Taiyo Yuden" H 6700 9600 50  0001 C CNN "MFN"
+F 5 "FBMH1608HL221-TV" H 6700 9600 50  0001 C CNN "MFP"
+F 6 "digikey" H 6700 9600 50  0001 C CNN "D1"
+F 7 "mouser" H 6700 9600 50  0001 C CNN "D2"
+F 8 "587-3813" H 6700 9600 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/taiyo-yuden/FBMH1608HL221-TV/587-3813-1-ND/4875573" H 6700 9600 50  0001 C CNN "D1PL"
+F 10 "_" H 6700 9600 50  0001 C CNN "D2PN"
+F 11 "_" H 6700 9600 50  0001 C CNN "D2PL"
+F 12 "0603" H 6700 9600 50  0001 C CNN "Package"
+F 13 "_" V 6585 9600 50  0000 C CNN "Description"
+F 14 "_" H 6700 9600 50  0001 C CNN "Voltage"
+F 15 "_" H 6700 9600 50  0001 C CNN "Power"
+F 16 "_" H 6700 9600 50  0001 C CNN "Tolerance"
+F 17 "_" H 6700 9600 50  0001 C CNN "Temperature"
+F 18 "_" H 6700 9600 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 6700 9600 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 6700 9600 50  0001 C CNN "Cont.Current"
+F 21 "_" H 6700 9600 50  0001 C CNN "Frequency"
+F 22 "_" H 6700 9600 50  0001 C CNN "ResonnanceFreq"
+	1    6700 9600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R FB3
+U 1 1 57D16010
+P 1050 9700
+F 0 "FB3" V 1150 9700 50  0000 C CNN
+F 1 "220" V 950 9700 50  0000 C CNN
+F 2 "Dipoles_SMD:R_0603" V 980 9700 30  0001 C CNN
+F 3 "http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=FBMH1608HL221-TV&fileName=FBMH1608HL221-TV_SS&mode=specSheetDownload" H 1050 9700 30  0001 C CNN
+F 4 "Taiyo Yuden" H 1050 9700 50  0001 C CNN "MFN"
+F 5 "FBMH1608HL221-TV" H 1050 9700 50  0001 C CNN "MFP"
+F 6 "digikey" H 1050 9700 50  0001 C CNN "D1"
+F 7 "mouser" H 1050 9700 50  0001 C CNN "D2"
+F 8 "587-3813" H 1050 9700 50  0001 C CNN "D1PN"
+F 9 "http://www.digikey.com/product-detail/en/taiyo-yuden/FBMH1608HL221-TV/587-3813-1-ND/4875573" H 1050 9700 50  0001 C CNN "D1PL"
+F 10 "_" H 1050 9700 50  0001 C CNN "D2PN"
+F 11 "_" H 1050 9700 50  0001 C CNN "D2PL"
+F 12 "0603" H 1050 9700 50  0001 C CNN "Package"
+F 13 "_" V 935 9700 50  0000 C CNN "Description"
+F 14 "_" H 1050 9700 50  0001 C CNN "Voltage"
+F 15 "_" H 1050 9700 50  0001 C CNN "Power"
+F 16 "_" H 1050 9700 50  0001 C CNN "Tolerance"
+F 17 "_" H 1050 9700 50  0001 C CNN "Temperature"
+F 18 "_" H 1050 9700 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 1050 9700 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 1050 9700 50  0001 C CNN "Cont.Current"
+F 21 "_" H 1050 9700 50  0001 C CNN "Frequency"
+F 22 "_" H 1050 9700 50  0001 C CNN "ResonnanceFreq"
+	1    1050 9700
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC

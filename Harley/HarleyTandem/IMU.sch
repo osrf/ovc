@@ -49,12 +49,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text Notes 9300 1200 0    300  ~ 60
-IMU
-Text GLabel 9200 5050 0    60   Input ~ 0
-IMU_TX0
-Text GLabel 9200 5150 0    60   Input ~ 0
-IMU_RX0
 $Comp
 L uIMU-2 U14
 U 1 1 575B4F78
@@ -67,8 +61,8 @@ F 4 "InertialSense" H 8550 2500 60  0001 C CNN "MFN"
 F 5 "uIMU-2" H 8550 2500 60  0001 C CNN "MFP"
 F 6 "digikey" H 8550 2500 60  0001 C CNN "D1"
 F 7 "mouser" H 8550 2500 60  0001 C CNN "D2"
-F 8 "DNP" H 8550 2500 60  0001 C CNN "D1PN"
-F 9 "DNP" H 8550 2500 60  0001 C CNN "D1PL"
+F 8 "Costumer Supplied" H 8550 2500 60  0001 C CNN "D1PN"
+F 9 "Costumer Supplied" H 8550 2500 60  0001 C CNN "D1PL"
 F 10 "_" H 8550 2500 60  0001 C CNN "D2PN"
 F 11 "_" H 8550 2500 60  0001 C CNN "D2PL"
 F 12 "_" H 8550 2500 60  0001 C CNN "Package"
@@ -85,13 +79,6 @@ F 22 "_" H 8550 2500 60  0001 C CNN "ResonnanceFreq"
 	1    8550 2500
 	1    0    0    -1  
 $EndComp
-NoConn ~ 8550 1550
-NoConn ~ 8650 1550
-NoConn ~ 8750 1550
-NoConn ~ 8850 1550
-NoConn ~ 8950 1550
-NoConn ~ 9050 1550
-NoConn ~ 9150 1550
 $Comp
 L GND #PWR010
 U 1 1 575B518E
@@ -103,23 +90,6 @@ F 3 "" H 8600 3350 50  0000 C CNN
 	1    8600 3350
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8550 3350 8650 3350
-Wire Wire Line
-	8550 3350 8550 3200
-Wire Wire Line
-	8650 3350 8650 3200
-Connection ~ 8600 3350
-Text GLabel 9750 2700 2    60   Input ~ 0
-IMU_RX0
-Text GLabel 9750 2600 2    60   Input ~ 0
-IMU_TX0
-NoConn ~ 7900 2100
-NoConn ~ 7900 2200
-NoConn ~ 7900 2300
-NoConn ~ 7900 2600
-NoConn ~ 7900 2700
-NoConn ~ 9750 2500
 $Comp
 L C C112
 U 1 1 575B5F6E
@@ -161,24 +131,6 @@ F 3 "" H 8800 5250 50  0000 C CNN
 	1    8800 5250
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	8800 5250 9200 5250
-Text GLabel 7900 2400 0    60   Input ~ 0
-IMU_RX1
-Text GLabel 7900 2500 0    60   Input ~ 0
-IMU_TX1
-Wire Wire Line
-	7800 1700 7800 1950
-Connection ~ 7800 1850
-Connection ~ 7800 1950
-Wire Wire Line
-	6850 1850 7900 1850
-Wire Wire Line
-	7200 1950 7900 1950
-Wire Wire Line
-	6850 2150 6850 2250
-Wire Wire Line
-	6850 2250 7200 2250
 $Comp
 L GND #PWR012
 U 1 1 5761FF48
@@ -190,7 +142,6 @@ F 3 "" H 7000 2250 50  0000 C CNN
 	1    7000 2250
 	1    0    0    -1  
 $EndComp
-Connection ~ 7000 2250
 $Comp
 L C C111
 U 1 1 5763515D
@@ -229,12 +180,12 @@ F 0 "P1" H 9477 5289 50  0000 L CNN
 F 1 "CONN_01X03" H 9477 5198 50  0000 L CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x03" H 9477 5107 50  0000 L CNN
 F 3 "" H 9400 5150 50  0000 C CNN
-F 4 "_" H 9400 5150 60  0001 C CNN "MFN"
-F 5 "_" H 9400 5150 60  0001 C CNN "MFP"
+F 4 "DNP" H 9400 5150 60  0001 C CNN "MFN"
+F 5 "DNP" H 9400 5150 60  0001 C CNN "MFP"
 F 6 "digikey" H 9400 5150 60  0001 C CNN "D1"
 F 7 "mouser" H 9400 5150 60  0001 C CNN "D2"
-F 8 "_" H 9400 5150 60  0001 C CNN "D1PN"
-F 9 "_" H 9400 5150 60  0001 C CNN "D1PL"
+F 8 "DNP" H 9400 5150 60  0001 C CNN "D1PN"
+F 9 "DNP" H 9400 5150 60  0001 C CNN "D1PL"
 F 10 "_" H 9400 5150 60  0001 C CNN "D2PN"
 F 11 "_" H 9400 5150 60  0001 C CNN "D2PL"
 F 12 "_" H 9400 5150 60  0001 C CNN "Package"
@@ -262,5 +213,54 @@ F 3 "" H 7800 1700 50  0000 C CNN
 	1    7800 1700
 	1    0    0    -1  
 $EndComp
+Text Notes 9300 1200 0    300  ~ 60
+IMU
+Text GLabel 9200 5050 0    60   Input ~ 0
+IMU_TX0
+Text GLabel 9200 5150 0    60   Input ~ 0
+IMU_RX0
+Text GLabel 9750 2700 2    60   Input ~ 0
+IMU_RX0
+Text GLabel 9750 2600 2    60   Input ~ 0
+IMU_TX0
+Text GLabel 7900 2400 0    60   Input ~ 0
+IMU_RX1
+Text GLabel 7900 2500 0    60   Input ~ 0
+IMU_TX1
+Wire Wire Line
+	8550 3350 8650 3350
+Wire Wire Line
+	8550 3350 8550 3200
+Wire Wire Line
+	8650 3350 8650 3200
+Wire Wire Line
+	8800 5250 9200 5250
+Wire Wire Line
+	7800 1700 7800 1950
+Wire Wire Line
+	6850 1850 7900 1850
+Wire Wire Line
+	7200 1950 7900 1950
+Wire Wire Line
+	6850 2150 6850 2250
+Wire Wire Line
+	6850 2250 7200 2250
+Connection ~ 8600 3350
+Connection ~ 7800 1850
+Connection ~ 7800 1950
+Connection ~ 7000 2250
+NoConn ~ 8550 1550
+NoConn ~ 8650 1550
+NoConn ~ 8750 1550
+NoConn ~ 8850 1550
+NoConn ~ 8950 1550
+NoConn ~ 9050 1550
+NoConn ~ 9150 1550
+NoConn ~ 7900 2100
+NoConn ~ 7900 2200
+NoConn ~ 7900 2300
+NoConn ~ 7900 2600
+NoConn ~ 7900 2700
+NoConn ~ 9750 2500
 NoConn ~ 7900 2800
 $EndSCHEMATC
