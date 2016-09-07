@@ -143,49 +143,49 @@ Text GLabel 8750 2900 2    60   Input ~ 0
 Python1_clk_return+
 Text GLabel 8750 3000 2    60   Input ~ 0
 Python1_clk_return-
-Text GLabel 8750 1500 2    60   Input ~ 0
-Python3_DOUT0-
-Text GLabel 8750 1400 2    60   Input ~ 0
-Python3_DOUT0+
-Text GLabel 8750 2000 2    60   Input ~ 0
-Python3_SYNC-
-Text GLabel 8750 2100 2    60   Input ~ 0
-Python3_SYNC+
-Text GLabel 8750 1800 2    60   Input ~ 0
-Python3_DOUT1-
-Text GLabel 8750 1700 2    60   Input ~ 0
-Python3_DOUT1+
 Text GLabel 8750 2600 2    60   Input ~ 0
-Python3_DOUT2-
+Python3_DOUT0-
 Text GLabel 8750 2700 2    60   Input ~ 0
-Python3_DOUT2+
+Python3_DOUT0+
+Text GLabel 8750 1400 2    60   Input ~ 0
+Python3_SYNC-
+Text GLabel 8750 1500 2    60   Input ~ 0
+Python3_SYNC+
 Text GLabel 8750 2300 2    60   Input ~ 0
-Python3_DOUT3-
+Python3_DOUT1-
 Text GLabel 8750 2400 2    60   Input ~ 0
+Python3_DOUT1+
+Text GLabel 8750 2000 2    60   Input ~ 0
+Python3_DOUT2-
+Text GLabel 8750 2100 2    60   Input ~ 0
+Python3_DOUT2+
+Text GLabel 8750 1700 2    60   Input ~ 0
+Python3_DOUT3-
+Text GLabel 8750 1800 2    60   Input ~ 0
 Python3_DOUT3+
-Text GLabel 8750 1200 2    60   Input ~ 0
-Python3_clk_return+
 Text GLabel 8750 1100 2    60   Input ~ 0
+Python3_clk_return+
+Text GLabel 8750 1200 2    60   Input ~ 0
 Python3_clk_return-
-Text GLabel 8250 1800 0    60   Input ~ 0
-Python2_DOUT0-
-Text GLabel 8250 1900 0    60   Input ~ 0
-Python2_DOUT0+
-Text GLabel 8250 2700 0    60   Input ~ 0
-Python2_SYNC-
-Text GLabel 8250 2800 0    60   Input ~ 0
-Python2_SYNC+
-Text GLabel 8250 1500 0    60   Input ~ 0
-Python2_DOUT1-
 Text GLabel 8250 1600 0    60   Input ~ 0
+Python2_DOUT0-
+Text GLabel 8250 1500 0    60   Input ~ 0
+Python2_DOUT0+
+Text GLabel 8250 2400 0    60   Input ~ 0
+Python2_SYNC-
+Text GLabel 8250 2500 0    60   Input ~ 0
+Python2_SYNC+
+Text GLabel 8250 1900 0    60   Input ~ 0
+Python2_DOUT1-
+Text GLabel 8250 1800 0    60   Input ~ 0
 Python2_DOUT1+
 Text GLabel 8250 2200 0    60   Input ~ 0
 Python2_DOUT2-
 Text GLabel 8250 2100 0    60   Input ~ 0
 Python2_DOUT2+
-Text GLabel 8250 2500 0    60   Input ~ 0
+Text GLabel 8250 2800 0    60   Input ~ 0
 Python2_DOUT3-
-Text GLabel 8250 2400 0    60   Input ~ 0
+Text GLabel 8250 2700 0    60   Input ~ 0
 Python2_DOUT3+
 Text GLabel 8250 3000 0    60   Input ~ 0
 Python2_clk_return+

@@ -167,36 +167,6 @@ Text GLabel 7900 2400 0    60   Input ~ 0
 IMU_RX1
 Text GLabel 7900 2500 0    60   Input ~ 0
 IMU_TX1
-$Comp
-L R R15
-U 1 1 57603F9B
-P 7350 2650
-F 0 "R15" H 7420 2749 50  0000 L CNN
-F 1 "10k" H 7420 2658 50  0000 L CNN
-F 2 "Dipoles_SMD:R_0603" H 7420 2612 50  0001 L CNN
-F 3 "http://www.vishay.com/docs/20065/rcse3.pdf" H 7350 2650 50  0001 C CNN
-F 4 "Vishay" H 7350 2650 60  0001 C CNN "MFN"
-F 5 "RCS060310K0FKEA" H 7350 2650 60  0001 C CNN "MFP"
-F 6 "digikey" H 7350 2650 60  0001 C CNN "D1"
-F 7 "mouser" H 7350 2650 60  0001 C CNN "D2"
-F 8 "541-2795" H 7350 2650 60  0001 C CNN "D1PN"
-F 9 "http://www.digikey.com/product-detail/en/vishay-dale/RCS060310K0FKEA/541-2795-1-ND/5867088" H 7350 2650 60  0001 C CNN "D1PL"
-F 10 "_" H 7350 2650 60  0001 C CNN "D2PN"
-F 11 "_" H 7350 2650 60  0001 C CNN "D2PL"
-F 12 "0603" H 7350 2650 60  0001 C CNN "Package"
-F 13 "_" H 7420 2559 60  0000 L CNN "Description"
-F 14 "_" H 7350 2650 60  0001 C CNN "Voltage"
-F 15 "1/4" H 7350 2650 60  0001 C CNN "Power"
-F 16 "1%" H 7350 2650 60  0001 C CNN "Tolerance"
-F 17 "_" H 7350 2650 60  0001 C CNN "Temperature"
-F 18 "_" H 7350 2650 60  0001 C CNN "ReverseVoltage"
-F 19 "_" H 7350 2650 60  0001 C CNN "ForwardVoltage"
-F 20 "_" H 7350 2650 60  0001 C CNN "Cont.Current"
-F 21 "_" H 7350 2650 60  0001 C CNN "Frequency"
-F 22 "_" H 7350 2650 60  0001 C CNN "ResonnanceFreq"
-	1    7350 2650
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7800 1700 7800 1950
 Connection ~ 7800 1850
@@ -251,8 +221,6 @@ F 22 "_" H 6850 2000 60  0001 C CNN "ResonnanceFreq"
 	1    6850 2000
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7350 2800 7900 2800
 $Comp
 L CONN_01X03 P1
 U 1 1 57C4D95C
@@ -283,8 +251,6 @@ F 22 "_" H 9400 5150 60  0001 C CNN "ResonnanceFreq"
 	1    9400 5150
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7350 2400 7350 2500
 $Comp
 L +3V3 #PWR013
 U 1 1 57CC82E6
@@ -296,15 +262,5 @@ F 3 "" H 7800 1700 50  0000 C CNN
 	1    7800 1700
 	1    0    0    -1  
 $EndComp
-$Comp
-L +3V3 #PWR014
-U 1 1 57CC8322
-P 7350 2400
-F 0 "#PWR014" H 7350 2250 50  0001 C CNN
-F 1 "+3V3" H 7365 2573 50  0000 C CNN
-F 2 "" H 7350 2400 50  0000 C CNN
-F 3 "" H 7350 2400 50  0000 C CNN
-	1    7350 2400
-	1    0    0    -1  
-$EndComp
+NoConn ~ 7900 2800
 $EndSCHEMATC
