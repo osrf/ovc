@@ -780,8 +780,6 @@ Wire Wire Line
 Wire Wire Line
 	2750 7100 2750 7250
 Connection ~ 2750 7250
-Text GLabel 800  6350 0    60   Input ~ 0
-2V1
 Connection ~ 1250 6350
 Text Notes 900  7500 0    60   ~ 0
 Fixed 1.8V LDO
@@ -942,6 +940,17 @@ F 20 "_" H 1150 4800 50  0001 C CNN "Cont.Current"
 F 21 "_" H 1150 4800 50  0001 C CNN "Frequency"
 F 22 "_" H 1150 4800 50  0001 C CNN "ResonnanceFreq"
 	1    1150 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3V3 #PWR?
+U 1 1 57D3199D
+P 800 6350
+F 0 "#PWR?" H 800 6200 50  0001 C CNN
+F 1 "+3V3" H 815 6523 50  0000 C CNN
+F 2 "" H 800 6350 50  0000 C CNN
+F 3 "" H 800 6350 50  0000 C CNN
+	1    800  6350
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
