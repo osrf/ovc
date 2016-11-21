@@ -22,7 +22,7 @@
    
  
 **BOM only**
-
+ * Change oscillator frequency from 48MHz to 100MHz (ASMB-100-LY-T) https://github.com/osrf/opencam/blob/master/hardware/Harley/HarleyGhostRider/HarleyGhostRider.csv#L45
 
 **HarleyTandem**
  * series termination resistor needed for the SCLK tree leaving the translator IC. 50 ohm seemed to work OK. Not sure what it should really be.
