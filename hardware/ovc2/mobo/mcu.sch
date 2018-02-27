@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 7 23
+Sheet 7 18
 Title ""
 Date ""
 Rev ""
@@ -601,4 +601,16 @@ Connection ~ 1600 4450
 Wire Wire Line
 	1650 3200 1650 3300
 Connection ~ 1650 3300
+Text GLabel 3000 2750 2    60   Input ~ 0
+FPGA_CONFIG_DCLK
+Text GLabel 3000 2650 2    60   Input ~ 0
+FPGA_CVP_CONF_DONE
+Text GLabel 3000 2850 2    60   Input ~ 0
+FPGA_CONF_DONE
+Text GLabel 3000 2950 2    60   Input ~ 0
+FPGA_NSTATUS
+Text GLabel 3000 3050 2    60   Input ~ 0
+FPGA_NCONFIG
+Text GLabel 3000 3150 2    60   Input ~ 0
+FPGA_CONFIG_DATA0
 $EndSCHEMATC

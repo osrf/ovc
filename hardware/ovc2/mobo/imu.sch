@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 23
+Sheet 3 17
 Title ""
 Date ""
 Rev ""
@@ -179,17 +179,6 @@ F 1 "GND" H 7605 2977 50  0001 C CNN
 F 2 "" H 7600 3150 50  0001 C CNN
 F 3 "" H 7600 3150 50  0001 C CNN
 	1    7600 3150
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+2V5 #PWR04
-U 1 1 59F59A9E
-P 7600 2950
-F 0 "#PWR04" H 7600 2800 50  0001 C CNN
-F 1 "+2V5" H 7615 3123 50  0000 C CNN
-F 2 "" H 7600 2950 50  0001 C CNN
-F 3 "" H 7600 2950 50  0001 C CNN
-	1    7600 2950
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -453,4 +442,18 @@ Wire Wire Line
 	3750 4450 3850 4450
 Wire Wire Line
 	2400 2800 2750 2800
+Text Notes 2200 2350 0    50   ~ 0
+TODO: move IMU to daugherboard and have more than one footprint
+$Comp
+L power:+1V8 #PWR0142
+U 1 1 5AB1F7EF
+P 7600 2950
+F 0 "#PWR0142" H 7600 2800 50  0001 C CNN
+F 1 "+1V8" H 7615 3123 50  0000 C CNN
+F 2 "" H 7600 2950 50  0001 C CNN
+F 3 "" H 7600 2950 50  0001 C CNN
+	1    7600 2950
+	1    0    0    -1  
+$EndComp
+Connection ~ 7600 2950
 $EndSCHEMATC

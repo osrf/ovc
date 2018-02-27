@@ -16,7 +16,6 @@
   (lib (name usb3_connector)(type Legacy)(uri ${KIWORKSPACE}/osrf_hw/kicad_libraries/usb3_connector.lib)(options "")(descr ""))
   (lib (name 10cx220_u484)(type Legacy)(uri ${KIWORKSPACE}/osrf_hw/kicad_libraries/10cx220_u484.lib)(options "")(descr ""))
   (lib (name MCU_ST_STM32)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/MCU_ST_STM32.lib)(options "")(descr ""))
-  (lib (name Connector)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Connector.lib)(options "")(descr ""))
   (lib (name Switch)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Switch.lib)(options "")(descr ""))
   (lib (name voltage_translators)(type Legacy)(uri ${KIWORKSPACE}/osrf_hw/kicad_libraries/voltage_translators.lib)(options "")(descr ""))
   (lib (name STM32L4)(type Legacy)(uri ${KIWORKSPACE}/osrf_hw/kicad_libraries/STM32L4.lib)(options "")(descr ""))
