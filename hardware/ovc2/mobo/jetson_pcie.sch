@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:ovc2_mobo-cache
 EELAYER 26 0
 EELAYER END
 $Descr USLetter 11000 8500
