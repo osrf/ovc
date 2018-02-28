@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:ovc2_mobo-cache
 EELAYER 26 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
-Sheet 8 17
+Sheet 7 16
 Title ""
 Date ""
 Rev ""
@@ -113,7 +114,7 @@ L device:R_Small R10
 U 1 1 59A16208
 P 14550 8900
 F 0 "R10" H 14609 8946 50  0000 L CNN
-F 1 "1k74" H 14609 8855 50  0000 L CNN
+F 1 "2k87" H 14609 8855 50  0000 L CNN
 F 2 "Resistors_SMD:R_0201" H 14550 8900 50  0001 C CNN
 F 3 "" H 14550 8900 50  0001 C CNN
 F 4 "digikey" H 14609 9046 50  0001 C CNN "D1"
@@ -586,7 +587,7 @@ L device:R_Small R1105
 U 1 1 59A5109D
 P 12650 5950
 F 0 "R1105" H 12709 5996 50  0000 L CNN
-F 1 "49k9" H 12709 5905 50  0000 L CNN
+F 1 "28k7" H 12709 5905 50  0000 L CNN
 F 2 "Resistors_SMD:R_0402" H 12650 5950 50  0001 C CNN
 F 3 "" H 12650 5950 50  0001 C CNN
 F 4 "digikey" H 12709 6096 50  0001 C CNN "D1"
@@ -1935,50 +1936,6 @@ F 3 "" H 7550 10650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+1V1 #PWR0184
-U 1 1 59F44F12
-P 14200 7000
-F 0 "#PWR0184" H 14200 6850 50  0001 C CNN
-F 1 "+1V1" H 14215 7173 50  0000 C CNN
-F 2 "" H 14200 7000 50  0001 C CNN
-F 3 "" H 14200 7000 50  0001 C CNN
-	1    14200 7000
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+1V1 #PWR0185
-U 1 1 59F46636
-P 7550 9750
-F 0 "#PWR0185" H 7550 9600 50  0001 C CNN
-F 1 "+1V1" H 7565 9923 50  0000 C CNN
-F 2 "" H 7550 9750 50  0001 C CNN
-F 3 "" H 7550 9750 50  0001 C CNN
-	1    7550 9750
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+1V2 #PWR0186
-U 1 1 59F48B86
-P 12650 5750
-F 0 "#PWR0186" H 12650 5600 50  0001 C CNN
-F 1 "+1V2" H 12665 5923 50  0000 C CNN
-F 2 "" H 12650 5750 50  0001 C CNN
-F 3 "" H 12650 5750 50  0001 C CNN
-	1    12650 5750
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+1V2 #PWR0194
-U 1 1 59F5262A
-P 8300 8400
-F 0 "#PWR0194" H 8300 8250 50  0001 C CNN
-F 1 "+1V2" H 8315 8573 50  0000 C CNN
-F 2 "" H 8300 8400 50  0001 C CNN
-F 3 "" H 8300 8400 50  0001 C CNN
-	1    8300 8400
-	1    0    0    -1  
-$EndComp
-$Comp
 L device:C_Small C1105
 U 1 1 59A51024
 P 10150 4400
@@ -2165,7 +2122,7 @@ AGND
 Text Notes 11350 7950 0    60   ~ 0
 10n SS cap = 3.8ms rise time
 Text Notes 9800 1650 0    60   ~ 0
-VOUT = FB * ( 1 + R1/R2), VFB = 0.8, R2 = 100k\n\nTODO: Replace with beefy LDO:\nVOUT = 1.2V => R1 = 50k => closest value: 49.9k => Resulting Vout= 1.200V\nVOUT = 1.8V => R1 = 125k => closest value: 124k => Resulting Vout= 1.792V\nVOUT = 2.5V => R1 = 212.5k => closest value: 215k => Resulting Vout= 2.520V\nVOUT = 3.3V => R1 = 312.5k => closest value: 316k => Resulting Vout= 3.296V\nVOUT = 5V => R1 = 525k => closest value: 523k => Resulting Vout= 4.984V\n
+VOUT = FB * ( 1 + R1/R2), VFB = 0.8, R2 = 100k\n\nVOUT = 1.03V => R1 = 28.75k => closest value: 28.7k => Resulting Vout= 1.0296V\nVOUT = 1.8V => R1 = 125k => closest value: 124k => Resulting Vout= 1.792V\nVOUT = 2.5V => R1 = 212.5k => closest value: 215k => Resulting Vout= 2.520V\nVOUT = 3.3V => R1 = 312.5k => closest value: 316k => Resulting Vout= 3.296V\nVOUT = 5V => R1 = 525k => closest value: 523k => Resulting Vout= 4.984V\n
 Text Notes 9800 2750 0    60   ~ 0
 What is the target startup time here ? 4.7nF leads to 2.3ms if I used the right formula (8.2.1.2.4 from datasheet)
 Text GLabel 15300 5650 2    60   Input ~ 0
@@ -2264,8 +2221,6 @@ Wire Wire Line
 	14200 7800 14200 7900
 Wire Wire Line
 	12900 7100 12900 7200
-Wire Wire Line
-	14200 7000 14200 7100
 Wire Wire Line
 	14200 8800 14300 8800
 Wire Wire Line
@@ -2980,8 +2935,22 @@ Wire Wire Line
 Wire Wire Line
 	2700 1850 3200 1850
 Connection ~ 2700 1850
-Text Notes 12400 5500 0    50   ~ 0
-TODO: move to 1V03
-Text Notes 14400 6950 0    50   ~ 0
-TODO: move resistor to 0V9
+Text GLabel 14250 6950 2    50   Input ~ 0
+0V9
+Wire Wire Line
+	14250 6950 14200 6950
+Wire Wire Line
+	14200 6950 14200 7100
+Wire Wire Line
+	12650 5750 12650 5550
+Wire Wire Line
+	12650 5550 12750 5550
+Text GLabel 12750 5550 2    50   Input ~ 0
+1V03
+Text GLabel 7550 9750 2    50   Input ~ 0
+0V9
+Text GLabel 8300 8400 2    50   Input ~ 0
+1V03
+Text Notes 10200 7650 0    50   ~ 0
+TODO: find another constant voltage to pull up here
 $EndSCHEMATC

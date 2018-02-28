@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:ovc2_mobo-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 17
+Sheet 1 16
 Title ""
 Date ""
 Rev ""
@@ -18,12 +19,6 @@ S 1200 1650 1200 200
 U 590F42A0
 F0 "fpga_power" 118
 F1 "fpga_power.sch" 118
-$EndSheet
-$Sheet
-S 3550 1650 1250 200 
-U 590F4DC0
-F0 "IMU" 118
-F1 "imu.sch" 118
 $EndSheet
 $Sheet
 S 5800 1650 1500 250 

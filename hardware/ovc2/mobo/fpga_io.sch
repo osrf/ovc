@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:ovc2_mobo-cache
 EELAYER 26 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
-Sheet 18 17
+Sheet 17 16
 Title ""
 Date ""
 Rev ""
@@ -607,4 +608,20 @@ Text Label 4250 700  0    60   ~ 0
 DATA0
 Wire Wire Line
 	4750 700  4200 700 
+Text GLabel 13350 4200 0    60   Input ~ 0
+IMU_SYNC_OUT
+Text GLabel 13350 4600 0    60   Input ~ 0
+IMU_TARE
+Text GLabel 13350 4700 0    60   Input ~ 0
+IMU_SYNC_IN
+Text GLabel 13350 4300 0    60   Input ~ 0
+IMU_SCK
+Text GLabel 13350 4400 0    60   Input ~ 0
+IMU_MOSI
+Text GLabel 13350 4500 0    60   Input ~ 0
+IMU_MISO
+Text GLabel 13350 4800 0    60   Input ~ 0
+IMU_CS
+Text GLabel 13350 4100 0    60   Input ~ 0
+IMU_NRST
 $EndSCHEMATC

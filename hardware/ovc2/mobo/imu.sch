@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:ovc2_mobo-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -283,22 +284,6 @@ Text Label 8950 4150 0    60   ~ 0
 CS_3V3
 Text Label 8950 3950 0    60   ~ 0
 NRST_3V3
-Text GLabel 7950 3550 0    60   Input ~ 0
-IMU_SYNC_OUT
-Text GLabel 7950 3950 0    60   Input ~ 0
-IMU_TARE
-Text GLabel 7950 4050 0    60   Input ~ 0
-IMU_SYNC_IN
-Text GLabel 7950 3650 0    60   Input ~ 0
-IMU_SCK
-Text GLabel 7950 3750 0    60   Input ~ 0
-IMU_MOSI
-Text GLabel 7950 3850 0    60   Input ~ 0
-IMU_MISO
-Text GLabel 7950 4150 0    60   Input ~ 0
-IMU_CS
-Text GLabel 7950 3450 0    60   Input ~ 0
-IMU_NRST
 Text Label 2600 6050 0    60   ~ 0
 SCK_3V3
 Text Label 4300 3250 0    60   ~ 0

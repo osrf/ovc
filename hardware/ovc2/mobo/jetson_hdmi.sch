@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:ovc2_mobo-cache
 EELAYER 26 0
 EELAYER END
 $Descr USLegal 14000 8500
 encoding utf-8
-Sheet 11 17
+Sheet 11 16
 Title ""
 Date ""
 Rev ""

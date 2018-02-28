@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:ovc2_mobo-cache
 EELAYER 26 0
 EELAYER END
 $Descr A3 11693 16535 portrait
 encoding utf-8
-Sheet 2 17
+Sheet 2 16
 Title ""
 Date ""
 Rev ""
@@ -553,15 +554,15 @@ F 7 "CGB2A1X5R1E105K033BC" H 3892 15546 50  0001 C CNN "MPN"
 	1    0    0    -1  
 $EndComp
 Text Label 1400 15300 0    60   ~ 0
-VCCPT
+VCCA
 Text Label 1000 11750 0    60   ~ 0
 VCC
 Text Notes 900  11600 0    236  ~ 47
-0v9 decoupling
+VCC (0v9) decoupling
 Text Notes 900  12700 0    236  ~ 47
-1v03 decoupling
+XCVR (1v03) decoupling
 Text Notes 900  14950 0    236  ~ 47
-VCCPT (1v8) decoupling
+VCCA (1v8) decoupling
 Wire Wire Line
 	1350 13000 2000 13000
 Wire Wire Line
@@ -1377,7 +1378,7 @@ Wire Wire Line
 Connection ~ 2100 1100
 Text Label 2200 1100 0    50   ~ 0
 VCC
-Text GLabel 2400 1100 2    50   Input ~ 0
+Text GLabel 900  11750 0    50   Input ~ 0
 0V9
 Wire Wire Line
 	2100 5200 2100 5100
@@ -1454,17 +1455,9 @@ Wire Wire Line
 Wire Wire Line
 	2100 5900 2100 5800
 Wire Wire Line
-	2100 4900 2550 4900
-Connection ~ 2100 4900
-Text Label 2250 4900 0    50   ~ 0
-VCCPT
-Wire Wire Line
-	2100 5800 2550 5800
-Text Label 2250 5800 0    50   ~ 0
-VCCPT
-Connection ~ 2100 5800
-Wire Wire Line
-	2100 5700 2100 5800
+	2100 5900 2450 5900
+Text Label 2200 5900 0    50   ~ 0
+VCCA
 Wire Wire Line
 	2100 5400 2250 5400
 $Comp
@@ -1517,7 +1510,7 @@ Connection ~ 2100 8000
 Wire Wire Line
 	2100 8000 2100 7900
 Text Label 2150 7700 0    50   ~ 0
-VCCPT
+VCCA
 Wire Wire Line
 	2100 7700 2400 7700
 $Comp
@@ -1554,6 +1547,34 @@ Text Label 2150 7900 0    50   ~ 0
 VCC_GXBL
 Text Label 1550 13000 0    50   ~ 0
 VCC_GXBL
-Text Notes 900  14000 0    236  ~ 47
-todo: 1v8 i/o decoupling
+Text Notes 900  13700 0    236  ~ 47
+VCCIO (1v8) decoupling
+Wire Wire Line
+	900  11750 950  11750
+Connection ~ 950  11750
+Wire Wire Line
+	2100 5200 2100 5300
+Connection ~ 2100 5200
+Connection ~ 2100 5300
+Wire Wire Line
+	2100 5700 2400 5700
+Wire Wire Line
+	2400 5700 2400 5400
+Wire Wire Line
+	2400 5400 2250 5400
+Connection ~ 2250 5400
+Connection ~ 2100 5900
+$Comp
+L power:+1V8 #PWR?
+U 1 1 5AA2B490
+P 950 14000
+F 0 "#PWR?" H 950 13850 50  0001 C CNN
+F 1 "+1V8" H 965 14173 50  0000 C CNN
+F 2 "" H 950 14000 50  0001 C CNN
+F 3 "" H 950 14000 50  0001 C CNN
+	1    950  14000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	950  14000 1100 14000
 $EndSCHEMATC

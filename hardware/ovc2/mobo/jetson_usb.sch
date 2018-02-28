@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:ovc2_mobo-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 11 17
+Sheet 11 16
 Title ""
 Date ""
 Rev ""
@@ -774,10 +775,10 @@ F 4 "WM10420" H 6750 1350 50  0001 C CNN "D1PN"
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0135
 U 1 1 5A99E4F2
 P 6500 3200
-F 0 "#PWR?" H 6500 2950 50  0001 C CNN
+F 0 "#PWR0135" H 6500 2950 50  0001 C CNN
 F 1 "GND" H 6505 3027 50  0001 C CNN
 F 2 "" H 6500 3200 50  0001 C CNN
 F 3 "" H 6500 3200 50  0001 C CNN
