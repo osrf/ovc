@@ -104,4 +104,15 @@ U 5A96DC8F
 F0 "fpga_io" 118
 F1 "fpga_io.sch" 59
 $EndSheet
+$Comp
+L Connector_Generic:Conn_02x20_Odd_Even J2
+U 1 1 5A999CEF
+P 5800 4300
+F 0 "J2" H 5850 5417 50  0000 C CNN
+F 1 "Conn_02x20_Odd_Even" H 5850 5326 50  0000 C CNN
+F 2 "Connectors_OSRF:SAMTEC_ERF8-020" H 5800 4300 50  0001 C CNN
+F 3 "~" H 5800 4300 50  0001 C CNN
+	1    5800 4300
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
