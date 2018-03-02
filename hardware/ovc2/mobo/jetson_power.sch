@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr USLetter 8500 11000 portrait
 encoding utf-8
-Sheet 5 16
+Sheet 4 16
 Title ""
 Date ""
 Rev ""
@@ -67,7 +67,7 @@ U 1 1 59D459B5
 P 3450 4200
 F 0 "C1" H 3541 4246 50  0000 L CNN
 F 1 "100m" H 3541 4155 50  0000 L CNN
-F 2 "Capacitors_THT:CP_Radial_D13.0mm_P5.00mm" H 3450 4200 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D13.0mm_P5.00mm" H 3450 4200 50  0001 C CNN
 F 3 "http://www.cooperindustries.com/content/dam/public/bussmann/Electronics/Resources/product-datasheets/Bus_Elx_DS_4327_KR_Series.pdf" H 3450 4200 50  0001 C CNN
 F 4 "digikey" H 3541 4346 50  0001 C CNN "D1"
 F 5 "283-2806" H 3541 4346 50  0001 C CNN "D1PN"
@@ -145,7 +145,7 @@ U 1 1 59F7D0E4
 P 5800 4150
 F 0 "C106" H 5892 4196 50  0000 L CNN
 F 1 "1n" H 5892 4105 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0402" H 5800 4150 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 5800 4150 50  0001 C CNN
 F 3 "" H 5800 4150 50  0001 C CNN
 F 4 "digikey" H 5892 4296 50  0001 C CNN "D1"
 F 5 "490-1303" H 5892 4296 50  0001 C CNN "D1PN"
@@ -160,7 +160,7 @@ U 1 1 59F7DC01
 P 4450 4150
 F 0 "C105" H 4542 4196 50  0000 L CNN
 F 1 "1n" H 4542 4105 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0402" H 4450 4150 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 4450 4150 50  0001 C CNN
 F 3 "" H 4450 4150 50  0001 C CNN
 F 4 "digikey" H 4542 4296 50  0001 C CNN "D1"
 F 5 "490-1303" H 4542 4296 50  0001 C CNN "D1PN"
