@@ -136,16 +136,14 @@ Text GLabel 4250 2450 2    60   Input ~ 0
 PCIE_LANE0_RX+
 Text GLabel 4250 2550 2    60   Input ~ 0
 PCIE_LANE0_RX-
-Text GLabel 4250 2650 2    60   Input ~ 0
-PCIE_LANE1_TX-
 Text GLabel 4250 2750 2    60   Input ~ 0
+PCIE_LANE1_TX-
+Text GLabel 4250 2650 2    60   Input ~ 0
 PCIE_LANE1_TX+
 Text GLabel 4250 2850 2    60   Input ~ 0
 PCIE_LANE1_RX+
 Text GLabel 4250 2950 2    60   Input ~ 0
 PCIE_LANE1_RX-
-Text Notes 5200 3000 0    60   ~ 0
-swap all lane ordering\nswap polarity as needed
 Text GLabel 4250 2150 2    60   Input ~ 0
 PCIE_RST_3V3
 Text Label 2650 2650 0    60   ~ 0
@@ -209,4 +207,6 @@ NoConn ~ 2650 3050
 NoConn ~ 2650 3150
 NoConn ~ 2650 3450
 NoConn ~ 2650 3550
+Text Notes 5250 2600 0    60   ~ 0
+Polarity cannot be swapped on Cyclone 10 GX
 $EndSCHEMATC
