@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr USLetter 8500 11000 portrait
 encoding utf-8
-Sheet 4 11
+Sheet 2 11
 Title ""
 Date ""
 Rev ""
@@ -66,13 +66,13 @@ L device:CP1_Small C1
 U 1 1 59D459B5
 P 3450 4200
 F 0 "C1" H 3541 4246 50  0000 L CNN
-F 1 "100m" H 3541 4155 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D13.0mm_P5.00mm" H 3450 4200 50  0001 C CNN
-F 3 "http://www.cooperindustries.com/content/dam/public/bussmann/Electronics/Resources/product-datasheets/Bus_Elx_DS_4327_KR_Series.pdf" H 3450 4200 50  0001 C CNN
+F 1 "80m" H 3541 4155 50  0000 L CNN
+F 2 "Batteries_OSRF:SEIKO_XH414HG_IV01E" H 3450 4200 50  0001 C CNN
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/Seiko%20Instruments%20PDFs/XH414HG,%20XH409HG.pdf" H 3450 4200 50  0001 C CNN
 F 4 "digikey" H 3541 4346 50  0001 C CNN "D1"
-F 5 "283-2806" H 3541 4346 50  0001 C CNN "D1PN"
-F 6 "Eaton" H 3450 4200 60  0001 C CNN "MFN"
-F 7 "KR-5R5C104-R" H 3450 4200 60  0001 C CNN "MPN"
+F 5 "728-1050" H 3541 4346 50  0001 C CNN "D1PN"
+F 6 "Seiko" H 3450 4200 60  0001 C CNN "MFN"
+F 7 "XH414HG-IV01E" H 3450 4200 60  0001 C CNN "MPN"
 	1    3450 4200
 	1    0    0    -1  
 $EndComp

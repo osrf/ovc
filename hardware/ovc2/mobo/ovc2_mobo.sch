@@ -85,4 +85,53 @@ F 3 "~" H 5800 4300 50  0001 C CNN
 	1    5800 4300
 	1    0    0    -1  
 $EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 5A9A1AB4
+P 4650 5300
+F 0 "#PWR0101" H 4650 5050 50  0001 C CNN
+F 1 "GND" H 4655 5127 50  0001 C CNN
+F 2 "" H 4650 5300 50  0001 C CNN
+F 3 "" H 4650 5300 50  0001 C CNN
+	1    4650 5300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4650 5300 5600 5300
+Text GLabel 5600 5100 0    60   Input ~ 0
+PCIE_LANE0_TX+
+Text GLabel 5600 5200 0    60   Input ~ 0
+PCIE_LANE0_TX-
+Wire Wire Line
+	5600 5000 4650 5000
+Wire Wire Line
+	4650 5000 4650 5300
+Connection ~ 4650 5300
+$Comp
+L power:GND #PWR0102
+U 1 1 5A9A2C22
+P 7100 5300
+F 0 "#PWR0102" H 7100 5050 50  0001 C CNN
+F 1 "GND" H 7105 5127 50  0001 C CNN
+F 2 "" H 7100 5300 50  0001 C CNN
+F 3 "" H 7100 5300 50  0001 C CNN
+	1    7100 5300
+	1    0    0    -1  
+$EndComp
+Text GLabel 6100 5000 2    60   Input ~ 0
+PCIE_REFCLK+
+Text GLabel 6100 5100 2    60   Input ~ 0
+PCIE_REFCLK-
+Wire Wire Line
+	6100 4900 7100 4900
+Wire Wire Line
+	7100 4900 7100 5200
+Wire Wire Line
+	6100 5300 7100 5300
+Connection ~ 7100 5300
+Wire Wire Line
+	6100 5200 7100 5200
+Connection ~ 7100 5200
+Wire Wire Line
+	7100 5200 7100 5300
 $EndSCHEMATC
