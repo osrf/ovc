@@ -209,4 +209,6 @@ NoConn ~ 2650 3450
 NoConn ~ 2650 3550
 Text Notes 5250 2600 0    60   ~ 0
 Polarity cannot be swapped on Cyclone 10 GX
+Text Notes 3350 2100 0    50   ~ 0
+CLKREQ isn't required
 $EndSCHEMATC

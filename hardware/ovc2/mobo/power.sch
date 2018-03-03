@@ -1386,12 +1386,6 @@ Text Label 2550 9000 0    60   ~ 0
 DISCHARGE
 Text Label 4250 9000 0    60   ~ 0
 DISCHARGE
-Text Label 10050 3400 0    60   ~ 0
-PG_GRP1
-Text Label 13250 3400 0    60   ~ 0
-PG_GRP1
-Text Label 13700 6000 0    60   ~ 0
-PG_GRP1
 Text Label 1200 1550 0    60   ~ 0
 VIN
 Wire Wire Line
@@ -1663,12 +1657,6 @@ Wire Wire Line
 Wire Wire Line
 	5050 9200 5050 9300
 Wire Wire Line
-	10050 3400 10550 3400
-Wire Wire Line
-	13250 3400 13750 3400
-Wire Wire Line
-	13700 6000 14200 6000
-Wire Wire Line
 	15700 5800 15700 5950
 Wire Wire Line
 	15700 6300 15700 6150
@@ -1877,4 +1865,21 @@ F 7 "T521X107M025ATE030" H 5900 1750 60  0001 C CNN "MPN"
 	1    5900 1750
 	1    0    0    -1  
 $EndComp
+Text Label 9800 3400 0    60   ~ 0
+JETSON_PWR_EN
+Wire Wire Line
+	9800 3400 10550 3400
+Text Label 13000 3400 0    60   ~ 0
+JETSON_PWR_EN
+Text Label 13450 6000 0    60   ~ 0
+JETSON_PWR_EN
+Wire Wire Line
+	13000 3400 13750 3400
+Wire Wire Line
+	13450 6000 14200 6000
+Text GLabel 6500 6450 2    50   Input ~ 0
+DISCHARGE
+Wire Wire Line
+	6500 6450 6400 6450
+Connection ~ 6400 6450
 $EndSCHEMATC

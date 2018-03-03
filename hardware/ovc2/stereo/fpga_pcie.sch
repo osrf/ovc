@@ -1,10 +1,9 @@
 EESchema Schematic File Version 4
-LIBS:ovc2_stereo-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 15 7
+Sheet 6 7
 Title ""
 Date ""
 Rev ""
@@ -152,22 +151,22 @@ Text GLabel 6250 5050 2    60   Input ~ 0
 PCIE_REFCLK+
 Text GLabel 6250 5150 2    60   Input ~ 0
 PCIE_REFCLK-
-Text GLabel 6250 4450 2    60   Input ~ 0
-PCIE_LANE0_TX-
-Text GLabel 6250 4550 2    60   Input ~ 0
-PCIE_LANE0_TX+
 Text GLabel 6250 4250 2    60   Input ~ 0
-PCIE_LANE0_RX-
-Text GLabel 6250 4350 2    60   Input ~ 0
-PCIE_LANE0_RX+
-Text GLabel 6250 4850 2    60   Input ~ 0
 PCIE_LANE1_TX-
-Text GLabel 6250 4950 2    60   Input ~ 0
+Text GLabel 6250 4350 2    60   Input ~ 0
 PCIE_LANE1_TX+
-Text GLabel 6250 4750 2    60   Input ~ 0
+Text GLabel 6250 4450 2    60   Input ~ 0
+PCIE_LANE1_RX-
+Text GLabel 6250 4550 2    60   Input ~ 0
 PCIE_LANE1_RX+
 Text GLabel 6250 4650 2    60   Input ~ 0
-PCIE_LANE1_RX-
+PCIE_LANE0_TX-
+Text GLabel 6250 4750 2    60   Input ~ 0
+PCIE_LANE0_TX+
+Text GLabel 6250 4950 2    60   Input ~ 0
+PCIE_LANE0_RX+
+Text GLabel 6250 4850 2    60   Input ~ 0
+PCIE_LANE0_RX-
 Text Label 4600 4350 0    60   ~ 0
 GXB_TX_L1+
 Text Label 4600 4250 0    60   ~ 0

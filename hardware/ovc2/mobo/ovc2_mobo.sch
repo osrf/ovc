@@ -98,9 +98,9 @@ F 3 "" H 4650 5300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4650 5300 5600 5300
-Text GLabel 5600 5100 0    60   Input ~ 0
+Text GLabel 5600 4800 0    60   Input ~ 0
 PCIE_LANE0_TX+
-Text GLabel 5600 5200 0    60   Input ~ 0
+Text GLabel 5600 4900 0    60   Input ~ 0
 PCIE_LANE0_TX-
 Wire Wire Line
 	5600 5000 4650 5000
@@ -134,4 +134,39 @@ Wire Wire Line
 Connection ~ 7100 5200
 Wire Wire Line
 	7100 5200 7100 5300
+Text GLabel 5600 4500 0    60   Input ~ 0
+PCIE_LANE1_RX+
+Text GLabel 5600 4600 0    60   Input ~ 0
+PCIE_LANE1_RX-
+Text GLabel 5600 5100 0    60   Input ~ 0
+PCIE_LANE0_RX+
+Text GLabel 5600 5200 0    60   Input ~ 0
+PCIE_LANE0_RX-
+Text GLabel 5600 4200 0    60   Input ~ 0
+PCIE_LANE1_TX+
+Text GLabel 5600 4300 0    60   Input ~ 0
+PCIE_LANE1_TX-
+Wire Wire Line
+	4650 5000 4650 4700
+Wire Wire Line
+	4650 4700 5600 4700
+Connection ~ 4650 5000
+Wire Wire Line
+	4650 4700 4650 4400
+Wire Wire Line
+	4650 4400 5600 4400
+Connection ~ 4650 4700
+Wire Wire Line
+	4650 4400 4650 4100
+Wire Wire Line
+	4650 4100 5600 4100
+Connection ~ 4650 4400
+Text GLabel 6100 4800 2    60   Input ~ 0
+PCIE_RST_3V3
+Text GLabel 6100 4700 2    60   Input ~ 0
+JETSON_RESET_OUT
+Text GLabel 6100 4600 2    60   Input ~ 0
+JETSON_CARRIER_PWR_ON
+Text GLabel 6100 4500 2    50   Input ~ 0
+DISCHARGE
 $EndSCHEMATC
