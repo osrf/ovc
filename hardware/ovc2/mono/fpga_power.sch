@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:ovc2_mono-cache
 EELAYER 26 0
 EELAYER END
 $Descr A3 11693 16535 portrait
 encoding utf-8
-Sheet 2 8
+Sheet 2 7
 Title ""
 Date ""
 Rev ""

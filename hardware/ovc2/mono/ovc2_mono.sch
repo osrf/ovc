@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:ovc2_mono-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 8
+Sheet 1 7
 Title ""
 Date ""
 Rev ""
@@ -155,10 +156,15 @@ F 3 "~" H 2250 6700 50  0001 C CNN
 	1    2250 6700
 	1    0    0    -1  
 $EndComp
-$Sheet
-S 4800 1900 550  150 
-U 5A9F7744
-F0 "imu" 118
-F1 "imu.sch" 50
-$EndSheet
+$Comp
+L Graphic:Logo_Open_Hardware_Small Z2
+U 1 1 5A9CF799
+P 3100 6700
+F 0 "Z2" H 3347 6725 50  0000 L CNN
+F 1 "Logo_Open_Hardware_Small" H 3100 6475 50  0001 C CNN
+F 2 "Symbols:OSHW-Symbol_6.7x6mm_SilkScreen" H 3100 6700 50  0001 C CNN
+F 3 "~" H 3100 6700 50  0001 C CNN
+	1    3100 6700
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

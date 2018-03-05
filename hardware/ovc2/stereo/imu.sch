@@ -3,7 +3,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 17
+Sheet 8 8
 Title ""
 Date ""
 Rev ""
@@ -181,43 +181,6 @@ F 3 "" H 7600 3150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x12 J15
-U 1 1 59FCB6B2
-P 2400 5950
-F 0 "J15" H 2480 5942 50  0000 L CNN
-F 1 "IMU" H 2480 5851 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x12_Pitch2.54mm" H 2400 5950 50  0001 C CNN
-F 3 "" H 2400 5950 50  0001 C CNN
-F 4 "DNP" H 2480 6042 50  0001 C CNN "D1"
-F 5 "DNP" H 2480 6042 50  0001 C CNN "D1PN"
-F 6 "DNP" H 2480 6042 50  0001 C CNN "MFN"
-F 7 "DNP" H 2480 6042 50  0001 C CNN "MPN"
-	1    2400 5950
-	-1   0    0    -1  
-$EndComp
-$Comp
-L power:+3V3 #PWR0196
-U 1 1 59FCD26C
-P 2700 5450
-F 0 "#PWR0196" H 2700 5300 50  0001 C CNN
-F 1 "+3V3" H 2715 5623 50  0000 C CNN
-F 2 "" H 2700 5450 50  0001 C CNN
-F 3 "" H 2700 5450 50  0001 C CNN
-	1    2700 5450
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0197
-U 1 1 59FCD2EE
-P 2950 5450
-F 0 "#PWR0197" H 2950 5200 50  0001 C CNN
-F 1 "GND" H 2955 5277 50  0001 C CNN
-F 2 "" H 2950 5450 50  0001 C CNN
-F 3 "" H 2950 5450 50  0001 C CNN
-	1    2950 5450
-	1    0    0    -1  
-$EndComp
-$Comp
 L Connector_Generic:Conn_01x03 J5
 U 1 1 59FD5F55
 P 4450 5800
@@ -283,8 +246,6 @@ Text Label 8950 4150 0    60   ~ 0
 CS_3V3
 Text Label 8950 3950 0    60   ~ 0
 NRST_3V3
-Text Label 2600 6050 0    60   ~ 0
-SCK_3V3
 Text Label 4300 3250 0    60   ~ 0
 TX1
 Text Label 4300 3350 0    60   ~ 0
@@ -293,24 +254,6 @@ Text Label 4650 5700 0    60   ~ 0
 RX2
 Text Label 4650 5800 0    60   ~ 0
 TX2
-Text Label 2600 6150 0    60   ~ 0
-MOSI_3V3
-Text Label 2600 6250 0    60   ~ 0
-MISO_3V3
-Text Label 2600 6350 0    60   ~ 0
-NRST_3V3
-Text Label 2600 6450 0    60   ~ 0
-SYNC_IN_3V3
-Text Label 2600 6550 0    60   ~ 0
-CS_3V3
-Text Label 2600 5650 0    60   ~ 0
-TARE_3V3
-Text Label 2600 5750 0    60   ~ 0
-SYNC_OUT_3V3
-Text Label 2600 5850 0    60   ~ 0
-TX1
-Text Label 2600 5950 0    60   ~ 0
-RX1
 Wire Wire Line
 	2750 2800 2750 3050
 Wire Wire Line
@@ -366,37 +309,9 @@ Wire Wire Line
 Wire Wire Line
 	8900 3950 9650 3950
 Wire Wire Line
-	2700 5450 2600 5450
-Wire Wire Line
-	2600 5550 2800 5550
-Wire Wire Line
-	2800 5550 2800 5450
-Wire Wire Line
-	2800 5450 2950 5450
-Wire Wire Line
-	3050 6050 2600 6050
-Wire Wire Line
 	4650 5700 4900 5700
 Wire Wire Line
 	4650 5800 4900 5800
-Wire Wire Line
-	3050 6150 2600 6150
-Wire Wire Line
-	3050 6250 2600 6250
-Wire Wire Line
-	3050 6350 2600 6350
-Wire Wire Line
-	3250 6450 2600 6450
-Wire Wire Line
-	3050 6550 2600 6550
-Wire Wire Line
-	3050 5650 2600 5650
-Wire Wire Line
-	2600 5750 3350 5750
-Wire Wire Line
-	2600 5950 2900 5950
-Wire Wire Line
-	2600 5850 2900 5850
 Connection ~ 3350 4450
 Connection ~ 3450 4450
 Connection ~ 3550 4450

@@ -3,7 +3,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 7
+Sheet 1 8
 Title ""
 Date ""
 Rev ""
@@ -155,4 +155,10 @@ F 3 "~" H 2250 6700 50  0001 C CNN
 	1    2250 6700
 	1    0    0    -1  
 $EndComp
+$Sheet
+S 5900 1650 1400 400 
+U 5A9D8938
+F0 "imu" 118
+F1 "imu.sch" 50
+$EndSheet
 $EndSCHEMATC
