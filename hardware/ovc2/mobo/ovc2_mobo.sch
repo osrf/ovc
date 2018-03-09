@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 11
+Sheet 1 12
 Title ""
 Date ""
 Rev ""
@@ -167,6 +167,48 @@ Text GLabel 6100 4700 2    60   Input ~ 0
 JETSON_RESET_OUT
 Text GLabel 6100 4600 2    60   Input ~ 0
 JETSON_CARRIER_PWR_ON
-Text GLabel 6100 4500 2    50   Input ~ 0
+Text GLabel 6100 3500 2    50   Input ~ 0
 DISCHARGE
+Wire Wire Line
+	6100 3400 7100 3400
+$Comp
+L power:GND #PWR0103
+U 1 1 5AA1E08F
+P 7100 3400
+F 0 "#PWR0103" H 7100 3150 50  0001 C CNN
+F 1 "GND" H 7105 3227 50  0001 C CNN
+F 2 "" H 7100 3400 50  0001 C CNN
+F 3 "" H 7100 3400 50  0001 C CNN
+	1    7100 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR0104
+U 1 1 5AA2BB17
+P 6500 4500
+F 0 "#PWR0104" H 6500 4350 50  0001 C CNN
+F 1 "+12V" H 6515 4673 50  0000 C CNN
+F 2 "" H 6500 4500 50  0001 C CNN
+F 3 "" H 6500 4500 50  0001 C CNN
+	1    6500 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6100 4300 6100 4400
+Connection ~ 6100 4400
+Wire Wire Line
+	6100 4400 6100 4500
+Wire Wire Line
+	6500 4500 6100 4500
+Connection ~ 6100 4500
+$Sheet
+S 6050 1050 1500 500 
+U 5AA3E427
+F0 "jetson_gpio" 118
+F1 "jetson_gpio.sch" 50
+$EndSheet
+Text GLabel 6100 3700 2    60   Input ~ 0
+FPGA_CONFIG_DCLK
+Text GLabel 6100 3600 2    60   Input ~ 0
+FPGA_CONFIG_DATA0
 $EndSCHEMATC
