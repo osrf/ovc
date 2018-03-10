@@ -1,0 +1,7 @@
+PCIE x2 = 4 pairs + clock pair = 10 wires
+5 Passive Serial config = { DCLK, DATA, nCONFIG, nSTATUS, CONF_DONE }
+20 power/ground = at least 10 ground, 4 12VDC, 2x 5VDC, 1x 1v8, 2x 3v3
+misc i/o: power-good (enable), discharge
+
+need at least 35. Let's go with 40
+

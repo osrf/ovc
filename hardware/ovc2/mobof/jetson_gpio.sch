@@ -1,0 +1,208 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 12 16
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L tx2:Jetson U3
+U 1 1 5AA3E5CD
+P 1250 2550
+F 0 "U3" H 1756 3915 50  0000 C CNN
+F 1 "Jetson" H 1756 3824 50  0000 C CNN
+F 2 "Jetson:JETSON_TX" H 1250 2550 50  0001 C CNN
+F 3 "" H 1250 2550 50  0001 C CNN
+F 4 "_" H 1250 2550 50  0001 C CNN "MFN"
+F 5 "_" H 1250 2550 50  0001 C CNN "MFP"
+F 6 "digikey" H 1250 2550 50  0001 C CNN "D1"
+F 7 "_" H 1250 2550 50  0001 C CNN "D1PN"
+F 8 "mouser" H 1250 2550 50  0001 C CNN "D2"
+F 9 "_" H 1250 2550 50  0001 C CNN "D1PL"
+F 10 "_" H 1250 2550 50  0001 C CNN "D2PN"
+F 11 "_" H 1250 2550 50  0001 C CNN "D2PL"
+F 12 "_" H 1250 2550 50  0001 C CNN "Package"
+F 13 "Interface for TX2 module" H 1250 2550 50  0001 C CNN "Description"
+F 14 "_" H 1250 2550 50  0001 C CNN "Voltage"
+F 15 "_" H 1250 2550 50  0001 C CNN "Power"
+F 16 "_" H 1250 2550 50  0001 C CNN "Tolerance"
+F 17 "_" H 1250 2550 50  0001 C CNN "Temperature"
+F 18 "_" H 1250 2550 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 1250 2550 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 1250 2550 50  0001 C CNN "Cont.Current"
+F 21 "_" H 1250 2550 50  0001 C CNN "Frequency"
+F 22 "_" H 1250 2550 50  0001 C CNN "ResonnanceFreq"
+	1    1250 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L tx2:Jetson U3
+U 2 1 5AA3E77F
+P 3850 4000
+F 0 "U3" H 4386 6665 50  0000 C CNN
+F 1 "Jetson" H 4386 6574 50  0000 C CNN
+F 2 "Jetson:JETSON_TX" H 3850 4000 50  0001 C CNN
+F 3 "" H 3850 4000 50  0001 C CNN
+F 4 "_" H 3850 4000 50  0001 C CNN "MFN"
+F 5 "_" H 3850 4000 50  0001 C CNN "MFP"
+F 6 "digikey" H 3850 4000 50  0001 C CNN "D1"
+F 7 "_" H 3850 4000 50  0001 C CNN "D1PN"
+F 8 "mouser" H 3850 4000 50  0001 C CNN "D2"
+F 9 "_" H 3850 4000 50  0001 C CNN "D1PL"
+F 10 "_" H 3850 4000 50  0001 C CNN "D2PN"
+F 11 "_" H 3850 4000 50  0001 C CNN "D2PL"
+F 12 "_" H 3850 4000 50  0001 C CNN "Package"
+F 13 "Interface for TX2 module" H 3850 4000 50  0001 C CNN "Description"
+F 14 "_" H 3850 4000 50  0001 C CNN "Voltage"
+F 15 "_" H 3850 4000 50  0001 C CNN "Power"
+F 16 "_" H 3850 4000 50  0001 C CNN "Tolerance"
+F 17 "_" H 3850 4000 50  0001 C CNN "Temperature"
+F 18 "_" H 3850 4000 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 3850 4000 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 3850 4000 50  0001 C CNN "Cont.Current"
+F 21 "_" H 3850 4000 50  0001 C CNN "Frequency"
+F 22 "_" H 3850 4000 50  0001 C CNN "ResonnanceFreq"
+	2    3850 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L tx2:Jetson U3
+U 3 1 5AA3E8F0
+P 6400 1850
+F 0 "U3" H 6906 2515 50  0000 C CNN
+F 1 "Jetson" H 6906 2424 50  0000 C CNN
+F 2 "Jetson:JETSON_TX" H 6400 1850 50  0001 C CNN
+F 3 "" H 6400 1850 50  0001 C CNN
+F 4 "_" H 6400 1850 50  0001 C CNN "MFN"
+F 5 "_" H 6400 1850 50  0001 C CNN "MFP"
+F 6 "digikey" H 6400 1850 50  0001 C CNN "D1"
+F 7 "_" H 6400 1850 50  0001 C CNN "D1PN"
+F 8 "mouser" H 6400 1850 50  0001 C CNN "D2"
+F 9 "_" H 6400 1850 50  0001 C CNN "D1PL"
+F 10 "_" H 6400 1850 50  0001 C CNN "D2PN"
+F 11 "_" H 6400 1850 50  0001 C CNN "D2PL"
+F 12 "_" H 6400 1850 50  0001 C CNN "Package"
+F 13 "Interface for TX2 module" H 6400 1850 50  0001 C CNN "Description"
+F 14 "_" H 6400 1850 50  0001 C CNN "Voltage"
+F 15 "_" H 6400 1850 50  0001 C CNN "Power"
+F 16 "_" H 6400 1850 50  0001 C CNN "Tolerance"
+F 17 "_" H 6400 1850 50  0001 C CNN "Temperature"
+F 18 "_" H 6400 1850 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 6400 1850 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 6400 1850 50  0001 C CNN "Cont.Current"
+F 21 "_" H 6400 1850 50  0001 C CNN "Frequency"
+F 22 "_" H 6400 1850 50  0001 C CNN "ResonnanceFreq"
+	3    6400 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L tx2:Jetson U3
+U 7 1 5AA3EB24
+P 6150 4600
+F 0 "U3" H 6661 5665 50  0000 C CNN
+F 1 "Jetson" H 6661 5574 50  0000 C CNN
+F 2 "Jetson:JETSON_TX" H 6150 4600 50  0001 C CNN
+F 3 "" H 6150 4600 50  0001 C CNN
+F 4 "_" H 6150 4600 50  0001 C CNN "MFN"
+F 5 "_" H 6150 4600 50  0001 C CNN "MFP"
+F 6 "digikey" H 6150 4600 50  0001 C CNN "D1"
+F 7 "_" H 6150 4600 50  0001 C CNN "D1PN"
+F 8 "mouser" H 6150 4600 50  0001 C CNN "D2"
+F 9 "_" H 6150 4600 50  0001 C CNN "D1PL"
+F 10 "_" H 6150 4600 50  0001 C CNN "D2PN"
+F 11 "_" H 6150 4600 50  0001 C CNN "D2PL"
+F 12 "_" H 6150 4600 50  0001 C CNN "Package"
+F 13 "Interface for TX2 module" H 6150 4600 50  0001 C CNN "Description"
+F 14 "_" H 6150 4600 50  0001 C CNN "Voltage"
+F 15 "_" H 6150 4600 50  0001 C CNN "Power"
+F 16 "_" H 6150 4600 50  0001 C CNN "Tolerance"
+F 17 "_" H 6150 4600 50  0001 C CNN "Temperature"
+F 18 "_" H 6150 4600 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 6150 4600 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 6150 4600 50  0001 C CNN "Cont.Current"
+F 21 "_" H 6150 4600 50  0001 C CNN "Frequency"
+F 22 "_" H 6150 4600 50  0001 C CNN "ResonnanceFreq"
+	7    6150 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L tx2:Jetson U3
+U 8 1 5AA3ECF7
+P 1350 5250
+F 0 "U3" H 1856 6015 50  0000 C CNN
+F 1 "Jetson" H 1856 5924 50  0000 C CNN
+F 2 "Jetson:JETSON_TX" H 1350 5250 50  0001 C CNN
+F 3 "" H 1350 5250 50  0001 C CNN
+F 4 "_" H 1350 5250 50  0001 C CNN "MFN"
+F 5 "_" H 1350 5250 50  0001 C CNN "MFP"
+F 6 "digikey" H 1350 5250 50  0001 C CNN "D1"
+F 7 "_" H 1350 5250 50  0001 C CNN "D1PN"
+F 8 "mouser" H 1350 5250 50  0001 C CNN "D2"
+F 9 "_" H 1350 5250 50  0001 C CNN "D1PL"
+F 10 "_" H 1350 5250 50  0001 C CNN "D2PN"
+F 11 "_" H 1350 5250 50  0001 C CNN "D2PL"
+F 12 "_" H 1350 5250 50  0001 C CNN "Package"
+F 13 "Interface for TX2 module" H 1350 5250 50  0001 C CNN "Description"
+F 14 "_" H 1350 5250 50  0001 C CNN "Voltage"
+F 15 "_" H 1350 5250 50  0001 C CNN "Power"
+F 16 "_" H 1350 5250 50  0001 C CNN "Tolerance"
+F 17 "_" H 1350 5250 50  0001 C CNN "Temperature"
+F 18 "_" H 1350 5250 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 1350 5250 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 1350 5250 50  0001 C CNN "Cont.Current"
+F 21 "_" H 1350 5250 50  0001 C CNN "Frequency"
+F 22 "_" H 1350 5250 50  0001 C CNN "ResonnanceFreq"
+	8    1350 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L tx2:Jetson U3
+U 15 1 5AA3F0F7
+P 8600 1950
+F 0 "U3" H 9106 2815 50  0000 C CNN
+F 1 "Jetson" H 9106 2724 50  0000 C CNN
+F 2 "Jetson:JETSON_TX" H 8600 1950 50  0001 C CNN
+F 3 "" H 8600 1950 50  0001 C CNN
+F 4 "_" H 8600 1950 50  0001 C CNN "MFN"
+F 5 "_" H 8600 1950 50  0001 C CNN "MFP"
+F 6 "digikey" H 8600 1950 50  0001 C CNN "D1"
+F 7 "_" H 8600 1950 50  0001 C CNN "D1PN"
+F 8 "mouser" H 8600 1950 50  0001 C CNN "D2"
+F 9 "_" H 8600 1950 50  0001 C CNN "D1PL"
+F 10 "_" H 8600 1950 50  0001 C CNN "D2PN"
+F 11 "_" H 8600 1950 50  0001 C CNN "D2PL"
+F 12 "_" H 8600 1950 50  0001 C CNN "Package"
+F 13 "Interface for TX2 module" H 8600 1950 50  0001 C CNN "Description"
+F 14 "_" H 8600 1950 50  0001 C CNN "Voltage"
+F 15 "_" H 8600 1950 50  0001 C CNN "Power"
+F 16 "_" H 8600 1950 50  0001 C CNN "Tolerance"
+F 17 "_" H 8600 1950 50  0001 C CNN "Temperature"
+F 18 "_" H 8600 1950 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 8600 1950 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 8600 1950 50  0001 C CNN "Cont.Current"
+F 21 "_" H 8600 1950 50  0001 C CNN "Frequency"
+F 22 "_" H 8600 1950 50  0001 C CNN "ResonnanceFreq"
+	15   8600 1950
+	1    0    0    -1  
+$EndComp
+Text GLabel 9600 1750 2    60   Input ~ 0
+FPGA_CONFIG_DCLK
+Text GLabel 9400 3000 2    60   Input ~ 0
+FPGA_CVP_CONF_DONE
+Text GLabel 9400 3200 2    60   Input ~ 0
+FPGA_CONF_DONE
+Text GLabel 9400 3300 2    60   Input ~ 0
+FPGA_NSTATUS
+Text GLabel 9400 3400 2    60   Input ~ 0
+FPGA_NCONFIG
+Text GLabel 9600 2050 2    60   Input ~ 0
+FPGA_CONFIG_DATA0
+$EndSCHEMATC
