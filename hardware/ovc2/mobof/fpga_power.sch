@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:mobof-cache
 EELAYER 26 0
 EELAYER END
 $Descr A3 11693 16535 portrait

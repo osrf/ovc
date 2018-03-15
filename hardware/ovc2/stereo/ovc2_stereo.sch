@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:ovc2_stereo-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -50,14 +51,14 @@ F0 "fpga_io" 118
 F1 "fpga_io.sch" 59
 $EndSheet
 $Comp
-L Connector_Generic:Conn_02x20_Odd_Even J2
+L Connector_Generic:Conn_02x26_Odd_Even J2
 U 1 1 5A999CEF
-P 5800 4300
-F 0 "J2" H 5850 5417 50  0000 C CNN
-F 1 "Conn_02x20_Odd_Even" H 5850 5326 50  0000 C CNN
-F 2 "Connectors_OSRF:SAMTEC_ERF8-020" H 5800 4300 50  0001 C CNN
-F 3 "~" H 5800 4300 50  0001 C CNN
-	1    5800 4300
+P 5800 4100
+F 0 "J2" H 5850 5550 50  0000 C CNN
+F 1 "Samtec QRM8" H 5850 5450 50  0000 C CNN
+F 2 "Connectors_OSRF:SAMTEC_ERF8-020" H 5800 4100 50  0001 C CNN
+F 3 "~" H 5800 4100 50  0001 C CNN
+	1    5800 4100
 	1    0    0    -1  
 $EndComp
 Text GLabel 5600 4600 0    60   Input ~ 0
@@ -136,8 +137,6 @@ F 3 "" H 4750 5300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4750 5300 5600 5300
-Wire Wire Line
-	5600 5200 5600 5300
 Connection ~ 5600 5300
 Wire Wire Line
 	5600 4900 4750 4900
@@ -161,4 +160,40 @@ U 5A9D8938
 F0 "imu" 118
 F1 "imu.sch" 50
 $EndSheet
+Text GLabel 6100 4000 2    60   Input ~ 0
+PCIE_LANE0_TX-
+Text GLabel 6100 3900 2    60   Input ~ 0
+PCIE_LANE0_TX+
+Text GLabel 6100 3700 2    60   Input ~ 0
+PCIE_LANE0_RX-
+Text GLabel 6100 3600 2    60   Input ~ 0
+PCIE_LANE0_RX+
+Text GLabel 6100 3400 2    60   Input ~ 0
+PCIE_LANE1_TX-
+Text GLabel 6100 3300 2    60   Input ~ 0
+PCIE_LANE1_TX+
+Text GLabel 6100 3000 2    60   Input ~ 0
+PCIE_LANE1_RX+
+Text GLabel 6100 3100 2    60   Input ~ 0
+PCIE_LANE1_RX-
+Wire Wire Line
+	6100 3800 7050 3800
+Wire Wire Line
+	7050 3800 7050 4100
+Wire Wire Line
+	6100 3500 7050 3500
+Wire Wire Line
+	7050 3500 7050 3800
+Connection ~ 7050 3800
+Wire Wire Line
+	6100 3200 7050 3200
+Wire Wire Line
+	7050 3200 7050 3500
+Connection ~ 7050 3500
+Wire Wire Line
+	6100 2900 7050 2900
+Wire Wire Line
+	7050 2900 7050 3200
+Connection ~ 7050 3200
+Connection ~ 7050 4100
 $EndSCHEMATC
