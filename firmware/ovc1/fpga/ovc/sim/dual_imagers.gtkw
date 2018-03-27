@@ -1,0 +1,56 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Tue Jan 30 20:47:52 2018
+[*]
+[dumpfile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/bin/ovc.lxt"
+[dumpfile_mtime] "Tue Jan 30 20:47:38 2018"
+[dumpfile_size] 1192458
+[savefile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/sim/dual_imagers.gtkw"
+[timestart] 34100000
+[size] 2521 1187
+[pos] -1 -1
+*-21.187750 44880000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top_tb.
+[treeopen] top_tb.top_inst.
+[sst_width] 324
+[signals_width] 669
+[sst_expanded] 1
+[sst_vpaned_height] 506
+@28
+top_tb.top_inst.cam_0_fv[0]
+top_tb.top_inst.cam_0_lv[0]
+top_tb.top_inst.cam_1_fv[0]
+@22
+top_tb.top_inst.state[3:0]
+@28
+top_tb.top_inst.start[0]
+@8022
+top_tb.top_inst.cam_0_fifo.rdusedw[6:0]
+@20000
+-
+-
+-
+-
+@28
+top_tb.top_inst.cam_fifo_sel[0]
+@22
+top_tb.top_inst.txs_address[22:0]
+@28
+top_tb.top_inst.burst_cnt[2:0]
+top_tb.sim_python_0.cs[0]
+top_tb.sim_python_0.sck[0]
+top_tb.sim_python_0.miso[0]
+top_tb.sim_python_0.mosi[0]
+top_tb.top_inst.cam_0_spi_master.sclk[0]
+top_tb.top_inst.cam_0_spi_master.mosi_load[0]
+@22
+top_tb.top_inst.cam_0_spi_master.txd[25:0]
+@28
+top_tb.top_inst.cam_0_spi_master.sclk_int[0]
+@25
+top_tb.top_inst.cam_0_spi_master.state[2:0]
+@28
+top_tb.top_inst.cam_0_spi_master.c[0]
+top_tb.top_inst.cam_0_spi_master.sclk_tx_edge[0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,146 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Tue Feb 13 06:42:11 2018
+[*]
+[dumpfile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/bin/corners_nonmax.lxt"
+[dumpfile_mtime] "Tue Feb 13 06:28:10 2018"
+[dumpfile_size] 2040032
+[savefile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/sim/corners_nonmax.gtkw"
+[timestart] 3070000
+[size] 2657 1985
+[pos] -1 -1
+*-23.636465 40880000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] corners_nonmax_tb.
+[treeopen] corners_nonmax_tb.ast_inst.
+[treeopen] corners_nonmax_tb.ast_inst.a1.ast_mask_inst.
+[treeopen] corners_nonmax_tb.ast_inst.a2.ast_mask_inst.
+[treeopen] corners_nonmax_tb.ast_inst.shallow_fifos[0].
+[sst_width] 324
+[signals_width] 778
+[sst_expanded] 1
+[sst_vpaned_height] 612
+@28
+corners_nonmax_tb.cam_fv[0]
+corners_nonmax_tb.cam_lv[0]
+corners_nonmax_tb.ast_inst.wv[0]
+@22
+corners_nonmax_tb.ast_q[127:0]
+corners_nonmax_tb.ast_q_avail[6:0]
+corners_nonmax_tb.ast_inst.ast_q[31:0]
+@800022
+corners_nonmax_tb.ast_inst.ast_qv[3:0]
+@28
+(0)corners_nonmax_tb.ast_inst.ast_qv[3:0]
+(1)corners_nonmax_tb.ast_inst.ast_qv[3:0]
+(2)corners_nonmax_tb.ast_inst.ast_qv[3:0]
+(3)corners_nonmax_tb.ast_inst.ast_qv[3:0]
+@22
+corners_nonmax_tb.ast_inst.ast_q[31:0]
+@c00022
+corners_nonmax_tb.ast_inst.d[31:0]
+@28
+(0)corners_nonmax_tb.ast_inst.d[31:0]
+(1)corners_nonmax_tb.ast_inst.d[31:0]
+(2)corners_nonmax_tb.ast_inst.d[31:0]
+(3)corners_nonmax_tb.ast_inst.d[31:0]
+(4)corners_nonmax_tb.ast_inst.d[31:0]
+(5)corners_nonmax_tb.ast_inst.d[31:0]
+(6)corners_nonmax_tb.ast_inst.d[31:0]
+(7)corners_nonmax_tb.ast_inst.d[31:0]
+(8)corners_nonmax_tb.ast_inst.d[31:0]
+(9)corners_nonmax_tb.ast_inst.d[31:0]
+(10)corners_nonmax_tb.ast_inst.d[31:0]
+(11)corners_nonmax_tb.ast_inst.d[31:0]
+(12)corners_nonmax_tb.ast_inst.d[31:0]
+(13)corners_nonmax_tb.ast_inst.d[31:0]
+(14)corners_nonmax_tb.ast_inst.d[31:0]
+(15)corners_nonmax_tb.ast_inst.d[31:0]
+(16)corners_nonmax_tb.ast_inst.d[31:0]
+(17)corners_nonmax_tb.ast_inst.d[31:0]
+(18)corners_nonmax_tb.ast_inst.d[31:0]
+(19)corners_nonmax_tb.ast_inst.d[31:0]
+(20)corners_nonmax_tb.ast_inst.d[31:0]
+(21)corners_nonmax_tb.ast_inst.d[31:0]
+(22)corners_nonmax_tb.ast_inst.d[31:0]
+(23)corners_nonmax_tb.ast_inst.d[31:0]
+(24)corners_nonmax_tb.ast_inst.d[31:0]
+(25)corners_nonmax_tb.ast_inst.d[31:0]
+(26)corners_nonmax_tb.ast_inst.d[31:0]
+(27)corners_nonmax_tb.ast_inst.d[31:0]
+(28)corners_nonmax_tb.ast_inst.d[31:0]
+(29)corners_nonmax_tb.ast_inst.d[31:0]
+(30)corners_nonmax_tb.ast_inst.d[31:0]
+(31)corners_nonmax_tb.ast_inst.d[31:0]
+@1401200
+-group_end
+@28
+corners_nonmax_tb.ast_inst.wnd_inst.postrow_end[0]
+corners_nonmax_tb.ast_inst.wnd_inst.wv[0]
+@22
+corners_nonmax_tb.ast_inst.wrow[9:0]
+corners_nonmax_tb.ast_inst.wcol[8:0]
+corners_nonmax_tb.ast_inst.a1.ast_mask_inst.dc[7:0]
+corners_nonmax_tb.ast_inst.a1.ast_mask_inst.dc_d1[7:0]
+corners_nonmax_tb.ast_inst.a1.ast_mask_inst.mdiff_d1[143:0]
+corners_nonmax_tb.ast_inst.a1.ast_mask_inst.lighter_d1[15:0]
+corners_nonmax_tb.ast_inst.a1.ast_mask_inst.lighter_valid_d1[15:0]
+@28
+corners_nonmax_tb.ast_inst.a1.ast_mask_inst.darker[15:0]
+corners_nonmax_tb.ast_inst.a1.ast_mask_inst.darker_d1[15:0]
+corners_nonmax_tb.ast_inst.a1.ast_mask_inst.darker_valid_d1[15:0]
+@22
+corners_nonmax_tb.ast_inst.a2.ast_mask_inst.mdiff_abs_d1[127:0]
+corners_nonmax_tb.ast_inst.a2.ast_mask_inst.l0_sums[63:0]
+corners_nonmax_tb.ast_inst.a2.ast_mask_inst.l0_sums_d1[63:0]
+corners_nonmax_tb.ast_inst.a2.ast_mask_inst.l1_sums[31:0]
+corners_nonmax_tb.ast_inst.a2.ast_mask_inst.l1_sums_d1[31:0]
+corners_nonmax_tb.ast_inst.a2.ast_mask_inst.l2_sums[15:0]
+corners_nonmax_tb.ast_inst.a2.ast_mask_inst.l2_sums_d1[15:0]
+corners_nonmax_tb.ast_inst.a2.ast_mask_inst.l3_sum[7:0]
+corners_nonmax_tb.ast_inst.a2.ast_mask_inst.l3_sum_d1[7:0]
+corners_nonmax_tb.ast_inst.a2.ast_mask_inst.score[7:0]
+corners_nonmax_tb.ast_inst.score_w0[71:0]
+corners_nonmax_tb.ast_inst.score_w1[71:0]
+corners_nonmax_tb.ast_inst.score_w2[71:0]
+corners_nonmax_tb.ast_inst.score_w3[71:0]
+@28
+corners_nonmax_tb.ast_inst.fv_dn[0]
+corners_nonmax_tb.ast_inst.lv_dn[0]
+corners_nonmax_tb.ast_inst.score_wv[0]
+@22
+corners_nonmax_tb.ast_inst.max_w0[7:0]
+corners_nonmax_tb.ast_inst.max_w1[7:0]
+corners_nonmax_tb.ast_inst.max_w2[7:0]
+corners_nonmax_tb.ast_inst.max_w3[7:0]
+corners_nonmax_tb.ast_inst.center_w0[7:0]
+corners_nonmax_tb.ast_inst.center_w1[7:0]
+corners_nonmax_tb.ast_inst.center_w2[7:0]
+corners_nonmax_tb.ast_inst.center_w3[7:0]
+corners_nonmax_tb.ast_inst.center_w0_dn[7:0]
+corners_nonmax_tb.ast_inst.center_w1_dn[7:0]
+corners_nonmax_tb.ast_inst.center_w2_dn[7:0]
+corners_nonmax_tb.ast_inst.center_w3_dn[7:0]
+@c00022
+corners_nonmax_tb.ast_inst.nm_qv[3:0]
+@28
+(0)corners_nonmax_tb.ast_inst.nm_qv[3:0]
+(1)corners_nonmax_tb.ast_inst.nm_qv[3:0]
+(2)corners_nonmax_tb.ast_inst.nm_qv[3:0]
+(3)corners_nonmax_tb.ast_inst.nm_qv[3:0]
+@1401200
+-group_end
+@22
+corners_nonmax_tb.ast_inst.nm_row[9:0]
+corners_nonmax_tb.ast_inst.nm_col[8:0]
+@28
+corners_nonmax_tb.ast_inst.q_empty[0]
+@22
+corners_nonmax_tb.ast_inst.q_avail[6:0]
+@28
+corners_nonmax_tb.ast_inst.q_read[0]
+@29
+corners_nonmax_tb.ast_inst.rd_clk[0]
+@1001200
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0

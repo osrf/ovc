@@ -1,0 +1,66 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Mon Jan 22 20:35:15 2018
+[*]
+[dumpfile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/bin/ovc.lxt"
+[dumpfile_mtime] "Mon Jan 22 20:35:15 2018"
+[dumpfile_size] 6037455
+[savefile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/sim/reg_ram_iface.gtkw"
+[timestart] 0
+[size] 2866 1099
+[pos] -1 -1
+*-17.996180 1179000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top_tb.
+[treeopen] top_tb.top_inst.
+[treeopen] top_tb.top_inst.reg_ram_iface_inst.
+[sst_width] 324
+[signals_width] 316
+[sst_expanded] 1
+[sst_vpaned_height] 313
+@28
+top_tb.top_inst.reg_ram_iface_inst.c[0]
+@24
+top_tb.top_inst.reg_ram_iface_inst.state[2:0]
+@c00022
+top_tb.sim_reg_ram_inst.a00[31:0]
+@28
+(0)top_tb.sim_reg_ram_inst.a00[31:0]
+(1)top_tb.sim_reg_ram_inst.a00[31:0]
+(2)top_tb.sim_reg_ram_inst.a00[31:0]
+(3)top_tb.sim_reg_ram_inst.a00[31:0]
+(4)top_tb.sim_reg_ram_inst.a00[31:0]
+(5)top_tb.sim_reg_ram_inst.a00[31:0]
+(6)top_tb.sim_reg_ram_inst.a00[31:0]
+(7)top_tb.sim_reg_ram_inst.a00[31:0]
+(8)top_tb.sim_reg_ram_inst.a00[31:0]
+(9)top_tb.sim_reg_ram_inst.a00[31:0]
+(10)top_tb.sim_reg_ram_inst.a00[31:0]
+(11)top_tb.sim_reg_ram_inst.a00[31:0]
+(12)top_tb.sim_reg_ram_inst.a00[31:0]
+(13)top_tb.sim_reg_ram_inst.a00[31:0]
+(14)top_tb.sim_reg_ram_inst.a00[31:0]
+(15)top_tb.sim_reg_ram_inst.a00[31:0]
+(16)top_tb.sim_reg_ram_inst.a00[31:0]
+(17)top_tb.sim_reg_ram_inst.a00[31:0]
+(18)top_tb.sim_reg_ram_inst.a00[31:0]
+(19)top_tb.sim_reg_ram_inst.a00[31:0]
+(20)top_tb.sim_reg_ram_inst.a00[31:0]
+(21)top_tb.sim_reg_ram_inst.a00[31:0]
+(22)top_tb.sim_reg_ram_inst.a00[31:0]
+(23)top_tb.sim_reg_ram_inst.a00[31:0]
+(24)top_tb.sim_reg_ram_inst.a00[31:0]
+(25)top_tb.sim_reg_ram_inst.a00[31:0]
+(26)top_tb.sim_reg_ram_inst.a00[31:0]
+(27)top_tb.sim_reg_ram_inst.a00[31:0]
+(28)top_tb.sim_reg_ram_inst.a00[31:0]
+(29)top_tb.sim_reg_ram_inst.a00[31:0]
+(30)top_tb.sim_reg_ram_inst.a00[31:0]
+(31)top_tb.sim_reg_ram_inst.a00[31:0]
+@1401200
+-group_end
+@22
+top_tb.top_inst.reg_ram_iface_inst.dma_wr_addr_base[31:0]
+@29
+top_tb.top_inst.reg_ram_iface_inst.dma_wr_addr_base_en[0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,59 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Fri Feb  9 01:45:44 2018
+[*]
+[dumpfile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/bin/corners.lxt"
+[dumpfile_mtime] "Thu Feb  8 23:25:38 2018"
+[dumpfile_size] 66700346
+[savefile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/sim/itest_corners.gtkw"
+[timestart] 135400000
+[size] 3840 2060
+[pos] -1 -1
+*-25.764107 569709568 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] corners_tb.
+[treeopen] corners_tb.sim_python_0.
+[treeopen] corners_tb.top_inst.
+[treeopen] corners_tb.top_inst.corners_inst.
+[treeopen] corners_tb.top_inst.corners_inst.cd0.
+[treeopen] corners_tb.top_inst.corners_inst.cd0.a0.
+[treeopen] corners_tb.top_inst.corners_inst.cd0.a0.ast_mask_inst.
+[sst_width] 410
+[signals_width] 335
+[sst_expanded] 1
+[sst_vpaned_height] 650
+@28
+corners_tb.top_inst.corners_inst.cd0.fv[0]
+corners_tb.top_inst.corners_inst.cd0.lv[0]
+corners_tb.sim_python_0.trigger[0]
+@22
+corners_tb.sim_python_0.data[31:0]
+corners_tb.sim_python_0.row[31:0]
+@c00023
+corners_tb.top_inst.corners_inst.cd0.ast_qv[3:0]
+@28
+(0)corners_tb.top_inst.corners_inst.cd0.ast_qv[3:0]
+(1)corners_tb.top_inst.corners_inst.cd0.ast_qv[3:0]
+(2)corners_tb.top_inst.corners_inst.cd0.ast_qv[3:0]
+(3)corners_tb.top_inst.corners_inst.cd0.ast_qv[3:0]
+@1401201
+-group_end
+@22
+corners_tb.top_inst.corners_inst.cd0.ast_q[31:0]
+@28
+corners_tb.top_inst.corners_inst.cd0.wv[0]
+@22
+corners_tb.top_inst.corners_inst.cd0.wnd_w0[391:0]
+corners_tb.top_inst.corners_inst.cd0.wrow[9:0]
+corners_tb.top_inst.corners_inst.cd0.wcol[8:0]
+@28
+corners_tb.top_inst.corners_inst.cd0.a0.ast_mask_inst.dv_s[0]
+@22
+corners_tb.top_inst.corners_inst.cd0.a0.ast_mask_inst.dm[127:0]
+corners_tb.top_inst.corners_inst.cd0.a0.ast_mask_inst.dc[7:0]
+corners_tb.top_inst.corners_inst.cd0.a0.ast_mask_inst.thresh[15:0]
+corners_tb.top_inst.corners_inst.cd0.wcol[8:0]
+corners_tb.top_inst.corners_inst.cd0.wrow[9:0]
+corners_tb.top_inst.corners_inst.cd0.arow[9:0]
+corners_tb.top_inst.corners_inst.cd0.acol[8:0]
+[pattern_trace] 1
+[pattern_trace] 0

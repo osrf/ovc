@@ -1,0 +1,30 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Sat Dec 30 07:03:19 2017
+[*]
+[dumpfile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/bin/ovc.lxt"
+[dumpfile_mtime] "Sat Dec 30 07:02:27 2017"
+[dumpfile_size] 36259
+[savefile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/cam_fifo_wr.gtkw"
+[timestart] 5435000
+[size] 1000 600
+[pos] -1 -1
+*-18.580381 6100000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top_tb.
+[sst_width] 225
+[signals_width] 214
+[sst_expanded] 1
+[sst_vpaned_height] 150
+@28
+top_tb.top_inst.cam_0_fv[0]
+top_tb.top_inst.cam_0_lv[0]
+top_tb.top_inst.cam_0_rxc[0]
+@22
+top_tb.top_inst.cam_0_fifo_rdusedw[7:0]
+@28
+top_tb.top_inst.wstart[0]
+top_tb.top_inst.wstate[2:0]
+@29
+top_tb.top_inst.cam_0_fifo_wrreq[0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,71 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Fri Jan 12 21:03:05 2018
+[*]
+[dumpfile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/bin/ovc.lxt"
+[dumpfile_mtime] "Fri Jan 12 21:02:50 2018"
+[dumpfile_size] 689495
+[savefile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/imu_reader.gtkw"
+[timestart] 0
+[size] 2167 1404
+[pos] -1 -1
+*-24.292467 56500000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top_tb.
+[treeopen] top_tb.sim_imu_inst.
+[treeopen] top_tb.top_inst.
+[treeopen] top_tb.top_inst.imu_reader_inst.
+[treeopen] top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.
+[sst_width] 324
+[signals_width] 277
+[sst_expanded] 1
+[sst_vpaned_height] 799
+@28
+top_tb.imu_sync_out[0]
+top_tb.top_inst.imu_own[0]
+@24
+top_tb.top_inst.imu_reader_inst.state[2:0]
+@28
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.start[0]
+@22
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.reg_idx[7:0]
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.reg_len[7:0]
+@28
+top_tb.top_inst.imu_reader_inst.read_done[0]
+@200
+-
+-reg_reader
+@24
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.state[2:0]
+@28
+top_tb.imu_cs[0]
+top_tb.imu_sck[0]
+top_tb.imu_mosi[0]
+top_tb.imu_miso[0]
+@24
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.c_cnt[15:0]
+@22
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.word_cnt[4:0]
+@28
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.word_cnt_en[0]
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.word_cnt_rst[0]
+@22
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.reg_idx[7:0]
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.reg_len[7:0]
+@28
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.spi_start[0]
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.spi_master_inst.state[2:0]
+@22
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.reg_d[31:0]
+@28
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.reg_dv[0]
+@22
+top_tb.top_inst.imu_reader_inst.imu_reg_reader_inst.spi_txd[31:0]
+top_tb.sim_imu_inst.cmd[7:0]
+top_tb.sim_imu_inst.reg_idx[7:0]
+top_tb.sim_imu_inst.sck_cnt[31:0]
+top_tb.sim_imu_inst.mosi_word[31:0]
+top_tb.sim_imu_inst.word_cnt[31:0]
+@23
+top_tb.sim_imu_inst.miso_word[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

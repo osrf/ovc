@@ -1,0 +1,112 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Wed Feb 21 01:06:58 2018
+[*]
+[dumpfile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/bin/test_dma_writer_mux.lxt"
+[dumpfile_mtime] "Wed Feb 21 01:06:26 2018"
+[dumpfile_size] 386569
+[savefile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/sim/dma_writer_mux.gtkw"
+[timestart] 0
+[size] 2637 1347
+[pos] -1 -1
+*-21.160055 12218500 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] dma_writer_mux_tb.
+[treeopen] dma_writer_mux_tb.dut.
+[treeopen] dma_writer_mux_tb.dut.gen_fifos[1].
+[sst_width] 324
+[signals_width] 290
+[sst_expanded] 1
+[sst_vpaned_height] 399
+@28
+dma_writer_mux_tb.c[0]
+@22
+dma_writer_mux_tb.txs_address[22:0]
+dma_writer_mux_tb.txs_burstcount[5:0]
+@28
+dma_writer_mux_tb.txs_waitrequest[0]
+dma_writer_mux_tb.txs_write[0]
+@22
+dma_writer_mux_tb.txs_writedata[127:0]
+@200
+-
+@22
+dma_writer_mux_tb.dut.dma_addr[22:0]
+dma_writer_mux_tb.dut.dma_d[127:0]
+@28
+dma_writer_mux_tb.dut.dma_dv[0]
+dma_writer_mux_tb.dut.dma_de[0]
+dma_writer_mux_tb.dut.dma_ready[0]
+@200
+-
+@22
+dma_writer_mux_tb.dut.state[3:0]
+@c00022
+dma_writer_mux_tb.dut.stream_addr_en[3:0]
+@28
+(0)dma_writer_mux_tb.dut.stream_addr_en[3:0]
+(1)dma_writer_mux_tb.dut.stream_addr_en[3:0]
+(2)dma_writer_mux_tb.dut.stream_addr_en[3:0]
+(3)dma_writer_mux_tb.dut.stream_addr_en[3:0]
+@1401200
+-group_end
+@28
+dma_writer_mux_tb.dut.flush[0]
+@c00024
+dma_writer_mux_tb.dut.stream_sel[3:0]
+@28
+(0)dma_writer_mux_tb.dut.stream_sel[3:0]
+(1)dma_writer_mux_tb.dut.stream_sel[3:0]
+(2)dma_writer_mux_tb.dut.stream_sel[3:0]
+(3)dma_writer_mux_tb.dut.stream_sel[3:0]
+@1401200
+-group_end
+@800022
+dma_writer_mux_tb.dut.sfifo_pkt_ready[3:0]
+@28
+(0)dma_writer_mux_tb.dut.sfifo_pkt_ready[3:0]
+(1)dma_writer_mux_tb.dut.sfifo_pkt_ready[3:0]
+(2)dma_writer_mux_tb.dut.sfifo_pkt_ready[3:0]
+(3)dma_writer_mux_tb.dut.sfifo_pkt_ready[3:0]
+dma_writer_mux_tb.dut.gen_fifos[0].sfifo_wrreq[0]
+@c00022
+dma_writer_mux_tb.dut.sfifo_rdreq[3:0]
+@28
+(0)dma_writer_mux_tb.dut.sfifo_rdreq[3:0]
+(1)dma_writer_mux_tb.dut.sfifo_rdreq[3:0]
+(2)dma_writer_mux_tb.dut.sfifo_rdreq[3:0]
+(3)dma_writer_mux_tb.dut.sfifo_rdreq[3:0]
+@1401200
+-group_end
+@200
+-
+@800022
+dma_writer_mux_tb.dut.in_c[3:0]
+@28
+(0)dma_writer_mux_tb.dut.in_c[3:0]
+(1)dma_writer_mux_tb.dut.in_c[3:0]
+(2)dma_writer_mux_tb.dut.in_c[3:0]
+(3)dma_writer_mux_tb.dut.in_c[3:0]
+@1001200
+-group_end
+@800022
+dma_writer_mux_tb.dut.in_dv[3:0]
+@28
+(0)dma_writer_mux_tb.dut.in_dv[3:0]
+(1)dma_writer_mux_tb.dut.in_dv[3:0]
+(2)dma_writer_mux_tb.dut.in_dv[3:0]
+(3)dma_writer_mux_tb.dut.in_dv[3:0]
+@200
+-
+@1001200
+-group_end
+-group_end
+@28
+dma_writer_mux_tb.dut.c[0]
+dma_writer_mux_tb.dut.flush[0]
+dma_writer_mux_tb.dut.flush_complete[0]
+@22
+dma_writer_mux_tb.dut.gen_fifos[0].sfifo_d[127:0]
+@28
+dma_writer_mux_tb.dut.gen_fifos[0].sfifo_wrreq[0]
+[pattern_trace] 1
+[pattern_trace] 0

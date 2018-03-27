@@ -1,0 +1,47 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Wed Dec 27 05:46:41 2017
+[*]
+[dumpfile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/bin/ovc.lxt"
+[dumpfile_mtime] "Tue Dec 26 18:44:15 2017"
+[dumpfile_size] 3638
+[savefile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/burst_tb.gtkw"
+[timestart] 114000
+[size] 1604 991
+[pos] -1 -1
+*-18.927090 1059000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top_tb.
+[treeopen] top_tb.top_inst.
+[sst_width] 324
+[signals_width] 316
+[sst_expanded] 1
+[sst_vpaned_height] 336
+@28
+top_tb.top_inst.req_numbursts_r.c[0]
+@22
+top_tb.top_inst.numbursts[15:0]
+top_tb.top_inst.req_numbursts[15:0]
+top_tb.top_inst.pio_dma_reg_val[31:0]
+top_tb.top_inst.pio_dma_reg_addr[15:0]
+@28
+top_tb.top_inst.pio_dma_reg_wr[0]
+@22
+top_tb.top_inst.req_numbursts_r.d[15:0]
+@28
+top_tb.top_inst.req_numbursts_r.en[0]
+@22
+top_tb.top_inst.req_numbursts_r.q[15:0]
+@28
+top_tb.top_inst.state[2:0]
+top_tb.top_inst.start[0]
+top_tb.top_inst.txs_write[0]
+@22
+top_tb.top_inst.txs_writedata[127:0]
+@28
+top_tb.top_inst.txs_waitrequest[0]
+@22
+top_tb.top_inst.txs_address[22:0]
+@29
+top_tb.top_inst.pio_dma_wr_addr_inc[0]
+[pattern_trace] 1
+[pattern_trace] 0

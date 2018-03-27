@@ -1,0 +1,47 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Wed Feb 21 22:16:40 2018
+[*]
+[dumpfile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/bin/ovc.lxt"
+[dumpfile_mtime] "Wed Feb 21 21:14:15 2018"
+[dumpfile_size] 8295135
+[savefile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/sim/full_stack.gtkw"
+[timestart] 273469300
+[size] 2047 1088
+[pos] -1 -1
+*-15.479001 273551200 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top_tb.
+[treeopen] top_tb.top_inst.
+[treeopen] top_tb.top_inst.metadata_inst.
+[sst_width] 225
+[signals_width] 190
+[sst_expanded] 1
+[sst_vpaned_height] 496
+@28
+top_tb.txs_write[0]
+@22
+top_tb.txs_address[22:0]
+top_tb.txs_writedata[127:0]
+top_tb.top_inst.dma_writer_mux_inst.stream_sel[4:0]
+@28
+top_tb.top_inst.metadata_qv[0]
+@22
+top_tb.top_inst.metadata_q[31:0]
+@28
+top_tb.top_inst.metadata_inst.en[0]
+top_tb.top_inst.metadata_inst.flush[0]
+top_tb.top_inst.metadata_inst.flush_complete[0]
+@22
+top_tb.top_inst.state[3:0]
+top_tb.top_inst.metadata_inst.sig_0_sig_s[31:0]
+@28
+top_tb.top_inst.metadata_inst.c[0]
+@22
+top_tb.top_inst.metadata_inst.t[63:0]
+@28
+top_tb.top_inst.trigger_oneshot[0]
+top_tb.top_inst.t_image_en[0]
+@23
+top_tb.top_inst.t_image[63:0]
+[pattern_trace] 1
+[pattern_trace] 0
