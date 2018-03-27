@@ -1,2 +1,83 @@
-# ovc
-the Open Vision Computer
+# opencam
+
+This repo contains hardware, firmware, and software for an open-source embedded
+vision system: the Open Vision Computer (OVC). The goal is to connect state of
+the art open hardware with open firmware and software. There are a few revs:
+
+ * ovc0: a trinocular system: three Python1300 imagers, an Artix-7 FPGA, DRAM, and USB3 via a Cypress FX3 controller.
+ * ovc1: a binocular system: two Python1300 imagers, a Jetson TX2 (6x ARMv8, GPU, etc.) connected to a Cyclone-V GT FPGA over PCIe.
+ * ovc2: next-gen binocular system (current under construction)
+
+# where do I find hardware stuff
+
+ * ovc1 hardware currently lives in 'hardware/ovc1' as a single KiCAD PCB.
+ * ovc2 hardware (under construction) lives in 'hardware/ovc2'
+ 
+# where do I find other stuff
+
+ * Firmware and software for ovc1 is in the 'firmware' and 'software'
+directories in this repo.
+
+# how do I update everything
+
+### Update source tree
+```
+cd ~/ovc
+git pull
+```
+
+### Compile kernel module
+```
+cd ~/ovc/software/ovc1/ovc_module
+make
+```
+
+### Flash FPGA i/o image and reconfigure FPGA
+This should be infrequent; we'll let you know when this is necessary and eventually develop some sort of automatic routine to detect when the FPGA image is out-of-date.
+```
+cd ~/scripts
+./flash_fpga_config.sh
+./reconfigure_fpga.sh
+```
+
+### Compile ROS package (userland)
+```
+mkdir -p ~/ros/src
+ln -s ~/ovc/software/ovc1/ros/ovc ~/ros/src
+cd ~/ros
+catkin build
+```
+
+# how do I run stuff
+For a typical development session (unless you need to re-flash and reconfigure the FPGA; see above) you just need to this once per boot. We'll automate this eventually, once it gets more stable...
+```
+~/scripts/init_fpga.sh
+```
+That will load the OVC kernel module, configure the FPGA core using the blob in `~/opencam/firmware/ovc/fpga/stable/ovc.core.rbf`, and re-load the OVC module to allocate DMA buffers.
+
+Then, you can run the ROS image streamer:
+
+Terminal 1:
+```
+roscore
+```
+
+Terminal 2:
+```
+cd ~/ros
+source devel/setup.bash
+rosrun ovc ovc_node
+```
+
+Terminal 3:
+```
+rosrun ovc corner_viewer
+```
+
+I'm usually shelling into the camera and run "Terminal 3" on my workstation,
+setting `ROS_MASTER_URI` as needed to point to the camera (adjust the camera
+hostname as needed, if you have changed it from the default `tegra-ubuntu`):
+```
+export ROS_MASTER_URI=http://ovc.local:11311
+rosrun ovc corner_viewer
+```
