@@ -49,13 +49,13 @@ catkin build
 ```
 
 # how do I run stuff
-For a typical development session (unless you need to re-flash and reconfigure the FPGA; see above) you just need to this once per boot. We'll automate this eventually, once it gets more stable...
+For a typical software-development session (unless you need to re-flash and reconfigure the FPGA; see above) you just need to load the kernel module. We'll automate this eventually, once it gets more stable, but for now (to avoid boot loops) let's leave the module-loading as a manual step...
 ```
 ~/scripts/init_fpga.sh
 ```
-That will load the OVC kernel module, configure the FPGA core using the blob in `~/opencam/firmware/ovc/fpga/stable/ovc.core.rbf`, and re-load the OVC module to allocate DMA buffers.
+That script will load the OVC kernel module, configure the FPGA core using the blob in `~/opencam/firmware/ovc/fpga/stable/ovc.core.rbf`, and re-load the OVC module to allocate DMA buffers.
 
-Then, you can run the ROS image streamer:
+Then, you can run the ROS image streamer and feature-visualizer nodes:
 
 Terminal 1:
 ```
