@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:ovc-cache
 EELAYER 26 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
-Sheet 9 23
+Sheet 2 23
 Title ""
 Date ""
 Rev ""
@@ -1023,7 +1024,7 @@ F 7 "ERJ-2RKF2153X" H 14909 4846 50  0001 C CNN "MPN"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor:CSD17578Q5A Q4
+L Transistor_FET:CSD17578Q5A Q4
 U 1 1 59EF5AA7
 P 3450 1650
 F 0 "Q4" V 3700 1750 50  0000 C CNN
@@ -2539,8 +2540,8 @@ Text GLabel 10750 7750 2    60   Input ~ 0
 2V5_MCU
 Text GLabel 14900 4300 2    60   Input ~ 0
 2V5_MCU
-Text Notes 13200 4700 0    60   ~ 0
-ALWAYS ON
+Text Notes 12900 4050 0    60   ~ 0
+REV.A ERROR: U20 EN PIN MUST BE TIED TO 12V FOR ALWAYS-ON!
 Text Notes 750  1150 0    118  ~ 24
 TODO: fuse + crowbar
 Text Notes 2900 1250 0    60   ~ 0
@@ -3238,7 +3239,6 @@ NoConn ~ 12900 7800
 NoConn ~ 12900 8700
 NoConn ~ 12900 8600
 NoConn ~ 12900 7900
-NoConn ~ 13750 4700
 Wire Wire Line
 	13750 9300 13850 9300
 Wire Wire Line
@@ -3439,4 +3439,7 @@ Wire Wire Line
 	2700 1850 3450 1850
 Wire Wire Line
 	2700 1550 3250 1550
+Wire Wire Line
+	13750 4700 13750 4500
+Connection ~ 13750 4500
 $EndSCHEMATC
