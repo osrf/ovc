@@ -11,6 +11,7 @@ the art open hardware with open firmware and software. There are a few revs:
 # where do I find hardware stuff
 
  * ovc1 hardware currently lives in 'hardware/ovc1' as a single KiCAD PCB.
+   * schematics are provided as [PDF](https://github.com/osrf/ovc/raw/master/hardware/ovc1/ovc.pdf) or native KiCAD files
  * ovc2 hardware (under construction) lives in 'hardware/ovc2'
  
 # where do I find other stuff
