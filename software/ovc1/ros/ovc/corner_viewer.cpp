@@ -14,6 +14,8 @@ using message_filters::TimeSynchronizer;
 static const int IMG_WIDTH  = 1280;
 static const int IMG_HEIGHT = 1024;
 
+#define NUM_IMAGES 1
+
 void sync_cb(const Image::ConstPtr &img_msg, const Metadata::ConstPtr &md_msg)
 {
   printf("%6d %6d\n",
@@ -21,8 +23,17 @@ void sync_cb(const Image::ConstPtr &img_msg, const Metadata::ConstPtr &md_msg)
     (int)md_msg->corner_arrays[1].corners.size());
   // first convert the inbound monochrome image to RGB
   cv_bridge::CvImagePtr cv_ptr = cv_bridge::toCvCopy(img_msg, "bgr8");
+
+  cv::Mat cropped;
+  if (NUM_IMAGES == 1) {
+    // crop image to only camera #1
+    cropped = cv_ptr->image(cv::Rect(0, 0, 1280, 1024));
+  }
+  else
+    cropped = cv_ptr->image(cv::Rect(0, 0, 1280, 2048));
+
   int prev_row = 0, prev_col = 0;
-  for (int img_idx = 0; img_idx < 2; img_idx++) {
+  for (int img_idx = 0; img_idx < NUM_IMAGES; img_idx++) {
     int ncorners = (int)md_msg->corner_arrays[img_idx].corners.size();
     for (int i = 0; i < ncorners; i++) {
       const ovc::ImageCorner *c = &md_msg->corner_arrays[img_idx].corners[i];
@@ -35,15 +46,13 @@ void sync_cb(const Image::ConstPtr &img_msg, const Metadata::ConstPtr &md_msg)
       prev_col = col;
       int score = (int)c->score;
       if (score <   0) score = 0;
-      if (score > 255) score = 255;
-      int rad = (double)score / 255. * 10.0 + 3;
-      cv::circle(cv_ptr->image, cvPoint(col, row + img_idx*IMG_HEIGHT),
-        rad, cvScalar(0, 0, 255)); ///*255-score,*/ score));
-      //img_rgb.at<cv::Vec3b>(row+img_idx*1024, col) =
-      //  cv::Vec3b(255-score,0,score);
+      if (score > 127) score = 127;
+      int rad = (double)score / 255. * 30.0 + 3;
+      cv::circle(cropped, cvPoint(col, row + img_idx*IMG_HEIGHT),
+        rad, cvScalar(0, 2*score, 2*(127-score)));
     }
   }
-  cv::imshow("corners", cv_ptr->image);
+  cv::imshow("corners", cropped);
   cv::waitKey(3);
 }
 

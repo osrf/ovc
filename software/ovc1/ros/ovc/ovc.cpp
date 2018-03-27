@@ -58,7 +58,7 @@ bool OVC::init()
     return false;
   usleep(50000);  // wait for imagers to wake up again
 
-  if (!set_corner_threshold(20))
+  if (!set_corner_threshold(30))
     return false;
 
   if (!enable_register_ram_paging())
@@ -729,8 +729,14 @@ bool OVC::update_autoexposure_loop(uint8_t *image)
     new_exposure = 10e-6;
   else if (new_exposure > 10e-3)
     new_exposure = 10e-3;
+
+  // slow down motion to the target a bit to avoid flicker
+  // could be smarter, but for now just crank through an exponential filter
+  const double alpha = 0.3;
+  double filtered_exposure = alpha * new_exposure + (1.0 - alpha) * exposure_;
+
   //printf("new_exposure = %0.6f\n", new_exposure);
-  return set_exposure(new_exposure);
+  return set_exposure(filtered_exposure);
 }
 
 bool OVC::set_corner_threshold(const uint8_t threshold)

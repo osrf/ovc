@@ -8,10 +8,8 @@ wire c = clk125;
 wire cam_rxc;
 sim_clk #(63) cam_clk_inst(.c(cam_rxc));
 
-//localparam IMAGE_FN="../sim/cowells_stairs_640x64.bin";
-localparam IMAGE_FN="../sim/image0006_middle.bin";
-//localparam IMAGE_FN="../sim/image0006.bin";
-localparam IMAGE_ROWS=64;
+localparam IMAGE_FN="../sim/cowells_stairs_640x64.bin";
+localparam IMAGE_ROWS=256;
 localparam IMAGE_COLS=1280;
 
 reg cam_trigger;
@@ -19,7 +17,7 @@ wire cam_cs, cam_sck, cam_mosi, cam_miso;
 wire [31:0] cam_rxd;
 wire [7:0] cam_syncd;
 sim_python
-#(.INTERFRAME_WORDS(20), .USE_TRIGGER(1),
+#(.INTERFRAME_WORDS(20), .USE_TRIGGER(1), .DATA_RST_VAL(32'hffff_ffff),
   .COLS(IMAGE_COLS), .ROWS(IMAGE_ROWS), .IMAGE_FILE(IMAGE_FN)) sim_python_inst
 (.c(cam_rxc), .trigger(cam_trigger), .data(cam_rxd), .sync(cam_syncd),
  .cs(cam_cs), .sck(cam_sck), .mosi(cam_mosi), .miso(cam_miso));

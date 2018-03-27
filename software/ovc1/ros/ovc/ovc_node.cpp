@@ -19,6 +19,7 @@ void cam_thread_fn(OVC *ovc, ros::NodeHandle *nh)
   ros::Publisher metadata_pub =
     nh->advertise<ovc::Metadata>("image_metadata", 2);
   ovc::Metadata metadata_msg;
+  uint8_t *metadata_buf = new uint8_t[256*1024];  // 256k block
 
   while (ros::ok()) {
     ros::spinOnce();
@@ -30,6 +31,9 @@ void cam_thread_fn(OVC *ovc, ros::NodeHandle *nh)
     }
     ovc->update_autoexposure_loop(img_data);
 
+    // make a userland copy of the dma buffer
+    memcpy(metadata_buf, &img_data[1280*1024*2], 256*1024);
+
     header.stamp.sec = ts.tv_sec;
     header.stamp.nsec = ts.tv_nsec;
     header.frame_id = "ovc";
@@ -38,8 +42,8 @@ void cam_thread_fn(OVC *ovc, ros::NodeHandle *nh)
     img_msg = cv_bridge::CvImage(header, "mono8", img).toImageMsg();
     image_pub.publish(img_msg);
 
-    uint32_t *meta = (uint32_t *)(&img_data[1280*1024*2]);
     uint32_t num_corners[2];
+    uint32_t *meta = (uint32_t *)metadata_buf;
     num_corners[0] = meta[2] & 0xffff;
     num_corners[1] = meta[2] >> 16;
     printf("%6d %6d %0.6f\n", (int)num_corners[0], (int)num_corners[1],
@@ -68,6 +72,7 @@ void cam_thread_fn(OVC *ovc, ros::NodeHandle *nh)
     metadata_msg.header = header;
     metadata_pub.publish(metadata_msg);
   }
+  delete[] metadata_buf;
 }
 
 void imu_thread_fn(OVC *ovc, ros::NodeHandle *nh)

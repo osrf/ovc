@@ -59,10 +59,11 @@ end
 `endif
 */
 
+localparam [7:0] AST_LATENCY = 10;
 // add 7-clock delay to frame-valid and line-valid signals
 wire fv_dn, lv_dn;
-dn #(.N(7)) fv_dn_r(.c(c), .d(fv), .q(fv_dn));
-dn #(.N(7)) lv_dn_r(.c(c), .d(lv), .q(lv_dn));
+dn #(.N(AST_LATENCY)) fv_dn_r(.c(c), .d(fv), .q(fv_dn));
+dn #(.N(AST_LATENCY)) lv_dn_r(.c(c), .d(lv), .q(lv_dn));
 
 wire score_wv;
 wire [71:0] score_w0, score_w1, score_w2, score_w3;
@@ -100,7 +101,7 @@ wire [3:0] nm_qv = { |center_w3_dn & (center_w3_dn == max_w3),
                      |center_w0_dn & (center_w0_dn == max_w0) };
 wire [31:0] nm_q = { max_w3, max_w2, max_w1, max_w0 };
 
-localparam [8:0] DETECTOR_LATENCY = 9'd18;
+localparam [8:0] DETECTOR_LATENCY = 9'd22;
 // "nm_row" is the row of the center point of the 3x3 nonmax neighborhood
 wire [9:0] nm_row;
 r #(10) nm_row_r
@@ -118,7 +119,9 @@ r #(9) nm_col_r
 
 // mask out detections that occur near the image right boundary
 // (todo: move this upstream somewhere...)
-wire nm_invalid = wcol >= COLS_DIV_4 - 1'b1;
+wire nm_invalid = (wrow < 10'd8)   |
+                  (nm_col  < 9'h8) |
+                  (nm_col >= COLS_DIV_4 - 3'h4);
 
 // make a shallow FIFO for each detector
 wire [127:0] dfifo_q;
