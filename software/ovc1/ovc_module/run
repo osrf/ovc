@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo rmmod ovc
+sudo ./ovc_load

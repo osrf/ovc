@@ -1,0 +1,13 @@
+obj-m	:= ovc.o
+
+KERNELDIR ?= /lib/modules/$(shell uname -r)/build
+PWD       := $(shell pwd)
+
+CPPFLAGS += -include $(KERNELDIR)/include/linux/autoconf.h
+
+all:
+	$(MAKE) -C $(KERNELDIR) M=$(PWD)
+
+clean:
+	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions
+

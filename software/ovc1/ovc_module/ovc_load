@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# load the module
+/sbin/insmod ./ovc.ko $* || exit 1
+
+# remove stale nodes
+rm -f /dev/ovc
+rm -f /dev/ovc_cvp
+rm -f /dev/ovc_imu
+
+# create new device node
+# todo: figure out a better way to do this...
+major=`grep -w ovc /proc/devices | cut -f1 -d" "`
+mknod /dev/ovc c $major 0
+mknod /dev/ovc_cvp c $major 0
+mknod /dev/ovc_imu c $major 0
+
+# change permissions to allow all users to read/write
+chmod 666 /dev/ovc
+chmod 666 /dev/ovc_cvp
+chmod 666 /dev/ovc_imu

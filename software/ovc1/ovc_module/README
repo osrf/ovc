@@ -1,0 +1,57 @@
+altera_cvp -- Linux driver for configuring Altera FPGAs via CvP
+---------------------------------------------------------------
+Driver version:  1.1.0 (12/1/2015)
+Release version: 1.1.0 (12/1/2015)
+
+
+Description:
+------------
+The altera_cvp driver allows a Linux user to configure the core of an Altera
+CvP-capable FPGA through the use of standard Unix utilities or custom-built
+user-space applications. 
+
+
+Installation:
+-------------
+In the directory where the release files are located, run the following commands:
+
+1) make
+2) make install [vid=<PCI vendor ID> did=<PCI device ID>] (this step requires
+                                                           root privileges)
+
+The PCI vendor and device ID parameters are optional. If no PCI vendor and
+device IDs are specified when the driver is installed, the driver will use the
+following default values:
+
+Vendor ID: 0x1172 (Altera vendor ID)
+Device ID: 0xE001 (Altera PCIe high-performance reference design device ID)
+
+
+Uninstall:
+----------
+To uninstall the driver, run the following commands (both require root privileges):
+
+1) /sbin/rmmod altera_cvp
+2) rm -f /dev/altera_cvp
+
+
+Usage:
+------
+The cvp driver is accessible through the device file located at /dev/altera_cvp.
+
+Reading from this file will return a binary representation of the VSEC registers
+for CvP. Writing to this file will cause any data written between file open and
+close to be sent to the FPGA as CvP core configuration data.
+
+This allows the use of standard Unix utilities like cp to perform CvP, for example:
+
+cp <filename>.core.rbf /dev/altera_cvp
+
+The command above will cause the driver to attempt a CvP configuration of the
+FPGA using the specified core RBF file.
+
+
+Not currently supported:
+------------------------
+* Concurrent access to the device (multiple processes/users)
+* ioctl system calls
