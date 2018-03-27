@@ -1,4 +1,4 @@
-# opencam
+# Open Vision Computer (OVC)
 
 This repo contains hardware, firmware, and software for an open-source embedded
 vision system: the Open Vision Computer (OVC). The goal is to connect state of
