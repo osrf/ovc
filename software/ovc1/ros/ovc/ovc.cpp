@@ -18,8 +18,8 @@ OVC::OVC()
   dma_buf(NULL),
   exposure_(0.005)
 {
-  t_prev_offset.tv_sec  = t_offset.tv_sec  = 0;
-  t_prev_offset.tv_nsec = t_offset.tv_nsec = 0;
+  t_prev_offset.tv_sec  = t_offset.tv_sec  = t_prev_imu.tv_sec  = 0;
+  t_prev_offset.tv_nsec = t_offset.tv_nsec = t_prev_imu.tv_nsec = 0;
 }
 
 OVC::~OVC()
@@ -691,10 +691,29 @@ bool OVC::wait_for_imu_state(OVCIMUState &imu_state, struct timespec &t)
     printf("unexpected return from set_exposure ioctl call: %d\n", rc);
     return false;
   }
-  uint64_t t_imu = imu_read.t_usecs;
-  static uint64_t prev_t_imu = 0;
-  uint32_t dt_imu = (uint32_t)(t_imu - prev_t_imu);
-  hardware_time_to_system_time(t_imu, t);
+  uint64_t t_imu_hwtime = imu_read.t_usecs;
+  static uint64_t prev_t_imu_hwtime = 0;
+  uint32_t dt_imu_hwtime = (uint32_t)(t_imu_hwtime - prev_t_imu_hwtime);
+  if (dt_imu_hwtime < 0 || dt_imu_hwtime > 1000000) {
+    //printf("  dt_imu_hwtime = %d\n", (int)dt_imu_hwtime);
+    // the image thread changed the time offset while we were polling IMU.
+    // "fix it" by estimating the IMU time of this sample to be 1 period
+    // beyond the previous IMU time, rather than using the hardware timestamp
+    // NOTE: the IMU is hard-coded to 200 Hz output in OVC::configure_imu()
+    uint64_t dt_imu_usecs_est = 1000000000/200;  // 5 million nanoseconds
+    uint64_t nsec_sum = t_prev_imu.tv_nsec + dt_imu_usecs_est;
+    uint64_t nsec_mod = nsec_sum % 1000000000;
+    t.tv_nsec = nsec_mod;
+    t.tv_sec = t_prev_imu.tv_sec + (nsec_sum - nsec_mod) / 1000000000;
+  }
+  else
+    hardware_time_to_system_time(t_imu_hwtime, t);
+  //double t_double = (double)t.tv_sec + (double)t.tv_nsec / 1.0e9;
+  //printf("t_imu = %.6f\n", t_double);
+
+  // save current timestamps for next iteration
+  t_prev_imu = t;
+  prev_t_imu_hwtime = t_imu_hwtime;
   //printf("t_imu = %lu\n", (long unsigned)t_imu);
   //printf("dt_imu = %u\n", dt_imu);
   //prev_t_imu = t_imu;

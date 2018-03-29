@@ -40,7 +40,7 @@ private:
 public:
   double exposure_;
   // offsets between system time and hardware time
-  struct timespec t_offset, t_prev_offset;
+  struct timespec t_offset, t_prev_offset, t_prev_imu;
 public:
   bool validate_signature(
     const uint8_t *img, const uint32_t len, const uint32_t *sig);
