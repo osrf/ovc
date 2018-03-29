@@ -692,32 +692,38 @@ bool OVC::wait_for_imu_state(OVCIMUState &imu_state, struct timespec &t)
     return false;
   }
   uint64_t t_imu_hwtime = imu_read.t_usecs;
-  static uint64_t prev_t_imu_hwtime = 0;
-  uint32_t dt_imu_hwtime = (uint32_t)(t_imu_hwtime - prev_t_imu_hwtime);
-  if (dt_imu_hwtime < 0 || dt_imu_hwtime > 1000000) {
-    //printf("  dt_imu_hwtime = %d\n", (int)dt_imu_hwtime);
-    // the image thread changed the time offset while we were polling IMU.
-    // "fix it" by estimating the IMU time of this sample to be 1 period
-    // beyond the previous IMU time, rather than using the hardware timestamp
+  struct timespec t_test;
+  hardware_time_to_system_time(t_imu_hwtime, t_test);
+
+  // make sure t_test - t_prev_imu is sane
+  double t_test_s = t_test.tv_sec + (double)t_test.tv_nsec / 1.0e9;
+  double t_prev_imu_s = t_prev_imu.tv_sec + (double)t_prev_imu.tv_nsec / 1.0e9;
+  double t_test_dt = t_test_s - t_prev_imu_s;
+
+  if (t_prev_imu_s == 0 || (t_test_dt > 0 && t_test_dt < 0.5)) {
+    t = t_test;  // use the calculated system_time + hardware offset
+  }
+  else {
+    // the image thread changed the time offset while we were polling the IMU.
+    // "Fix it" by estimating the IMU time of this sample to be 1 period
+    // after the previous IMU time, rather than using the hardware timestamp
     // NOTE: the IMU is hard-coded to 200 Hz output in OVC::configure_imu()
+
     uint64_t dt_imu_usecs_est = 1000000000/200;  // 5 million nanoseconds
     uint64_t nsec_sum = t_prev_imu.tv_nsec + dt_imu_usecs_est;
     uint64_t nsec_mod = nsec_sum % 1000000000;
     t.tv_nsec = nsec_mod;
     t.tv_sec = t_prev_imu.tv_sec + (nsec_sum - nsec_mod) / 1000000000;
-  }
-  else
-    hardware_time_to_system_time(t_imu_hwtime, t);
-  //double t_double = (double)t.tv_sec + (double)t.tv_nsec / 1.0e9;
-  //printf("t_imu = %.6f\n", t_double);
 
-  // save current timestamps for next iteration
+    //double t_corrected = t.tv_sec + (double)t.tv_nsec / 1.0e9;
+    //double dt_corrected = t_corrected - t_prev_imu_s;
+    //printf("dt_calc = %.3f t_test = %.3f  t_prev = %.3f dt_corr = %.3f\n",
+    //    t_test_dt, t_test_s, t_prev_imu_s, dt_corrected);
+  }
+  // save timestamp for next iteration
   t_prev_imu = t;
-  prev_t_imu_hwtime = t_imu_hwtime;
-  //printf("t_imu = %lu\n", (long unsigned)t_imu);
-  //printf("dt_imu = %u\n", dt_imu);
-  //prev_t_imu = t_imu;
-  // for now, just copy over the fields.
+
+  // for now, just copy over the IMU data fields.
   // Maybe in the future we'll swap stuff around or whatever.
   for (int i = 0; i < 3; i++) {
     imu_state.accel[i] = imu_read.accel[i];
