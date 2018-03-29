@@ -122,9 +122,9 @@ F 3 "" H 2650 5300 50  0001 C CNN
 	1    2650 5300
 	-1   0    0    -1  
 $EndComp
-Text GLabel 3650 5000 0    60   Input ~ 0
+Text GLabel 6100 5500 2    60   Input ~ 0
 PCIE_REFCLK+
-Text GLabel 3650 5100 0    60   Input ~ 0
+Text GLabel 6100 5600 2    60   Input ~ 0
 PCIE_REFCLK-
 Wire Wire Line
 	3650 4900 2650 4900
@@ -165,13 +165,13 @@ Wire Wire Line
 Wire Wire Line
 	4650 4400 5600 4400
 Connection ~ 4650 4700
-Text GLabel 3650 4800 0    60   Input ~ 0
+Text GLabel 6100 5300 2    60   Input ~ 0
 PCIE_RST_3V3
-Text GLabel 3650 4700 0    60   Input ~ 0
+Text GLabel 6100 5200 2    60   Input ~ 0
 JETSON_RESET_OUT
-Text GLabel 3650 4600 0    60   Input ~ 0
+Text GLabel 6100 5100 2    60   Input ~ 0
 JETSON_CARRIER_PWR_ON
-Text GLabel 3650 3500 0    50   Input ~ 0
+Text GLabel 6100 5000 2    60   Input ~ 0
 DISCHARGE
 Wire Wire Line
 	3650 3400 2650 3400
@@ -271,4 +271,23 @@ $EndComp
 Connection ~ 5600 6050
 Text Notes 1250 2000 0    118  ~ 24
 TODO: move to (much) taller TX2 mount, to allow PCIe connector underneath
+Wire Wire Line
+	6100 5700 6100 5800
+Connection ~ 6100 5800
+Wire Wire Line
+	5600 5700 5600 5800
+Connection ~ 5600 5800
+Wire Wire Line
+	6100 5400 6950 5400
+$Comp
+L power:GND #PWR?
+U 1 1 5ABDE62D
+P 6950 5400
+F 0 "#PWR?" H 6950 5150 50  0001 C CNN
+F 1 "GND" H 6955 5227 50  0001 C CNN
+F 2 "" H 6950 5400 50  0001 C CNN
+F 3 "" H 6950 5400 50  0001 C CNN
+	1    6950 5400
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
