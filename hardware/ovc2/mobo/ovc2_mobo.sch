@@ -102,53 +102,30 @@ F 3 "" H 4650 5600 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4650 5600 5600 5600
-Text GLabel 5600 3600 0    60   Input ~ 0
+Text GLabel 5600 5100 0    60   Input ~ 0
 PCIE_LANE0_TX+
-Text GLabel 5600 3700 0    60   Input ~ 0
+Text GLabel 5600 5200 0    60   Input ~ 0
 PCIE_LANE0_TX-
 Wire Wire Line
 	5600 5300 4650 5300
 Wire Wire Line
 	4650 5300 4650 5600
 Connection ~ 4650 5600
-$Comp
-L power:GND #PWR0102
-U 1 1 5A9A2C22
-P 2650 5300
-F 0 "#PWR0102" H 2650 5050 50  0001 C CNN
-F 1 "GND" H 2655 5127 50  0001 C CNN
-F 2 "" H 2650 5300 50  0001 C CNN
-F 3 "" H 2650 5300 50  0001 C CNN
-	1    2650 5300
-	-1   0    0    -1  
-$EndComp
 Text GLabel 6100 5500 2    60   Input ~ 0
 PCIE_REFCLK+
 Text GLabel 6100 5600 2    60   Input ~ 0
 PCIE_REFCLK-
-Wire Wire Line
-	3650 4900 2650 4900
-Wire Wire Line
-	2650 4900 2650 5200
-Wire Wire Line
-	3650 5300 2650 5300
-Connection ~ 2650 5300
-Wire Wire Line
-	3650 5200 2650 5200
-Connection ~ 2650 5200
-Wire Wire Line
-	2650 5200 2650 5300
-Text GLabel 5600 3900 0    60   Input ~ 0
+Text GLabel 5600 4800 0    60   Input ~ 0
 PCIE_LANE1_RX+
-Text GLabel 5600 4000 0    60   Input ~ 0
+Text GLabel 5600 4900 0    60   Input ~ 0
 PCIE_LANE1_RX-
-Text GLabel 5600 3300 0    60   Input ~ 0
+Text GLabel 5600 5400 0    60   Input ~ 0
 PCIE_LANE0_RX+
-Text GLabel 5600 3400 0    60   Input ~ 0
+Text GLabel 5600 5500 0    60   Input ~ 0
 PCIE_LANE0_RX-
-Text GLabel 5600 4200 0    60   Input ~ 0
+Text GLabel 5600 4500 0    60   Input ~ 0
 PCIE_LANE1_TX+
-Text GLabel 5600 4300 0    60   Input ~ 0
+Text GLabel 5600 4600 0    60   Input ~ 0
 PCIE_LANE1_TX-
 Wire Wire Line
 	4650 5300 4650 5000
@@ -174,56 +151,56 @@ JETSON_CARRIER_PWR_ON
 Text GLabel 6100 5000 2    60   Input ~ 0
 DISCHARGE
 Wire Wire Line
-	3650 3400 2650 3400
+	7350 3250 6350 3250
 $Comp
 L power:GND #PWR0103
 U 1 1 5AA1E08F
-P 2650 3400
-F 0 "#PWR0103" H 2650 3150 50  0001 C CNN
-F 1 "GND" H 2655 3227 50  0001 C CNN
-F 2 "" H 2650 3400 50  0001 C CNN
-F 3 "" H 2650 3400 50  0001 C CNN
-	1    2650 3400
+P 7350 3250
+F 0 "#PWR0103" H 7350 3000 50  0001 C CNN
+F 1 "GND" H 7355 3077 50  0001 C CNN
+F 2 "" H 7350 3250 50  0001 C CNN
+F 3 "" H 7350 3250 50  0001 C CNN
+	1    7350 3250
 	-1   0    0    -1  
 $EndComp
 $Comp
 L power:+12V #PWR0104
 U 1 1 5AA2BB17
-P 3250 4500
-F 0 "#PWR0104" H 3250 4350 50  0001 C CNN
-F 1 "+12V" H 3265 4673 50  0000 C CNN
-F 2 "" H 3250 4500 50  0001 C CNN
-F 3 "" H 3250 4500 50  0001 C CNN
-	1    3250 4500
+P 6950 4350
+F 0 "#PWR0104" H 6950 4200 50  0001 C CNN
+F 1 "+12V" H 6965 4523 50  0000 C CNN
+F 2 "" H 6950 4350 50  0001 C CNN
+F 3 "" H 6950 4350 50  0001 C CNN
+	1    6950 4350
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	3250 4500 3650 4500
+	6950 4350 7350 4350
 $Sheet
 S 6050 1050 1500 500 
 U 5AA3E427
 F0 "jetson_gpio" 118
 F1 "jetson_gpio.sch" 50
 $EndSheet
-Text GLabel 3650 3700 0    60   Input ~ 0
+Text GLabel 7350 3550 0    60   Input ~ 0
 FPGA_CONFIG_DCLK
-Text GLabel 3650 3600 0    60   Input ~ 0
+Text GLabel 7350 3450 0    60   Input ~ 0
 FPGA_CONFIG_DATA0
-Text GLabel 5600 4900 0    60   Input ~ 0
+Text GLabel 5600 3900 0    60   Input ~ 0
 PCIE_LANE2_TX-
-Text GLabel 5600 4800 0    60   Input ~ 0
+Text GLabel 5600 4000 0    60   Input ~ 0
 PCIE_LANE2_TX+
-Text GLabel 5600 4500 0    60   Input ~ 0
+Text GLabel 5600 4300 0    60   Input ~ 0
 PCIE_LANE2_RX+
-Text GLabel 5600 4600 0    60   Input ~ 0
+Text GLabel 5600 4200 0    60   Input ~ 0
 PCIE_LANE2_RX-
-Text GLabel 5600 5500 0    60   Input ~ 0
+Text GLabel 5600 3300 0    60   Input ~ 0
 PCIE_LANE3_TX-
-Text GLabel 5600 5400 0    60   Input ~ 0
+Text GLabel 5600 3400 0    60   Input ~ 0
 PCIE_LANE3_TX+
-Text GLabel 5600 5100 0    60   Input ~ 0
+Text GLabel 5600 3700 0    60   Input ~ 0
 PCIE_LANE3_RX+
-Text GLabel 5600 5200 0    60   Input ~ 0
+Text GLabel 5600 3600 0    60   Input ~ 0
 PCIE_LANE3_RX-
 Wire Wire Line
 	5600 3200 4650 3200
@@ -280,10 +257,10 @@ Connection ~ 5600 5800
 Wire Wire Line
 	6100 5400 6950 5400
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0102
 U 1 1 5ABDE62D
 P 6950 5400
-F 0 "#PWR?" H 6950 5150 50  0001 C CNN
+F 0 "#PWR0102" H 6950 5150 50  0001 C CNN
 F 1 "GND" H 6955 5227 50  0001 C CNN
 F 2 "" H 6950 5400 50  0001 C CNN
 F 3 "" H 6950 5400 50  0001 C CNN

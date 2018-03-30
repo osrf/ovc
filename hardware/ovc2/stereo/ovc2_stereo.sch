@@ -63,87 +63,87 @@ F 5 "SAM11585" H 5800 4100 50  0001 C CNN "D1PN"
 	1    5800 4100
 	1    0    0    -1  
 $EndComp
-Text GLabel 5600 4600 0    60   Input ~ 0
+Text GLabel 6100 4800 2    60   Input ~ 0
 JETSON_CARRIER_PWR_ON
-Text GLabel 5600 4700 0    60   Input ~ 0
+Text GLabel 6100 4900 2    60   Input ~ 0
 JETSON_RESET_OUT
-Text Notes 4000 4300 0    50   ~ 0
+Text Notes 4050 6000 0    50   ~ 0
 TODO: >=1 uart for IMU and misc
-Text GLabel 5600 5000 0    60   Input ~ 0
+Text GLabel 6100 5200 2    60   Input ~ 0
 PCIE_REFCLK+
-Text GLabel 5600 5100 0    60   Input ~ 0
+Text GLabel 6100 5300 2    60   Input ~ 0
 PCIE_REFCLK-
-Text GLabel 6100 4500 2    60   Input ~ 0
+Text GLabel 5600 3800 0    60   Input ~ 0
 PCIE_LANE2_TX-
-Text GLabel 6100 4400 2    60   Input ~ 0
+Text GLabel 5600 3900 0    60   Input ~ 0
 PCIE_LANE2_TX+
-Text GLabel 6100 4200 2    60   Input ~ 0
+Text GLabel 5600 3500 0    60   Input ~ 0
 PCIE_LANE2_RX-
-Text GLabel 6100 4100 2    60   Input ~ 0
+Text GLabel 5600 3600 0    60   Input ~ 0
 PCIE_LANE2_RX+
-Text GLabel 6100 3900 2    60   Input ~ 0
-PCIE_LANE1_TX-
-Text GLabel 6100 3800 2    60   Input ~ 0
-PCIE_LANE1_TX+
-Text GLabel 6100 3500 2    60   Input ~ 0
-PCIE_LANE1_RX+
-Text GLabel 6100 3600 2    60   Input ~ 0
-PCIE_LANE1_RX-
-Text GLabel 5600 4800 0    60   Input ~ 0
-PCIE_RST_3V3
 Text GLabel 5600 4500 0    60   Input ~ 0
+PCIE_LANE1_TX-
+Text GLabel 5600 4400 0    60   Input ~ 0
+PCIE_LANE1_TX+
+Text GLabel 5600 4100 0    60   Input ~ 0
+PCIE_LANE1_RX+
+Text GLabel 5600 4200 0    60   Input ~ 0
+PCIE_LANE1_RX-
+Text GLabel 6100 5000 2    60   Input ~ 0
+PCIE_RST_3V3
+Text GLabel 6100 4700 2    60   Input ~ 0
 DISCHARGE
 Wire Wire Line
-	6100 5200 7050 5200
+	5600 5200 4650 5200
 $Comp
 L power:GND #PWR0112
 U 1 1 5A9A7965
-P 7050 5200
-F 0 "#PWR0112" H 7050 4950 50  0001 C CNN
-F 1 "GND" H 7055 5027 50  0001 C CNN
-F 2 "" H 7050 5200 50  0001 C CNN
-F 3 "" H 7050 5200 50  0001 C CNN
-	1    7050 5200
-	1    0    0    -1  
+P 4650 5200
+F 0 "#PWR0112" H 4650 4950 50  0001 C CNN
+F 1 "GND" H 4655 5027 50  0001 C CNN
+F 2 "" H 4650 5200 50  0001 C CNN
+F 3 "" H 4650 5200 50  0001 C CNN
+	1    4650 5200
+	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	6100 4900 7050 4900
+	5600 4900 4650 4900
 Wire Wire Line
-	7050 4900 7050 5200
-Connection ~ 7050 5200
+	4650 4900 4650 5200
+Connection ~ 4650 5200
 Wire Wire Line
-	6100 4600 7050 4600
+	5600 4600 4650 4600
 Wire Wire Line
-	7050 4600 7050 4900
-Connection ~ 7050 4900
+	4650 4600 4650 4900
+Connection ~ 4650 4900
 Wire Wire Line
-	6100 4300 7050 4300
+	5600 4300 4650 4300
 Wire Wire Line
-	7050 4300 7050 4600
-Connection ~ 7050 4600
+	4650 4300 4650 4600
+Connection ~ 4650 4600
 Wire Wire Line
-	6100 4000 7050 4000
+	5600 4000 4650 4000
 Wire Wire Line
-	7050 4000 7050 4300
-Connection ~ 7050 4300
+	4650 4000 4650 4300
+Connection ~ 4650 4300
 $Comp
 L power:GND #PWR0127
 U 1 1 5A9A7E63
-P 4750 5300
-F 0 "#PWR0127" H 4750 5050 50  0001 C CNN
-F 1 "GND" H 4755 5127 50  0001 C CNN
-F 2 "" H 4750 5300 50  0001 C CNN
-F 3 "" H 4750 5300 50  0001 C CNN
-	1    4750 5300
-	1    0    0    -1  
+P 6950 5500
+F 0 "#PWR0127" H 6950 5250 50  0001 C CNN
+F 1 "GND" H 6955 5327 50  0001 C CNN
+F 2 "" H 6950 5500 50  0001 C CNN
+F 3 "" H 6950 5500 50  0001 C CNN
+	1    6950 5500
+	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	4750 5300 5600 5300
+	6950 5500 6100 5500
 Wire Wire Line
-	5600 4900 4750 4900
+	6100 5100 6950 5100
 Wire Wire Line
-	4750 4900 4750 5300
-Connection ~ 4750 5300
+	6950 5100 6950 5500
+Connection ~ 6950 5500
 $Comp
 L Graphic:Logo_Open_Hardware_Small Z1
 U 1 1 5A9A8815
@@ -161,42 +161,42 @@ U 5A9D8938
 F0 "imu" 118
 F1 "imu.sch" 50
 $EndSheet
-Text GLabel 6100 3300 2    60   Input ~ 0
+Text GLabel 5600 5100 0    60   Input ~ 0
 PCIE_LANE0_TX-
-Text GLabel 6100 3200 2    60   Input ~ 0
+Text GLabel 5600 5000 0    60   Input ~ 0
 PCIE_LANE0_TX+
-Text GLabel 6100 3000 2    60   Input ~ 0
+Text GLabel 5600 4800 0    60   Input ~ 0
 PCIE_LANE0_RX-
-Text GLabel 6100 2900 2    60   Input ~ 0
+Text GLabel 5600 4700 0    60   Input ~ 0
 PCIE_LANE0_RX+
-Text GLabel 6100 5100 2    60   Input ~ 0
+Text GLabel 5600 3200 0    60   Input ~ 0
 PCIE_LANE3_TX-
-Text GLabel 6100 5000 2    60   Input ~ 0
+Text GLabel 5600 3300 0    60   Input ~ 0
 PCIE_LANE3_TX+
-Text GLabel 6100 4700 2    60   Input ~ 0
+Text GLabel 5600 3000 0    60   Input ~ 0
 PCIE_LANE3_RX+
-Text GLabel 6100 4800 2    60   Input ~ 0
+Text GLabel 5600 2900 0    60   Input ~ 0
 PCIE_LANE3_RX-
 Wire Wire Line
-	6100 3700 7050 3700
+	5600 3700 4650 3700
 Wire Wire Line
-	7050 3700 7050 4000
+	4650 3700 4650 4000
 Wire Wire Line
-	6100 3400 7050 3400
+	5600 3400 4650 3400
 Wire Wire Line
-	7050 3400 7050 3700
-Connection ~ 7050 3700
+	4650 3400 4650 3700
+Connection ~ 4650 3700
 Wire Wire Line
-	6100 3100 7050 3100
+	5600 3100 4650 3100
 Wire Wire Line
-	7050 3100 7050 3400
-Connection ~ 7050 3400
+	4650 3100 4650 3400
+Connection ~ 4650 3400
 Wire Wire Line
-	6100 2800 7050 2800
+	5600 2800 4650 2800
 Wire Wire Line
-	7050 2800 7050 3100
-Connection ~ 7050 3100
-Connection ~ 7050 4000
+	4650 2800 4650 3100
+Connection ~ 4650 3100
+Connection ~ 4650 4000
 Wire Wire Line
 	5600 5400 5600 5500
 Wire Wire Line
@@ -221,4 +221,7 @@ F 3 "" H 6100 5700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 6100 5700
+Wire Wire Line
+	5600 5400 5600 5300
+Connection ~ 5600 5400
 $EndSCHEMATC

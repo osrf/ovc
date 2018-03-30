@@ -341,7 +341,7 @@ Wire Wire Line
 	3750 4450 3850 4450
 Wire Wire Line
 	2400 2800 2750 2800
-Text Notes 2200 2350 0    50   ~ 0
+Text Notes 2200 2350 0    118  ~ 24
 TODO: move IMU to daugherboard and have more than one footprint
 $Comp
 L power:+1V8 #PWR0142

@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:ovc-cache
 EELAYER 26 0
 EELAYER END
 $Descr A3 16535 11693
@@ -1024,7 +1023,7 @@ F 7 "ERJ-2RKF2153X" H 14909 4846 50  0001 C CNN "MPN"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:CSD17578Q5A Q4
+L Transistor:IRF7404 Q4
 U 1 1 59EF5AA7
 P 3450 1650
 F 0 "Q4" V 3700 1750 50  0000 C CNN
@@ -3442,4 +3441,6 @@ Wire Wire Line
 Wire Wire Line
 	13750 4700 13750 4500
 Connection ~ 13750 4500
+Wire Wire Line
+	3450 1850 3450 1800
 $EndSCHEMATC

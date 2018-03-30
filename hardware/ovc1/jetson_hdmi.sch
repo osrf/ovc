@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:ovc-cache
 EELAYER 26 0
 EELAYER END
 $Descr USLegal 14000 8500
