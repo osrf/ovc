@@ -1,5 +1,7 @@
 # Open Vision Computer (OVC)
 
+Here is an [overview presentation of the project](https://docs.google.com/presentation/d/1NCimNJTRP6g3ESWhmaqi4t3dOprq7Yvne_JLeCTt3io/edit?usp=sharing) (March 2018).
+
 This repo contains hardware, firmware, and software for an open-source embedded
 vision system: the Open Vision Computer (OVC). The goal is to connect state of
 the art open hardware with open firmware and software. There are a few revs:
