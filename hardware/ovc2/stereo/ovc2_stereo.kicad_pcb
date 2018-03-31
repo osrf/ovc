@@ -38,7 +38,7 @@
   )
 
   (setup
-    (last_trace_width 0.1778)
+    (last_trace_width 0.25)
     (user_trace_width 0.127)
     (user_trace_width 0.1524)
     (user_trace_width 0.1778)
@@ -9876,15 +9876,15 @@
     )
   )
 
-  (gr_line (start 64 67) (end 213 67) (layer Edge.Cuts) (width 0.15))
-  (gr_line (start 213 107) (end 213 67) (layer Edge.Cuts) (width 0.15))
-  (gr_line (start 64 107) (end 64 67) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 63.5 67) (end 213.5 67) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 213.5 107) (end 213.5 67) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 63.5 107) (end 63.5 67) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 182 85) (end 182 135) (layer F.Fab) (width 0.2))
   (gr_line (start 95 85) (end 95 135) (layer F.Fab) (width 0.2))
-  (gr_line (start 213 107) (end 64 107) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 213.5 107) (end 63.5 107) (layer Edge.Cuts) (width 0.15))
   (gr_poly (pts (xy 185.27418 85.707598) (xy 185.77418 86.607598) (xy 184.77418 86.607598)) (layer B.SilkS) (width 0.15))
 
-  (via (at 79.8 61.4) (size 4) (drill 3.5) (layers F.Cu B.Cu) (net 0) (tstamp 5A9AC486))
+  (via (at 94 97.5) (size 4) (drill 3.5) (layers F.Cu B.Cu) (net 0) (tstamp 5A9AC486))
   (segment (start 72.760304 85.988904) (end 71.636304 85.988904) (width 0.254) (layer F.Cu) (net 1))
   (segment (start 71.636304 85.988904) (end 71.608304 85.960904) (width 0.254) (layer F.Cu) (net 1))
   (segment (start 72.760304 85.988904) (end 72.280304 85.988904) (width 0.2794) (layer B.Cu) (net 1))
