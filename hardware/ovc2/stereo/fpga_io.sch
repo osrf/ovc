@@ -38,37 +38,35 @@ Text GLabel 14200 7550 2    60   Input ~ 0
 CAM1_DOUT0+
 Text GLabel 14200 7650 2    60   Input ~ 0
 CAM1_DOUT0-
-Text GLabel 12700 7000 2    60   Input ~ 0
+Text GLabel 14200 6700 2    60   Input ~ 0
 CAM1_CLKIN+
-Text GLabel 12700 6900 2    60   Input ~ 0
+Text GLabel 14200 6600 2    60   Input ~ 0
 CAM1_CLKIN-
-Text GLabel 12700 7600 2    60   Input ~ 0
+Text GLabel 18850 10350 0    60   Input ~ 0
 CAM1_CS
-Text GLabel 12700 9100 2    60   Input ~ 0
+Text GLabel 18850 10450 0    60   Input ~ 0
 CAM1_MOSI
-Text GLabel 12700 10000 2    60   Input ~ 0
+Text GLabel 18850 10050 0    60   Input ~ 0
 CAM1_TRG
-Text GLabel 12700 7500 2    60   Input ~ 0
+Text GLabel 18850 10250 0    60   Input ~ 0
 CAM1_RST
-Text GLabel 12700 8300 2    60   Input ~ 0
+Text GLabel 18850 10150 0    60   Input ~ 0
 CAM1_SCK
-Text GLabel 12700 9200 2    60   Input ~ 0
+Text GLabel 17850 7050 0    60   Input ~ 0
 IMU_NRST
-Text GLabel 12700 9300 2    60   Input ~ 0
+Text GLabel 20150 10250 2    60   Input ~ 0
 IMU_SYNC_OUT
-Text GLabel 12700 9400 2    60   Input ~ 0
+Text GLabel 17850 8750 0    60   Input ~ 0
 IMU_SCK
-Text GLabel 12700 10200 2    60   Input ~ 0
+Text GLabel 17850 8550 0    60   Input ~ 0
 IMU_MOSI
-Text GLabel 12700 10100 2    60   Input ~ 0
+Text GLabel 20150 10150 2    60   Input ~ 0
 IMU_MISO
-Text GLabel 12700 8400 2    60   Input ~ 0
-IMU_TARE
-Text GLabel 12700 10800 2    60   Input ~ 0
+Text GLabel 17850 6850 0    60   Input ~ 0
 IMU_SYNC_IN
-Text GLabel 12700 10700 2    60   Input ~ 0
+Text GLabel 17850 6750 0    60   Input ~ 0
 IMU_CS
-Text GLabel 12700 9900 2    60   Input ~ 0
+Text GLabel 20150 10050 2    60   Input ~ 0
 CAM1_MISO
 $Comp
 L voltage_translators:74LVC1G34 U17
@@ -91,12 +89,9 @@ U 1 1 5A978278
 P 5950 4500
 F 0 "C12" H 6042 4546 50  0000 L CNN
 F 1 "100n" H 6042 4455 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric" H 5950 4500 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 5950 4500 50  0001 C CNN
 F 3 "" H 5950 4500 50  0001 C CNN
 F 4 "digikey" H 6042 4646 50  0001 C CNN "D1"
-F 5 "490-5881" H 6042 4646 50  0001 C CNN "D1PN"
-F 6 "Murata" H 6042 4646 50  0001 C CNN "MFN"
-F 7 "GRM033R61A104KE15D" H 6042 4646 50  0001 C CNN "MPN"
 	1    5950 4500
 	1    0    0    -1  
 $EndComp
@@ -124,14 +119,6 @@ F 3 "" H 5650 4950 50  0001 C CNN
 $EndComp
 Text GLabel 6050 4800 2    60   Input ~ 0
 PCIE_RST_3V3
-Text GLabel 14800 10450 2    60   Input ~ 0
-FPGA_CVP_CONF_DONE
-Text GLabel 14800 10150 2    60   Input ~ 0
-FPGA_AUX0
-Text GLabel 14800 10050 2    60   Input ~ 0
-FPGA_AUX1
-Text GLabel 14800 10750 2    60   Input ~ 0
-FPGA_AUX2
 Wire Wire Line
 	6050 4800 5900 4800
 Wire Wire Line
@@ -188,12 +175,9 @@ U 1 1 5A97C19D
 P 15150 12250
 F 0 "C18" H 15242 12296 50  0000 L CNN
 F 1 "10n" H 15242 12205 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric" H 15150 12250 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 15150 12250 50  0001 C CNN
 F 3 "" H 15150 12250 50  0001 C CNN
 F 4 "digikey" H 15242 12396 50  0001 C CNN "D1"
-F 5 "490-3194" H 15242 12396 50  0001 C CNN "D1PN"
-F 6 "Murata" H 15242 12396 50  0001 C CNN "MFN"
-F 7 "GRM033R71A103KA01D" H 15242 12396 50  0001 C CNN "MPN"
 	1    15150 12250
 	1    0    0    -1  
 $EndComp
@@ -212,16 +196,6 @@ Text Label 16150 12650 0    60   ~ 0
 CLK100
 Text Label 4400 4500 0    60   ~ 0
 CLK100
-Text GLabel 13100 11450 2    60   Input ~ 0
-FPGA_AUX7
-Text GLabel 13100 11750 2    60   Input ~ 0
-FPGA_AUX3
-Text GLabel 13100 12250 2    60   Input ~ 0
-FPGA_AUX4
-Text GLabel 13100 12150 2    60   Input ~ 0
-FPGA_AUX5
-Text GLabel 13100 11350 2    60   Input ~ 0
-FPGA_AUX6
 Wire Wire Line
 	16050 12650 16550 12650
 Wire Wire Line
@@ -247,165 +221,60 @@ F 3 "" H 15750 12150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 15750 12150
-Text GLabel 14100 12600 2    60   Input ~ 0
+Text GLabel 20150 11850 2    60   Input ~ 0
 CAM2_MISO
-Text GLabel 14100 13500 2    60   Input ~ 0
+Text GLabel 18350 12150 2    60   Input ~ 0
 CAM2_SCK
-Text GLabel 14100 12700 2    60   Input ~ 0
+Text GLabel 18350 12250 2    60   Input ~ 0
 CAM2_MOSI
-Text GLabel 14100 11800 2    60   Input ~ 0
+Text GLabel 18350 11850 2    60   Input ~ 0
 CAM2_CS
-Text GLabel 13800 10950 2    60   Input ~ 0
+Text GLabel 18350 12050 2    60   Input ~ 0
 CAM2_TRG
-Text GLabel 14100 11900 2    60   Input ~ 0
+Text GLabel 18350 11950 2    60   Input ~ 0
 CAM2_RST
-$Comp
-L device:LED_Small D12
-U 1 1 5A980088
-P 14700 12900
-F 0 "D12" H 14850 12950 50  0000 C CNN
-F 1 "LED_Red" H 14700 13044 50  0001 C CNN
-F 2 "LEDs:LED_0402" V 14700 12900 50  0001 C CNN
-F 3 "" V 14700 12900 50  0001 C CNN
-F 4 "digikey" H 14850 13050 50  0001 C CNN "D1"
-F 5 "754-1104" H 14850 13050 50  0001 C CNN "D1PN"
-F 6 "Kingbright" H 14850 13050 50  0001 C CNN "MFN"
-F 7 "APHHS1005SURCK" H 14850 13050 50  0001 C CNN "MPN"
-	1    14700 12900
-	-1   0    0    -1  
-$EndComp
-$Comp
-L device:R_Small R40
-U 1 1 5A980093
-P 14150 12900
-F 0 "R40" V 14100 12700 50  0000 C CNN
-F 1 "330" V 14100 13100 50  0000 C CNN
-F 2 "Resistors_SMD:R_0201" H 14150 12900 50  0001 C CNN
-F 3 "" H 14150 12900 50  0001 C CNN
-F 4 "digikey" H 14100 12800 50  0001 C CNN "D1"
-F 5 "YAG2604" H 14100 12800 50  0001 C CNN "D1PN"
-F 6 "Yageo" H 14100 12800 50  0001 C CNN "MFN"
-F 7 "RC0201FR-07330RL" H 14100 12800 50  0001 C CNN "MPN"
-	1    14150 12900
-	0    1    1    0   
-$EndComp
-$Comp
-L device:LED_Small D13
-U 1 1 5A98009E
-P 14700 13150
-F 0 "D13" H 14850 13200 50  0000 C CNN
-F 1 "LED_Green" H 14700 13294 50  0001 C CNN
-F 2 "LEDs:LED_0402" V 14700 13150 50  0001 C CNN
-F 3 "" V 14700 13150 50  0001 C CNN
-F 4 "digikey" H 14850 13300 50  0001 C CNN "D1"
-F 5 "754-2121" H 14850 13300 50  0001 C CNN "D1PN"
-F 6 "Kingbright" H 14850 13300 50  0001 C CNN "MFN"
-F 7 "APHHS1005LCGCK" H 14850 13300 50  0001 C CNN "MPN"
-	1    14700 13150
-	-1   0    0    -1  
-$EndComp
-$Comp
-L device:R_Small R41
-U 1 1 5A9800A9
-P 14150 13150
-F 0 "R41" V 14100 12950 50  0000 C CNN
-F 1 "330" V 14100 13350 50  0000 C CNN
-F 2 "Resistors_SMD:R_0201" H 14150 13150 50  0001 C CNN
-F 3 "" H 14150 13150 50  0001 C CNN
-F 4 "digikey" H 14100 13050 50  0001 C CNN "D1"
-F 5 "YAG2604" H 14100 13050 50  0001 C CNN "D1PN"
-F 6 "Yageo" H 14100 13050 50  0001 C CNN "MFN"
-F 7 "RC0201FR-07330RL" H 14100 13050 50  0001 C CNN "MPN"
-	1    14150 13150
-	0    1    1    0   
-$EndComp
-$Comp
-L power:GND #PWR0209
-U 1 1 5A9800B0
-P 14950 13150
-F 0 "#PWR0209" H 14950 12900 50  0001 C CNN
-F 1 "GND" H 14955 12977 50  0001 C CNN
-F 2 "" H 14950 13150 50  0001 C CNN
-F 3 "" H 14950 13150 50  0001 C CNN
-	1    14950 13150
-	1    0    0    -1  
-$EndComp
-Text GLabel 12150 12450 2    60   Input ~ 0
+Text GLabel 12950 8750 2    60   Input ~ 0
 CAM2_CLKIN+
-Text GLabel 12150 12550 2    60   Input ~ 0
+Text GLabel 12950 8850 2    60   Input ~ 0
 CAM2_CLKIN-
-Text GLabel 12150 11850 2    60   Input ~ 0
+Text GLabel 12950 8150 2    60   Input ~ 0
 CAM2_CLKOUT-
-Text GLabel 12150 11950 2    60   Input ~ 0
+Text GLabel 12950 8250 2    60   Input ~ 0
 CAM2_CLKOUT+
-Text GLabel 12150 14350 2    60   Input ~ 0
+Text GLabel 12950 10650 2    60   Input ~ 0
 CAM2_DOUT3+
-Text GLabel 12150 14250 2    60   Input ~ 0
+Text GLabel 12950 10550 2    60   Input ~ 0
 CAM2_DOUT3-
-Text GLabel 12150 13950 2    60   Input ~ 0
+Text GLabel 12950 10250 2    60   Input ~ 0
 CAM2_DOUT2+
-Text GLabel 12150 13850 2    60   Input ~ 0
+Text GLabel 12950 10150 2    60   Input ~ 0
 CAM2_DOUT2-
-Text GLabel 12150 13150 2    60   Input ~ 0
+Text GLabel 12950 9450 2    60   Input ~ 0
 CAM2_DOUT1+
-Text GLabel 12150 13050 2    60   Input ~ 0
+Text GLabel 12950 9350 2    60   Input ~ 0
 CAM2_DOUT1-
-Text GLabel 12150 14650 2    60   Input ~ 0
+Text GLabel 12950 10950 2    60   Input ~ 0
 CAM2_SYNC+
-Text GLabel 12150 14750 2    60   Input ~ 0
+Text GLabel 12950 11050 2    60   Input ~ 0
 CAM2_SYNC-
-Text GLabel 12150 12350 2    60   Input ~ 0
+Text GLabel 12950 8650 2    60   Input ~ 0
 CAM2_DOUT0+
-Text GLabel 12150 12250 2    60   Input ~ 0
+Text GLabel 12950 8550 2    60   Input ~ 0
 CAM2_DOUT0-
-Text Label 13600 12900 0    60   ~ 0
+Text Label 9550 13600 0    60   ~ 0
 LED0
-Text Label 12250 13650 0    60   ~ 0
-LED0
-Text Label 13600 13150 0    60   ~ 0
-LED1
-Text Label 12250 13750 0    60   ~ 0
+Text Label 9550 13700 0    60   ~ 0
 LED1
 Wire Wire Line
-	13600 12900 14050 12900
+	9450 13600 9800 13600
 Wire Wire Line
-	14250 12900 14600 12900
-Wire Wire Line
-	14950 12900 14800 12900
-Wire Wire Line
-	12150 13650 12500 13650
-Wire Wire Line
-	13600 13150 14050 13150
-Wire Wire Line
-	14250 13150 14600 13150
-Wire Wire Line
-	14950 13150 14800 13150
-Wire Wire Line
-	12150 13750 12500 13750
-Wire Wire Line
-	14950 13150 14950 12900
+	9450 13700 9800 13700
 Text GLabel 4900 1100 2    60   Input ~ 0
 FPGA_CONFIG_DATA0
 Text Label 4400 1100 0    60   ~ 0
 DATA0
 Wire Wire Line
 	4900 1100 4350 1100
-Text GLabel 14050 9900 0    60   Input ~ 0
-IMU_SYNC_OUT
-Text GLabel 14050 10300 0    60   Input ~ 0
-IMU_TARE
-Text GLabel 14050 10400 0    60   Input ~ 0
-IMU_SYNC_IN
-Text GLabel 14050 10000 0    60   Input ~ 0
-IMU_SCK
-Text GLabel 14050 10100 0    60   Input ~ 0
-IMU_MOSI
-Text GLabel 14050 10200 0    60   Input ~ 0
-IMU_MISO
-Text GLabel 14050 10500 0    60   Input ~ 0
-IMU_CS
-Text GLabel 14050 9800 0    60   Input ~ 0
-IMU_NRST
 $Comp
 L 10cx_f672:10CXyyy_F672 U3
 U 3 1 5B2778C1
@@ -574,5 +443,203 @@ F 3 "" H 4550 5800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 4550 5800
-Connection ~ 14950 13150
+Text Notes 7900 13350 0    118  ~ 24
+TODO: big RGB LED via 5v buffer
+$Comp
+L voltage_translators:SN74AVC16T245 U10
+U 1 1 5AF359F5
+P 18350 7800
+F 0 "U10" H 18350 9197 60  0000 C CNN
+F 1 "SN74AVC16T245" H 18350 9091 60  0000 C CNN
+F 2 "Housings_SSOP:TSSOP-48_6.1x12.5mm_Pitch0.5mm" H 18750 7900 60  0001 C CNN
+F 3 "" H 18750 7900 60  0001 C CNN
+	1    18350 7800
+	1    0    0    -1  
+$EndComp
+Text Notes 18050 9850 0    50   ~ 0
+RHS outbound 1.8 -> 3.3v signals
+Text Notes 20050 9850 0    50   ~ 0
+RHS inbound 3.3v -> 1.8v signals
+Text Notes 18050 11750 0    50   ~ 0
+LHS outbound 1.8 -> 3.3v signals
+Text Notes 20050 11750 0    50   ~ 0
+LHS inbound 3.3v -> 1.8v signals
+Text GLabel 20150 10350 2    60   Input ~ 0
+IMU_TX1
+Text GLabel 17850 8850 0    60   Input ~ 0
+IMU_RX1
+$Comp
+L power:+1V8 #PWR0142
+U 1 1 5AF83201
+P 17600 6650
+F 0 "#PWR0142" H 17600 6500 50  0001 C CNN
+F 1 "+1V8" H 17615 6823 50  0000 C CNN
+F 2 "" H 17600 6650 50  0001 C CNN
+F 3 "" H 17600 6650 50  0001 C CNN
+	1    17600 6650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	17600 6650 17850 6650
+Wire Wire Line
+	18850 6650 19350 6650
+Text Label 18950 6650 0    50   ~ 0
+RHS_OE
+Text Notes 17350 6150 0    50   ~ 0
+right-hand side (RHS) output buffer / level-shifter
+$Comp
+L power:+1V8 #PWR0185
+U 1 1 5AF8AE8A
+P 19350 7250
+F 0 "#PWR0185" H 19350 7100 50  0001 C CNN
+F 1 "+1V8" H 19365 7423 50  0000 C CNN
+F 2 "" H 19350 7250 50  0001 C CNN
+F 3 "" H 19350 7250 50  0001 C CNN
+	1    19350 7250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	19350 7250 18850 7250
+$Comp
+L device:R_Small R14
+U 1 1 5AF8D86E
+P 19350 6550
+F 0 "R14" H 19409 6596 50  0000 L CNN
+F 1 "10k" H 19409 6505 50  0000 L CNN
+F 2 "Resistors_SMD:R_0402" H 19350 6550 50  0001 C CNN
+F 3 "~" H 19350 6550 50  0001 C CNN
+	1    19350 6550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+1V8 #PWR0186
+U 1 1 5AF901C6
+P 19350 6450
+F 0 "#PWR0186" H 19350 6300 50  0001 C CNN
+F 1 "+1V8" H 19365 6623 50  0000 C CNN
+F 2 "" H 19350 6450 50  0001 C CNN
+F 3 "" H 19350 6450 50  0001 C CNN
+	1    19350 6450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+1V8 #PWR0187
+U 1 1 5AF9508E
+P 19350 8350
+F 0 "#PWR0187" H 19350 8200 50  0001 C CNN
+F 1 "+1V8" H 19365 8523 50  0000 C CNN
+F 2 "" H 19350 8350 50  0001 C CNN
+F 3 "" H 19350 8350 50  0001 C CNN
+	1    19350 8350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	19350 8350 18850 8350
+Wire Wire Line
+	18850 6950 19550 6950
+Wire Wire Line
+	18850 8050 19550 8050
+Wire Wire Line
+	19550 6950 19550 7550
+$Comp
+L power:GND #PWR0188
+U 1 1 5AF98474
+P 19550 8950
+F 0 "#PWR0188" H 19550 8700 50  0001 C CNN
+F 1 "GND" H 19555 8777 50  0001 C CNN
+F 2 "" H 19550 8950 50  0001 C CNN
+F 3 "" H 19550 8950 50  0001 C CNN
+	1    19550 8950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	18850 8650 19550 8650
+Wire Wire Line
+	19550 8650 19550 8050
+Connection ~ 19550 8050
+Wire Wire Line
+	19550 8950 19550 8650
+Connection ~ 19550 8650
+Text Label 18950 8950 0    50   ~ 0
+RHS_OE
+Wire Wire Line
+	18850 8950 19350 8950
+Text Label 14250 9700 0    50   ~ 0
+RHS_OE
+Wire Wire Line
+	18850 7550 19550 7550
+Connection ~ 19550 7550
+Wire Wire Line
+	19550 7550 19550 8050
+Wire Wire Line
+	17850 6950 16850 6950
+Wire Wire Line
+	17850 8050 16850 8050
+Wire Wire Line
+	16850 6950 16850 7550
+$Comp
+L power:GND #PWR0189
+U 1 1 5AF9E016
+P 16850 8950
+F 0 "#PWR0189" H 16850 8700 50  0001 C CNN
+F 1 "GND" H 16855 8777 50  0001 C CNN
+F 2 "" H 16850 8950 50  0001 C CNN
+F 3 "" H 16850 8950 50  0001 C CNN
+	1    16850 8950
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	17850 8650 16850 8650
+Wire Wire Line
+	16850 8650 16850 8050
+Connection ~ 16850 8050
+Wire Wire Line
+	16850 8950 16850 8650
+Connection ~ 16850 8650
+Wire Wire Line
+	17850 7550 16850 7550
+Connection ~ 16850 7550
+Wire Wire Line
+	16850 7550 16850 8050
+$Comp
+L power:+3V3 #PWR0190
+U 1 1 5AFA1916
+P 17050 7250
+F 0 "#PWR0190" H 17050 7100 50  0001 C CNN
+F 1 "+3V3" H 17065 7423 50  0000 C CNN
+F 2 "" H 17050 7250 50  0001 C CNN
+F 3 "" H 17050 7250 50  0001 C CNN
+	1    17050 7250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	17050 7250 17850 7250
+$Comp
+L power:+3V3 #PWR0191
+U 1 1 5AFA1F90
+P 17050 8350
+F 0 "#PWR0191" H 17050 8200 50  0001 C CNN
+F 1 "+3V3" H 17065 8523 50  0000 C CNN
+F 2 "" H 17050 8350 50  0001 C CNN
+F 3 "" H 17050 8350 50  0001 C CNN
+	1    17050 8350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	17050 8350 17850 8350
+$Comp
+L power:+1V8 #PWR0192
+U 1 1 5AFA4D54
+P 17600 9200
+F 0 "#PWR0192" H 17600 9050 50  0001 C CNN
+F 1 "+1V8" H 17615 9373 50  0000 C CNN
+F 2 "" H 17600 9200 50  0001 C CNN
+F 3 "" H 17600 9200 50  0001 C CNN
+	1    17600 9200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	17600 9200 17850 9200
+Wire Wire Line
+	17850 8950 17850 9200
 $EndSCHEMATC
