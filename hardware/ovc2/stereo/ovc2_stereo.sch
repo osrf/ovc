@@ -15,37 +15,37 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Sheet
-S 1200 1650 1200 200 
+S 1000 900  1200 200 
 U 590F42A0
 F0 "fpga_power" 118
 F1 "fpga_power.sch" 118
 $EndSheet
 $Sheet
-S 1200 5350 1500 250 
+S 1000 4600 1500 250 
 U 590F5214
 F0 "imagers" 118
 F1 "imagers.sch" 118
 $EndSheet
 $Sheet
-S 1200 2550 1200 200 
+S 1000 1800 1200 200 
 U 590F67D7
 F0 "fpga_config" 118
 F1 "fpga_config.sch" 118
 $EndSheet
 $Sheet
-S 1200 4550 1250 350 
+S 1000 3800 1250 350 
 U 596A6D90
 F0 "power" 118
 F1 "power.sch" 118
 $EndSheet
 $Sheet
-S 1200 3200 1200 300 
+S 1000 2450 1200 300 
 U 59F6DCBA
 F0 "fpga_pcie" 118
 F1 "fpga_pcie.sch" 60
 $EndSheet
 $Sheet
-S 1200 3850 1200 350 
+S 1000 3100 1200 350 
 U 5A96DC8F
 F0 "fpga_io" 118
 F1 "fpga_io.sch" 59
@@ -156,7 +156,7 @@ F 3 "~" H 2250 6700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Sheet
-S 5900 1650 1400 400 
+S 1000 5350 1400 400 
 U 5A9D8938
 F0 "imu" 118
 F1 "imu.sch" 50

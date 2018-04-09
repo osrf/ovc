@@ -167,95 +167,6 @@ F 3 "" H 9550 4550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L voltage_translators:TXB0108RGY U5
-U 1 1 59E6DFF2
-P 8950 8600
-F 0 "U5" H 8925 9687 60  0000 C CNN
-F 1 "TXB0108RGY" H 8925 9581 60  0000 C CNN
-F 2 "TI:TI_VQFN_20_RGY" H 8925 9581 60  0001 C CNN
-F 3 "" H 8950 8600 60  0000 C CNN
-F 4 "digikey" H 8925 9787 50  0001 C CNN "D1"
-F 5 "296-21528" H 8925 9787 50  0001 C CNN "D1PN"
-F 6 "TI" H 8925 9787 50  0001 C CNN "MFN"
-F 7 "TXB0108RGY" H 8925 9787 50  0001 C CNN "MPN"
-	1    8950 8600
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3V3 #PWR097
-U 1 1 59E6F8C3
-P 9550 7800
-F 0 "#PWR097" H 9550 7650 50  0001 C CNN
-F 1 "+3V3" H 9565 7973 50  0000 C CNN
-F 2 "" H 9550 7800 50  0001 C CNN
-F 3 "" H 9550 7800 50  0001 C CNN
-	1    9550 7800
-	1    0    0    -1  
-$EndComp
-$Comp
-L device:C_Small C52
-U 1 1 59E70BDF
-P 9550 7900
-F 0 "C52" H 9642 7946 50  0000 L CNN
-F 1 "100n" H 9642 7855 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric" H 9550 7900 50  0001 C CNN
-F 3 "" H 9550 7900 50  0001 C CNN
-F 4 "digikey" H 9642 8046 50  0001 C CNN "D1"
-F 5 "490-5881" H 9642 8046 50  0001 C CNN "D1PN"
-F 6 "Murata" H 9642 8046 50  0001 C CNN "MFN"
-F 7 "GRM033R61A104KE15D" H 9642 8046 50  0001 C CNN "MPN"
-	1    9550 7900
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR099
-U 1 1 59E71337
-P 9550 8000
-F 0 "#PWR099" H 9550 7750 50  0001 C CNN
-F 1 "GND" H 9555 7827 50  0001 C CNN
-F 2 "" H 9550 8000 50  0001 C CNN
-F 3 "" H 9550 8000 50  0001 C CNN
-	1    9550 8000
-	1    0    0    -1  
-$EndComp
-$Comp
-L device:C_Small C47
-U 1 1 59E714A5
-P 8050 7900
-F 0 "C47" H 8142 7946 50  0000 L CNN
-F 1 "100n" H 8142 7855 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric" H 8050 7900 50  0001 C CNN
-F 3 "" H 8050 7900 50  0001 C CNN
-F 4 "digikey" H 8142 8046 50  0001 C CNN "D1"
-F 5 "490-5881" H 8142 8046 50  0001 C CNN "D1PN"
-F 6 "Murata" H 8142 8046 50  0001 C CNN "MFN"
-F 7 "GRM033R61A104KE15D" H 8142 8046 50  0001 C CNN "MPN"
-	1    8050 7900
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0100
-U 1 1 59E71553
-P 8050 8000
-F 0 "#PWR0100" H 8050 7750 50  0001 C CNN
-F 1 "GND" H 8055 7827 50  0001 C CNN
-F 2 "" H 8050 8000 50  0001 C CNN
-F 3 "" H 8050 8000 50  0001 C CNN
-	1    8050 8000
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0101
-U 1 1 59E72D97
-P 9000 9500
-F 0 "#PWR0101" H 9000 9250 50  0001 C CNN
-F 1 "GND" H 9005 9327 50  0001 C CNN
-F 2 "" H 9000 9500 50  0001 C CNN
-F 3 "" H 9000 9500 50  0001 C CNN
-	1    9000 9500
-	1    0    0    -1  
-$EndComp
-$Comp
 L device:R_Small R35
 U 1 1 59E7C896
 P 8050 3150
@@ -1354,29 +1265,29 @@ Text Notes 8500 950  0    200  ~ 40
 CAM2
 Text GLabel 7850 2150 0    60   Input ~ 0
 CAM2_CLKIN-
-Text GLabel 9650 2450 2    60   Input ~ 0
+Text GLabel 9550 2450 2    60   Input ~ 0
 CAM2_DOUT0-
-Text GLabel 9650 2350 2    60   Input ~ 0
+Text GLabel 9550 2350 2    60   Input ~ 0
 CAM2_DOUT0+
-Text GLabel 9650 3350 2    60   Input ~ 0
+Text GLabel 9550 3350 2    60   Input ~ 0
 CAM2_SYNC-
-Text GLabel 9650 3250 2    60   Input ~ 0
+Text GLabel 9550 3250 2    60   Input ~ 0
 CAM2_SYNC+
-Text GLabel 9650 2650 2    60   Input ~ 0
+Text GLabel 9550 2650 2    60   Input ~ 0
 CAM2_DOUT1-
-Text GLabel 9650 2550 2    60   Input ~ 0
+Text GLabel 9550 2550 2    60   Input ~ 0
 CAM2_DOUT1+
-Text GLabel 9650 2850 2    60   Input ~ 0
+Text GLabel 9550 2850 2    60   Input ~ 0
 CAM2_DOUT2-
-Text GLabel 9650 2750 2    60   Input ~ 0
+Text GLabel 9550 2750 2    60   Input ~ 0
 CAM2_DOUT2+
-Text GLabel 9650 3050 2    60   Input ~ 0
+Text GLabel 9550 3050 2    60   Input ~ 0
 CAM2_DOUT3-
-Text GLabel 9650 2950 2    60   Input ~ 0
+Text GLabel 9550 2950 2    60   Input ~ 0
 CAM2_DOUT3+
-Text GLabel 9650 2050 2    60   Input ~ 0
+Text GLabel 9550 2050 2    60   Input ~ 0
 CAM2_CLKOUT+
-Text GLabel 9650 2150 2    60   Input ~ 0
+Text GLabel 9550 2150 2    60   Input ~ 0
 CAM2_CLKOUT-
 Text GLabel 7850 2350 0    60   Input ~ 0
 CAM2_CLKIN+
@@ -1408,46 +1319,22 @@ Text GLabel 3500 2050 2    60   Input ~ 0
 CAM1_CLKOUT+
 Text GLabel 3500 2150 2    60   Input ~ 0
 CAM1_CLKOUT-
-Text GLabel 8450 8400 0    60   Input ~ 0
-CAM2_MISO
-Text GLabel 8450 8300 0    60   Input ~ 0
-CAM2_SCK
-Text GLabel 8450 8500 0    60   Input ~ 0
-CAM2_MOSI
-Text GLabel 8450 8600 0    60   Input ~ 0
-CAM2_CS
-Text GLabel 8450 8800 0    60   Input ~ 0
-CAM2_TRG
-Text GLabel 8450 8700 0    60   Input ~ 0
-CAM2_RST
-Text Label 7600 2550 0    60   ~ 0
-CAM2_MOSI_3V3
-Text Label 7600 2650 0    60   ~ 0
+Text GLabel 8350 2550 0    60   Input ~ 0
 CAM2_MISO_3V3
-Text Label 7600 2750 0    60   ~ 0
+Text GLabel 8350 2750 0    60   Input ~ 0
 CAM2_SCK_3V3
-Text Label 7600 2850 0    60   ~ 0
+Text GLabel 8350 2650 0    60   Input ~ 0
+CAM2_MOSI_3V3
+Text GLabel 8350 2850 0    60   Input ~ 0
 CAM2_CS_3V3
-Text Label 7600 3400 0    60   ~ 0
+Text GLabel 8350 3400 0    60   Input ~ 0
 CAM2_TRG_3V3
-Text Label 7600 3850 0    60   ~ 0
+Text GLabel 8350 3850 0    60   Input ~ 0
 CAM2_RST_3V3
 Text Label 7650 1750 0    60   ~ 0
 CAM2_VDDPIX
 Text Label 7250 5950 0    60   ~ 0
 CAM2_VDDPIX
-Text Label 9450 8700 0    60   ~ 0
-CAM2_RST_3V3
-Text Label 9450 8800 0    60   ~ 0
-CAM2_TRG_3V3
-Text Label 9450 8500 0    60   ~ 0
-CAM2_MOSI_3V3
-Text Label 9450 8400 0    60   ~ 0
-CAM2_MISO_3V3
-Text Label 9450 8300 0    60   ~ 0
-CAM2_SCK_3V3
-Text Label 9450 8600 0    60   ~ 0
-CAM2_CS_3V3
 Text Label 9600 1350 0    60   ~ 0
 CAM2_1V8
 Text Label 7650 1350 0    60   ~ 0
@@ -1599,42 +1486,6 @@ Wire Wire Line
 Wire Wire Line
 	9550 1350 10100 1350
 Wire Wire Line
-	9550 2050 9650 2050
-Wire Wire Line
-	9550 2150 9650 2150
-Wire Wire Line
-	9550 2350 9650 2350
-Wire Wire Line
-	9550 2450 9650 2450
-Wire Wire Line
-	9550 2550 9650 2550
-Wire Wire Line
-	9550 2650 9650 2650
-Wire Wire Line
-	9550 2750 9650 2750
-Wire Wire Line
-	9550 2850 9650 2850
-Wire Wire Line
-	9550 2950 9650 2950
-Wire Wire Line
-	9550 3050 9650 3050
-Wire Wire Line
-	9550 3250 9650 3250
-Wire Wire Line
-	9550 3350 9650 3350
-Wire Wire Line
-	7600 3850 8350 3850
-Wire Wire Line
-	7600 3400 8350 3400
-Wire Wire Line
-	8350 2850 7600 2850
-Wire Wire Line
-	8350 2750 7600 2750
-Wire Wire Line
-	8350 2650 7600 2650
-Wire Wire Line
-	7600 2550 8350 2550
-Wire Wire Line
 	7850 2350 7950 2350
 Wire Wire Line
 	7850 2150 7950 2150
@@ -1665,14 +1516,6 @@ Wire Wire Line
 Wire Wire Line
 	9550 4150 9550 4250
 Wire Wire Line
-	9550 7800 9400 7800
-Wire Wire Line
-	8450 7800 8450 8100
-Wire Wire Line
-	8450 7800 8050 7800
-Wire Wire Line
-	9000 9500 8900 9500
-Wire Wire Line
 	8350 3050 8350 2950
 Wire Wire Line
 	8350 2950 7700 2950
@@ -1684,18 +1527,6 @@ Wire Wire Line
 	8200 3600 8350 3600
 Wire Wire Line
 	7650 1750 8350 1750
-Wire Wire Line
-	9400 8700 10200 8700
-Wire Wire Line
-	9400 8800 10200 8800
-Wire Wire Line
-	9400 8500 10200 8500
-Wire Wire Line
-	9400 8400 10200 8400
-Wire Wire Line
-	9400 8300 10200 8300
-Wire Wire Line
-	9400 8600 10200 8600
 Wire Wire Line
 	6700 5950 7000 5950
 Wire Wire Line
@@ -1886,7 +1717,6 @@ Connection ~ 2950 6850
 Connection ~ 2600 6850
 NoConn ~ 3400 3550
 NoConn ~ 3400 3650
-NoConn ~ 9550 3550
 NoConn ~ 9550 3650
 Wire Wire Line
 	2200 1850 2200 1950
@@ -2105,18 +1935,6 @@ Wire Wire Line
 Wire Wire Line
 	2600 6850 2950 6850
 $Comp
-L power:+1V8 #PWR0143
-U 1 1 5AFAC2C3
-P 8050 7800
-F 0 "#PWR0143" H 8050 7650 50  0001 C CNN
-F 1 "+1V8" H 8065 7973 50  0000 C CNN
-F 2 "" H 8050 7800 50  0001 C CNN
-F 3 "" H 8050 7800 50  0001 C CNN
-	1    8050 7800
-	1    0    0    -1  
-$EndComp
-Connection ~ 8050 7800
-$Comp
 L power:+1V8 #PWR0172
 U 1 1 5AFAC35D
 P 1850 7950
@@ -2130,4 +1948,6 @@ $EndComp
 Connection ~ 1850 7950
 Text Notes 3300 7400 0    118  ~ 0
 TODO: change decoupling caps to >= 0402
+Text GLabel 9550 3550 2    60   Input ~ 0
+CAM2_MONITOR_3V3
 $EndSCHEMATC
