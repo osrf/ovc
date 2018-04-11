@@ -94,9 +94,9 @@ TX2
 Text Label 4300 3550 0    60   ~ 0
 RX2
 Text GLabel 4550 3250 2    60   Input ~ 0
-IMU_TX1
+IMU_TX1_3V3
 Text GLabel 4550 3350 2    60   Input ~ 0
-IMU_RX1
+IMU_RX1_3V3
 Text Label 4300 3250 0    60   ~ 0
 TX1
 Text Label 4300 3350 0    60   ~ 0
@@ -146,19 +146,21 @@ Wire Wire Line
 Wire Wire Line
 	2400 2800 2750 2800
 Text GLabel 4550 3450 2    60   Input ~ 0
-IMU_TX2
+IMU_TX2_3V3
 Text GLabel 4550 3550 2    60   Input ~ 0
-IMU_RX2
+IMU_RX2_3V3
 Text GLabel 2750 4150 0    60   Input ~ 0
-IMU_NRST
+IMU_NRST_3V3
 Text GLabel 2750 3650 0    60   Input ~ 0
-IMU_SCK
+IMU_SCK_3V3
 Text GLabel 2750 3750 0    60   Input ~ 0
-IMU_MOSI
+IMU_MOSI_3V3
 Text GLabel 2750 3450 0    60   Input ~ 0
-IMU_SYNC_IN
+IMU_SYNC_IN_3V3
 Text GLabel 2750 3950 0    60   Input ~ 0
-IMU_CS
+IMU_CS_3V3
 Text GLabel 4250 3750 2    60   Input ~ 0
-IMU_SYNC_OUT
+IMU_SYNC_OUT_3V3
+Text GLabel 2750 3850 0    60   Input ~ 0
+IMU_MISO_3V3
 $EndSCHEMATC
