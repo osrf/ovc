@@ -18,29 +18,29 @@ Text GLabel 15550 3600 2    60   Input ~ 0
 CAM1_CLKOUT-
 Text GLabel 15550 3500 2    60   Input ~ 0
 CAM1_CLKOUT+
-Text GLabel 15550 5500 2    60   Input ~ 0
-CAM1_DOUT3-
-Text GLabel 15550 5600 2    60   Input ~ 0
-CAM1_DOUT3+
 Text GLabel 15550 4900 2    60   Input ~ 0
-CAM1_DOUT2-
+CAM1_DOUT3-
 Text GLabel 15550 5000 2    60   Input ~ 0
-CAM1_DOUT2+
+CAM1_DOUT3+
 Text GLabel 15550 4300 2    60   Input ~ 0
-CAM1_DOUT1-
+CAM1_DOUT2-
 Text GLabel 15550 4400 2    60   Input ~ 0
+CAM1_DOUT2+
+Text GLabel 15550 2500 2    60   Input ~ 0
+CAM1_DOUT1-
+Text GLabel 15550 2600 2    60   Input ~ 0
 CAM1_DOUT1+
-Text GLabel 15550 3700 2    60   Input ~ 0
+Text GLabel 15550 5600 2    60   Input ~ 0
 CAM1_SYNC+
-Text GLabel 15550 3800 2    60   Input ~ 0
+Text GLabel 15550 5500 2    60   Input ~ 0
 CAM1_SYNC-
 Text GLabel 15550 2300 2    60   Input ~ 0
 CAM1_DOUT0-
 Text GLabel 15550 2400 2    60   Input ~ 0
 CAM1_DOUT0+
-Text GLabel 15550 2600 2    60   Input ~ 0
+Text GLabel 15550 3200 2    60   Input ~ 0
 CAM1_CLKIN-
-Text GLabel 15550 2500 2    60   Input ~ 0
+Text GLabel 15550 3100 2    60   Input ~ 0
 CAM1_CLKIN+
 Text GLabel 19250 7150 2    60   Input ~ 0
 CAM1_CS_3V3
@@ -1155,17 +1155,13 @@ Wire Wire Line
 Wire Wire Line
 	15100 5600 15550 5600
 Wire Wire Line
-	15550 3700 15100 3700
-Wire Wire Line
-	15100 3800 15550 3800
-Wire Wire Line
 	15550 3500 15100 3500
 Wire Wire Line
 	15100 3600 15550 3600
 Wire Wire Line
-	15100 2600 15550 2600
+	15100 3200 15550 3200
 Wire Wire Line
-	15100 2500 15550 2500
+	15100 3100 15550 3100
 Wire Wire Line
 	15550 2400 15100 2400
 Wire Wire Line
@@ -1236,40 +1232,32 @@ Wire Wire Line
 Text Label 17750 3600 0    50   ~ 0
 HSEXP16
 Wire Wire Line
-	4350 9850 4800 9850
-Text Label 4400 9850 0    50   ~ 0
-HSEXP8
-Wire Wire Line
-	4350 8850 4800 8850
-Text Label 4400 8850 0    50   ~ 0
-HSEXP9
-Wire Wire Line
-	4350 8950 4800 8950
-Text Label 4400 8950 0    50   ~ 0
+	15100 4700 15550 4700
+Text Label 15150 4700 0    50   ~ 0
 HSEXP10
 Wire Wire Line
-	4350 9950 4800 9950
-Text Label 4400 9950 0    50   ~ 0
+	15100 2100 15550 2100
+Text Label 15150 2100 0    50   ~ 0
 HSEXP11
 Wire Wire Line
-	4350 8150 4800 8150
-Text Label 4400 8150 0    50   ~ 0
+	15100 4800 15550 4800
+Text Label 15150 4800 0    50   ~ 0
 HSEXP12
 Wire Wire Line
-	4350 9650 4800 9650
-Text Label 4400 9650 0    50   ~ 0
+	15100 3700 15550 3700
+Text Label 15150 3700 0    50   ~ 0
 HSEXP13
 Wire Wire Line
-	4350 8450 4800 8450
-Text Label 4400 8450 0    50   ~ 0
+	17550 2400 18000 2400
+Text Label 17600 2400 0    50   ~ 0
 HSEXP14
 Wire Wire Line
-	4350 8550 4800 8550
-Text Label 4400 8550 0    50   ~ 0
+	17550 2500 18000 2500
+Text Label 17600 2500 0    50   ~ 0
 HSEXP15
 Wire Wire Line
-	4350 8750 4800 8750
-Text Label 4400 8750 0    50   ~ 0
+	17550 2600 18000 2600
+Text Label 17600 2600 0    50   ~ 0
 HSEXP16
 Wire Wire Line
 	18250 7850 17550 7850
@@ -1940,4 +1928,44 @@ Wire Wire Line
 	10950 3050 11700 3050
 Text GLabel 13350 9500 0    60   Input ~ 0
 IMU_MOSI_3V3
+Wire Wire Line
+	15550 2600 15100 2600
+Wire Wire Line
+	15100 2500 15550 2500
+Wire Wire Line
+	15100 3800 15550 3800
+Text Label 15150 3800 0    50   ~ 0
+HSEXP8
+Wire Wire Line
+	15100 2200 15550 2200
+Text Label 15150 2200 0    50   ~ 0
+HSEXP9
+Wire Wire Line
+	16750 2500 17200 2500
+Text Label 16800 2500 0    50   ~ 0
+HSEXP10
+Wire Wire Line
+	16750 2400 17200 2400
+Text Label 16800 2400 0    50   ~ 0
+HSEXP11
+Wire Wire Line
+	16750 2300 17200 2300
+Text Label 16800 2300 0    50   ~ 0
+HSEXP12
+Wire Wire Line
+	16750 2200 17200 2200
+Text Label 16800 2200 0    50   ~ 0
+HSEXP13
+Wire Wire Line
+	16750 2100 17200 2100
+Text Label 16800 2100 0    50   ~ 0
+HSEXP14
+Wire Wire Line
+	16750 2000 17200 2000
+Text Label 16800 2000 0    50   ~ 0
+HSEXP15
+Wire Wire Line
+	16750 1900 17200 1900
+Text Label 16800 1900 0    50   ~ 0
+HSEXP16
 $EndSCHEMATC
