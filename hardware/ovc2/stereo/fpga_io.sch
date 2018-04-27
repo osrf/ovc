@@ -14,9 +14,9 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text GLabel 15550 3600 2    60   Input ~ 0
-CAM1_CLKOUT-
 Text GLabel 15550 3500 2    60   Input ~ 0
+CAM1_CLKOUT-
+Text GLabel 15550 3600 2    60   Input ~ 0
 CAM1_CLKOUT+
 Text GLabel 15550 4900 2    60   Input ~ 0
 CAM1_DOUT3-
@@ -42,31 +42,31 @@ Text GLabel 15550 3200 2    60   Input ~ 0
 CAM1_CLKIN-
 Text GLabel 15550 3100 2    60   Input ~ 0
 CAM1_CLKIN+
-Text GLabel 19250 7150 2    60   Input ~ 0
-CAM1_CS_3V3
-Text GLabel 19250 7350 2    60   Input ~ 0
-CAM1_MOSI_3V3
-Text GLabel 19250 6750 2    60   Input ~ 0
-CAM1_TRG_3V3
 Text GLabel 19250 7050 2    60   Input ~ 0
-CAM1_RST_3V3
+CAM1_CS_3V3
 Text GLabel 19250 6850 2    60   Input ~ 0
+CAM1_MOSI_3V3
+Text GLabel 19250 7950 2    60   Input ~ 0
+CAM1_TRG_3V3
+Text GLabel 19250 7150 2    60   Input ~ 0
+CAM1_RST_3V3
+Text GLabel 19250 6750 2    60   Input ~ 0
 CAM1_SCK_3V3
-Text GLabel 19250 7650 2    60   Input ~ 0
+Text GLabel 19250 7850 2    60   Input ~ 0
 IMU_NRST_3V3
 Text GLabel 21250 10900 2    60   Input ~ 0
 IMU_SYNC_OUT_3V3
-Text GLabel 19250 7850 2    60   Input ~ 0
+Text GLabel 19250 7650 2    60   Input ~ 0
 IMU_SCK_3V3
-Text GLabel 19250 7950 2    60   Input ~ 0
+Text GLabel 19250 7450 2    60   Input ~ 0
 IMU_MOSI_3V3
-Text GLabel 21250 10800 2    60   Input ~ 0
+Text GLabel 21250 10700 2    60   Input ~ 0
 IMU_MISO_3V3
 Text GLabel 19250 7750 2    60   Input ~ 0
 IMU_SYNC_IN_3V3
-Text GLabel 19250 7450 2    60   Input ~ 0
+Text GLabel 19250 7350 2    60   Input ~ 0
 IMU_CS_3V3
-Text GLabel 21250 10700 2    60   Input ~ 0
+Text GLabel 21250 10800 2    60   Input ~ 0
 CAM1_MISO_3V3
 $Comp
 L voltage_translators:74LVC1G34 U17
@@ -607,9 +607,9 @@ Text Label 22050 4750 2    50   ~ 0
 LED_DI_1V8
 Text Label 22050 4850 2    50   ~ 0
 LED_CI_1V8
-Text Label 4400 10450 0    50   ~ 0
-LED_DI_1V8
 Text Label 4400 10550 0    50   ~ 0
+LED_DI_1V8
+Text Label 4400 10450 0    50   ~ 0
 LED_CI_1V8
 $Comp
 L power:+5V #PWR0196
@@ -892,9 +892,9 @@ Text GLabel 13350 7100 0    60   Input ~ 0
 FPGA_NCONFIG
 Text GLabel 13350 7000 0    60   Input ~ 0
 FPGA_NSTATUS
-Text GLabel 13350 9700 0    60   Input ~ 0
-IMU_TX1_3V3
 Text GLabel 13850 9700 2    60   Input ~ 0
+IMU_TX1_3V3
+Text GLabel 13350 9700 0    60   Input ~ 0
 IMU_RX1_3V3
 $Comp
 L power:GND #PWR0154
@@ -1260,12 +1260,12 @@ Wire Wire Line
 Text Label 17600 2600 0    50   ~ 0
 HSEXP16
 Wire Wire Line
-	18250 7850 17550 7850
-Text Label 17550 7850 0    50   ~ 0
+	18250 7650 17550 7650
+Text Label 17550 7650 0    50   ~ 0
 IMU_SCK_1V8
 Wire Wire Line
-	18250 7950 17550 7950
-Text Label 17550 7950 0    50   ~ 0
+	18250 7450 17550 7450
+Text Label 17550 7450 0    50   ~ 0
 IMU_MOSI_1V8
 Text Label 20650 4850 2    50   ~ 0
 LED_DI_5V
@@ -1327,7 +1327,7 @@ Wire Wire Line
 Text GLabel 13850 9500 2    60   Input ~ 0
 IMU_SCK_3V3
 Text GLabel 13850 9600 2    60   Input ~ 0
-IMU_MOSI_3V3
+IMU_MISO_3V3
 Text GLabel 13350 9400 0    60   Input ~ 0
 IMU_SYNC_IN_3V3
 Text GLabel 13350 9600 0    60   Input ~ 0
@@ -1498,37 +1498,37 @@ Wire Wire Line
 	4350 10750 4800 10750
 Text Label 4400 10750 0    50   ~ 0
 LSEXP_8
-Text Label 17550 7650 0    50   ~ 0
+Text Label 17550 7850 0    50   ~ 0
 IMU_NRST_1V8
 Text Label 17550 7750 0    50   ~ 0
 IMU_SYNC_IN_1V8
 Wire Wire Line
-	17550 7650 18250 7650
+	17550 7850 18250 7850
 Wire Wire Line
 	17550 7750 18250 7750
-Text Label 17550 7450 0    50   ~ 0
+Text Label 17550 7350 0    50   ~ 0
 IMU_CS_1V8
 Wire Wire Line
-	17550 7450 18250 7450
+	17550 7350 18250 7350
+Wire Wire Line
+	18250 7950 17550 7950
+Text Label 17550 7950 0    50   ~ 0
+CAM1_TRG_1V8
 Wire Wire Line
 	18250 6750 17550 6750
 Text Label 17550 6750 0    50   ~ 0
-CAM1_TRG_1V8
-Wire Wire Line
-	18250 6850 17550 6850
-Text Label 17550 6850 0    50   ~ 0
 CAM1_SCK_1V8
-Wire Wire Line
-	18250 7050 17550 7050
-Text Label 17550 7050 0    50   ~ 0
-CAM1_RST_1V8
 Wire Wire Line
 	18250 7150 17550 7150
 Text Label 17550 7150 0    50   ~ 0
+CAM1_RST_1V8
+Wire Wire Line
+	18250 7050 17550 7050
+Text Label 17550 7050 0    50   ~ 0
 CAM1_CS_1V8
 Wire Wire Line
-	18250 7350 17550 7350
-Text Label 17550 7350 0    50   ~ 0
+	18250 6850 17550 6850
+Text Label 17550 6850 0    50   ~ 0
 CAM1_MOSI_1V8
 $Comp
 L power:+3V3 #PWR0174
@@ -1673,22 +1673,22 @@ Text Label 4400 9450 0    50   ~ 0
 LSEXP_HV_4_1V8
 Wire Wire Line
 	4350 9450 5050 9450
-Text Label 4400 9250 0    50   ~ 0
+Text Label 4400 9350 0    50   ~ 0
 LSEXP_HV_3_1V8
 Wire Wire Line
-	4350 9250 5050 9250
-Text Label 4400 9350 0    50   ~ 0
+	4350 9350 5050 9350
+Text Label 4400 9250 0    50   ~ 0
 LSEXP_HV_2_1V8
 Wire Wire Line
-	4350 9350 5050 9350
-Text Label 4400 9050 0    50   ~ 0
+	4350 9250 5050 9250
+Text Label 4400 9750 0    50   ~ 0
 LSEXP_HV_1_1V8
 Wire Wire Line
-	4350 9050 5050 9050
-Text Label 4400 9750 0    50   ~ 0
+	4350 9750 5050 9750
+Text Label 4400 9050 0    50   ~ 0
 LSEXP_HV_0_1V8
 Wire Wire Line
-	4350 9750 5050 9750
+	4350 9050 5050 9050
 Wire Wire Line
 	13350 8800 12350 8800
 $Comp
@@ -1717,11 +1717,11 @@ Wire Wire Line
 	14800 8800 13850 8800
 Text GLabel 13850 9100 2    60   Input ~ 0
 CAM1_TRG_3V3
-Text GLabel 13850 9000 2    60   Input ~ 0
+Text GLabel 13850 8900 2    60   Input ~ 0
 CAM1_SCK_3V3
 Text GLabel 13350 9000 0    60   Input ~ 0
 CAM1_CS_3V3
-Text GLabel 13850 8900 2    60   Input ~ 0
+Text GLabel 13350 8900 0    60   Input ~ 0
 CAM1_MOSI_3V3
 Text GLabel 13350 9100 0    60   Input ~ 0
 CAM1_MISO_3V3
@@ -1748,9 +1748,9 @@ CAM1_TRG_1V8
 Text Label 4400 8050 0    50   ~ 0
 CAM1_SCK_1V8
 Wire Wire Line
-	4350 10450 4850 10450
-Wire Wire Line
 	4350 10550 4850 10550
+Wire Wire Line
+	4350 10450 4850 10450
 Wire Wire Line
 	4350 10650 4950 10650
 Wire Wire Line
@@ -1860,11 +1860,11 @@ F 3 "" H 20100 10200 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	20100 10200 20300 10200
-Text Label 19550 10700 0    50   ~ 0
+Text Label 19550 10800 0    50   ~ 0
 CAM1_MISO_1V8
 Wire Wire Line
 	19550 10700 20300 10700
-Text Label 19550 10800 0    50   ~ 0
+Text Label 19550 10700 0    50   ~ 0
 IMU_MISO_1V8
 Wire Wire Line
 	19550 10800 20300 10800

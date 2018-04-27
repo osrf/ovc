@@ -149,7 +149,7 @@ Text GLabel 4550 3450 2    60   Input ~ 0
 IMU_TX2_3V3
 Text GLabel 4550 3550 2    60   Input ~ 0
 IMU_RX2_3V3
-Text GLabel 2750 4150 0    60   Input ~ 0
+Text GLabel 6600 4050 0    60   Input ~ 0
 IMU_NRST_3V3
 Text GLabel 2750 3650 0    60   Input ~ 0
 IMU_SCK_3V3
@@ -163,4 +163,59 @@ Text GLabel 4250 3750 2    60   Input ~ 0
 IMU_SYNC_OUT_3V3
 Text GLabel 2750 3850 0    60   Input ~ 0
 IMU_MISO_3V3
+$Comp
+L IMU:uIMU-2 U15
+U 1 1 5AE5AA8D
+P 7250 3750
+F 0 "U15" H 7525 2956 60  0000 C CNN
+F 1 "uIMU-2" H 7525 2850 60  0000 C CNN
+F 2 "IMU:DFP-22_0.5mmPitch_125x155mm" H 7300 3750 60  0001 C CNN
+F 3 "" H 7300 3750 60  0001 C CNN
+	1    7250 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 4450 7250 4450
+$Comp
+L power:GND #PWR0226
+U 1 1 5AE5AC63
+P 7250 4450
+F 0 "#PWR0226" H 7250 4200 50  0001 C CNN
+F 1 "GND" H 7255 4277 50  0001 C CNN
+F 2 "" H 7250 4450 50  0001 C CNN
+F 3 "" H 7250 4450 50  0001 C CNN
+	1    7250 4450
+	1    0    0    -1  
+$EndComp
+Connection ~ 7250 4450
+$Comp
+L power:+3V3 #PWR0227
+U 1 1 5AE5C957
+P 6450 3100
+F 0 "#PWR0227" H 6450 2950 50  0001 C CNN
+F 1 "+3V3" H 6465 3273 50  0000 C CNN
+F 2 "" H 6450 3100 50  0001 C CNN
+F 3 "" H 6450 3100 50  0001 C CNN
+	1    6450 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 3100 6450 3200
+Wire Wire Line
+	6450 3200 6600 3200
+Wire Wire Line
+	6600 3100 6450 3100
+Connection ~ 6450 3100
+Text GLabel 8450 3850 2    60   Input ~ 0
+IMU_TX1_3V3
+Text GLabel 8450 3950 2    60   Input ~ 0
+IMU_RX1_3V3
+Text GLabel 8450 3750 2    60   Input ~ 0
+IMU_SYNC_OUT_3V3
+Text GLabel 6600 3750 0    60   Input ~ 0
+IMU_TX2_3V3
+Text GLabel 6600 3650 0    60   Input ~ 0
+IMU_RX2_3V3
+Text GLabel 2750 4150 0    60   Input ~ 0
+IMU_NRST_3V3
 $EndSCHEMATC
