@@ -858,9 +858,9 @@ F 6 "Samtec" H 17400 4100 50  0001 C CNN "MFN"
 	1    17400 4100
 	1    0    0    -1  
 $EndComp
-Text GLabel 13350 7200 0    60   Input ~ 0
-FPGA_TDO
 Text GLabel 13850 7300 2    60   Input ~ 0
+FPGA_TDO
+Text GLabel 13350 7200 0    60   Input ~ 0
 FPGA_TMS
 Text GLabel 13350 7300 0    60   Input ~ 0
 FPGA_TCK
@@ -1715,7 +1715,7 @@ Text GLabel 13350 9100 0    60   Input ~ 0
 CAM1_MISO_3V3
 Text Label 4400 6850 0    50   ~ 0
 IMU_SCK_1V8
-Text Label 4400 8150 0    50   ~ 0
+Text Label 4400 7050 0    50   ~ 0
 IMU_MOSI_1V8
 Text Label 4400 10650 0    50   ~ 0
 IMU_NRST_1V8
@@ -1723,13 +1723,13 @@ Text Label 4400 6950 0    50   ~ 0
 IMU_SYNC_IN_1V8
 Wire Wire Line
 	4350 10650 5050 10650
-Text Label 4400 7050 0    50   ~ 0
+Text Label 4400 9050 0    50   ~ 0
 IMU_CS_1V8
-Text Label 4400 7350 0    50   ~ 0
-CAM1_MOSI_1V8
 Text Label 4400 8650 0    50   ~ 0
+CAM1_MOSI_1V8
+Text Label 4400 8550 0    50   ~ 0
 CAM1_RST_1V8
-Text Label 4400 7250 0    50   ~ 0
+Text Label 4400 8750 0    50   ~ 0
 CAM1_CS_1V8
 Text Label 4400 7150 0    50   ~ 0
 CAM1_TRG_1V8
@@ -1742,17 +1742,17 @@ Wire Wire Line
 Wire Wire Line
 	4350 6850 4950 6850
 Wire Wire Line
-	4350 8150 5050 8150
+	4350 7050 5050 7050
 Wire Wire Line
 	4350 6950 5100 6950
 Wire Wire Line
-	4350 7050 5100 7050
+	4350 9050 5100 9050
 Wire Wire Line
-	4350 7350 5050 7350
+	4350 8650 5050 8650
 Wire Wire Line
-	4350 7250 5050 7250
+	4350 8750 5050 8750
 Wire Wire Line
-	4350 8650 5100 8650
+	4350 8550 5100 8550
 Wire Wire Line
 	4350 8050 5100 8050
 Wire Wire Line
