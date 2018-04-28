@@ -1248,18 +1248,6 @@ Wire Wire Line
 Text Label 15150 3700 0    50   ~ 0
 HSEXP13
 Wire Wire Line
-	17550 2400 18000 2400
-Text Label 17600 2400 0    50   ~ 0
-HSEXP14
-Wire Wire Line
-	17550 2500 18000 2500
-Text Label 17600 2500 0    50   ~ 0
-HSEXP15
-Wire Wire Line
-	17550 2600 18000 2600
-Text Label 17600 2600 0    50   ~ 0
-HSEXP16
-Wire Wire Line
 	18250 7650 17550 7650
 Text Label 17550 7650 0    50   ~ 0
 IMU_SCK_1V8
@@ -1685,10 +1673,10 @@ Text Label 4400 9750 0    50   ~ 0
 LSEXP_HV_1_1V8
 Wire Wire Line
 	4350 9750 5050 9750
-Text Label 4400 9050 0    50   ~ 0
+Text Label 4400 7550 0    50   ~ 0
 LSEXP_HV_0_1V8
 Wire Wire Line
-	4350 9050 5050 9050
+	4350 7550 5050 7550
 Wire Wire Line
 	13350 8800 12350 8800
 $Comp
@@ -1725,17 +1713,17 @@ Text GLabel 13350 8900 0    60   Input ~ 0
 CAM1_MOSI_3V3
 Text GLabel 13350 9100 0    60   Input ~ 0
 CAM1_MISO_3V3
-Text Label 4400 10650 0    50   ~ 0
+Text Label 4400 6850 0    50   ~ 0
 IMU_SCK_1V8
-Text Label 4400 7150 0    50   ~ 0
+Text Label 4400 8150 0    50   ~ 0
 IMU_MOSI_1V8
-Text Label 4400 7050 0    50   ~ 0
+Text Label 4400 10650 0    50   ~ 0
 IMU_NRST_1V8
 Text Label 4400 6950 0    50   ~ 0
 IMU_SYNC_IN_1V8
 Wire Wire Line
-	4350 7050 5050 7050
-Text Label 4400 6850 0    50   ~ 0
+	4350 10650 5050 10650
+Text Label 4400 7050 0    50   ~ 0
 IMU_CS_1V8
 Text Label 4400 7350 0    50   ~ 0
 CAM1_MOSI_1V8
@@ -1743,7 +1731,7 @@ Text Label 4400 8650 0    50   ~ 0
 CAM1_RST_1V8
 Text Label 4400 7250 0    50   ~ 0
 CAM1_CS_1V8
-Text Label 4400 8350 0    50   ~ 0
+Text Label 4400 7150 0    50   ~ 0
 CAM1_TRG_1V8
 Text Label 4400 8050 0    50   ~ 0
 CAM1_SCK_1V8
@@ -1752,13 +1740,13 @@ Wire Wire Line
 Wire Wire Line
 	4350 10450 4850 10450
 Wire Wire Line
-	4350 10650 4950 10650
+	4350 6850 4950 6850
 Wire Wire Line
-	4350 7150 5050 7150
+	4350 8150 5050 8150
 Wire Wire Line
 	4350 6950 5100 6950
 Wire Wire Line
-	4350 6850 5100 6850
+	4350 7050 5100 7050
 Wire Wire Line
 	4350 7350 5050 7350
 Wire Wire Line
@@ -1768,7 +1756,7 @@ Wire Wire Line
 Wire Wire Line
 	4350 8050 5100 8050
 Wire Wire Line
-	4350 8350 5100 8350
+	4350 7150 5100 7150
 Text Notes 15850 10200 0    50   ~ 0
 TODO: pulldowns on 3v3 inputs and MISO lines
 $Comp
@@ -1941,31 +1929,15 @@ Wire Wire Line
 Text Label 15150 2200 0    50   ~ 0
 HSEXP9
 Wire Wire Line
-	16750 2500 17200 2500
-Text Label 16800 2500 0    50   ~ 0
-HSEXP10
-Wire Wire Line
-	16750 2400 17200 2400
-Text Label 16800 2400 0    50   ~ 0
-HSEXP11
-Wire Wire Line
-	16750 2300 17200 2300
-Text Label 16800 2300 0    50   ~ 0
-HSEXP12
-Wire Wire Line
-	16750 2200 17200 2200
-Text Label 16800 2200 0    50   ~ 0
-HSEXP13
-Wire Wire Line
-	16750 2100 17200 2100
-Text Label 16800 2100 0    50   ~ 0
+	4350 8250 4800 8250
+Text Label 4400 8250 0    50   ~ 0
 HSEXP14
 Wire Wire Line
-	16750 2000 17200 2000
-Text Label 16800 2000 0    50   ~ 0
+	4350 8850 4800 8850
+Text Label 4400 8850 0    50   ~ 0
 HSEXP15
 Wire Wire Line
-	16750 1900 17200 1900
-Text Label 16800 1900 0    50   ~ 0
+	4350 8450 4800 8450
+Text Label 4400 8450 0    50   ~ 0
 HSEXP16
 $EndSCHEMATC
