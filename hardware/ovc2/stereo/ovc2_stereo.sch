@@ -63,7 +63,7 @@ F 5 "SAM11585" H 5800 4100 50  0001 C CNN "D1PN"
 	1    5800 4100
 	1    0    0    -1  
 $EndComp
-Text GLabel 6100 3300 2    60   Input ~ 0
+Text GLabel 6100 3100 2    60   Input ~ 0
 JETSON_CARRIER_PWR_ON
 Text GLabel 6100 3200 2    60   Input ~ 0
 JETSON_RESET_OUT
@@ -247,7 +247,7 @@ Text GLabel 6100 4200 2    60   Input ~ 0
 FPGA_CONFIG_DATA0
 Text GLabel 6100 4300 2    60   Input ~ 0
 FPGA_CONFIG_DCLK
-Text GLabel 6100 3100 2    60   Input ~ 0
+Text GLabel 6100 3300 2    60   Input ~ 0
 3V3_ALWAYS_ON
 Text GLabel 6100 4500 2    60   Input ~ 0
 TX2_LED
