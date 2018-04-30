@@ -1,3 +1,4 @@
 100 ohm (LVDS, etc.): trace = 0.1778mm = 7mil, space = 0.2032mm = 8mil
 
-85 ohm (PCIe): trace = 0.1778mm = 7mil, space = 0.127 = 5mil
+85 ohm (PCIe): trace = 0.2032mm = 8mil, space = 0.1524 = 6mil
+  * need to re-do the 85-ohm traces

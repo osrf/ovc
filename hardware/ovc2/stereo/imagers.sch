@@ -1139,9 +1139,9 @@ Text GLabel 9550 2450 2    60   Input ~ 0
 CAM2_DOUT0-
 Text GLabel 9550 2350 2    60   Input ~ 0
 CAM2_DOUT0+
-Text GLabel 9550 3350 2    60   Input ~ 0
-CAM2_SYNC-
 Text GLabel 9550 3250 2    60   Input ~ 0
+CAM2_SYNC-
+Text GLabel 9550 3350 2    60   Input ~ 0
 CAM2_SYNC+
 Text GLabel 9550 2650 2    60   Input ~ 0
 CAM2_DOUT1-

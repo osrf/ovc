@@ -231,13 +231,13 @@ Text GLabel 10550 3500 2    60   Input ~ 0
 CAM2_CLKOUT-
 Text GLabel 10550 3600 2    60   Input ~ 0
 CAM2_CLKOUT+
-Text GLabel 10550 4200 2    60   Input ~ 0
-CAM2_DOUT3+
-Text GLabel 10550 4100 2    60   Input ~ 0
-CAM2_DOUT3-
-Text GLabel 10550 5400 2    60   Input ~ 0
-CAM2_DOUT2+
 Text GLabel 10550 5300 2    60   Input ~ 0
+CAM2_DOUT3+
+Text GLabel 10550 5400 2    60   Input ~ 0
+CAM2_DOUT3-
+Text GLabel 10550 4100 2    60   Input ~ 0
+CAM2_DOUT2+
+Text GLabel 10550 4200 2    60   Input ~ 0
 CAM2_DOUT2-
 Text GLabel 10550 4600 2    60   Input ~ 0
 CAM2_DOUT1+
