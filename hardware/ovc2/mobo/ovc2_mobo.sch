@@ -142,13 +142,13 @@ Wire Wire Line
 Wire Wire Line
 	4650 4400 5600 4400
 Connection ~ 4650 4700
-Text GLabel 6100 5300 2    60   Input ~ 0
+Text GLabel 6100 5200 2    60   Input ~ 0
 PCIE_RST_3V3
-Text GLabel 6100 3700 2    60   Input ~ 0
+Text GLabel 6100 3600 2    60   Input ~ 0
 JETSON_RESET_OUT
-Text GLabel 6100 5100 2    60   Input ~ 0
+Text GLabel 6100 3500 2    60   Input ~ 0
 JETSON_CARRIER_PWR_ON
-Text GLabel 6100 5000 2    60   Input ~ 0
+Text GLabel 6100 5300 2    60   Input ~ 0
 DISCHARGE
 $Comp
 L power:+12V #PWR0104
@@ -167,9 +167,9 @@ U 5AA3E427
 F0 "jetson_gpio" 118
 F1 "jetson_gpio.sch" 50
 $EndSheet
-Text GLabel 7050 4600 2    60   Input ~ 0
+Text GLabel 6100 4700 2    60   Input ~ 0
 FPGA_CONFIG_DCLK
-Text GLabel 7050 4500 2    60   Input ~ 0
+Text GLabel 6100 4600 2    60   Input ~ 0
 FPGA_CONFIG_DATA0
 Text GLabel 5600 3900 0    60   Input ~ 0
 PCIE_LANE2_TX-
@@ -240,16 +240,16 @@ Wire Wire Line
 	5600 5700 5600 5800
 Connection ~ 5600 5800
 Wire Wire Line
-	6100 5400 6950 5400
+	6100 5400 7150 5400
 $Comp
 L power:GND #PWR0102
 U 1 1 5ABDE62D
-P 6950 5400
-F 0 "#PWR0102" H 6950 5150 50  0001 C CNN
-F 1 "GND" H 6955 5227 50  0001 C CNN
-F 2 "" H 6950 5400 50  0001 C CNN
-F 3 "" H 6950 5400 50  0001 C CNN
-	1    6950 5400
+P 7150 5400
+F 0 "#PWR0102" H 7150 5150 50  0001 C CNN
+F 1 "GND" H 7155 5227 50  0001 C CNN
+F 2 "" H 7150 5400 50  0001 C CNN
+F 3 "" H 7150 5400 50  0001 C CNN
+	1    7150 5400
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -267,29 +267,45 @@ Connection ~ 6250 3300
 $Comp
 L power:+3V3 #PWR?
 U 1 1 5AC98B62
-P 6400 3500
-F 0 "#PWR?" H 6400 3350 50  0001 C CNN
-F 1 "+3V3" H 6415 3673 50  0000 C CNN
-F 2 "" H 6400 3500 50  0001 C CNN
-F 3 "" H 6400 3500 50  0001 C CNN
-	1    6400 3500
+P 7450 3700
+F 0 "#PWR?" H 7450 3550 50  0001 C CNN
+F 1 "+3V3" H 7465 3873 50  0000 C CNN
+F 2 "" H 7450 3700 50  0001 C CNN
+F 3 "" H 7450 3700 50  0001 C CNN
+	1    7450 3700
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6400 3500 6100 3500
-Text GLabel 6100 5200 2    60   Input ~ 0
+Text GLabel 6100 4900 2    60   Input ~ 0
 LED
 $Comp
 L power:+5V #PWR?
 U 1 1 5ACA8EA2
-P 6600 3600
-F 0 "#PWR?" H 6600 3450 50  0001 C CNN
-F 1 "+5V" H 6615 3773 50  0000 C CNN
-F 2 "" H 6600 3600 50  0001 C CNN
-F 3 "" H 6600 3600 50  0001 C CNN
-	1    6600 3600
+P 7150 4000
+F 0 "#PWR?" H 7150 3850 50  0001 C CNN
+F 1 "+5V" H 7165 4173 50  0000 C CNN
+F 2 "" H 7150 4000 50  0001 C CNN
+F 3 "" H 7150 4000 50  0001 C CNN
+	1    7150 4000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6600 3600 6100 3600
+	7150 4000 6100 4000
+Text GLabel 6100 4500 2    60   Input ~ 0
+FPGA_CONF_DONE
+Text GLabel 6100 4400 2    60   Input ~ 0
+FPGA_NSTATUS
+Text GLabel 6100 4300 2    60   Input ~ 0
+FPGA_NCONFIG
+Wire Wire Line
+	6100 4800 7150 4800
+Wire Wire Line
+	7150 4800 7150 5400
+Connection ~ 7150 5400
+Wire Wire Line
+	6100 4200 7150 4200
+Wire Wire Line
+	7150 4200 7150 4800
+Connection ~ 7150 4800
+Wire Wire Line
+	6100 3700 7450 3700
 $EndSCHEMATC

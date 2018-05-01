@@ -54,19 +54,19 @@ Text GLabel 19250 6750 2    60   Input ~ 0
 CAM1_SCK_3V3
 Text GLabel 19250 7850 2    60   Input ~ 0
 IMU_NRST_3V3
-Text GLabel 21250 10900 2    60   Input ~ 0
+Text GLabel 21250 11000 2    60   Input ~ 0
 IMU_SYNC_OUT_3V3
 Text GLabel 19250 7650 2    60   Input ~ 0
 IMU_SCK_3V3
 Text GLabel 19250 7450 2    60   Input ~ 0
 IMU_MOSI_3V3
-Text GLabel 21250 10700 2    60   Input ~ 0
+Text GLabel 21250 10800 2    60   Input ~ 0
 IMU_MISO_3V3
 Text GLabel 19250 7750 2    60   Input ~ 0
 IMU_SYNC_IN_3V3
 Text GLabel 19250 7350 2    60   Input ~ 0
 IMU_CS_3V3
-Text GLabel 21250 10800 2    60   Input ~ 0
+Text GLabel 21250 10900 2    60   Input ~ 0
 CAM1_MISO_3V3
 $Comp
 L voltage_translators:74LVC1G34 U17
@@ -1848,20 +1848,18 @@ F 3 "" H 20100 10200 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	20100 10200 20300 10200
-Text Label 19550 10800 0    50   ~ 0
+Text Label 19550 10900 0    50   ~ 0
 CAM1_MISO_1V8
 Wire Wire Line
-	19550 10700 20300 10700
-Text Label 19550 10700 0    50   ~ 0
+	19550 10800 20300 10800
+Text Label 19550 10800 0    50   ~ 0
 IMU_MISO_1V8
 Wire Wire Line
-	19550 10800 20300 10800
-Text Label 19550 10900 0    50   ~ 0
+	19550 10900 20300 10900
+Text Label 19550 11000 0    50   ~ 0
 IMU_SYNC_OUT_1V8
 Wire Wire Line
-	19550 10900 20300 10900
-Text Notes 21300 11100 0    50   ~ 0
-TODO: terminate input
+	19550 11000 20300 11000
 Text Label 19550 12350 0    50   ~ 0
 CAM2_MISO_1V8
 Wire Wire Line
@@ -1948,4 +1946,26 @@ Text Label 10550 5600 0    50   ~ 0
 CAM2_MONITOR_1V8
 Wire Wire Line
 	10550 5600 11300 5600
+Text GLabel 21250 10700 2    60   Input ~ 0
+IMU_TX1_3V3
+Text Label 19550 10700 0    50   ~ 0
+IMU_TX1_1V8
+Wire Wire Line
+	19550 10700 20300 10700
+Text Label 10550 7750 0    50   ~ 0
+CAM1_MISO_1V8
+Text Label 4400 7450 0    50   ~ 0
+IMU_MISO_1V8
+Wire Wire Line
+	10550 7750 11300 7750
+Text Label 10550 8150 0    50   ~ 0
+IMU_SYNC_OUT_1V8
+Wire Wire Line
+	10550 8150 11300 8150
+Text Label 4450 7350 0    50   ~ 0
+IMU_TX1_1V8
+Wire Wire Line
+	4350 7450 5150 7450
+Wire Wire Line
+	4350 7350 5100 7350
 $EndSCHEMATC
