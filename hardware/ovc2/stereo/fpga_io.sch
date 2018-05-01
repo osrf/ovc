@@ -770,11 +770,11 @@ Text GLabel 18000 12750 2    60   Input ~ 0
 CAM2_SCK_3V3
 Text GLabel 18000 12850 2    60   Input ~ 0
 CAM2_MOSI_3V3
-Text GLabel 18000 12950 2    60   Input ~ 0
+Text GLabel 18000 13050 2    60   Input ~ 0
 CAM2_CS_3V3
 Text GLabel 18000 13450 2    60   Input ~ 0
 CAM2_TRG_3V3
-Text GLabel 18000 13050 2    60   Input ~ 0
+Text GLabel 18000 12950 2    60   Input ~ 0
 CAM2_RST_3V3
 $Comp
 L voltage_translators:SN74LVC2T45 U5
@@ -1862,16 +1862,14 @@ Wire Wire Line
 	19550 10900 20300 10900
 Text Notes 21300 11100 0    50   ~ 0
 TODO: terminate input
-Text Notes 21300 12500 0    50   ~ 0
-TODO: terminate input
 Text Label 19550 12350 0    50   ~ 0
 CAM2_MISO_1V8
 Wire Wire Line
 	19550 12350 20300 12350
-Text Label 10950 2550 0    50   ~ 0
+Text Label 4350 2400 0    50   ~ 0
 CAM2_MISO_1V8
 Wire Wire Line
-	10950 2550 11700 2550
+	4350 2400 5100 2400
 Text Label 16300 12750 0    50   ~ 0
 CAM2_SCK_1V8
 Wire Wire Line
@@ -1880,40 +1878,40 @@ Text Label 16300 12850 0    50   ~ 0
 CAM2_MOSI_1V8
 Wire Wire Line
 	16300 12850 17050 12850
-Text Label 16300 12950 0    50   ~ 0
+Text Label 16300 13050 0    50   ~ 0
 CAM2_CS_1V8
 Wire Wire Line
-	16300 12950 17050 12950
-Text Label 16300 13050 0    50   ~ 0
+	16300 13050 17050 13050
+Text Label 16300 12950 0    50   ~ 0
 CAM2_RST_1V8
 Wire Wire Line
-	16300 13050 17050 13050
+	16300 12950 17050 12950
 Text Label 16300 13450 0    50   ~ 0
 CAM2_TRG_1V8
 Wire Wire Line
 	16300 13450 17050 13450
 Text Notes 16050 13250 0    50   ~ 0
 TODO: terminate inputs
-Text Label 10950 2650 0    50   ~ 0
+Text Label 4350 1900 0    50   ~ 0
 CAM2_SCK_1V8
 Wire Wire Line
-	10950 2650 11700 2650
-Text Label 10950 2750 0    50   ~ 0
+	4350 1900 5100 1900
+Text Label 4350 2000 0    50   ~ 0
 CAM2_MOSI_1V8
 Wire Wire Line
-	10950 2750 11700 2750
-Text Label 10950 2850 0    50   ~ 0
+	4350 2000 5100 2000
+Text Label 4350 1600 0    50   ~ 0
 CAM2_CS_1V8
 Wire Wire Line
-	10950 2850 11700 2850
-Text Label 10950 2950 0    50   ~ 0
+	4350 1600 5100 1600
+Text Label 4350 2200 0    50   ~ 0
 CAM2_RST_1V8
 Wire Wire Line
-	10950 2950 11700 2950
-Text Label 10950 3050 0    50   ~ 0
+	4350 2200 5100 2200
+Text Label 4350 2100 0    50   ~ 0
 CAM2_TRG_1V8
 Wire Wire Line
-	10950 3050 11700 3050
+	4350 2100 5100 2100
 Text GLabel 13350 9500 0    60   Input ~ 0
 IMU_MOSI_3V3
 Wire Wire Line
@@ -1940,4 +1938,14 @@ Wire Wire Line
 	4350 8450 4800 8450
 Text Label 4400 8450 0    50   ~ 0
 HSEXP16
+Text GLabel 21200 12450 2    60   Input ~ 0
+CAM2_MONITOR
+Text Label 19550 12450 0    50   ~ 0
+CAM2_MONITOR_1V8
+Wire Wire Line
+	19550 12450 20300 12450
+Text Label 10550 5600 0    50   ~ 0
+CAM2_MONITOR_1V8
+Wire Wire Line
+	10550 5600 11300 5600
 $EndSCHEMATC
