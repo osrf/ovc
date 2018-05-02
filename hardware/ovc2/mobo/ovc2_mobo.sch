@@ -183,9 +183,9 @@ Text GLabel 5600 3300 0    60   Input ~ 0
 PCIE_LANE3_TX-
 Text GLabel 5600 3400 0    60   Input ~ 0
 PCIE_LANE3_TX+
-Text GLabel 5600 3700 0    60   Input ~ 0
-PCIE_LANE3_RX+
 Text GLabel 5600 3600 0    60   Input ~ 0
+PCIE_LANE3_RX+
+Text GLabel 5600 3700 0    60   Input ~ 0
 PCIE_LANE3_RX-
 Wire Wire Line
 	5600 3200 4650 3200

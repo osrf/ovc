@@ -431,7 +431,7 @@ F 7 "RC0402FR-0710KL" H 2159 5146 50  0001 C CNN "MPN"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Specialized:USB_OTG J3
+L Connector:USB_OTG J3
 U 1 1 59E1B9ED
 P 6950 4100
 F 0 "J3" H 7005 4567 50  0000 C CNN
@@ -761,7 +761,6 @@ Wire Wire Line
 	3150 5600 3400 5600
 Wire Wire Line
 	6850 4500 6950 4500
-Connection ~ 6950 4500
 $Comp
 L usb3_connector:USB3_A_STACKED J7
 U 1 1 5A983D8D

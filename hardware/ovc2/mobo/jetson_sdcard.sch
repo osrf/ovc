@@ -30,7 +30,7 @@ F 7 "SEAM-50-02.0-S-08-2-A-K-TR" H 4656 4165 50  0001 C CNN "MPN"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Specialized:Micro_SD_Card_Det J11
+L Connector:Micro_SD_Card_Det J11
 U 1 1 5983E228
 P 9100 3300
 F 0 "J11" H 9050 4117 50  0000 C CNN
