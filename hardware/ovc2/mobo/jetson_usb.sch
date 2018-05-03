@@ -37,12 +37,9 @@ U 1 1 598A123A
 P 2800 2400
 F 0 "C37" V 2750 2250 50  0000 C CNN
 F 1 "100n" V 2750 2600 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric" H 2800 2400 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 2800 2400 50  0001 C CNN
 F 3 "" H 2800 2400 50  0001 C CNN
 F 4 "digikey" H 2750 2350 50  0001 C CNN "D1"
-F 5 "490-5881" H 2750 2350 50  0001 C CNN "D1PN"
-F 6 "Murata" H 2750 2350 50  0001 C CNN "MFN"
-F 7 "GRM033R61A104KE15D" H 2750 2350 50  0001 C CNN "MPN"
 	1    2800 2400
 	0    1    1    0   
 $EndComp
@@ -52,12 +49,9 @@ U 1 1 598A1374
 P 3400 2500
 F 0 "C40" V 3350 2350 50  0000 C CNN
 F 1 "100n" V 3350 2700 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric" H 3400 2500 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 3400 2500 50  0001 C CNN
 F 3 "" H 3400 2500 50  0001 C CNN
 F 4 "digikey" H 3350 2450 50  0001 C CNN "D1"
-F 5 "490-5881" H 3350 2450 50  0001 C CNN "D1PN"
-F 6 "Murata" H 3350 2450 50  0001 C CNN "MFN"
-F 7 "GRM033R61A104KE15D" H 3350 2450 50  0001 C CNN "MPN"
 	1    3400 2500
 	0    1    1    0   
 $EndComp
@@ -548,9 +542,9 @@ Text GLabel 7250 2050 2    60   Input ~ 0
 USB2_5V_LIM
 Text Notes 650  4350 0    60   ~ 0
 USB2_EN doesn't seem to be\navailable on the TX. So we'll tie it high.
-Text Label 8150 2850 0    60   ~ 0
-USB2_D+
 Text Label 8150 2150 0    60   ~ 0
+USB2_D+
+Text Label 8150 2850 0    60   ~ 0
 USB2_D-
 Text Label 10150 2850 0    60   ~ 0
 USB_SS1_TX+
@@ -608,9 +602,9 @@ Text GLabel 5250 6150 2    60   Input ~ 0
 USB2_5V_LIM
 Text Label 1550 4900 0    60   ~ 0
 USB1_EN
-Text Label 8100 3800 0    60   ~ 0
-USB0_D+
 Text Label 8100 4500 0    60   ~ 0
+USB0_D+
+Text Label 8100 3800 0    60   ~ 0
 USB0_D-
 Text Label 7250 3900 0    60   ~ 0
 USB0_VBUS

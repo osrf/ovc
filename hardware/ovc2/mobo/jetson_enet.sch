@@ -224,33 +224,33 @@ Text Label 4100 3500 0    60   ~ 0
 GBE_MDI3+
 Text Label 4100 3600 0    60   ~ 0
 GBE_MDI3-
-Text Label 7350 2750 0    60   ~ 0
-GBE_MDI0+
-Text Label 7350 2850 0    60   ~ 0
-GBE_MDI0-
-Text Label 7350 2950 0    60   ~ 0
-GBE_MDI1+
-Text Label 7350 3050 0    60   ~ 0
-GBE_MDI1-
-Text Label 7350 3150 0    60   ~ 0
-GBE_MDI2+
 Text Label 7350 3250 0    60   ~ 0
-GBE_MDI2-
-Text Label 7350 3350 0    60   ~ 0
-GBE_MDI3+
+GBE_MDI0+
+Text Label 7350 3150 0    60   ~ 0
+GBE_MDI0-
 Text Label 7350 3450 0    60   ~ 0
+GBE_MDI1+
+Text Label 7350 3350 0    60   ~ 0
+GBE_MDI1-
+Text Label 7350 2950 0    60   ~ 0
+GBE_MDI2+
+Text Label 7350 3050 0    60   ~ 0
+GBE_MDI2-
+Text Label 7350 2750 0    60   ~ 0
+GBE_MDI3+
+Text Label 7350 2850 0    60   ~ 0
 GBE_MDI3-
-Text Notes 8150 2950 0    60   ~ 0
+Text Notes 8150 2150 0    60   ~ 0
 ok to swap pairs\nfor layout
 Text Notes 2000 4400 0    60   ~ 0
 VCC floated as per Littelfuse\nEthernet Protection Design Guide
-Text Label 4600 4350 0    60   ~ 0
-GBE_MDI0+
-Text Label 4600 4450 0    60   ~ 0
-GBE_MDI0-
-Text Label 4600 4650 0    60   ~ 0
-GBE_MDI1+
 Text Label 4600 4550 0    60   ~ 0
+GBE_MDI0+
+Text Label 4600 4650 0    60   ~ 0
+GBE_MDI0-
+Text Label 4600 4450 0    60   ~ 0
+GBE_MDI1+
+Text Label 4600 4350 0    60   ~ 0
 GBE_MDI1-
 Text Label 4600 5200 0    60   ~ 0
 GBE_MDI2+
@@ -283,14 +283,6 @@ Wire Wire Line
 Wire Wire Line
 	4050 3600 4650 3600
 Wire Wire Line
-	7300 2750 7900 2750
-Wire Wire Line
-	7300 2850 7900 2850
-Wire Wire Line
-	7300 2950 7900 2950
-Wire Wire Line
-	7300 3050 7900 3050
-Wire Wire Line
 	7300 3150 7900 3150
 Wire Wire Line
 	7300 3250 7900 3250
@@ -298,6 +290,14 @@ Wire Wire Line
 	7300 3350 7900 3350
 Wire Wire Line
 	7300 3450 7900 3450
+Wire Wire Line
+	7300 2950 7900 2950
+Wire Wire Line
+	7300 3050 7900 3050
+Wire Wire Line
+	7300 2750 7900 2750
+Wire Wire Line
+	7300 2850 7900 2850
 Wire Wire Line
 	4450 2600 5200 2600
 Wire Wire Line
@@ -307,13 +307,13 @@ Wire Wire Line
 Wire Wire Line
 	4250 2800 4250 2750
 Wire Wire Line
-	4550 4450 5150 4450
-Wire Wire Line
-	4550 4550 5150 4550
-Wire Wire Line
 	4550 4650 5150 4650
 Wire Wire Line
 	4550 4350 5150 4350
+Wire Wire Line
+	4550 4450 5150 4450
+Wire Wire Line
+	4550 4550 5150 4550
 Wire Wire Line
 	4550 5300 5150 5300
 Wire Wire Line
