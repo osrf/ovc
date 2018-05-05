@@ -306,4 +306,8 @@ Wire Wire Line
 Connection ~ 10500 4750
 Wire Wire Line
 	9450 3650 10800 3650
+Text GLabel 9450 3750 2    60   Input ~ 0
+IMU_TX1_3V3
+Text GLabel 9450 3850 2    60   Input ~ 0
+IMU_RX1_3V3
 $EndSCHEMATC

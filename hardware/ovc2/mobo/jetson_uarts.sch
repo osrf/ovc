@@ -29,38 +29,226 @@ F 7 "SEAM-50-02.0-S-08-2-A-K-TR" H 1956 3315 50  0001 C CNN "MPN"
 	16   1450 2050
 	1    0    0    -1  
 $EndComp
-Text Label 2500 1650 0    60   ~ 0
-UART1_TX
-Text Label 2500 1750 0    60   ~ 0
-UART1_RX
-Text Label 2500 2050 0    60   ~ 0
-UART2_TX
-Text Label 2500 2150 0    60   ~ 0
-UART2_RX
 Text Label 2500 1250 0    60   ~ 0
 UART0_TX
 Text Label 2500 1350 0    60   ~ 0
 UART0_RX
-Wire Wire Line
-	2450 1650 3050 1650
-Wire Wire Line
-	2450 1750 3050 1750
-Wire Wire Line
-	2450 2050 3050 2050
-Wire Wire Line
-	2450 2150 3050 2150
 Wire Wire Line
 	2450 1250 3050 1250
 Wire Wire Line
 	2450 1350 3050 1350
 Text Notes 3750 1200 0    50   ~ 0
 This is the boot console.
-Text Notes 3550 1650 0    50   ~ 0
-TODO: bring all UARTs to daughterboard connector.
 Text GLabel 3050 1250 2    50   Input ~ 0
 CONSOLE_TX
 Text GLabel 3050 1350 2    50   Input ~ 0
 CONSOLE_RX
 Text Notes 3650 1350 0    50   ~ 0
 TODO: level-shift IC
+Text GLabel 8450 3250 2    60   Input ~ 0
+IMU_TX1_3V3
+Text GLabel 5600 3250 2    60   Input ~ 0
+IMU_RX1_3V3
+$Comp
+L voltage_translators:SN74AVC8T245 U4
+U 1 1 5AEE20B2
+P 5150 3550
+F 0 "U4" H 5125 4637 60  0000 C CNN
+F 1 "SN74AVC8T245" H 5125 4531 60  0000 C CNN
+F 2 "Housings_SSOP:TSSOP-24_4.4x7.8mm_Pitch0.65mm" H 5125 4531 60  0001 C CNN
+F 3 "" H 5150 3550 60  0000 C CNN
+	1    5150 3550
+	1    0    0    -1  
+$EndComp
+Text Notes 4800 2350 0    50   ~ 0
+outbound signals:\nTX2 -> world
+$Comp
+L voltage_translators:SN74AVC8T245 U5
+U 1 1 5AEE269E
+P 8000 3550
+F 0 "U5" H 7975 4637 60  0000 C CNN
+F 1 "SN74AVC8T245" H 7975 4531 60  0000 C CNN
+F 2 "Housings_SSOP:TSSOP-24_4.4x7.8mm_Pitch0.65mm" H 7975 4531 60  0001 C CNN
+F 3 "" H 8000 3550 60  0000 C CNN
+	1    8000 3550
+	1    0    0    -1  
+$EndComp
+Text Notes 7650 2350 0    50   ~ 0
+inbound signals:\nworld -> TX2
+$Comp
+L power:+1V8 #PWR0107
+U 1 1 5AEE3664
+P 4650 2750
+F 0 "#PWR0107" H 4650 2600 50  0001 C CNN
+F 1 "+1V8" H 4665 2923 50  0000 C CNN
+F 2 "" H 4650 2750 50  0001 C CNN
+F 3 "" H 4650 2750 50  0001 C CNN
+	1    4650 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4650 2750 4650 3050
+Connection ~ 4650 2750
+$Comp
+L power:GND #PWR0108
+U 1 1 5AEE3BEE
+P 5750 3050
+F 0 "#PWR0108" H 5750 2800 50  0001 C CNN
+F 1 "GND" H 5755 2877 50  0001 C CNN
+F 2 "" H 5750 3050 50  0001 C CNN
+F 3 "" H 5750 3050 50  0001 C CNN
+	1    5750 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0109
+U 1 1 5AEE3C27
+P 5050 4450
+F 0 "#PWR0109" H 5050 4200 50  0001 C CNN
+F 1 "GND" H 5055 4277 50  0001 C CNN
+F 2 "" H 5050 4450 50  0001 C CNN
+F 3 "" H 5050 4450 50  0001 C CNN
+	1    5050 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 4450 5150 4450
+Connection ~ 5050 4450
+Connection ~ 5150 4450
+Wire Wire Line
+	5150 4450 5250 4450
+$Comp
+L power:GND #PWR0110
+U 1 1 5AEE415E
+P 7900 4450
+F 0 "#PWR0110" H 7900 4200 50  0001 C CNN
+F 1 "GND" H 7905 4277 50  0001 C CNN
+F 2 "" H 7900 4450 50  0001 C CNN
+F 3 "" H 7900 4450 50  0001 C CNN
+	1    7900 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7900 4450 8000 4450
+Connection ~ 7900 4450
+Connection ~ 8000 4450
+Wire Wire Line
+	8000 4450 8100 4450
+$Comp
+L power:+1V8 #PWR0111
+U 1 1 5AEE46E3
+P 7350 2750
+F 0 "#PWR0111" H 7350 2600 50  0001 C CNN
+F 1 "+1V8" H 7365 2923 50  0000 C CNN
+F 2 "" H 7350 2750 50  0001 C CNN
+F 3 "" H 7350 2750 50  0001 C CNN
+	1    7350 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 2750 7500 2750
+$Comp
+L power:GND #PWR0117
+U 1 1 5AEE47B6
+P 7350 3050
+F 0 "#PWR0117" H 7350 2800 50  0001 C CNN
+F 1 "GND" H 7355 2877 50  0001 C CNN
+F 2 "" H 7350 3050 50  0001 C CNN
+F 3 "" H 7350 3050 50  0001 C CNN
+	1    7350 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 3050 7500 3050
+$Comp
+L power:GND #PWR0118
+U 1 1 5AEE48B0
+P 8600 3050
+F 0 "#PWR0118" H 8600 2800 50  0001 C CNN
+F 1 "GND" H 8605 2877 50  0001 C CNN
+F 2 "" H 8600 3050 50  0001 C CNN
+F 3 "" H 8600 3050 50  0001 C CNN
+	1    8600 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8600 3050 8450 3050
+Wire Wire Line
+	5750 3050 5600 3050
+$Comp
+L power:+3V3 #PWR0119
+U 1 1 5AEE5141
+P 5750 2750
+F 0 "#PWR0119" H 5750 2600 50  0001 C CNN
+F 1 "+3V3" H 5765 2923 50  0000 C CNN
+F 2 "" H 5750 2750 50  0001 C CNN
+F 3 "" H 5750 2750 50  0001 C CNN
+	1    5750 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 2750 5600 2750
+$Comp
+L power:+3V3 #PWR0120
+U 1 1 5AEE5460
+P 8600 2750
+F 0 "#PWR0120" H 8600 2600 50  0001 C CNN
+F 1 "+3V3" H 8615 2923 50  0000 C CNN
+F 2 "" H 8600 2750 50  0001 C CNN
+F 3 "" H 8600 2750 50  0001 C CNN
+	1    8600 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8450 2750 8600 2750
+Wire Wire Line
+	8450 2850 8600 2850
+Wire Wire Line
+	8600 2850 8600 2750
+Connection ~ 8600 2750
+Wire Wire Line
+	5600 2850 5750 2850
+Wire Wire Line
+	5750 2850 5750 2750
+Connection ~ 5750 2750
+Text GLabel 7500 3250 0    60   Input ~ 0
+IMU_TX1_1V8
+Text GLabel 4650 3250 0    60   Input ~ 0
+IMU_RX1_1V8
+Text GLabel 2450 1650 2    60   Input ~ 0
+IMU_RX1_1V8
+Text GLabel 2450 1750 2    60   Input ~ 0
+IMU_TX1_1V8
+Text Notes 3200 1750 0    50   ~ 0
+directions are according to the IMU, so they look reversed here.
+Text GLabel 2450 2050 2    60   Input ~ 0
+UART2_TX_1V8
+Text GLabel 2450 2150 2    60   Input ~ 0
+UART2_RX_1V8
+Text GLabel 2450 2450 2    60   Input ~ 0
+UART3_TX_1V8
+Text GLabel 2450 2550 2    60   Input ~ 0
+UART3_RX_1V8
+Text Notes 2550 2950 0    50   ~ 0
+uart7 has internal TX2 traffic
+Text GLabel 4650 3350 0    60   Input ~ 0
+UART2_TX_1V8
+Text GLabel 7500 3350 0    60   Input ~ 0
+UART2_RX_1V8
+Text GLabel 4650 3450 0    60   Input ~ 0
+UART3_TX_1V8
+Text GLabel 7500 3450 0    60   Input ~ 0
+UART3_RX_1V8
+Text GLabel 5600 3350 2    60   Input ~ 0
+UART2_TX_3V3
+Text GLabel 5600 3450 2    60   Input ~ 0
+UART3_TX_3V3
+Text GLabel 8450 3350 2    60   Input ~ 0
+UART2_RX_3V3
+Text GLabel 8450 3450 2    60   Input ~ 0
+UART3_RX_3V3
+Text GLabel 4650 3550 0    60   Input ~ 0
+LED_1V8
+Text GLabel 5600 3550 2    60   Input ~ 0
+LED
 $EndSCHEMATC

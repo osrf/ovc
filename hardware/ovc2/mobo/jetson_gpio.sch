@@ -196,14 +196,69 @@ F 22 "_" H 8600 1950 50  0001 C CNN "ResonnanceFreq"
 $EndComp
 Text GLabel 9600 1750 2    60   Input ~ 0
 FPGA_CONFIG_DCLK
-Text GLabel 9400 3000 2    60   Input ~ 0
+Text GLabel 7250 4500 2    60   Input ~ 0
 FPGA_CVP_CONF_DONE
-Text GLabel 9400 3200 2    60   Input ~ 0
+Text GLabel 7250 4600 2    60   Input ~ 0
 FPGA_CONF_DONE
-Text GLabel 9400 3300 2    60   Input ~ 0
+Text GLabel 7250 4700 2    60   Input ~ 0
 FPGA_NSTATUS
-Text GLabel 9400 3400 2    60   Input ~ 0
+Text GLabel 7250 4800 2    60   Input ~ 0
 FPGA_NCONFIG
 Text GLabel 9600 2050 2    60   Input ~ 0
 FPGA_CONFIG_DATA0
+Text GLabel 4950 2300 2    60   Input ~ 0
+LED_1V8
+Text GLabel 9600 1350 2    60   Input ~ 0
+SPI0_CLK
+Text GLabel 9600 1450 2    60   Input ~ 0
+SPI0_CS
+Text GLabel 9600 1550 2    60   Input ~ 0
+SPI0_MISO
+Text GLabel 9600 1650 2    60   Input ~ 0
+SPI0_MOSI
+Text GLabel 9600 4100 0    60   Input ~ 0
+SPI0_CLK
+Text GLabel 10100 4200 2    60   Input ~ 0
+SPI0_CS
+Text GLabel 9600 4200 0    60   Input ~ 0
+SPI0_MISO
+Text GLabel 9600 4300 0    60   Input ~ 0
+SPI0_MOSI
+$Comp
+L power:+1V8 #PWR0121
+U 1 1 5AEF0AA4
+P 10250 4100
+F 0 "#PWR0121" H 10250 3950 50  0001 C CNN
+F 1 "+1V8" H 10265 4273 50  0000 C CNN
+F 2 "" H 10250 4100 50  0001 C CNN
+F 3 "" H 10250 4100 50  0001 C CNN
+	1    10250 4100
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0122
+U 1 1 5AEF0B31
+P 10250 4300
+F 0 "#PWR0122" H 10250 4050 50  0001 C CNN
+F 1 "GND" H 10255 4127 50  0001 C CNN
+F 2 "" H 10250 4300 50  0001 C CNN
+F 3 "" H 10250 4300 50  0001 C CNN
+	1    10250 4300
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_02x03_Odd_Even J1
+U 1 1 5AEF116D
+P 9800 4200
+F 0 "J1" H 9850 4517 50  0000 C CNN
+F 1 "SPI" H 9850 4426 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Angled_2x03_Pitch2.54mm" H 9800 4200 50  0001 C CNN
+F 3 "~" H 9800 4200 50  0001 C CNN
+	1    9800 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10250 4100 10100 4100
+Wire Wire Line
+	10250 4300 10100 4300
 $EndSCHEMATC
