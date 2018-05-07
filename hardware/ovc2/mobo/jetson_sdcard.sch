@@ -399,10 +399,11 @@ Wire Wire Line
 Wire Wire Line
 	7900 5650 6950 5650
 Connection ~ 8750 5050
-NoConn ~ 5150 3600
 NoConn ~ 5150 3700
 Wire Wire Line
 	8750 5050 9400 5050
 Connection ~ 8400 5050
 Connection ~ 7900 5650
+Text GLabel 5150 3600 2    61   Input ~ 0
+GPIO2_1V8
 $EndSCHEMATC

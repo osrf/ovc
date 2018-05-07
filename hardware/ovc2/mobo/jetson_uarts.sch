@@ -39,13 +39,11 @@ Wire Wire Line
 	2450 1350 3050 1350
 Text Notes 3750 1200 0    50   ~ 0
 This is the boot console.
-Text GLabel 3050 1250 2    50   Input ~ 0
+Text GLabel 3050 1250 2    60   Input ~ 0
 CONSOLE_TX_1V8
-Text GLabel 3050 1350 2    50   Input ~ 0
+Text GLabel 3050 1350 2    60   Input ~ 0
 CONSOLE_RX_1V8
-Text Notes 3650 1350 0    50   ~ 0
-TODO: level-shift IC
-Text GLabel 8450 3250 2    60   Input ~ 0
+Text GLabel 8450 3350 2    60   Input ~ 0
 IMU_TX1_3V3
 Text GLabel 5600 3250 2    60   Input ~ 0
 IMU_RX1_3V3
@@ -137,29 +135,29 @@ Wire Wire Line
 $Comp
 L power:+1V8 #PWR0111
 U 1 1 5AEE46E3
-P 7350 2750
-F 0 "#PWR0111" H 7350 2600 50  0001 C CNN
-F 1 "+1V8" H 7365 2923 50  0000 C CNN
-F 2 "" H 7350 2750 50  0001 C CNN
-F 3 "" H 7350 2750 50  0001 C CNN
-	1    7350 2750
+P 7250 2750
+F 0 "#PWR0111" H 7250 2600 50  0001 C CNN
+F 1 "+1V8" H 7265 2923 50  0000 C CNN
+F 2 "" H 7250 2750 50  0001 C CNN
+F 3 "" H 7250 2750 50  0001 C CNN
+	1    7250 2750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7350 2750 7500 2750
+	7250 2750 7500 2750
 $Comp
 L power:GND #PWR0117
 U 1 1 5AEE47B6
-P 7350 3050
-F 0 "#PWR0117" H 7350 2800 50  0001 C CNN
-F 1 "GND" H 7355 2877 50  0001 C CNN
-F 2 "" H 7350 3050 50  0001 C CNN
-F 3 "" H 7350 3050 50  0001 C CNN
-	1    7350 3050
+P 7250 3050
+F 0 "#PWR0117" H 7250 2800 50  0001 C CNN
+F 1 "GND" H 7255 2877 50  0001 C CNN
+F 2 "" H 7250 3050 50  0001 C CNN
+F 3 "" H 7250 3050 50  0001 C CNN
+	1    7250 3050
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7350 3050 7500 3050
+	7250 3050 7500 3050
 $Comp
 L power:GND #PWR0118
 U 1 1 5AEE48B0
@@ -211,7 +209,7 @@ Wire Wire Line
 Wire Wire Line
 	5750 2850 5750 2750
 Connection ~ 5750 2750
-Text GLabel 7500 3250 0    60   Input ~ 0
+Text GLabel 7500 3350 0    60   Input ~ 0
 IMU_TX1_1V8
 Text GLabel 4650 3250 0    60   Input ~ 0
 IMU_RX1_1V8
@@ -231,32 +229,319 @@ Text GLabel 2450 2550 2    60   Input ~ 0
 UART3_RX_1V8
 Text Notes 2550 2950 0    50   ~ 0
 uart7 has internal TX2 traffic
-Text GLabel 4650 3350 0    60   Input ~ 0
+Text GLabel 4650 3650 0    60   Input ~ 0
 UART2_TX_1V8
-Text GLabel 7500 3350 0    60   Input ~ 0
+Text GLabel 7500 3250 0    60   Input ~ 0
 UART2_RX_1V8
 Text GLabel 4650 3450 0    60   Input ~ 0
 UART3_TX_1V8
-Text GLabel 7500 3450 0    60   Input ~ 0
+Text GLabel 7500 3550 0    60   Input ~ 0
 UART3_RX_1V8
-Text GLabel 5600 3350 2    60   Input ~ 0
+Text GLabel 5600 3650 2    60   Input ~ 0
 UART2_TX_3V3
 Text GLabel 5600 3450 2    60   Input ~ 0
 UART3_TX_3V3
-Text GLabel 8450 3350 2    60   Input ~ 0
+Text GLabel 8450 3250 2    60   Input ~ 0
 UART2_RX_3V3
-Text GLabel 8450 3450 2    60   Input ~ 0
+Text GLabel 8450 3550 2    60   Input ~ 0
 UART3_RX_3V3
-Text GLabel 4650 3550 0    60   Input ~ 0
+Text GLabel 4650 3350 0    60   Input ~ 0
 LED_1V8
-Text GLabel 5600 3550 2    60   Input ~ 0
+Text GLabel 5600 3350 2    60   Input ~ 0
 LED
-Text GLabel 4650 3650 0    50   Input ~ 0
+Text GLabel 4650 3550 0    60   Input ~ 0
 CONSOLE_TX_1V8
-Text GLabel 7500 3650 0    50   Input ~ 0
+Text GLabel 7500 3450 0    60   Input ~ 0
 CONSOLE_RX_1V8
-Text GLabel 5600 3650 2    50   Input ~ 0
+Text GLabel 5600 3550 2    60   Input ~ 0
 CONSOLE_TX_3V3
-Text GLabel 8450 3650 2    50   Input ~ 0
+Text GLabel 8450 3450 2    60   Input ~ 0
 CONSOLE_RX_3V3
+$Comp
+L device:C_Small C19
+U 1 1 5AF0A9C1
+P 5950 2900
+F 0 "C19" H 6042 2946 50  0000 L CNN
+F 1 "100n" H 6042 2855 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 5950 2900 50  0001 C CNN
+F 3 "~" H 5950 2900 50  0001 C CNN
+	1    5950 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 2750 5950 2750
+Wire Wire Line
+	5950 2750 5950 2800
+Wire Wire Line
+	5750 3050 5950 3050
+Wire Wire Line
+	5950 3050 5950 3000
+Connection ~ 5750 3050
+$Comp
+L device:C_Small C18
+U 1 1 5AF0ADFC
+P 4250 2850
+F 0 "C18" H 4342 2896 50  0000 L CNN
+F 1 "100n" H 4342 2805 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 4250 2850 50  0001 C CNN
+F 3 "~" H 4250 2850 50  0001 C CNN
+	1    4250 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L device:C_Small C21
+U 1 1 5AF0B957
+P 8800 2900
+F 0 "C21" H 8892 2946 50  0000 L CNN
+F 1 "100n" H 8892 2855 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 8800 2900 50  0001 C CNN
+F 3 "~" H 8800 2900 50  0001 C CNN
+	1    8800 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8600 2750 8800 2750
+Wire Wire Line
+	8800 2750 8800 2800
+Wire Wire Line
+	8600 3050 8800 3050
+Wire Wire Line
+	8800 3050 8800 3000
+Connection ~ 8600 3050
+$Comp
+L device:C_Small C20
+U 1 1 5AF0BD35
+P 7250 2900
+F 0 "C20" H 7342 2946 50  0000 L CNN
+F 1 "100n" H 7342 2855 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 7250 2900 50  0001 C CNN
+F 3 "~" H 7250 2900 50  0001 C CNN
+	1    7250 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 2800 7250 2750
+Connection ~ 7250 2750
+Wire Wire Line
+	4250 2750 4650 2750
+$Comp
+L power:GND #PWR0124
+U 1 1 5AF0D222
+P 4250 2950
+F 0 "#PWR0124" H 4250 2700 50  0001 C CNN
+F 1 "GND" H 4255 2777 50  0001 C CNN
+F 2 "" H 4250 2950 50  0001 C CNN
+F 3 "" H 4250 2950 50  0001 C CNN
+	1    4250 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 3000 7250 3050
+Connection ~ 7250 3050
+Text Notes 5700 4850 0    50   ~ 0
+TODO: pullups/pulldowns on all inputs
+Text GLabel 7500 3650 0    60   Input ~ 0
+GPIO1_1V8
+Text GLabel 7500 3750 0    60   Input ~ 0
+GPIO2_1V8
+Text GLabel 7500 3950 0    60   Input ~ 0
+GPIO3_1V8
+Text GLabel 7500 3850 0    60   Input ~ 0
+GPIO4_1V8
+Text GLabel 8450 3650 2    60   Input ~ 0
+GPIO1_3V3
+Text GLabel 8450 3750 2    60   Input ~ 0
+GPIO2_3V3
+Text GLabel 8450 3950 2    60   Input ~ 0
+GPIO3_3V3
+Text GLabel 8450 3850 2    60   Input ~ 0
+GPIO4_3V3
+Text GLabel 4650 3950 0    60   Input ~ 0
+GPIO5_1V8
+Text GLabel 4650 3750 0    60   Input ~ 0
+GPIO6_1V8
+Text GLabel 4650 3850 0    60   Input ~ 0
+GPIO7_1V8
+Text GLabel 5600 3950 2    60   Input ~ 0
+GPIO5_3V3
+Text GLabel 5600 3750 2    60   Input ~ 0
+GPIO6_3V3
+Text GLabel 5600 3850 2    60   Input ~ 0
+GPIO7_3V3
+Text GLabel 7750 5150 0    60   Input ~ 0
+IMU_TX1_3V3
+Text GLabel 7750 5050 0    60   Input ~ 0
+UART2_RX_3V3
+Text GLabel 7750 5350 0    60   Input ~ 0
+UART3_RX_3V3
+Text GLabel 7750 5250 0    60   Input ~ 0
+CONSOLE_RX_3V3
+Text GLabel 7750 5450 0    60   Input ~ 0
+GPIO1_3V3
+Text GLabel 7750 5550 0    60   Input ~ 0
+GPIO2_3V3
+Text GLabel 7750 5750 0    60   Input ~ 0
+GPIO3_3V3
+Text GLabel 7750 5650 0    60   Input ~ 0
+GPIO4_3V3
+$Comp
+L power:+3V3 #PWR0143
+U 1 1 5AF4C764
+P 8600 5050
+F 0 "#PWR0143" H 8600 4900 50  0001 C CNN
+F 1 "+3V3" H 8615 5223 50  0000 C CNN
+F 2 "" H 8600 5050 50  0001 C CNN
+F 3 "" H 8600 5050 50  0001 C CNN
+	1    8600 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L device:R_Small R9
+U 1 1 5AF4C82E
+P 8100 5050
+F 0 "R9" V 8050 4850 50  0000 C CNN
+F 1 "10k" V 8050 5250 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 8100 5050 50  0001 C CNN
+F 3 "~" H 8100 5050 50  0001 C CNN
+	1    8100 5050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7750 5050 8000 5050
+Wire Wire Line
+	8200 5050 8600 5050
+$Comp
+L device:R_Small R10
+U 1 1 5AF4D3EE
+P 8100 5150
+F 0 "R10" V 8050 4950 50  0000 C CNN
+F 1 "10k" V 8050 5350 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 8100 5150 50  0001 C CNN
+F 3 "~" H 8100 5150 50  0001 C CNN
+	1    8100 5150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8000 5150 7750 5150
+Wire Wire Line
+	8200 5150 8600 5150
+Wire Wire Line
+	8600 5150 8600 5050
+Connection ~ 8600 5050
+$Comp
+L device:R_Small R27
+U 1 1 5AF4E599
+P 8100 5250
+F 0 "R27" V 8050 5050 50  0000 C CNN
+F 1 "10k" V 8050 5450 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 8100 5250 50  0001 C CNN
+F 3 "~" H 8100 5250 50  0001 C CNN
+	1    8100 5250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8000 5250 7750 5250
+Wire Wire Line
+	8200 5250 8600 5250
+Wire Wire Line
+	8600 5250 8600 5150
+Connection ~ 8600 5150
+$Comp
+L device:R_Small R28
+U 1 1 5AF4F022
+P 8100 5350
+F 0 "R28" V 8050 5150 50  0000 C CNN
+F 1 "10k" V 8050 5550 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 8100 5350 50  0001 C CNN
+F 3 "~" H 8100 5350 50  0001 C CNN
+	1    8100 5350
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7750 5350 8000 5350
+Wire Wire Line
+	8200 5350 8600 5350
+Wire Wire Line
+	8600 5350 8600 5250
+Connection ~ 8600 5250
+$Comp
+L device:R_Small R29
+U 1 1 5AF50F28
+P 8100 5450
+F 0 "R29" V 8050 5250 50  0000 C CNN
+F 1 "10k" V 8050 5650 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 8100 5450 50  0001 C CNN
+F 3 "~" H 8100 5450 50  0001 C CNN
+	1    8100 5450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8000 5450 7750 5450
+Wire Wire Line
+	8200 5450 8600 5450
+$Comp
+L power:GND #PWR0157
+U 1 1 5AF51D59
+P 8600 5750
+F 0 "#PWR0157" H 8600 5500 50  0001 C CNN
+F 1 "GND" H 8605 5577 50  0001 C CNN
+F 2 "" H 8600 5750 50  0001 C CNN
+F 3 "" H 8600 5750 50  0001 C CNN
+	1    8600 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L device:R_Small R30
+U 1 1 5AF5230E
+P 8100 5550
+F 0 "R30" V 8050 5350 50  0000 C CNN
+F 1 "10k" V 8050 5750 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 8100 5550 50  0001 C CNN
+F 3 "~" H 8100 5550 50  0001 C CNN
+	1    8100 5550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7750 5550 8000 5550
+Wire Wire Line
+	8200 5550 8600 5550
+Wire Wire Line
+	8600 5550 8600 5450
+$Comp
+L device:R_Small R31
+U 1 1 5AF53917
+P 8100 5650
+F 0 "R31" V 8050 5450 50  0000 C CNN
+F 1 "10k" V 8050 5850 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 8100 5650 50  0001 C CNN
+F 3 "~" H 8100 5650 50  0001 C CNN
+	1    8100 5650
+	0    1    1    0   
+$EndComp
+$Comp
+L device:R_Small R32
+U 1 1 5AF5391D
+P 8100 5750
+F 0 "R32" V 8050 5550 50  0000 C CNN
+F 1 "10k" V 8050 5950 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 8100 5750 50  0001 C CNN
+F 3 "~" H 8100 5750 50  0001 C CNN
+	1    8100 5750
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8000 5650 7750 5650
+Wire Wire Line
+	7750 5750 8000 5750
+Wire Wire Line
+	8200 5650 8600 5650
+Wire Wire Line
+	8600 5650 8600 5550
+Connection ~ 8600 5550
+Wire Wire Line
+	8200 5750 8600 5750
+Wire Wire Line
+	8600 5750 8600 5650
+Connection ~ 8600 5650
+Connection ~ 8600 5750
 $EndSCHEMATC
