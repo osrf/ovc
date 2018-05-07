@@ -3,16 +3,7 @@ NAME=ovc
 OUT=$(BIN)/$(NAME)
 default: $(OUT).vvp
 #MODULES=cmd_rx
-MODULES=r s sim_clk d1 d4 dn oneshot gmux hmux ffifo \
-        spi_master \
-				reg_ram_iface \
-        python_decoder trigger \
-				imu_reader imu_reg_reader imu_host_spi \
-				signature crc32 \
-				wnd ram_512x32 ast_7x7 ast_mask max \
-				corners ast_detector \
-				timestamp image_stats \
-				dma_writer dma_writer_mux metadata
+MODULES=r s d1
 SRCS=top.v $(MODULES:%=%.v)
 SYNTH_SRCS=top_wrapper.v
 SIM_SRCS=top_tb.v sim_python.v sim_imu.v sim_imu_ram.v sim_reg_ram.v
@@ -65,7 +56,7 @@ $(OUT).autogen.tcl: $(BIN) $(NAME).tcl
 
 $(BIN)/$(NAME)_qsys: $(NAME)_qsys.qsys
 	cp $(NAME)_qsys.qsys $(BIN)/$(NAME)_qsys.qsys
-	cd $(BIN) && $(QUARTUS_PATH)/quartus/sopc_builder/bin/qsys-generate $(NAME)_qsys.qsys --synthesis=VERILOG --output-directory=$(PWD)/$(BIN)/$(NAME)_qsys --family="Cyclone V" --part=5CGTFD5C5U19C7
+	cd $(BIN) && $(QUARTUS_PATH)/quartus/sopc_builder/bin/qsys-generate $(NAME)_qsys.qsys --synthesis=VERILOG --output-directory=$(PWD)/$(BIN)/$(NAME)_qsys --family="Cyclone 10" --part=10CX220YF672E6G
 
 synth: Makefile $(BIN) $(BIN)/$(NAME)_qsys $(OUT).autogen.tcl $(OUT).sdc
 	cd $(BIN) && $(QUARTUS_BIN)/quartus_sh -t $(NAME).autogen.tcl

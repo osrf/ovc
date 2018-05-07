@@ -40,9 +40,9 @@ Wire Wire Line
 Text Notes 3750 1200 0    50   ~ 0
 This is the boot console.
 Text GLabel 3050 1250 2    50   Input ~ 0
-CONSOLE_TX
+CONSOLE_TX_1V8
 Text GLabel 3050 1350 2    50   Input ~ 0
-CONSOLE_RX
+CONSOLE_RX_1V8
 Text Notes 3650 1350 0    50   ~ 0
 TODO: level-shift IC
 Text GLabel 8450 3250 2    60   Input ~ 0
@@ -251,4 +251,12 @@ Text GLabel 4650 3550 0    60   Input ~ 0
 LED_1V8
 Text GLabel 5600 3550 2    60   Input ~ 0
 LED
+Text GLabel 4650 3650 0    50   Input ~ 0
+CONSOLE_TX_1V8
+Text GLabel 7500 3650 0    50   Input ~ 0
+CONSOLE_RX_1V8
+Text GLabel 5600 3650 2    50   Input ~ 0
+CONSOLE_TX_3V3
+Text GLabel 8450 3650 2    50   Input ~ 0
+CONSOLE_RX_3V3
 $EndSCHEMATC

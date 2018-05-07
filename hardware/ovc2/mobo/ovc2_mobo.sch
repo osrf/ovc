@@ -310,4 +310,6 @@ Text GLabel 9450 3750 2    60   Input ~ 0
 IMU_TX1_3V3
 Text GLabel 9450 3850 2    60   Input ~ 0
 IMU_RX1_3V3
+Text Notes 4000 4050 0    197  ~ 39
+TODO: 1V8 LDO
 $EndSCHEMATC
