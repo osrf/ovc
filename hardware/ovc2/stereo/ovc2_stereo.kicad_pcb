@@ -1,4 +1,4 @@
-(kicad_pcb (version 20171130) (host pcbnew 5.0.0-rc2-dev-unknown-c8a7840~64~ubuntu18.04.1)
+(kicad_pcb (version 20171130) (host pcbnew 5.0.0-rc2-dev-unknown-d35a6f1~64~ubuntu16.04.1)
 
   (general
     (thickness 1.6)
@@ -38,7 +38,7 @@
   )
 
   (setup
-    (last_trace_width 0.2032)
+    (last_trace_width 0.25)
     (user_trace_width 0.127)
     (user_trace_width 0.1524)
     (user_trace_width 0.1778)

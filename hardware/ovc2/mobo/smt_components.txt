@@ -1,0 +1,16 @@
+1nf 0402: KEMET C0402C102K5RACTU digikey # 399-1032
+10nf 0402: TDK C1005X7S2A103K050BB digikey # 445-5199
+100nf 0402: Taiyo Yuden TMK105BJ104KV-F  digikey # 587-1456
+100nf 0603: KEMET C0603X104M3RACTU  mouser #
+1uf 0402: Taiyo Yuden LMK105BJ105KV-F  digikey # 587-1454
+10uf 0603: Murata ZRB18AR61E106ME01L  digikey # 490-10991
+33uf 1206: TDK C3216X5R1C336M160AB  digikey #445-6002
+
+0 ohm 0402: Panasonic ERJ-2GE0R00X  digikey # P0.0J
+10 ohm 0402: Panasonic ERJ-2RKF10R0X  digikey # P10.0L
+499 ohm 0402: Panasonic ERJ-2RKF4990X digikey # P499L
+10k ohm 0402: Panasonic ERJ-2RKF1002X digikey # P10.0KL
+100k ohm 0402: Panasonic ERJ-2RKF1003X digikey # P100KL
+10M ohm 0402: Panasonic ERJ-2GEJ106X  digikey # P10MJ
+
+600 ohm 0402 ferrite: Murata BLM15AG601SN1D  digikey # 490-1006
