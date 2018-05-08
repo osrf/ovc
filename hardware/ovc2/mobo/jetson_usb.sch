@@ -589,8 +589,6 @@ Text Label 7250 4300 0    60   ~ 0
 USB0_ID
 Text Label 9050 3800 0    60   ~ 0
 USB0_ID
-Text GLabel 1950 6050 0    60   Input ~ 0
-USB2_5V
 Wire Wire Line
 	1900 1700 3750 1700
 Wire Wire Line
@@ -617,8 +615,6 @@ Wire Wire Line
 	3500 2500 5000 2500
 Wire Wire Line
 	1900 1900 2450 1900
-Wire Wire Line
-	1950 6050 2100 6050
 Wire Wire Line
 	3150 6150 3700 6150
 Wire Wire Line
@@ -763,4 +759,15 @@ Wire Wire Line
 Connection ~ 6700 3200
 Wire Wire Line
 	6700 3200 6800 3200
+$Comp
+L power:+5V #PWR0150
+U 1 1 5B3487DF
+P 3150 5600
+F 0 "#PWR0150" H 3150 5450 50  0001 C CNN
+F 1 "+5V" H 3165 5773 50  0000 C CNN
+F 2 "" H 3150 5600 50  0001 C CNN
+F 3 "" H 3150 5600 50  0001 C CNN
+	1    3150 5600
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

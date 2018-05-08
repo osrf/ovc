@@ -262,17 +262,6 @@ Wire Wire Line
 Wire Wire Line
 	9600 3350 9600 3250
 Connection ~ 9600 3250
-$Comp
-L power:+3V3 #PWR0103
-U 1 1 5AC98B62
-P 10800 3650
-F 0 "#PWR0103" H 10800 3500 50  0001 C CNN
-F 1 "+3V3" H 10815 3823 50  0000 C CNN
-F 2 "" H 10800 3650 50  0001 C CNN
-F 3 "" H 10800 3650 50  0001 C CNN
-	1    10800 3650
-	1    0    0    -1  
-$EndComp
 Text GLabel 9450 4850 2    60   Input ~ 0
 LED
 $Comp
@@ -304,8 +293,6 @@ Wire Wire Line
 Wire Wire Line
 	10500 4150 10500 4750
 Connection ~ 10500 4750
-Wire Wire Line
-	9450 3650 10800 3650
 Text GLabel 9450 3750 2    60   Input ~ 0
 IMU_TX1_3V3
 Text GLabel 9450 3850 2    60   Input ~ 0

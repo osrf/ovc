@@ -247,8 +247,6 @@ Text GLabel 6100 4200 2    60   Input ~ 0
 FPGA_CONFIG_DATA0
 Text GLabel 6100 4300 2    60   Input ~ 0
 FPGA_CONFIG_DCLK
-Text GLabel 6100 3300 2    60   Input ~ 0
-3V3_ALWAYS_ON
 Text GLabel 6100 4500 2    60   Input ~ 0
 TX2_LED
 $Comp
