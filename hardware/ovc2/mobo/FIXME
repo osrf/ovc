@@ -1,0 +1,2 @@
+Bugs found in rev.A that need to be fixed:
+* ground the microSD card write-protect, so we don't have to hack the driver

@@ -1,4 +1,4 @@
-(kicad_pcb (version 20171130) (host pcbnew 5.0.0-rc2-dev-unknown-d35a6f1~64~ubuntu16.04.1)
+(kicad_pcb (version 20171130) (host pcbnew 5.0.0-rc2-dev-unknown-6866c0c~65~ubuntu18.04.1)
 
   (general
     (thickness 1.6)
@@ -6,7 +6,7 @@
     (tracks 4031)
     (zones 0)
     (modules 193)
-    (nets 489)
+    (nets 491)
   )
 
   (page A4)
@@ -38,7 +38,7 @@
   )
 
   (setup
-    (last_trace_width 0.254)
+    (last_trace_width 0.25)
     (user_trace_width 0.127)
     (user_trace_width 0.1524)
     (user_trace_width 0.1778)
@@ -592,6 +592,8 @@
   (net 486 /fpga_io/CAM2_MONITOR_1V8)
   (net 487 /fpga_io/IMU_TX1_1V8)
   (net 488 "Net-(J2-Pad12)")
+  (net 489 "Net-(C7-Pad1)")
+  (net 490 "Net-(C7-Pad2)")
 
   (net_class Default "This is the default net class."
     (clearance 0.1)
@@ -781,6 +783,8 @@
     (add_net "Net-(C11-Pad1)")
     (add_net "Net-(C1106-Pad1)")
     (add_net "Net-(C58-Pad1)")
+    (add_net "Net-(C7-Pad1)")
+    (add_net "Net-(C7-Pad2)")
     (add_net "Net-(C8-Pad1)")
     (add_net "Net-(D1-Pad2)")
     (add_net "Net-(D2-Pad2)")
@@ -4456,9 +4460,9 @@
       (effects (font (size 0.8 0.8) (thickness 0.12)))
     )
     (pad 1 smd rect (at -1.505 0 90) (size 1.07 1.8) (layers F.Cu F.Paste F.Mask)
-      (net 17 +12V))
+      (net 489 "Net-(C7-Pad1)"))
     (pad 2 smd rect (at 1.505 0 90) (size 1.07 1.8) (layers F.Cu F.Paste F.Mask)
-      (net 1 GND))
+      (net 490 "Net-(C7-Pad2)"))
     (model ${KISYS3DMOD}/Capacitor_SMD.3dshapes/C_1206_3216Metric.wrl
       (at (xyz 0 0 0))
       (scale (xyz 1 1 1))
