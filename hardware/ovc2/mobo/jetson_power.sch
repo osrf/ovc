@@ -26,8 +26,9 @@ F 2 "Jetson:JETSON_TX" H 850 5000 50  0001 C CNN
 F 3 "" H 850 5000 50  0001 C CNN
 F 4 "samtec" H 850 5000 50  0001 C CNN "D1"
 F 5 "SEAM-50-03.5-S-08-2-A-K-TR" H 850 5000 50  0001 C CNN "D1PN"
-F 6 "Samtec" H 850 5000 50  0001 C CNN "MFN"
-F 7 "SEAM-50-03.5-S-08-2-A-K-TR" H 1356 9365 50  0001 C CNN "MPN"
+F 6 "Interface for TX2 module" H 1356 9365 50  0001 C CNN "Description"
+F 7 "Samtec" H 850 5000 50  0001 C CNN "MFN"
+F 8 "SEAM-50-03.5-S-08-2-A-K-TR" H 1356 9365 50  0001 C CNN "MPN"
 	6    850  5000
 	1    0    0    -1  
 $EndComp
@@ -55,9 +56,10 @@ F 1 "Jetson" H 3506 3174 50  0000 C CNN
 F 2 "Jetson:JETSON_TX" H 3000 2000 50  0001 C CNN
 F 3 "" H 3000 2000 50  0001 C CNN
 F 4 "samtec" H 3000 2000 50  0001 C CNN "D1"
-F 5 "SEAM-50-02.0-S-08-2-A-K-TR" H 3000 2000 50  0001 C CNN "D1PN"
-F 6 "Samtec" H 3000 2000 50  0001 C CNN "MFN"
-F 7 "SEAM-50-02.0-S-08-2-A-K-TR" H 3506 3365 50  0001 C CNN "MPN"
+F 5 "SEAM-50-03.5-S-08-2-A-K-TR" H 3000 2000 50  0001 C CNN "D1PN"
+F 6 "Interface for TX2 module" H 3506 3365 50  0001 C CNN "Description"
+F 7 "Samtec" H 3000 2000 50  0001 C CNN "MFN"
+F 8 "SEAM-50-03.5-S-08-2-A-K-TR" H 3506 3365 50  0001 C CNN "MPN"
 	11   3000 2000
 	1    0    0    -1  
 $EndComp
@@ -68,7 +70,7 @@ P 3450 4200
 F 0 "C1" H 3541 4246 50  0000 L CNN
 F 1 "80m" H 3541 4155 50  0000 L CNN
 F 2 "Batteries_OSRF:SEIKO_XH414HG_IV01E" H 3450 4200 50  0001 C CNN
-F 3 "https://media.digikey.com/pdf/Data%20Sheets/Seiko%20Instruments%20PDFs/XH414HG,%20XH409HG.pdf" H 3450 4200 50  0001 C CNN
+F 3 "" H 3450 4200 50  0001 C CNN
 F 4 "digikey" H 3541 4346 50  0001 C CNN "D1"
 F 5 "728-1050" H 3541 4346 50  0001 C CNN "D1PN"
 F 6 "Seiko" H 3450 4200 60  0001 C CNN "MFN"
@@ -97,9 +99,9 @@ F 2 "Buttons_Switches_THT:SW_Tactile_SPST_Angled_PTS645Vx58-2LFS" H 4800 4350 50
 F 3 "" H 4800 4350 50  0001 C CNN
 F 4 "DNP" H 4754 4398 50  0001 C CNN "D1"
 F 5 "DNP" V 4800 4150 60  0001 C CNN "D1PN"
-F 6 "DNP" H 4754 4398 50  0001 C CNN "MFN"
-F 7 "DNP" V 4800 4150 60  0001 C CNN "MPN"
-F 8 "CKN9120" V 4800 4150 50  0001 C CNN "DNP_PN"
+F 6 "CKN9120" V 4800 4150 50  0001 C CNN "DNP_PN"
+F 7 "DNP" H 4754 4398 50  0001 C CNN "MFN"
+F 8 "DNP" V 4800 4150 60  0001 C CNN "MPN"
 	1    4800 4150
 	0    1    1    0   
 $EndComp
@@ -154,6 +156,22 @@ F 6 "Kemet" H 4542 4296 50  0001 C CNN "MFN"
 F 7 "C0402C102K5RACTU" H 4542 4296 50  0001 C CNN "MPN"
 	1    4450 4150
 	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW3
+U 1 1 5AEDD80B
+P 6150 4150
+F 0 "SW3" V 6104 4298 50  0000 L CNN
+F 1 "SW_Push" V 6195 4298 50  0000 L CNN
+F 2 "Buttons_Switches_THT:SW_Tactile_SPST_Angled_PTS645Vx58-2LFS" H 6150 4350 50  0001 C CNN
+F 3 "" H 6150 4350 50  0001 C CNN
+F 4 "DNP" H 6104 4398 50  0001 C CNN "D1"
+F 5 "DNP" V 6150 4150 60  0001 C CNN "D1PN"
+F 6 "CKN9120" H 6104 4398 50  0001 C CNN "DNP_PN"
+F 7 "DNP" H 6104 4398 50  0001 C CNN "MFN"
+F 8 "DNP" V 6150 4150 60  0001 C CNN "MPN"
+	1    6150 4150
+	0    1    1    0   
 $EndComp
 Text Label 4050 1700 0    60   ~ 0
 CARRIER_PWR_ON
@@ -213,92 +231,6 @@ Wire Wire Line
 	4450 4350 4800 4350
 Wire Wire Line
 	4450 4050 4450 3950
-Connection ~ 1850 1200
-Connection ~ 1850 1300
-Connection ~ 1850 1400
-Connection ~ 1850 3900
-Connection ~ 1850 4000
-Connection ~ 1850 4100
-Connection ~ 1850 4200
-Connection ~ 1850 4300
-Connection ~ 1850 4400
-Connection ~ 1850 4500
-Connection ~ 1850 4600
-Connection ~ 1850 4700
-Connection ~ 1850 4800
-Connection ~ 1850 4900
-Connection ~ 1850 5000
-Connection ~ 1850 5100
-Connection ~ 1850 5200
-Connection ~ 1850 5300
-Connection ~ 1850 5400
-Connection ~ 1850 5500
-Connection ~ 1850 5600
-Connection ~ 1850 5700
-Connection ~ 1850 5800
-Connection ~ 1850 5900
-Connection ~ 1850 6000
-Connection ~ 1850 6100
-Connection ~ 1850 6200
-Connection ~ 1850 1500
-Connection ~ 1850 1600
-Connection ~ 1850 1700
-Connection ~ 1850 1800
-Connection ~ 1850 1900
-Connection ~ 1850 2000
-Connection ~ 1850 2100
-Connection ~ 1850 2200
-Connection ~ 1850 2300
-Connection ~ 1850 2400
-Connection ~ 1850 2500
-Connection ~ 1850 2600
-Connection ~ 1850 2700
-Connection ~ 1850 2800
-Connection ~ 1850 2900
-Connection ~ 1850 3000
-Connection ~ 1850 3100
-Connection ~ 1850 3200
-Connection ~ 1850 3300
-Connection ~ 1850 3400
-Connection ~ 1850 3500
-Connection ~ 1850 3600
-Connection ~ 1850 3700
-Connection ~ 1850 3800
-Connection ~ 1850 6300
-Connection ~ 1850 6400
-Connection ~ 1850 6500
-Connection ~ 1850 6600
-Connection ~ 1850 6700
-Connection ~ 1850 6800
-Connection ~ 1850 6900
-Connection ~ 1850 7000
-Connection ~ 1850 7100
-Connection ~ 1850 7200
-Connection ~ 1850 7300
-Connection ~ 1850 7400
-Connection ~ 1850 7500
-Connection ~ 1850 7600
-Connection ~ 1850 7700
-Connection ~ 1850 7800
-Connection ~ 1850 7900
-Connection ~ 1850 8000
-Connection ~ 1850 8100
-Connection ~ 1850 8200
-Connection ~ 1850 8300
-Connection ~ 1850 8400
-Connection ~ 1850 8500
-Connection ~ 1850 8600
-Connection ~ 1850 8700
-Connection ~ 1850 8800
-Connection ~ 1850 8900
-Connection ~ 4000 1100
-Connection ~ 4000 1200
-Connection ~ 4000 1300
-Connection ~ 4000 1400
-Connection ~ 4000 1000
-Connection ~ 4800 3950
-NoConn ~ 4000 2200
-NoConn ~ 4000 2100
 Wire Wire Line
 	1850 1200 1850 1300
 Wire Wire Line
@@ -469,24 +401,94 @@ Wire Wire Line
 	4800 3950 5400 3950
 Wire Wire Line
 	5800 3950 6150 3950
-$Comp
-L Switch:SW_Push SW3
-U 1 1 5AEDD80B
-P 6150 4150
-F 0 "SW3" V 6104 4298 50  0000 L CNN
-F 1 "SW_Push" V 6195 4298 50  0000 L CNN
-F 2 "Buttons_Switches_THT:SW_Tactile_SPST_Angled_PTS645Vx58-2LFS" H 6150 4350 50  0001 C CNN
-F 3 "" H 6150 4350 50  0001 C CNN
-F 4 "DNP" H 6104 4398 50  0001 C CNN "D1"
-F 5 "DNP" V 6150 4150 60  0001 C CNN "D1PN"
-F 6 "DNP" H 6104 4398 50  0001 C CNN "MFN"
-F 7 "DNP" V 6150 4150 60  0001 C CNN "MPN"
-F 8 "CKN9120" V 6150 4150 50  0001 C CNN "DNPPN"
-	1    6150 4150
-	0    1    1    0   
-$EndComp
-Connection ~ 6150 3950
 Wire Wire Line
 	6150 3950 6750 3950
+Connection ~ 1850 1200
+Connection ~ 1850 1300
+Connection ~ 1850 1400
+Connection ~ 1850 3900
+Connection ~ 1850 4000
+Connection ~ 1850 4100
+Connection ~ 1850 4200
+Connection ~ 1850 4300
+Connection ~ 1850 4400
+Connection ~ 1850 4500
+Connection ~ 1850 4600
+Connection ~ 1850 4700
+Connection ~ 1850 4800
+Connection ~ 1850 4900
+Connection ~ 1850 5000
+Connection ~ 1850 5100
+Connection ~ 1850 5200
+Connection ~ 1850 5300
+Connection ~ 1850 5400
+Connection ~ 1850 5500
+Connection ~ 1850 5600
+Connection ~ 1850 5700
+Connection ~ 1850 5800
+Connection ~ 1850 5900
+Connection ~ 1850 6000
+Connection ~ 1850 6100
+Connection ~ 1850 6200
+Connection ~ 1850 1500
+Connection ~ 1850 1600
+Connection ~ 1850 1700
+Connection ~ 1850 1800
+Connection ~ 1850 1900
+Connection ~ 1850 2000
+Connection ~ 1850 2100
+Connection ~ 1850 2200
+Connection ~ 1850 2300
+Connection ~ 1850 2400
+Connection ~ 1850 2500
+Connection ~ 1850 2600
+Connection ~ 1850 2700
+Connection ~ 1850 2800
+Connection ~ 1850 2900
+Connection ~ 1850 3000
+Connection ~ 1850 3100
+Connection ~ 1850 3200
+Connection ~ 1850 3300
+Connection ~ 1850 3400
+Connection ~ 1850 3500
+Connection ~ 1850 3600
+Connection ~ 1850 3700
+Connection ~ 1850 3800
+Connection ~ 1850 6300
+Connection ~ 1850 6400
+Connection ~ 1850 6500
+Connection ~ 1850 6600
+Connection ~ 1850 6700
+Connection ~ 1850 6800
+Connection ~ 1850 6900
+Connection ~ 1850 7000
+Connection ~ 1850 7100
+Connection ~ 1850 7200
+Connection ~ 1850 7300
+Connection ~ 1850 7400
+Connection ~ 1850 7500
+Connection ~ 1850 7600
+Connection ~ 1850 7700
+Connection ~ 1850 7800
+Connection ~ 1850 7900
+Connection ~ 1850 8000
+Connection ~ 1850 8100
+Connection ~ 1850 8200
+Connection ~ 1850 8300
+Connection ~ 1850 8400
+Connection ~ 1850 8500
+Connection ~ 1850 8600
+Connection ~ 1850 8700
+Connection ~ 1850 8800
+Connection ~ 1850 8900
+Connection ~ 4000 1100
+Connection ~ 4000 1200
+Connection ~ 4000 1300
+Connection ~ 4000 1400
+Connection ~ 4000 1000
+Connection ~ 4800 3950
+Connection ~ 6150 3950
 Connection ~ 6150 4350
+NoConn ~ 4000 2200
+NoConn ~ 4000 2100
 $EndSCHEMATC
