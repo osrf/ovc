@@ -1119,9 +1119,9 @@ Text GLabel 9550 2150 2    60   Input ~ 0
 CAM2_CLKOUT-
 Text GLabel 7850 2350 0    60   Input ~ 0
 CAM2_CLKIN+
-Text GLabel 1700 2150 0    60   Input ~ 0
-CAM1_CLKIN-
 Text GLabel 1700 2350 0    60   Input ~ 0
+CAM1_CLKIN-
+Text GLabel 1700 2150 0    60   Input ~ 0
 CAM1_CLKIN+
 Text GLabel 3500 2450 2    60   Input ~ 0
 CAM1_DOUT0-
