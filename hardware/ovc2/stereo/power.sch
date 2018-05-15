@@ -82,13 +82,10 @@ L device:C_Small C58
 U 1 1 59A1740E
 P 12400 8200
 F 0 "C58" H 12492 8246 50  0000 L CNN
-F 1 "10n" H 12492 8155 50  0000 L CNN
+F 1 "3n3" H 12492 8155 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 12400 8200 50  0001 C CNN
 F 3 "" H 12400 8200 50  0001 C CNN
 F 4 "digikey" H 12492 8346 50  0001 C CNN "D1"
-F 5 "490-4516" H 12492 8346 50  0001 C CNN "D1PN"
-F 6 "Murata" H 12492 8346 50  0001 C CNN "MFN"
-F 7 "GRM155R71H103KA88D" H 12492 8346 50  0001 C CNN "MPN"
 	1    12400 8200
 	1    0    0    -1  
 $EndComp
@@ -426,21 +423,6 @@ F 3 "" H 9800 8600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L device:R_Small R59
-U 1 1 59F8A085
-P 12300 8700
-F 0 "R59" H 12359 8746 50  0000 L CNN
-F 1 "100k" H 12359 8655 50  0000 L CNN
-F 2 "Resistors_SMD:R_0402" H 12300 8700 50  0001 C CNN
-F 3 "" H 12300 8700 50  0001 C CNN
-F 4 "digikey" H 12359 8846 50  0001 C CNN "D1"
-F 5 "311-100KLR" H 12359 8846 50  0001 C CNN "D1PN"
-F 6 "Yageo" H 12359 8846 50  0001 C CNN "MFN"
-F 7 "RC0402FR-07100KL" H 12359 8846 50  0001 C CNN "MPN"
-	1    12300 8700
-	-1   0    0    1   
-$EndComp
-$Comp
 L device:R_Small R60
 U 1 1 59F94350
 P 1750 8600
@@ -493,8 +475,8 @@ Text Label 14650 9150 0    60   ~ 0
 AGND
 Text Label 12450 8400 0    60   ~ 0
 AGND
-Text Notes 11000 7850 0    60   ~ 0
-10n = 3.8ms rise time\nTODO: make it the same as MPM3630
+Text Notes 11350 7900 0    60   ~ 0
+C58 = 3n3 = 2.1ms rise time\n(similar to MPM3630)
 Text Notes 9800 1650 0    60   ~ 0
 VOUT = FB * ( 1 + R1/R2), VFB = 0.8, R2 = 100k\n\nVOUT = 1.03V => R1 = 28.75k => closest value: 28.7k => Resulting Vout= 1.0296V\nVOUT = 1.8V => R1 = 125k => closest value: 124k => Resulting Vout= 1.792V\nVOUT = 2.5V => R1 = 212.5k => closest value: 215k => Resulting Vout= 2.520V\nVOUT = 3.3V => R1 = 312.5k => closest value: 316k => Resulting Vout= 3.296V\nVOUT = 5V => R1 = 525k => closest value: 523k => Resulting Vout= 4.984V\n
 Text Label 14250 7800 0    60   ~ 0
@@ -515,18 +497,10 @@ Text Label 8750 8400 0    60   ~ 0
 JETSON_PWR_EN
 Text Label 10650 8200 0    60   ~ 0
 ~PWR_EN_GRP1
-Text Label 12400 8800 0    60   ~ 0
-PG_GRP1
 Text Label 7300 5100 0    60   ~ 0
 JETSON_PWR_EN
 Wire Wire Line
-	13450 9300 13550 9300
-Wire Wire Line
 	12900 9300 13250 9300
-Wire Wire Line
-	14200 7800 14200 7900
-Wire Wire Line
-	12900 7100 12900 7200
 Wire Wire Line
 	14200 8800 14300 8800
 Wire Wire Line
@@ -588,20 +562,11 @@ Wire Wire Line
 Wire Wire Line
 	8750 8400 9500 8400
 Wire Wire Line
-	12050 8550 12300 8550
-Wire Wire Line
-	12300 8550 12300 8600
-Wire Wire Line
-	12900 8800 12300 8800
-Wire Wire Line
 	1750 8800 1750 8700
 Wire Wire Line
 	1750 8400 1750 8500
 Wire Wire Line
 	1750 9200 1750 9300
-Connection ~ 13750 9300
-Connection ~ 13650 9300
-Connection ~ 13550 9300
 Connection ~ 14200 7900
 Connection ~ 14200 8000
 Connection ~ 14200 8100
@@ -609,16 +574,6 @@ Connection ~ 14200 8200
 Connection ~ 14200 8300
 Connection ~ 14200 8400
 Connection ~ 14200 8500
-Connection ~ 12900 7200
-Connection ~ 12900 7300
-Connection ~ 12900 7400
-Connection ~ 12900 7500
-Connection ~ 14200 7200
-Connection ~ 14200 7300
-Connection ~ 14200 7400
-Connection ~ 14200 7500
-Connection ~ 14200 7600
-Connection ~ 13250 9300
 Connection ~ 14550 9150
 Connection ~ 12500 7100
 Connection ~ 12100 7100
@@ -636,46 +591,6 @@ NoConn ~ 12900 8700
 NoConn ~ 12900 8600
 NoConn ~ 12900 7900
 Wire Wire Line
-	13750 9300 13850 9300
-Wire Wire Line
-	13650 9300 13750 9300
-Wire Wire Line
-	13550 9300 13650 9300
-Wire Wire Line
-	14200 7900 14200 8000
-Wire Wire Line
-	14200 8000 14200 8100
-Wire Wire Line
-	14200 8100 14200 8200
-Wire Wire Line
-	14200 8200 14200 8300
-Wire Wire Line
-	14200 8300 14200 8400
-Wire Wire Line
-	14200 8400 14200 8500
-Wire Wire Line
-	14200 8500 14200 8600
-Wire Wire Line
-	12900 7200 12900 7300
-Wire Wire Line
-	12900 7300 12900 7400
-Wire Wire Line
-	12900 7400 12900 7500
-Wire Wire Line
-	12900 7500 12900 7600
-Wire Wire Line
-	14200 7200 14200 7300
-Wire Wire Line
-	14200 7300 14200 7400
-Wire Wire Line
-	14200 7400 14200 7500
-Wire Wire Line
-	14200 7500 14200 7600
-Wire Wire Line
-	14200 7600 14200 7700
-Wire Wire Line
-	13250 9300 13350 9300
-Wire Wire Line
 	14550 9150 14900 9150
 Wire Wire Line
 	12500 7100 12900 7100
@@ -689,8 +604,6 @@ Wire Wire Line
 	14900 7100 15250 7100
 Wire Wire Line
 	14900 7300 15250 7300
-Wire Wire Line
-	14200 7100 14200 7200
 Wire Wire Line
 	12400 8400 11650 8400
 Text GLabel 14250 6950 2    50   Input ~ 0
@@ -707,8 +620,6 @@ Text GLabel 3450 8400 2    50   Input ~ 0
 1V03
 Text Notes 750  7850 0    118  ~ 24
 active discharge of all rails
-Text GLabel 12050 8550 0    60   Input ~ 0
-3V3_ALWAYS_ON
 $Comp
 L device:LED_Small D1
 U 1 1 5AEC4830
@@ -1545,7 +1456,7 @@ L device:R_Small R13
 U 1 1 5B03F70A
 P 9450 5900
 F 0 "R13" H 9509 5946 50  0000 L CNN
-F 1 "72k" H 9509 5855 50  0000 L CNN
+F 1 "71k5" H 9509 5855 50  0000 L CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" H 9450 5900 50  0001 C CNN
 F 3 "" H 9450 5900 50  0001 C CNN
 F 4 "digikey" H 9509 6046 50  0001 C CNN "D1"
@@ -1691,8 +1602,6 @@ Text Notes 8250 4150 0    60   ~ 0
 AGND and DGND\nconnected internally
 Text Notes 7550 6350 0    60   ~ 0
 AGND and DGND\nconnected internally
-Text Notes 9500 6100 0    60   ~ 0
-TODO: calculate required value for 1v03
 $Comp
 L device:R_Small R11
 U 1 1 5AF74778
@@ -1708,4 +1617,66 @@ F 5 "Panasonic" H 9359 5846 50  0001 C CNN "MFN"
 $EndComp
 Wire Wire Line
 	9450 5700 9400 5700
+Connection ~ 13250 9300
+Connection ~ 14200 7600
+Connection ~ 14200 7500
+Connection ~ 14200 7400
+Connection ~ 14200 7300
+Connection ~ 14200 7200
+Connection ~ 12900 7500
+Connection ~ 12900 7400
+Connection ~ 12900 7300
+Connection ~ 12900 7200
+Connection ~ 13550 9300
+Connection ~ 13650 9300
+Connection ~ 13750 9300
+Wire Wire Line
+	12900 7400 12900 7500
+Wire Wire Line
+	14200 7500 14200 7600
+Wire Wire Line
+	14200 7400 14200 7500
+Wire Wire Line
+	14200 7300 14200 7400
+Wire Wire Line
+	14200 7200 14200 7300
+Wire Wire Line
+	14200 7100 14200 7200
+Wire Wire Line
+	13750 9300 13850 9300
+Wire Wire Line
+	13650 9300 13750 9300
+Wire Wire Line
+	12900 7500 12900 7600
+Wire Wire Line
+	14200 7600 14200 7700
+Wire Wire Line
+	13550 9300 13650 9300
+Wire Wire Line
+	13450 9300 13550 9300
+Wire Wire Line
+	13250 9300 13350 9300
+Wire Wire Line
+	14200 8500 14200 8600
+Wire Wire Line
+	14200 8400 14200 8500
+Wire Wire Line
+	14200 8300 14200 8400
+Wire Wire Line
+	14200 8200 14200 8300
+Wire Wire Line
+	14200 8100 14200 8200
+Wire Wire Line
+	14200 8000 14200 8100
+Wire Wire Line
+	14200 7900 14200 8000
+Wire Wire Line
+	12900 7300 12900 7400
+Wire Wire Line
+	12900 7200 12900 7300
+Wire Wire Line
+	14200 7800 14200 7900
+Wire Wire Line
+	12900 7100 12900 7200
+NoConn ~ 12900 8800
 $EndSCHEMATC
