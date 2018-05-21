@@ -2,3 +2,4 @@ Bugs found in rev.A that need to be fixed:
 * ground the microSD card write-protect, so we don't have to hack the driver
 * add meanders to correct pair skew for PCIe, HDMI, GbE, USB3, USB2
 * R35, R34 should be 4R99
+* Ethernet pairs might need to be swapped back to their original assignments and polarity; it's not clear that it's OK to swap them for a convenient layout.
