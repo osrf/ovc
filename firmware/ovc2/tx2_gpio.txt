@@ -1,0 +1,10 @@
+CONF_DONE    = TX2 B19 = GPIO11_AP_WAKE_BT = GPIO3_PI.05 = 320+8*8+5 = 389
+NSTATUS      = TX2 B21 = GPIO12_BT_EN
+NCONFIG      = TX2 B22 = GPIO13_BT_WAKE_AP
+CONFIG_DCLK  = TX2 G13 = SPI1_CLK
+CONFIG_DATA0 = TX2 F13 = SPI1_MOSI
+
+===
+sudo bash
+echo 389 > /sys/class/gpio/export
+echo in > /sys/class/gpio/gpio389/direction
