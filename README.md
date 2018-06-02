@@ -6,9 +6,9 @@ This repo contains hardware, firmware, and software for an open-source embedded
 vision system: the Open Vision Computer (OVC). The goal is to connect state of
 the art open hardware with open firmware and software. There are a few revs:
 
- * ovc0: a trinocular system: three Python1300 imagers, an Artix-7 FPGA, DRAM, and USB3 via a Cypress FX3 controller.
- * ovc1: a binocular system: two Python1300 imagers, a Jetson TX2 (6x ARMv8, GPU, etc.) connected to a Cyclone-V GT FPGA over PCIe.
- * ovc2: next-gen binocular system (current under construction)
+ * ovc0: three Python1300 imagers, an Artix-7 FPGA, DRAM, and USB3 via a Cypress FX3 controller.
+ * ovc1: two Python1300 imagers, a Jetson TX2 (6x ARMv8, GPU, etc.) connected to a Cyclone-V GT FPGA over PCIe.
+ * ovc2: two Python1300 imagers, a Jetson TX2 (6x ARMv8, GPU, etc.) connected to a Cyclone 10 GX FPGA over PCIe Gen 2.0 x4 (current work)
 
 # where do I find hardware stuff
 
