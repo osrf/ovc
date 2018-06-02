@@ -7,7 +7,7 @@ static struct spi_device *device;
 static int __init cfg_init(void)
 {
   int rc;
-  unsigned char c = 0x12;
+  u32 msg = 0x12345678;
   struct spi_master *master;
   struct spi_board_info board_info = {
     //.modalias = "cfg",
@@ -33,7 +33,7 @@ static int __init cfg_init(void)
     spi_unregister_device(device);
     return -ENODEV;
   }
-  spi_write(device, &c, 1);
+  spi_write(device, &msg, 4);
   return 0;
 }
 
