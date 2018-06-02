@@ -1,0 +1,3 @@
+#!/bin/bash
+set -o errexit
+/sbin/insmod ./cfg.ko
