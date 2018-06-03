@@ -4,24 +4,30 @@
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/spi/spi.h>
-//#include <linux/types.h>
+#include <linux/uaccess.h>
 
-struct cfg_dev {
+struct cfg {
   struct spi_device *spi_device;
   struct cdev cdev;
-  dev_t dev;
-  unsigned major;
+  int major_number;
+  struct class *dev_class;
+  struct device *device;
 };
-static struct cfg_dev cfg_dev;
+static struct cfg cfg;
 //////////////////////////////////////////////////////////////////////
 
 int cfg_open(struct inode *inode, struct file *fp)
 {
+  u8 msg[2] = {0x01, 0x02};
+  spi_write(cfg.spi_device, msg, 2);
   return 0;  // success  
 }
 
 ssize_t cfg_write(struct file *f, const char __user *p, size_t count, loff_t *pos)
 {
+  //int rc;
+  printk(KERN_INFO "cfg: cfg_write(%d)\n", (int)count);
+  /*
   u8 *tx_buf;
   tx_buf = kmalloc(count, GFP_KERNEL);
   if (!tx_buf) {
@@ -31,6 +37,13 @@ ssize_t cfg_write(struct file *f, const char __user *p, size_t count, loff_t *po
   printk("cfg_write(): allocated %d bytes of kernel memory\n",
     (int)ksize(tx_buf));
   kfree(tx_buf);
+  */
+  // may need to use spi_sync_locked() ?
+  // in order to not release SCLK/MOSI between 128k bursts
+  // if so, need to copy out helper code from /include/linux/spi/spi.h
+  // (the body of spi_write() is just a few lines)
+  //rc = spi_write(cfg.spi_device, p, count); //&msg, 4);
+  //if (
   return count;
 }
 
@@ -54,60 +67,78 @@ struct file_operations cfg_fops = {
   .unlocked_ioctl = cfg_ioctl,
 };
 
+#define DEVICE_NAME "ovc_cfg"
+#define CLASS_NAME  "ovc_cfg"
+
 static int __init cfg_init(void)
 {
   int rc;
-  u32 msg = 0x12345678;
+  //u32 msg = 0x12345678;
   struct spi_master *master;
   struct spi_board_info board_info = {
     //.modalias = "cfg",
     .max_speed_hz = 10000000,
     .bus_num = 3,
     .chip_select = 0,
-    .mode = 0
+    .mode = SPI_LSB_FIRST  // | SPI_NO_CS
   };
 
-  rc = alloc_chrdev_region(&cfg_dev.dev, 0, 1, "cfg");
-  if (rc) {
-    printk(KERN_ERR "cfg: allocation of char device number failed\n");
-    return rc;
+  cfg.major_number = register_chrdev(0, DEVICE_NAME, &cfg_fops);
+  if (cfg.major_number < 0) {
+    printk(KERN_ERR "cfg: register_chrdev() failed\n");
+    return cfg.major_number;
   }
-  cfg_dev.major = MAJOR(cfg_dev.dev);
-  cdev_init(&cfg_dev.cdev, &cfg_fops);
-  rc = cdev_add(&cfg_dev.cdev, cfg_dev.dev, 1);
-  if (rc) {
-    printk(KERN_ERR "cfg: cdev_add() failed\n");
-    return rc;
+  printk(KERN_INFO "cfg: registered major number %d\n", cfg.major_number);
+
+  cfg.dev_class = class_create(THIS_MODULE, CLASS_NAME);
+  if (IS_ERR(cfg.dev_class)) {
+    unregister_chrdev(cfg.major_number, DEVICE_NAME);
+    printk(KERN_ERR "cfg: class_create() failed\n");
+    return PTR_ERR(cfg.dev_class);
   }
+
+  cfg.device = device_create(cfg.dev_class, NULL, MKDEV(cfg.major_number, 0),
+    NULL, DEVICE_NAME);
+  if (IS_ERR(cfg.device)) {
+    class_destroy(cfg.dev_class);
+    unregister_chrdev(cfg.major_number, DEVICE_NAME);
+    printk(KERN_ERR "cfg: device_create() failed\n");
+    return PTR_ERR(cfg.device);
+  }
+  printk(KERN_INFO "cfg: device created successfully\n");
 
   master = spi_busnum_to_master(board_info.bus_num);
   if (!master) {
     printk("spi_busnum_to_master() failed\n");
     return -ENODEV;
   }
-  cfg_dev.spi_device = spi_new_device(master, &board_info);
-  if (!cfg_dev.spi_device) {
+  cfg.spi_device = spi_new_device(master, &board_info);
+  if (!cfg.spi_device) {
     printk("spi_new_device() failed\n");
     return -ENODEV;
   }
-  cfg_dev.spi_device->bits_per_word = 8;
-  rc = spi_setup(cfg_dev.spi_device);
+  cfg.spi_device->bits_per_word = 8;
+  rc = spi_setup(cfg.spi_device);
   if (rc) {
     printk("spi_setup() failed\n");
-    spi_unregister_device(cfg_dev.spi_device);
+    spi_unregister_device(cfg.spi_device);
     return -ENODEV;
   }
-  spi_write(cfg_dev.spi_device, &msg, 4);
   return 0;
 }
 
 static void __exit cfg_exit(void)
 {
-  cdev_del(&cfg_dev.cdev);
-  unregister_chrdev_region(MKDEV(cfg_dev.major, 0), 1);
-  if (cfg_dev.spi_device) {
-    spi_unregister_device(cfg_dev.spi_device);
-  }
+  /*
+  cdev_del(&cfg.cdev);
+  unregister_chrdev_region(MKDEV(cfg.major, 0), 1);
+  */
+  spi_unregister_device(cfg.spi_device);
+  device_destroy(cfg.dev_class, MKDEV(cfg.major_number, 0));
+  class_unregister(cfg.dev_class);
+  class_destroy(cfg.dev_class);
+  unregister_chrdev(cfg.major_number, DEVICE_NAME);
+  printk(KERN_INFO "cfg: removal complete\n");
 }
 
 module_init(cfg_init);
