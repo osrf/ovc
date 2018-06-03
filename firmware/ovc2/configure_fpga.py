@@ -72,7 +72,6 @@ def configure_fpga(bitstream_filename):
     print("writing to FPGA...")
     with open("/dev/ovc_cfg", "wb") as ovc_cfg_dev:
         ovc_cfg_dev.write(bitstream_data)
-        ovc_cfg_dev.write(bytes([0,0]))  # send some zeros to get to user mode
     print("conf_done: {}".format(get_conf_done()))
     return True
 

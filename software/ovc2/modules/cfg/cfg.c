@@ -102,10 +102,10 @@ static int __init cfg_init(void)
   struct spi_master *master;
   struct spi_board_info board_info = {
     //.modalias = "cfg",
-    .max_speed_hz = 10000000,
+    .max_speed_hz = 25000000,  // faster than 25 MHz doesn't have any effect
     .bus_num = 3,
     .chip_select = 0,
-    .mode = SPI_LSB_FIRST  // | SPI_NO_CS
+    .mode = SPI_LSB_FIRST
   };
 
   cfg.major_number = register_chrdev(0, DEVICE_NAME, &cfg_fops);
