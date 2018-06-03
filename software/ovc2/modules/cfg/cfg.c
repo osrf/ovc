@@ -44,6 +44,10 @@ ssize_t cfg_write(struct file *f, const char __user *p, size_t count, loff_t *po
     rc = copy_from_user(cfg.write_buf, p, tx_len); 
     n_remaining -= tx_len;
     rc = spi_write(cfg.spi_device, cfg.write_buf, tx_len);
+    if (rc != 0) {
+      printk(KERN_ERR "cfg: spi_write() returned %d\n", rc);
+      break;
+    }
     p += tx_len;
     //printk(KERN_INFO "cfg:  tx_len = %d  spi_write() rc = %d\n", tx_len, rc);
   }
