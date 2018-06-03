@@ -6,27 +6,48 @@
 #include <linux/spi/spi.h>
 #include <linux/uaccess.h>
 
+#define CFG_WRITE_BUF_LEN 4096
+
 struct cfg {
   struct spi_device *spi_device;
   struct cdev cdev;
   int major_number;
   struct class *dev_class;
   struct device *device;
+  u8 *write_buf;
 };
 static struct cfg cfg;
 //////////////////////////////////////////////////////////////////////
 
+
 int cfg_open(struct inode *inode, struct file *fp)
 {
+  /*
   u8 msg[2] = {0x01, 0x02};
   spi_write(cfg.spi_device, msg, 2);
+  spi_write(cfg.spi_device, msg, 2);
+  */
   return 0;  // success  
 }
 
 ssize_t cfg_write(struct file *f, const char __user *p, size_t count, loff_t *pos)
 {
-  //int rc;
+  int rc, n_remaining, tx_len;
+
   printk(KERN_INFO "cfg: cfg_write(%d)\n", (int)count);
+  n_remaining = (int)count;
+  while (n_remaining > 0) {
+    if (n_remaining > CFG_WRITE_BUF_LEN)
+      tx_len = CFG_WRITE_BUF_LEN;
+    else
+      tx_len = n_remaining;
+    rc = copy_from_user(cfg.write_buf, p, tx_len); 
+    n_remaining -= tx_len;
+    rc = spi_write(cfg.spi_device, cfg.write_buf, tx_len);
+    p += tx_len;
+    //printk(KERN_INFO "cfg:  tx_len = %d  spi_write() rc = %d\n", tx_len, rc);
+  }
+
   /*
   u8 *tx_buf;
   tx_buf = kmalloc(count, GFP_KERNEL);
@@ -124,20 +145,20 @@ static int __init cfg_init(void)
     spi_unregister_device(cfg.spi_device);
     return -ENODEV;
   }
+
+  cfg.write_buf = kmalloc(CFG_WRITE_BUF_LEN, GFP_KERNEL);
   return 0;
 }
 
 static void __exit cfg_exit(void)
 {
-  /*
-  cdev_del(&cfg.cdev);
-  unregister_chrdev_region(MKDEV(cfg.major, 0), 1);
-  */
   spi_unregister_device(cfg.spi_device);
   device_destroy(cfg.dev_class, MKDEV(cfg.major_number, 0));
   class_unregister(cfg.dev_class);
   class_destroy(cfg.dev_class);
   unregister_chrdev(cfg.major_number, DEVICE_NAME);
+  if (cfg.write_buf)
+    kfree(cfg.write_buf);
   printk(KERN_INFO "cfg: removal complete\n");
 }
 
