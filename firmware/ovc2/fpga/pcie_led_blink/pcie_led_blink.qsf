@@ -166,3 +166,5 @@ set_global_assignment -name CRC_ERROR_OPEN_DRAIN ON
 set_global_assignment -name CONFIGURATION_VCCIO_LEVEL 1.8V
 set_global_assignment -name ACTIVE_SERIAL_CLOCK FREQ_100MHZ
 set_global_assignment -name AUTO_RESTART_CONFIGURATION OFF
+set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION ON
+set_global_assignment -name DEVICE_INITIALIZATION_CLOCK INIT_INTOSC
