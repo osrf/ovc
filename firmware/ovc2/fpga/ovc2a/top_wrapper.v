@@ -3,9 +3,10 @@ module top_wrapper(
   input pcie_perst,
   input [3:0] pcie_rx,
   output [3:0] pcie_tx,
-  output [7:0] aux,
+  output [1:0] aux,
   input clk100,
-  output [1:0] led,
+  output led_ci,
+  output led_di,
 
   output [1:0] cam_clk,
   input [1:0] cam_dclk,
@@ -24,18 +25,16 @@ module top_wrapper(
   output imu_mosi,
   input imu_miso,
   output imu_sync_in,
-  input imu_sync_out,
-  output imu_tare
+  input imu_sync_out
 );
 
-assign imu_tare = 1'b0;
 assign imu_sync_in = 1'b0;
 
 wire pcie_npor = pcie_perst;
 wire [31:0] qsys_pio_output;
-wire [31:0] qsys_pio_input;
+//wire [31:0] qsys_pio_input;
 wire pcie_clk_125;
-wire qsys_pio_clk_en = qsys_pio_output[0];
+//wire qsys_pio_clk_en = qsys_pio_output[0];
 
 /*
 assign aux[0] = cam_cs[0];
@@ -59,7 +58,9 @@ assign aux = { cam_miso[1], cam_mosi[1], cam_sck[1], cam_cs[1],
                cam_miso[0], cam_mosi[0], cam_sck[0], cam_cs[0] };
 */
 
-assign cam_trigger[1] = cam_trigger[0];
+assign cam_trigger = 2'h0;  //[1] = cam_trigger[0];
+assign led_ci = 1'b1;
+assign led_di = 1'b1;
 
 /*
 wire [127:0] qsys_dma_data;
@@ -72,13 +73,14 @@ wire qsys_dma_sop, qsys_dma_eop;
 //wire [15:0] txs_byteenable = 16'hffff;
 //wire txs_readdatavalid;
 
-wire [127:0] txs_writedata; // = 128'h0123_4567_89ab_cdef;
-wire txs_write;
-wire [5:0] txs_burstcount;  // = 6'h1;
+wire [127:0] txs_writedata = 128'h0123_4567_89ab_cdef;
+wire txs_write = 1'b0;
+wire [5:0] txs_burstcount = 6'h8;
 wire txs_waitrequest;
-wire [22:0] txs_address;  // = 27'h0;
-wire [1:0] qsys_irq;
+wire [21:0] txs_address = 22'h0;
+//wire [1:0] qsys_irq;
 
+/*
 wire imu_ram_clk = pcie_clk_125;
 wire imu_ram_cs = 1'b1;
 wire imu_ram_clken = 1'b1;
@@ -86,6 +88,7 @@ wire [7:0] imu_ram_addr;
 wire imu_ram_wr;
 wire [31:0] imu_ram_d;
 wire [31:0] imu_ram_q;
+*/
 
 /*
 wire imu_cs_qsys, imu_mosi_qsys, imu_sck_qsys;
@@ -114,6 +117,7 @@ d1 #(2) cam_sck_d1_r(.c(c), .d(cam_sck_qsys), .q(cam_sck));
 d1 #(2) cam_mosi_d1_r(.c(c), .d(cam_mosi_qsys), .q(cam_mosi));
 */
 
+/*
 wire reg_ram_clk = pcie_clk_125;
 wire reg_ram_cs = 1'b1;
 wire reg_ram_clken = 1'b1;
@@ -121,37 +125,39 @@ wire [7:0] reg_ram_addr;
 wire reg_ram_wr;
 wire [31:0] reg_ram_d;
 wire [31:0] reg_ram_q;
+*/
 
-ovc_qsys qsys_inst(
- .refclk_clk(pcie_refclk),
- .clk_out_clk(pcie_clk_125),
- .hip_serial_rx_in0(pcie_rx[0]),
- .hip_serial_rx_in1(pcie_rx[1]),
- .hip_serial_rx_in2(pcie_rx[2]),
- .hip_serial_rx_in3(pcie_rx[3]),
- .hip_serial_tx_out0(pcie_tx[0]),
- .hip_serial_tx_out1(pcie_tx[1]),
- .hip_serial_tx_out2(pcie_tx[2]),
- .hip_serial_tx_out3(pcie_tx[3]),
- .hip_ctrl_test_in(32'ha8),
- .hip_ctrl_simu_mode_pipe(1'b0),
- .irq_irq(qsys_irq),
- .npor_npor(pcie_npor),
- .npor_pin_perst(pcie_perst),
+platform qsys_inst(
+ .clk_clk(pcie_refclk),
+ .pcie_clock_bridge_out_clk_clk(pcie_clk_125),
+ .pcie_hip_serial_rx_in0(pcie_rx[0]),
+ .pcie_hip_serial_rx_in1(pcie_rx[1]),
+ .pcie_hip_serial_rx_in2(pcie_rx[2]),
+ .pcie_hip_serial_rx_in3(pcie_rx[3]),
+ .pcie_hip_serial_tx_out0(pcie_tx[0]),
+ .pcie_hip_serial_tx_out1(pcie_tx[1]),
+ .pcie_hip_serial_tx_out2(pcie_tx[2]),
+ .pcie_hip_serial_tx_out3(pcie_tx[3]),
+ .pcie_hip_ctrl_test_in(32'ha8),
+ .pcie_hip_ctrl_simu_mode_pipe(1'b0),
+ //.irq_irq(qsys_irq),
+ .pcie_npor_npor(pcie_npor),
+ .pcie_npor_pin_perst(pcie_perst),
 
- .pio_output_export(qsys_pio_output),
- .pio_input_export(qsys_pio_input),
+ .pio_output_external_connection_export(qsys_pio_output),
+ //.pio_input_export(qsys_pio_input),
 
- .txs_byteenable(16'hffff),
- .txs_chipselect(1'b1),  // txs_chipselect),
- .txs_readdata(),
- .txs_writedata(txs_writedata),
- .txs_read(1'b0),
- .txs_write(txs_write),
- .txs_burstcount(txs_burstcount),
- .txs_readdatavalid(),
- .txs_waitrequest(txs_waitrequest),
- .txs_address(txs_address),
+ .pcie_txs_byteenable(16'hffff),
+ .pcie_txs_chipselect(1'b1),  // txs_chipselect),
+ .pcie_txs_readdata(),
+ .pcie_txs_writedata(txs_writedata),
+ .pcie_txs_read(1'b0),
+ .pcie_txs_write(txs_write),
+ .pcie_txs_burstcount(txs_burstcount),
+ .pcie_txs_readdatavalid(),
+ .pcie_txs_waitrequest(txs_waitrequest),
+ .pcie_txs_address(txs_address)
+ /*
  .imu_ram_clk2_clk(imu_ram_clk),
  .imu_ram_reset2_reset(1'b0),
  .imu_ram_s2_address(imu_ram_addr),
@@ -171,6 +177,7 @@ ovc_qsys qsys_inst(
  .reg_ram_s2_readdata(reg_ram_q),
  .reg_ram_s2_writedata(reg_ram_d),
  .reg_ram_s2_byteenable(4'hf)
+ */
 );
 
 /*
@@ -181,6 +188,7 @@ wire txs_waitrequest;
 wire [26:0] txs_address;  // = 27'h0;
 */
 
+/*
 wire [4:0] cam_0_rxd_align;
 wire [39:0] cam_0_rxd;
 wire cam_0_rx_locked;
@@ -235,6 +243,7 @@ top top_inst(
   .reg_ram_d(reg_ram_d),
   .reg_ram_q(reg_ram_q)
 );
+*/
 
 /*
 wire [1:0] cam_locked;
@@ -260,6 +269,7 @@ cam_rx cam_1
 
 //wire [4:0] cam_0_rx_channel_data_align = 5'h0;
 
+/*
 altlvds_rx #(
  .data_align_rollover(8),
  .deserialization_factor(8),
@@ -374,5 +384,6 @@ assign led[1] = cam_0_rx_locked & cam_1_rx_locked;
 
 assign imu_rst = ~qsys_pio_output[2];
 assign cam_rst = {2{~qsys_pio_output[3]}};
+*/
 
 endmodule

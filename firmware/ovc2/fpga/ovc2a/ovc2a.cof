@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="US-ASCII" standalone="yes"?>
 <cof>
 	<eprom_name>EPCQ256</eprom_name>
-	<output_filename>output_files/ovc.rbf</output_filename>
+	<output_filename>output_files/ovc2a.rbf</output_filename>
 	<n_pages>1</n_pages>
 	<width>1</width>
 	<mode>0</mode>
@@ -9,11 +9,11 @@
 		<user_name>Page_0</user_name>
 		<page_flags>1</page_flags>
 		<bit0>
-			<sof_filename>output_files/ovc.sof</sof_filename> 
+			<sof_filename>output_files/ovc2a.sof</sof_filename> 
 		</bit0>
 	</sof_data>
 	<version>10</version>
-	<create_cvp_file>1</create_cvp_file>
+	<create_cvp_file>0</create_cvp_file>
 	<create_hps_iocsr>0</create_hps_iocsr>
 	<auto_create_rpd>0</auto_create_rpd>
 	<rpd_little_endian>1</rpd_little_endian>

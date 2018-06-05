@@ -1,5 +1,5 @@
 BIN=bin
-NAME=ovc
+NAME=ovc2a
 OUT=$(BIN)/$(NAME)
 default: $(OUT).vvp
 #MODULES=cmd_rx
@@ -11,6 +11,7 @@ INTEGRATION_TESTS=corners corners_nonmax corners_image
 QUARTUS_PATH ?= bogus____please_set_QUARTUS_PATH______have_a_nice_day
 QUARTUS_SIM_FLAGS = $(QUARTUS_PATH)/quartus/eda/sim_lib/altera_mf.v $(QUARTUS_PATH)/quartus/eda/sim_lib/220model.v -I $(QUARTUS_PATH)/quartus/eda/sim_lib -y $(QUARTUS_PATH)/quartus/libraries/megafunctions
 QUARTUS_BIN=$(QUARTUS_PATH)/quartus/bin
+PLATFORM_IP=pcie pcie_clock_bridge pio_output platform_clock_in
 
 UNIT_TESTS=$(MODULES:%=test_%)
 INTEGRATION_TEST_TARGETS=$(INTEGRATION_TESTS:%=itest_%)
@@ -43,9 +44,12 @@ $(OUT).autogen.tcl: $(BIN) $(NAME).tcl
 	@echo "source \"../$(NAME).tcl\"" >> $@
 	@echo "set_global_assignment -name TOP_LEVEL_ENTITY top_wrapper" >> $@
 	@echo "set_global_assignment -name SEARCH_PATH $(PWD)" >> $@
-	@echo "set_global_assignment -name SEARCH_PATH $(PWD)/$(BIN)/$(NAME)_qsys/synthesis" >> $@
+	@echo "set_global_assignment -name SEARCH_PATH $(PWD)/$(BIN)/platform/synthesis" >> $@
 	@for src in $(SRCS) $(SYNTH_SRCS); do \
 		echo "set_global_assignment -name VERILOG_FILE $$src" >> $@; \
+	done
+	@for ip_name in $(PLATFORM_IP); do \
+	  echo "set_global_assignment -name QIP_FILE $$ip_name/$$ip_name.qip" >> $@; \
 	done
 	#@echo "puts \"about to compile...\"" >> $@
 	@echo "execute_flow -compile" >> $@
@@ -54,13 +58,19 @@ $(OUT).autogen.tcl: $(BIN) $(NAME).tcl
 	@echo "project_close" >> $@
 	@echo "done creating $@"
 
-$(BIN)/$(NAME)_qsys: $(NAME)_qsys.qsys
-	cp $(NAME)_qsys.qsys $(BIN)/$(NAME)_qsys.qsys
-	cd $(BIN) && $(QUARTUS_PATH)/quartus/sopc_builder/bin/qsys-generate $(NAME)_qsys.qsys --synthesis=VERILOG --output-directory=$(PWD)/$(BIN)/$(NAME)_qsys --family="Cyclone 10" --part=10CX220YF672E6G
+$(BIN)/platform: platform.qsys
+	cp platform.qsys $(BIN)/platform.qsys
+	@for ip_name in $(PLATFORM_IP); do \
+		cp ip/$$ip_name.ip $(BIN) && \
+	  cd bin && $(QUARTUS_PATH)/quartus/sopc_builder/bin/qsys-generate $(PWD)/$(BIN)/$$ip_name.ip --synthesis=VERILOG --family="Cyclone 10 GX" --part=10CX220YF672E6G && cd ..; \
+	done
+	cd $(BIN) && $(QUARTUS_PATH)/quartus/sopc_builder/bin/qsys-generate platform.qsys --synthesis=VERILOG --family="Cyclone 10 GX" --part=10CX220YF672E6G
+	#mkdir -p $(BIN)/ip/platform/$$ip_name && \
+	#ip/$$ip_name.ip $(BIN)/ip/platform/$$ip_name.ip && cd $(BIN) && \
 
-synth: Makefile $(BIN) $(BIN)/$(NAME)_qsys $(OUT).autogen.tcl $(OUT).sdc
+synth: Makefile $(BIN) $(BIN)/platform $(OUT).autogen.tcl $(OUT).sdc
 	cd $(BIN) && $(QUARTUS_BIN)/quartus_sh -t $(NAME).autogen.tcl
-	cd $(BIN) && $(QUARTUS_BIN)/quartus_cpf -c ../ovc.cof
+	cd $(BIN) && $(QUARTUS_BIN)/quartus_cpf -c ../ovc2a.cof
 
 $(OUT).timing.tcl: $(BIN) $(NAME).timing.tcl $(OUT).sdc
 	cp $(NAME).timing.tcl $@
@@ -70,10 +80,7 @@ timing: $(OUT).timing.tcl
 
 # todo: decent dependencies
 deploy: 
-	#$(QUARTUS_PATH)/quartus_pgm -z -m JTAG -o "p;$(BIN)/$(NAME).sof"
-	scp bin/output_files/ovc.*.rbf nvidia@ovc:~
-	#ssh nvidia@tegra-ubuntu.local 'opencam/software/mcu_cli/bin/mcu_cli flash_fpga_image ovc.periph.rbf'
-	#ssh nvidia@tegra-ubuntu.local 'opencam/software/mcu_cli/bin/mcu_cli configure_fpga'
+	scp bin/output_files/*.rbf nvidia@ovc2a1:~
 	#ssh nvidia@tegra-ubuntu.local 'sudo rmmod ovc && sudo rmmod pci_tegra && sudo modprobe pci_tegra'
 
 $(UNIT_TESTS): test_%: %.v

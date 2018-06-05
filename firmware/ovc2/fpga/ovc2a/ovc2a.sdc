@@ -12,7 +12,7 @@ create_generated_clock -name cam_clk_1 -source [get_pins {cam_pll|general[0].gpl
 
 #create_generated_clock -name cam_dclk_0_90 -source [get_pins 
 
-set clk125 qsys_inst|pcie_cv_hip_avmm_0|c5_hip_ast|altpcie_av_hip_ast_hwtcl|altpcie_av_hip_128bit_atom|g_cavhip.arriav_hd_altpe2_hip_top|coreclkout
+#set clk125 qsys_inst|pcie_cv_hip_avmm_0|c5_hip_ast|altpcie_av_hip_ast_hwtcl|altpcie_av_hip_128bit_atom|g_cavhip.arriav_hd_altpe2_hip_top|coreclkout
 
 #create_clock -name virt_cam_0_dclk -period 4
 
@@ -70,7 +70,7 @@ set_false_path -from [get_ports {pcie_perst}]
 #set mainclk qsys_inst|pcie_cv_hip_avmm_0|c5_hip_ast|altpcie_av_hip_ast_hwtcl|altpcie_av_hip_128bit_atom|g_cavhip.arriav_hd_altpe2_hip_top|coreclkout
 #set_output_delay -clock $mainclk -min 0.0 [get_ports {imu_cs imu_sck imu_mosi}]
 #set_output_delay -clock $mainclk -max 0.0 [get_ports {imu_cs imu_sck imu_mosi}]
-set_false_path -to [get_ports {led[*]}]
+set_false_path -to [get_ports {led_ci led_di}]
 set_false_path -to [get_ports {aux[*]}]
 
 # these interfaces are so slow we'll just forget about them timing-wise.

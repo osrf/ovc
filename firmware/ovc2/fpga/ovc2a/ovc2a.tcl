@@ -2,12 +2,12 @@ set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_global_assignment -name FAMILY "Cyclone 10 GX"
 set_global_assignment -name DEVICE 10CX220YF672E6G
 set_global_assignment -name TOP_LEVEL_ENTITY ovc
-set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.1.0
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "23:27:27  OCTOBER 28, 2017"
-set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
+#set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.1.0
+#set_global_assignment -name PROJECT_CREATION_TIME_DATE "23:27:27  OCTOBER 28, 2017"
+#set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
-set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
 set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 672
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
@@ -17,22 +17,13 @@ set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH STILL AIR"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 #set_global_assignment -name VERILOG_FILE placement.v
-set_instance_assignment -name IO_STANDARD "1.8 V" -to pcie_perst
+
 set_location_assignment PIN_AB8 -to pcie_perst
 set_location_assignment PIN_N22 -to pcie_refclk
 set_location_assignment PIN_N21 -to "pcie_refclk(n)"
-set_instance_assignment -name IO_STANDARD "1.5-V PCML" -to pcie_refclk
-set_instance_assignment -name IO_STANDARD "1.5-V PCML" -to pcie_rx[3]
-set_instance_assignment -name IO_STANDARD "1.5-V PCML" -to pcie_rx[2]
-set_instance_assignment -name IO_STANDARD "1.5-V PCML" -to pcie_rx[1]
-set_instance_assignment -name IO_STANDARD "1.5-V PCML" -to pcie_rx[0]
-set_instance_assignment -name IO_STANDARD "1.5-V PCML" -to pcie_tx[3]
-set_instance_assignment -name IO_STANDARD "1.5-V PCML" -to pcie_tx[2]
-set_instance_assignment -name IO_STANDARD "1.5-V PCML" -to pcie_tx[1]
-set_instance_assignment -name IO_STANDARD "1.5-V PCML" -to pcie_tx[0]
 set_location_assignment PIN_T24 -to pcie_rx[0]
 set_location_assignment PIN_U26 -to pcie_tx[0]
 set_location_assignment PIN_P24 -to pcie_rx[1]
@@ -41,17 +32,24 @@ set_location_assignment PIN_M24 -to pcie_rx[2]
 set_location_assignment PIN_N26 -to pcie_tx[2]
 set_location_assignment PIN_K24 -to pcie_rx[3]
 set_location_assignment PIN_L26 -to pcie_tx[3]
-#set_location_assignment PIN_U22 -to aux[0]
-#set_location_assignment PIN_U21 -to aux[1]
-#set_location_assignment PIN_T22 -to aux[2]
-#set_location_assignment PIN_J21 -to aux[3]
-#set_location_assignment PIN_G22 -to aux[4]
-#set_location_assignment PIN_G21 -to aux[5]
-#set_location_assignment PIN_D22 -to aux[6]
-#set_location_assignment PIN_E21 -to aux[7]
+
+set_instance_assignment -name XCVR_REFCLK_PIN_TERMINATION AC_COUPLING -to pcie_refclk
+
+set_instance_assignment -name IO_STANDARD HCSL -to pcie_refclk
+set_instance_assignment -name IO_STANDARD "1.8 V" -to pcie_perst
+set_instance_assignment -name IO_STANDARD "HSSI DIFFERENTIAL I/O" -to pcie_rx
+set_instance_assignment -name IO_STANDARD "HSSI DIFFERENTIAL I/O" -to pcie_tx
+
+set_location_assignment PIN_M1 -to aux[0]
+set_location_assignment PIN_N1 -to aux[1]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to aux
+set_instance_assignment -name SLEW_RATE 0 -to aux
+
 set_location_assignment PIN_AC13 -to clk100
+set_global_assignment -name AUTO_RESERVE_CLKUSR_FOR_CALIBRATION OFF
+set_instance_assignment -name IO_STANDARD "1.8 V" -to clk100
+
 set_location_assignment PIN_E21 -to cam_clk[0]
-#set_location_assignment PIN_AB15 -to "cam_clk[0](n)"
 set_location_assignment PIN_C17 -to cam_dclk[0]
 set_location_assignment PIN_C16 -to "cam_dclk[0](n)"
 set_location_assignment PIN_C11 -to cam_sync[0]
@@ -83,6 +81,30 @@ set_location_assignment PIN_AF6 -to cam_mosi[1]
 set_location_assignment PIN_AD8 -to cam_miso[1]
 set_location_assignment PIN_AF8 -to cam_trigger[1]
 
+set_instance_assignment -name IO_STANDARD LVDS -to cam_clk[*]
+set_instance_assignment -name IO_STANDARD LVDS -to cam_dclk[*]
+set_instance_assignment -name IO_STANDARD LVDS -to cam_dout[*]
+set_instance_assignment -name IO_STANDARD LVDS -to cam_sync[*]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to cam_rst[*]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to cam_cs[*]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to cam_sck[*]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to cam_mosi[*]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to cam_miso[*]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to cam_trigger[*]
+
+set_instance_assignment -name INPUT_TERMINATION DIFFERENTIAL -to cam_dclk[*]
+set_instance_assignment -name INPUT_TERMINATION DIFFERENTIAL -to cam_dout[*]
+set_instance_assignment -name INPUT_TERMINATION DIFFERENTIAL -to cam_sync[*]
+
+set_instance_assignment -name SLEW_RATE 0 -to cam_rst[*]
+set_instance_assignment -name SLEW_RATE 0 -to cam_cs[*]
+set_instance_assignment -name SLEW_RATE 0 -to cam_sck[*]
+set_instance_assignment -name SLEW_RATE 0 -to cam_mosi[*]
+set_instance_assignment -name SLEW_RATE 0 -to cam_miso[*]
+set_instance_assignment -name SLEW_RATE 0 -to cam_trigger[*]
+
+##################################
+
 set_location_assignment PIN_C3 -to imu_rst
 set_location_assignment PIN_C6 -to imu_cs
 set_location_assignment PIN_E5 -to imu_sck
@@ -90,42 +112,20 @@ set_location_assignment PIN_F4 -to imu_miso
 set_location_assignment PIN_D5 -to imu_mosi
 set_location_assignment PIN_E4 -to imu_sync_in
 set_location_assignment PIN_H2 -to imu_sync_out
-
-set_location_assignment PIN_D3 -to led_ci
-set_location_assignment PIN_D2 -to led_di
-set_instance_assignment -name IO_STANDARD "1.8 V" -to led_*
-#set_instance_assignment -name SLEW_RATE 0 -to led[*]
-
-set_instance_assignment -name IO_STANDARD LVDS -to cam_clk[*]
-set_instance_assignment -name IO_STANDARD LVDS -to cam_dclk[*]
-set_instance_assignment -name IO_STANDARD LVDS -to cam_dout[*]
-set_instance_assignment -name IO_STANDARD LVDS -to cam_sync[*]
-set_instance_assignment -name INPUT_TERMINATION DIFFERENTIAL -to cam_dclk[*]
-set_instance_assignment -name INPUT_TERMINATION DIFFERENTIAL -to cam_dout[*]
-set_instance_assignment -name INPUT_TERMINATION DIFFERENTIAL -to cam_sync[*]
-
-#set_instance_assignment -name IO_STANDARD "2.5 V" -to aux[*]
-#set_instance_assignment -name SLEW_RATE 0 -to aux[*]
-
-set_instance_assignment -name IO_STANDARD "1.8 V" -to clk100
 set_instance_assignment -name IO_STANDARD "1.8 V" -to imu_*
 set_instance_assignment -name SLEW_RATE 0 -to imu_rst
 set_instance_assignment -name SLEW_RATE 0 -to imu_cs
 set_instance_assignment -name SLEW_RATE 0 -to imu_sck
 set_instance_assignment -name SLEW_RATE 0 -to imu_mosi
 
-set_instance_assignment -name IO_STANDARD "1.8 V" -to cam_rst[*]
-set_instance_assignment -name SLEW_RATE 0 -to cam_rst[*]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to cam_cs[*]
-set_instance_assignment -name SLEW_RATE 0 -to cam_cs[*]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to cam_sck[*]
-set_instance_assignment -name SLEW_RATE 0 -to cam_sck[*]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to cam_mosi[*]
-set_instance_assignment -name SLEW_RATE 0 -to cam_mosi[*]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to cam_miso[*]
-set_instance_assignment -name SLEW_RATE 0 -to cam_miso[*]
-set_instance_assignment -name IO_STANDARD "1.8 V" -to cam_trigger[*]
-set_instance_assignment -name SLEW_RATE 0 -to cam_trigger[*]
+##################################
+
+set_location_assignment PIN_D3 -to led_ci
+set_location_assignment PIN_D2 -to led_di
+set_instance_assignment -name IO_STANDARD "1.8 V" -to led_*
+set_instance_assignment -name SLEW_RATE 0 -to led_*
+
+##################################
 
 set_global_assignment -name ENABLE_OCT_DONE OFF
 set_global_assignment -name ENABLE_AUTONOMOUS_PCIE_HIP OFF
@@ -134,8 +134,8 @@ set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
 set_global_assignment -name STRATIXV_CONFIGURATION_SCHEME "PASSIVE SERIAL"
 set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
 set_global_assignment -name CRC_ERROR_OPEN_DRAIN ON
-set_global_assignment -name CVP_MODE "CORE INITIALIZATION AND UPDATE"
-set_global_assignment -name ENABLE_CVP_CONFDONE ON
+#set_global_assignment -name CVP_MODE "CORE INITIALIZATION AND UPDATE"
+#set_global_assignment -name ENABLE_CVP_CONFDONE ON
 set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
@@ -147,11 +147,11 @@ set_global_assignment -name VCCE_GXBR_USER_VOLTAGE 1.03V
 set_global_assignment -name VCCL_GXBL_USER_VOLTAGE 1.03V
 set_global_assignment -name VCCL_GXBR_USER_VOLTAGE 1.03V
 set_global_assignment -name CONFIGURATION_VCCIO_LEVEL 1.8V
-set_global_assignment -name SDC_FILE ovc.sdc
-set_global_assignment -name ACTIVE_SERIAL_CLOCK FREQ_100MHZ
+set_global_assignment -name SDC_FILE ovc2a.sdc
+#set_global_assignment -name ACTIVE_SERIAL_CLOCK FREQ_100MHZ
 #set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 
 #set_global_assignment -name QIP_FILE cam_pll.qip
 #set_global_assignment -name SIP_FILE cam_pll.sip
 #set_global_assignment -name QIP_FILE cam_rx.qip
-set_global_assignment -name QIP_FILE ovc_qsys/synthesis/ovc_qsys.qip
+set_global_assignment -name QIP_FILE platform/platform.qip
