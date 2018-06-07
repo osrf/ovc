@@ -2,9 +2,9 @@ set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_global_assignment -name FAMILY "Cyclone 10 GX"
 set_global_assignment -name DEVICE 10CX220YF672E6G
 set_global_assignment -name TOP_LEVEL_ENTITY ovc
-#set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.1.0
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.0.0
 #set_global_assignment -name PROJECT_CREATION_TIME_DATE "23:27:27  OCTOBER 28, 2017"
-#set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 Pro Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
@@ -19,6 +19,8 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH STILL AIR"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name POWER_AUTO_COMPUTE_TJ ON
+set_global_assignment -name GENERATE_RBF_FILE ON
 #set_global_assignment -name VERILOG_FILE placement.v
 
 set_location_assignment PIN_AB8 -to pcie_perst
@@ -148,6 +150,7 @@ set_global_assignment -name VCCL_GXBL_USER_VOLTAGE 1.03V
 set_global_assignment -name VCCL_GXBR_USER_VOLTAGE 1.03V
 set_global_assignment -name CONFIGURATION_VCCIO_LEVEL 1.8V
 set_global_assignment -name SDC_FILE ovc2a.sdc
+set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION ON
 #set_global_assignment -name ACTIVE_SERIAL_CLOCK FREQ_100MHZ
 #set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 
