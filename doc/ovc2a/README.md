@@ -20,7 +20,7 @@ Here is the required non-standard Ethernet connector pinout:
  1. green
 
 Here is what a "correct" non-standard Ethernet cable looks like for ovc2a:
-![ethernet-pinout](https://github.com/osrf/ovc/raw/master/doc/ovc2a_non_standard_ethernet_pinout.jpg "Non-standard Ethernet cable requirement")
+![ethernet-pinout](https://github.com/osrf/ovc/raw/master/doc/ovc2a/ovc2a_non_standard_ethernet_pinout.jpg "Non-standard Ethernet cable requirement")
 
 Cables in the lab with this pinout are labeled on both ends of the cable as
 "ovc2a custom"
