@@ -1,0 +1,1371 @@
+<?xml version="1.0" ?>
+<spirit:component xmlns:altera="http://www.altera.com/XMLSchema/IPXact/extensions" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
+  <spirit:vendor>Intel Corporation</spirit:vendor>
+  <spirit:library>cam_lvds_rx</spirit:library>
+  <spirit:name>lvds_0</spirit:name>
+  <spirit:version>18.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>inclock</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>export</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>inclock</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">Input</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>pll_areset</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>export</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pll_areset</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">INPUT</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>pll_locked</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>export</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pll_locked</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">OUTPUT</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>rx_bitslip_ctrl</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>export</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rx_bitslip_ctrl</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">INPUT</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>rx_coreclock</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>export</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rx_coreclock</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">OUTPUT</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>rx_in</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>export</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rx_in</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">Input</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>rx_out</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>export</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rx_out</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">OUTPUT</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>QUARTUS_SYNTH</spirit:name>
+        <spirit:envIdentifier>:quartus.altera.com:</spirit:envIdentifier>
+        <spirit:modelName>altera_lvds</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>QUARTUS_SYNTH</spirit:localName>
+        </spirit:fileSetRef>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>inclock</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>pll_areset</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>pll_locked</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rx_bitslip_ctrl</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left>0</spirit:left>
+            <spirit:right>4</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC_VECTOR</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rx_coreclock</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rx_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left>0</spirit:left>
+            <spirit:right>4</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC_VECTOR</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rx_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left>0</spirit:left>
+            <spirit:right>39</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC_VECTOR</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+  </spirit:model>
+  <spirit:vendorExtensions>
+    <altera:entity_info>
+      <spirit:vendor>Intel Corporation</spirit:vendor>
+      <spirit:library>cam_lvds_rx</spirit:library>
+      <spirit:name>altera_lvds</spirit:name>
+      <spirit:version>18.0</spirit:version>
+    </altera:entity_info>
+    <altera:altera_module_parameters>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>SYS_INFO_DEVICE_FAMILY</spirit:name>
+          <spirit:displayName>PARAM_SYS_INFO_DEVICE_FAMILY_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="SYS_INFO_DEVICE_FAMILY">Cyclone 10 GX</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>SYS_INFO_DEVICE</spirit:name>
+          <spirit:displayName>PARAM_SYS_INFO_DEVICE_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="SYS_INFO_DEVICE">10CX220YF672E6G</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>SYS_INFO_UNIQUE_ID</spirit:name>
+          <spirit:displayName>PARAM_SYS_INFO_UNIQUE_ID_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="SYS_INFO_UNIQUE_ID">cam_lvds_rx_lvds_0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>SYS_INFO_DEVICE_SPEEDGRADE</spirit:name>
+          <spirit:displayName>PARAM_SYS_INFO_DEVICE_SPEEDGRADE_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="SYS_INFO_DEVICE_SPEEDGRADE">6</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>MODE</spirit:name>
+          <spirit:displayName>Functional mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="MODE">RX_Non-DPA</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>DUPLEX_MODE</spirit:name>
+          <spirit:displayName>Functional mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="DUPLEX_MODE">RX_Non-DPA</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>USE_EXTERNAL_PLL</spirit:name>
+          <spirit:displayName>Use external PLL</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="USE_EXTERNAL_PLL">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>USE_CLOCK_PIN</spirit:name>
+          <spirit:displayName>Use clock-pin drive</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="USE_CLOCK_PIN">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>NUM_CHANNELS</spirit:name>
+          <spirit:displayName>Number of channels</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="NUM_CHANNELS">5</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>J_FACTOR</spirit:name>
+          <spirit:displayName>SERDES factor</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="J_FACTOR">8</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>DATA_RATE</spirit:name>
+          <spirit:displayName>Data rate</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="DATA_RATE">500.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INCLOCK_FREQUENCY</spirit:name>
+          <spirit:displayName>Desired inclock frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="INCLOCK_FREQUENCY">250.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ENABLE_MIGRATABLE_PORT_MAPPINGS</spirit:name>
+          <spirit:displayName>Use backwards-compatible port names</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="ENABLE_MIGRATABLE_PORT_MAPPINGS">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>REAL_MODE</spirit:name>
+          <spirit:displayName>PARAM_REAL_MODE_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="REAL_MODE">RX_Non-DPA</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ACTUAL_INCLOCK_FREQUENCY</spirit:name>
+          <spirit:displayName>Actual inclock frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="ACTUAL_INCLOCK_FREQUENCY">250.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PORT_MAP_FILE_NAME</spirit:name>
+          <spirit:displayName>PARAM_PORT_MAP_FILE_NAME_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="PORT_MAP_FILE_NAME">port_map_rx.csv</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_USE_BITSLIP</spirit:name>
+          <spirit:displayName>Enable bitslip mode</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="RX_USE_BITSLIP">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_INCLOCK_PHASE_SHIFT</spirit:name>
+          <spirit:displayName>Desired receiver inclock phase shift (degrees)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="RX_INCLOCK_PHASE_SHIFT">90</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_RCCS_VAL</spirit:name>
+          <spirit:displayName>RCCS (ps)</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="RX_RCCS_VAL">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_BITSLIP_USE_RESET</spirit:name>
+          <spirit:displayName>Enable rx_bitslip_reset port  </spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="RX_BITSLIP_USE_RESET">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_BITSLIP_ASSERT_MAX</spirit:name>
+          <spirit:displayName>Enable rx_bitslip_max port</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="RX_BITSLIP_ASSERT_MAX">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_DPA_USE_RESET</spirit:name>
+          <spirit:displayName>Enable rx_dpa_reset port </spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="RX_DPA_USE_RESET">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_DPA_LOSE_LOCK_ON_ONE_CHANGE</spirit:name>
+          <spirit:displayName>Enable DPA loss of lock on one change</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="RX_DPA_LOSE_LOCK_ON_ONE_CHANGE">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_DPA_ALIGN_TO_RISING_EDGE_ONLY</spirit:name>
+          <spirit:displayName>Enable DPA alignment only to rising edges of data</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="RX_DPA_ALIGN_TO_RISING_EDGE_ONLY">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_DPA_USE_HOLD</spirit:name>
+          <spirit:displayName>Enable rx_dpa_hold port</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="RX_DPA_USE_HOLD">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ENABLE_DIV_RECONFIG</spirit:name>
+          <spirit:displayName>Enable dynamic reconfig interface for DPA divider</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="ENABLE_DIV_RECONFIG">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ENABLE_CPA_RECONFIG</spirit:name>
+          <spirit:displayName>Enable reconfig interface for CPA (clock phase alignment) block </spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="ENABLE_CPA_RECONFIG">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_FIFO_USE_RESET</spirit:name>
+          <spirit:displayName>Enable rx_fifo_reset port</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="RX_FIFO_USE_RESET">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_CDR_SIMULATION_PPM_DRIFT</spirit:name>
+          <spirit:displayName>(Simulation only) Specify PPM drift on the recovered clock(s).</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="RX_CDR_SIMULATION_PPM_DRIFT">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_INCLOCK_PHASE_SHIFT_ACTUAL</spirit:name>
+          <spirit:displayName>Actual receiver inclock phase shift (degrees)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="RX_INCLOCK_PHASE_SHIFT_ACTUAL">90</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_DPA_LOCKED_USED</spirit:name>
+          <spirit:displayName>Enable rx_dpa_locked port</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="RX_DPA_LOCKED_USED">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>RX_BITSLIP_ROLLOVER</spirit:name>
+          <spirit:displayName>Bitslip rollover value</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="RX_BITSLIP_ROLLOVER">8</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>TX_USE_OUTCLOCK</spirit:name>
+          <spirit:displayName>Enable tx_outclock port </spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="TX_USE_OUTCLOCK">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>TX_OUTCLOCK_DIVISION</spirit:name>
+          <spirit:displayName>Tx_outclock division factor</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="TX_OUTCLOCK_DIVISION">2</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>TX_OUTCLOCK_PHASE_SHIFT</spirit:name>
+          <spirit:displayName>Desired tx_outclock phase shift (degrees)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="TX_OUTCLOCK_PHASE_SHIFT">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>TX_EXPORT_CORECLOCK</spirit:name>
+          <spirit:displayName>Enable tx_coreclock port </spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="TX_EXPORT_CORECLOCK">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>TX_REGISTER_CLOCK</spirit:name>
+          <spirit:displayName>TX core registers clock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="TX_REGISTER_CLOCK">tx_coreclock</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>TX_OUTCLOCK_PHASE_SHIFT_ACTUAL</spirit:name>
+          <spirit:displayName>Actual tx_outclock phase shift (degrees)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="TX_OUTCLOCK_PHASE_SHIFT_ACTUAL">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>TX_OUTCLOCK_NON_STD_PHASE_SHIFT</spirit:name>
+          <spirit:displayName>PARAM_TX_OUTCLOCK_NON_STD_PHASE_SHIFT_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="TX_OUTCLOCK_NON_STD_PHASE_SHIFT">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PLL_CORECLOCK_RESOURCE</spirit:name>
+          <spirit:displayName>Core clock resource type</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="PLL_CORECLOCK_RESOURCE">Periphery</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PLL_USE_RESET</spirit:name>
+          <spirit:displayName>Enable pll_areset port</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="PLL_USE_RESET">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>GENERATE_SDC_FILE</spirit:name>
+          <spirit:displayName>PARAM_GENERATE_SDC_FILE_NAME</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="GENERATE_SDC_FILE">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CPA_ENABLED</spirit:name>
+          <spirit:displayName>Use the CPA block for improved periphery-core timing </spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="CPA_ENABLED">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>DUPLEX_ENABLED</spirit:name>
+          <spirit:displayName>Duplex Feature </spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="DUPLEX_ENABLED">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PLL_EXPORT_LOCK</spirit:name>
+          <spirit:displayName>Enable pll_locked port</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="PLL_EXPORT_LOCK">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_fclk_frequency</spirit:name>
+          <spirit:displayName>PARAM_PLL_FCLK_FREQUENCY_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_fclk_frequency">500.000000 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_fclk_phase_shift</spirit:name>
+          <spirit:displayName>PARAM_PLL_FCLK_PHASE_SHIFT_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_fclk_phase_shift">500 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_sclk_frequency</spirit:name>
+          <spirit:displayName>PARAM_PLL_SCLK_FREQUENCY_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_sclk_frequency">62.500000 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_sclk_phase_shift</spirit:name>
+          <spirit:displayName>PARAM_PLL_SCLK_PHASE_SHIFT_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_sclk_phase_shift">15500 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_loaden_frequency</spirit:name>
+          <spirit:displayName>PARAM_PLL_LOADEN_FREQUENCY_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_loaden_frequency">62.500000 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_loaden_phase_shift</spirit:name>
+          <spirit:displayName>PARAM_PLL_LOADEN_PHASE_SHIFT_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_loaden_phase_shift">13500 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_loaden_duty_cycle</spirit:name>
+          <spirit:displayName>PARAM_PLL_LOADEN_DUTY_CYCLE_NAME</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_loaden_duty_cycle">13</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_tx_outclock_frequency</spirit:name>
+          <spirit:displayName>PARAM_PLL_TX_OUTCLOCK_FREQUENCY_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_tx_outclock_frequency">0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_tx_outclock_phase_shift</spirit:name>
+          <spirit:displayName>PARAM_PLL_TX_OUTCLOCK_PHASE_SHIFT_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_tx_outclock_phase_shift">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_tx_outclock_fclk_frequency</spirit:name>
+          <spirit:displayName>PARAM_PLL_TX_OUTCLOCK_FCLK_FREQUENCY_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_tx_outclock_fclk_frequency">1000.000000 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_tx_outclock_fclk_phase_shift</spirit:name>
+          <spirit:displayName>PARAM_PLL_TX_OUTCLOCK_FCLK_PHASE_SHIFT_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_tx_outclock_fclk_phase_shift">500 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_tx_outclock_loaden_frequency</spirit:name>
+          <spirit:displayName>PARAM_PLL_TX_OUTCLOCK_LOADEN_FREQUENCY_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_tx_outclock_loaden_frequency">100.000000 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_tx_outclock_loaden_phase_shift</spirit:name>
+          <spirit:displayName>PARAM_PLL_TX_OUTCLOCK_LOADEN_PHASE_SHIFT_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_tx_outclock_loaden_phase_shift">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_dprio_clk_frequency</spirit:name>
+          <spirit:displayName>PARAM_PLL_DPRIO_CLK_FREQUENCY_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_dprio_clk_frequency">15.625000 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_vco_frequency</spirit:name>
+          <spirit:displayName>PARAM_PLL_VCO_FREQUENCY_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_vco_frequency">1000.000000 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_inclock_frequency</spirit:name>
+          <spirit:displayName>PARAM_PLL_INCLOCK_FREQUENCY_NAME</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_inclock_frequency">250.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PLL_SPEED_GRADE</spirit:name>
+          <spirit:displayName>FPGA/PLL speed grade</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="PLL_SPEED_GRADE">6</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>GUI_CLOCK_PARAM_NAMES</spirit:name>
+          <spirit:displayName>Clock Parameters</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="GUI_CLOCK_PARAM_NAMES"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>GUI_CLOCK_PARAM_VALUES</spirit:name>
+          <spirit:displayName>Clock Parameter Values</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="GUI_CLOCK_PARAM_VALUES"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mapped_sys_info_device_family</spirit:name>
+          <spirit:displayName>mapped_sys_info_device_family</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="mapped_sys_info_device_family">Cyclone 10 GX</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mapped_sys_info_device</spirit:name>
+          <spirit:displayName>mapped_sys_info_device</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="mapped_sys_info_device">10CX220YF672E6G</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mapped_sys_info_device_speedgrade</spirit:name>
+          <spirit:displayName>mapped_sys_info_device_speedgrade</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="mapped_sys_info_device_speedgrade">6</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mapped_reference_clock_frequency</spirit:name>
+          <spirit:displayName>mapped_reference_clock_frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="mapped_reference_clock_frequency">250.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mapped_vco_frequency</spirit:name>
+          <spirit:displayName>mapped_vco_frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="mapped_vco_frequency">999.9999999999999 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mapped_external_pll_mode</spirit:name>
+          <spirit:displayName>mapped_external_pll_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="mapped_external_pll_mode">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_advanced_mode</spirit:name>
+          <spirit:displayName>Specify additional output clocks based on existing PLL</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_enable_advanced_mode">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_compensation_mode</spirit:name>
+          <spirit:displayName>Compensation mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_compensation_mode">lvds</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_number_of_pll_output_clocks</spirit:name>
+          <spirit:displayName>Number of Additional Clocks</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_number_of_pll_output_clocks">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_frequency_0</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_frequency_0">500.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_frequency_0</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_frequency_0">500.000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_frequency_0</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_frequency_0">499.99999999999994</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_phase_shift_unit_0</spirit:name>
+          <spirit:displayName>Phase shift units</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_phase_shift_unit_0">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_desired_phase_shift_0</spirit:name>
+          <spirit:displayName>Phase shift</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_outclk_desired_phase_shift_0">500.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_ps_0</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_ps_0">500</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_deg_0</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_deg_0">90.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_outclk_actual_phase_shift_0</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_outclk_actual_phase_shift_0">500.00000000000006</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_duty_cycle_0</spirit:name>
+          <spirit:displayName>Desired duty cycle</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_duty_cycle_0">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_duty_cycle_0</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_duty_cycle_0">50</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_duty_cycle_0</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_duty_cycle_0">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_frequency_1</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_frequency_1">62.5</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_frequency_1</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_frequency_1">62.500000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_frequency_1</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_frequency_1">62.49999999999999</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_phase_shift_unit_1</spirit:name>
+          <spirit:displayName>Phase shift units</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_phase_shift_unit_1">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_desired_phase_shift_1</spirit:name>
+          <spirit:displayName>Phase shift</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_outclk_desired_phase_shift_1">13500.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_ps_1</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_ps_1">13500</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_deg_1</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_deg_1">303.8</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_outclk_actual_phase_shift_1</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_outclk_actual_phase_shift_1">13500.000000000002</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_duty_cycle_1</spirit:name>
+          <spirit:displayName>Desired duty cycle</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_duty_cycle_1">13.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_duty_cycle_1</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_duty_cycle_1">13</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_duty_cycle_1</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_duty_cycle_1">12.5</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_frequency_2</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_frequency_2">62.5</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_frequency_2</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_frequency_2">62.500000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_frequency_2</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_frequency_2">62.49999999999999</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_phase_shift_unit_2</spirit:name>
+          <spirit:displayName>Phase shift units</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_phase_shift_unit_2">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_desired_phase_shift_2</spirit:name>
+          <spirit:displayName>Phase shift</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_outclk_desired_phase_shift_2">15500.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_ps_2</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_ps_2">15500</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_deg_2</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_deg_2">348.8</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_outclk_actual_phase_shift_2</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_outclk_actual_phase_shift_2">15500.000000000002</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_duty_cycle_2</spirit:name>
+          <spirit:displayName>Desired duty cycle</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_duty_cycle_2">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_duty_cycle_2</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_duty_cycle_2">50</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_duty_cycle_2</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_duty_cycle_2">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_frequency_3</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_frequency_3">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_frequency_3</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_frequency_3">N/A</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_frequency_3</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_frequency_3">999.9999999999999</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_phase_shift_unit_3</spirit:name>
+          <spirit:displayName>Phase shift units</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_phase_shift_unit_3">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_desired_phase_shift_3</spirit:name>
+          <spirit:displayName>Phase shift</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_outclk_desired_phase_shift_3">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_ps_3</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_ps_3">N/A</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_deg_3</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_deg_3">N/A</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_outclk_actual_phase_shift_3</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_outclk_actual_phase_shift_3">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_duty_cycle_3</spirit:name>
+          <spirit:displayName>Desired duty cycle</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_duty_cycle_3">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_duty_cycle_3</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_duty_cycle_3">N/A</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_duty_cycle_3</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_duty_cycle_3">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_frequency_4</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_frequency_4">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_frequency_4</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_frequency_4">N/A</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_frequency_4</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_frequency_4">999.9999999999999</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_phase_shift_unit_4</spirit:name>
+          <spirit:displayName>Phase shift units</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_phase_shift_unit_4">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_desired_phase_shift_4</spirit:name>
+          <spirit:displayName>Phase shift</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_outclk_desired_phase_shift_4">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_ps_4</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_ps_4">N/A</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_deg_4</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_deg_4">N/A</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_outclk_actual_phase_shift_4</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_outclk_actual_phase_shift_4">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_duty_cycle_4</spirit:name>
+          <spirit:displayName>Desired duty cycle</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_duty_cycle_4">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_duty_cycle_4</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_duty_cycle_4">N/A</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_duty_cycle_4</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_duty_cycle_4">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_frequency_5</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_frequency_5">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_frequency_5</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_frequency_5">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_frequency_5</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_frequency_5">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_phase_shift_unit_5</spirit:name>
+          <spirit:displayName>Phase shift units</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_phase_shift_unit_5">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_desired_phase_shift_5</spirit:name>
+          <spirit:displayName>Phase shift</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_outclk_desired_phase_shift_5">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_ps_5</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_ps_5">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_deg_5</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_deg_5">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_outclk_actual_phase_shift_5</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_outclk_actual_phase_shift_5">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_duty_cycle_5</spirit:name>
+          <spirit:displayName>Desired duty cycle</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_duty_cycle_5">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_duty_cycle_5</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_duty_cycle_5">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_duty_cycle_5</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_duty_cycle_5">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_frequency_6</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_frequency_6">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_frequency_6</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_frequency_6">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_frequency_6</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_frequency_6">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_phase_shift_unit_6</spirit:name>
+          <spirit:displayName>Phase shift units</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_phase_shift_unit_6">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_desired_phase_shift_6</spirit:name>
+          <spirit:displayName>Phase shift</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_outclk_desired_phase_shift_6">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_ps_6</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_ps_6">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_deg_6</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_deg_6">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_outclk_actual_phase_shift_6</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_outclk_actual_phase_shift_6">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_duty_cycle_6</spirit:name>
+          <spirit:displayName>Desired duty cycle</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_duty_cycle_6">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_duty_cycle_6</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_duty_cycle_6">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_duty_cycle_6</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_duty_cycle_6">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_frequency_7</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_frequency_7">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_frequency_7</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_frequency_7">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_frequency_7</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_frequency_7">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_phase_shift_unit_7</spirit:name>
+          <spirit:displayName>Phase shift units</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_phase_shift_unit_7">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_desired_phase_shift_7</spirit:name>
+          <spirit:displayName>Phase shift</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_outclk_desired_phase_shift_7">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_ps_7</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_ps_7">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_deg_7</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_deg_7">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_outclk_actual_phase_shift_7</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_outclk_actual_phase_shift_7">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_duty_cycle_7</spirit:name>
+          <spirit:displayName>Desired duty cycle</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_duty_cycle_7">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_duty_cycle_7</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_duty_cycle_7">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_duty_cycle_7</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_duty_cycle_7">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_frequency_8</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_frequency_8">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_frequency_8</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_frequency_8">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_frequency_8</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_frequency_8">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_phase_shift_unit_8</spirit:name>
+          <spirit:displayName>Phase shift units</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_phase_shift_unit_8">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_desired_phase_shift_8</spirit:name>
+          <spirit:displayName>Phase shift</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_outclk_desired_phase_shift_8">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_ps_8</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_ps_8">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk_actual_phase_shift_deg_8</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk_actual_phase_shift_deg_8">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_outclk_actual_phase_shift_8</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_outclk_actual_phase_shift_8">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk_duty_cycle_8</spirit:name>
+          <spirit:displayName>Desired duty cycle</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk_duty_cycle_8">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk_duty_cycle_8</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk_duty_cycle_8">50.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hp_actual_outclk_duty_cycle_8</spirit:name>
+          <spirit:displayName>Actual duty cycle</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hp_actual_outclk_duty_cycle_8">50.0</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </altera:altera_module_parameters>
+    <altera:altera_system_parameters>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>device</spirit:name>
+          <spirit:displayName>Device</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="device">10CX220YF672E6G</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>deviceFamily</spirit:name>
+          <spirit:displayName>Device family</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="deviceFamily">Cyclone 10 GX</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>deviceSpeedGrade</spirit:name>
+          <spirit:displayName>Device Speed Grade</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="deviceSpeedGrade">6</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>generationId</spirit:name>
+          <spirit:displayName>Generation Id</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="generationId">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>bonusData</spirit:name>
+          <spirit:displayName>bonusData</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="bonusData">bonusData 
+{
+   element lvds_0
+   {
+      datum _sortIndex
+      {
+         value = "0";
+         type = "int";
+      }
+   }
+}
+</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hideFromIPCatalog</spirit:name>
+          <spirit:displayName>Hide from IP Catalog</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="hideFromIPCatalog">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>lockedInterfaceDefinition</spirit:name>
+          <spirit:displayName>lockedInterfaceDefinition</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="lockedInterfaceDefinition"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>systemInfos</spirit:name>
+          <spirit:displayName>systemInfos</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="systemInfos"><![CDATA[<systemInfosDefinition>
+    <connPtSystemInfos/>
+</systemInfosDefinition>]]></spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </altera:altera_system_parameters>
+    <altera:altera_interface_boundary>
+      <altera:interface_mapping altera:name="inclock" altera:internal="lvds_0.inclock" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="inclock" altera:internal="inclock"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="pll_areset" altera:internal="lvds_0.pll_areset" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="pll_areset" altera:internal="pll_areset"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="pll_locked" altera:internal="lvds_0.pll_locked" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="pll_locked" altera:internal="pll_locked"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="rx_bitslip_ctrl" altera:internal="lvds_0.rx_bitslip_ctrl" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="rx_bitslip_ctrl" altera:internal="rx_bitslip_ctrl"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="rx_coreclock" altera:internal="lvds_0.rx_coreclock" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="rx_coreclock" altera:internal="rx_coreclock"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="rx_in" altera:internal="lvds_0.rx_in" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="rx_in" altera:internal="rx_in"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="rx_out" altera:internal="lvds_0.rx_out" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="rx_out" altera:internal="rx_out"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="tx_coreclock" altera:internal="lvds_0.tx_coreclock"></altera:interface_mapping>
+      <altera:interface_mapping altera:name="tx_in" altera:internal="lvds_0.tx_in"></altera:interface_mapping>
+      <altera:interface_mapping altera:name="tx_out" altera:internal="lvds_0.tx_out"></altera:interface_mapping>
+      <altera:interface_mapping altera:name="tx_outclock" altera:internal="lvds_0.tx_outclock"></altera:interface_mapping>
+    </altera:altera_interface_boundary>
+    <altera:altera_has_warnings>false</altera:altera_has_warnings>
+    <altera:altera_has_errors>false</altera:altera_has_errors>
+  </spirit:vendorExtensions>
+</spirit:component>
