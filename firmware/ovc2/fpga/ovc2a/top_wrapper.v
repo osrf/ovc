@@ -180,11 +180,12 @@ platform qsys_inst(
  */
 );
 
-wire cam_0_pll_locked;
-wire cam_0_rxc;
-wire [39:0] cam_0_rxd;
+wire [1:0] cam_rxc, cam_pll_locked;
+wire [39:0] cam_0_rxd, cam_1_rxd;
 wire [4:0] cam_0_bitslip = 5'h0;
+wire [4:0] cam_1_bitslip = 5'h0;
 wire cam_pll_reset;
+
 r cam_pll_reset_r
 (.c(pcie_clk_125), .rst(1'b0), .en(1'b1),
  .d(qsys_pio_output[31]), .q(cam_pll_reset));
@@ -192,13 +193,22 @@ r cam_pll_reset_r
 cam_lvds_rx cam_lvds_rx_0
 (.inclock(cam_dclk[0]),
  .pll_areset(cam_pll_reset),
- .pll_locked(cam_0_pll_locked),
+ .pll_locked(cam_pll_locked[0]),
  .rx_in({cam_sync[0], cam_dout[3:0]}),
  .rx_bitslip_ctrl(cam_0_bitslip),
- .rx_coreclock(cam_0_rxc),
+ .rx_coreclock(cam_rxc[0]),
  .rx_out(cam_0_rxd));
 
-assign aux[0] = |cam_0_rxd;
+cam_lvds_rx cam_lvds_rx_1
+(.inclock(cam_dclk[1]),
+ .pll_areset(cam_pll_reset),
+ .pll_locked(cam_pll_locked[1]),
+ .rx_in({cam_sync[1], cam_dout[7:4]}),
+ .rx_bitslip_ctrl(cam_1_bitslip),
+ .rx_coreclock(cam_rxc[1]),
+ .rx_out(cam_1_rxd));
+
+assign aux[0] = |cam_0_rxd | |cam_1_rxd;
 
 /*
 wire [127:0] txs_writedata; // = 128'h0123_4567_89ab_cdef;
@@ -260,22 +270,6 @@ top top_inst(
   .reg_ram_q(reg_ram_q)
 );
 */
-
-/*
-wire [1:0] cam_locked;
-wire [1:0] cam_rx_outclock;
-
-cam_rx cam_1
-(.rx_channel_data_align(4'b0),
- .rx_in(cam_dout[7:4]),
- .rx_inclock(cam_dclk[1]),
- .rx_locked(cam_locked[1]),
- .rx_out(cam_rx_out[63:32]),
- .rx_outclock(cam_rx_outclock[1]));
- 
-*/
-
-//wire [4:0] cam_0_rx_channel_data_align = 5'h0;
 
 /*
 altlvds_rx #(

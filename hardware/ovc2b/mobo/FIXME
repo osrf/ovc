@@ -1,0 +1,3 @@
+Bugs found in rev.A that need to be fixed:
+* add meanders to correct pair skew for GbE
+* Ethernet pairs must be swapped back to their original pairs and polarity; it's not OK to swap them for a convenient layout.
