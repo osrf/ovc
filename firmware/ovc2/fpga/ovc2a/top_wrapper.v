@@ -36,6 +36,8 @@ wire [31:0] qsys_pio_output;
 wire pcie_clk_125;
 //wire qsys_pio_clk_en = qsys_pio_output[0];
 
+assign cam_rst = {2{~qsys_pio_output[3]}};
+
 /*
 assign aux[0] = cam_cs[0];
 assign aux[1] = cam_sck[0];
@@ -180,20 +182,20 @@ platform qsys_inst(
  */
 );
 
-wire [1:0] cam_rxc, cam_pll_locked;
+wire [1:0] cam_rxc, cam_dclk_pll_locked;
 wire [39:0] cam_0_rxd, cam_1_rxd;
 wire [4:0] cam_0_bitslip = 5'h0;
 wire [4:0] cam_1_bitslip = 5'h0;
-wire cam_pll_reset;
+wire cam_dclk_pll_reset;
 
-r cam_pll_reset_r
+r cam_dclk_pll_reset_r
 (.c(pcie_clk_125), .rst(1'b0), .en(1'b1),
- .d(qsys_pio_output[31]), .q(cam_pll_reset));
+ .d(qsys_pio_output[31]), .q(cam_dclk_pll_reset));
 
 cam_lvds_rx cam_lvds_rx_0
 (.inclock(cam_dclk[0]),
- .pll_areset(cam_pll_reset),
- .pll_locked(cam_pll_locked[0]),
+ .pll_areset(cam_dclk_pll_reset),
+ .pll_locked(cam_dclk_pll_locked[0]),
  .rx_in({cam_sync[0], cam_dout[3:0]}),
  .rx_bitslip_ctrl(cam_0_bitslip),
  .rx_coreclock(cam_rxc[0]),
@@ -201,12 +203,33 @@ cam_lvds_rx cam_lvds_rx_0
 
 cam_lvds_rx cam_lvds_rx_1
 (.inclock(cam_dclk[1]),
- .pll_areset(cam_pll_reset),
- .pll_locked(cam_pll_locked[1]),
+ .pll_areset(cam_dclk_pll_reset),
+ .pll_locked(cam_dclk_pll_locked[1]),
  .rx_in({cam_sync[1], cam_dout[7:4]}),
  .rx_bitslip_ctrl(cam_1_bitslip),
  .rx_coreclock(cam_rxc[1]),
  .rx_out(cam_1_rxd));
+
+wire cam_clk_pll_locked;
+wire cam_clk_pll_out;
+cam_pll cam_clk_pll  // outbound clock FPGA -> imagers
+(.pll_refclk0(pcie_clk_125),
+ .pll_locked(cam_clk_pll_locked),
+ .pll_powerdown(1'b0),
+ .outclk0(cam_clk_pll_out));
+
+// todo: look at instantiating cyclone10gx_ddio_out directly, rather than this
+ovc2_gpio cam_clk_0_gpio
+(.ck(cam_clk_pll_out),
+ .din(2'h1),
+ .oe(1'b1),
+ .pad_out(cam_clk[0]));
+
+ovc2_gpio cam_clk_1_gpio
+(.ck(cam_clk_pll_out),
+ .din(2'h1),
+ .oe(1'b1),
+ .pad_out(cam_clk[1]));
 
 assign aux[0] = |cam_0_rxd | |cam_1_rxd;
 
@@ -385,7 +408,6 @@ assign led[0] = qsys_pio_output[1];
 assign led[1] = cam_0_rx_locked & cam_1_rx_locked;
 
 assign imu_rst = ~qsys_pio_output[2];
-assign cam_rst = {2{~qsys_pio_output[3]}};
 */
 
 endmodule

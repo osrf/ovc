@@ -1,0 +1,3 @@
+This project is just used to use the GUI to generate the "*.ip" files, which
+are copied into the "ovc2a" sibling project and used automatically by the
+Makefile for command-line synthesis.

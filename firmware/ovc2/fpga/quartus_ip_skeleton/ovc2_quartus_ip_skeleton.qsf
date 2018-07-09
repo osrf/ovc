@@ -1,0 +1,16 @@
+set_global_assignment -name FAMILY "Cyclone 10 GX"
+set_global_assignment -name TOP_LEVEL_ENTITY ovc2_quartus_ip_skeleton
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.0.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:41:47  JULY 09, 2018"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.0.1 Pro Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name DEVICE 10CX220YF672E6G
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 672
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name IP_FILE cam_pll.ip
+set_global_assignment -name IP_FILE ovc2_gpio.ip

@@ -1,0 +1,3286 @@
+<?xml version="1.0" ?>
+<spirit:component xmlns:altera="http://www.altera.com/XMLSchema/IPXact/extensions" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
+  <spirit:vendor>Intel Corporation</spirit:vendor>
+  <spirit:library>cam_pll</spirit:library>
+  <spirit:name>xcvr_fpll_a10_0</spirit:name>
+  <spirit:version>18.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>outclk0</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="clock" spirit:version="18.0"></spirit:busType>
+      <spirit:master></spirit:master>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>clk</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>outclk0</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedDirectClock</spirit:name>
+          <spirit:displayName>Associated direct clock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedDirectClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>clockRate</spirit:name>
+          <spirit:displayName>Clock rate</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="clockRate">100000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>clockRateKnown</spirit:name>
+          <spirit:displayName>Clock rate known</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="clockRateKnown">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>externallyDriven</spirit:name>
+          <spirit:displayName>Externally driven</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="externallyDriven">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ptfSchematicName</spirit:name>
+          <spirit:displayName>PTF schematic name</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="ptfSchematicName"></spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">output</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>pll_cal_busy</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>pll_cal_busy</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pll_cal_busy</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">output</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>pll_locked</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>pll_locked</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pll_locked</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">output</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>pll_powerdown</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>pll_powerdown</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pll_powerdown</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">input</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>pll_refclk0</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="clock" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>clk</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pll_refclk0</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>clockRate</spirit:name>
+          <spirit:displayName>Clock rate</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="clockRate">125000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>externallyDriven</spirit:name>
+          <spirit:displayName>Externally driven</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="externallyDriven">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ptfSchematicName</spirit:name>
+          <spirit:displayName>PTF schematic name</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="ptfSchematicName"></spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">input</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>QUARTUS_SYNTH</spirit:name>
+        <spirit:envIdentifier>:quartus.altera.com:</spirit:envIdentifier>
+        <spirit:modelName>altera_xcvr_fpll_a10</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>QUARTUS_SYNTH</spirit:localName>
+        </spirit:fileSetRef>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>pll_refclk0</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>pll_powerdown</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>pll_locked</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>outclk0</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>pll_cal_busy</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+  </spirit:model>
+  <spirit:vendorExtensions>
+    <altera:entity_info>
+      <spirit:vendor>Intel Corporation</spirit:vendor>
+      <spirit:library>cam_pll</spirit:library>
+      <spirit:name>altera_xcvr_fpll_a10</spirit:name>
+      <spirit:version>18.0</spirit:version>
+    </altera:entity_info>
+    <altera:altera_module_parameters>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>rcfg_debug</spirit:name>
+          <spirit:displayName>rcfg_debug</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="rcfg_debug">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_pll_reconfig</spirit:name>
+          <spirit:displayName>Enable dynamic reconfiguration</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_pll_reconfig">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_advanced_avmm_options</spirit:name>
+          <spirit:displayName>enable_advanced_avmm_options</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_advanced_avmm_options">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>rcfg_jtag_enable</spirit:name>
+          <spirit:displayName>Enable Altera Debug Master Endpoint</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="rcfg_jtag_enable">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>rcfg_separate_avmm_busy</spirit:name>
+          <spirit:displayName>Separate reconfig_waitrequest from the status of AVMM arbitration with PreSICE</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="rcfg_separate_avmm_busy">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>rcfg_enable_avmm_busy_port</spirit:name>
+          <spirit:displayName>Enable avmm_busy port</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="rcfg_enable_avmm_busy_port">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>set_capability_reg_enable</spirit:name>
+          <spirit:displayName>Enable capability registers</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="set_capability_reg_enable">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>set_user_identifier</spirit:name>
+          <spirit:displayName>Set user-defined IP identifier</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="set_user_identifier">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>set_csr_soft_logic_enable</spirit:name>
+          <spirit:displayName>Enable control and status registers</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="set_csr_soft_logic_enable">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>dbg_embedded_debug_enable</spirit:name>
+          <spirit:displayName>dbg_embedded_debug_enable</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="dbg_embedded_debug_enable">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>dbg_capability_reg_enable</spirit:name>
+          <spirit:displayName>dbg_capability_reg_enable</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="dbg_capability_reg_enable">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>dbg_user_identifier</spirit:name>
+          <spirit:displayName>dbg_user_identifier</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="dbg_user_identifier">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>dbg_stat_soft_logic_enable</spirit:name>
+          <spirit:displayName>dbg_stat_soft_logic_enable</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="dbg_stat_soft_logic_enable">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>dbg_ctrl_soft_logic_enable</spirit:name>
+          <spirit:displayName>dbg_ctrl_soft_logic_enable</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="dbg_ctrl_soft_logic_enable">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>rcfg_file_prefix</spirit:name>
+          <spirit:displayName>Configuration file prefix</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="rcfg_file_prefix">altera_xcvr_fpll_a10</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>rcfg_sv_file_enable</spirit:name>
+          <spirit:displayName>Generate SystemVerilog package file</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="rcfg_sv_file_enable">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>rcfg_h_file_enable</spirit:name>
+          <spirit:displayName>Generate C header file</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="rcfg_h_file_enable">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>rcfg_txt_file_enable</spirit:name>
+          <spirit:displayName>Generate text file</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="rcfg_txt_file_enable">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>rcfg_mif_file_enable</spirit:name>
+          <spirit:displayName>Generate MIF (Memory Initialize File)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="rcfg_mif_file_enable">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>system_info_device_family</spirit:name>
+          <spirit:displayName>Device Family</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="system_info_device_family">Cyclone 10 GX</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_silicon_rev</spirit:name>
+          <spirit:displayName>cmu_fpll_silicon_rev</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_silicon_rev">20nm1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_bandwidth_range_high</spirit:name>
+          <spirit:displayName>cmu_fpll_bandwidth_range_high</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_bandwidth_range_high">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_bandwidth_range_low</spirit:name>
+          <spirit:displayName>cmu_fpll_bandwidth_range_low</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_bandwidth_range_low">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_is_otn</spirit:name>
+          <spirit:displayName>cmu_fpll_is_otn</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_is_otn">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_is_sdi</spirit:name>
+          <spirit:displayName>cmu_fpll_is_sdi</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_is_sdi">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_bonding</spirit:name>
+          <spirit:displayName>cmu_fpll_bonding</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_bonding">pll_bonding</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_band_0</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_band_0</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_band_0">3861860000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_band_1</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_band_1</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_band_1">4287223000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_band_2</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_band_2</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_band_2">4688476000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_band_3</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_band_3</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_band_3">5072700000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_band_4</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_band_4</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_band_4">5423191000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_band_5</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_band_5</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_band_5">5762211000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_band_6</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_band_6</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_band_6">6075045000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_band_7</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_band_7</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_band_7">6374148000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_band_8</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_band_8</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_band_8">14025000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_pfd</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_pfd</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_pfd">350000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_vco</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_vco</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_vco">14150000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_min_band_0</spirit:name>
+          <spirit:displayName>cmu_fpll_f_min_band_0</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_min_band_0">7000000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_min_band_1</spirit:name>
+          <spirit:displayName>cmu_fpll_f_min_band_1</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_min_band_1">3861860000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_min_band_2</spirit:name>
+          <spirit:displayName>cmu_fpll_f_min_band_2</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_min_band_2">4287223000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_min_band_3</spirit:name>
+          <spirit:displayName>cmu_fpll_f_min_band_3</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_min_band_3">4688476000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_min_band_4</spirit:name>
+          <spirit:displayName>cmu_fpll_f_min_band_4</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_min_band_4">5072700000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_min_band_5</spirit:name>
+          <spirit:displayName>cmu_fpll_f_min_band_5</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_min_band_5">5423191000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_min_band_6</spirit:name>
+          <spirit:displayName>cmu_fpll_f_min_band_6</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_min_band_6">5762211000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_min_band_7</spirit:name>
+          <spirit:displayName>cmu_fpll_f_min_band_7</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_min_band_7">6075045000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_min_band_8</spirit:name>
+          <spirit:displayName>cmu_fpll_f_min_band_8</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_min_band_8">6374148000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_min_pfd</spirit:name>
+          <spirit:displayName>cmu_fpll_f_min_pfd</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_min_pfd">25000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_min_vco</spirit:name>
+          <spirit:displayName>cmu_fpll_f_min_vco</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_min_vco">6000000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_feedback</spirit:name>
+          <spirit:displayName>cmu_fpll_feedback</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_feedback">normal</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_fpll_cas_out_enable</spirit:name>
+          <spirit:displayName>Dedicated FPLL to FPLL cascade out</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_fpll_cas_out_enable">fpll_cas_out_disable</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_fpll_hclk_out_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_fpll_hclk_out_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_fpll_hclk_out_enable">fpll_hclk_out_disable</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_fpll_iqtxrxclk_out_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_fpll_iqtxrxclk_out_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_fpll_iqtxrxclk_out_enable">fpll_iqtxrxclk_out_disable</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_l_counter</spirit:name>
+          <spirit:displayName>cmu_fpll_l_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_l_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_m_counter</spirit:name>
+          <spirit:displayName>cmu_fpll_m_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_m_counter">24</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_n_counter</spirit:name>
+          <spirit:displayName>cmu_fpll_n_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_n_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_out_freq_hz</spirit:name>
+          <spirit:displayName>cmu_fpll_out_freq_hz</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_out_freq_hz">0 hz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_out_freq</spirit:name>
+          <spirit:displayName>cmu_fpll_out_freq</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_out_freq">000000000000000000000000000000000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_freq_band_0</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_freq_band_0</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_vco_freq_band_0">pll_freq_band0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_freq_band_1</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_freq_band_1</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_vco_freq_band_1">pll_freq_band0_1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_primary_use</spirit:name>
+          <spirit:displayName>cmu_fpll_primary_use</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_primary_use">core</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_prot_mode</spirit:name>
+          <spirit:displayName>cmu_fpll_prot_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_prot_mode">basic_tx</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_reference_clock_frequency_scratch</spirit:name>
+          <spirit:displayName>cmu_fpll_reference_clock_frequency_scratch</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_reference_clock_frequency_scratch">0 hz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_side</spirit:name>
+          <spirit:displayName>cmu_fpll_side</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_side">side_unknown</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_top_or_bottom</spirit:name>
+          <spirit:displayName>cmu_fpll_top_or_bottom</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_top_or_bottom">tb_unknown</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_vco_freq_hz</spirit:name>
+          <spirit:displayName>cmu_fpll_vco_freq_hz</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_vco_freq_hz">6000000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_vco_freq</spirit:name>
+          <spirit:displayName>cmu_fpll_vco_freq</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_vco_freq">000101100101101000001011110000000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_bw_mode</spirit:name>
+          <spirit:displayName>Bandwidth</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_bw_mode">mid_bw</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_datarate</spirit:name>
+          <spirit:displayName>cmu_fpll_datarate</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_datarate">0 Mbps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_device_variant</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_device_variant</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_device_variant">device1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_cal_status</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_cal_status</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_cal_status">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_calibration</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_calibration</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_calibration">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_cmu_rstn_value</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_cmu_rstn_value</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_cmu_rstn_value">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_lpf_rstn_value</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_lpf_rstn_value</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_lpf_rstn_value">lpf_normal</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_ppm_clk0_src</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_ppm_clk0_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_ppm_clk0_src">ppm_clk0_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_ppm_clk1_src</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_ppm_clk1_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_ppm_clk1_src">ppm_clk1_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_rstn_override</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_rstn_override</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_rstn_override">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_op_mode</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_op_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_op_mode">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_optimal</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_optimal</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_optimal">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_is_pa_core</spirit:name>
+          <spirit:displayName>cmu_fpll_is_pa_core</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_is_pa_core">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_power_mode</spirit:name>
+          <spirit:displayName>cmu_fpll_power_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_power_mode">low_power</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_power_rail_et</spirit:name>
+          <spirit:displayName>cmu_fpll_power_rail_et</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_power_rail_et">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_powerdown_mode</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_powerdown_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_powerdown_mode">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pm_speed_grade</spirit:name>
+          <spirit:displayName>cmu_fpll_pm_speed_grade</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pm_speed_grade">e2</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_sup_mode</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_sup_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_sup_mode">user_mode</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c0_pllcout_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c0_pllcout_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c0_pllcout_enable">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_0</spirit:name>
+          <spirit:displayName>C-counter-0</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_c_counter_0">6</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_0_min_tco_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_0_min_tco_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_0_min_tco_enable">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_0_in_src</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_0_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_0_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_0_ph_mux_prst</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_0_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_c_counter_0_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_0_prst</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_0_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_c_counter_0_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_0_coarse_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_0_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_0_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_0_fine_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_0_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_0_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c1_pllcout_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c1_pllcout_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c1_pllcout_enable">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_1</spirit:name>
+          <spirit:displayName>C-counter-1</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_c_counter_1">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_1_min_tco_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_1_min_tco_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_1_min_tco_enable">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_1_in_src</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_1_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_1_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_1_ph_mux_prst</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_1_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_c_counter_1_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_1_prst</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_1_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_c_counter_1_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_1_coarse_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_1_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_1_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_1_fine_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_1_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_1_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c2_pllcout_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c2_pllcout_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c2_pllcout_enable">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_2</spirit:name>
+          <spirit:displayName>C-counter-2</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_c_counter_2">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_2_min_tco_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_2_min_tco_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_2_min_tco_enable">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_2_in_src</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_2_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_2_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_2_ph_mux_prst</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_2_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_c_counter_2_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_2_prst</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_2_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_c_counter_2_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_2_coarse_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_2_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_2_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_2_fine_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_2_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_2_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c3_pllcout_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c3_pllcout_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c3_pllcout_enable">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_3</spirit:name>
+          <spirit:displayName>C-counter-3</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_c_counter_3">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_3_min_tco_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_3_min_tco_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_3_min_tco_enable">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_3_in_src</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_3_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_3_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_3_ph_mux_prst</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_3_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_c_counter_3_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_3_prst</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_3_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_c_counter_3_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_3_coarse_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_3_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_3_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_c_counter_3_fine_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_c_counter_3_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_c_counter_3_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_core_cali_ref_off</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_core_cali_ref_off</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_core_cali_ref_off">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_core_cali_vco_off</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_core_cali_vco_off</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_core_cali_vco_off">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_core_vccdreg_fb</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_core_vccdreg_fb</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_core_vccdreg_fb">vreg_fb5</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_core_vccdreg_fw</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_core_vccdreg_fw</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_core_vccdreg_fw">vreg_fw5</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_core_vreg0_atbsel</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_core_vreg0_atbsel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_core_vreg0_atbsel">atb_disabled</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_core_vreg1_atbsel</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_core_vreg1_atbsel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_core_vreg1_atbsel">atb_disabled1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_atb</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_atb</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_atb">atb_selectdisable</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_cmp_buf_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_cmp_buf_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_cmp_buf_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_fbclk_mux_1</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_fbclk_mux_1</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_fbclk_mux_1">pll_fbclk_mux_1_glb</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_fbclk_mux_2</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_fbclk_mux_2</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_fbclk_mux_2">pll_fbclk_mux_2_m_cnt</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_iqclk_mux_sel</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_iqclk_mux_sel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_iqclk_mux_sel">power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_cp_compensation</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_cp_compensation</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_cp_compensation">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_cp_current_setting</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_cp_current_setting</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_cp_current_setting">cp_current_setting24</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_cp_testmode</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_cp_testmode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_cp_testmode">cp_normal</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_cp_lf_3rd_pole_freq</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_cp_lf_3rd_pole_freq</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_cp_lf_3rd_pole_freq">lf_3rd_pole_setting0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_lf_cbig</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_lf_cbig</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_lf_cbig">lf_cbig_setting4</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_cp_lf_order</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_cp_lf_order</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_cp_lf_order">lf_2nd_order</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_lf_resistance</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_lf_resistance</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_lf_resistance">lf_res_setting0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_lf_ripplecap</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_lf_ripplecap</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_lf_ripplecap">lf_no_ripple</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_ph0_en</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_ph0_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_vco_ph0_en">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_ph0_value</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_ph0_value</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_vco_ph0_value">pll_vco_ph0_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_ph1_en</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_ph1_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_vco_ph1_en">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_ph1_value</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_ph1_value</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_vco_ph1_value">pll_vco_ph1_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_ph2_en</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_ph2_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_vco_ph2_en">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_ph2_value</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_ph2_value</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_vco_ph2_value">pll_vco_ph2_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_ph3_en</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_ph3_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_vco_ph3_en">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_ph3_value</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_ph3_value</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_vco_ph3_value">pll_vco_ph3_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dsm_mode</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dsm_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dsm_mode">dsm_mode_integer</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dsm_out_sel</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dsm_out_sel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dsm_out_sel">pll_dsm_disable</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dsm_ecn_bypass</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dsm_ecn_bypass</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dsm_ecn_bypass">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dsm_ecn_test_en</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dsm_ecn_test_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dsm_ecn_test_en">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dsm_fractional_division</spirit:name>
+          <spirit:displayName>K-fractional division</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dsm_fractional_division">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dsm_fractional_value_ready</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dsm_fractional_value_ready</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dsm_fractional_value_ready">pll_k_ready</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_l_counter_bypass</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_l_counter_bypass</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_l_counter_bypass">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_l_counter</spirit:name>
+          <spirit:displayName>L-counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_l_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_l_counter_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_l_counter_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_l_counter_enable">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_lock_fltr_cfg</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_lock_fltr_cfg</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_lock_fltr_cfg">25</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_lock_fltr_test</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_lock_fltr_test</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_lock_fltr_test">pll_lock_fltr_nrm</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_unlock_fltr_cfg</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_unlock_fltr_cfg</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_unlock_fltr_cfg">2</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_m_counter</spirit:name>
+          <spirit:displayName>M-counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_m_counter">24</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_m_counter_min_tco_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_m_counter_min_tco_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_m_counter_min_tco_enable">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_m_counter_in_src</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_m_counter_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_m_counter_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_m_counter_ph_mux_prst</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_m_counter_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_m_counter_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_m_counter_prst</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_m_counter_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_m_counter_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_m_counter_coarse_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_m_counter_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_m_counter_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_m_counter_fine_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_m_counter_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_m_counter_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_n_counter</spirit:name>
+          <spirit:displayName>N-counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_n_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_n_counter_coarse_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_n_counter_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_n_counter_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_n_counter_fine_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_n_counter_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_n_counter_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_ref_buf_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_ref_buf_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_ref_buf_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_tclk_mux_en</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_tclk_mux_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_tclk_mux_en">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_tclk_sel</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_tclk_sel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_tclk_sel">pll_tclk_m_src</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dprio_base_addr</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dprio_base_addr</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_dprio_base_addr">256</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dprio_broadcast_en</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dprio_broadcast_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dprio_broadcast_en">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dprio_clk_vreg_boost</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dprio_clk_vreg_boost</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dprio_clk_vreg_boost">clk_fpll_vreg_no_voltage_boost</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dprio_cvp_inter_sel</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dprio_cvp_inter_sel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dprio_cvp_inter_sel">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dprio_force_inter_sel</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dprio_force_inter_sel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dprio_force_inter_sel">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dprio_fpll_vreg_boost</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dprio_fpll_vreg_boost</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dprio_fpll_vreg_boost">fpll_vreg_boost_1_step</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dprio_fpll_vreg1_boost</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dprio_fpll_vreg1_boost</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dprio_fpll_vreg1_boost">fpll_vreg1_boost_1_step</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dprio_power_iso_en</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dprio_power_iso_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dprio_power_iso_en">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_dprio_status_select</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_dprio_status_select</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_dprio_status_select">dprio_normal_status</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_extra_csr</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_extra_csr</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_extra_csr">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_nreset_invert</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_nreset_invert</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_nreset_invert">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_ctrl_override_setting</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_ctrl_override_setting</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_ctrl_override_setting">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_enable">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_self_reset</spirit:name>
+          <spirit:displayName>pll_self_reset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_self_reset">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_test_enable</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_test_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_test_enable">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_ctrl_plniotri_override</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_ctrl_plniotri_override</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_ctrl_plniotri_override">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vccr_pd_en</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vccr_pd_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_vccr_pd_en">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_bw_sel</spirit:name>
+          <spirit:displayName>cmu_fpll_bw_sel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_bw_sel">medium</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_compensation_mode</spirit:name>
+          <spirit:displayName>cmu_fpll_compensation_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_compensation_mode">direct</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_duty_cycle_0</spirit:name>
+          <spirit:displayName>cmu_fpll_duty_cycle_0</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_duty_cycle_0">50</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_duty_cycle_1</spirit:name>
+          <spirit:displayName>cmu_fpll_duty_cycle_1</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_duty_cycle_1">50</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_duty_cycle_2</spirit:name>
+          <spirit:displayName>cmu_fpll_duty_cycle_2</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_duty_cycle_2">50</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_duty_cycle_3</spirit:name>
+          <spirit:displayName>cmu_fpll_duty_cycle_3</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_duty_cycle_3">50</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_hssi_output_clock_frequency</spirit:name>
+          <spirit:displayName>cmu_fpll_hssi_output_clock_frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_hssi_output_clock_frequency">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_is_cascaded_pll</spirit:name>
+          <spirit:displayName>cmu_fpll_is_cascaded_pll</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_is_cascaded_pll">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_output_clock_frequency_0</spirit:name>
+          <spirit:displayName>cmu_fpll_output_clock_frequency_0</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_output_clock_frequency_0">250.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_output_clock_frequency_1</spirit:name>
+          <spirit:displayName>cmu_fpll_output_clock_frequency_1</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_output_clock_frequency_1">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_output_clock_frequency_2</spirit:name>
+          <spirit:displayName>cmu_fpll_output_clock_frequency_2</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_output_clock_frequency_2">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_output_clock_frequency_3</spirit:name>
+          <spirit:displayName>cmu_fpll_output_clock_frequency_3</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_output_clock_frequency_3">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_phase_shift_0</spirit:name>
+          <spirit:displayName>cmu_fpll_phase_shift_0</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_phase_shift_0">0.0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_phase_shift_1</spirit:name>
+          <spirit:displayName>cmu_fpll_phase_shift_1</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_phase_shift_1">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_phase_shift_2</spirit:name>
+          <spirit:displayName>cmu_fpll_phase_shift_2</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_phase_shift_2">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_phase_shift_3</spirit:name>
+          <spirit:displayName>cmu_fpll_phase_shift_3</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_phase_shift_3">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_reference_clock_frequency</spirit:name>
+          <spirit:displayName>cmu_fpll_reference_clock_frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_reference_clock_frequency">125.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_vco_frequency</spirit:name>
+          <spirit:displayName>VCO Frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_vco_frequency">6000.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_cgb_div</spirit:name>
+          <spirit:displayName>cmu_fpll_cgb_div</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_cgb_div">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pma_width</spirit:name>
+          <spirit:displayName>cmu_fpll_pma_width</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pma_width">64</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_out_c3_hz</spirit:name>
+          <spirit:displayName>cmu_fpll_f_out_c3_hz</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_out_c3_hz">0 hz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_out_c1_hz</spirit:name>
+          <spirit:displayName>cmu_fpll_f_out_c1_hz</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_out_c1_hz">0 hz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_out_c0_hz</spirit:name>
+          <spirit:displayName>cmu_fpll_f_out_c0_hz</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_out_c0_hz">0 hz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_out_c2_hz</spirit:name>
+          <spirit:displayName>cmu_fpll_f_out_c2_hz</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_out_c2_hz">0 hz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_out_c3</spirit:name>
+          <spirit:displayName>cmu_fpll_f_out_c3</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_out_c3">000000000000000000000000000000000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_out_c1</spirit:name>
+          <spirit:displayName>cmu_fpll_f_out_c1</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_out_c1">000000000000000000000000000000000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_out_c0</spirit:name>
+          <spirit:displayName>cmu_fpll_f_out_c0</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_out_c0">000000001110111001101011001010000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_out_c2</spirit:name>
+          <spirit:displayName>cmu_fpll_f_out_c2</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_out_c2">000000000000000000000000000000000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_output_tolerance</spirit:name>
+          <spirit:displayName>cmu_fpll_output_tolerance</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_output_tolerance">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_min_band_9</spirit:name>
+          <spirit:displayName>cmu_fpll_f_min_band_9</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_min_band_9">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_initial_settings</spirit:name>
+          <spirit:displayName>cmu_fpll_initial_settings</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_initial_settings">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_band_9</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_band_9</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_band_9">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_analog_mode</spirit:name>
+          <spirit:displayName>cmu_fpll_analog_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_analog_mode">user_custom</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_min_fractional_percentage</spirit:name>
+          <spirit:displayName>cmu_fpll_min_fractional_percentage</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_min_fractional_percentage">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_max_fractional_percentage</spirit:name>
+          <spirit:displayName>cmu_fpll_max_fractional_percentage</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_max_fractional_percentage">99</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_vco_fractional</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_vco_fractional</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_vco_fractional">14025000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_input_tolerance</spirit:name>
+          <spirit:displayName>cmu_fpll_input_tolerance</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_input_tolerance">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_m_counter_c2</spirit:name>
+          <spirit:displayName>cmu_fpll_m_counter_c2</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_m_counter_c2">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_m_counter_c3</spirit:name>
+          <spirit:displayName>cmu_fpll_m_counter_c3</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_m_counter_c3">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_m_counter_c0</spirit:name>
+          <spirit:displayName>cmu_fpll_m_counter_c0</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_m_counter_c0">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_m_counter_c1</spirit:name>
+          <spirit:displayName>cmu_fpll_m_counter_c1</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_m_counter_c1">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pfd_freq</spirit:name>
+          <spirit:displayName>cmu_fpll_pfd_freq</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pfd_freq">000000000111011100110101100101000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_pfd_fractional</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_pfd_fractional</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_pfd_fractional">800000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_freq_band_0_fix_high</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_freq_band_0_fix_high</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_vco_freq_band_0_fix_high">pll_vco_freq_band_0_fix_high_0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_freq_band_1_fix_high</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_freq_band_1_fix_high</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_pll_vco_freq_band_1_fix_high">pll_vco_freq_band_1_fix_high_0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_xpm_cmu_fpll_core_cal_vco_count_length</spirit:name>
+          <spirit:displayName>cmu_fpll_xpm_cmu_fpll_core_cal_vco_count_length</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_xpm_cmu_fpll_core_cal_vco_count_length">sel_8b_count</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_xpm_cmu_fpll_core_pfd_pulse_width</spirit:name>
+          <spirit:displayName>cmu_fpll_xpm_cmu_fpll_core_pfd_pulse_width</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_xpm_cmu_fpll_core_pfd_pulse_width">pulse_width_setting0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_xpm_cmu_fpll_core_fpll_vco_div_by_2_sel</spirit:name>
+          <spirit:displayName>cmu_fpll_xpm_cmu_fpll_core_fpll_vco_div_by_2_sel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_xpm_cmu_fpll_core_fpll_vco_div_by_2_sel">bypass_divide_by_2</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_freq_band_1_dyn_high_bits</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_freq_band_1_dyn_high_bits</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_vco_freq_band_1_dyn_high_bits">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_set_fpll_input_freq_range</spirit:name>
+          <spirit:displayName>cmu_fpll_set_fpll_input_freq_range</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_set_fpll_input_freq_range">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_pfd_integer</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_pfd_integer</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_pfd_integer">800000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_freq_band_0_fix</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_freq_band_0_fix</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_vco_freq_band_0_fix">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_pfd_bonded</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_pfd_bonded</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_pfd_bonded">600000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_freq_band_0_dyn_high_bits</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_freq_band_0_dyn_high_bits</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_vco_freq_band_0_dyn_high_bits">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_freq_band_1_fix</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_freq_band_1_fix</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_vco_freq_band_1_fix">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_xpm_cmu_fpll_core_xpm_cpvco_fpll_xpm_chgpmplf_fpll_cp_current_boost</spirit:name>
+          <spirit:displayName>cmu_fpll_xpm_cmu_fpll_core_xpm_cpvco_fpll_xpm_chgpmplf_fpll_cp_current_boost</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_xpm_cmu_fpll_core_xpm_cpvco_fpll_xpm_chgpmplf_fpll_cp_current_boost">normal_setting</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_xpm_cmu_fpll_core_fpll_refclk_source</spirit:name>
+          <spirit:displayName>cmu_fpll_xpm_cmu_fpll_core_fpll_refclk_source</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_xpm_cmu_fpll_core_fpll_refclk_source">normal_refclk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_fpll_cal_test_sel</spirit:name>
+          <spirit:displayName>cmu_fpll_fpll_cal_test_sel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_fpll_cal_test_sel">sel_cal_out_7_to_0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_freq_band_0_dyn_low_bits</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_freq_band_0_dyn_low_bits</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_vco_freq_band_0_dyn_low_bits">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_f_max_div_two_bypass</spirit:name>
+          <spirit:displayName>cmu_fpll_f_max_div_two_bypass</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_f_max_div_two_bypass">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_xpm_cmu_fpll_core_pfd_delay_compensation</spirit:name>
+          <spirit:displayName>cmu_fpll_xpm_cmu_fpll_core_pfd_delay_compensation</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_xpm_cmu_fpll_core_pfd_delay_compensation">normal_delay</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_pll_vco_freq_band_1_dyn_low_bits</spirit:name>
+          <spirit:displayName>cmu_fpll_pll_vco_freq_band_1_dyn_low_bits</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_pll_vco_freq_band_1_dyn_low_bits">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_enable_idle_fpll_support</spirit:name>
+          <spirit:displayName>cmu_fpll_enable_idle_fpll_support</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_enable_idle_fpll_support">idle_none</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clk_sel_override</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clk_sel_override</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clk_sel_override">normal</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clk_sel_override_value</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clk_sel_override_value</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clk_sel_override_value">select_clk0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clkin_0_scratch0_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clkin_0_scratch0_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clkin_0_scratch0_src">pll_clkin_0_scratch0_src_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clkin_0_scratch1_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clkin_0_scratch1_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clkin_0_scratch1_src">pll_clkin_0_scratch1_src_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clkin_0_scratch2_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clkin_0_scratch2_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clkin_0_scratch2_src">pll_clkin_0_scratch2_src_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clkin_0_scratch3_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clkin_0_scratch3_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clkin_0_scratch3_src">pll_clkin_0_scratch3_src_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clkin_0_scratch4_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clkin_0_scratch4_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clkin_0_scratch4_src">pll_clkin_0_scratch4_src_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clkin_1_scratch0_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clkin_1_scratch0_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clkin_1_scratch0_src">pll_clkin_1_scratch0_src_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clkin_1_scratch1_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clkin_1_scratch1_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clkin_1_scratch1_src">pll_clkin_1_scratch1_src_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clkin_1_scratch2_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clkin_1_scratch2_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clkin_1_scratch2_src">pll_clkin_1_scratch2_src_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clkin_1_scratch3_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clkin_1_scratch3_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clkin_1_scratch3_src">pll_clkin_1_scratch3_src_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clkin_1_scratch4_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clkin_1_scratch4_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clkin_1_scratch4_src">pll_clkin_1_scratch4_src_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_powerdown_mode</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_powerdown_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_powerdown_mode">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_sup_mode</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_sup_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_sup_mode">user_mode</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clkin_0_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clkin_0_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clkin_0_src">pll_clkin_0_src_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clkin_1_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clkin_1_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clkin_1_src">pll_clkin_1_src_vss</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_auto_clk_sw_en</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_auto_clk_sw_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_auto_clk_sw_en">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clk_loss_edge</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clk_loss_edge</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clk_loss_edge">pll_clk_loss_both_edges</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clk_loss_sw_en</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clk_loss_sw_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_clk_loss_sw_en">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_clk_sw_dly</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_clk_sw_dly</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cmu_fpll_refclk_select_mux_pll_clk_sw_dly">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_manu_clk_sw_en</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_manu_clk_sw_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_manu_clk_sw_en">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_pll_sw_refclk_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_pll_sw_refclk_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_pll_sw_refclk_src">pll_sw_refclk_src_clk_0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_xpm_iqref_mux0_iqclk_sel</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_xpm_iqref_mux0_iqclk_sel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_xpm_iqref_mux0_iqclk_sel">power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch0_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch0_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch0_src">scratch0_power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch1_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch1_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch1_src">scratch1_power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch2_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch2_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch2_src">scratch2_power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch3_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch3_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch3_src">scratch3_power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch4_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch4_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_xpm_iqref_mux0_scratch4_src">scratch4_power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_xpm_iqref_mux1_iqclk_sel</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_xpm_iqref_mux1_iqclk_sel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_xpm_iqref_mux1_iqclk_sel">power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch0_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch0_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch0_src">scratch0_power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch1_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch1_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch1_src">scratch1_power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch2_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch2_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch2_src">scratch2_power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch3_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch3_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch3_src">scratch3_power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch4_src</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch4_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_xpm_iqref_mux1_scratch4_src">scratch4_power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_silicon_rev</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_silicon_rev</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_silicon_rev">20nm5es</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_refclk_select0</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_refclk_select0</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_refclk_select0">lvpecl</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_refclk_select1</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_refclk_select1</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_refclk_select1">ref_iqclk0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_mux0_inclk0_logical_to_physical_mapping</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_mux0_inclk0_logical_to_physical_mapping</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_mux0_inclk0_logical_to_physical_mapping">lvpecl</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_mux0_inclk1_logical_to_physical_mapping</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_mux0_inclk1_logical_to_physical_mapping</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_mux0_inclk1_logical_to_physical_mapping">power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_mux0_inclk2_logical_to_physical_mapping</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_mux0_inclk2_logical_to_physical_mapping</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_mux0_inclk2_logical_to_physical_mapping">power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_mux0_inclk3_logical_to_physical_mapping</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_mux0_inclk3_logical_to_physical_mapping</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_mux0_inclk3_logical_to_physical_mapping">power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_mux0_inclk4_logical_to_physical_mapping</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_mux0_inclk4_logical_to_physical_mapping</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_mux0_inclk4_logical_to_physical_mapping">power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_mux1_inclk0_logical_to_physical_mapping</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_mux1_inclk0_logical_to_physical_mapping</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_mux1_inclk0_logical_to_physical_mapping">lvpecl</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_mux1_inclk1_logical_to_physical_mapping</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_mux1_inclk1_logical_to_physical_mapping</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_mux1_inclk1_logical_to_physical_mapping">power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_mux1_inclk2_logical_to_physical_mapping</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_mux1_inclk2_logical_to_physical_mapping</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_mux1_inclk2_logical_to_physical_mapping">power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_mux1_inclk3_logical_to_physical_mapping</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_mux1_inclk3_logical_to_physical_mapping</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_mux1_inclk3_logical_to_physical_mapping">power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_select_mux_mux1_inclk4_logical_to_physical_mapping</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_select_mux_mux1_inclk4_logical_to_physical_mapping</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_select_mux_mux1_inclk4_logical_to_physical_mapping">power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pll_set_hssi_m_counter</spirit:name>
+          <spirit:displayName>Multiply factor (M-counter)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_pll_set_hssi_m_counter">8</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pll_set_hssi_n_counter</spirit:name>
+          <spirit:displayName>Divide factor (N-counter)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_pll_set_hssi_n_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pll_set_hssi_l_counter</spirit:name>
+          <spirit:displayName>Divide factor (L-counter)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_pll_set_hssi_l_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pll_set_hssi_k_counter</spirit:name>
+          <spirit:displayName>Divide factor (K-counter)</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_pll_set_hssi_k_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>device_family</spirit:name>
+          <spirit:displayName>Device Family</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="device_family">Cyclone 10 GX</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>device</spirit:name>
+          <spirit:displayName>Device</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="device">10CX220YF672E6G</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>base_device</spirit:name>
+          <spirit:displayName>Device</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="base_device">NIGHTFURY1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>device_revision</spirit:name>
+          <spirit:displayName>device_revision</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="device_revision">20nm1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>device_speed_grade</spirit:name>
+          <spirit:displayName>Speed grade</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="device_speed_grade">e4</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>numeric_speed_grade</spirit:name>
+          <spirit:displayName>Speed grade</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="numeric_speed_grade">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_fpll_mode</spirit:name>
+          <spirit:displayName>FPLL Mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_fpll_mode">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>primary_use</spirit:name>
+          <spirit:displayName>FPLL Mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="primary_use">core</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_hssi_prot_mode</spirit:name>
+          <spirit:displayName>Protocol mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_hssi_prot_mode">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prot_mode</spirit:name>
+          <spirit:displayName>Protocol mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="prot_mode">basic_tx</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_refclk_switch</spirit:name>
+          <spirit:displayName>Create a second input clock 'pll_refclk1'</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_refclk_switch">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_refclk1_frequency</spirit:name>
+          <spirit:displayName>Second Reference Clock Frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_refclk1_frequency">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_switchover_mode</spirit:name>
+          <spirit:displayName>Switchover Mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_switchover_mode">Automatic Switchover</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_switchover_delay</spirit:name>
+          <spirit:displayName>Switchover Delays</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_switchover_delay">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_active_clk</spirit:name>
+          <spirit:displayName>Create an 'active_clk' signal to indicate the input clock in use</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_active_clk">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_clk_bad</spirit:name>
+          <spirit:displayName>Create a 'clkbad' signal for each of the input clocks</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_clk_bad">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_extswitch</spirit:name>
+          <spirit:displayName>gui_enable_extswitch</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_extswitch">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_advanced_options</spirit:name>
+          <spirit:displayName>enable_advanced_options</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_advanced_options">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_hip_options</spirit:name>
+          <spirit:displayName>enable_hip_options</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_hip_options">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>generate_docs</spirit:name>
+          <spirit:displayName>Generate parameter documentation file</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="generate_docs">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>generate_add_hdl_instance_example</spirit:name>
+          <spirit:displayName>Generate '_hw.tcl' 'add_hdl_instance' example file</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="generate_add_hdl_instance_example">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_bw_sel</spirit:name>
+          <spirit:displayName>Bandwidth</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_bw_sel">medium</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>temp_bw_sel</spirit:name>
+          <spirit:displayName>Bandwidth</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="temp_bw_sel">medium</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_cp_lf_3rd_pole_freq</spirit:name>
+          <spirit:displayName>pll_cp_lf_3rd_pole_freq</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_cp_lf_3rd_pole_freq">lf_3rd_pole_setting0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_self_reset_enabled</spirit:name>
+          <spirit:displayName>PLL Auto Reset</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_self_reset_enabled">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_low_f_support</spirit:name>
+          <spirit:displayName>Enable expanded reference clock range for low output frequency support</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_low_f_support">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_is_downstream_cascaded_pll</spirit:name>
+          <spirit:displayName>Enable downstream cascaded pll</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_is_downstream_cascaded_pll">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_50G_support</spirit:name>
+          <spirit:displayName>Enable support for 50G solution</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_50G_support">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>silicon_rev</spirit:name>
+          <spirit:displayName>Silicon revision ES</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="silicon_rev">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_silicon_rev</spirit:name>
+          <spirit:displayName>gui_silicon_rev</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_silicon_rev">20nm5es</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_reference_clock_frequency</spirit:name>
+          <spirit:displayName>Reference clock frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_reference_clock_frequency">125.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_refclk_frequency</spirit:name>
+          <spirit:displayName>Desired reference clock frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_refclk_frequency">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_refclk_frequency</spirit:name>
+          <spirit:displayName>Actual reference clock frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_refclk_frequency">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>full_actual_refclk_frequency</spirit:name>
+          <spirit:displayName>Actual reference clock frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="full_actual_refclk_frequency">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>reference_clock_frequency</spirit:name>
+          <spirit:displayName>Reference clock frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="reference_clock_frequency">125.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_operation_mode</spirit:name>
+          <spirit:displayName>Operation mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_operation_mode">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>compensation_mode</spirit:name>
+          <spirit:displayName>Operation mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="compensation_mode">direct</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>feedback</spirit:name>
+          <spirit:displayName>Operation mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="feedback">normal</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_iqtxrxclk_mode</spirit:name>
+          <spirit:displayName>Operation mode for IQTXRXCLK</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_iqtxrxclk_mode">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_iqtxrxclk_outclk_index</spirit:name>
+          <spirit:displayName>Specifies which core outclk to be used as feedback source</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_iqtxrxclk_outclk_index">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_refclk_cnt</spirit:name>
+          <spirit:displayName>Number of PLL reference clocks</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_refclk_cnt">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_refclk_index</spirit:name>
+          <spirit:displayName>Selected reference clock source</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_refclk_index">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_fractional</spirit:name>
+          <spirit:displayName>Enable fractional mode</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_fractional">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_manual_hssi_counters</spirit:name>
+          <spirit:displayName>Enable manual counter configuration</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_manual_hssi_counters">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_cascade_in</spirit:name>
+          <spirit:displayName>Enable ATX to FPLL cascade clock input port</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_cascade_in">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_analog_resets</spirit:name>
+          <spirit:displayName>Enable pll_powerdown and mcgb_rst connections</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_analog_resets">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_pld_cal_busy_port</spirit:name>
+          <spirit:displayName>enable_pld_fpll_cal_busy_port</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_enable_pld_cal_busy_port">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_hip_cal_done_port</spirit:name>
+          <spirit:displayName>Enable calibration status ports for HIP</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_enable_hip_cal_done_port">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_hip_cal_en</spirit:name>
+          <spirit:displayName>Enable PCIe hard IP calibration</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_hip_cal_en">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hip_cal_en</spirit:name>
+          <spirit:displayName>hip_cal_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hip_cal_en">disable</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_cascade_out</spirit:name>
+          <spirit:displayName>Enable cascade clock output port (FPLL to FPLL cascading)</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_cascade_out">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_cascade_outclk_index</spirit:name>
+          <spirit:displayName>Specifies which core outclk to be used as cascading source</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_cascade_outclk_index">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_dps</spirit:name>
+          <spirit:displayName>Enable access to dynamic phase shift ports</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_dps">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_manual_config</spirit:name>
+          <spirit:displayName>Enable physical output clock parameters</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_manual_config">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_hssi_calc_output_clock_frequency</spirit:name>
+          <spirit:displayName>PLL output frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_hssi_calc_output_clock_frequency">1250.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_hssi_output_clock_frequency</spirit:name>
+          <spirit:displayName>PLL output frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_hssi_output_clock_frequency">1250.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_output_clock_frequency</spirit:name>
+          <spirit:displayName>PLL output frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_output_clock_frequency">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pll_datarate</spirit:name>
+          <spirit:displayName>PLL Datarate</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_pll_datarate">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_datarate</spirit:name>
+          <spirit:displayName>PLL Datarate</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_datarate">0 Mbps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pll_m_counter</spirit:name>
+          <spirit:displayName>Multiply factor (M-counter)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_pll_m_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pll_n_counter</spirit:name>
+          <spirit:displayName>Divide factor (N-counter)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_pll_n_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_fractional_x</spirit:name>
+          <spirit:displayName>Fractional factor (x)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_fractional_x">32</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pll_dsm_fractional_division</spirit:name>
+          <spirit:displayName>Fractional multiply factor (K)</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_pll_dsm_fractional_division">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_fractional_f</spirit:name>
+          <spirit:displayName>Fractional factor (F)</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_fractional_f">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pll_c_counter_0</spirit:name>
+          <spirit:displayName>Divide factor (C-counter 0)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_pll_c_counter_0">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pll_c_counter_1</spirit:name>
+          <spirit:displayName>Divide factor (C-counter 1)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_pll_c_counter_1">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pll_c_counter_2</spirit:name>
+          <spirit:displayName>Divide factor (C-counter 2)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_pll_c_counter_2">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pll_c_counter_3</spirit:name>
+          <spirit:displayName>Divide factor (C-counter 3)</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_pll_c_counter_3">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_number_of_output_clocks</spirit:name>
+          <spirit:displayName>Number of clocks</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_number_of_output_clocks">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_phase_alignment</spirit:name>
+          <spirit:displayName>Enable phase alignment</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_phase_alignment">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>phase_alignment_check_var</spirit:name>
+          <spirit:displayName>Core mode phase alignment frequency check variable</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="phase_alignment_check_var">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pfd_frequency</spirit:name>
+          <spirit:displayName>PFD Frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_pfd_frequency">125.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_vco_frequency_basic</spirit:name>
+          <spirit:displayName>VCO Frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_vco_frequency_basic">6000.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_vco_frequency_adv</spirit:name>
+          <spirit:displayName>VCO Frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_vco_frequency_adv">300.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_vco_frequency</spirit:name>
+          <spirit:displayName>VCO Frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_vco_frequency">300.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_cascade_vco_frequency</spirit:name>
+          <spirit:displayName>VCO Frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_cascade_vco_frequency">300.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>vco_frequency</spirit:name>
+          <spirit:displayName>VCO Frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="vco_frequency">6000.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_pfd_frequency</spirit:name>
+          <spirit:displayName>PFD Frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_pfd_frequency">125.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pfd_frequency</spirit:name>
+          <spirit:displayName>PFD Frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pfd_frequency">300.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_cascade_pfd_frequency</spirit:name>
+          <spirit:displayName>PFD Frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_cascade_pfd_frequency">300.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pfd_frequency</spirit:name>
+          <spirit:displayName>PFD Frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pfd_frequency">125.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk0_frequency</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk0_frequency">250.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk0_frequency</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk0_frequency">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>full_actual_outclk0_frequency</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="full_actual_outclk0_frequency">250.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>output_clock_frequency_0</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="output_clock_frequency_0">250.0 MHz</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk0_phase_shift_unit</spirit:name>
+          <spirit:displayName>Phase shift units</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk0_phase_shift_unit">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk0_desired_phase_shift</spirit:name>
+          <spirit:displayName>Phase shift</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_outclk0_desired_phase_shift">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk0_actual_phase_shift</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk0_actual_phase_shift">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk0_actual_phase_shift_deg</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk0_actual_phase_shift_deg">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>full_outclk0_actual_phase_shift</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="full_outclk0_actual_phase_shift">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>phase_shift_0</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="phase_shift_0">0.0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk1_frequency</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk1_frequency">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk1_frequency</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk1_frequency">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>full_actual_outclk1_frequency</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="full_actual_outclk1_frequency"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>output_clock_frequency_1</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="output_clock_frequency_1">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk1_phase_shift_unit</spirit:name>
+          <spirit:displayName>Phase shift units</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk1_phase_shift_unit">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk1_desired_phase_shift</spirit:name>
+          <spirit:displayName>Phase shift</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_outclk1_desired_phase_shift">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk1_actual_phase_shift</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk1_actual_phase_shift">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk1_actual_phase_shift_deg</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk1_actual_phase_shift_deg">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>full_outclk1_actual_phase_shift</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="full_outclk1_actual_phase_shift"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>phase_shift_1</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="phase_shift_1">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk2_frequency</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk2_frequency">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk2_frequency</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk2_frequency">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>full_actual_outclk2_frequency</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="full_actual_outclk2_frequency"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>output_clock_frequency_2</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="output_clock_frequency_2">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk2_phase_shift_unit</spirit:name>
+          <spirit:displayName>Phase shift units</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk2_phase_shift_unit">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk2_desired_phase_shift</spirit:name>
+          <spirit:displayName>Phase shift</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_outclk2_desired_phase_shift">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk2_actual_phase_shift</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk2_actual_phase_shift">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk2_actual_phase_shift_deg</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk2_actual_phase_shift_deg">0 deg</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>full_outclk2_actual_phase_shift</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="full_outclk2_actual_phase_shift"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>phase_shift_2</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="phase_shift_2">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_outclk3_frequency</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_outclk3_frequency">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_actual_outclk3_frequency</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_actual_outclk3_frequency">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>full_actual_outclk3_frequency</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="full_actual_outclk3_frequency"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>output_clock_frequency_3</spirit:name>
+          <spirit:displayName>Actual frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="output_clock_frequency_3">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk3_phase_shift_unit</spirit:name>
+          <spirit:displayName>Phase shift units</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk3_phase_shift_unit">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk3_desired_phase_shift</spirit:name>
+          <spirit:displayName>Phase shift</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="gui_outclk3_desired_phase_shift">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk3_actual_phase_shift</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk3_actual_phase_shift">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_outclk3_actual_phase_shift_deg</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_outclk3_actual_phase_shift_deg">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>full_outclk3_actual_phase_shift</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="full_outclk3_actual_phase_shift"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>phase_shift_3</spirit:name>
+          <spirit:displayName>Actual phase shift</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="phase_shift_3">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_desired_hssi_cascade_frequency</spirit:name>
+          <spirit:displayName>Desired frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="gui_desired_hssi_cascade_frequency">100.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>refclk_select0</spirit:name>
+          <spirit:displayName>refclk_select0</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="refclk_select0">lvpecl</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>refclk_select1</spirit:name>
+          <spirit:displayName>refclk_select1</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="refclk_select1">ref_iqclk0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_0</spirit:name>
+          <spirit:displayName>pll_c_counter_0</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_c_counter_0">6</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_0_in_src</spirit:name>
+          <spirit:displayName>pll_c_counter_0_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_c_counter_0_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_0_ph_mux_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_0_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_c_counter_0_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_0_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_0_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_c_counter_0_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_0_coarse_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_0_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_c_counter_0_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_0_fine_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_0_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_c_counter_0_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_1</spirit:name>
+          <spirit:displayName>pll_c_counter_1</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_c_counter_1">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_1_in_src</spirit:name>
+          <spirit:displayName>pll_c_counter_1_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_c_counter_1_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_1_ph_mux_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_1_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_c_counter_1_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_1_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_1_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_c_counter_1_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_1_coarse_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_1_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_c_counter_1_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_1_fine_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_1_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_c_counter_1_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_2</spirit:name>
+          <spirit:displayName>pll_c_counter_2</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_c_counter_2">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_2_in_src</spirit:name>
+          <spirit:displayName>pll_c_counter_2_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_c_counter_2_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_2_ph_mux_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_2_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_c_counter_2_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_2_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_2_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_c_counter_2_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_2_coarse_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_2_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_c_counter_2_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_2_fine_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_2_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_c_counter_2_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_3</spirit:name>
+          <spirit:displayName>pll_c_counter_3</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_c_counter_3">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_3_in_src</spirit:name>
+          <spirit:displayName>pll_c_counter_3_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_c_counter_3_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_3_ph_mux_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_3_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_c_counter_3_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_3_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_3_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_c_counter_3_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_3_coarse_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_3_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_c_counter_3_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_c_counter_3_fine_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_3_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_c_counter_3_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_l_counter</spirit:name>
+          <spirit:displayName>pll_c_counter_0</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="hssi_l_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_l_counter_in_src</spirit:name>
+          <spirit:displayName>pll_c_counter_0_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_l_counter_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_l_counter_ph_mux_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_0_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="hssi_l_counter_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_l_counter_bypass</spirit:name>
+          <spirit:displayName>pll_l_counter_bypass</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_l_counter_bypass">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_l_counter_enable</spirit:name>
+          <spirit:displayName>pll_l_counter_enable</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_l_counter_enable">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pcie_c_counter_0</spirit:name>
+          <spirit:displayName>pll_c_counter_0</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="hssi_pcie_c_counter_0">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pcie_c_counter_0_in_src</spirit:name>
+          <spirit:displayName>pll_c_counter_0_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pcie_c_counter_0_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pcie_c_counter_0_ph_mux_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_0_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="hssi_pcie_c_counter_0_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pcie_c_counter_0_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_0_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="hssi_pcie_c_counter_0_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pcie_c_counter_0_coarse_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_0_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pcie_c_counter_0_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pcie_c_counter_0_fine_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_0_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pcie_c_counter_0_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_cascade_c_counter</spirit:name>
+          <spirit:displayName>pll_c_counter_0</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="hssi_cascade_c_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_cascade_c_counter_in_src</spirit:name>
+          <spirit:displayName>pll_c_counter_0_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_cascade_c_counter_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_cascade_c_counter_ph_mux_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_0_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="hssi_cascade_c_counter_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_cascade_c_counter_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_0_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="hssi_cascade_c_counter_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_cascade_c_counter_coarse_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_0_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_cascade_c_counter_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_cascade_c_counter_fine_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_0_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_cascade_c_counter_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_m_counter_in_src</spirit:name>
+          <spirit:displayName>pll_m_counter_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_m_counter_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_0</spirit:name>
+          <spirit:displayName>pll_c_counter_0</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_c_counter_0">6</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_0_in_src</spirit:name>
+          <spirit:displayName>pll_c_counter_0_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_c_counter_0_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_0_ph_mux_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_0_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_c_counter_0_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_0_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_0_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_c_counter_0_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_0_coarse_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_0_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_c_counter_0_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_0_fine_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_0_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_c_counter_0_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_1</spirit:name>
+          <spirit:displayName>pll_c_counter_1</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_c_counter_1">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_1_in_src</spirit:name>
+          <spirit:displayName>pll_c_counter_1_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_c_counter_1_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_1_ph_mux_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_1_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_c_counter_1_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_1_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_1_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_c_counter_1_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_1_coarse_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_1_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_c_counter_1_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_1_fine_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_1_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_c_counter_1_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_2</spirit:name>
+          <spirit:displayName>pll_c_counter_2</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_c_counter_2">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_2_in_src</spirit:name>
+          <spirit:displayName>pll_c_counter_2_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_c_counter_2_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_2_ph_mux_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_2_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_c_counter_2_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_2_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_2_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_c_counter_2_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_2_coarse_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_2_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_c_counter_2_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_2_fine_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_2_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_c_counter_2_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_3</spirit:name>
+          <spirit:displayName>pll_c_counter_3</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_c_counter_3">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_3_in_src</spirit:name>
+          <spirit:displayName>pll_c_counter_3_in_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_c_counter_3_in_src">m_cnt_in_src_ph_mux_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_3_ph_mux_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_3_ph_mux_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_c_counter_3_ph_mux_prst">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_3_prst</spirit:name>
+          <spirit:displayName>pll_c_counter_3_prst</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_c_counter_3_prst">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_3_coarse_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_3_coarse_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_c_counter_3_coarse_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_c_counter_3_fine_dly</spirit:name>
+          <spirit:displayName>pll_c_counter_3_fine_dly</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_c_counter_3_fine_dly">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_iqclk_mux_sel</spirit:name>
+          <spirit:displayName>pll_iqclk_mux_sel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_iqclk_mux_sel">power_down</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_l_counter</spirit:name>
+          <spirit:displayName>pll_l_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_l_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_actual_using_fractional</spirit:name>
+          <spirit:displayName>Enable fractional mode</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="core_actual_using_fractional">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_actual_using_fractional</spirit:name>
+          <spirit:displayName>Enable fractional mode</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="hssi_actual_using_fractional">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_cascade_actual_using_fractional</spirit:name>
+          <spirit:displayName>Enable fractional mode</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="hssi_cascade_actual_using_fractional">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_actual_using_fractional</spirit:name>
+          <spirit:displayName>Enable fractional mode</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="pll_actual_using_fractional">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_dsm_fractional_division</spirit:name>
+          <spirit:displayName>pll_dsm_fractional_division</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="core_dsm_fractional_division">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_dsm_fractional_division</spirit:name>
+          <spirit:displayName>pll_dsm_fractional_division</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_dsm_fractional_division">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_cascade_dsm_fractional_division</spirit:name>
+          <spirit:displayName>pll_dsm_fractional_division</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_cascade_dsm_fractional_division">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_dsm_fractional_division</spirit:name>
+          <spirit:displayName>pll_dsm_fractional_division</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_dsm_fractional_division">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_dsm_mode</spirit:name>
+          <spirit:displayName>pll_dsm_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_dsm_mode">dsm_mode_integer</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_dsm_out_sel</spirit:name>
+          <spirit:displayName>pll_dsm_out_sel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_dsm_out_sel">pll_dsm_disable</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_m_counter</spirit:name>
+          <spirit:displayName>pll_m_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_m_counter">24</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_m_counter</spirit:name>
+          <spirit:displayName>pll_m_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="hssi_m_counter">11</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_cascade_m_counter</spirit:name>
+          <spirit:displayName>pll_m_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="hssi_cascade_m_counter">11</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>core_n_counter</spirit:name>
+          <spirit:displayName>pll_n_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="core_n_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_n_counter</spirit:name>
+          <spirit:displayName>pll_n_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="hssi_n_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_cascade_n_counter</spirit:name>
+          <spirit:displayName>pll_n_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="hssi_cascade_n_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_m_counter</spirit:name>
+          <spirit:displayName>pll_m_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_m_counter">24</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_n_counter</spirit:name>
+          <spirit:displayName>pll_n_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_n_counter">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>refclk_freq_bitvec</spirit:name>
+          <spirit:displayName>Reference clock frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="refclk_freq_bitvec">000000000111011100110101100101000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>vco_freq_bitvec</spirit:name>
+          <spirit:displayName>VCO Frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="vco_freq_bitvec">000101100101101000001011110000000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pfd_freq_bitvec</spirit:name>
+          <spirit:displayName>PFD Frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pfd_freq_bitvec">000000000111011100110101100101000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>output_freq_bitvec</spirit:name>
+          <spirit:displayName>PLL output frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="output_freq_bitvec">000000000000000000000000000000000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>f_out_c0_bitvec</spirit:name>
+          <spirit:displayName>PLL output frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="f_out_c0_bitvec">000000001110111001101011001010000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>f_out_c1_bitvec</spirit:name>
+          <spirit:displayName>PLL output frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="f_out_c1_bitvec">000000000000000000000000000000000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>f_out_c2_bitvec</spirit:name>
+          <spirit:displayName>PLL output frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="f_out_c2_bitvec">000000000000000000000000000000000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>f_out_c3_bitvec</spirit:name>
+          <spirit:displayName>PLL output frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="f_out_c3_bitvec">000000000000000000000000000000000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>l_counter_bitvec</spirit:name>
+          <spirit:displayName>l_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="l_counter_bitvec">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>n_counter_bitvec</spirit:name>
+          <spirit:displayName>n_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="n_counter_bitvec">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>m_counter_bitvec</spirit:name>
+          <spirit:displayName>m_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="m_counter_bitvec">24</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>c_counter0_bitvec</spirit:name>
+          <spirit:displayName>c0_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="c_counter0_bitvec">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>c_counter1_bitvec</spirit:name>
+          <spirit:displayName>c1_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="c_counter1_bitvec">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>c_counter2_bitvec</spirit:name>
+          <spirit:displayName>c2_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="c_counter2_bitvec">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>c_counter3_bitvec</spirit:name>
+          <spirit:displayName>c3_counter</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="c_counter3_bitvec">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pma_width_bitvec</spirit:name>
+          <spirit:displayName>pma_width</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pma_width_bitvec">64</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cgb_div_bitvec</spirit:name>
+          <spirit:displayName>cgb_div</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="cgb_div_bitvec">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_auto_clk_sw_en</spirit:name>
+          <spirit:displayName>pll_auto_clk_sw_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_auto_clk_sw_en">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_clk_loss_edge</spirit:name>
+          <spirit:displayName>pll_clk_loss_edge</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_clk_loss_edge">pll_clk_loss_both_edges</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_clk_loss_sw_en</spirit:name>
+          <spirit:displayName>pll_clk_loss_sw_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_clk_loss_sw_en">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_clk_sw_dly</spirit:name>
+          <spirit:displayName>pll_clk_sw_dly</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pll_clk_sw_dly">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_manu_clk_sw_en</spirit:name>
+          <spirit:displayName>pll_manu_clk_sw_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_manu_clk_sw_en">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pll_sw_refclk_src</spirit:name>
+          <spirit:displayName>pll_sw_refclk_src</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="pll_sw_refclk_src">pll_sw_refclk_src_clk_0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>set_altera_xcvr_fpll_a10_calibration_en</spirit:name>
+          <spirit:displayName>Enable calibration</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="set_altera_xcvr_fpll_a10_calibration_en">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>calibration_en</spirit:name>
+          <spirit:displayName>calibration_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="calibration_en">enable</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>support_mode</spirit:name>
+          <spirit:displayName>Support mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="support_mode">user_mode</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_ext_lockdetect_ports</spirit:name>
+          <spirit:displayName>Enable clklow and fref ports</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_ext_lockdetect_ports">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>is_c10</spirit:name>
+          <spirit:displayName>is_c10</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="is_c10">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_reconfig_en</spirit:name>
+          <spirit:displayName>cmu_fpll_reconfig_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_reconfig_en">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_dps_en</spirit:name>
+          <spirit:displayName>cmu_fpll_dps_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_dps_en">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_calibration_en</spirit:name>
+          <spirit:displayName>cmu_fpll_calibration_en</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_calibration_en">enable</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>cmu_fpll_refclk_freq</spirit:name>
+          <spirit:displayName>cmu_fpll_refclk_freq</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="cmu_fpll_refclk_freq">000000000111011100110101100101000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>fpll_refclk_select</spirit:name>
+          <spirit:displayName>fpll_refclk_select</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="fpll_refclk_select">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_mcgb</spirit:name>
+          <spirit:displayName>Include Master Clock Generation Block</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_mcgb">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mcgb_div</spirit:name>
+          <spirit:displayName>Clock division factor</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="mcgb_div">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mcgb_div_fnl</spirit:name>
+          <spirit:displayName>mcgb_div_fnl</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="mcgb_div_fnl">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_hfreq_clk</spirit:name>
+          <spirit:displayName>Enable x6/xN non-bonded high-speed clock output port</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_hfreq_clk">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_mcgb_pcie_clksw</spirit:name>
+          <spirit:displayName>Enable PCIe clock switch interface</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_mcgb_pcie_clksw">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mcgb_aux_clkin_cnt</spirit:name>
+          <spirit:displayName>Number of auxiliary MCGB clock input ports.</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="mcgb_aux_clkin_cnt">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mcgb_in_clk_freq</spirit:name>
+          <spirit:displayName>MCGB input clock frequency</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="mcgb_in_clk_freq">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mcgb_out_datarate</spirit:name>
+          <spirit:displayName>MCGB output data rate</spirit:displayName>
+          <spirit:value spirit:format="float" spirit:id="mcgb_out_datarate">0.0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_bonding_clks</spirit:name>
+          <spirit:displayName>Enable bonding clock output ports</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_bonding_clks">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_fb_comp_bonding</spirit:name>
+          <spirit:displayName>Enable feedback compensation bonding</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_fb_comp_bonding">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mcgb_enable_iqtxrxclk</spirit:name>
+          <spirit:displayName>mcgb_enable_iqtxrxclk</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="mcgb_enable_iqtxrxclk">disable_iqtxrxclk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>pma_width</spirit:name>
+          <spirit:displayName>PMA interface width</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="pma_width">64</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_mcgb_debug_ports_parameters</spirit:name>
+          <spirit:displayName>enable_mcgb_debug_ports_parameters</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_mcgb_debug_ports_parameters">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>enable_pld_mcgb_cal_busy_port</spirit:name>
+          <spirit:displayName>enable_pld_mcgb_cal_busy_port</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="enable_pld_mcgb_cal_busy_port">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>check_output_ports_mcgb</spirit:name>
+          <spirit:displayName>check_output_ports_mcgb</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="check_output_ports_mcgb">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>is_protocol_PCIe</spirit:name>
+          <spirit:displayName>is_protocol_PCIe</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="is_protocol_PCIe">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mapped_output_clock_frequency</spirit:name>
+          <spirit:displayName>mapped_output_clock_frequency</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="mapped_output_clock_frequency">0 ps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mapped_primary_pll_buffer</spirit:name>
+          <spirit:displayName>mapped_primary_pll_buffer</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="mapped_primary_pll_buffer">N/A</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>mapped_hip_cal_done_port</spirit:name>
+          <spirit:displayName>mapped_hip_cal_done_port</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="mapped_hip_cal_done_port">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pma_cgb_master_prot_mode</spirit:name>
+          <spirit:displayName>hssi_pma_cgb_master_prot_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pma_cgb_master_prot_mode">basic_tx</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pma_cgb_master_silicon_rev</spirit:name>
+          <spirit:displayName>hssi_pma_cgb_master_silicon_rev</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pma_cgb_master_silicon_rev">20nm1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pma_cgb_master_x1_div_m_sel</spirit:name>
+          <spirit:displayName>hssi_pma_cgb_master_x1_div_m_sel</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pma_cgb_master_x1_div_m_sel">divbypass</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pma_cgb_master_cgb_enable_iqtxrxclk</spirit:name>
+          <spirit:displayName>hssi_pma_cgb_master_cgb_enable_iqtxrxclk</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pma_cgb_master_cgb_enable_iqtxrxclk">disable_iqtxrxclk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pma_cgb_master_ser_mode</spirit:name>
+          <spirit:displayName>hssi_pma_cgb_master_ser_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pma_cgb_master_ser_mode">sixty_four_bit</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pma_cgb_master_datarate</spirit:name>
+          <spirit:displayName>hssi_pma_cgb_master_datarate</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pma_cgb_master_datarate">0 bps</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pma_cgb_master_cgb_power_down</spirit:name>
+          <spirit:displayName>hssi_pma_cgb_master_cgb_power_down</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pma_cgb_master_cgb_power_down">normal_cgb</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pma_cgb_master_observe_cgb_clocks</spirit:name>
+          <spirit:displayName>hssi_pma_cgb_master_observe_cgb_clocks</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pma_cgb_master_observe_cgb_clocks">observe_nothing</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pma_cgb_master_op_mode</spirit:name>
+          <spirit:displayName>hssi_pma_cgb_master_op_mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pma_cgb_master_op_mode">enabled</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pma_cgb_master_tx_ucontrol_reset_pcie</spirit:name>
+          <spirit:displayName>hssi_pma_cgb_master_tx_ucontrol_reset_pcie</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pma_cgb_master_tx_ucontrol_reset_pcie">pcscorehip_controls_mcgb</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pma_cgb_master_vccdreg_output</spirit:name>
+          <spirit:displayName>hssi_pma_cgb_master_vccdreg_output</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pma_cgb_master_vccdreg_output">vccdreg_nominal</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pma_cgb_master_input_select</spirit:name>
+          <spirit:displayName>hssi_pma_cgb_master_input_select</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pma_cgb_master_input_select">fpll_top</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hssi_pma_cgb_master_input_select_gen3</spirit:name>
+          <spirit:displayName>hssi_pma_cgb_master_input_select_gen3</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="hssi_pma_cgb_master_input_select_gen3">unused</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_parameter_list</spirit:name>
+          <spirit:displayName>Parameter Names</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_parameter_list">C-counter-0,C-counter-1,C-counter-2,C-counter-3,L-counter,M-counter,N-counter,VCO Frequency,pll_dsm_fractional_division</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_parameter_values</spirit:name>
+          <spirit:displayName>Parameter Values</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_parameter_values">6,1,1,1,1,24,1,6000.0 MHz,1</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </altera:altera_module_parameters>
+    <altera:altera_system_parameters>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>device</spirit:name>
+          <spirit:displayName>Device</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="device">10CX220YF672E6G</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>deviceFamily</spirit:name>
+          <spirit:displayName>Device family</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="deviceFamily">Cyclone 10 GX</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>deviceSpeedGrade</spirit:name>
+          <spirit:displayName>Device Speed Grade</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="deviceSpeedGrade">6</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>generationId</spirit:name>
+          <spirit:displayName>Generation Id</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="generationId">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>bonusData</spirit:name>
+          <spirit:displayName>bonusData</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="bonusData">bonusData 
+{
+   element xcvr_fpll_a10_0
+   {
+      datum _sortIndex
+      {
+         value = "0";
+         type = "int";
+      }
+   }
+}
+</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hideFromIPCatalog</spirit:name>
+          <spirit:displayName>Hide from IP Catalog</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="hideFromIPCatalog">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>lockedInterfaceDefinition</spirit:name>
+          <spirit:displayName>lockedInterfaceDefinition</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="lockedInterfaceDefinition"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>systemInfos</spirit:name>
+          <spirit:displayName>systemInfos</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="systemInfos"><![CDATA[<systemInfosDefinition>
+    <connPtSystemInfos>
+        <entry>
+            <key>outclk0</key>
+            <value>
+                <connectionPointName>outclk0</connectionPointName>
+                <suppliedSystemInfos/>
+                <consumedSystemInfos>
+                    <entry>
+                        <key>CLOCK_RATE</key>
+                        <value>100000000</value>
+                    </entry>
+                </consumedSystemInfos>
+            </value>
+        </entry>
+    </connPtSystemInfos>
+</systemInfosDefinition>]]></spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </altera:altera_system_parameters>
+    <altera:altera_interface_boundary>
+      <altera:interface_mapping altera:name="outclk0" altera:internal="xcvr_fpll_a10_0.outclk0" altera:type="clock" altera:dir="start">
+        <altera:port_mapping altera:name="outclk0" altera:internal="outclk0"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="pll_cal_busy" altera:internal="xcvr_fpll_a10_0.pll_cal_busy" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="pll_cal_busy" altera:internal="pll_cal_busy"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="pll_locked" altera:internal="xcvr_fpll_a10_0.pll_locked" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="pll_locked" altera:internal="pll_locked"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="pll_powerdown" altera:internal="xcvr_fpll_a10_0.pll_powerdown" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="pll_powerdown" altera:internal="pll_powerdown"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="pll_refclk0" altera:internal="xcvr_fpll_a10_0.pll_refclk0" altera:type="clock" altera:dir="end">
+        <altera:port_mapping altera:name="pll_refclk0" altera:internal="pll_refclk0"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="tx_serial_clk" altera:internal="xcvr_fpll_a10_0.tx_serial_clk"></altera:interface_mapping>
+    </altera:altera_interface_boundary>
+    <altera:altera_has_warnings>true</altera:altera_has_warnings>
+    <altera:altera_has_errors>false</altera:altera_has_errors>
+  </spirit:vendorExtensions>
+</spirit:component>

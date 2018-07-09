@@ -1,0 +1,546 @@
+<?xml version="1.0" ?>
+<spirit:component xmlns:altera="http://www.altera.com/XMLSchema/IPXact/extensions" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
+  <spirit:vendor>Intel Corporation</spirit:vendor>
+  <spirit:library>ovc2_gpio</spirit:library>
+  <spirit:name>gpio_0</spirit:name>
+  <spirit:version>18.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>ck</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>export</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>ck</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>din</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>export</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>din</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">input</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>oe</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>export</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>oe</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">input</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>pad_out</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="conduit" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>export</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pad_out</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>associatedClock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>associatedReset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>prSafe</spirit:name>
+          <spirit:displayName>Partial Reconfiguration Safe</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="prSafe">false</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <altera:altera_assignments>
+          <spirit:parameters>
+            <spirit:parameter>
+              <spirit:name>ui.blockdiagram.direction</spirit:name>
+              <spirit:value spirit:format="string" spirit:id="ui.blockdiagram.direction">output</spirit:value>
+            </spirit:parameter>
+          </spirit:parameters>
+        </altera:altera_assignments>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>QUARTUS_SYNTH</spirit:name>
+        <spirit:envIdentifier>:quartus.altera.com:</spirit:envIdentifier>
+        <spirit:modelName>altera_gpio</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>QUARTUS_SYNTH</spirit:localName>
+        </spirit:fileSetRef>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>ck</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>din</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left>0</spirit:left>
+            <spirit:right>1</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC_VECTOR</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>oe</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC_VECTOR</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>pad_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC_VECTOR</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+  </spirit:model>
+  <spirit:vendorExtensions>
+    <altera:entity_info>
+      <spirit:vendor>Intel Corporation</spirit:vendor>
+      <spirit:library>ovc2_gpio</spirit:library>
+      <spirit:name>altera_gpio</spirit:name>
+      <spirit:version>18.0</spirit:version>
+    </altera:entity_info>
+    <altera:altera_module_parameters>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>device_family</spirit:name>
+          <spirit:displayName>device_family</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="device_family">Cyclone 10 GX</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PIN_TYPE_GUI</spirit:name>
+          <spirit:displayName>Data Direction</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="PIN_TYPE_GUI">Output</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>SIZE</spirit:name>
+          <spirit:displayName>Data width</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="SIZE">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_migratable_port_names</spirit:name>
+          <spirit:displayName>Use legacy top-level port names</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_migratable_port_names">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_diff_buff</spirit:name>
+          <spirit:displayName>Use differential buffer</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_diff_buff">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pseudo_diff</spirit:name>
+          <spirit:displayName>Use pseudo-differential buffer</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_pseudo_diff">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pseudo_diff_off_shadow</spirit:name>
+          <spirit:displayName>Use pseudo-differential buffer</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_pseudo_diff_off_shadow">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_pseudo_diff_on_shadow</spirit:name>
+          <spirit:displayName>Use pseudo-differential buffer</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_pseudo_diff_on_shadow">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_bus_hold</spirit:name>
+          <spirit:displayName>Use bus-hold circuitry</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_bus_hold">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_bus_hold_shadow</spirit:name>
+          <spirit:displayName>Use bus-hold circuitry</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_bus_hold_shadow">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_open_drain</spirit:name>
+          <spirit:displayName>Use open-drain output</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_open_drain">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_open_drain_shadow</spirit:name>
+          <spirit:displayName>Use open-drain output</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_open_drain_shadow">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_use_oe</spirit:name>
+          <spirit:displayName>Enable output enable port</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_use_oe">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_use_oe_off_shadow</spirit:name>
+          <spirit:displayName>Enable output enable port</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_use_oe_off_shadow">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_use_oe_on_shadow</spirit:name>
+          <spirit:displayName>Enable output enable port</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_use_oe_on_shadow">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_termination_ports</spirit:name>
+          <spirit:displayName>Enable seriestermination/paralleltermination ports</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_termination_ports">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_termination_ports_shadow</spirit:name>
+          <spirit:displayName>Enable seriestermination/paralleltermination ports</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_termination_ports_shadow">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_io_reg_mode</spirit:name>
+          <spirit:displayName>Register mode</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_io_reg_mode">DDIO</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_sreset_mode</spirit:name>
+          <spirit:displayName>Enable synchronous clear / preset port</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_sreset_mode">None</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_sreset_mode_off_shadow</spirit:name>
+          <spirit:displayName>Enable synchronous clear / preset port</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_sreset_mode_off_shadow">None</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_areset_mode</spirit:name>
+          <spirit:displayName>Enable asynchronous clear / preset port</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_areset_mode">None</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_areset_mode_off_shadow</spirit:name>
+          <spirit:displayName>Enable asynchronous clear / preset port</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="gui_areset_mode_off_shadow">None</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_cke</spirit:name>
+          <spirit:displayName>Enable clock enable port</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_cke">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_enable_cke_off_shadow</spirit:name>
+          <spirit:displayName>Enable clock enable port</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_enable_cke_off_shadow">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_hr_logic</spirit:name>
+          <spirit:displayName>Half Rate Logic</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_hr_logic">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_separate_io_clks</spirit:name>
+          <spirit:displayName>Separate input/output Clocks</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_separate_io_clks">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>gui_separate_io_clks_off_shadow</spirit:name>
+          <spirit:displayName>Separate input/output Clocks</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="gui_separate_io_clks_off_shadow">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PIN_TYPE</spirit:name>
+          <spirit:displayName>PIN_TYPE</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="PIN_TYPE">output</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>REGISTER_MODE</spirit:name>
+          <spirit:displayName>REGISTER_MODE</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="REGISTER_MODE">ddr</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>HALF_RATE</spirit:name>
+          <spirit:displayName>HALF_RATE</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="HALF_RATE">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>SEPARATE_I_O_CLOCKS</spirit:name>
+          <spirit:displayName>SEPARATE_I_O_CLOCKS</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="SEPARATE_I_O_CLOCKS">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>BUFFER_TYPE</spirit:name>
+          <spirit:displayName>BUFFER_TYPE</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="BUFFER_TYPE">single-ended</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PSEUDO_DIFF</spirit:name>
+          <spirit:displayName>PSEUDO_DIFF</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="PSEUDO_DIFF">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ARESET_MODE</spirit:name>
+          <spirit:displayName>ARESET_MODE</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="ARESET_MODE">none</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>SRESET_MODE</spirit:name>
+          <spirit:displayName>SRESET_MODE</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="SRESET_MODE">none</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>OPEN_DRAIN</spirit:name>
+          <spirit:displayName>OPEN_DRAIN</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="OPEN_DRAIN">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>BUS_HOLD</spirit:name>
+          <spirit:displayName>BUS_HOLD</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="BUS_HOLD">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ENABLE_OE</spirit:name>
+          <spirit:displayName>ENABLE_OE</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="ENABLE_OE">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ENABLE_CKE</spirit:name>
+          <spirit:displayName>ENABLE_CKE</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="ENABLE_CKE">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ENABLE_TERM</spirit:name>
+          <spirit:displayName>ENABLE_TERM</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="ENABLE_TERM">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>SYS_INFO_DEVICE</spirit:name>
+          <spirit:displayName>SYS_INFO_DEVICE</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="SYS_INFO_DEVICE">10CX220YF672E6G</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>EXT_DRIVER_PARAM</spirit:name>
+          <spirit:displayName>EXT_DRIVER_PARAM</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="EXT_DRIVER_PARAM">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>GENERATE_SDC_FILE</spirit:name>
+          <spirit:displayName>GENERATE_SDC_FILE</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="GENERATE_SDC_FILE">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>IP_MIGRATE_PORT_MAP_FILE</spirit:name>
+          <spirit:displayName>IP_MIGRATE_PORT_MAP_FILE</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="IP_MIGRATE_PORT_MAP_FILE">altddio_bidir_port_map.csv</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>AUTO_DEVICE_SPEEDGRADE</spirit:name>
+          <spirit:displayName>Auto DEVICE_SPEEDGRADE</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="AUTO_DEVICE_SPEEDGRADE">6</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </altera:altera_module_parameters>
+    <altera:altera_system_parameters>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>device</spirit:name>
+          <spirit:displayName>Device</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="device">10CX220YF672E6G</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>deviceFamily</spirit:name>
+          <spirit:displayName>Device family</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="deviceFamily">Cyclone 10 GX</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>deviceSpeedGrade</spirit:name>
+          <spirit:displayName>Device Speed Grade</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="deviceSpeedGrade">6</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>generationId</spirit:name>
+          <spirit:displayName>Generation Id</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="generationId">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>bonusData</spirit:name>
+          <spirit:displayName>bonusData</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="bonusData">bonusData 
+{
+   element gpio_0
+   {
+      datum _sortIndex
+      {
+         value = "0";
+         type = "int";
+      }
+   }
+}
+</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hideFromIPCatalog</spirit:name>
+          <spirit:displayName>Hide from IP Catalog</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="hideFromIPCatalog">true</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>lockedInterfaceDefinition</spirit:name>
+          <spirit:displayName>lockedInterfaceDefinition</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="lockedInterfaceDefinition"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>systemInfos</spirit:name>
+          <spirit:displayName>systemInfos</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="systemInfos"><![CDATA[<systemInfosDefinition>
+    <connPtSystemInfos/>
+</systemInfosDefinition>]]></spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </altera:altera_system_parameters>
+    <altera:altera_interface_boundary>
+      <altera:interface_mapping altera:name="ck" altera:internal="gpio_0.ck" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="ck" altera:internal="ck"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="ck_fr" altera:internal="gpio_0.ck_fr"></altera:interface_mapping>
+      <altera:interface_mapping altera:name="ck_hr" altera:internal="gpio_0.ck_hr"></altera:interface_mapping>
+      <altera:interface_mapping altera:name="cke" altera:internal="gpio_0.cke"></altera:interface_mapping>
+      <altera:interface_mapping altera:name="din" altera:internal="gpio_0.din" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="din" altera:internal="din"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="oe" altera:internal="gpio_0.oe" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="oe" altera:internal="oe"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="pad_out" altera:internal="gpio_0.pad_out" altera:type="conduit" altera:dir="end">
+        <altera:port_mapping altera:name="pad_out" altera:internal="pad_out"></altera:port_mapping>
+      </altera:interface_mapping>
+    </altera:altera_interface_boundary>
+    <altera:altera_has_warnings>false</altera:altera_has_warnings>
+    <altera:altera_has_errors>false</altera:altera_has_errors>
+  </spirit:vendorExtensions>
+</spirit:component>
