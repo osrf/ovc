@@ -40,10 +40,10 @@ def set_nconfig(on):
             f.write("0")
 
 def configure_fpga(bitstream_filename):
-    if not os.path.exists("/dev/ovc_cfg"):
-        print("configuration device node /dev/ovc_cfg does not exist.")
+    if not os.path.exists("/dev/ovc2_cfg"):
+        print("configuration device node /dev/ovc2_cfg does not exist.")
         print("please load its kernel module:")
-        print("    cd ~/ovc/software/ovc2/modules/cfg")
+        print("    cd ~/ovc/software/ovc2/modules/ovc2_cfg")
         print("    sudo ./load")
         return False
     print("setting up TX2 GPIO...")
@@ -70,8 +70,8 @@ def configure_fpga(bitstream_filename):
         bitstream_data = bitstream_file.read()
     print("bitstream length: {}".format(len(bitstream_data)))
     print("writing to FPGA...")
-    with open("/dev/ovc_cfg", "wb") as ovc_cfg_dev:
-        ovc_cfg_dev.write(bitstream_data)
+    with open("/dev/ovc2_cfg", "wb") as ovc2_cfg_dev:
+        ovc2_cfg_dev.write(bitstream_data)
     print("conf_done: {}".format(get_conf_done()))
     return True
 
