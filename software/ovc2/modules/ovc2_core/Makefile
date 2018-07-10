@@ -1,4 +1,4 @@
-obj-m	:= ovc2_cfg.o
+obj-m	:= ovc2_core.o
 
 KERNELDIR ?= /lib/modules/$(shell uname -r)/build
 PWD       := $(shell pwd)
