@@ -304,7 +304,7 @@
     </fileSets>
 </generationInfoDefinition>]]></parameter>
   <parameter name="hlsFile" value="" />
-  <parameter name="logicalView">ip/platform/platform_clock_in.ip</parameter>
+  <parameter name="logicalView">ip/platform_clock_in.ip</parameter>
   <parameter name="moduleAssignmentDefinition"><![CDATA[<assignmentDefinition>
     <assignmentValueMap/>
 </assignmentDefinition>]]></parameter>
@@ -2446,7 +2446,7 @@
                     <consumedSystemInfos>
                         <entry>
                             <key>ADDRESS_WIDTH</key>
-                            <value>15</value>
+                            <value>4</value>
                         </entry>
                     </consumedSystemInfos>
                 </value>
@@ -2512,7 +2512,7 @@
     </fileSets>
 </generationInfoDefinition>]]></parameter>
   <parameter name="hlsFile" value="" />
-  <parameter name="logicalView" value="ip/platform/pcie.ip" />
+  <parameter name="logicalView" value="ip/pcie.ip" />
   <parameter name="moduleAssignmentDefinition"><![CDATA[<assignmentDefinition>
     <assignmentValueMap>
         <entry>
@@ -2746,7 +2746,7 @@
     </fileSets>
 </generationInfoDefinition>]]></parameter>
   <parameter name="hlsFile" value="" />
-  <parameter name="logicalView">ip/platform/pcie_clock_bridge.ip</parameter>
+  <parameter name="logicalView">ip/pcie_clock_bridge.ip</parameter>
   <parameter name="moduleAssignmentDefinition"><![CDATA[<assignmentDefinition>
     <assignmentValueMap/>
 </assignmentDefinition>]]></parameter>
@@ -3297,7 +3297,7 @@
     </fileSets>
 </generationInfoDefinition>]]></parameter>
   <parameter name="hlsFile" value="" />
-  <parameter name="logicalView">ip/platform/pio_output.ip</parameter>
+  <parameter name="logicalView" value="ip/pio_output.ip" />
   <parameter name="moduleAssignmentDefinition"><![CDATA[<assignmentDefinition>
     <assignmentValueMap>
         <entry>

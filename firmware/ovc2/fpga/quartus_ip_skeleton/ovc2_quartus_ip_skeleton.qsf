@@ -14,3 +14,8 @@ set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 set_global_assignment -name IP_FILE cam_pll.ip
 set_global_assignment -name IP_FILE ovc2_gpio.ip
+set_global_assignment -name IP_FILE pcie.ip
+set_global_assignment -name IP_FILE pcie_clock_bridge.ip
+set_global_assignment -name IP_FILE platform_clock_in.ip
+set_global_assignment -name IP_FILE pio_output.ip
+

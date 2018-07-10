@@ -4859,7 +4859,7 @@
         <spirit:parameter>
           <spirit:name>class_code_hwtcl</spirit:name>
           <spirit:displayName>Class code</spirit:displayName>
-          <spirit:value spirit:format="long" spirit:id="class_code_hwtcl">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:id="class_code_hwtcl">16711680</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>pf0_subclass_code_hwtcl</spirit:name>
@@ -8669,7 +8669,7 @@
         <spirit:parameter>
           <spirit:name>class_code</spirit:name>
           <spirit:displayName>class_code</spirit:displayName>
-          <spirit:value spirit:format="long" spirit:id="class_code">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:id="class_code">16711680</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>clock_pwr_management</spirit:name>
