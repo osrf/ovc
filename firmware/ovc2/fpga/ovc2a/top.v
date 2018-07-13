@@ -43,7 +43,7 @@ module top
   output [31:0] reg_ram_d,
   input [31:0] reg_ram_q,
 
-  output [7:0] aux
+  output [1:0] aux
 );
 
 wire c = clk125;
@@ -87,6 +87,7 @@ reg_ram_iface reg_ram_iface_inst
 //wire [15:0] pio_dma_reg_addr = pio_dma_cmd[23:8];
 //wire pio_dma_reg_wr = pio_dma_cmd[7];
 
+/*
 wire [1:0] irq_set;
 r irq_0_r(.c(c), .rst(pio_output[5]), .en(irq_set[0]), .d(1'b1), .q(irq[0]));
 r irq_1_r(.c(c), .rst(pio_output[6]), .en(irq_set[1]), .d(1'b1), .q(irq[1]));
@@ -104,6 +105,7 @@ imu_reader #(.SPEEDUP(SPEEDUP)) imu_reader_inst
  .ram_addr(imu_ram_addr),
  .ram_wr(imu_ram_wr), .ram_d(imu_ram_d), .ram_q(imu_ram_q),
  .cs(imu_cs), .sck(imu_sck), .mosi(imu_mosi), .miso(imu_miso_s));
+*/
 
 //////////////////////////////////////////////////////////
 // imager SPI stuff
@@ -132,6 +134,7 @@ assign cam_1_spi_rxd[30:26] = 5'h0;
 d1 #(32) cam_spi_rxd_mux_r
 (.c(c), .d(cam_spi_ctrl[29] ? cam_1_spi_rxd : cam_0_spi_rxd), .q(cam_spi_rxd));
 
+/*
 wire start = pio_output[0];
 
 // synchronize the cam0 align register over to the cam_0_rxc domain
@@ -192,11 +195,6 @@ python_decoder #(.UNSWAP_KERNELS(UNSWAP_KERNELS)) decoder_1
 
 wire cam_0_fv_clk125;
 s cam_0_fv_clk125_r(.c(c), .d(cam_0_fv), .q(cam_0_fv_clk125));
-
-/*
-wire cam_1_fv_clk125;
-s cam_1_fv_clk125_r(.c(c), .d(cam_1_fv), .q(cam_1_fv_clk125));
-*/
 
 wire cam_cap_en;
 wire cam_0_cap_en_rxc, cam_1_cap_en_rxc;
@@ -295,12 +293,6 @@ metadata metadata_inst
  .flush(metadata_flush), .flush_complete(metadata_flush_complete),
  .q(metadata_q), .qv(metadata_qv));
 
-/*
-wire [7:0] cam_0_t_s, cam_1_t_s;
-s #(8) cam_0_t_r(.c(cam_0_rxc), .d(ast_threshold), .q(cam_0_t_s));
-s #(8) cam_1_t_r(.c(cam_1_rxc), .d(ast_threshold), .q(cam_1_t_s));
-*/
-
 wire [63:0] ast_q;
 wire [1:0] ast_qv;
 ast_detector #(.CAM_ADDR(1'b0)) cd0
@@ -327,6 +319,7 @@ dma_writer_mux #(.N(5),
  .txs_write(txs_write), .txs_writedata(txs_writedata),
  .txs_burstcount(txs_burstcount), .txs_address(txs_address),
  .txs_waitrequest(txs_waitrequest));
+*/
 
 ///////////////////////////////////////////////////////////////////////
 // synchronize the inbound camera sync words to the PCIe clock domain
@@ -354,10 +347,13 @@ d1 #(32) pio_input_r
      lane_s,  // 8
      16'h0}));  //,  // 8
 
+/*
 // add an extra stage to help timing
 d1 #(32) pio_input_d2_r
 (.c(c), .d(pio_input_d1), .q(pio_input));
+*/
 
+/*
 wire [7:0] aux_d1;
 d1 #(8) aux_d1_r
 (.c(c),
@@ -366,5 +362,7 @@ d1 #(8) aux_d1_r
  //.d(8'h0),
  .q(aux_d1));
 assign aux = aux_d1;
+*/
+assign aux = 2'h0;
 
 endmodule

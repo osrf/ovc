@@ -11,7 +11,7 @@ INTEGRATION_TESTS=corners corners_nonmax corners_image
 QUARTUS_PATH ?= bogus____please_set_QUARTUS_PATH______have_a_nice_day
 QUARTUS_SIM_FLAGS = $(QUARTUS_PATH)/quartus/eda/sim_lib/altera_mf.v $(QUARTUS_PATH)/quartus/eda/sim_lib/220model.v -I $(QUARTUS_PATH)/quartus/eda/sim_lib -y $(QUARTUS_PATH)/quartus/libraries/megafunctions
 QUARTUS_BIN=$(QUARTUS_PATH)/quartus/bin
-PLATFORM_IP=pcie pcie_clock_bridge pio_output platform_clock_in cam_lvds_rx cam_pll ovc2_gpio
+PLATFORM_IP=pcie pcie_clock_bridge pio_output platform_clock_in cam_lvds_rx cam_pll ovc2_gpio reg_ram
 
 UNIT_TESTS=$(MODULES:%=test_%)
 INTEGRATION_TEST_TARGETS=$(INTEGRATION_TESTS:%=itest_%)

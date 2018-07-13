@@ -36,7 +36,9 @@ wire [31:0] qsys_pio_output;
 wire pcie_clk_125;
 //wire qsys_pio_clk_en = qsys_pio_output[0];
 
-assign cam_rst = {2{~qsys_pio_output[3]}};
+assign cam_rst = {2{~qsys_pio_output[29]}};
+
+//assign aux[1] = qsys_pio_output[1];
 
 /*
 assign aux[0] = cam_cs[0];
@@ -75,11 +77,11 @@ wire qsys_dma_sop, qsys_dma_eop;
 //wire [15:0] txs_byteenable = 16'hffff;
 //wire txs_readdatavalid;
 
-wire [127:0] txs_writedata = 128'h0123_4567_89ab_cdef;
-wire txs_write = 1'b0;
-wire [5:0] txs_burstcount = 6'h8;
+wire [127:0] txs_writedata; // = 128'h0123_4567_89ab_cdef;
+wire txs_write; // = 1'b0;
+wire [5:0] txs_burstcount; // = 6'h8;
 wire txs_waitrequest;
-wire [21:0] txs_address = 22'h0;
+wire [21:0] txs_address; // = 22'h0;
 //wire [1:0] qsys_irq;
 
 /*
@@ -119,15 +121,13 @@ d1 #(2) cam_sck_d1_r(.c(c), .d(cam_sck_qsys), .q(cam_sck));
 d1 #(2) cam_mosi_d1_r(.c(c), .d(cam_mosi_qsys), .q(cam_mosi));
 */
 
-/*
-wire reg_ram_clk = pcie_clk_125;
+//wire reg_ram_clk = pcie_clk_125;
 wire reg_ram_cs = 1'b1;
-wire reg_ram_clken = 1'b1;
+//wire reg_ram_clken = 1'b1;
 wire [7:0] reg_ram_addr;
 wire reg_ram_wr;
 wire [31:0] reg_ram_d;
 wire [31:0] reg_ram_q;
-*/
 
 platform qsys_inst(
  .clk_clk(pcie_refclk),
@@ -169,17 +169,16 @@ platform qsys_inst(
  .imu_ram_s2_readdata(imu_ram_q),
  .imu_ram_s2_writedata(imu_ram_d),
  .imu_ram_s2_byteenable(4'hf),
+ */
 
- .reg_ram_clk2_clk(reg_ram_clk),
  .reg_ram_reset2_reset(1'b0),
  .reg_ram_s2_address(reg_ram_addr),
  .reg_ram_s2_chipselect(reg_ram_cs),
- .reg_ram_s2_clken(reg_ram_clken),
+ //.reg_ram_s2_clken(reg_ram_clken),
  .reg_ram_s2_write(reg_ram_wr),
  .reg_ram_s2_readdata(reg_ram_q),
  .reg_ram_s2_writedata(reg_ram_d),
  .reg_ram_s2_byteenable(4'hf)
- */
 );
 
 wire [1:0] cam_rxc, cam_dclk_pll_locked;
@@ -215,7 +214,7 @@ wire cam_clk_pll_out;
 cam_pll cam_clk_pll  // outbound clock FPGA -> imagers
 (.pll_refclk0(pcie_clk_125),
  .pll_locked(cam_clk_pll_locked),
- .pll_powerdown(1'b0),
+ .pll_powerdown(qsys_pio_output[30]),
  .outclk0(cam_clk_pll_out));
 
 // todo: look at instantiating cyclone10gx_ddio_out directly, rather than this
@@ -231,7 +230,7 @@ ovc2_gpio cam_clk_1_gpio
  .oe(1'b1),
  .pad_out(cam_clk[1]));
 
-assign aux[0] = |cam_0_rxd | |cam_1_rxd;
+//assign aux[0] = |cam_0_rxd | |cam_1_rxd;
 
 /*
 wire [127:0] txs_writedata; // = 128'h0123_4567_89ab_cdef;
@@ -247,6 +246,7 @@ wire [4:0] cam_1_rxd_align;
 wire [39:0] cam_1_rxd;
 wire cam_1_rx_locked;
 wire cam_1_rxc;
+*/
 
 top top_inst(
   .clk125(pcie_clk_125),
@@ -254,7 +254,7 @@ top top_inst(
 
   .cam_trigger(cam_trigger[0]),
   .pio_output(qsys_pio_output[31:8]),
-  .pio_input(qsys_pio_input),
+  //.pio_input(qsys_pio_input),
   .txs_waitrequest(txs_waitrequest),
   .txs_write(txs_write),
   .txs_writedata(txs_writedata),
