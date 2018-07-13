@@ -44,25 +44,68 @@ int ovc2_core_release(struct inode *inode, struct file *file)
   return 0;  // success
 }
 
-      //u32 pio_prev_value;
-
 static void ovc2_set_bit(uint32_t reg_idx, uint8_t bit_idx, uint8_t state)
 {
   if (reg_idx == OVC2_REG_PCIE_PIO) {
-    uint32_t pio_prev_value;
+    uint32_t pio_value;
     unsigned long flags;
     spin_lock_irqsave(&pio_spinlock, flags);
-    //pio_prev_value = ioread32(
+    pio_value = ioread32(ovc2_core.bar0_addr + 0x4000);
+    if (state)
+      pio_value |= (1 << bit_idx);
+    else
+      pio_value &= ~(1 << bit_idx);
+    iowrite32(pio_value, ovc2_core.bar0_addr + 0x4000);
     spin_unlock_irqrestore(&pio_spinlock, flags);
+    printk(KERN_INFO "ovc2_core: pio_value now 0x%08x\n", pio_value);
   }
   else {
     // print warning message to kernel log? or just ignore?
   }
 }
 
+static long ovc2_spi_xfer(u8 bus, u8 dir, u16 reg_addr, u16 reg_val)
+{
+  u32 spi_ctrl, spi_txd, spi_rxd, start_mask;
+
+  if (bus != 0 && bus != 1) {
+    printk(KERN_ERR "ovc2_core: unknown SPI bus: %d\n", (int)bus);
+    return -EINVAL;
+  }
+  if (bus == 0) {
+    spi_ctrl = 0 << 29;  // select bus #0
+    start_mask = 0x40000000;
+  }
+  else {
+    spi_ctrl = 1 << 29;  // select bus #1
+    start_mask = 0x80000000;
+  }
+  spi_txd = reg_addr << 17;
+  if (dir == OVC2_IOCTL_SPI_XFER_DIR_WRITE)
+    spi_txd |= (1 << 16) | reg_val;
+
+  spi_rxd = 0;
+/*
+	iowrite32(spi_ctrl, cvp_dev.bar4_addr + 7*4);  // select bus 0 or 1
+	iowrite32(spi_txd, cvp_dev.bar4_addr + 8*4);  // register 8 = spi txd
+	iowrite32(spi_ctrl | start_mask, cvp_dev.bar4_addr + 7*4);  // start tx/rx
+	udelay(5);  // just spin for a bit to let it get started
+	iowrite32(spi_ctrl, cvp_dev.bar4_addr + 7*4);  // un-set start bit
+
+	for (i = 0; i < 100; i++) {
+		spi_rxd = ioread32(cvp_dev.bar4_addr + 9*4);  // spi status register
+		if (spi_rxd & 0x80000000)
+			break;
+		udelay(5);  // just spin for a bit. it will be done soon (20-50 us)
+	}
+*/
+  return spi_rxd & 0xffff;
+}
+
 static long ovc2_core_ioctl(
   struct file *file, unsigned int ioctl_num, unsigned long ioctl_param)
 {
+  int rc;
   switch (ioctl_num)
   {
     case OVC2_IOCTL_SET_BIT:
@@ -71,9 +114,25 @@ static long ovc2_core_ioctl(
       if (copy_from_user(&sb, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
         return -EACCES;  // uh oh
       ovc2_set_bit(sb.reg_idx, sb.bit_idx, sb.state);
+      return 0;  // success
     }
+    case OVC2_IOCTL_SPI_XFER:
+    {
+      struct ovc2_ioctl_spi_xfer sx;
+      if (copy_from_user(&sx, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
+        return -EACCES;
+      rc = ovc2_spi_xfer(sx.bus, sx.dir, sx.reg_addr, sx.reg_val);
+      if (rc < 0)  // if we had an error, just return it to userland
+        return rc;
+      // otherwise, give the received register value back to userland
+      sx.reg_val = rc;
+      if (copy_to_user((void *)ioctl_param, &sx, _IOC_SIZE(ioctl_num)))
+        return -EACCES;
+      return 0;  // success
+    }
+    default:
+      return -EINVAL;
   }
-  return -EINVAL;  // no ioctl defined yet
 }
 
 struct file_operations ovc2_core_fops = {
