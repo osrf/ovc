@@ -10,6 +10,7 @@
 // not sure what this should be...
 #define OVC2_MAGIC 98
 
+//////////////////////////////////////////////////////////////////////
 struct ovc2_ioctl_set_bit
 {
   uint32_t reg_idx;
@@ -17,7 +18,24 @@ struct ovc2_ioctl_set_bit
   uint8_t state;
 };
 
-#define OVC2_IOCTL_SET_BIT _IOW(OVC2_MAGIC, 0, struct ovc2_ioctl_set_bit)
 #define OVC2_REG_PCIE_PIO 0
+
+#define OVC2_IOCTL_SET_BIT _IOW(OVC2_MAGIC, 0, struct ovc2_ioctl_set_bit)
+
+//////////////////////////////////////////////////////////////////////
+struct ovc2_ioctl_spi_xfer
+{
+  uint8_t bus;
+  uint8_t dir;
+  uint16_t reg_addr;
+  uint16_t reg_val;
+};
+
+#define OVC2_IOCTL_SPI_XFER_DIR_READ  0
+#define OVC2_IOCTL_SPI_XFER_DIR_WRITE 1
+
+#define OVC2_IOCTL_SPI_XFER _IOWR(OVC2_MAGIC, 1, struct ovc2_ioctl_spi_xfer)
+
+//////////////////////////////////////////////////////////////////////
 
 #endif

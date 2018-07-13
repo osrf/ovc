@@ -9,6 +9,7 @@
 #include "../modules/ovc2_core/ovc2_ioctl.h"
 
 int g_fd = 0;
+static const char * const OVC2_DEVICE = "/dev/ovc2_core";
 
 bool g_done = false;
 void sigint_handler(int signum)
@@ -47,9 +48,9 @@ int main(int argc, char **argv)
   if (argc < 2)
     usage();
   const char *cmd = argv[1];
-  g_fd = open("/dev/ovc", O_RDWR);
+  g_fd = open(OVC2_DEVICE, O_RDWR);
   if (g_fd < 0) {
-    printf("oh noes. couldn't open /dev/ovc  :(\n");
+    printf("oh noes. couldn't open %s  :(\n", OVC2_DEVICE);
     return 1;
   }
   signal(SIGINT, sigint_handler);
