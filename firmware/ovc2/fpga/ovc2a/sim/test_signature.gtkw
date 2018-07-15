@@ -1,0 +1,35 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Thu Feb  1 01:18:29 2018
+[*]
+[dumpfile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/bin/test_signature.lxt"
+[dumpfile_mtime] "Wed Jan 31 21:24:32 2018"
+[dumpfile_size] 617
+[savefile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/sim/test_signature.gtkw"
+[timestart] 0
+[size] 2501 884
+[pos] 1179 -38
+*-13.329441 71220 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] signature_tb.
+[treeopen] signature_tb.signature_inst.
+[treeopen] signature_tb.signature_inst.crc32_inst.
+[sst_width] 324
+[signals_width] 199
+[sst_expanded] 1
+[sst_vpaned_height] 238
+@28
+signature_tb.c[0]
+@22
+signature_tb.d[31:0]
+@28
+signature_tb.dv[0]
+signature_tb.r[0]
+@22
+signature_tb.signature_inst.d[31:0]
+signature_tb.signature_inst.sig[31:0]
+@23
+signature_tb.signature_inst.crc32_inst.crc_int[31:0]
+@22
+signature_tb.signature_inst.crc32_inst.d[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

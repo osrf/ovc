@@ -1,0 +1,46 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Wed Feb 14 23:56:55 2018
+[*]
+[dumpfile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/bin/test_dma_writer.lxt"
+[dumpfile_mtime] "Wed Feb 14 22:21:44 2018"
+[dumpfile_size] 3274
+[savefile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/sim/test_dma_writer.gtkw"
+[timestart] 0
+[size] 1662 707
+[pos] -1 -1
+*-17.177399 419400 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] dma_writer_tb.
+[treeopen] dma_writer_tb.dma_writer_inst.
+[treeopen] dma_writer_tb.dma_writer_inst.afifo.
+[sst_width] 225
+[signals_width] 190
+[sst_expanded] 1
+[sst_vpaned_height] 204
+@28
+dma_writer_tb.dma_writer_inst.c[0]
+@22
+dma_writer_tb.dma_writer_inst.d[127:0]
+dma_writer_tb.dma_writer_inst.daddr[22:0]
+@28
+dma_writer_tb.dma_writer_inst.dv[0]
+dma_writer_tb.dma_writer_inst.de[0]
+dma_writer_tb.dma_writer_inst.ready[0]
+@22
+dma_writer_tb.dma_writer_inst.dfifo_usedw[7:0]
+dma_writer_tb.dma_writer_inst.afifo_usedw[7:0]
+dma_writer_tb.dma_writer_inst.afifo_q[31:0]
+@28
+dma_writer_tb.dma_writer_inst.afifo_empty[0]
+@22
+dma_writer_tb.dma_writer_inst.txs_burstcount[5:0]
+dma_writer_tb.dma_writer_inst.txs_address[22:0]
+@28
+dma_writer_tb.dma_writer_inst.txs_write[0]
+@22
+dma_writer_tb.dma_writer_inst.tx_burst_cnt[3:0]
+dma_writer_tb.dma_writer_inst.txs_writedata[127:0]
+@29
+dma_writer_tb.dma_writer_inst.state[0]
+[pattern_trace] 1
+[pattern_trace] 0

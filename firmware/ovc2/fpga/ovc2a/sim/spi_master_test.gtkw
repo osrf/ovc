@@ -1,0 +1,62 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Mon Jan 22 23:56:06 2018
+[*]
+[dumpfile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/bin/spi_master_test.lxt"
+[dumpfile_mtime] "Mon Jan 22 23:39:43 2018"
+[dumpfile_size] 53321
+[savefile] "/home/mquigley/hw/opencam/firmware/ovc/fpga/ovc/sim/spi_master_test.gtkw"
+[timestart] 7970000
+[size] 3002 1001
+[pos] -1 -1
+*-21.938196 29240000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] spi_master_tb.
+[sst_width] 324
+[signals_width] 238
+[sst_expanded] 1
+[sst_vpaned_height] 295
+@28
+spi_master_tb.spi_master_inst.c[0]
+spi_master_tb.spi_master_inst.cs[0]
+spi_master_tb.spi_master_inst.sclk[0]
+spi_master_tb.spi_master_inst.mosi[0]
+spi_master_tb.spi_master_inst.miso[0]
+@a8
+spi_master_tb.spi_master_inst.mosi_load[0]
+@24
+spi_master_tb.spi_master_inst.state[2:0]
+@22
+spi_master_tb.spi_master_inst.bit_cnt[7:0]
+@28
+spi_master_tb.spi_master_inst.done[0]
+@22
+spi_master_tb.spi_master_inst.txd[7:0]
+spi_master_tb.spi_master_inst.rxd[7:0]
+@28
+spi_master_tb.spi_master_inst.mosi_shift_en[0]
+@22
+spi_master_tb.spi_master_inst.miso_shift[7:0]
+@28
+spi_master_tb.spi_master_inst.sclk_tx_edge[0]
+spi_master_tb.spi_master_inst.sclk_rx_edge[0]
+@200
+-
+-26bit
+@28
+spi_master_tb.spi_master_26bit.start[0]
+spi_master_tb.spi_master_26bit.done[0]
+@29
+spi_master_tb.spi_master_26bit.sclk[0]
+@24
+spi_master_tb.spi_master_26bit.state[2:0]
+@28
+spi_master_tb.spi_master_26bit.mosi[0]
+spi_master_tb.spi_master_26bit.cs[0]
+spi_master_tb.spi_master_26bit.miso[0]
+@22
+spi_master_tb.spi_master_26bit.miso_shift[25:0]
+@28
+spi_master_tb.spi_master_26bit.sclk_tx_edge[0]
+spi_master_tb.spi_master_26bit.sclk_rx_edge[0]
+[pattern_trace] 1
+[pattern_trace] 0

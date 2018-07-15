@@ -3,10 +3,10 @@ NAME=ovc2a
 OUT=$(BIN)/$(NAME)
 default: $(OUT).vvp
 #MODULES=cmd_rx
-MODULES=r s d1
+MODULES=r s d1 timestamp reg_ram_iface spi_master gmux
 SRCS=top.v $(MODULES:%=%.v)
 SYNTH_SRCS=top_wrapper.v
-SIM_SRCS=top_tb.v sim_python.v sim_imu.v sim_imu_ram.v sim_reg_ram.v
+SIM_SRCS=top_tb.v sim_python.v sim_imu.v sim_imu_ram.v sim_reg_ram.v sim_clk.v
 INTEGRATION_TESTS=corners corners_nonmax corners_image
 QUARTUS_PATH ?= bogus____please_set_QUARTUS_PATH______have_a_nice_day
 QUARTUS_SIM_FLAGS = $(QUARTUS_PATH)/quartus/eda/sim_lib/altera_mf.v $(QUARTUS_PATH)/quartus/eda/sim_lib/220model.v -I $(QUARTUS_PATH)/quartus/eda/sim_lib -y $(QUARTUS_PATH)/quartus/libraries/megafunctions
