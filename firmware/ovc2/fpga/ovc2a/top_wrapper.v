@@ -158,7 +158,7 @@ platform qsys_inst(
  .pcie_txs_burstcount(txs_burstcount),
  .pcie_txs_readdatavalid(),
  .pcie_txs_waitrequest(txs_waitrequest),
- .pcie_txs_address(txs_address)
+ .pcie_txs_address(txs_address),
  /*
  .imu_ram_clk2_clk(imu_ram_clk),
  .imu_ram_reset2_reset(1'b0),
@@ -171,10 +171,8 @@ platform qsys_inst(
  .imu_ram_s2_byteenable(4'hf),
  */
 
- .reg_ram_reset2_reset(1'b0),
  .reg_ram_s2_address(reg_ram_addr),
  .reg_ram_s2_chipselect(reg_ram_cs),
- //.reg_ram_s2_clken(reg_ram_clken),
  .reg_ram_s2_write(reg_ram_wr),
  .reg_ram_s2_readdata(reg_ram_q),
  .reg_ram_s2_writedata(reg_ram_d),
@@ -292,7 +290,6 @@ top top_inst(
   .reg_ram_d(reg_ram_d),
   .reg_ram_q(reg_ram_q)
 );
-*/
 
 /*
 altlvds_rx #(

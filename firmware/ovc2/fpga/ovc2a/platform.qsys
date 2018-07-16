@@ -427,18 +427,18 @@
                 <isStart>false</isStart>
                 <ports>
                     <port>
-                        <name>cra_read_i</name>
-                        <role>read</role>
+                        <name>cra_chipselect_i</name>
+                        <role>chipselect</role>
                         <direction>Input</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
-                        <name>cra_writedata_i</name>
-                        <role>writedata</role>
+                        <name>cra_address_i</name>
+                        <role>address</role>
                         <direction>Input</direction>
-                        <width>32</width>
+                        <width>14</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
@@ -451,8 +451,8 @@
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>cra_chipselect_i</name>
-                        <role>chipselect</role>
+                        <name>cra_read_i</name>
+                        <role>read</role>
                         <direction>Input</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
@@ -467,20 +467,20 @@
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>cra_address_i</name>
-                        <role>address</role>
-                        <direction>Input</direction>
-                        <width>14</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
                         <name>cra_write_i</name>
                         <role>write</role>
                         <direction>Input</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>cra_writedata_i</name>
+                        <role>writedata</role>
+                        <direction>Input</direction>
+                        <width>32</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
                         <name>cra_waitrequest_o</name>
@@ -729,20 +729,20 @@
                 <isStart>false</isStart>
                 <ports>
                     <port>
-                        <name>simu_mode_pipe</name>
-                        <role>simu_mode_pipe</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
                         <name>test_in</name>
                         <role>test_in</role>
                         <direction>Input</direction>
                         <width>32</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>simu_mode_pipe</name>
+                        <role>simu_mode_pipe</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                 </ports>
                 <assignments>
@@ -769,56 +769,8 @@
                 <isStart>false</isStart>
                 <ports>
                     <port>
-                        <name>rxstatus2</name>
-                        <role>rxstatus2</role>
-                        <direction>Input</direction>
-                        <width>3</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txblkst1</name>
-                        <role>txblkst1</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txswing1</name>
-                        <role>txswing1</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txsynchd2</name>
-                        <role>txsynchd2</role>
-                        <direction>Output</direction>
-                        <width>2</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>eidleinfersel3</name>
-                        <role>eidleinfersel3</role>
-                        <direction>Output</direction>
-                        <width>3</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxvalid1</name>
-                        <role>rxvalid1</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxblkst0</name>
-                        <role>rxblkst0</role>
+                        <name>sim_pipe_pclk_in</name>
+                        <role>sim_pipe_pclk_in</role>
                         <direction>Input</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
@@ -833,12 +785,20 @@
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>phystatus3</name>
-                        <role>phystatus3</role>
-                        <direction>Input</direction>
-                        <width>1</width>
+                        <name>sim_ltssmstate</name>
+                        <role>sim_ltssmstate</role>
+                        <direction>Output</direction>
+                        <width>5</width>
                         <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>eidleinfersel0</name>
+                        <role>eidleinfersel0</role>
+                        <direction>Output</direction>
+                        <width>3</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
                         <name>eidleinfersel1</name>
@@ -849,16 +809,64 @@
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>currentrxpreset0</name>
-                        <role>currentrxpreset0</role>
+                        <name>eidleinfersel2</name>
+                        <role>eidleinfersel2</role>
                         <direction>Output</direction>
                         <width>3</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>txblkst2</name>
-                        <role>txblkst2</role>
+                        <name>eidleinfersel3</name>
+                        <role>eidleinfersel3</role>
+                        <direction>Output</direction>
+                        <width>3</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>powerdown0</name>
+                        <role>powerdown0</role>
+                        <direction>Output</direction>
+                        <width>2</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>powerdown1</name>
+                        <role>powerdown1</role>
+                        <direction>Output</direction>
+                        <width>2</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>powerdown2</name>
+                        <role>powerdown2</role>
+                        <direction>Output</direction>
+                        <width>2</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>powerdown3</name>
+                        <role>powerdown3</role>
+                        <direction>Output</direction>
+                        <width>2</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxpolarity0</name>
+                        <role>rxpolarity0</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxpolarity1</name>
+                        <role>rxpolarity1</role>
                         <direction>Output</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
@@ -873,10 +881,82 @@
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
-                        <name>rate0</name>
-                        <role>rate0</role>
+                        <name>rxpolarity3</name>
+                        <role>rxpolarity3</role>
                         <direction>Output</direction>
-                        <width>2</width>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txcompl0</name>
+                        <role>txcompl0</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txcompl1</name>
+                        <role>txcompl1</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txcompl2</name>
+                        <role>txcompl2</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txcompl3</name>
+                        <role>txcompl3</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdata0</name>
+                        <role>txdata0</role>
+                        <direction>Output</direction>
+                        <width>32</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdata1</name>
+                        <role>txdata1</role>
+                        <direction>Output</direction>
+                        <width>32</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdata2</name>
+                        <role>txdata2</role>
+                        <direction>Output</direction>
+                        <width>32</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdata3</name>
+                        <role>txdata3</role>
+                        <direction>Output</direction>
+                        <width>32</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdatak0</name>
+                        <role>txdatak0</role>
+                        <direction>Output</direction>
+                        <width>4</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
@@ -889,9 +969,49 @@
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>rxblkst2</name>
-                        <role>rxblkst2</role>
-                        <direction>Input</direction>
+                        <name>txdatak2</name>
+                        <role>txdatak2</role>
+                        <direction>Output</direction>
+                        <width>4</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdatak3</name>
+                        <role>txdatak3</role>
+                        <direction>Output</direction>
+                        <width>4</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdetectrx0</name>
+                        <role>txdetectrx0</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdetectrx1</name>
+                        <role>txdetectrx1</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdetectrx2</name>
+                        <role>txdetectrx2</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdetectrx3</name>
+                        <role>txdetectrx3</role>
+                        <direction>Output</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC</vhdlType>
@@ -905,12 +1025,20 @@
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
-                        <name>rxsynchd3</name>
-                        <role>rxsynchd3</role>
-                        <direction>Input</direction>
-                        <width>2</width>
+                        <name>txelecidle1</name>
+                        <role>txelecidle1</role>
+                        <direction>Output</direction>
+                        <width>1</width>
                         <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txelecidle2</name>
+                        <role>txelecidle2</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
                         <name>txelecidle3</name>
@@ -921,6 +1049,54 @@
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
+                        <name>txdeemph0</name>
+                        <role>txdeemph0</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdeemph1</name>
+                        <role>txdeemph1</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdeemph2</name>
+                        <role>txdeemph2</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdeemph3</name>
+                        <role>txdeemph3</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txmargin0</name>
+                        <role>txmargin0</role>
+                        <direction>Output</direction>
+                        <width>3</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txmargin1</name>
+                        <role>txmargin1</role>
+                        <direction>Output</direction>
+                        <width>3</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
                         <name>txmargin2</name>
                         <role>txmargin2</role>
                         <direction>Output</direction>
@@ -929,12 +1105,204 @@
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>rxdataskip2</name>
-                        <role>rxdataskip2</role>
+                        <name>txmargin3</name>
+                        <role>txmargin3</role>
+                        <direction>Output</direction>
+                        <width>3</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txswing0</name>
+                        <role>txswing0</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txswing1</name>
+                        <role>txswing1</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txswing2</name>
+                        <role>txswing2</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txswing3</name>
+                        <role>txswing3</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>phystatus0</name>
+                        <role>phystatus0</role>
                         <direction>Input</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>phystatus1</name>
+                        <role>phystatus1</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>phystatus2</name>
+                        <role>phystatus2</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>phystatus3</name>
+                        <role>phystatus3</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxdata0</name>
+                        <role>rxdata0</role>
+                        <direction>Input</direction>
+                        <width>32</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxdata1</name>
+                        <role>rxdata1</role>
+                        <direction>Input</direction>
+                        <width>32</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxdata2</name>
+                        <role>rxdata2</role>
+                        <direction>Input</direction>
+                        <width>32</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxdata3</name>
+                        <role>rxdata3</role>
+                        <direction>Input</direction>
+                        <width>32</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxdatak0</name>
+                        <role>rxdatak0</role>
+                        <direction>Input</direction>
+                        <width>4</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxdatak1</name>
+                        <role>rxdatak1</role>
+                        <direction>Input</direction>
+                        <width>4</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxdatak2</name>
+                        <role>rxdatak2</role>
+                        <direction>Input</direction>
+                        <width>4</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxdatak3</name>
+                        <role>rxdatak3</role>
+                        <direction>Input</direction>
+                        <width>4</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxelecidle0</name>
+                        <role>rxelecidle0</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxelecidle1</name>
+                        <role>rxelecidle1</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxelecidle2</name>
+                        <role>rxelecidle2</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxelecidle3</name>
+                        <role>rxelecidle3</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxstatus0</name>
+                        <role>rxstatus0</role>
+                        <direction>Input</direction>
+                        <width>3</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxstatus1</name>
+                        <role>rxstatus1</role>
+                        <direction>Input</direction>
+                        <width>3</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxstatus2</name>
+                        <role>rxstatus2</role>
+                        <direction>Input</direction>
+                        <width>3</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxstatus3</name>
+                        <role>rxstatus3</role>
+                        <direction>Input</direction>
+                        <width>3</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
                         <name>rxvalid0</name>
@@ -945,81 +1313,121 @@
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
-                        <name>powerdown0</name>
-                        <role>powerdown0</role>
-                        <direction>Output</direction>
-                        <width>2</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>eidleinfersel2</name>
-                        <role>eidleinfersel2</role>
-                        <direction>Output</direction>
-                        <width>3</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>powerdown3</name>
-                        <role>powerdown3</role>
-                        <direction>Output</direction>
-                        <width>2</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>currentrxpreset1</name>
-                        <role>currentrxpreset1</role>
-                        <direction>Output</direction>
-                        <width>3</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxpolarity3</name>
-                        <role>rxpolarity3</role>
-                        <direction>Output</direction>
+                        <name>rxvalid1</name>
+                        <role>rxvalid1</role>
+                        <direction>Input</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
-                        <name>currentcoeff2</name>
-                        <role>currentcoeff2</role>
-                        <direction>Output</direction>
-                        <width>18</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txcompl1</name>
-                        <role>txcompl1</role>
-                        <direction>Output</direction>
+                        <name>rxvalid2</name>
+                        <role>rxvalid2</role>
+                        <direction>Input</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
-                        <name>rate1</name>
-                        <role>rate1</role>
-                        <direction>Output</direction>
+                        <name>rxvalid3</name>
+                        <role>rxvalid3</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxdataskip0</name>
+                        <role>rxdataskip0</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxdataskip1</name>
+                        <role>rxdataskip1</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxdataskip2</name>
+                        <role>rxdataskip2</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxdataskip3</name>
+                        <role>rxdataskip3</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxblkst0</name>
+                        <role>rxblkst0</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxblkst1</name>
+                        <role>rxblkst1</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxblkst2</name>
+                        <role>rxblkst2</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxblkst3</name>
+                        <role>rxblkst3</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxsynchd0</name>
+                        <role>rxsynchd0</role>
+                        <direction>Input</direction>
                         <width>2</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>txdetectrx0</name>
-                        <role>txdetectrx0</role>
-                        <direction>Output</direction>
-                        <width>1</width>
+                        <name>rxsynchd1</name>
+                        <role>rxsynchd1</role>
+                        <direction>Input</direction>
+                        <width>2</width>
                         <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>txsynchd1</name>
-                        <role>txsynchd1</role>
-                        <direction>Output</direction>
+                        <name>rxsynchd2</name>
+                        <role>rxsynchd2</role>
+                        <direction>Input</direction>
+                        <width>2</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxsynchd3</name>
+                        <role>rxsynchd3</role>
+                        <direction>Input</direction>
                         <width>2</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
@@ -1033,8 +1441,136 @@
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>txdeemph1</name>
-                        <role>txdeemph1</role>
+                        <name>currentcoeff1</name>
+                        <role>currentcoeff1</role>
+                        <direction>Output</direction>
+                        <width>18</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>currentcoeff2</name>
+                        <role>currentcoeff2</role>
+                        <direction>Output</direction>
+                        <width>18</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>currentcoeff3</name>
+                        <role>currentcoeff3</role>
+                        <direction>Output</direction>
+                        <width>18</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>currentrxpreset0</name>
+                        <role>currentrxpreset0</role>
+                        <direction>Output</direction>
+                        <width>3</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>currentrxpreset1</name>
+                        <role>currentrxpreset1</role>
+                        <direction>Output</direction>
+                        <width>3</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>currentrxpreset2</name>
+                        <role>currentrxpreset2</role>
+                        <direction>Output</direction>
+                        <width>3</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>currentrxpreset3</name>
+                        <role>currentrxpreset3</role>
+                        <direction>Output</direction>
+                        <width>3</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txsynchd0</name>
+                        <role>txsynchd0</role>
+                        <direction>Output</direction>
+                        <width>2</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txsynchd1</name>
+                        <role>txsynchd1</role>
+                        <direction>Output</direction>
+                        <width>2</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txsynchd2</name>
+                        <role>txsynchd2</role>
+                        <direction>Output</direction>
+                        <width>2</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txsynchd3</name>
+                        <role>txsynchd3</role>
+                        <direction>Output</direction>
+                        <width>2</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txblkst0</name>
+                        <role>txblkst0</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txblkst1</name>
+                        <role>txblkst1</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txblkst2</name>
+                        <role>txblkst2</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txblkst3</name>
+                        <role>txblkst3</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdataskip0</name>
+                        <role>txdataskip0</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>txdataskip1</name>
+                        <role>txdataskip1</role>
                         <direction>Output</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
@@ -1057,154 +1593,18 @@
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
-                        <name>rxsynchd0</name>
-                        <role>rxsynchd0</role>
-                        <direction>Input</direction>
-                        <width>2</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxblkst3</name>
-                        <role>rxblkst3</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>currentcoeff3</name>
-                        <role>currentcoeff3</role>
-                        <direction>Output</direction>
-                        <width>18</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxdatak3</name>
-                        <role>rxdatak3</role>
-                        <direction>Input</direction>
-                        <width>4</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxelecidle1</name>
-                        <role>rxelecidle1</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>powerdown1</name>
-                        <role>powerdown1</role>
+                        <name>rate0</name>
+                        <role>rate0</role>
                         <direction>Output</direction>
                         <width>2</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>txdetectrx2</name>
-                        <role>txdetectrx2</role>
+                        <name>rate1</name>
+                        <role>rate1</role>
                         <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdeemph2</name>
-                        <role>txdeemph2</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>eidleinfersel0</name>
-                        <role>eidleinfersel0</role>
-                        <direction>Output</direction>
-                        <width>3</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxelecidle3</name>
-                        <role>rxelecidle3</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxsynchd1</name>
-                        <role>rxsynchd1</role>
-                        <direction>Input</direction>
                         <width>2</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdata0</name>
-                        <role>txdata0</role>
-                        <direction>Output</direction>
-                        <width>32</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txcompl3</name>
-                        <role>txcompl3</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxelecidle2</name>
-                        <role>rxelecidle2</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdatak3</name>
-                        <role>txdatak3</role>
-                        <direction>Output</direction>
-                        <width>4</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txmargin1</name>
-                        <role>txmargin1</role>
-                        <direction>Output</direction>
-                        <width>3</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txswing3</name>
-                        <role>txswing3</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxdatak0</name>
-                        <role>rxdatak0</role>
-                        <direction>Input</direction>
-                        <width>4</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxdatak2</name>
-                        <role>rxdatak2</role>
-                        <direction>Input</direction>
-                        <width>4</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
@@ -1221,406 +1621,6 @@
                         <role>rate3</role>
                         <direction>Output</direction>
                         <width>2</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdata3</name>
-                        <role>txdata3</role>
-                        <direction>Output</direction>
-                        <width>32</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxblkst1</name>
-                        <role>rxblkst1</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txcompl0</name>
-                        <role>txcompl0</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txcompl2</name>
-                        <role>txcompl2</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdataskip1</name>
-                        <role>txdataskip1</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txswing0</name>
-                        <role>txswing0</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxstatus0</name>
-                        <role>rxstatus0</role>
-                        <direction>Input</direction>
-                        <width>3</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxvalid2</name>
-                        <role>rxvalid2</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdeemph3</name>
-                        <role>txdeemph3</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>currentrxpreset3</name>
-                        <role>currentrxpreset3</role>
-                        <direction>Output</direction>
-                        <width>3</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>powerdown2</name>
-                        <role>powerdown2</role>
-                        <direction>Output</direction>
-                        <width>2</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxdataskip1</name>
-                        <role>rxdataskip1</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>sim_ltssmstate</name>
-                        <role>sim_ltssmstate</role>
-                        <direction>Output</direction>
-                        <width>5</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdataskip0</name>
-                        <role>txdataskip0</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxdata2</name>
-                        <role>rxdata2</role>
-                        <direction>Input</direction>
-                        <width>32</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>currentrxpreset2</name>
-                        <role>currentrxpreset2</role>
-                        <direction>Output</direction>
-                        <width>3</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxpolarity1</name>
-                        <role>rxpolarity1</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxelecidle0</name>
-                        <role>rxelecidle0</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxdata1</name>
-                        <role>rxdata1</role>
-                        <direction>Input</direction>
-                        <width>32</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxsynchd2</name>
-                        <role>rxsynchd2</role>
-                        <direction>Input</direction>
-                        <width>2</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxdata3</name>
-                        <role>rxdata3</role>
-                        <direction>Input</direction>
-                        <width>32</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxdata0</name>
-                        <role>rxdata0</role>
-                        <direction>Input</direction>
-                        <width>32</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdatak2</name>
-                        <role>txdatak2</role>
-                        <direction>Output</direction>
-                        <width>4</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txswing2</name>
-                        <role>txswing2</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txmargin0</name>
-                        <role>txmargin0</role>
-                        <direction>Output</direction>
-                        <width>3</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txsynchd3</name>
-                        <role>txsynchd3</role>
-                        <direction>Output</direction>
-                        <width>2</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxpolarity0</name>
-                        <role>rxpolarity0</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxstatus1</name>
-                        <role>rxstatus1</role>
-                        <direction>Input</direction>
-                        <width>3</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txblkst0</name>
-                        <role>txblkst0</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdata1</name>
-                        <role>txdata1</role>
-                        <direction>Output</direction>
-                        <width>32</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>phystatus1</name>
-                        <role>phystatus1</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxstatus3</name>
-                        <role>rxstatus3</role>
-                        <direction>Input</direction>
-                        <width>3</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>sim_pipe_pclk_in</name>
-                        <role>sim_pipe_pclk_in</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>currentcoeff1</name>
-                        <role>currentcoeff1</role>
-                        <direction>Output</direction>
-                        <width>18</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txelecidle1</name>
-                        <role>txelecidle1</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdetectrx1</name>
-                        <role>txdetectrx1</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txsynchd0</name>
-                        <role>txsynchd0</role>
-                        <direction>Output</direction>
-                        <width>2</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>phystatus0</name>
-                        <role>phystatus0</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdetectrx3</name>
-                        <role>txdetectrx3</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txblkst3</name>
-                        <role>txblkst3</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txelecidle2</name>
-                        <role>txelecidle2</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>phystatus2</name>
-                        <role>phystatus2</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxvalid3</name>
-                        <role>rxvalid3</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxdatak1</name>
-                        <role>rxdatak1</role>
-                        <direction>Input</direction>
-                        <width>4</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxdataskip3</name>
-                        <role>rxdataskip3</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxdataskip0</name>
-                        <role>rxdataskip0</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdata2</name>
-                        <role>txdata2</role>
-                        <direction>Output</direction>
-                        <width>32</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdeemph0</name>
-                        <role>txdeemph0</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txdatak0</name>
-                        <role>txdatak0</role>
-                        <direction>Output</direction>
-                        <width>4</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>txmargin3</name>
-                        <role>txmargin3</role>
-                        <direction>Output</direction>
-                        <width>3</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
@@ -1649,8 +1649,32 @@
                 <isStart>false</isStart>
                 <ports>
                     <port>
+                        <name>rx_in0</name>
+                        <role>rx_in0</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rx_in1</name>
+                        <role>rx_in1</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
                         <name>rx_in2</name>
                         <role>rx_in2</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rx_in3</name>
+                        <role>rx_in3</role>
                         <direction>Input</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
@@ -1665,24 +1689,8 @@
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
-                        <name>rx_in1</name>
-                        <role>rx_in1</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>rx_in0</name>
-                        <role>rx_in0</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>tx_out3</name>
-                        <role>tx_out3</role>
+                        <name>tx_out1</name>
+                        <role>tx_out1</role>
                         <direction>Output</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
@@ -1697,16 +1705,8 @@
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
-                        <name>rx_in3</name>
-                        <role>rx_in3</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>tx_out1</name>
-                        <role>tx_out1</role>
+                        <name>tx_out3</name>
+                        <role>tx_out3</role>
                         <direction>Output</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
@@ -1737,16 +1737,16 @@
                 <isStart>false</isStart>
                 <ports>
                     <port>
-                        <name>pin_perst</name>
-                        <role>pin_perst</role>
+                        <name>npor</name>
+                        <role>npor</role>
                         <direction>Input</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
-                        <name>npor</name>
-                        <role>npor</role>
+                        <name>pin_perst</name>
+                        <role>pin_perst</role>
                         <direction>Input</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
@@ -1810,14 +1810,6 @@
                 <isStart>true</isStart>
                 <ports>
                     <port>
-                        <name>rxm_bar0_readdatavalid_i</name>
-                        <role>readdatavalid</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
                         <name>rxm_bar0_address_o</name>
                         <role>address</role>
                         <direction>Output</direction>
@@ -1834,28 +1826,12 @@
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>rxm_bar0_write_o</name>
-                        <role>write</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
                         <name>rxm_bar0_readdata_i</name>
                         <role>readdata</role>
                         <direction>Input</direction>
                         <width>128</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxm_bar0_waitrequest_i</name>
-                        <role>waitrequest</role>
-                        <direction>Input</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
                         <name>rxm_bar0_writedata_o</name>
@@ -1874,12 +1850,36 @@
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
+                        <name>rxm_bar0_write_o</name>
+                        <role>write</role>
+                        <direction>Output</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
                         <name>rxm_bar0_burstcount_o</name>
                         <role>burstcount</role>
                         <direction>Output</direction>
                         <width>6</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxm_bar0_readdatavalid_i</name>
+                        <role>readdatavalid</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxm_bar0_waitrequest_i</name>
+                        <role>waitrequest</role>
+                        <direction>Input</direction>
+                        <width>1</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                 </ports>
                 <assignments>
@@ -2031,17 +2031,41 @@
                 <isStart>true</isStart>
                 <ports>
                     <port>
-                        <name>rxm_bar2_burstcount_o</name>
-                        <role>burstcount</role>
+                        <name>rxm_bar2_address_o</name>
+                        <role>address</role>
                         <direction>Output</direction>
-                        <width>6</width>
+                        <width>64</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>rxm_bar2_waitrequest_i</name>
-                        <role>waitrequest</role>
+                        <name>rxm_bar2_byteenable_o</name>
+                        <role>byteenable</role>
+                        <direction>Output</direction>
+                        <width>16</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxm_bar2_readdata_i</name>
+                        <role>readdata</role>
                         <direction>Input</direction>
+                        <width>128</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxm_bar2_writedata_o</name>
+                        <role>writedata</role>
+                        <direction>Output</direction>
+                        <width>128</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>rxm_bar2_read_o</name>
+                        <role>read</role>
+                        <direction>Output</direction>
                         <width>1</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC</vhdlType>
@@ -2055,12 +2079,12 @@
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
-                        <name>rxm_bar2_read_o</name>
-                        <role>read</role>
+                        <name>rxm_bar2_burstcount_o</name>
+                        <role>burstcount</role>
                         <direction>Output</direction>
-                        <width>1</width>
+                        <width>6</width>
                         <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
                         <name>rxm_bar2_readdatavalid_i</name>
@@ -2071,36 +2095,12 @@
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
-                        <name>rxm_bar2_address_o</name>
-                        <role>address</role>
-                        <direction>Output</direction>
-                        <width>64</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxm_bar2_readdata_i</name>
-                        <role>readdata</role>
+                        <name>rxm_bar2_waitrequest_i</name>
+                        <role>waitrequest</role>
                         <direction>Input</direction>
-                        <width>128</width>
+                        <width>1</width>
                         <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxm_bar2_byteenable_o</name>
-                        <role>byteenable</role>
-                        <direction>Output</direction>
-                        <width>16</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
-                        <name>rxm_bar2_writedata_o</name>
-                        <role>writedata</role>
-                        <direction>Output</direction>
-                        <width>128</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                        <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                 </ports>
                 <assignments>
@@ -2292,22 +2292,6 @@
                 <isStart>false</isStart>
                 <ports>
                     <port>
-                        <name>txs_readdatavalid_o</name>
-                        <role>readdatavalid</role>
-                        <direction>Output</direction>
-                        <width>1</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC</vhdlType>
-                    </port>
-                    <port>
-                        <name>txs_burstcount_i</name>
-                        <role>burstcount</role>
-                        <direction>Input</direction>
-                        <width>6</width>
-                        <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
-                    </port>
-                    <port>
                         <name>txs_address_i</name>
                         <role>address</role>
                         <direction>Input</direction>
@@ -2324,9 +2308,25 @@
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
+                        <name>txs_byteenable_i</name>
+                        <role>byteenable</role>
+                        <direction>Input</direction>
+                        <width>16</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
                         <name>txs_readdata_o</name>
                         <role>readdata</role>
                         <direction>Output</direction>
+                        <width>128</width>
+                        <lowerBound>0</lowerBound>
+                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                    </port>
+                    <port>
+                        <name>txs_writedata_i</name>
+                        <role>writedata</role>
+                        <direction>Input</direction>
                         <width>128</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
@@ -2348,20 +2348,20 @@
                         <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
-                        <name>txs_byteenable_i</name>
-                        <role>byteenable</role>
+                        <name>txs_burstcount_i</name>
+                        <role>burstcount</role>
                         <direction>Input</direction>
-                        <width>16</width>
+                        <width>6</width>
                         <lowerBound>0</lowerBound>
                         <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                     </port>
                     <port>
-                        <name>txs_writedata_i</name>
-                        <role>writedata</role>
-                        <direction>Input</direction>
-                        <width>128</width>
+                        <name>txs_readdatavalid_o</name>
+                        <role>readdatavalid</role>
+                        <direction>Output</direction>
+                        <width>1</width>
                         <lowerBound>0</lowerBound>
-                        <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                        <vhdlType>STD_LOGIC</vhdlType>
                     </port>
                     <port>
                         <name>txs_waitrequest_o</name>
