@@ -21,10 +21,15 @@ void usage()
 {
   printf("usage:  ovc2_cli COMMAND [ARGUMENTS]\n");
   printf("  available commands:\n");
+  printf("    enable_reg_ram\n");
   printf("    set_bit REG_IDX BIT_IDX VALUE\n");
   printf("    spi_read BUS_IDX REG_IDX\n");
   printf("\n");
   exit(1);
+}
+
+int enable_reg_ram()
+{
 }
 
 int set_bit(int argc, char **argv)

@@ -47,7 +47,7 @@ int ovc2_core_release(struct inode *inode, struct file *file)
   return 0;  // success
 }
 
-static void ovc2_set_bit(uint32_t reg_idx, uint8_t bit_idx, uint8_t state)
+static long ovc2_set_bit(uint32_t reg_idx, uint8_t bit_idx, uint8_t state)
 {
   if (reg_idx == OVC2_REG_PCIE_PIO) {
     uint32_t pio_value;
@@ -65,6 +65,14 @@ static void ovc2_set_bit(uint32_t reg_idx, uint8_t bit_idx, uint8_t state)
   else {
     // print warning message to kernel log? or just ignore?
   }
+  return 0;
+}
+
+static long ovc2_enable_reg_ram()
+{
+  // TODO: write to correct mapped address to start reg ram auto-transfer
+	//iowrite32(spi_ctrl, ovc2_core.bar2_addr + 7*4);  // select bus 0 or 1
+  return 0;
 }
 
 static long ovc2_spi_xfer(u8 bus, u8 dir, u16 reg_addr, u16 reg_val)
@@ -96,12 +104,17 @@ static long ovc2_spi_xfer(u8 bus, u8 dir, u16 reg_addr, u16 reg_val)
 	udelay(5);  // just spin for a bit to let it get started
 	iowrite32(spi_ctrl, ovc2_core.bar2_addr + 7*4);  // un-set start bit
 
-	for (i = 0; i < 100; i++) {
+  #define OVC2_SPI_XFER_MAX_WAIT_ATTEMPTS 100
+	for (i = 0; i < OVC2_SPI_XFER_MAX_WAIT_ATTEMPTS; i++) {
 		spi_rxd = ioread32(ovc2_core.bar2_addr + 9*4);  // spi status register
 		if (spi_rxd & 0x80000000)
 			break;
 		udelay(5);  // just spin for a bit. it will be done soon (20-50 us)
 	}
+  if (i >= OVC2_SPI_XFER_MAX_WAIT_ATTEMPTS) {
+    printk(KERN_ERR "ovc2_core: SPI transfer didn't complete :(\n");
+    return -EIO;
+  }
 
   return spi_rxd & 0xffff;
 }
@@ -117,8 +130,7 @@ static long ovc2_core_ioctl(
       struct ovc2_ioctl_set_bit sb;
       if (copy_from_user(&sb, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
         return -EACCES;  // uh oh
-      ovc2_set_bit(sb.reg_idx, sb.bit_idx, sb.state);
-      return 0;  // success
+      return ovc2_set_bit(sb.reg_idx, sb.bit_idx, sb.state);
     }
     case OVC2_IOCTL_SPI_XFER:
     {
@@ -133,6 +145,13 @@ static long ovc2_core_ioctl(
       if (copy_to_user((void *)ioctl_param, &sx, _IOC_SIZE(ioctl_num)))
         return -EACCES;
       return 0;  // success
+    }
+    case OVC2_IOCTL_ENABLE_REG_RAM:
+    {
+      struct ovc2_ioctl_enable_reg_ram e;
+      if (copy_from_user(&e, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
+        return -EACCES;
+      return ovc2_enable_reg_ram(e.enable ? true : false);
     }
     default:
       return -EINVAL;
@@ -161,7 +180,6 @@ static int ovc2_pci_probe(
     printk(KERN_ERR "ovc2_core: pci_enable_device() failed\n");
     return rc;
   }
-  printk(KERN_INFO "ovc2_core: enabled device (0x%04x, 0x%04x)\n", vid, did);
   rc = pci_request_regions(ovc2_core.pci_dev, "ovc2_core");
   if (rc) {
     printk(KERN_ERR "pci_request_regions() failed\n");
@@ -172,9 +190,9 @@ static int ovc2_pci_probe(
   pci_set_consistent_dma_mask(ovc2_core.pci_dev, DMA_BIT_MASK(64));
   ovc2_core.bar0_addr = pci_iomap(ovc2_core.pci_dev, 0, 0);
   ovc2_core.bar2_addr = pci_iomap(ovc2_core.pci_dev, 0, 2);
-  printk(KERN_INFO "bar0_addr = 0x%px\n", ovc2_core.bar0_addr);
-  printk(KERN_INFO "bar2_addr = 0x%px\n", ovc2_core.bar2_addr);
-
+  printk(KERN_INFO "ovc2_core: bar0_addr = 0x%px\n", ovc2_core.bar0_addr);
+  printk(KERN_INFO "ovc2_core: bar2_addr = 0x%px\n", ovc2_core.bar2_addr);
+  printk(KERN_INFO "ovc2_core: device (0x%04x, 0x%04x) enabled\n", vid, did);
   return 0;
 }
 
