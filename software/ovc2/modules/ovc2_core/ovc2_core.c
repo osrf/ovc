@@ -1,7 +1,9 @@
 #include <linux/cdev.h>
 #include <linux/device.h>
+#include <linux/delay.h>
 #include <linux/fs.h>
 #include <linux/init.h>
+//#include <linux/io.h>
 #include <linux/module.h>
 #include <linux/moduleparam.h>
 #include <linux/pci.h>
@@ -20,6 +22,7 @@ struct ovc2_core {
   int major_number;
   struct pci_dev *pci_dev;
   void __iomem *bar0_addr;
+  void __iomem *bar2_addr;
   atomic_t is_available;
   struct class *dev_class;
   struct device *device;
@@ -66,6 +69,7 @@ static void ovc2_set_bit(uint32_t reg_idx, uint8_t bit_idx, uint8_t state)
 
 static long ovc2_spi_xfer(u8 bus, u8 dir, u16 reg_addr, u16 reg_val)
 {
+  int i;
   u32 spi_ctrl, spi_txd, spi_rxd, start_mask;
 
   if (bus != 0 && bus != 1) {
@@ -85,20 +89,20 @@ static long ovc2_spi_xfer(u8 bus, u8 dir, u16 reg_addr, u16 reg_val)
     spi_txd |= (1 << 16) | reg_val;
 
   spi_rxd = 0;
-/*
-	iowrite32(spi_ctrl, cvp_dev.bar4_addr + 7*4);  // select bus 0 or 1
-	iowrite32(spi_txd, cvp_dev.bar4_addr + 8*4);  // register 8 = spi txd
-	iowrite32(spi_ctrl | start_mask, cvp_dev.bar4_addr + 7*4);  // start tx/rx
+
+	iowrite32(spi_ctrl, ovc2_core.bar2_addr + 7*4);  // select bus 0 or 1
+	iowrite32(spi_txd, ovc2_core.bar2_addr + 8*4);  // register 8 = spi txd
+	iowrite32(spi_ctrl | start_mask, ovc2_core.bar2_addr + 7*4);  // start tx/rx
 	udelay(5);  // just spin for a bit to let it get started
-	iowrite32(spi_ctrl, cvp_dev.bar4_addr + 7*4);  // un-set start bit
+	iowrite32(spi_ctrl, ovc2_core.bar2_addr + 7*4);  // un-set start bit
 
 	for (i = 0; i < 100; i++) {
-		spi_rxd = ioread32(cvp_dev.bar4_addr + 9*4);  // spi status register
+		spi_rxd = ioread32(ovc2_core.bar2_addr + 9*4);  // spi status register
 		if (spi_rxd & 0x80000000)
 			break;
 		udelay(5);  // just spin for a bit. it will be done soon (20-50 us)
 	}
-*/
+
   return spi_rxd & 0xffff;
 }
 
@@ -167,7 +171,9 @@ static int ovc2_pci_probe(
   pci_set_dma_mask(ovc2_core.pci_dev, DMA_BIT_MASK(64));
   pci_set_consistent_dma_mask(ovc2_core.pci_dev, DMA_BIT_MASK(64));
   ovc2_core.bar0_addr = pci_iomap(ovc2_core.pci_dev, 0, 0);
+  ovc2_core.bar2_addr = pci_iomap(ovc2_core.pci_dev, 0, 2);
   printk(KERN_INFO "bar0_addr = 0x%px\n", ovc2_core.bar0_addr);
+  printk(KERN_INFO "bar2_addr = 0x%px\n", ovc2_core.bar2_addr);
 
   return 0;
 }
@@ -179,6 +185,7 @@ static void ovc2_pci_remove(struct pci_dev *remove_dev)
     return;
   }
   pci_iounmap(ovc2_core.pci_dev, ovc2_core.bar0_addr);
+  pci_iounmap(ovc2_core.pci_dev, ovc2_core.bar2_addr);
   pci_disable_device(ovc2_core.pci_dev);
   pci_release_regions(ovc2_core.pci_dev);
 }

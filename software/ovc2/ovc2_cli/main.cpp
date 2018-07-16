@@ -22,6 +22,7 @@ void usage()
   printf("usage:  ovc2_cli COMMAND [ARGUMENTS]\n");
   printf("  available commands:\n");
   printf("    set_bit REG_IDX BIT_IDX VALUE\n");
+  printf("    spi_read BUS_IDX REG_IDX\n");
   printf("\n");
   exit(1);
 }
@@ -43,6 +44,23 @@ int set_bit(int argc, char **argv)
   return 0;
 }
 
+int spi_read(int argc, char **argv)
+{
+  if (argc < 4)
+    usage();
+  int bus = atoi(argv[2]);
+  int reg = atoi(argv[3]);
+  printf("spi_read(%d, %d)\n", bus, reg);
+  struct ovc2_ioctl_spi_xfer spi_xfer;
+  spi_xfer.dir = OVC2_IOCTL_SPI_XFER_DIR_READ;
+  spi_xfer.bus = bus;
+  spi_xfer.reg_addr = reg;
+  spi_xfer.reg_val = 0;
+  int rc = ioctl(g_fd, OVC2_IOCTL_SPI_XFER, &spi_xfer);
+  printf("val = 0x%04x    ioctl rc = %d\n", (unsigned)spi_xfer.reg_val, rc);
+  return 0;
+}
+
 int main(int argc, char **argv)
 {
   if (argc < 2)
@@ -56,6 +74,8 @@ int main(int argc, char **argv)
   signal(SIGINT, sigint_handler);
   if (!strcmp(cmd, "set_bit"))
     return set_bit(argc, argv);
+  else if (!strcmp(cmd, "spi_read"))
+    return spi_read(argc, argv);
   else {
     printf("unknown command: %s\n", cmd);
     usage();
