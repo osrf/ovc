@@ -7,7 +7,7 @@ MODULES=r s d1 timestamp reg_ram_iface spi_master gmux
 SRCS=top.v $(MODULES:%=%.v)
 SYNTH_SRCS=top_wrapper.v
 SIM_SRCS=top_tb.v sim_python.v sim_imu.v sim_imu_ram.v sim_reg_ram.v sim_clk.v
-INTEGRATION_TESTS=corners corners_nonmax corners_image
+INTEGRATION_TESTS=cam_spi corners corners_nonmax corners_image
 QUARTUS_PATH ?= bogus____please_set_QUARTUS_PATH______have_a_nice_day
 QUARTUS_SIM_FLAGS = $(QUARTUS_PATH)/quartus/eda/sim_lib/altera_mf.v $(QUARTUS_PATH)/quartus/eda/sim_lib/220model.v -I $(QUARTUS_PATH)/quartus/eda/sim_lib -y $(QUARTUS_PATH)/quartus/libraries/megafunctions
 QUARTUS_BIN=$(QUARTUS_PATH)/quartus/bin
@@ -87,6 +87,6 @@ $(UNIT_TESTS): test_%: %.v
 	iverilog -Wall -Dtest_$* -DSIM -s $*_tb -o $(BIN)/$@.vvp -I . -y. $(QUARTUS_SIM_FLAGS) -y . $<
 	cd $(BIN) && vvp -n $@.vvp -lxt2
 
-$(INTEGRATION_TEST_TARGETS): itest_%: %_tb.v
+$(INTEGRATION_TEST_TARGETS): itest_%: tests/%_tb.v tb.v
 	iverilog -Wall -Ditest_$* -DSIM -s $*_tb -o $(BIN)/$@.vvp -I . -y. $(QUARTUS_SIM_FLAGS) -y . $<
 	cd $(BIN) && vvp -n $@.vvp -lxt2
