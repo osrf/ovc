@@ -8,7 +8,7 @@
 #include <linux/moduleparam.h>
 #include <linux/pci.h>
 #include <asm/spinlock.h>
-#include <asm/uaccess.h>
+#include <linux/uaccess.h>
 #include "ovc2_ioctl.h"
 //#include <linux/uaccess.h>
 
@@ -68,10 +68,9 @@ static long ovc2_set_bit(uint32_t reg_idx, uint8_t bit_idx, uint8_t state)
   return 0;
 }
 
-static long ovc2_enable_reg_ram()
+static long ovc2_enable_reg_ram(bool enable)
 {
-  // TODO: write to correct mapped address to start reg ram auto-transfer
-	//iowrite32(spi_ctrl, ovc2_core.bar2_addr + 7*4);  // select bus 0 or 1
+	iowrite32(enable ? 1 : 0, ovc2_core.bar2_addr);  // bit 0, offset 0 = enable
   return 0;
 }
 
