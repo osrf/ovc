@@ -41,7 +41,7 @@ struct ovc2_ioctl_enable_reg_ram
 {
   uint8_t enable;
 } __attribute__((packed));
-#define OVC2_IOCTL_ENABLE_REG_RAM _IOW(OVC_MAGIC, 2, struct ovc2_ioctl_enable_reg_ram)
+#define OVC2_IOCTL_ENABLE_REG_RAM _IOW(OVC2_MAGIC, 2, struct ovc2_ioctl_enable_reg_ram)
 
 //////////////////////////////////////////////////////////////////////
 

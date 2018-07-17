@@ -30,6 +30,11 @@ void usage()
 
 int enable_reg_ram()
 {
+  struct ovc2_ioctl_enable_reg_ram e;
+  e.enable = 1;
+  int rc = ioctl(g_fd, OVC2_IOCTL_ENABLE_REG_RAM, &e);
+  printf("rc = %d\n", rc);
+  return rc;
 }
 
 int set_bit(int argc, char **argv)
@@ -81,6 +86,8 @@ int main(int argc, char **argv)
     return set_bit(argc, argv);
   else if (!strcmp(cmd, "spi_read"))
     return spi_read(argc, argv);
+  else if (!strcmp(cmd, "enable_reg_ram"))
+    return enable_reg_ram();
   else {
     printf("unknown command: %s\n", cmd);
     usage();
