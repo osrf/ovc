@@ -5,7 +5,7 @@ OUT=$(BIN)/$(NAME)
 LDFLAGS=-g
 CFLAGS=-O2 -g
 
-SRCS=main.cpp
+SRCS=cli.cpp ovc2.cpp
 OBJS=$(SRCS:%.cpp=$(BIN)/%.o)
 
 default: $(BIN) $(OUT)
