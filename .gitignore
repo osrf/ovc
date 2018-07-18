@@ -34,3 +34,11 @@
 ##################
 *.bak
 *.kicad_pcb-bak
+
+Module.symvers
+*.cmd
+modules.order
+*.ko
+*.mod.c
+*.swp
+bin
