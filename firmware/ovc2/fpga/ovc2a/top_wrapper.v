@@ -81,10 +81,9 @@ wire [127:0] txs_writedata; // = 128'h0123_4567_89ab_cdef;
 wire txs_write; // = 1'b0;
 wire [5:0] txs_burstcount; // = 6'h8;
 wire txs_waitrequest;
-wire [21:0] txs_address; // = 22'h0;
-//wire [1:0] qsys_irq;
+wire [22:0] txs_address; // = 22'h0;
+wire [1:0] qsys_irq;
 
-/*
 wire imu_ram_clk = pcie_clk_125;
 wire imu_ram_cs = 1'b1;
 wire imu_ram_clken = 1'b1;
@@ -92,7 +91,6 @@ wire [7:0] imu_ram_addr;
 wire imu_ram_wr;
 wire [31:0] imu_ram_d;
 wire [31:0] imu_ram_q;
-*/
 
 /*
 wire imu_cs_qsys, imu_mosi_qsys, imu_sck_qsys;
@@ -123,7 +121,7 @@ d1 #(2) cam_mosi_d1_r(.c(c), .d(cam_mosi_qsys), .q(cam_mosi));
 
 //wire reg_ram_clk = pcie_clk_125;
 wire reg_ram_cs = 1'b1;
-//wire reg_ram_clken = 1'b1;
+wire reg_ram_clken = 1'b1;
 wire [7:0] reg_ram_addr;
 wire reg_ram_wr;
 wire [31:0] reg_ram_d;
@@ -171,6 +169,7 @@ platform qsys_inst(
  .imu_ram_s2_byteenable(4'hf),
  */
 
+ .reg_ram_s2_clken(reg_ram_clken),
  .reg_ram_s2_address(reg_ram_addr),
  .reg_ram_s2_chipselect(reg_ram_cs),
  .reg_ram_s2_write(reg_ram_wr),
@@ -219,13 +218,13 @@ cam_pll cam_clk_pll  // outbound clock FPGA -> imagers
 ovc2_gpio cam_clk_0_gpio
 (.ck(cam_clk_pll_out),
  .din(2'h1),
- .oe(1'b1),
+ .oe(qsys_pio_output[28]),
  .pad_out(cam_clk[0]));
 
 ovc2_gpio cam_clk_1_gpio
 (.ck(cam_clk_pll_out),
  .din(2'h1),
- .oe(1'b1),
+ .oe(qsys_pio_output[28]),
  .pad_out(cam_clk[1]));
 
 //assign aux[0] = |cam_0_rxd | |cam_1_rxd;
@@ -260,15 +259,16 @@ top top_inst(
   .txs_address(txs_address),
   .irq(qsys_irq),
 
-  .cam_0_rxc(cam_0_rxc),
+  .cam_0_rxc(cam_rxc[0]),
   .cam_0_rxd(cam_0_rxd),
-  .cam_0_rxd_align(cam_0_rxd_align),
-  .cam_0_rx_locked(cam_0_rx_locked),
+  .cam_0_rxd_align(cam_0_bitslip),
+  .cam_0_rx_locked(cam_dclk_pll_locked[0]),
 
-  .cam_1_rxc(cam_1_rxc),
-  .cam_1_rxd({cam_1_rxd[39:32], ~cam_1_rxd[31:0]}),  // fix routing inversion
-  .cam_1_rxd_align(cam_1_rxd_align),
-  .cam_1_rx_locked(cam_1_rx_locked),
+  .cam_1_rxc(cam_rxc[1]),
+  //.cam_1_rxd({cam_1_rxd[39:32], ~cam_1_rxd[31:0]}),  // fix routing inversion
+  .cam_1_rxd(cam_1_rxd),
+  .cam_1_rxd_align(cam_1_bitslip),
+  .cam_1_rx_locked(cam_dclk_pll_locked[1]),
 
   .cam_cs(cam_cs),
   .cam_sck(cam_sck),
