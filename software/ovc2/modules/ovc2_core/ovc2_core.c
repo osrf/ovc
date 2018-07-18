@@ -68,16 +68,33 @@ static long ovc2_set_bit(uint32_t reg_idx, uint8_t bit_idx, uint8_t state)
   return 0;
 }
 
+static void ovc2_print_regs(void)
+{
+  u32 reg_idx, reg_val;
+  for (reg_idx = 0; reg_idx < 0xb; reg_idx++) {
+    reg_val = ioread32(ovc2_core.bar2_addr + 0x4 * reg_idx);
+    printk(KERN_INFO "ovc2_core: reg 0x%02x: %08x\n",
+      (unsigned)reg_idx, (unsigned)reg_val);
+  }
+}
+
 static long ovc2_enable_reg_ram(bool enable)
 {
+  //u32 reg0_val;
 	iowrite32(enable ? 1 : 0, ovc2_core.bar2_addr);  // bit 0, offset 0 = enable
+  //reg0_val = ioread32(ovc2_core.bar2_addr);
+  //printk(KERN_INFO "ovc2_core: reg0 = 0x%08x  enable = %d\n", reg0_val,
+  //  enable ? 1 : 0);
   return 0;
 }
+  //printk(KERN_INFO "ovc2_core: reg1 = 0x%08x\n", ioread32(ovc2_core.bar2_addr + 0x4));
 
 static long ovc2_spi_xfer(u8 bus, u8 dir, u16 reg_addr, u16 reg_val)
 {
   int i;
   u32 spi_ctrl, spi_txd, spi_rxd, start_mask;
+
+  printk(KERN_INFO "ovc2_core: spi_xfer: bus %d, dir %d, reg_addr 0x%04x, reg_val 0x%04x\n", (int)bus, (int)dir, (unsigned)reg_addr, (unsigned)reg_val);
 
   if (bus != 0 && bus != 1) {
     printk(KERN_ERR "ovc2_core: unknown SPI bus: %d\n", (int)bus);
@@ -96,6 +113,9 @@ static long ovc2_spi_xfer(u8 bus, u8 dir, u16 reg_addr, u16 reg_val)
     spi_txd |= (1 << 16) | reg_val;
 
   spi_rxd = 0;
+
+  printk(KERN_INFO "ovc2_core: writing %08x to bar2 addr 7*4\n",
+    (unsigned)spi_ctrl);
 
 	iowrite32(spi_ctrl, ovc2_core.bar2_addr + 7*4);  // select bus 0 or 1
 	iowrite32(spi_txd, ovc2_core.bar2_addr + 8*4);  // register 8 = spi txd
@@ -137,6 +157,7 @@ static long ovc2_core_ioctl(
       if (copy_from_user(&sx, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
         return -EACCES;
       rc = ovc2_spi_xfer(sx.bus, sx.dir, sx.reg_addr, sx.reg_val);
+      ovc2_print_regs();
       if (rc < 0)  // if we had an error, just return it to userland
         return rc;
       // otherwise, give the received register value back to userland
@@ -188,7 +209,7 @@ static int ovc2_pci_probe(
   pci_set_dma_mask(ovc2_core.pci_dev, DMA_BIT_MASK(64));
   pci_set_consistent_dma_mask(ovc2_core.pci_dev, DMA_BIT_MASK(64));
   ovc2_core.bar0_addr = pci_iomap(ovc2_core.pci_dev, 0, 0);
-  ovc2_core.bar2_addr = pci_iomap(ovc2_core.pci_dev, 0, 2);
+  ovc2_core.bar2_addr = pci_iomap(ovc2_core.pci_dev, 2, 0);
   printk(KERN_INFO "ovc2_core: bar0_addr = 0x%px\n", ovc2_core.bar0_addr);
   printk(KERN_INFO "ovc2_core: bar2_addr = 0x%px\n", ovc2_core.bar2_addr);
   printk(KERN_INFO "ovc2_core: device (0x%04x, 0x%04x) enabled\n", vid, did);

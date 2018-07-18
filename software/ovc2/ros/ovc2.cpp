@@ -31,6 +31,7 @@ bool OVC2::init()
   }
   if (!enable_reg_ram())
     return false;
+  printf("reg ram init complete\n");
   init_complete_ = true;
   return true;
 }
