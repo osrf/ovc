@@ -3,6 +3,7 @@
 #include <cstring>
 #include <signal.h>
 #include "ovc2.h"
+using ovc2::OVC2;
 
 bool g_done = false;
 void sigint_handler(int signum)
@@ -16,6 +17,7 @@ void usage()
   printf("  available commands:\n");
   printf("    set_bit REG_IDX BIT_IDX VALUE\n");
   printf("    spi_read BUS_IDX REG_IDX\n");
+  printf("    configure_imagers\n");
   printf("\n");
   exit(1);
 }
@@ -45,6 +47,13 @@ int spi_read(int argc, char **argv, OVC2 *ovc2)
   printf("spi_read(%d, %d) = 0x%08x\n", bus, reg, (unsigned)val);
   return 0;
 }
+
+int configure_imagers(OVC2 *ovc2)
+{
+  if (!ovc2->configure_imagers())
+    return 1;
+  return 0;
+}
  
 int main(int argc, char **argv)
 {
@@ -61,6 +70,8 @@ int main(int argc, char **argv)
     return set_bit(argc, argv, &ovc2);
   else if (!strcmp(cmd, "spi_read"))
     return spi_read(argc, argv, &ovc2);
+  else if (!strcmp(cmd, "configure_imagers"))
+    return configure_imagers(&ovc2);
   else {
     printf("unknown command: %s\n", cmd);
     usage();

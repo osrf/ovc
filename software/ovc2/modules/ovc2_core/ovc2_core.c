@@ -94,7 +94,7 @@ static long ovc2_spi_xfer(u8 bus, u8 dir, u16 reg_addr, u16 reg_val)
   int i;
   u32 spi_ctrl, spi_txd, spi_rxd, start_mask;
 
-  printk(KERN_INFO "ovc2_core: spi_xfer: bus %d, dir %d, reg_addr 0x%04x, reg_val 0x%04x\n", (int)bus, (int)dir, (unsigned)reg_addr, (unsigned)reg_val);
+  //printk(KERN_INFO "ovc2_core: spi_xfer: bus %d, dir %d, reg_addr 0x%04x, reg_val 0x%04x\n", (int)bus, (int)dir, (unsigned)reg_addr, (unsigned)reg_val);
 
   if (bus != 0 && bus != 1) {
     printk(KERN_ERR "ovc2_core: unknown SPI bus: %d\n", (int)bus);
@@ -114,8 +114,8 @@ static long ovc2_spi_xfer(u8 bus, u8 dir, u16 reg_addr, u16 reg_val)
 
   spi_rxd = 0;
 
-  printk(KERN_INFO "ovc2_core: writing %08x to bar2 addr 7*4\n",
-    (unsigned)spi_ctrl);
+  //printk(KERN_INFO "ovc2_core: writing %08x to bar2 addr 7*4\n",
+  //  (unsigned)spi_ctrl);
 
 	iowrite32(spi_ctrl, ovc2_core.bar2_addr + 7*4);  // select bus 0 or 1
 	iowrite32(spi_txd, ovc2_core.bar2_addr + 8*4);  // register 8 = spi txd
@@ -157,7 +157,7 @@ static long ovc2_core_ioctl(
       if (copy_from_user(&sx, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
         return -EACCES;
       rc = ovc2_spi_xfer(sx.bus, sx.dir, sx.reg_addr, sx.reg_val);
-      ovc2_print_regs();
+      //ovc2_print_regs();
       if (rc < 0)  // if we had an error, just return it to userland
         return rc;
       // otherwise, give the received register value back to userland
