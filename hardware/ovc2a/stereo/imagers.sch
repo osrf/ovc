@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:ovc2_stereo-cache
 EELAYER 26 0
 EELAYER END
 $Descr A3 16535 11693
@@ -1767,4 +1766,6 @@ Connection ~ 5050 9900
 NoConn ~ 3400 3550
 NoConn ~ 3400 3650
 NoConn ~ 9550 3650
+Text Notes 5650 2850 0    118  ~ 24
+REV. A SCREW-UP:\nMOSI/MISO mismatch
 $EndSCHEMATC

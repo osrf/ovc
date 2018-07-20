@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:ovc2_stereo-cache
 EELAYER 26 0
 EELAYER END
 $Descr A2 23386 16535
