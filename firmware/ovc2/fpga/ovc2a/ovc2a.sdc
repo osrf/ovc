@@ -35,6 +35,8 @@ set_false_path -to top:top_inst|s:imu_sync_s_r|d_d1[*]
 
 set_false_path -to top_inst|cam_miso_s_r|d_d1[*]
 
+set_false_path -to cam_clk_gpio_oe_s|d_d1[*]
+
 #set_false_path -from [get_keepers cam_fifo_aclr] -to [get_keepers *dcfifo*]
 
 set_false_path -to top_inst|dma_writer_mux_inst|gen_fifos[*].rst_in_c_r|d_d1[*]

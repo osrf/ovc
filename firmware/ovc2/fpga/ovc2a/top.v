@@ -343,15 +343,12 @@ wire [31:0] pio_input_d1;  //dma_status_d1;
 
 d1 #(32) pio_input_r
 (.c(c), .q(pio_input_d1),
- .d({sync_s,  // 8
-     lane_s,  // 8
-     16'h0}));  //,  // 8
+ .d({sync_s,    // 8
+     lane_s,    // 8
+     16'h0}));  // 16
 
-/*
 // add an extra stage to help timing
-d1 #(32) pio_input_d2_r
-(.c(c), .d(pio_input_d1), .q(pio_input));
-*/
+d1 #(32) pio_input_d2_r(.c(c), .d(pio_input_d1), .q(pio_input));
 
 /*
 wire [7:0] aux_d1;

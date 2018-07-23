@@ -32,7 +32,7 @@ assign imu_sync_in = 1'b0;
 
 wire pcie_npor = pcie_perst;
 wire [31:0] qsys_pio_output;
-//wire [31:0] qsys_pio_input;
+wire [31:0] qsys_pio_input;
 wire pcie_clk_125;
 //wire qsys_pio_clk_en = qsys_pio_output[0];
 
@@ -145,7 +145,7 @@ platform qsys_inst(
  .pcie_npor_pin_perst(pcie_perst),
 
  .pio_output_external_connection_export(qsys_pio_output),
- //.pio_input_export(qsys_pio_input),
+ .pio_input_external_connection_export(qsys_pio_input),
 
  .pcie_txs_byteenable(16'hffff),
  .pcie_txs_chipselect(1'b1),  // txs_chipselect),
@@ -214,17 +214,21 @@ cam_pll cam_clk_pll  // outbound clock FPGA -> imagers
  .pll_powerdown(qsys_pio_output[30]),
  .outclk0(cam_clk_pll_out));
 
+// synchronize output-enable PIO from PCIe domain to cam_clk domain
+s cam_clk_gpio_oe_s
+(.c(cam_clk_pll_out), .d(qsys_pio_output[28]), .q(cam_clk_gpio_oe));
+
 // todo: look at instantiating cyclone10gx_ddio_out directly, rather than this
 ovc2_gpio cam_clk_0_gpio
 (.ck(cam_clk_pll_out),
  .din(2'h1),
- .oe(qsys_pio_output[28]),
+ .oe(cam_clk_gpio_oe),
  .pad_out(cam_clk[0]));
 
 ovc2_gpio cam_clk_1_gpio
 (.ck(cam_clk_pll_out),
  .din(2'h1),
- .oe(qsys_pio_output[28]),
+ .oe(cam_clk_gpio_oe),
  .pad_out(cam_clk[1]));
 
 //assign aux[0] = |cam_0_rxd | |cam_1_rxd;
@@ -251,7 +255,7 @@ top top_inst(
 
   .cam_trigger(cam_trigger[0]),
   .pio_output(qsys_pio_output[31:8]),
-  //.pio_input(qsys_pio_input),
+  .pio_input(qsys_pio_input),
   .txs_waitrequest(txs_waitrequest),
   .txs_write(txs_write),
   .txs_writedata(txs_writedata),
@@ -260,7 +264,7 @@ top top_inst(
   .irq(qsys_irq),
 
   .cam_0_rxc(cam_rxc[0]),
-  .cam_0_rxd(cam_0_rxd),
+  .cam_0_rxd(~cam_0_rxd),  // polarity inverted on PCB to clean up routing
   .cam_0_rxd_align(cam_0_bitslip),
   .cam_0_rx_locked(cam_dclk_pll_locked[0]),
 
