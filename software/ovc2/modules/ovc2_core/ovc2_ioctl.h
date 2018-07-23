@@ -44,5 +44,19 @@ struct ovc2_ioctl_enable_reg_ram
 #define OVC2_IOCTL_ENABLE_REG_RAM _IOW(OVC2_MAGIC, 2, struct ovc2_ioctl_enable_reg_ram)
 
 //////////////////////////////////////////////////////////////////////
+struct ovc2_ioctl_read_pio
+{
+  uint8_t channel;
+  uint32_t data;
+};
+#define OVC2_IOCTL_READ_PIO _IOWR(OVC2_MAGIC, 3, struct ovc2_ioctl_read_pio)
 
+//////////////////////////////////////////////////////////////////////
+struct ovc2_ioctl_bitslip
+{
+  uint32_t channels;
+};
+#define OVC2_IOCTL_BITSLIP _IOW(OVC2_MAGIC, 4, struct ovc2_ioctl_bitslip)
+
+//////////////////////////////////////////////////////////////////////
 #endif

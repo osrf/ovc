@@ -86,6 +86,8 @@ bool OVC2::reset_imagers()
   if (!set_bit(0, 29, false))  // de-assert imager resets
     return false;
   usleep(50000);  // wait for imagers to wake back up
+  if (!set_bit(0, 28, true))  // turn on camera clock
+    return false;
   return true;
 }
 
@@ -100,6 +102,10 @@ bool OVC2::configure_imagers()
   for (int i = 0; i < 1; i++) {
 		if (!configure_imager(i)) {
       printf("OH NO couldn't configure imager %d\n", i);
+      return false;
+    }
+    if (!align_imager_lvds(i)) {
+      printf("OH NO couldn't align LVSD stream of imager %d\n", i);
       return false;
     }
     printf("imager %d configured successfully\n", i);
@@ -277,6 +283,8 @@ bool OVC2::configure_imager(const int imager_idx)
     if (!write_imager_reg(imager_idx, r))
       return false;
 
+  printf("wrote all registers successfully to imager %d\n", imager_idx);
+
   return true;
 }
 
@@ -318,3 +326,30 @@ bool OVC2::write_imager_reg(const int imager_idx, const ImagerRegister reg)
   return true;
 }
 
+bool OVC2::align_imager_lvds(const int imager_idx)
+{
+  if (imager_idx != 0 && imager_idx != 1)
+    return false;
+  struct ovc2_ioctl_read_pio rp;
+  rp.channel = imager_idx << 2;
+  uint8_t sync_data = 0;
+  int rc = ioctl(fd_, OVC2_IOCTL_READ_PIO, &rp);
+  if (rc) {
+    printf("OH NO rc from kernel module when reading PIO data: %d\n", rc);
+    return false;
+  }
+  sync_data = (uint8_t)(rp.data >> 24);
+  printf("sync     : 0x%02x\n", sync_data);
+
+  for (int channel_idx = 0; channel_idx < 4; channel_idx++) {
+    rp.channel = channel_idx + imager_idx * 4;
+    int rc = ioctl(fd_, OVC2_IOCTL_READ_PIO, &rp);
+    if (rc) {
+      printf("OH NO rc from kernel module when reading PIO data: %d\n", rc);
+      return false;
+    }
+    uint8_t channel_data = (uint8_t)(rp.data >> 16);
+    printf("channel %d: 0x%02x\n", channel_idx, channel_data);
+  }
+  return true;
+}

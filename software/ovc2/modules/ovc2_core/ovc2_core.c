@@ -138,6 +138,15 @@ static long ovc2_spi_xfer(u8 bus, u8 dir, u16 reg_addr, u16 reg_val)
   return spi_rxd & 0xffff;
 }
 
+static u32 ovc2_read_pio(u8 channel)
+{
+  iowrite32(channel, ovc2_core.bar2_addr + 4*4);
+  ioread32(ovc2_core.bar0_addr + 0x4010);
+  // read twice to make sure we've waited long enough for our channel
+  // selection to be latched and copied through the register chain
+  return ioread32(ovc2_core.bar0_addr + 0x4010);
+}
+
 static long ovc2_core_ioctl(
   struct file *file, unsigned int ioctl_num, unsigned long ioctl_param)
 {
@@ -172,6 +181,16 @@ static long ovc2_core_ioctl(
       if (copy_from_user(&e, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
         return -EACCES;
       return ovc2_enable_reg_ram(e.enable ? true : false);
+    }
+    case OVC2_IOCTL_READ_PIO:
+    {
+      struct ovc2_ioctl_read_pio rp;
+      if (copy_from_user(&rp, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
+        return -EACCES;
+      rp.data = ovc2_read_pio(rp.channel);
+      if (copy_to_user((void *)ioctl_param, &rp, _IOC_SIZE(ioctl_num)))
+        return -EACCES;
+      return 0;  // success
     }
     default:
       return -EINVAL;

@@ -16,6 +16,7 @@ public:
   int spi_read(const int bus, const int reg);
   bool configure_imagers();
   bool reset_imagers();
+  bool align_imager_lvds(const int imager_idx);
 private:
   bool init_complete_;
   int fd_;
