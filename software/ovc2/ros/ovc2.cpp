@@ -97,9 +97,8 @@ bool OVC2::configure_imagers()
     printf("OVC2::configure_imagers(): reset_imagers() failed\n");
     return false;
   }
-  // TODO: this should be talking to both imagers, but SPI on imager #1
-  // is messed up in hardware (for now).
-  for (int i = 0; i < 1; i++) {
+  // requires rework on ovc2a to talk to imager #2...
+  for (int i = 0; i < 2; i++) {
 		if (!configure_imager(i)) {
       printf("OH NO couldn't configure imager %d\n", i);
       return false;
@@ -339,7 +338,7 @@ bool OVC2::align_imager_lvds(const int imager_idx)
     return false;
   }
   sync_data = (uint8_t)(rp.data >> 24);
-  printf("sync     : 0x%02x\n", sync_data);
+  printf("imager %d sync     : 0x%02x\n", imager_idx, sync_data);
 
   for (int channel_idx = 0; channel_idx < 4; channel_idx++) {
     rp.channel = channel_idx + imager_idx * 4;
@@ -349,7 +348,8 @@ bool OVC2::align_imager_lvds(const int imager_idx)
       return false;
     }
     uint8_t channel_data = (uint8_t)(rp.data >> 16);
-    printf("channel %d: 0x%02x\n", channel_idx, channel_data);
+    printf("imager %d channel %d: 0x%02x\n",
+      imager_idx, channel_idx, channel_data);
   }
   return true;
 }

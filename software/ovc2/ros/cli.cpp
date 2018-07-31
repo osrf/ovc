@@ -58,8 +58,9 @@ int configure_imagers(OVC2 *ovc2)
 
 int align_imager_lvds(OVC2 *ovc2)
 {
-  if (!ovc2->align_imager_lvds(0))
-    return 1;
+  for (int i = 0; i < 2; i++)
+    if (!ovc2->align_imager_lvds(i))
+      return 1;
   return 0;
 }
  
