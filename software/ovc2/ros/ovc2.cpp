@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 #include <vector>
 
 #include <fcntl.h>
@@ -16,7 +17,8 @@ static const char * const OVC2_DEVICE = "/dev/ovc2_core";
 
 OVC2::OVC2()
 : init_complete_(false),
-  fd_(-1)
+  fd_(-1),
+  imu_serial(NULL)
 {
 }
 
@@ -24,6 +26,10 @@ OVC2::~OVC2()
 {
   if (init_complete_) {
     close(fd_);
+  }
+  if (imu_serial) {
+    delete imu_serial;
+    imu_serial = NULL;
   }
 }
 
@@ -37,6 +43,11 @@ bool OVC2::init()
   if (!enable_reg_ram())
     return false;
   printf("reg ram init complete\n");
+  imu_serial = new LightweightSerial("/dev/ttyTHS2", 115200);
+  if (!imu_serial->is_ok()) {
+    printf("OH NO couldn't open IMU serial port\n");
+    return false;
+  }
   init_complete_ = true;
   return true;
 }
@@ -412,4 +423,78 @@ bool OVC2::align_imager_lvds(const int imager_idx)
   }
   printf("all LVDS links on imager %d aligned successfully\n", imager_idx);
   return true;
+}
+
+bool OVC2::configure_imu()
+{
+  printf("OVC2::configure_imu()\n");
+  // first, reset it...
+  if (!set_bit(0, 27, true))  // assert imu reset pin
+    return false;
+  usleep(1000);
+  if (!set_bit(0, 27, false))  // de-assert imu reset pin
+    return false;
+  printf("waiting 2 seconds for IMU reset...\n");
+  usleep(2000000);
+  write_imu_reg_str("$VNWRG,06,0");  // turn off async data output
+  // now drain all the async output that was stuffed in our buffers
+  for (int i = 0; i < 100; i++) {
+    printf("waiting for rx...\n");
+    uint8_t line[256];
+    int nread = imu_serial->read_block(line, sizeof(line));
+    printf("read %d bytes\n", nread);
+    if (!nread)
+      break;
+  }
+  // need to write a long config string for the sync pulse now
+  // request configuration: ignore SYNC_IN and drive SYNC_OUT pulses
+  // every 2nd AHRS measurement (= 200 Hz) of 100us width
+  write_imu_reg_str("$VNWRG,32,3,0,0,0,3,1,1,100000,0");
+}
+
+bool OVC2::write_imu_reg_str(const char * const reg_str)
+{
+  char request[256] = {0};
+  strncpy(request, reg_str, sizeof(request)-10);
+  imu_append_checksum(request);
+  printf("sending IMU request: [%s]\n", request);
+  imu_serial->write_cstr(request);
+  uint8_t response[256] = {0};
+  bool response_ok = false;
+  // wait for response
+  for (int attempt = 0; attempt < 100; attempt++) {
+    int nread = imu_serial->read_block(response, sizeof(response));
+    if (nread == 0) {
+      usleep(1000);
+      continue;
+    }
+    for (int i = 0; i < nread; i++) {
+      if (response[i] == '\n') {
+        //printf("received newline.\n");
+        response_ok = true;  // todo: actually look at the response
+      }
+    }
+    if (response_ok)
+      break;
+  }
+  return response_ok;
+}
+
+bool OVC2::imu_append_checksum(char *msg)
+{
+  if (!msg) {
+    printf("WOAH THERE PARTNER. you send append_checksum() a null string.\n");
+    exit(1);
+  }
+  if (msg[0] != '$') {
+    printf("WOAH THERE PARTNER. expected message string to begin with '$'\n");
+    exit(1);
+  }
+  int msg_len = strlen(msg);
+  uint8_t csum = 0; 
+  for (int i = 1; i < msg_len; i++)
+    csum ^= msg[i];
+  char csum_ascii[10] = {0};
+  snprintf(csum_ascii, sizeof(csum_ascii), "*%02x\r\n", (int)csum);
+  strcat(msg, csum_ascii);
 }

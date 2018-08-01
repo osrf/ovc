@@ -5,7 +5,7 @@ OUT=$(BIN)/$(NAME)
 LDFLAGS=-g
 CFLAGS=-O2 -g --std=c++14
 
-SRCS=cli.cpp ovc2.cpp
+SRCS=cli.cpp ovc2.cpp lightweightserial.cpp
 OBJS=$(SRCS:%.cpp=$(BIN)/%.o)
 
 default: $(BIN) $(OUT)
@@ -16,7 +16,7 @@ clean:
 $(BIN):
 	mkdir -p $(BIN)
 
-$(BIN)/%.o: %.cpp
+$(BIN)/%.o: %.cpp ovc2.h lightweightserial.h
 	g++ $(CFLAGS) -c $< -o $@
 
 $(OUT): $(OBJS)

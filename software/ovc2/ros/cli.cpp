@@ -19,6 +19,7 @@ void usage()
   printf("    spi_read BUS_IDX REG_IDX\n");
   printf("    configure_imagers\n");
   printf("    align_imager_lvds\n");
+  printf("    configure_imu\n");
   printf("\n");
   exit(1);
 }
@@ -63,6 +64,13 @@ int align_imager_lvds(OVC2 *ovc2)
       return 1;
   return 0;
 }
+
+int configure_imu(OVC2 *ovc2)
+{
+  if (!ovc2->configure_imu())
+    return 1;
+  return 0;
+}
  
 int main(int argc, char **argv)
 {
@@ -83,6 +91,8 @@ int main(int argc, char **argv)
     return configure_imagers(&ovc2);
   else if (!strcmp(cmd, "align_imager_lvds"))
     return align_imager_lvds(&ovc2);
+  else if (!strcmp(cmd, "configure_imu"))
+    return configure_imu(&ovc2);
   else {
     printf("unknown command: %s\n", cmd);
     usage();
