@@ -136,7 +136,9 @@ d1 #(32) cam_spi_rxd_mux_r
 
 /*
 wire start = pio_output[0];
+*/
 
+//////////////////////////////////////////////////////////////////////////
 // synchronize the cam0 align register over to the cam_0_rxc domain
 wire [4:0] cam_0_rxd_align_pcie_s;
 s #(5) cam_0_rxd_align_pcie_s_r
@@ -159,7 +161,9 @@ oneshot cam_1_rxd_align_oneshots [4:0]
 
 //////////////////////////////////////////////////////////
 // imager trigger stuff
+assign cam_trigger = 1'b0;
 
+/*
 wire imu_sync_oneshot;
 oneshot #(.SYNC(0)) imu_sync_oneshot_r
 (.c(c), .d(imu_sync_s), .q(imu_sync_oneshot));

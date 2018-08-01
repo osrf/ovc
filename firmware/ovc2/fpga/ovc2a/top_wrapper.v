@@ -62,7 +62,7 @@ assign aux = { cam_miso[1], cam_mosi[1], cam_sck[1], cam_cs[1],
                cam_miso[0], cam_mosi[0], cam_sck[0], cam_cs[0] };
 */
 
-assign cam_trigger = 2'h0;  //[1] = cam_trigger[0];
+assign cam_trigger[1] = cam_trigger[0];
 assign led_ci = 1'b1;
 assign led_di = 1'b1;
 
@@ -180,8 +180,8 @@ platform qsys_inst(
 
 wire [1:0] cam_rxc, cam_dclk_pll_locked;
 wire [39:0] cam_0_rxd, cam_1_rxd;
-wire [4:0] cam_0_bitslip = 5'h0;
-wire [4:0] cam_1_bitslip = 5'h0;
+wire [4:0] cam_0_bitslip;
+wire [4:0] cam_1_bitslip;
 wire cam_dclk_pll_reset;
 
 r cam_dclk_pll_reset_r
@@ -264,13 +264,16 @@ top top_inst(
   .irq(qsys_irq),
 
   .cam_0_rxc(cam_rxc[0]),
-  .cam_0_rxd(~cam_0_rxd),  // polarity inverted on PCB to clean up routing
+  .cam_0_rxd(~cam_0_rxd),  // all lanes inverted on PCB for nicer routing
   .cam_0_rxd_align(cam_0_bitslip),
   .cam_0_rx_locked(cam_dclk_pll_locked[0]),
 
   .cam_1_rxc(cam_rxc[1]),
-  //.cam_1_rxd({cam_1_rxd[39:32], ~cam_1_rxd[31:0]}),  // fix routing inversion
-  .cam_1_rxd(cam_1_rxd),
+  .cam_1_rxd({~cam_1_rxd[39:32],    // sync lane is inverted
+               cam_1_rxd[31:24],    // lane 3 is not inverted
+               cam_1_rxd[23:16],    // lane 2 is not inverted
+              ~cam_1_rxd[15: 8],    // lane 1 is inverted
+              ~cam_1_rxd[ 7: 0]}),  // lane 0 is inverted
   .cam_1_rxd_align(cam_1_bitslip),
   .cam_1_rx_locked(cam_dclk_pll_locked[1]),
 

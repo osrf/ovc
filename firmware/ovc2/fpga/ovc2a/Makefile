@@ -3,7 +3,7 @@ NAME=ovc2a
 OUT=$(BIN)/$(NAME)
 default: $(OUT).vvp
 #MODULES=cmd_rx
-MODULES=r s d1 timestamp reg_ram_iface spi_master gmux
+MODULES=r s d1 timestamp reg_ram_iface spi_master gmux oneshot
 SRCS=top.v $(MODULES:%=%.v)
 SYNTH_SRCS=top_wrapper.v
 SIM_SRCS=top_tb.v sim_python.v sim_imu.v sim_imu_ram.v sim_reg_ram.v sim_clk.v
