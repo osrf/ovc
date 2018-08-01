@@ -332,24 +332,84 @@ bool OVC2::align_imager_lvds(const int imager_idx)
   struct ovc2_ioctl_read_pio rp;
   rp.channel = imager_idx << 2;
   uint8_t sync_data = 0;
-  int rc = ioctl(fd_, OVC2_IOCTL_READ_PIO, &rp);
-  if (rc) {
-    printf("OH NO rc from kernel module when reading PIO data: %d\n", rc);
-    return false;
-  }
-  sync_data = (uint8_t)(rp.data >> 24);
-  printf("imager %d sync     : 0x%02x\n", imager_idx, sync_data);
-
-  for (int channel_idx = 0; channel_idx < 4; channel_idx++) {
-    rp.channel = channel_idx + imager_idx * 4;
-    int rc = ioctl(fd_, OVC2_IOCTL_READ_PIO, &rp);
+  bool sync_ok = false;
+  int bitslips = 0;
+  int rc = 0;
+  for (int attempt = 0; attempt < 1000; attempt++) {
+    rc = ioctl(fd_, OVC2_IOCTL_READ_PIO, &rp);
     if (rc) {
       printf("OH NO rc from kernel module when reading PIO data: %d\n", rc);
       return false;
     }
-    uint8_t channel_data = (uint8_t)(rp.data >> 16);
-    printf("imager %d channel %d: 0x%02x\n",
-      imager_idx, channel_idx, channel_data);
+    sync_data = (uint8_t)(rp.data >> 24);
+    printf("imager %d sync lane : 0x%02x\n", imager_idx, sync_data);
+
+    if (sync_data == 0x00)
+      continue;  // this word isn't informative...
+    if (sync_data == 0x0d || sync_data == 0x0a || sync_data == 0xe9 ||
+        sync_data == 0xaa || sync_data == 0xca || sync_data == 0x4a ||
+        sync_data == 0x16 || sync_data == 0x05) {
+      sync_ok = true;
+      break;
+    }
+    if (!sync_ok) {
+      // if we get here, we need to slip the sync channel
+      struct ovc2_ioctl_bitslip bs;
+      bs.channels = (imager_idx == 0 ? 0x10 : 0x200);
+      bitslips++;
+      printf("  bitslip(0x%02x)\n", (unsigned)bs.channels);
+      rc = ioctl(fd_, OVC2_IOCTL_BITSLIP, &bs);
+      if (rc) {
+        printf("OH NO weird rc from bitslip ioctl: %d\n", rc);
+        return false;
+      }
+    }
+    usleep(10);  // wait for bitslip request to propagate through chain
   }
+  if (!sync_ok) {
+    printf("OH NO, couldn't align sync channel on imager %d\n", imager_idx);
+    return false;
+  }
+  if (bitslips)
+    printf("  sync channel aligned OK after %d rotations\n", bitslips);
+
+  for (int channel_idx = 0; channel_idx < 4; channel_idx++) {
+    rp.channel = channel_idx + imager_idx * 4;
+    bool channel_ok = false;
+    bitslips = 0;
+    for (int attempt = 0; attempt < 1000; attempt++) {
+      int rc = ioctl(fd_, OVC2_IOCTL_READ_PIO, &rp);
+      if (rc) {
+        printf("OH NO rc from kernel module when reading PIO data: %d\n", rc);
+        return false;
+      }
+      uint8_t channel_data = (uint8_t)(rp.data >> 16);
+      printf("imager %d channel %d: 0x%02x\n",
+          imager_idx, channel_idx, channel_data);
+      if (channel_data == 0xe9) {
+        channel_ok = true;
+        break;
+      }
+      // channel data wasn't the training word 0xe9. time to rotate.
+      struct ovc2_ioctl_bitslip bs;
+      bs.channels = 1 << (channel_idx + imager_idx * 5);
+      printf("  bitslip(0x%02x)\n", (unsigned)bs.channels);
+      bitslips++;
+      rc = ioctl(fd_, OVC2_IOCTL_BITSLIP, &bs);
+      if (rc) {
+        printf("OH NO weird rc from bitslip ioctl: %d\n", rc);
+        return false;
+      }
+      usleep(10);  // wait for bitslip request to propagate through chain
+    }
+    if (!channel_ok) {
+      printf("OH NO couldn't align data lane %d on imager %d\n",
+        channel_idx, imager_idx);
+      return false;
+    }
+    if (bitslips)
+      printf("  lane %d aligned after %d rotations\n", channel_idx, bitslips);
+  }
+  printf("all LVDS links on imager %d aligned successfully\n", imager_idx);
   return true;
 }

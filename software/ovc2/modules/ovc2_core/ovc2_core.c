@@ -147,6 +147,14 @@ static u32 ovc2_read_pio(u8 channel)
   return ioread32(ovc2_core.bar0_addr + 0x4010);
 }
 
+static long ovc2_bitslip(u32 channels)
+{
+  iowrite32(0, ovc2_core.bar2_addr + 3*4);         // make sure it's zero
+  iowrite32(channels, ovc2_core.bar2_addr + 3*4);  // set desired bits
+  iowrite32(0, ovc2_core.bar2_addr + 3*4);         // set back to zero
+  return 0;
+}
+
 static long ovc2_core_ioctl(
   struct file *file, unsigned int ioctl_num, unsigned long ioctl_param)
 {
@@ -191,6 +199,13 @@ static long ovc2_core_ioctl(
       if (copy_to_user((void *)ioctl_param, &rp, _IOC_SIZE(ioctl_num)))
         return -EACCES;
       return 0;  // success
+    }
+    case OVC2_IOCTL_BITSLIP:
+    {
+      struct ovc2_ioctl_bitslip bs;
+      if (copy_from_user(&bs, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
+        return -EACCES;
+      return ovc2_bitslip(bs.channels);
     }
     default:
       return -EINVAL;
