@@ -28,7 +28,7 @@ module top_wrapper(
   input imu_sync_out
 );
 
-assign imu_sync_in = 1'b0;
+assign imu_sync_in = imu_sync_out; //1'b0;
 
 wire pcie_npor = pcie_perst;
 wire [31:0] qsys_pio_output;
@@ -37,6 +37,7 @@ wire pcie_clk_125;
 //wire qsys_pio_clk_en = qsys_pio_output[0];
 
 assign cam_rst = {2{~qsys_pio_output[29]}};
+assign imu_rst = ~qsys_pio_output[27];
 
 //assign aux[1] = qsys_pio_output[1];
 
@@ -411,7 +412,6 @@ altddio_out #(.width(1)) cam_1_clk_ddio(
 assign led[0] = qsys_pio_output[1];
 assign led[1] = cam_0_rx_locked & cam_1_rx_locked;
 
-assign imu_rst = ~qsys_pio_output[2];
 */
 
 endmodule

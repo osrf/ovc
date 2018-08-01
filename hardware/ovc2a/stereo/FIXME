@@ -5,3 +5,4 @@
   HSEXP7+/- should go into any other bank instead.
 * remove solder paste from IMU footprints and C5 footprint (within VN-100)
 * cam2 MOSI/MISO are swapped
+* bring IMU_SYNC_OUT to 100mil header instead of (or in addition to) SYNC_IN
