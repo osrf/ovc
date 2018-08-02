@@ -59,4 +59,13 @@ struct ovc2_ioctl_bitslip
 #define OVC2_IOCTL_BITSLIP _IOW(OVC2_MAGIC, 4, struct ovc2_ioctl_bitslip)
 
 //////////////////////////////////////////////////////////////////////
+struct ovc2_ioctl_imu_set_mode
+{
+  uint32_t mode;
+};
+#define OVC2_IOCTL_IMU_SET_MODE _IOW(OVC2_MAGIC, 5, struct ovc2_ioctl_imu_set_mode)
+#define OVC2_IOCTL_IMU_SET_MODE_IDLE 0
+#define OVC2_IOCTL_IMU_SET_MODE_AUTO 1
+
+//////////////////////////////////////////////////////////////////////
 #endif
