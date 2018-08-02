@@ -109,7 +109,6 @@ wire [7:0] reg_len = ctrl[15:08];
 wire [7:0] reg_start_word = ctrl[7:0];
 wire reg_reader_busy;
 
-wire auto_cs, auto_sck, auto_mosi;
 wire [31:0] imu_reg_reader_d;
 wire imu_reg_reader_dv;
 imu_reg_reader #(.SPEEDUP(SPEEDUP),
@@ -117,7 +116,7 @@ imu_reg_reader #(.SPEEDUP(SPEEDUP),
 (.c(c), .start(read_start), .done(read_done),
  .reg_idx(reg_idx), .reg_len(reg_len), .reg_start_word(reg_start_word),
  .reg_d(imu_reg_reader_d), .reg_dv(imu_reg_reader_dv),
- .cs(auto_cs), .sck(auto_sck), .mosi(auto_mosi), .miso(miso));
+ .cs(cs), .sck(sck), .mosi(mosi), .miso(miso));
 
 wire [31:0] reg_d = state == ST_TIME_HI ? t_q[63:32] :
                     (state == ST_TIME_LO ? t_q[31:0] :
@@ -145,8 +144,10 @@ assign ram_wr = reg_dv_d1;
 
 ///////////////////
 
+/*
 d1 cs_d1_r(.c(c), .d(auto_cs), .q(cs));
 d1 sck_d1_r(.c(c), .d(auto_sck), .q(sck));
 d1 mosi_d1_r(.c(c), .d(auto_mosi), .q(mosi));
+*/
 
 endmodule

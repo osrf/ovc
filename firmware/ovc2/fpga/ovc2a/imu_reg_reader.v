@@ -49,11 +49,11 @@ localparam WAIT_CNT = 12499 / SPEEDUP;  // = 100us on a 125 MHz clock
 always @* begin
   case (state)
     ST_IDLE:
-      if (start)               ctrl = { ST_REQUEST_TXRX , 8'b00_0_01_001 };
+      if (start)               ctrl = { ST_REQUEST_TXRX , 8'b00_0_01_011 };
       else                     ctrl = { ST_IDLE         , 8'b00_0_00_000 };
     ST_REQUEST_TXRX:   
-      if (spi_done)            ctrl = { ST_REQUEST_WAIT , 8'b00_0_00_100 };
-      else                     ctrl = { ST_REQUEST_TXRX , 8'b00_0_01_000 };
+      if (spi_done)            ctrl = { ST_REQUEST_WAIT , 8'b00_0_00_110 };
+      else                     ctrl = { ST_REQUEST_TXRX , 8'b00_0_01_010 };
     ST_REQUEST_WAIT:
       if (c_cnt == WAIT_CNT)   ctrl = { ST_RESPONSE_TXRX, 8'b10_0_00_011 };
       else                     ctrl = { ST_REQUEST_WAIT , 8'b00_0_00_000 };
@@ -99,9 +99,14 @@ wire spi_done_hold;  // convert to oneshot
 oneshot #(.SYNC(0)) spi_done_oneshot_r
 (.c(c), .d(spi_done_hold), .q(spi_done));
 
+wire cs_i, sck_i, mosi_i;  // internal versions before output regs
 spi_master #(.SCLK_DIV(SPI_SCLK_DIV), .W(32)) spi_master_inst
 (.c(c), .start(spi_start_d1), .done(spi_done_hold), .hold_cs(hold_cs),
  .txd(spi_txd), .rxd(spi_rxd),
- .cs(cs), .sclk(sck), .mosi(mosi), .miso(miso));
+ .cs(cs_i), .sclk(sck_i), .mosi(mosi_i), .miso(miso));
+
+d1 cs_r(.c(c), .d(cs_i), .q(cs));
+d1 sck_r(.c(c), .d(sck_i), .q(sck));
+d1 mosi_r(.c(c), .d(mosi_i), .q(mosi));
 
 endmodule
