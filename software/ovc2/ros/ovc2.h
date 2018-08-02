@@ -30,6 +30,7 @@ private:
 
   bool write_imu_reg_str(const char * const request);
   bool imu_append_checksum(char *request);
+  bool imu_set_auto_poll(bool enable);
 };
 
 }

@@ -21,8 +21,7 @@ struct ovc2_core {
   struct cdev cdev;
   int major_number;
   struct pci_dev *pci_dev;
-  void __iomem *bar0_addr;
-  void __iomem *bar2_addr;
+  void __iomem *bar0_addr, *bar2_addr, *bar3_addr;
   atomic_t is_available;
   struct class *dev_class;
   struct device *device;
@@ -155,6 +154,20 @@ static long ovc2_bitslip(u32 channels)
   return 0;
 }
 
+static long ovc2_imu_set_mode(u32 mode)
+{
+  if (mode == OVC2_IOCTL_IMU_SET_MODE_IDLE)
+    iowrite32(0x0, ovc2_core.bar3_addr);  // clear the auto-poll bit
+  else if (mode == OVC2_IOCTL_IMU_SET_MODE_AUTO)
+    iowrite32(0x01000000, ovc2_core.bar3_addr);  // set the auto-poll bit
+  else {
+    printk(KERN_ERR "ovc2_core: unknown IMU mode requested: 0x%08x\n",
+      (unsigned)mode);
+    return -EINVAL;
+  }
+  return 0;
+}
+
 static long ovc2_core_ioctl(
   struct file *file, unsigned int ioctl_num, unsigned long ioctl_param)
 {
@@ -207,8 +220,19 @@ static long ovc2_core_ioctl(
         return -EACCES;
       return ovc2_bitslip(bs.channels);
     }
+    case OVC2_IOCTL_IMU_SET_MODE:
+    {
+      struct ovc2_ioctl_imu_set_mode ism;
+      if (copy_from_user(&ism, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
+        return -EACCES;
+      return ovc2_imu_set_mode(ism.mode);
+    }
     default:
+    {
+      printk(KERN_ERR "ovc2_core: unknown ioctl: 0x%08x\n",
+        (unsigned)ioctl_num);
       return -EINVAL;
+    }
   }
 }
 
@@ -244,8 +268,10 @@ static int ovc2_pci_probe(
   pci_set_consistent_dma_mask(ovc2_core.pci_dev, DMA_BIT_MASK(64));
   ovc2_core.bar0_addr = pci_iomap(ovc2_core.pci_dev, 0, 0);
   ovc2_core.bar2_addr = pci_iomap(ovc2_core.pci_dev, 2, 0);
+  ovc2_core.bar3_addr = pci_iomap(ovc2_core.pci_dev, 3, 0);
   printk(KERN_INFO "ovc2_core: bar0_addr = 0x%px\n", ovc2_core.bar0_addr);
   printk(KERN_INFO "ovc2_core: bar2_addr = 0x%px\n", ovc2_core.bar2_addr);
+  printk(KERN_INFO "ovc2_core: bar3_addr = 0x%px\n", ovc2_core.bar3_addr);
   printk(KERN_INFO "ovc2_core: device (0x%04x, 0x%04x) enabled\n", vid, did);
   return 0;
 }
@@ -258,6 +284,7 @@ static void ovc2_pci_remove(struct pci_dev *remove_dev)
   }
   pci_iounmap(ovc2_core.pci_dev, ovc2_core.bar0_addr);
   pci_iounmap(ovc2_core.pci_dev, ovc2_core.bar2_addr);
+  pci_iounmap(ovc2_core.pci_dev, ovc2_core.bar3_addr);
   pci_disable_device(ovc2_core.pci_dev);
   pci_release_regions(ovc2_core.pci_dev);
 }

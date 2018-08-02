@@ -428,6 +428,7 @@ bool OVC2::align_imager_lvds(const int imager_idx)
 bool OVC2::configure_imu()
 {
   printf("OVC2::configure_imu()\n");
+  imu_set_auto_poll(false);
   // first, reset it...
   if (!set_bit(0, 27, true))  // assert imu reset pin
     return false;
@@ -450,6 +451,7 @@ bool OVC2::configure_imu()
   // request configuration: ignore SYNC_IN and drive SYNC_OUT pulses
   // every 2nd AHRS measurement (= 200 Hz) of 100us width
   write_imu_reg_str("$VNWRG,32,3,0,0,0,3,1,1,100000,0");
+  imu_set_auto_poll(true);
 }
 
 bool OVC2::write_imu_reg_str(const char * const reg_str)
@@ -484,11 +486,11 @@ bool OVC2::imu_append_checksum(char *msg)
 {
   if (!msg) {
     printf("WOAH THERE PARTNER. you send append_checksum() a null string.\n");
-    exit(1);
+    return false;
   }
   if (msg[0] != '$') {
     printf("WOAH THERE PARTNER. expected message string to begin with '$'\n");
-    exit(1);
+    return false;
   }
   int msg_len = strlen(msg);
   uint8_t csum = 0; 
@@ -497,4 +499,20 @@ bool OVC2::imu_append_checksum(char *msg)
   char csum_ascii[10] = {0};
   snprintf(csum_ascii, sizeof(csum_ascii), "*%02x\r\n", (int)csum);
   strcat(msg, csum_ascii);
+  return true;
+}
+
+bool OVC2::imu_set_auto_poll(bool enable)
+{
+  struct ovc2_ioctl_imu_set_mode ism;
+  if (enable)
+    ism.mode = OVC2_IOCTL_IMU_SET_MODE_AUTO;
+  else
+    ism.mode = OVC2_IOCTL_IMU_SET_MODE_IDLE;
+  int rc = ioctl(fd_, OVC2_IOCTL_IMU_SET_MODE, &ism);
+  if (rc) {
+    printf("OH NO couldn't set IMU autopoll mode\n");
+    return false;
+  }
+  return true;
 }
