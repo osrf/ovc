@@ -168,8 +168,7 @@ platform qsys_inst(
 
 wire [1:0] cam_rxc, cam_dclk_pll_locked;
 wire [39:0] cam_0_rxd, cam_1_rxd;
-wire [4:0] cam_0_bitslip;
-wire [4:0] cam_1_bitslip;
+wire [4:0] cam_0_bitslip, cam_1_bitslip;
 wire cam_dclk_pll_reset;
 
 r cam_dclk_pll_reset_r
@@ -229,14 +228,6 @@ wire txs_waitrequest;
 wire [26:0] txs_address;  // = 27'h0;
 */
 
-/*
-
-wire [4:0] cam_1_rxd_align;
-wire [39:0] cam_1_rxd;
-wire cam_1_rx_locked;
-wire cam_1_rxc;
-*/
-
 top top_inst(
   .clk125(pcie_clk_125),
   .aux(aux),
@@ -288,79 +279,6 @@ top top_inst(
 );
 
 /*
-altlvds_rx #(
- .data_align_rollover(8),
- .deserialization_factor(8),
- .implement_in_les("OFF"),
- //.inclock_data_alignment("90_DEGREES"),  // request phase shift for sim
- //.inclock_period(3636),  // 275 MHz in picoseconds
- //.inclock_period(3472),  // 288 MHz in picoseconds
- .inclock_period(10000),  // 100 MHz in picoseconds
- //.inclock_phase_shift(909), //909),  // shift inbound data clock 90 degrees
- .inclock_phase_shift(0), //909),  // shift inbound data clock 90 degrees
- .data_rate("500.0 Mbps"),
- //.data_rate("200.0 Mbps"),
- .input_data_rate(500),  // Mbps
- //.input_data_rate(200),  // Mbps
- .intended_device_family("Cyclone V"),
- .refclk_frequency("250.0 MHz"),
- //.refclk_frequency("100.0 MHz"),
- .registered_output("ON"),
- //.input_data_rate(576),  // 576 Mbps
- //.input_data_rate(200),  // 200 Mbps
- .number_of_channels(5),
- .use_no_phase_shift("OFF")  // add 90 degree phase shift in PLL
-) cam_0_altlvds_rx (
- .pll_areset(1'b0),
- .rx_cda_reset(5'b0),
- .rx_channel_data_align(cam_0_rxd_align),
- .rx_coreclk(5'h1f),  // ?
- .rx_data_reset(1'h0),
- .rx_deskew(1'b0),
- .rx_dpll_reset(5'h0),
- .rx_enable(1'b1),
- .rx_fifo_reset(5'h0),
- .rx_in({cam_sync[0], cam_dout[3:0]}),
- .rx_inclock(cam_dclk[0]),
- .rx_pll_enable(1'b1),
- .rx_readclock(1'b0),
- .rx_reset(5'h0),
- .rx_syncclock(1'b0),
- .rx_locked(cam_0_rx_locked),
- .rx_out(cam_0_rxd),
- .rx_outclock(cam_0_rxc)
-);
-
-altlvds_rx #(
- .data_align_rollover(8),
- .deserialization_factor(8),
- .implement_in_les("OFF"),
- .inclock_period(10000),  // 100 MHz in picoseconds
- .inclock_phase_shift(0), //909),  // shift inbound data clock 90 degrees
- .data_rate("500.0 Mbps"),
- .input_data_rate(500),  // Mbps
- .intended_device_family("Cyclone V"),
- .refclk_frequency("250.0 MHz"),
- .registered_output("ON"),
- .number_of_channels(5),
- .use_no_phase_shift("OFF")  // add 90 degree phase shift in PLL
-) cam_1_altlvds_rx (
- .pll_areset(1'b0), .rx_cda_reset(5'b0),
- .rx_channel_data_align(cam_1_rxd_align),
- .rx_coreclk(5'h1f),  // ?
- .rx_data_reset(1'h0), .rx_deskew(1'b0), .rx_dpll_reset(5'h0),
- .rx_enable(1'b1), .rx_fifo_reset(5'h0),
- .rx_in({cam_sync[1], cam_dout[7:4]}),
- .rx_inclock(cam_dclk[1]),
- .rx_pll_enable(1'b1),
- .rx_readclock(1'b0),
- .rx_reset(5'h0),
- .rx_syncclock(1'b0),
- .rx_locked(cam_1_rx_locked),
- .rx_out(cam_1_rxd),
- .rx_outclock(cam_1_rxc)
-);
-
 assign led[0] = qsys_pio_output[1];
 assign led[1] = cam_0_rx_locked & cam_1_rx_locked;
 */
