@@ -84,28 +84,24 @@ reg_ram_iface reg_ram_iface_inst
  .corner_threshold(ast_threshold)
 );
 
-//wire [15:0] pio_dma_reg_addr = pio_dma_cmd[23:8];
-//wire pio_dma_reg_wr = pio_dma_cmd[7];
-
-/*
+//////////////////////////////////////////////////////////
 wire [1:0] irq_set;
 r irq_0_r(.c(c), .rst(pio_output[5]), .en(irq_set[0]), .d(1'b1), .q(irq[0]));
 r irq_1_r(.c(c), .rst(pio_output[6]), .en(irq_set[1]), .d(1'b1), .q(irq[1]));
 
-// synchronizer chain for imu_miso pin
-wire imu_miso_s;
+//////////////////////////////////////////////////////////
+// IMU stuff
+// synchronizer chain for imu_miso and imu_sync pins
+wire imu_miso_s, imu_sync_s;
 s imu_miso_s_r(.c(c), .d(imu_miso), .q(imu_miso_s));
-
-// synchronizer chain for imu_sync pin
-wire imu_sync_s;
 s imu_sync_s_r(.c(c), .d(imu_sync), .q(imu_sync_s));
 
+// auto-poll gadget that polls the IMU SPI registers after imu_sync fires
 imu_reader #(.SPEEDUP(SPEEDUP)) imu_reader_inst
 (.c(c), .irq(irq_set[1]), .sync(imu_sync_s), .t(timestamp_q),
  .ram_addr(imu_ram_addr),
  .ram_wr(imu_ram_wr), .ram_d(imu_ram_d), .ram_q(imu_ram_q),
  .cs(imu_cs), .sck(imu_sck), .mosi(imu_mosi), .miso(imu_miso_s));
-*/
 
 //////////////////////////////////////////////////////////
 // imager SPI stuff
@@ -161,9 +157,6 @@ oneshot cam_1_rxd_align_oneshots [4:0]
 
 //////////////////////////////////////////////////////////
 // imager trigger stuff
-assign cam_trigger = 1'b0;
-
-/*
 wire imu_sync_oneshot;
 oneshot #(.SYNC(0)) imu_sync_oneshot_r
 (.c(c), .d(imu_sync_s), .q(imu_sync_oneshot));
@@ -176,6 +169,8 @@ wire trigger_oneshot;
 oneshot #(.SYNC(0)) trigger_oneshot_r
 (.c(c), .d(cam_trigger), .q(trigger_oneshot));
 assign t_image_en = trigger_oneshot;
+
+/*
  
 //////////////////////////////////////////////////////////
 

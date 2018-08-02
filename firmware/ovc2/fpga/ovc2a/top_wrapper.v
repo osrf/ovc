@@ -74,20 +74,13 @@ wire qsys_dma_ready;
 wire qsys_dma_sop, qsys_dma_eop;
 */
 
-//wire txs_chipselect = 1'b1;  //qsys_pio_output[7];  //1'b1;
-//wire [15:0] txs_byteenable = 16'hffff;
-//wire txs_readdatavalid;
-
-wire [127:0] txs_writedata; // = 128'h0123_4567_89ab_cdef;
-wire txs_write; // = 1'b0;
-wire [5:0] txs_burstcount; // = 6'h8;
+wire [127:0] txs_writedata;
+wire txs_write;
+wire [5:0] txs_burstcount;
 wire txs_waitrequest;
-wire [22:0] txs_address; // = 22'h0;
+wire [22:0] txs_address;
 wire [1:0] qsys_irq;
 
-wire imu_ram_clk = pcie_clk_125;
-wire imu_ram_cs = 1'b1;
-wire imu_ram_clken = 1'b1;
 wire [7:0] imu_ram_addr;
 wire imu_ram_wr;
 wire [31:0] imu_ram_d;
@@ -120,9 +113,6 @@ d1 #(2) cam_sck_d1_r(.c(c), .d(cam_sck_qsys), .q(cam_sck));
 d1 #(2) cam_mosi_d1_r(.c(c), .d(cam_mosi_qsys), .q(cam_mosi));
 */
 
-//wire reg_ram_clk = pcie_clk_125;
-wire reg_ram_cs = 1'b1;
-wire reg_ram_clken = 1'b1;
 wire [7:0] reg_ram_addr;
 wire reg_ram_wr;
 wire [31:0] reg_ram_d;
@@ -149,7 +139,7 @@ platform qsys_inst(
  .pio_input_external_connection_export(qsys_pio_input),
 
  .pcie_txs_byteenable(16'hffff),
- .pcie_txs_chipselect(1'b1),  // txs_chipselect),
+ .pcie_txs_chipselect(1'b1),
  .pcie_txs_readdata(),
  .pcie_txs_writedata(txs_writedata),
  .pcie_txs_read(1'b0),
@@ -158,31 +148,27 @@ platform qsys_inst(
  .pcie_txs_readdatavalid(),
  .pcie_txs_waitrequest(txs_waitrequest),
  .pcie_txs_address(txs_address),
- /*
- .imu_ram_clk2_clk(imu_ram_clk),
- .imu_ram_reset2_reset(1'b0),
+ 
+ .imu_ram_s2_chipselect(1'b1),
+ .imu_ram_s2_clken(1'b1),
+ .imu_ram_s2_byteenable(4'hf),
  .imu_ram_s2_address(imu_ram_addr),
- .imu_ram_s2_chipselect(imu_ram_cs),
- .imu_ram_s2_clken(imu_ram_clken),
  .imu_ram_s2_write(imu_ram_wr),
  .imu_ram_s2_readdata(imu_ram_q),
  .imu_ram_s2_writedata(imu_ram_d),
- .imu_ram_s2_byteenable(4'hf),
- */
 
- .reg_ram_s2_clken(reg_ram_clken),
+ .reg_ram_s2_chipselect(1'b1),
+ .reg_ram_s2_clken(1'b1),
+ .reg_ram_s2_byteenable(4'hf),
  .reg_ram_s2_address(reg_ram_addr),
- .reg_ram_s2_chipselect(reg_ram_cs),
  .reg_ram_s2_write(reg_ram_wr),
  .reg_ram_s2_readdata(reg_ram_q),
- .reg_ram_s2_writedata(reg_ram_d),
- .reg_ram_s2_byteenable(4'hf)
+ .reg_ram_s2_writedata(reg_ram_d)
 );
 
 wire [1:0] cam_rxc, cam_dclk_pll_locked;
 wire [39:0] cam_0_rxd, cam_1_rxd;
-wire [4:0] cam_0_bitslip;
-wire [4:0] cam_1_bitslip;
+wire [4:0] cam_0_bitslip, cam_1_bitslip;
 wire cam_dclk_pll_reset;
 
 r cam_dclk_pll_reset_r
@@ -242,14 +228,6 @@ wire txs_waitrequest;
 wire [26:0] txs_address;  // = 27'h0;
 */
 
-/*
-
-wire [4:0] cam_1_rxd_align;
-wire [39:0] cam_1_rxd;
-wire cam_1_rx_locked;
-wire cam_1_rxc;
-*/
-
 top top_inst(
   .clk125(pcie_clk_125),
   .aux(aux),
@@ -283,135 +261,26 @@ top top_inst(
   .cam_mosi(cam_mosi),
   .cam_miso(cam_miso),
 
-  .imu_ram_addr(imu_ram_addr),
-  .imu_ram_wr(imu_ram_wr),
-  .imu_ram_d(imu_ram_d),
-  .imu_ram_q(imu_ram_q),
+  .reg_ram_addr(reg_ram_addr),
+  .reg_ram_wr(reg_ram_wr),
+  .reg_ram_d(reg_ram_d),
+  .reg_ram_q(reg_ram_q),
+
   .imu_cs(imu_cs),
   .imu_sck(imu_sck),
   .imu_mosi(imu_mosi),
   .imu_miso(imu_miso),
   .imu_sync(imu_sync_out),
 
-  .reg_ram_addr(reg_ram_addr),
-  .reg_ram_wr(reg_ram_wr),
-  .reg_ram_d(reg_ram_d),
-  .reg_ram_q(reg_ram_q)
+  .imu_ram_addr(imu_ram_addr),
+  .imu_ram_wr(imu_ram_wr),
+  .imu_ram_d(imu_ram_d),
+  .imu_ram_q(imu_ram_q)
 );
 
 /*
-altlvds_rx #(
- .data_align_rollover(8),
- .deserialization_factor(8),
- .implement_in_les("OFF"),
- //.inclock_data_alignment("90_DEGREES"),  // request phase shift for sim
- //.inclock_period(3636),  // 275 MHz in picoseconds
- //.inclock_period(3472),  // 288 MHz in picoseconds
- .inclock_period(10000),  // 100 MHz in picoseconds
- //.inclock_phase_shift(909), //909),  // shift inbound data clock 90 degrees
- .inclock_phase_shift(0), //909),  // shift inbound data clock 90 degrees
- .data_rate("500.0 Mbps"),
- //.data_rate("200.0 Mbps"),
- .input_data_rate(500),  // Mbps
- //.input_data_rate(200),  // Mbps
- .intended_device_family("Cyclone V"),
- .refclk_frequency("250.0 MHz"),
- //.refclk_frequency("100.0 MHz"),
- .registered_output("ON"),
- //.input_data_rate(576),  // 576 Mbps
- //.input_data_rate(200),  // 200 Mbps
- .number_of_channels(5),
- .use_no_phase_shift("OFF")  // add 90 degree phase shift in PLL
-) cam_0_altlvds_rx (
- .pll_areset(1'b0),
- .rx_cda_reset(5'b0),
- .rx_channel_data_align(cam_0_rxd_align),
- .rx_coreclk(5'h1f),  // ?
- .rx_data_reset(1'h0),
- .rx_deskew(1'b0),
- .rx_dpll_reset(5'h0),
- .rx_enable(1'b1),
- .rx_fifo_reset(5'h0),
- .rx_in({cam_sync[0], cam_dout[3:0]}),
- .rx_inclock(cam_dclk[0]),
- .rx_pll_enable(1'b1),
- .rx_readclock(1'b0),
- .rx_reset(5'h0),
- .rx_syncclock(1'b0),
- .rx_locked(cam_0_rx_locked),
- .rx_out(cam_0_rxd),
- .rx_outclock(cam_0_rxc)
-);
-
-altlvds_rx #(
- .data_align_rollover(8),
- .deserialization_factor(8),
- .implement_in_les("OFF"),
- .inclock_period(10000),  // 100 MHz in picoseconds
- .inclock_phase_shift(0), //909),  // shift inbound data clock 90 degrees
- .data_rate("500.0 Mbps"),
- .input_data_rate(500),  // Mbps
- .intended_device_family("Cyclone V"),
- .refclk_frequency("250.0 MHz"),
- .registered_output("ON"),
- .number_of_channels(5),
- .use_no_phase_shift("OFF")  // add 90 degree phase shift in PLL
-) cam_1_altlvds_rx (
- .pll_areset(1'b0), .rx_cda_reset(5'b0),
- .rx_channel_data_align(cam_1_rxd_align),
- .rx_coreclk(5'h1f),  // ?
- .rx_data_reset(1'h0), .rx_deskew(1'b0), .rx_dpll_reset(5'h0),
- .rx_enable(1'b1), .rx_fifo_reset(5'h0),
- .rx_in({cam_sync[1], cam_dout[7:4]}),
- .rx_inclock(cam_dclk[1]),
- .rx_pll_enable(1'b1),
- .rx_readclock(1'b0),
- .rx_reset(5'h0),
- .rx_syncclock(1'b0),
- .rx_locked(cam_1_rx_locked),
- .rx_out(cam_1_rxd),
- .rx_outclock(cam_1_rxc)
-);
-
-wire cam_clk_pll;
-
-altera_pll
-#(.fractional_vco_multiplier("false"),
-  .reference_clock_frequency("125.0 MHz"),
-  .operation_mode("direct"),
-  .number_of_clocks(1),
-  .output_clock_frequency0("250MHz"), .phase_shift0("0 ps"), .duty_cycle0(50),
-  //.output_clock_frequency0("288MHz"), .phase_shift0("0 ps"), .duty_cycle0(50),
-  //.output_clock_frequency0("100MHz"), .phase_shift0("0 ps"), .duty_cycle0(50),
-  .pll_type("General"), .pll_subtype("General")
-) cam_pll (
-  .refclk(pcie_clk_125), .rst(~qsys_pio_clk_en), .locked(),
-  .outclk(cam_clk_pll), .fboutclk(), .fbclk(1'b0)
-);
-
-altddio_out #(.width(1)) cam_0_clk_ddio(
-  .datain_h(1'b0),
-  .datain_l(1'b1),
-  .outclocken(1'b1),
-  .outclock(cam_clk_pll),
-  .aclr(1'b0),
-  .aset(1'b0),
-  .dataout(cam_clk[0])
-);
-
-altddio_out #(.width(1)) cam_1_clk_ddio(
-  .datain_h(1'b0),
-  .datain_l(1'b1),
-  .outclocken(1'b1),
-  .outclock(cam_clk_pll),
-  .aclr(1'b0),
-  .aset(1'b0),
-  .dataout(cam_clk[1])
-);
-
 assign led[0] = qsys_pio_output[1];
 assign led[1] = cam_0_rx_locked & cam_1_rx_locked;
-
 */
 
 endmodule
