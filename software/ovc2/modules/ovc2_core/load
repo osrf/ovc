@@ -1,3 +1,16 @@
 #!/bin/bash
 set -o errexit
 /sbin/insmod ./ovc2_core.ko
+rm -f /dev/ovc2_core /dev/ovc2_imu /dev/ovc2_cam
+MAJOR=$(awk '$2=="ovc2" {print $1}' /proc/devices)
+echo "ovc2 major: $MAJOR"
+mknod /dev/ovc2_core c $MAJOR 0
+mknod /dev/ovc2_imu  c $MAJOR 1
+mknod /dev/ovc2_cam  c $MAJOR 2
+chgrp video /dev/ovc2_core
+chgrp video /dev/ovc2_cam
+chgrp video /dev/ovc2_imu
+chmod 666 /dev/ovc2_core
+chmod 666 /dev/ovc2_imu
+chmod 666 /dev/ovc2_cam
+echo "module loaded successfully. Device nodes created as /dev/ovc2_*"

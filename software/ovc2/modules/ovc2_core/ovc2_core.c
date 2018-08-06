@@ -16,10 +16,15 @@ static unsigned short vid = 0x1234;
 static unsigned short did = 0x5678;
 module_param(vid, ushort, S_IRUGO);
 module_param(did, ushort, S_IRUGO);
+#define OVC2_CHRDEV_REGION_NAME "ovc2"
+#define OVC2_CHRDEV_COUNT 3
+#define OVC2_MINOR_CORE 0
+#define OVC2_MINOR_IMU  1
+#define OVC2_MINOR_CAM  2
 
 struct ovc2_core {
-  struct cdev cdev;
-  int major_number;
+  struct cdev cdev_core, cdev_imu, cdev_cam;
+  int major;  // will be populated by alloc_chrdev_region()
   struct pci_dev *pci_dev;
   void __iomem *bar0_addr, *bar2_addr, *bar3_addr;
   atomic_t is_available;
@@ -33,6 +38,7 @@ DEFINE_SPINLOCK(pio_spinlock);
 
 int ovc2_core_open(struct inode *inode, struct file *fp)
 {
+  //printk(KERN_INFO "ovc2_core_open()\n");
   if (!atomic_dec_and_test(&ovc2_core.is_available)) {
     atomic_inc(&ovc2_core.is_available);
     return -EBUSY;
@@ -42,6 +48,7 @@ int ovc2_core_open(struct inode *inode, struct file *fp)
 
 int ovc2_core_release(struct inode *inode, struct file *file)
 {
+  //printk(KERN_INFO "ovc2_core_release()\n");
   atomic_inc(&ovc2_core.is_available);
   return 0;  // success
 }
@@ -59,7 +66,7 @@ static long ovc2_set_bit(uint32_t reg_idx, uint8_t bit_idx, uint8_t state)
       pio_value &= ~(1 << bit_idx);
     iowrite32(pio_value, ovc2_core.bar0_addr + 0x4000);
     spin_unlock_irqrestore(&pio_spinlock, flags);
-    printk(KERN_INFO "ovc2_core: pio_value now 0x%08x\n", pio_value);
+    //printk(KERN_INFO "ovc2_core: pio_value now 0x%08x\n", pio_value);
   }
   else {
     // print warning message to kernel log? or just ignore?
@@ -244,6 +251,60 @@ struct file_operations ovc2_core_fops = {
 };
 
 ///////////////////////////////////////////////////////////////////////
+int ovc2_imu_open(struct inode *inode, struct file *fp)
+{
+  printk(KERN_INFO "ovc2_imu_open()\n");
+  return 0;
+}
+
+int ovc2_imu_release(struct inode *inode, struct file *file)
+{
+  printk(KERN_INFO "ovc2_imu_release()\n");
+  return 0;  // success
+}
+
+ssize_t ovc2_imu_read(struct file *f, char __user *buf, size_t count,
+                      loff_t *f_pos)
+{
+  printk(KERN_INFO "ovc2_imu_read()\n");
+  return 0;
+}
+
+struct file_operations ovc2_imu_fops = {
+  .owner   = THIS_MODULE,
+  .open    = ovc2_imu_open,
+  .release = ovc2_imu_release,
+  .read    = ovc2_imu_read
+};
+
+///////////////////////////////////////////////////////////////////////
+int ovc2_cam_open(struct inode *inode, struct file *fp)
+{
+  printk(KERN_INFO "ovc2_cam_open()\n");
+  return 0;
+}
+
+int ovc2_cam_release(struct inode *inode, struct file *file)
+{
+  printk(KERN_INFO "ovc2_cam_release()\n");
+  return 0;  // success
+}
+
+ssize_t ovc2_cam_read(struct file *f, char __user *buf, size_t count,
+                      loff_t *f_pos)
+{
+  printk(KERN_INFO "ovc2_cam_read()\n");
+  return 0;
+}
+
+struct file_operations ovc2_cam_fops = {
+  .owner   = THIS_MODULE,
+  .open    = ovc2_cam_open,
+  .release = ovc2_cam_release,
+  .read    = ovc2_cam_read
+};
+
+///////////////////////////////////////////////////////////////////////
 static int ovc2_pci_probe(
   struct pci_dev *probe_dev, const struct pci_device_id *id)
 {
@@ -310,15 +371,43 @@ static struct pci_driver ovc2_pci_driver = {
 static int __init ovc2_core_init(void)
 {
   int rc;
+  dev_t dev_alloc;
 
-  ovc2_core.major_number = register_chrdev(0, DEVICE_NAME, &ovc2_core_fops);
-  if (ovc2_core.major_number < 0) {
-    printk(KERN_ERR "ovc2_core: register_chrdev() failed\n");
-    return ovc2_core.major_number;
+  rc = alloc_chrdev_region(&dev_alloc, 0, OVC2_CHRDEV_COUNT, "ovc2");
+  if (rc) {
+    printk(KERN_ERR "ovc2_core: alloc_chrdev_revion() failed\n");
+    return rc;
   }
-  printk(KERN_INFO "ovc2_core: registered major number %d\n",
-    ovc2_core.major_number);
+  ovc2_core.major = MAJOR(dev_alloc);
+  printk(KERN_INFO "ovc2_core: alloc'ed major number %d\n", ovc2_core.major);
 
+  cdev_init(&ovc2_core.cdev_core, &ovc2_core_fops);
+  cdev_init(&ovc2_core.cdev_imu , &ovc2_imu_fops);
+  cdev_init(&ovc2_core.cdev_cam , &ovc2_cam_fops);
+  ovc2_core.cdev_core.owner = THIS_MODULE;
+  rc = cdev_add(
+    &ovc2_core.cdev_core, MKDEV(ovc2_core.major, OVC2_MINOR_CORE), 1);
+  if (rc) {
+    printk(KERN_ERR "ovc2_core: couldn't add cdev_core");
+    return rc;
+  }
+
+  rc = cdev_add(
+    &ovc2_core.cdev_imu, MKDEV(ovc2_core.major, OVC2_MINOR_IMU), 1);
+  if (rc) {
+    printk(KERN_ERR "ovc2_core: couldn't add cdev_imu");
+    return rc;
+  }
+
+  rc = cdev_add(
+    &ovc2_core.cdev_cam, MKDEV(ovc2_core.major, OVC2_MINOR_CAM), 1);
+  if (rc) {
+    printk(KERN_ERR "ovc2_core: couldn't add cdev_cam");
+    return rc;
+  }
+  printk(KERN_INFO "ovc2_core: cdev's created successfully\n");
+
+/*
   ovc2_core.dev_class = class_create(THIS_MODULE, CLASS_NAME);
   if (IS_ERR(ovc2_core.dev_class)) {
     unregister_chrdev(ovc2_core.major_number, DEVICE_NAME);
@@ -327,19 +416,20 @@ static int __init ovc2_core_init(void)
   }
 
   ovc2_core.device = device_create(
-    ovc2_core.dev_class, NULL, MKDEV(ovc2_core.major_number, 0),
+    ovc2_core.dev_class, NULL, MKDEV(ovc2_core.major_number, OVC2_MINOR_CORE),
     NULL, DEVICE_NAME);
   if (IS_ERR(ovc2_core.device)) {
     class_destroy(ovc2_core.dev_class);
     unregister_chrdev(ovc2_core.major_number, DEVICE_NAME);
-    printk(KERN_ERR "ovc2_core: device_create() failed\n");
+    printk(KERN_ERR "ovc2_core: device_create() failed for core\n");
     return PTR_ERR(ovc2_core.device);
   }
-  printk(KERN_INFO "ovc2_core: device created successfully\n");
+  printk(KERN_INFO "ovc2_core: devices created successfully\n");
 
+*/
   rc = pci_register_driver(&ovc2_pci_driver);
   if (rc) {
-    unregister_chrdev(ovc2_core.major_number, DEVICE_NAME);
+    //unregister_chrdev(ovc2_core.major, DEVICE_NAME);
     printk(KERN_ERR "ovc2_core: PCI driver registration failed\n");
     return rc;
   }
@@ -351,10 +441,13 @@ static int __init ovc2_core_init(void)
 
 static void __exit ovc2_core_exit(void)
 {
-  device_destroy(ovc2_core.dev_class, MKDEV(ovc2_core.major_number, 0));
-  class_unregister(ovc2_core.dev_class);
-  class_destroy(ovc2_core.dev_class);
-  unregister_chrdev(ovc2_core.major_number, DEVICE_NAME);
+  //device_destroy(ovc2_core.dev_class, MKDEV(ovc2_core.major_number, 0));
+  //class_unregister(ovc2_core.dev_class);
+  //class_destroy(ovc2_core.dev_class);
+  cdev_del(&ovc2_core.cdev_core);
+  cdev_del(&ovc2_core.cdev_imu);
+  cdev_del(&ovc2_core.cdev_cam);
+  unregister_chrdev_region(MKDEV(ovc2_core.major, 0), OVC2_CHRDEV_COUNT);
   pci_unregister_driver(&ovc2_pci_driver);
   printk(KERN_INFO "ovc2_core: removal complete\n");
 }
