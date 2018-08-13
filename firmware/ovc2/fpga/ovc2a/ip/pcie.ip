@@ -12082,7 +12082,7 @@
         <spirit:parameter>
           <spirit:name>AUTO_RXM_IRQ_INTERRUPTS_USED</spirit:name>
           <spirit:displayName>Auto INTERRUPTS_USED</spirit:displayName>
-          <spirit:value spirit:format="string" spirit:id="AUTO_RXM_IRQ_INTERRUPTS_USED">-1</spirit:value>
+          <spirit:value spirit:format="string" spirit:id="AUTO_RXM_IRQ_INTERRUPTS_USED">3</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </altera:altera_module_parameters>
@@ -14727,7 +14727,7 @@
                 <suppliedSystemInfos>
                     <entry>
                         <key>INTERRUPTS_USED</key>
-                        <value>-1</value>
+                        <value>3</value>
                     </entry>
                 </suppliedSystemInfos>
                 <consumedSystemInfos/>
