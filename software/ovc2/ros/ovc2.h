@@ -19,9 +19,10 @@ public:
   bool configure_imu();
   bool reset_imagers();
   bool align_imager_lvds(const int imager_idx);
+  bool wait_for_imu_data(bool print_to_console = false);
 private:
   bool init_complete_;
-  int fd_;
+  int fd_, fd_imu_;
   LightweightSerial *imu_serial;
   bool enable_reg_ram();
 	bool configure_imager(const int imager_idx);

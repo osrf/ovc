@@ -3,6 +3,8 @@
 #include <linux/delay.h>
 #include <linux/fs.h>
 #include <linux/init.h>
+#include <linux/interrupt.h>
+#include <linux/irq.h>
 //#include <linux/io.h>
 #include <linux/module.h>
 #include <linux/moduleparam.h>
@@ -30,6 +32,8 @@ struct ovc2_core {
   atomic_t is_available;
   struct class *dev_class;
   struct device *device;
+  struct completion image_done, imu_done;
+  struct ovc2_imu_data imu_data;
 };
 static struct ovc2_core ovc2_core;
 //////////////////////////////////////////////////////////////////////
@@ -53,7 +57,24 @@ int ovc2_core_release(struct inode *inode, struct file *file)
   return 0;  // success
 }
 
-static long ovc2_set_bit(uint32_t reg_idx, uint8_t bit_idx, uint8_t state)
+static long ovc2_cycle_bit(uint32_t reg_idx, uint8_t bit_idx)
+{
+  if (reg_idx == OVC2_REG_PCIE_PIO) {
+    uint32_t pio_value;
+    unsigned long flags;
+    spin_lock_irqsave(&pio_spinlock, flags);
+    pio_value = ioread32(ovc2_core.bar0_addr + 0x4000);
+    iowrite32(pio_value | (1 << bit_idx), ovc2_core.bar0_addr + 0x4000);
+    iowrite32(pio_value, ovc2_core.bar0_addr + 0x4000);
+    spin_unlock_irqrestore(&pio_spinlock, flags);
+  }
+  else {
+    // print warning message to kernel log? or just ignore?
+  }
+  return 0;
+}
+
+static long ovc2_set_bit(uint32_t reg_idx, uint8_t bit_idx, bool state)
 {
   if (reg_idx == OVC2_REG_PCIE_PIO) {
     uint32_t pio_value;
@@ -74,6 +95,7 @@ static long ovc2_set_bit(uint32_t reg_idx, uint8_t bit_idx, uint8_t state)
   return 0;
 }
 
+/*
 static void ovc2_print_regs(void)
 {
   u32 reg_idx, reg_val;
@@ -83,6 +105,7 @@ static void ovc2_print_regs(void)
       (unsigned)reg_idx, (unsigned)reg_val);
   }
 }
+*/
 
 static long ovc2_enable_reg_ram(bool enable)
 {
@@ -175,6 +198,35 @@ static long ovc2_imu_set_mode(u32 mode)
   return 0;
 }
 
+static irqreturn_t ovc2_irq_handler(int irq, void *dev_id)
+{
+  u32 irq_status, nspin;
+  irq_status = ioread32(ovc2_core.bar0_addr + 0x40);
+  for (nspin = 0; irq_status & 0x3; nspin++) {
+    if (irq_status & 0x1) {
+      // image DMA complete
+      ovc2_cycle_bit(OVC2_REG_PCIE_PIO, 13);
+      complete(&ovc2_core.image_done);
+      irq_status = ioread32(ovc2_core.bar0_addr + 0x40);
+    }
+    if (irq_status & 0x2) {
+      int read32_idx;
+      u32 *dest;
+      // clear the imu-done interrupt flag
+      ovc2_cycle_bit(OVC2_REG_PCIE_PIO, 14);
+      // read imu buffer page from FPGA mapped memory
+      dest = (uint32_t *)&ovc2_core.imu_data;
+      for (read32_idx = 0; read32_idx < sizeof(struct ovc2_imu_data)/4; read32_idx++) {
+        *dest = ioread32(ovc2_core.bar3_addr + (read32_idx+4)*4);
+        dest++;
+      }
+      complete(&ovc2_core.imu_done);
+      irq_status = ioread32(ovc2_core.bar0_addr + 0x40);
+    }
+  }
+  return 0;
+}
+
 static long ovc2_core_ioctl(
   struct file *file, unsigned int ioctl_num, unsigned long ioctl_param)
 {
@@ -186,7 +238,7 @@ static long ovc2_core_ioctl(
       struct ovc2_ioctl_set_bit sb;
       if (copy_from_user(&sb, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
         return -EACCES;  // uh oh
-      return ovc2_set_bit(sb.reg_idx, sb.bit_idx, sb.state);
+      return ovc2_set_bit(sb.reg_idx, sb.bit_idx, sb.state ? true : false);
     }
     case OVC2_IOCTL_SPI_XFER:
     {
@@ -253,21 +305,30 @@ struct file_operations ovc2_core_fops = {
 ///////////////////////////////////////////////////////////////////////
 int ovc2_imu_open(struct inode *inode, struct file *fp)
 {
-  printk(KERN_INFO "ovc2_imu_open()\n");
+  //printk(KERN_INFO "ovc2_imu_open()\n");
   return 0;
 }
 
 int ovc2_imu_release(struct inode *inode, struct file *file)
 {
-  printk(KERN_INFO "ovc2_imu_release()\n");
+  //printk(KERN_INFO "ovc2_imu_release()\n");
   return 0;  // success
 }
 
 ssize_t ovc2_imu_read(struct file *f, char __user *buf, size_t count,
                       loff_t *f_pos)
 {
-  printk(KERN_INFO "ovc2_imu_read()\n");
-  return 0;
+  const int READ_LEN = sizeof(struct ovc2_imu_data);
+  //printk(KERN_INFO "ovc2_imu_read() %d bytes\n", (int)count);
+  reinit_completion(&ovc2_core.imu_done);
+  if (!wait_for_completion_timeout(&ovc2_core.imu_done, 1 * HZ))
+    return -ETIMEDOUT;
+  // copy latest imu read into struct
+  if (count < READ_LEN)
+    return -ENOBUFS;
+  if (copy_to_user((void *)buf, &ovc2_core.imu_data, READ_LEN))
+    return -EACCES;
+  return READ_LEN;
 }
 
 struct file_operations ovc2_imu_fops = {
@@ -330,6 +391,14 @@ static int ovc2_pci_probe(
   ovc2_core.bar0_addr = pci_iomap(ovc2_core.pci_dev, 0, 0);
   ovc2_core.bar2_addr = pci_iomap(ovc2_core.pci_dev, 2, 0);
   ovc2_core.bar3_addr = pci_iomap(ovc2_core.pci_dev, 3, 0);
+  init_completion(&ovc2_core.image_done);
+  init_completion(&ovc2_core.imu_done);
+  rc = pci_enable_msi_range(ovc2_core.pci_dev, 1, 1);
+  // todo: check return value and figure out what to do if it's not 1
+  rc = request_irq(ovc2_core.pci_dev->irq, ovc2_irq_handler, 0, "ovc2", &ovc2_core);
+  if (rc)
+    printk(KERN_ERR "ovc2_core: request_irq returned %d\n", rc);
+  iowrite32(0x3, ovc2_core.bar0_addr + 0x50);  // enable MSI interrupts {0,1}
   printk(KERN_INFO "ovc2_core: bar0_addr = 0x%px\n", ovc2_core.bar0_addr);
   printk(KERN_INFO "ovc2_core: bar2_addr = 0x%px\n", ovc2_core.bar2_addr);
   printk(KERN_INFO "ovc2_core: bar3_addr = 0x%px\n", ovc2_core.bar3_addr);
@@ -343,6 +412,11 @@ static void ovc2_pci_remove(struct pci_dev *remove_dev)
     printk(KERN_ERR "ovc2_core: ovc2_pci_remove() argument is not pci_dev\n");
     return;
   }
+  iowrite32(0, ovc2_core.bar0_addr + 0x50);  // disable all MSI interrupts
+  msleep(10);  // wait for irq to be done (?) i dunno
+  if (ovc2_core.pci_dev->irq)
+    free_irq(ovc2_core.pci_dev->irq, &ovc2_core);
+  pci_disable_msi(ovc2_core.pci_dev);
   pci_iounmap(ovc2_core.pci_dev, ovc2_core.bar0_addr);
   pci_iounmap(ovc2_core.pci_dev, ovc2_core.bar2_addr);
   pci_iounmap(ovc2_core.pci_dev, ovc2_core.bar3_addr);

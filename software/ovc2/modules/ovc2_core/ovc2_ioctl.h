@@ -68,4 +68,15 @@ struct ovc2_ioctl_imu_set_mode
 #define OVC2_IOCTL_IMU_SET_MODE_AUTO 1
 
 //////////////////////////////////////////////////////////////////////
+struct ovc2_imu_data
+{
+  uint64_t t_usecs;
+  float accel[3];
+  float gyro[3];
+  float temperature;
+  float pressure;
+  float quaternion[4];
+  float mag_comp[3];
+} __attribute__((packed));
+
 #endif

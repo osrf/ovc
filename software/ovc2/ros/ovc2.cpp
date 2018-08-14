@@ -14,10 +14,12 @@
 using ovc2::OVC2;
 
 static const char * const OVC2_DEVICE = "/dev/ovc2_core";
+static const char * const OVC2_IMU_DEVICE = "/dev/ovc2_imu";
 
 OVC2::OVC2()
 : init_complete_(false),
   fd_(-1),
+  fd_imu_(-1),
   imu_serial(NULL)
 {
 }
@@ -26,6 +28,7 @@ OVC2::~OVC2()
 {
   if (init_complete_) {
     close(fd_);
+    close(fd_imu_);
   }
   if (imu_serial) {
     delete imu_serial;
@@ -38,6 +41,11 @@ bool OVC2::init()
   fd_ = open(OVC2_DEVICE, O_RDWR);
   if (fd_ < 0) {
     printf("couldn't open %s\n", OVC2_DEVICE);
+    return false;
+  }
+  fd_imu_ = open(OVC2_IMU_DEVICE, O_RDONLY);
+  if (fd_imu_ < 0) {
+    printf("couldn't open %s\n", OVC2_IMU_DEVICE);
     return false;
   }
   if (!enable_reg_ram())
@@ -513,6 +521,34 @@ bool OVC2::imu_set_auto_poll(bool enable)
   if (rc) {
     printf("OH NO couldn't set IMU autopoll mode\n");
     return false;
+  }
+  return true;
+}
+
+bool OVC2::wait_for_imu_data(bool print_to_console)
+{
+  struct ovc2_imu_data imu_data;
+  int nread = read(fd_imu_, &imu_data, sizeof(imu_data));
+  if (nread != sizeof(imu_data)) {
+    printf("got weird nread: %d\n", nread);
+    return false;
+  }
+  struct ovc2_imu_data *i = &imu_data;  // save typing
+  if (print_to_console) {
+    printf("read %d bytes from IMU\n", nread);
+    printf("\n\n");
+    printf("t_usecs = %llu\n", (long long unsigned)i->t_usecs);
+    printf("accel = %+.3f  %+.3f  %+.3f\n",
+      i->accel[0], i->accel[1], i->accel[2]);
+    printf("gyro  = %+.3f  %+.3f  %+.3f\n",
+      i->gyro[0], i->gyro[1], i->gyro[2]);
+    printf("temp  = %+.3f\n", i->temperature);
+    printf("pressure = %+.3f\n", i->pressure);
+    printf("quat = %+.3f  %+.3f  %+.3f  %+.3f\n",
+      i->quaternion[0], i->quaternion[1],
+      i->quaternion[2], i->quaternion[3]);
+    printf("mag = %+.3f  %+.3f  %+.3f\n",
+      i->mag_comp[0], i->mag_comp[1], i->mag_comp[2]);
   }
   return true;
 }

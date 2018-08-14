@@ -20,6 +20,7 @@ void usage()
   printf("    configure_imagers\n");
   printf("    align_imager_lvds\n");
   printf("    configure_imu\n");
+  printf("    read_imu\n");
   printf("\n");
   exit(1);
 }
@@ -71,6 +72,11 @@ int configure_imu(OVC2 *ovc2)
     return 1;
   return 0;
 }
+
+int read_imu(OVC2 *ovc2)
+{
+  return ovc2->wait_for_imu_data(true) ? 0 : 1;
+}
  
 int main(int argc, char **argv)
 {
@@ -93,6 +99,8 @@ int main(int argc, char **argv)
     return align_imager_lvds(&ovc2);
   else if (!strcmp(cmd, "configure_imu"))
     return configure_imu(&ovc2);
+  else if (!strcmp(cmd, "read_imu"))
+    return read_imu(&ovc2);
   else {
     printf("unknown command: %s\n", cmd);
     usage();
