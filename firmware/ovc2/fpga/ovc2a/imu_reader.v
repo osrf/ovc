@@ -45,8 +45,8 @@ localparam SPI_SCLK_DIV = 8'd4;  // go faster in sim
 
 localparam CW = 6+8+8+8, SW = 4;
 localparam ST_IDLE    = 4'd0;
-localparam ST_TIME_HI = 4'd1;
-localparam ST_TIME_LO = 4'd2;
+localparam ST_TIME_LO = 4'd1;
+localparam ST_TIME_HI = 4'd2;
 localparam ST_IMU     = 4'd3;
 localparam ST_MAG     = 4'd4;
 localparam ST_QTN     = 4'd5;
@@ -69,10 +69,10 @@ r sync_happened_r
 always @* begin
   case (state)
     ST_IDLE:
-      if (sync_happened) ctrl = { ST_TIME_HI, 6'b001010, 8'd00, 8'd00, 8'd00 };
+      if (sync_happened) ctrl = { ST_TIME_LO, 6'b001010, 8'd00, 8'd00, 8'd00 };
       else               ctrl = { ST_IDLE   , 6'b100000, 8'd00, 8'd00, 8'd00 };
-    ST_TIME_HI:          ctrl = { ST_TIME_LO, 6'b000000, 8'd00, 8'd00, 8'd00 };
-    ST_TIME_LO:          ctrl = { ST_IMU    , 6'b001001, 8'd54, 8'd11, 8'd03 };
+    ST_TIME_LO:          ctrl = { ST_TIME_HI, 6'b000000, 8'd00, 8'd00, 8'd00 };
+    ST_TIME_HI:          ctrl = { ST_IMU    , 6'b001001, 8'd54, 8'd11, 8'd03 };
     ST_IMU:
       if (read_done)     ctrl = { ST_MAG    , 6'b001001, 8'd17, 8'd03, 8'd00 };
       else               ctrl = { ST_IMU    , 6'b001000, 8'd54, 8'd11, 8'd03 };
@@ -118,9 +118,12 @@ imu_reg_reader #(.SPEEDUP(SPEEDUP),
  .reg_d(imu_reg_reader_d), .reg_dv(imu_reg_reader_dv),
  .cs(cs), .sck(sck), .mosi(mosi), .miso(miso));
 
+// byteswap SPI RX registers for little-endian ordering
 wire [31:0] reg_d = state == ST_TIME_HI ? t_q[63:32] :
                     (state == ST_TIME_LO ? t_q[31:0] :
-                     imu_reg_reader_d);
+                     {imu_reg_reader_d[ 7: 0], imu_reg_reader_d[15: 8],
+                      imu_reg_reader_d[23:16], imu_reg_reader_d[31:24]});
+
 wire reg_dv = (state == ST_TIME_HI) | (state == ST_TIME_LO) ? 1'b1 :
               imu_reg_reader_dv;
 

@@ -72,8 +72,8 @@ platform qsys_inst(
  .pcie_hip_serial_tx_out3(pcie_tx[3]),
  .pcie_hip_ctrl_test_in(32'ha8),
  .pcie_hip_ctrl_simu_mode_pipe(1'b0),
- .irq_bridge_receiver_irq(qsys_irq),
- .pcie_npor_npor(pcie_npor),
+ .irq_bridge_receiver_irq_irq(qsys_irq),  // todo: fix name...
+ .pcie_npor_npor(pcie_npor),  // todo: fix name...
  .pcie_npor_pin_perst(pcie_perst),
 
  .pio_output_external_connection_export(qsys_pio_output),
