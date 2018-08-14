@@ -89,6 +89,8 @@ wire [1:0] irq_set;
 r irq_0_r(.c(c), .rst(pio_output[5]), .en(irq_set[0]), .d(1'b1), .q(irq[0]));
 r irq_1_r(.c(c), .rst(pio_output[6]), .en(irq_set[1]), .d(1'b1), .q(irq[1]));
 
+assign irq_set[0] = 1'b0;  // todo: replace with camera state machine below...
+
 //////////////////////////////////////////////////////////
 // IMU stuff
 // synchronizer chain for imu_miso and imu_sync pins

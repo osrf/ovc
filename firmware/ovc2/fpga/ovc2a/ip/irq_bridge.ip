@@ -1,0 +1,593 @@
+<?xml version="1.0" ?>
+<spirit:component xmlns:altera="http://www.altera.com/XMLSchema/IPXact/extensions" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
+  <spirit:vendor>Intel Corporation</spirit:vendor>
+  <spirit:library>irq_bridge</spirit:library>
+  <spirit:name>irq_bridge</spirit:name>
+  <spirit:version>18.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>clk</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="clock" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>clk</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>clockRate</spirit:name>
+          <spirit:displayName>Clock rate</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="clockRate">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>externallyDriven</spirit:name>
+          <spirit:displayName>Externally driven</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="externallyDriven">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ptfSchematicName</spirit:name>
+          <spirit:displayName>PTF schematic name</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="ptfSchematicName"></spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>clk_reset</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="reset" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>reset</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>reset</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>Associated clock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock">clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>synchronousEdges</spirit:name>
+          <spirit:displayName>Synchronous edges</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="synchronousEdges">DEASSERT</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>receiver_irq</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="interrupt" spirit:version="18.0"></spirit:busType>
+      <spirit:master></spirit:master>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>irq</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>receiver_irq</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedAddressablePoint</spirit:name>
+          <spirit:displayName>Associated addressable interface</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedAddressablePoint"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>Associated clock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock">clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>Associated reset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset">clk_reset</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>irqMap</spirit:name>
+          <spirit:displayName>IRQ Map</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="irqMap"><![CDATA[<map><mapping port='0' sender='sender0_irq' /><mapping port='1' sender='sender1_irq' /></map>]]></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>irqScheme</spirit:name>
+          <spirit:displayName>Interrupt scheme</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="irqScheme">INDIVIDUAL_REQUESTS</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>sender0_irq</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="interrupt" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>irq</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>sender0_irq</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedAddressablePoint</spirit:name>
+          <spirit:displayName>Associated addressable interface</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedAddressablePoint"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>Associated clock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock">clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>Associated reset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset">clk_reset</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>bridgedReceiverOffset</spirit:name>
+          <spirit:displayName>Bridged receiver offset</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="bridgedReceiverOffset">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>bridgesToReceiver</spirit:name>
+          <spirit:displayName>Bridges to receiver</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="bridgesToReceiver">irq_bridge.receiver_irq</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>irqScheme</spirit:name>
+          <spirit:displayName>Interrupt scheme</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="irqScheme">NONE</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>sender1_irq</spirit:name>
+      <spirit:busType spirit:vendor="altera" spirit:library="altera" spirit:name="interrupt" spirit:version="18.0"></spirit:busType>
+      <spirit:slave></spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>irq</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>sender1_irq</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>associatedAddressablePoint</spirit:name>
+          <spirit:displayName>Associated addressable interface</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedAddressablePoint"></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedClock</spirit:name>
+          <spirit:displayName>Associated clock</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedClock">clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>associatedReset</spirit:name>
+          <spirit:displayName>Associated reset</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="associatedReset">clk_reset</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>bridgedReceiverOffset</spirit:name>
+          <spirit:displayName>Bridged receiver offset</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="bridgedReceiverOffset">1</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>bridgesToReceiver</spirit:name>
+          <spirit:displayName>Bridges to receiver</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="bridgesToReceiver">irq_bridge.receiver_irq</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>irqScheme</spirit:name>
+          <spirit:displayName>Interrupt scheme</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="irqScheme">NONE</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>QUARTUS_SYNTH</spirit:name>
+        <spirit:envIdentifier>:quartus.altera.com:</spirit:envIdentifier>
+        <spirit:modelName>altera_irq_bridge</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>QUARTUS_SYNTH</spirit:localName>
+        </spirit:fileSetRef>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>receiver_irq</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left>0</spirit:left>
+            <spirit:right>1</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC_VECTOR</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>reset</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>sender0_irq</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>sender1_irq</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>QUARTUS_SYNTH</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+  </spirit:model>
+  <spirit:vendorExtensions>
+    <altera:entity_info>
+      <spirit:vendor>Intel Corporation</spirit:vendor>
+      <spirit:library>irq_bridge</spirit:library>
+      <spirit:name>altera_irq_bridge</spirit:name>
+      <spirit:version>18.0</spirit:version>
+    </altera:entity_info>
+    <altera:altera_module_parameters>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>IRQ_WIDTH</spirit:name>
+          <spirit:displayName>IRQ signal width</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="IRQ_WIDTH">2</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>IRQ_N</spirit:name>
+          <spirit:displayName>IRQ signal polarity</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="IRQ_N">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>SYNC_RESET</spirit:name>
+          <spirit:displayName>Use synchronous resets</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="SYNC_RESET">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>AUTO_RECEIVER_IRQ_INTERRUPTS_USED</spirit:name>
+          <spirit:displayName>Auto INTERRUPTS_USED</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="AUTO_RECEIVER_IRQ_INTERRUPTS_USED">-1</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </altera:altera_module_parameters>
+    <altera:altera_system_parameters>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>device</spirit:name>
+          <spirit:displayName>Device</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="device">10CX220YF672E6G</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>deviceFamily</spirit:name>
+          <spirit:displayName>Device family</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="deviceFamily">Cyclone 10 GX</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>deviceSpeedGrade</spirit:name>
+          <spirit:displayName>Device Speed Grade</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="deviceSpeedGrade">6</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>generationId</spirit:name>
+          <spirit:displayName>Generation Id</spirit:displayName>
+          <spirit:value spirit:format="long" spirit:id="generationId">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>bonusData</spirit:name>
+          <spirit:displayName>bonusData</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="bonusData">bonusData 
+{
+}
+</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>hideFromIPCatalog</spirit:name>
+          <spirit:displayName>Hide from IP Catalog</spirit:displayName>
+          <spirit:value spirit:format="bool" spirit:id="hideFromIPCatalog">false</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>lockedInterfaceDefinition</spirit:name>
+          <spirit:displayName>lockedInterfaceDefinition</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="lockedInterfaceDefinition"><![CDATA[<boundaryDefinition>
+    <interfaces>
+        <interface>
+            <name>clk</name>
+            <type>clock</type>
+            <isStart>false</isStart>
+            <ports>
+                <port>
+                    <name>clk</name>
+                    <role>clk</role>
+                    <direction>Input</direction>
+                    <width>1</width>
+                    <lowerBound>0</lowerBound>
+                    <vhdlType>STD_LOGIC</vhdlType>
+                </port>
+            </ports>
+            <assignments>
+                <assignmentValueMap/>
+            </assignments>
+            <parameters>
+                <parameterValueMap>
+                    <entry>
+                        <key>clockRate</key>
+                        <value>0</value>
+                    </entry>
+                    <entry>
+                        <key>externallyDriven</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>ptfSchematicName</key>
+                    </entry>
+                </parameterValueMap>
+            </parameters>
+        </interface>
+        <interface>
+            <name>clk_reset</name>
+            <type>reset</type>
+            <isStart>false</isStart>
+            <ports>
+                <port>
+                    <name>reset</name>
+                    <role>reset</role>
+                    <direction>Input</direction>
+                    <width>1</width>
+                    <lowerBound>0</lowerBound>
+                    <vhdlType>STD_LOGIC</vhdlType>
+                </port>
+            </ports>
+            <assignments>
+                <assignmentValueMap/>
+            </assignments>
+            <parameters>
+                <parameterValueMap>
+                    <entry>
+                        <key>associatedClock</key>
+                        <value>clk</value>
+                    </entry>
+                    <entry>
+                        <key>synchronousEdges</key>
+                        <value>DEASSERT</value>
+                    </entry>
+                </parameterValueMap>
+            </parameters>
+        </interface>
+        <interface>
+            <name>receiver_irq</name>
+            <type>interrupt</type>
+            <isStart>true</isStart>
+            <ports>
+                <port>
+                    <name>receiver_irq</name>
+                    <role>irq</role>
+                    <direction>Input</direction>
+                    <width>2</width>
+                    <lowerBound>0</lowerBound>
+                    <vhdlType>STD_LOGIC_VECTOR</vhdlType>
+                </port>
+            </ports>
+            <assignments>
+                <assignmentValueMap/>
+            </assignments>
+            <parameters>
+                <parameterValueMap>
+                    <entry>
+                        <key>associatedAddressablePoint</key>
+                    </entry>
+                    <entry>
+                        <key>associatedClock</key>
+                        <value>clk</value>
+                    </entry>
+                    <entry>
+                        <key>associatedReset</key>
+                        <value>clk_reset</value>
+                    </entry>
+                    <entry>
+                        <key>irqMap</key>
+                        <value>&lt;map&gt;&lt;mapping port='0' sender='sender0_irq' /&gt;&lt;mapping port='1' sender='sender1_irq' /&gt;&lt;/map&gt;</value>
+                    </entry>
+                    <entry>
+                        <key>irqScheme</key>
+                        <value>INDIVIDUAL_REQUESTS</value>
+                    </entry>
+                </parameterValueMap>
+            </parameters>
+        </interface>
+        <interface>
+            <name>sender0_irq</name>
+            <type>interrupt</type>
+            <isStart>false</isStart>
+            <ports>
+                <port>
+                    <name>sender0_irq</name>
+                    <role>irq</role>
+                    <direction>Output</direction>
+                    <width>1</width>
+                    <lowerBound>0</lowerBound>
+                    <vhdlType>STD_LOGIC</vhdlType>
+                </port>
+            </ports>
+            <assignments>
+                <assignmentValueMap/>
+            </assignments>
+            <parameters>
+                <parameterValueMap>
+                    <entry>
+                        <key>associatedAddressablePoint</key>
+                    </entry>
+                    <entry>
+                        <key>associatedClock</key>
+                        <value>clk</value>
+                    </entry>
+                    <entry>
+                        <key>associatedReset</key>
+                        <value>clk_reset</value>
+                    </entry>
+                    <entry>
+                        <key>bridgedReceiverOffset</key>
+                        <value>0</value>
+                    </entry>
+                    <entry>
+                        <key>bridgesToReceiver</key>
+                        <value>irq_bridge.receiver_irq</value>
+                    </entry>
+                    <entry>
+                        <key>irqScheme</key>
+                        <value>NONE</value>
+                    </entry>
+                </parameterValueMap>
+            </parameters>
+        </interface>
+        <interface>
+            <name>sender1_irq</name>
+            <type>interrupt</type>
+            <isStart>false</isStart>
+            <ports>
+                <port>
+                    <name>sender1_irq</name>
+                    <role>irq</role>
+                    <direction>Output</direction>
+                    <width>1</width>
+                    <lowerBound>0</lowerBound>
+                    <vhdlType>STD_LOGIC</vhdlType>
+                </port>
+            </ports>
+            <assignments>
+                <assignmentValueMap/>
+            </assignments>
+            <parameters>
+                <parameterValueMap>
+                    <entry>
+                        <key>associatedAddressablePoint</key>
+                    </entry>
+                    <entry>
+                        <key>associatedClock</key>
+                        <value>clk</value>
+                    </entry>
+                    <entry>
+                        <key>associatedReset</key>
+                        <value>clk_reset</value>
+                    </entry>
+                    <entry>
+                        <key>bridgedReceiverOffset</key>
+                        <value>1</value>
+                    </entry>
+                    <entry>
+                        <key>bridgesToReceiver</key>
+                        <value>irq_bridge.receiver_irq</value>
+                    </entry>
+                    <entry>
+                        <key>irqScheme</key>
+                        <value>NONE</value>
+                    </entry>
+                </parameterValueMap>
+            </parameters>
+        </interface>
+    </interfaces>
+</boundaryDefinition>]]></spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>systemInfos</spirit:name>
+          <spirit:displayName>systemInfos</spirit:displayName>
+          <spirit:value spirit:format="string" spirit:id="systemInfos"><![CDATA[<systemInfosDefinition>
+    <connPtSystemInfos>
+        <entry>
+            <key>receiver_irq</key>
+            <value>
+                <connectionPointName>receiver_irq</connectionPointName>
+                <suppliedSystemInfos>
+                    <entry>
+                        <key>INTERRUPTS_USED</key>
+                        <value>-1</value>
+                    </entry>
+                </suppliedSystemInfos>
+                <consumedSystemInfos/>
+            </value>
+        </entry>
+    </connPtSystemInfos>
+</systemInfosDefinition>]]></spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </altera:altera_system_parameters>
+    <altera:altera_interface_boundary>
+      <altera:interface_mapping altera:name="clk" altera:internal="irq_bridge.clk" altera:type="clock" altera:dir="end">
+        <altera:port_mapping altera:name="clk" altera:internal="clk"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="clk_reset" altera:internal="irq_bridge.clk_reset" altera:type="reset" altera:dir="end">
+        <altera:port_mapping altera:name="reset" altera:internal="reset"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="receiver_irq" altera:internal="irq_bridge.receiver_irq" altera:type="interrupt" altera:dir="start">
+        <altera:port_mapping altera:name="receiver_irq" altera:internal="receiver_irq"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="sender0_irq" altera:internal="irq_bridge.sender0_irq" altera:type="interrupt" altera:dir="end">
+        <altera:port_mapping altera:name="sender0_irq" altera:internal="sender0_irq"></altera:port_mapping>
+      </altera:interface_mapping>
+      <altera:interface_mapping altera:name="sender1_irq" altera:internal="irq_bridge.sender1_irq" altera:type="interrupt" altera:dir="end">
+        <altera:port_mapping altera:name="sender1_irq" altera:internal="sender1_irq"></altera:port_mapping>
+      </altera:interface_mapping>
+    </altera:altera_interface_boundary>
+    <altera:altera_has_warnings>false</altera:altera_has_warnings>
+    <altera:altera_has_errors>false</altera:altera_has_errors>
+  </spirit:vendorExtensions>
+</spirit:component>
