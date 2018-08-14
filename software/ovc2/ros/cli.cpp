@@ -21,6 +21,7 @@ void usage()
   printf("    align_imager_lvds\n");
   printf("    configure_imu\n");
   printf("    read_imu\n");
+  printf("    stream_imu\n");
   printf("\n");
   exit(1);
 }
@@ -77,6 +78,29 @@ int read_imu(OVC2 *ovc2)
 {
   return ovc2->wait_for_imu_data(true) ? 0 : 1;
 }
+
+int stream_imu(OVC2 *ovc2)
+{
+  while (!g_done) {
+    if (!ovc2->wait_for_imu_data())
+      break;
+    struct ovc2_imu_data *i = &ovc2->imu_data_;
+    printf("\n\n");
+    printf("t_usecs = %llu\n", (long long unsigned)i->t_usecs);
+    printf("accel = %+.3f  %+.3f  %+.3f\n",
+      i->accel[0], i->accel[1], i->accel[2]);
+    printf("gyro  = %+.3f  %+.3f  %+.3f\n",
+      i->gyro[0], i->gyro[1], i->gyro[2]);
+    printf("temp  = %+.3f\n", i->temperature);
+    printf("pressure = %+.3f\n", i->pressure);
+    printf("quat = %+.3f  %+.3f  %+.3f  %+.3f\n",
+      i->quaternion[0], i->quaternion[1],
+      i->quaternion[2], i->quaternion[3]);
+    printf("mag = %+.3f  %+.3f  %+.3f\n",
+      i->mag_comp[0], i->mag_comp[1], i->mag_comp[2]);
+  }
+  return 0;
+}
  
 int main(int argc, char **argv)
 {
@@ -101,6 +125,8 @@ int main(int argc, char **argv)
     return configure_imu(&ovc2);
   else if (!strcmp(cmd, "read_imu"))
     return read_imu(&ovc2);
+  else if (!strcmp(cmd, "stream_imu"))
+    return stream_imu(&ovc2);
   else {
     printf("unknown command: %s\n", cmd);
     usage();

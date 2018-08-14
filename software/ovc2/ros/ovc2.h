@@ -3,6 +3,7 @@
 
 #include "imager_register.h"
 #include "lightweightserial.h"
+#include "../modules/ovc2_core/ovc2_ioctl.h"
 
 namespace ovc2
 {
@@ -20,6 +21,7 @@ public:
   bool reset_imagers();
   bool align_imager_lvds(const int imager_idx);
   bool wait_for_imu_data(bool print_to_console = false);
+  struct ovc2_imu_data imu_data_;
 private:
   bool init_complete_;
   int fd_, fd_imu_;

@@ -527,13 +527,13 @@ bool OVC2::imu_set_auto_poll(bool enable)
 
 bool OVC2::wait_for_imu_data(bool print_to_console)
 {
-  struct ovc2_imu_data imu_data;
-  int nread = read(fd_imu_, &imu_data, sizeof(imu_data));
-  if (nread != sizeof(imu_data)) {
+  //struct ovc2_imu_data imu_data;
+  int nread = read(fd_imu_, &imu_data_, sizeof(imu_data_));
+  if (nread != sizeof(imu_data_)) {
     printf("got weird nread: %d\n", nread);
     return false;
   }
-  struct ovc2_imu_data *i = &imu_data;  // save typing
+  struct ovc2_imu_data *i = &imu_data_;  // save typing
   if (print_to_console) {
     printf("read %d bytes from IMU\n", nread);
     printf("\n\n");

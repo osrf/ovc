@@ -198,9 +198,14 @@ static long ovc2_imu_set_mode(u32 mode)
   return 0;
 }
 
+//#define OVC2_IRQ_IMU_TIMING
+
 static irqreturn_t ovc2_irq_handler(int irq, void *dev_id)
 {
   u32 irq_status, nspin;
+#ifdef OVC2_IRQ_IMU_TIMING
+  static u64 imu_read_time_sum, irq_count;
+#endif
   irq_status = ioread32(ovc2_core.bar0_addr + 0x40);
   for (nspin = 0; irq_status & 0x3; nspin++) {
     if (irq_status & 0x1) {
@@ -210,16 +215,35 @@ static irqreturn_t ovc2_irq_handler(int irq, void *dev_id)
       irq_status = ioread32(ovc2_core.bar0_addr + 0x40);
     }
     if (irq_status & 0x2) {
-      int read32_idx;
-      u32 *dest;
       // clear the imu-done interrupt flag
+#ifdef OVC2_IRQ_IMU_TIMING
+      static ktime_t t_imu_start, t_imu_stop;
+      t_imu_start = ktime_get();
+#endif
       ovc2_cycle_bit(OVC2_REG_PCIE_PIO, 14);
-      // read imu buffer page from FPGA mapped memory
-      dest = (uint32_t *)&ovc2_core.imu_data;
-      for (read32_idx = 0; read32_idx < sizeof(struct ovc2_imu_data)/4; read32_idx++) {
-        *dest = ioread32(ovc2_core.bar3_addr + (read32_idx+4)*4);
-        dest++;
+      /*
+      // seems like we're supposed to use memcpy_fromio here...
+      // but we know these addresses will be aligned since the
+      // structs start with a 64-bit value, and just plain
+      // 'memcpy' is about 3.5x faster... so let's go with it
+      memcpy_fromio(&ovc2_core.imu_data,
+        ovc2_core.bar3_addr + 16,
+        sizeof(struct ovc2_imu_data)/4);
+      */
+      memcpy(&ovc2_core.imu_data,
+        ovc2_core.bar3_addr + 16,
+        sizeof(struct ovc2_imu_data));
+
+#ifdef OVC2_IRQ_IMU_TIMING
+      t_imu_stop = ktime_get();
+      imu_read_time_sum += ktime_to_ns(ktime_sub(t_imu_stop, t_imu_start));
+#define SUM_TERMS 200
+      if (irq_count++ % SUM_TERMS == 0) {
+        u64 t_imu_avg = imu_read_time_sum / SUM_TERMS;
+        printk(KERN_INFO "ovc2_core: average t_imu ns: %d\n", (int)t_imu_avg);
+        imu_read_time_sum = 0;
       }
+#endif
       complete(&ovc2_core.imu_done);
       irq_status = ioread32(ovc2_core.bar0_addr + 0x40);
     }
