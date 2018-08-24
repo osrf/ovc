@@ -39,6 +39,7 @@ set_false_path -to cam_clk_gpio_oe_s|d_d1[*]
 
 #set_false_path -from [get_keepers cam_fifo_aclr] -to [get_keepers *dcfifo*]
 
+set_false_path -from top_inst|dma_writer_mux_inst|rst_longer_r|ff|q[0]
 set_false_path -to top_inst|dma_writer_mux_inst|gen_fifos[*].rst_in_c_r|d_d1[*]
 #set_false_path -to top_inst|dma_writer_mux_inst|gen_fifos[1].rst_in_c_r|d_d1[*]
 #set_false_path -to top_inst|dma_writer_mux_inst|gen_fifos[2].rst_in_c_r|d_d1[*]
