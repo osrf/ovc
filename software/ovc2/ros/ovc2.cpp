@@ -3,6 +3,7 @@
 #include <cstring>
 #include <vector>
 
+#include <errno.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>  // ioctl
 #include <sys/mman.h>   // mmap
@@ -15,12 +16,15 @@ using ovc2::OVC2;
 
 static const char * const OVC2_DEVICE = "/dev/ovc2_core";
 static const char * const OVC2_IMU_DEVICE = "/dev/ovc2_imu";
+static const char * const OVC2_CAM_DEVICE = "/dev/ovc2_cam";
 
 OVC2::OVC2()
 : init_complete_(false),
   fd_(-1),
   fd_imu_(-1),
-  imu_serial(NULL)
+  fd_cam_(-1),
+  imu_serial_(NULL),
+  cam_dma_buf_(NULL)
 {
 }
 
@@ -29,10 +33,12 @@ OVC2::~OVC2()
   if (init_complete_) {
     close(fd_);
     close(fd_imu_);
+    close(fd_cam_);
+    munmap(cam_dma_buf_, OVC2_IOCTL_CAM_DMA_BUF_SIZE);
   }
-  if (imu_serial) {
-    delete imu_serial;
-    imu_serial = NULL;
+  if (imu_serial_) {
+    delete imu_serial_;
+    imu_serial_ = NULL;
   }
 }
 
@@ -48,15 +54,57 @@ bool OVC2::init()
     printf("couldn't open %s\n", OVC2_IMU_DEVICE);
     return false;
   }
+  fd_cam_ = open(OVC2_CAM_DEVICE, O_RDONLY);
+  if (fd_cam_ < 0) {
+    printf("couldn't open %s\n", OVC2_CAM_DEVICE);
+    return false;
+  }
   if (!enable_reg_ram())
     return false;
   printf("reg ram init complete\n");
-  imu_serial = new LightweightSerial("/dev/ttyTHS2", 115200);
-  if (!imu_serial->is_ok()) {
+  imu_serial_ = new LightweightSerial("/dev/ttyTHS2", 115200);
+  if (!imu_serial_->is_ok()) {
     printf("OH NO couldn't open IMU serial port\n");
     return false;
   }
+
+  if (!set_corner_threshold(120))
+    return false;
+
+  if (!configure_imagers())
+    return false;
+
+  if (!configure_imu())
+    return false;
+
+  printf("mapping dma to userland...\n");
+  cam_dma_buf_ = (uint8_t *)mmap(
+      0, OVC2_IOCTL_CAM_DMA_BUF_SIZE, PROT_READ, MAP_SHARED, fd_cam_, 0);
+  if (cam_dma_buf_ == MAP_FAILED) {
+    printf("OH NO mmap() failed: %s\n", strerror(errno));
+    return false;
+  }
+  printf("setting dma trigger...\n");
+  struct ovc2_ioctl_cam_set_mode csm;
+  csm.mode = OVC2_IOCTL_CAM_SET_MODE_AUTO;
+  int csm_rc = ioctl(fd_, OVC2_IOCTL_CAM_SET_MODE, &csm);
+  if (csm_rc) {
+    printf("OH NO couldn't start cam dma. rc = %d\n", csm_rc);
+    return false;
+  }
+  printf("cam dma initialized OK\n");
+  if (!set_sync_timing(20)) {
+    printf("OH NO couldn't set sync timing\n");
+    return false;
+  }
+  printf("set sync timing OK\n");
+
+  if (!set_exposure(0.000001)) {
+    printf("couldn't set exposure\n");
+    return false;
+  }
   init_complete_ = true;
+  printf("ovc2 init complete\n");
   return true;
 }
 
@@ -118,16 +166,28 @@ bool OVC2::configure_imagers()
   }
   // requires rework on ovc2a to talk to imager #2...
   for (int i = 0; i < 2; i++) {
+    ImagerRegister whoami(0, 0);
+    if (!read_imager_reg(i, whoami)) {
+      printf("oh no, couldn't read WHOAMI from register %d\n", i);
+      return false;
+    }
+    printf("imager %d WHOAMI = 0x%04x\n", i, (unsigned)whoami.value);
+    if (whoami.value != 0x50d0) {
+      printf("OH NO\n");
+      return false;
+    }
+
 		if (!configure_imager(i)) {
       printf("OH NO couldn't configure imager %d\n", i);
       return false;
     }
     if (!align_imager_lvds(i)) {
-      printf("OH NO couldn't align LVSD stream of imager %d\n", i);
+      printf("OH NO couldn't align LVDS stream of imager %d\n", i);
       return false;
     }
     printf("imager %d configured successfully\n", i);
   }
+
   return true;
 }
 
@@ -443,14 +503,14 @@ bool OVC2::configure_imu()
   usleep(1000);
   if (!set_bit(0, 27, false))  // de-assert imu reset pin
     return false;
-  printf("waiting 2 seconds for IMU reset...\n");
-  usleep(2000000);
+  printf("waiting 0.5 seconds for IMU reset...\n");
+  usleep(500000);
   write_imu_reg_str("$VNWRG,06,0");  // turn off async data output
   // now drain all the async output that was stuffed in our buffers
   for (int i = 0; i < 100; i++) {
     printf("waiting for rx...\n");
     uint8_t line[256];
-    int nread = imu_serial->read_block(line, sizeof(line));
+    int nread = imu_serial_->read_block(line, sizeof(line));
     printf("read %d bytes\n", nread);
     if (!nread)
       break;
@@ -460,6 +520,7 @@ bool OVC2::configure_imu()
   // every 2nd AHRS measurement (= 200 Hz) of 100us width
   write_imu_reg_str("$VNWRG,32,3,0,0,0,3,1,1,100000,0");
   imu_set_auto_poll(true);
+  return true;
 }
 
 bool OVC2::write_imu_reg_str(const char * const reg_str)
@@ -468,12 +529,12 @@ bool OVC2::write_imu_reg_str(const char * const reg_str)
   strncpy(request, reg_str, sizeof(request)-10);
   imu_append_checksum(request);
   printf("sending IMU request: [%s]\n", request);
-  imu_serial->write_cstr(request);
+  imu_serial_->write_cstr(request);
   uint8_t response[256] = {0};
   bool response_ok = false;
   // wait for response
   for (int attempt = 0; attempt < 100; attempt++) {
-    int nread = imu_serial->read_block(response, sizeof(response));
+    int nread = imu_serial_->read_block(response, sizeof(response));
     if (nread == 0) {
       usleep(1000);
       continue;
@@ -549,6 +610,61 @@ bool OVC2::wait_for_imu_data(bool print_to_console)
       i->quaternion[2], i->quaternion[3]);
     printf("mag = %+.3f  %+.3f  %+.3f\n",
       i->mag_comp[0], i->mag_comp[1], i->mag_comp[2]);
+  }
+  return true;
+}
+
+bool OVC2::set_exposure(float seconds)
+{
+  if (seconds > 0.065)
+    seconds = 0.065;
+  struct ovc2_ioctl_set_exposure se;
+  se.exposure_usec = seconds * 1000000;
+  int rc = ioctl(fd_, OVC2_IOCTL_SET_EXPOSURE, &se);
+  if (rc) {
+    printf("unexpected return from set_exposure ioctl: %d\n", rc);
+    return false;
+  }
+  return true;
+}
+
+bool OVC2::wait_for_image(uint8_t **p, struct timespec &t)
+{
+  uint8_t dummy = 0;
+  int read_rc = read(fd_cam_, &dummy, 1);
+  if (read_rc < 0) {
+    printf("error reading from %s: %d\n", OVC2_CAM_DEVICE, read_rc);
+    return false;
+  }
+  *p = cam_dma_buf_;
+  return true;  
+}
+
+bool OVC2::set_sync_timing(const uint32_t imu_decimation)
+{
+  if (imu_decimation == 0 || imu_decimation > 200) {
+    printf("decimation out of range: %d\n", (int)imu_decimation);
+    return false;
+  }
+  printf("set_sync_timing(%d)\n", (int)imu_decimation);
+  struct ovc2_ioctl_set_sync_timing sst;
+  sst.imu_decimation = imu_decimation;
+  int rc = ioctl(fd_, OVC2_IOCTL_SET_SYNC_TIMING, &sst);
+  if (rc) {
+    printf("OH NO couldn't set sync timing: %d\n", rc);
+    return false;
+  }
+  return true;
+}
+
+bool OVC2::set_corner_threshold(const uint8_t threshold)
+{
+  struct ovc2_ioctl_set_ast_params sap;
+  sap.threshold = threshold;
+  int rc = ioctl(fd_, OVC2_IOCTL_SET_AST_PARAMS, &sap);
+  if (rc) {
+    printf("OH NO couldn't set corner threshold: %d\n", rc);
+    return false;
   }
   return true;
 }

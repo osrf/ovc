@@ -101,6 +101,37 @@ int stream_imu(OVC2 *ovc2)
   }
   return 0;
 }
+
+int read_image(OVC2 *ovc2)
+{
+  FILE *f = fopen("test.bin", "w");
+  bool written = false;
+  uint8_t *img = NULL;
+  struct timespec t;
+  while (!g_done) {
+    if (!ovc2->wait_for_image(&img, t)) {
+      printf("error in wait_for_image()\n");
+      return 1;
+    }
+    printf("read successful\n");
+    if (!written) {
+      fwrite(img, 1, 1280*1024*2, f);
+      written = true;
+    }
+    for (int r = 0; r < 1024; r += 32) {
+      for (int c = 0; c < 1280; c += 16) {
+        printf("%01x", (unsigned)(img[r*1280+c] / 16));
+      }
+      printf("\n");
+    }
+    uint32_t corners[2] = {0};
+    corners[0] = *((uint32_t *)&img[1280*1024*2+ 8]);
+    corners[1] = *((uint32_t *)&img[1280*1024*2+12]);
+    printf("corners: %06d %06d\n", (int)corners[0], (int)corners[1]);
+  }
+  fclose(f);
+  return 0;
+}
  
 int main(int argc, char **argv)
 {
@@ -127,6 +158,8 @@ int main(int argc, char **argv)
     return read_imu(&ovc2);
   else if (!strcmp(cmd, "stream_imu"))
     return stream_imu(&ovc2);
+  else if (!strcmp(cmd, "read_image"))
+    return read_image(&ovc2);
   else {
     printf("unknown command: %s\n", cmd);
     usage();

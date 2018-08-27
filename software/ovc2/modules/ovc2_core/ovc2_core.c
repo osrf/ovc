@@ -24,6 +24,7 @@ module_param(did, ushort, S_IRUGO);
 #define OVC2_MINOR_IMU  1
 #define OVC2_MINOR_CAM  2
 
+#define OVC2_CAM_DMA_BUF_SIZE (4*1024*1024)
 struct ovc2_core {
   struct cdev cdev_core, cdev_imu, cdev_cam;
   int major;  // will be populated by alloc_chrdev_region()
@@ -32,8 +33,10 @@ struct ovc2_core {
   atomic_t is_available;
   struct class *dev_class;
   struct device *device;
-  struct completion image_done, imu_done;
+  struct completion cam_done, imu_done;
   struct ovc2_imu_data imu_data;
+  uint8_t *cam_dma_buf;
+  dma_addr_t cam_dma_addr;
 };
 static struct ovc2_core ovc2_core;
 //////////////////////////////////////////////////////////////////////
@@ -198,6 +201,56 @@ static long ovc2_imu_set_mode(u32 mode)
   return 0;
 }
 
+static long ovc2_cam_set_mode(u32 mode)
+{
+  if (mode == OVC2_IOCTL_CAM_SET_MODE_IDLE) {
+    ovc2_set_bit(OVC2_REG_PCIE_PIO, 8, false);  // clear the dma-enable bit
+  }
+  else if (mode == OVC2_IOCTL_CAM_SET_MODE_AUTO) {
+    if (ovc2_core.cam_dma_addr & 0xffffffff00000000) {
+      printk(KERN_INFO "ovc2_core: 64-bit address\n");
+      // address is beyond 32-bit space. need to use 64-bit PCIe addressing
+      iowrite32((uint32_t)(ovc2_core.cam_dma_addr | 0x1),
+          ovc2_core.bar0_addr + 0x1000);
+      iowrite32((uint32_t)(ovc2_core.cam_dma_addr >> 32),
+          ovc2_core.bar0_addr + 0x1004);
+    }
+    else {
+      printk(KERN_INFO "ovc2_core: 32-bit address\n");
+      // address fits within 32 bits, so we have to use 32-bit PCIe addr mode
+      iowrite32((uint32_t)ovc2_core.cam_dma_addr,
+          ovc2_core.bar0_addr + 0x1000);
+      iowrite32(0, ovc2_core.bar0_addr + 0x1004);
+    }
+    iowrite32(0, ovc2_core.bar2_addr + 2*4);  // dma addr offset 0 for now
+    ovc2_set_bit(OVC2_REG_PCIE_PIO, 8, true);  // set the dma-enable bit
+  }
+  else {
+    printk(KERN_ERR "ovc2_core: unknown cam mode requested: 0x%08x\n",
+      (unsigned)mode);
+    return -EINVAL;
+  }
+  return 0;
+}
+
+static long ovc2_set_sync_timing(uint32_t imu_decimation)
+{
+  iowrite32(imu_decimation, ovc2_core.bar2_addr + 6*4);
+  return 0;
+}
+
+static long ovc2_set_exposure(uint32_t exposure_usec)
+{
+  iowrite32(exposure_usec, ovc2_core.bar2_addr + 5*4);
+  return 0;
+}
+
+static long ovc2_set_ast_params(uint8_t threshold)
+{
+  iowrite32((u32)threshold, ovc2_core.bar2_addr + 10*4);
+  return 0;
+}
+
 //#define OVC2_IRQ_IMU_TIMING
 
 static irqreturn_t ovc2_irq_handler(int irq, void *dev_id)
@@ -211,7 +264,7 @@ static irqreturn_t ovc2_irq_handler(int irq, void *dev_id)
     if (irq_status & 0x1) {
       // image DMA complete
       ovc2_cycle_bit(OVC2_REG_PCIE_PIO, 13);
-      complete(&ovc2_core.image_done);
+      complete(&ovc2_core.cam_done);
       irq_status = ioread32(ovc2_core.bar0_addr + 0x40);
     }
     if (irq_status & 0x2) {
@@ -248,7 +301,10 @@ static irqreturn_t ovc2_irq_handler(int irq, void *dev_id)
       irq_status = ioread32(ovc2_core.bar0_addr + 0x40);
     }
   }
-  return 0;
+  if (nspin > 2) {
+    printk(KERN_ERR "ovc2_core: nspin = %d\n", nspin);  // only for debugging
+  }
+  return IRQ_HANDLED;
 }
 
 static long ovc2_core_ioctl(
@@ -310,6 +366,34 @@ static long ovc2_core_ioctl(
         return -EACCES;
       return ovc2_imu_set_mode(ism.mode);
     }
+    case OVC2_IOCTL_CAM_SET_MODE:
+    {
+      struct ovc2_ioctl_cam_set_mode csm;
+      if (copy_from_user(&csm, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
+        return -EACCES;
+      return ovc2_cam_set_mode(csm.mode);
+    }
+    case OVC2_IOCTL_SET_SYNC_TIMING:
+    {
+      struct ovc2_ioctl_set_sync_timing sst;
+      if (copy_from_user(&sst, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
+        return -EACCES;
+      return ovc2_set_sync_timing(sst.imu_decimation);
+    }
+    case OVC2_IOCTL_SET_EXPOSURE:
+    {
+      struct ovc2_ioctl_set_exposure se;
+      if (copy_from_user(&se, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
+        return -EACCES;
+      return ovc2_set_exposure(se.exposure_usec);
+    }
+    case OVC2_IOCTL_SET_AST_PARAMS:
+    {
+      struct ovc2_ioctl_set_ast_params sap;
+      if (copy_from_user(&sap, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
+        return -EACCES;
+      return ovc2_set_ast_params(sap.threshold);
+    }
     default:
     {
       printk(KERN_ERR "ovc2_core: unknown ioctl: 0x%08x\n",
@@ -336,6 +420,7 @@ int ovc2_imu_open(struct inode *inode, struct file *fp)
 int ovc2_imu_release(struct inode *inode, struct file *file)
 {
   //printk(KERN_INFO "ovc2_imu_release()\n");
+  iowrite32(0x0, ovc2_core.bar3_addr);  // clear the IMU auto-poll bit
   return 0;  // success
 }
 
@@ -365,20 +450,42 @@ struct file_operations ovc2_imu_fops = {
 ///////////////////////////////////////////////////////////////////////
 int ovc2_cam_open(struct inode *inode, struct file *fp)
 {
-  printk(KERN_INFO "ovc2_cam_open()\n");
+  //printk(KERN_INFO "ovc2_cam_open()\n");
   return 0;
 }
 
 int ovc2_cam_release(struct inode *inode, struct file *file)
 {
-  printk(KERN_INFO "ovc2_cam_release()\n");
+  //printk(KERN_INFO "ovc2_cam_release()\n");
+  ovc2_set_bit(OVC2_REG_PCIE_PIO, 8, false);  // clear the dma-enable bit
   return 0;  // success
 }
 
 ssize_t ovc2_cam_read(struct file *f, char __user *buf, size_t count,
                       loff_t *f_pos)
 {
-  printk(KERN_INFO "ovc2_cam_read()\n");
+  //printk(KERN_INFO "ovc2_cam_read()\n");
+  reinit_completion(&ovc2_core.cam_done);
+  if (!wait_for_completion_timeout(&ovc2_core.cam_done, 2 * HZ))
+    return -ETIMEDOUT;
+  dma_sync_single_for_cpu(
+      &ovc2_core.pci_dev->dev,
+      ovc2_core.cam_dma_addr,
+      OVC2_CAM_DMA_BUF_SIZE,  // pixels + 256k misc stuff
+      DMA_FROM_DEVICE);
+  return 0;
+}
+
+static int ovc2_cam_mmap(struct file *f, struct vm_area_struct *vma)
+{
+  if (remap_pfn_range(vma, vma->vm_start,
+      virt_to_phys(ovc2_core.cam_dma_buf) >> PAGE_SHIFT,
+      vma->vm_end - vma->vm_start,
+      vma->vm_page_prot)) {
+    printk(KERN_ERR "ovc2_core: OH NO remap_pfn_range() failed\n");
+    return -EAGAIN;
+  }
+  printk(KERN_INFO "ovc2_core: mmap remap_pfn_range() successful\n");
   return 0;
 }
 
@@ -386,7 +493,8 @@ struct file_operations ovc2_cam_fops = {
   .owner   = THIS_MODULE,
   .open    = ovc2_cam_open,
   .release = ovc2_cam_release,
-  .read    = ovc2_cam_read
+  .read    = ovc2_cam_read,
+  .mmap    = ovc2_cam_mmap
 };
 
 ///////////////////////////////////////////////////////////////////////
@@ -415,11 +523,24 @@ static int ovc2_pci_probe(
   ovc2_core.bar0_addr = pci_iomap(ovc2_core.pci_dev, 0, 0);
   ovc2_core.bar2_addr = pci_iomap(ovc2_core.pci_dev, 2, 0);
   ovc2_core.bar3_addr = pci_iomap(ovc2_core.pci_dev, 3, 0);
-  init_completion(&ovc2_core.image_done);
+  ovc2_core.cam_dma_buf = kmalloc(OVC2_CAM_DMA_BUF_SIZE, GFP_KERNEL);
+  printk(KERN_INFO "ovc2_core: cam buf addr: 0x%px\n", ovc2_core.cam_dma_buf);
+  ovc2_core.cam_dma_addr = dma_map_single(
+      &ovc2_core.pci_dev->dev, ovc2_core.cam_dma_buf,
+      OVC2_CAM_DMA_BUF_SIZE, DMA_FROM_DEVICE);
+  if (dma_mapping_error(&ovc2_core.pci_dev->dev, ovc2_core.cam_dma_addr)) {
+    printk(KERN_ERR "ovc2_core: ahhhh dma_mapping_error() !!!\n");
+  }
+  else {
+    printk(KERN_INFO "ovc2_core: cam_dma_addr: 0x%llx\n",
+        ovc2_core.cam_dma_addr);
+  }
+  init_completion(&ovc2_core.cam_done);
   init_completion(&ovc2_core.imu_done);
   rc = pci_enable_msi_range(ovc2_core.pci_dev, 1, 1);
   // todo: check return value and figure out what to do if it's not 1
-  rc = request_irq(ovc2_core.pci_dev->irq, ovc2_irq_handler, 0, "ovc2", &ovc2_core);
+  rc = request_irq(ovc2_core.pci_dev->irq, ovc2_irq_handler, 0, "ovc2",
+      &ovc2_core);
   if (rc)
     printk(KERN_ERR "ovc2_core: request_irq returned %d\n", rc);
   iowrite32(0x3, ovc2_core.bar0_addr + 0x50);  // enable MSI interrupts {0,1}
@@ -437,10 +558,13 @@ static void ovc2_pci_remove(struct pci_dev *remove_dev)
     return;
   }
   iowrite32(0, ovc2_core.bar0_addr + 0x50);  // disable all MSI interrupts
-  msleep(10);  // wait for irq to be done (?) i dunno
+  msleep(10);  // wait for irq to be done (?) i dunno. probably won't swap?
   if (ovc2_core.pci_dev->irq)
     free_irq(ovc2_core.pci_dev->irq, &ovc2_core);
   pci_disable_msi(ovc2_core.pci_dev);
+  dma_unmap_single(&ovc2_core.pci_dev->dev, ovc2_core.cam_dma_addr,
+      OVC2_CAM_DMA_BUF_SIZE, DMA_FROM_DEVICE);
+  kfree(ovc2_core.cam_dma_buf);
   pci_iounmap(ovc2_core.pci_dev, ovc2_core.bar0_addr);
   pci_iounmap(ovc2_core.pci_dev, ovc2_core.bar2_addr);
   pci_iounmap(ovc2_core.pci_dev, ovc2_core.bar3_addr);
