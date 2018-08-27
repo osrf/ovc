@@ -1693,7 +1693,7 @@
         <spirit:parameter>
           <spirit:name>maxAddressWidth</spirit:name>
           <spirit:displayName>Maximum address width</spirit:displayName>
-          <spirit:value spirit:format="long" spirit:id="maxAddressWidth">64</spirit:value>
+          <spirit:value spirit:format="long" spirit:id="maxAddressWidth">32</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>maximumPendingReadTransactions</spirit:name>
@@ -1944,7 +1944,7 @@
         <spirit:parameter>
           <spirit:name>maxAddressWidth</spirit:name>
           <spirit:displayName>Maximum address width</spirit:displayName>
-          <spirit:value spirit:format="long" spirit:id="maxAddressWidth">64</spirit:value>
+          <spirit:value spirit:format="long" spirit:id="maxAddressWidth">32</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>maximumPendingReadTransactions</spirit:name>
@@ -2195,7 +2195,7 @@
         <spirit:parameter>
           <spirit:name>maxAddressWidth</spirit:name>
           <spirit:displayName>Maximum address width</spirit:displayName>
-          <spirit:value spirit:format="long" spirit:id="maxAddressWidth">64</spirit:value>
+          <spirit:value spirit:format="long" spirit:id="maxAddressWidth">32</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>maximumPendingReadTransactions</spirit:name>
@@ -2406,7 +2406,7 @@
         <spirit:parameter>
           <spirit:name>addressSpan</spirit:name>
           <spirit:displayName>Address span</spirit:displayName>
-          <spirit:value spirit:format="string" spirit:id="addressSpan">4194304</spirit:value>
+          <spirit:value spirit:format="string" spirit:id="addressSpan">8388608</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>addressUnits</spirit:name>
@@ -4325,7 +4325,7 @@
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
             <spirit:left>0</spirit:left>
-            <spirit:right>21</spirit:right>
+            <spirit:right>22</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
@@ -4589,7 +4589,7 @@
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
             <spirit:left>0</spirit:left>
-            <spirit:right>63</spirit:right>
+            <spirit:right>31</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
@@ -4717,7 +4717,7 @@
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
             <spirit:left>0</spirit:left>
-            <spirit:right>63</spirit:right>
+            <spirit:right>31</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
@@ -4845,7 +4845,7 @@
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
             <spirit:left>0</spirit:left>
-            <spirit:right>63</spirit:right>
+            <spirit:right>31</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
@@ -5167,7 +5167,7 @@
         <spirit:parameter>
           <spirit:name>txs_addr_width_integer_hwtcl</spirit:name>
           <spirit:displayName>txs_addr_width_integer_hwtcl</spirit:displayName>
-          <spirit:value spirit:format="long" spirit:id="txs_addr_width_integer_hwtcl">22</spirit:value>
+          <spirit:value spirit:format="long" spirit:id="txs_addr_width_integer_hwtcl">23</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>interface_type_integer_hwtcl</spirit:name>
@@ -5227,7 +5227,7 @@
         <spirit:parameter>
           <spirit:name>avmm_addr_width_hwtcl</spirit:name>
           <spirit:displayName>Avalon-MM address width</spirit:displayName>
-          <spirit:value spirit:format="long" spirit:id="avmm_addr_width_hwtcl">64</spirit:value>
+          <spirit:value spirit:format="long" spirit:id="avmm_addr_width_hwtcl">32</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>cb_pcie_mode_hwtcl</spirit:name>
@@ -5287,7 +5287,7 @@
         <spirit:parameter>
           <spirit:name>cg_a2p_addr_map_pass_thru_bits_hwtcl</spirit:name>
           <spirit:displayName>Size of address pages</spirit:displayName>
-          <spirit:value spirit:format="long" spirit:id="cg_a2p_addr_map_pass_thru_bits_hwtcl">12</spirit:value>
+          <spirit:value spirit:format="long" spirit:id="cg_a2p_addr_map_pass_thru_bits_hwtcl">22</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>link_width_hwtcl</spirit:name>
@@ -13671,7 +13671,7 @@
                     <name>rxm_bar0_address_o</name>
                     <role>address</role>
                     <direction>Output</direction>
-                    <width>64</width>
+                    <width>32</width>
                     <lowerBound>0</lowerBound>
                     <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                 </port>
@@ -13826,7 +13826,7 @@
                     </entry>
                     <entry>
                         <key>maxAddressWidth</key>
-                        <value>64</value>
+                        <value>32</value>
                     </entry>
                     <entry>
                         <key>maximumPendingReadTransactions</key>
@@ -13892,7 +13892,7 @@
                     <name>rxm_bar2_address_o</name>
                     <role>address</role>
                     <direction>Output</direction>
-                    <width>64</width>
+                    <width>32</width>
                     <lowerBound>0</lowerBound>
                     <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                 </port>
@@ -14047,7 +14047,7 @@
                     </entry>
                     <entry>
                         <key>maxAddressWidth</key>
-                        <value>64</value>
+                        <value>32</value>
                     </entry>
                     <entry>
                         <key>maximumPendingReadTransactions</key>
@@ -14113,7 +14113,7 @@
                     <name>rxm_bar3_address_o</name>
                     <role>address</role>
                     <direction>Output</direction>
-                    <width>64</width>
+                    <width>32</width>
                     <lowerBound>0</lowerBound>
                     <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                 </port>
@@ -14268,7 +14268,7 @@
                     </entry>
                     <entry>
                         <key>maxAddressWidth</key>
-                        <value>64</value>
+                        <value>32</value>
                     </entry>
                     <entry>
                         <key>maximumPendingReadTransactions</key>
@@ -14374,7 +14374,7 @@
                     <name>txs_address_i</name>
                     <role>address</role>
                     <direction>Input</direction>
-                    <width>22</width>
+                    <width>23</width>
                     <lowerBound>0</lowerBound>
                     <vhdlType>STD_LOGIC_VECTOR</vhdlType>
                 </port>
@@ -14483,7 +14483,7 @@
                     </entry>
                     <entry>
                         <key>addressSpan</key>
-                        <value>4194304</value>
+                        <value>8388608</value>
                     </entry>
                     <entry>
                         <key>addressUnits</key>
@@ -14741,11 +14741,11 @@
                 <consumedSystemInfos>
                     <entry>
                         <key>ADDRESS_MAP</key>
-                        <value>&lt;address-map&gt;&lt;slave name='txs' start='0x0' end='0x400000' datawidth='128' /&gt;&lt;/address-map&gt;</value>
+                        <value>&lt;address-map&gt;&lt;slave name='txs' start='0x0' end='0x800000' datawidth='128' /&gt;&lt;/address-map&gt;</value>
                     </entry>
                     <entry>
                         <key>ADDRESS_WIDTH</key>
-                        <value>22</value>
+                        <value>23</value>
                     </entry>
                     <entry>
                         <key>MAX_SLAVE_DATA_WIDTH</key>
