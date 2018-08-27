@@ -79,4 +79,39 @@ struct ovc2_imu_data
   float mag_comp[3];
 } __attribute__((packed));
 
+//////////////////////////////////////////////////////////////////////
+struct ovc2_ioctl_cam_set_mode
+{
+  uint32_t mode;
+};
+#define OVC2_IOCTL_CAM_SET_MODE _IOW(OVC2_MAGIC, 6, struct ovc2_ioctl_cam_set_mode)
+#define OVC2_IOCTL_CAM_SET_MODE_IDLE 0
+#define OVC2_IOCTL_CAM_SET_MODE_AUTO 1
+
+//////////////////////////////////////////////////////////////////////
+#define OVC2_IOCTL_CAM_DMA_BUF_SIZE (1280*1024*2+256*1024)
+//////////////////////////////////////////////////////////////////////
+
+struct ovc2_ioctl_set_sync_timing
+{
+  uint32_t imu_decimation;
+};
+#define OVC2_IOCTL_SET_SYNC_TIMING _IOW(OVC2_MAGIC, 7, struct ovc2_ioctl_set_sync_timing)
+
+//////////////////////////////////////////////////////////////////////
+struct ovc2_ioctl_set_exposure
+{
+  uint32_t exposure_usec;
+};
+#define OVC2_IOCTL_SET_EXPOSURE _IOW(OVC2_MAGIC, 8, struct ovc2_ioctl_set_exposure)
+
+//////////////////////////////////////////////////////////////////////
+struct ovc2_ioctl_set_ast_params
+{
+  uint8_t threshold;
+};
+#define OVC2_IOCTL_SET_AST_PARAMS _IOW(OVC2_MAGIC, 9, struct ovc2_ioctl_set_ast_params)
+
+
+//////////////////////////////////////////////////////////////////////
 #endif
