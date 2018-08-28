@@ -4,12 +4,14 @@
 #include <thread>
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/Imu.h>
-#include "ovc.h"
-#include "ovc/Metadata.h"
-#include "ovc/ImageCornerArray.h"
-#include "ovc/ImageCorner.h"
+#include "ovc2.h"
+#include "ovc2/Metadata.h"
+#include "ovc2/ImageCornerArray.h"
+#include "ovc2/ImageCorner.h"
 
-void cam_thread_fn(OVC *ovc, ros::NodeHandle *nh)
+using ovc2::OVC2;
+
+void cam_thread_fn(OVC2 *ovc2, ros::NodeHandle *nh)
 {
   image_transport::ImageTransport image_t(*nh);
   image_transport::Publisher image_pub = image_t.advertise("image", 2);
@@ -17,26 +19,26 @@ void cam_thread_fn(OVC *ovc, ros::NodeHandle *nh)
   std_msgs::Header header;
 
   ros::Publisher metadata_pub =
-    nh->advertise<ovc::Metadata>("image_metadata", 2);
-  ovc::Metadata metadata_msg;
+    nh->advertise<ovc2::Metadata>("image_metadata", 2);
+  ovc2::Metadata metadata_msg;
   uint8_t *metadata_buf = new uint8_t[256*1024];  // 256k block
 
   while (ros::ok()) {
     ros::spinOnce();
     uint8_t *img_data = NULL;
     struct timespec ts;
-    if (!ovc->wait_for_image(&img_data, ts)) {
+    if (!ovc2->wait_for_image(&img_data, ts)) {
       ROS_ERROR("OVC::wait_for_image() failed");
       continue;
     }
-    ovc->update_autoexposure_loop(img_data);
+    ovc2->update_autoexposure_loop(img_data);
 
     // make a userland copy of the dma buffer
     memcpy(metadata_buf, &img_data[1280*1024*2], 256*1024);
 
     header.stamp.sec = ts.tv_sec;
     header.stamp.nsec = ts.tv_nsec;
-    header.frame_id = "ovc";
+    header.frame_id = "ovc2";
 
     cv::Mat img(cvSize(1280, 1024*2), CV_8UC1, img_data, 1280);
     img_msg = cv_bridge::CvImage(header, "mono8", img).toImageMsg();
@@ -47,7 +49,7 @@ void cam_thread_fn(OVC *ovc, ros::NodeHandle *nh)
     num_corners[0] = meta[2] & 0xffff;
     num_corners[1] = meta[2] >> 16;
     printf("%6d %6d %0.6f\n", (int)num_corners[0], (int)num_corners[1],
-      ovc->exposure_);
+      ovc2->get_exposure());
 
     for (int img_idx = 0; img_idx < 2; img_idx++) {
       metadata_msg.corner_arrays[img_idx].corners.resize(num_corners[img_idx]);
@@ -75,14 +77,14 @@ void cam_thread_fn(OVC *ovc, ros::NodeHandle *nh)
   delete[] metadata_buf;
 }
 
-void imu_thread_fn(OVC *ovc, ros::NodeHandle *nh)
+void imu_thread_fn(OVC2 *ovc2, ros::NodeHandle *nh)
 {
   ros::Publisher imu_pub = nh->advertise<sensor_msgs::Imu>("imu", 2);
-  OVCIMUState imu_state;
+  OVC2IMUState imu_state;
   sensor_msgs::Imu imu_msg;
   struct timespec ts;
   while (ros::ok()) {
-    if (!ovc->wait_for_imu_state(imu_state, ts)) {
+    if (!ovc2->wait_for_imu_state(imu_state, ts)) {
       ROS_ERROR("oh noes, error reading IMU!");
       continue;
     }
@@ -105,18 +107,18 @@ void imu_thread_fn(OVC *ovc, ros::NodeHandle *nh)
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "ovc");
+  ros::init(argc, argv, "ovc2");
   ros::NodeHandle nh, nh_private("~");
 
-  OVC ovc;
-  if (!ovc.init()) {
-    ROS_FATAL("ovc init failed");
+  OVC2 ovc2;
+  if (!ovc2.init()) {
+    ROS_FATAL("ovc2 init failed");
     return 1;
   }
 
   ROS_INFO("spinning up worker threads...");
-  std::thread cam_thread(cam_thread_fn, &ovc, &nh);
-  std::thread imu_thread(imu_thread_fn, &ovc, &nh);
+  std::thread cam_thread(cam_thread_fn, &ovc2, &nh);
+  std::thread imu_thread(imu_thread_fn, &ovc2, &nh);
 
   ROS_INFO("starting main spin loop...");
   ros::spin();

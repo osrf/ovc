@@ -10,7 +10,6 @@
 #include <unistd.h>
 
 #include "ovc2.h"
-#include "../modules/ovc2_core/ovc2_ioctl.h"
 
 using ovc2::OVC2;
 
@@ -24,7 +23,8 @@ OVC2::OVC2()
   fd_imu_(-1),
   fd_cam_(-1),
   imu_serial_(NULL),
-  cam_dma_buf_(NULL)
+  cam_dma_buf_(NULL),
+  exposure_(0.005)
 {
 }
 
@@ -94,13 +94,13 @@ bool OVC2::init()
     return false;
   }
   printf("cam dma initialized OK\n");
-  if (!set_sync_timing(20)) {
+  if (!set_sync_timing(7)) {
     printf("OH NO couldn't set sync timing\n");
     return false;
   }
   printf("set sync timing OK\n");
 
-  if (!set_exposure(0.000001)) {
+  if (!set_exposure(0.005)) {
     printf("couldn't set exposure\n");
     return false;
   }
@@ -587,7 +587,7 @@ bool OVC2::imu_set_auto_poll(bool enable)
   return true;
 }
 
-bool OVC2::wait_for_imu_data(bool print_to_console)
+bool OVC2::wait_for_imu_state(OVC2IMUState &imu_state, struct timespec &t)
 {
   //struct ovc2_imu_data imu_data;
   int nread = read(fd_imu_, &imu_data_, sizeof(imu_data_));
@@ -595,7 +595,21 @@ bool OVC2::wait_for_imu_data(bool print_to_console)
     printf("got weird nread: %d\n", nread);
     return false;
   }
-  struct ovc2_imu_data *i = &imu_data_;  // save typing
+  struct ovc2_imu_data *p = &imu_data_;  // save typing
+
+  // for now, just copy over the IMU data fields.
+  // Maybe in the future we'll swap stuff around or whatever.
+  for (int i = 0; i < 3; i++) {
+    imu_state.accel[i] = p->accel[i];
+    imu_state.gyro[i] = p->gyro[i];
+    imu_state.mag_comp[i] = p->mag_comp[i];
+  }
+  for (int i = 0; i < 4; i++)
+    imu_state.quaternion[i] = p->quaternion[i];
+  imu_state.temperature = p->temperature;
+  imu_state.pressure = p->pressure;
+
+  /*
   if (print_to_console) {
     printf("read %d bytes from IMU\n", nread);
     printf("\n\n");
@@ -612,6 +626,7 @@ bool OVC2::wait_for_imu_data(bool print_to_console)
     printf("mag = %+.3f  %+.3f  %+.3f\n",
       i->mag_comp[0], i->mag_comp[1], i->mag_comp[2]);
   }
+  */
   return true;
 }
 
@@ -619,6 +634,7 @@ bool OVC2::set_exposure(float seconds)
 {
   if (seconds > 0.065)
     seconds = 0.065;
+  exposure_ = seconds;
   struct ovc2_ioctl_set_exposure se;
   se.exposure_usec = seconds * 1000000;
   int rc = ioctl(fd_, OVC2_IOCTL_SET_EXPOSURE, &se);
@@ -668,4 +684,31 @@ bool OVC2::set_corner_threshold(const uint8_t threshold)
     return false;
   }
   return true;
+}
+
+bool OVC2::update_autoexposure_loop(uint8_t *image)
+{
+  if (!image)
+    return false;  // wut
+  // todo: move this image-sum calculation into the FPGA
+  const uint32_t PIXEL_SKIP = 23;  // skip ahead a prime number of pixels
+  uint32_t sum = 0;
+  for (int i = 0; i < 1280*1024; i += PIXEL_SKIP)
+    sum += image[i];
+  const double current_brightness = sum / (double)(1280*1024/PIXEL_SKIP);
+  const double target_brightness = 100;  // target average pixel value
+  double new_exposure = exposure_ * target_brightness / current_brightness;
+  // clamp to sane values
+  if (new_exposure < 10e-6)
+    new_exposure = 10e-6;
+  else if (new_exposure > 10e-3)
+    new_exposure = 10e-3;
+
+  // slow down motion to the target a bit to avoid flicker
+  // could be smarter, but for now just crank through an exponential filter
+  const double alpha = 0.3;
+  double filtered_exposure = alpha * new_exposure + (1.0 - alpha) * exposure_;
+
+  //printf("new_exposure = %0.6f\n", new_exposure);
+  return set_exposure(filtered_exposure);
 }

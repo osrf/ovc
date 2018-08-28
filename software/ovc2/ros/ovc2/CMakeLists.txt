@@ -38,18 +38,18 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 
 include_directories(${catkin_INCLUDE_DIRS})
 
-add_library(ovc2 ovc2.cpp)
+add_library(ovc2 ovc2.cpp lightweightserial.cpp)
 target_link_libraries(ovc2 ${catkin_LIBRARIES})
 
 add_executable(ovc2_node ovc2_node.cpp)
 add_dependencies(ovc2_node
   ${ovc2_EXPORTED_TARGETS}
   ${catkin_EXPORTED_TARGETS})
-target_link_libraries(ovc2_node ovc ${catkin_LIBRARIES})
+target_link_libraries(ovc2_node ovc2 ${catkin_LIBRARIES})
 
 add_executable(corner_viewer corner_viewer.cpp)
 target_link_libraries(corner_viewer ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-add_dependencies(corner_viewer ${ovc_EXPORTED_TARGETS})
+add_dependencies(corner_viewer ${ovc2_EXPORTED_TARGETS})
 
 #############
 ## Install ##
