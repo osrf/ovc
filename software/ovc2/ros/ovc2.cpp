@@ -69,7 +69,7 @@ bool OVC2::init()
     return false;
   }
 
-  if (!set_corner_threshold(120))
+  if (!set_corner_threshold(40))
     return false;
 
   if (!configure_imagers())

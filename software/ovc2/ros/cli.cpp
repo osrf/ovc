@@ -124,10 +124,11 @@ int read_image(OVC2 *ovc2)
       }
       printf("\n");
     }
-    uint32_t corners[2] = {0};
-    corners[0] = *((uint32_t *)&img[1280*1024*2+ 8]);
-    corners[1] = *((uint32_t *)&img[1280*1024*2+12]);
+    uint16_t corners[2] = {0};
+    *((uint32_t *)corners) = *((uint32_t *)&img[1280*1024*2+ 8]);
+    uint32_t time_us = *((uint32_t *)&img[1280*1024*2+12]);
     printf("corners: %06d %06d\n", (int)corners[0], (int)corners[1]);
+    printf("time: %06d\n", (int)time_us);
   }
   fclose(f);
   return 0;
