@@ -232,28 +232,28 @@ always @* begin
       if (start)                      ctrl = { ST_EOF        , 8'b0000_0000 };
       else                            ctrl = { ST_IDLE       , 8'b0000_0000 };
     ST_EOF:
-      if (~cam_0_fv_clk125)           ctrl = { ST_SOF        , 8'b0000_0001 };
-      else                            ctrl = { ST_EOF        , 8'b0000_0000 };
+      if (~cam_0_fv_clk125)           ctrl = { ST_SOF        , 8'b0001_0001 };
+      else                            ctrl = { ST_EOF        , 8'b0001_0000 };
     ST_SOF:
-      if (cam_0_fv_clk125)            ctrl = { ST_IMAGE      , 8'b0000_0001 };
-      else                            ctrl = { ST_SOF        , 8'b0000_0001 };
+      if (cam_0_fv_clk125)            ctrl = { ST_IMAGE      , 8'b0001_0001 };
+      else                            ctrl = { ST_SOF        , 8'b0001_0001 };
     ST_IMAGE:
-      if (~cam_0_fv_clk125)           ctrl = { ST_IMAGE_WAIT , 8'b0000_0011 };
-      else                            ctrl = { ST_IMAGE      , 8'b0000_0001 };
+      if (~cam_0_fv_clk125)           ctrl = { ST_IMAGE_WAIT , 8'b0001_0011 };
+      else                            ctrl = { ST_IMAGE      , 8'b0001_0001 };
     ST_IMAGE_WAIT:
-      if (state_cnt == 8'hff)         ctrl = { ST_META       , 8'b0000_1010 };
-      else                            ctrl = { ST_IMAGE_WAIT , 8'b0000_0100 };
+      if (state_cnt == 8'hff)         ctrl = { ST_META       , 8'b0001_1010 };
+      else                            ctrl = { ST_IMAGE_WAIT , 8'b0001_0100 };
     ST_META:
-      if (metadata_flush_complete)    ctrl = { ST_META_WAIT  , 8'b0000_0010 };
-      else                            ctrl = { ST_META       , 8'b0000_0100 };
+      if (metadata_flush_complete)    ctrl = { ST_META_WAIT  , 8'b0001_0010 };
+      else                            ctrl = { ST_META       , 8'b0001_0100 };
     ST_META_WAIT:
-      if (state_cnt == 8'h1f)         ctrl = { ST_DMA_FLUSH  , 8'b0010_0010 };
-      else                            ctrl = { ST_META_WAIT  , 8'b0000_0100 };
+      if (state_cnt == 8'h1f)         ctrl = { ST_DMA_FLUSH  , 8'b0011_0010 };
+      else                            ctrl = { ST_META_WAIT  , 8'b0001_0100 };
     ST_DMA_FLUSH:
-      if (dma_flush_complete)         ctrl = { ST_RST        , 8'b0010_0010 };
-      else                            ctrl = { ST_DMA_FLUSH  , 8'b0010_0000 };
+      if (dma_flush_complete)         ctrl = { ST_RST        , 8'b0011_0010 };
+      else                            ctrl = { ST_DMA_FLUSH  , 8'b0011_0000 };
     ST_RST:
-      if (state_cnt == 8'h0f)         ctrl = { ST_IDLE       , 8'b1100_0010 };
+      if (state_cnt == 8'h0f)         ctrl = { ST_IDLE       , 8'b1101_0010 };
       else                            ctrl = { ST_RST        , 8'b0101_0100 };
     default:                          ctrl = { ST_IDLE       , 8'b0000_0000 };
   endcase
@@ -263,6 +263,7 @@ assign cam_cap_en = ctrl[0];
 assign state_cnt_rst = ctrl[1];
 assign state_cnt_en = ctrl[2];
 assign metadata_flush = ctrl[3];
+wire metadata_en = ctrl[4];
 wire dma_flush = ctrl[5];
 assign irq_set[0] = ctrl[7];
 assign cap_rst = ctrl[6];  // reset lots of things at end of capture
@@ -309,7 +310,8 @@ dma_writer_mux #(.N(5),
                    IMAGE_0_BASE})) dma_writer_mux_inst
 (.in_c({c, cam_1_rxc, cam_0_rxc, cam_1_rxc, cam_0_rxc}),
  .in_d({metadata_q, ast_q, cam_1_d, cam_0_d}),
- .in_dv({metadata_qv, ast_qv, cam_1_lv, cam_0_lv}),
+ .in_dv({metadata_qv & metadata_en, ast_qv,
+         cam_1_lv & cam_1_cap_en_rxc, cam_0_lv & cam_0_cap_en_rxc}),
  .c(c), .rst(cap_rst), .flush(dma_flush), .flush_complete(dma_flush_complete),
  .txs_write(txs_write), .txs_writedata(txs_writedata),
  .txs_burstcount(txs_burstcount), .txs_address(txs_address),
