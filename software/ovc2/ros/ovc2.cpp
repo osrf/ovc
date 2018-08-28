@@ -31,6 +31,7 @@ OVC2::OVC2()
 OVC2::~OVC2()
 {
   if (init_complete_) {
+    imu_set_auto_poll(false);
     close(fd_);
     close(fd_imu_);
     close(fd_cam_);

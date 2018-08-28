@@ -456,8 +456,8 @@ int ovc2_cam_open(struct inode *inode, struct file *fp)
 
 int ovc2_cam_release(struct inode *inode, struct file *file)
 {
-  //printk(KERN_INFO "ovc2_cam_release()\n");
   ovc2_set_bit(OVC2_REG_PCIE_PIO, 8, false);  // clear the dma-enable bit
+  printk(KERN_INFO "ovc2_cam_release()\n");
   return 0;  // success
 }
 
