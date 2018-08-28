@@ -69,7 +69,7 @@ bool OVC2::init()
     return false;
   }
 
-  if (!set_corner_threshold(40))
+  if (!set_corner_threshold(30))
     return false;
 
   if (!configure_imagers())
@@ -696,7 +696,7 @@ bool OVC2::update_autoexposure_loop(uint8_t *image)
   for (int i = 0; i < 1280*1024; i += PIXEL_SKIP)
     sum += image[i];
   const double current_brightness = sum / (double)(1280*1024/PIXEL_SKIP);
-  const double target_brightness = 100;  // target average pixel value
+  const double target_brightness = 120;  // target average pixel value
   double new_exposure = exposure_ * target_brightness / current_brightness;
   // clamp to sane values
   if (new_exposure < 10e-6)
