@@ -97,9 +97,10 @@ For convenience, the `~/.bashrc` of the default `nvidia` user adds
 Typically, all you need to run is the `ovc2_reconfigure` script, which does
 the following:
  * unloads modules which use PCIe
- * load the `ovc2_cfg` module, which configures the FPGA over SPI
- * load the `pcie_tegra` module, which enumerates the PCI bus
- * load the `ovc2_core` module, which provides a userland driver for ovc2 on three device nodes: `/dev/ovc2_core` `/dev/ovc2_cam` `/dev/ovc2_imu`
+ * loads the `ovc2_cfg` module, which creates a device node `/dev/ovc2_cfg` to expose a configuration interface to userland
+ * writes the FPGA configuration from userland to the `/dev/ovc2_cfg` device, which in turn uses the TX2 SPI interface to configure the FPGA
+ * loads the `pcie_tegra` module, which enumerates the PCIe bus and finds our newly-configured FPGA on it
+ * loads the `ovc2_core` module, which provides a userland driver for ovc2 on three device nodes: `/dev/ovc2_core` `/dev/ovc2_cam` `/dev/ovc2_imu`
 
 For a typical software-development session, you typically just type
 `ovc2_reconfigure` and it's all automatic.
