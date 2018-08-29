@@ -1,10 +1,15 @@
 #!/bin/bash
 set -o verbose
+# first make sure all clock dividers are dialed up to 11
+sudo $HOME/jetson_clocks.sh
+# now unload anything dealing with PCIe
 sudo rmmod ovc2_core
 sudo rmmod pci_tegra
+# configure the FPGA
 cd ~/ovc/software/ovc2/modules/ovc2_cfg
 sudo ./load
 sudo $HOME/ovc/firmware/ovc2/configure_fpga.py $HOME/ovc2a.rbf
+# and re-load PCIe stuff
 sudo modprobe pci_tegra
 sleep 3
 cd ~/ovc/software/ovc2/modules/ovc2_core

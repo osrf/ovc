@@ -1,0 +1,9 @@
+#!/bin/bash
+set -o verbose
+# for reasons unknown at time of writing, if "sudo poweroff" is attempted
+# while the ovc2_core module is loaded, the TX2 crashes hard during the
+# shutdown process, which requires you to hold down the power button until
+# the TX2 PMIC does a hard shutdown. Unloading the ovc2_core module before
+# attempting shutdown "fixes" it. Not sure why.
+sudo rmmod ovc2_core
+sudo poweroff
