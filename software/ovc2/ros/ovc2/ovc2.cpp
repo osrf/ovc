@@ -217,7 +217,12 @@ bool OVC2::configure_imager(const int imager_idx)
   ADD_REG( 42, 0x4110);
   ADD_REG( 43, 0x0008);
   ADD_REG( 65, 0x382b);
-  ADD_REG( 66, 0x53c8);  // bias current
+  //ADD_REG( 66, 0x53c8);  // bias current recommended setting
+  // unfortunately using current=8 seems to overdrive the Cyclone 10 GX
+  // receiver, and lowering it to 4 seems to eliminate row banding
+  // for reasons that don't make a lot of sense. Maybe it's because the
+  // C10GX LVDS receiver is running from a 1.8v rail and needs more margin?
+  ADD_REG( 66, 0x53c4);  // bias current
   ADD_REG( 67, 0x0665);
   ADD_REG( 68, 0x0088);  // lvds comm+diff level
   ADD_REG( 70, 0x1111);
@@ -746,7 +751,7 @@ bool OVC2::update_autoexposure_loop(uint8_t *image)
   for (int i = 0; i < 1280*1024; i += PIXEL_SKIP)
     sum += image[i];
   const double current_brightness = sum / (double)(1280*1024/PIXEL_SKIP);
-  const double target_brightness = 120;  // target average pixel value
+  const double target_brightness = 100;  // target average pixel value
   double new_exposure = exposure_ * target_brightness / current_brightness;
   // clamp to sane values
   if (new_exposure < 10e-6)
