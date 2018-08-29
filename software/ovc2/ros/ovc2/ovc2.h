@@ -35,6 +35,8 @@ private:
   LightweightSerial *imu_serial_;
   uint8_t *cam_dma_buf_;
   double exposure_;
+  struct timespec t_offset, t_prev_offset, t_prev_imu;
+  double t_prev_poll;
 
   bool enable_reg_ram();
 	bool configure_imager(const int imager_idx);
@@ -44,6 +46,11 @@ private:
   bool write_imu_reg_str(const char * const request);
   bool imu_append_checksum(char *request);
   bool imu_set_auto_poll(bool enable);
+
+  bool estimate_timestamp_offset();
+  void hardware_time_to_system_time(
+    const uint64_t t_hw, struct timespec &t_out);
+
 };
 
 }

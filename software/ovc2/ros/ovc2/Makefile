@@ -2,8 +2,8 @@ BIN=bin
 NAME=ovc2_cli
 OUT=$(BIN)/$(NAME)
 
-LDFLAGS=-g
-CFLAGS=-O2 -g --std=c++14
+LDFLAGS=-g -L/opt/ros/kinetic/lib -lrostime
+CFLAGS=-O2 -g --std=c++14 -I/opt/ros/kinetic/include
 
 SRCS=cli.cpp ovc2.cpp lightweightserial.cpp
 OBJS=$(SRCS:%.cpp=$(BIN)/%.o)

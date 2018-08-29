@@ -76,17 +76,25 @@ int configure_imu(OVC2 *ovc2)
 
 int read_imu(OVC2 *ovc2)
 {
-  return ovc2->wait_for_imu_data(true) ? 0 : 1;
+  OVC2IMUState imu_state;
+  struct timespec t;
+  if (!ovc2->wait_for_imu_state(imu_state, t) ? 0 : 1)
+    return 1;
+  printf("read imu OK\n");
+  return 0;
 }
 
 int stream_imu(OVC2 *ovc2)
 {
+  OVC2IMUState imu_state;
+  struct timespec t;
+
   while (!g_done) {
-    if (!ovc2->wait_for_imu_data())
+    if (!ovc2->wait_for_imu_state(imu_state, t))
       break;
-    struct ovc2_imu_data *i = &ovc2->imu_data_;
+    struct OVC2IMUState *i = &imu_state;  // save some typing
     printf("\n\n");
-    printf("t_usecs = %llu\n", (long long unsigned)i->t_usecs);
+    printf("t = %d.%09d\n", (int)t.tv_sec, (int)t.tv_nsec);
     printf("accel = %+.3f  %+.3f  %+.3f\n",
       i->accel[0], i->accel[1], i->accel[2]);
     printf("gyro  = %+.3f  %+.3f  %+.3f\n",

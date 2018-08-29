@@ -9,6 +9,8 @@
 #include <sys/mman.h>   // mmap
 #include <unistd.h>
 
+#include <ros/ros.h>  // for ros::Time (todo: remove this sometime?)
+
 #include "ovc2.h"
 
 using ovc2::OVC2;
@@ -24,8 +26,11 @@ OVC2::OVC2()
   fd_cam_(-1),
   imu_serial_(NULL),
   cam_dma_buf_(NULL),
-  exposure_(0.005)
+  exposure_(0.005),
+  t_prev_poll(0)
 {
+  t_prev_offset.tv_sec  = t_offset.tv_sec  = t_prev_imu.tv_sec  = 0;
+  t_prev_offset.tv_nsec = t_offset.tv_nsec = t_prev_imu.tv_nsec = 0;
 }
 
 OVC2::~OVC2()
@@ -589,13 +594,39 @@ bool OVC2::imu_set_auto_poll(bool enable)
 
 bool OVC2::wait_for_imu_state(OVC2IMUState &imu_state, struct timespec &t)
 {
-  //struct ovc2_imu_data imu_data;
   int nread = read(fd_imu_, &imu_data_, sizeof(imu_data_));
   if (nread != sizeof(imu_data_)) {
     printf("got weird nread: %d\n", nread);
     return false;
   }
   struct ovc2_imu_data *p = &imu_data_;  // save typing
+
+  struct timespec t_test;
+  hardware_time_to_system_time(p->t_usecs, t_test);
+
+  // make sure t_test - t_prev_imu is sane
+  const double t_test_s = t_test.tv_sec + (double)t_test.tv_nsec / 1.0e9;
+  const double t_prev_imu_s = t_prev_imu.tv_sec +
+			(double)t_prev_imu.tv_nsec / 1.0e9;
+  const double t_test_dt = t_test_s - t_prev_imu_s;
+
+  if (t_prev_imu_s == 0 || (t_test_dt > 0 && t_test_dt < 0.5)) {
+    t = t_test;  // use the calculated system_time + hardware offset
+  }
+  else {
+    // the image thread changed the time offset while we were polling the IMU.
+    // "Fix it" by estimating the IMU time of this sample to be 1 period
+    // after the previous IMU time, rather than using the hardware timestamp
+    // NOTE: the IMU is hard-coded to 200 Hz output in OVC::configure_imu()
+
+    const uint64_t dt_imu_usecs_est = 1000000000 / 200;  // 5 million nanosec
+    const uint64_t nsec_sum = t_prev_imu.tv_nsec + dt_imu_usecs_est;
+    const uint64_t nsec_mod = nsec_sum % 1000000000;
+    t.tv_nsec = nsec_mod;
+    t.tv_sec = t_prev_imu.tv_sec + (nsec_sum - nsec_mod) / 1000000000;
+  }
+  // save timestamp for next iteration
+  t_prev_imu = t;
 
   // for now, just copy over the IMU data fields.
   // Maybe in the future we'll swap stuff around or whatever.
@@ -604,8 +635,9 @@ bool OVC2::wait_for_imu_state(OVC2IMUState &imu_state, struct timespec &t)
     imu_state.gyro[i] = p->gyro[i];
     imu_state.mag_comp[i] = p->mag_comp[i];
   }
-  for (int i = 0; i < 4; i++)
+  for (int i = 0; i < 4; i++) {
     imu_state.quaternion[i] = p->quaternion[i];
+	}
   imu_state.temperature = p->temperature;
   imu_state.pressure = p->pressure;
 
@@ -647,6 +679,15 @@ bool OVC2::set_exposure(float seconds)
 
 bool OVC2::wait_for_image(uint8_t **p, struct timespec &t)
 {
+  // every second, re-slew the onboard timestamps to system time
+  // to deal with clock drift. At some point we can get smarter
+  // and speed/slow the onboard clock, if it becomes an issue.
+  const double t_poll = ros::Time::now().toSec();
+  if (t_poll - t_prev_poll > 1.0) {
+    estimate_timestamp_offset();
+    t_prev_poll = t_poll;
+  }
+
   uint8_t dummy = 0;
   int read_rc = read(fd_cam_, &dummy, 1);
   if (read_rc < 0) {
@@ -654,6 +695,15 @@ bool OVC2::wait_for_image(uint8_t **p, struct timespec &t)
     return false;
   }
   *p = cam_dma_buf_;
+
+  const uint32_t * const meta = (uint32_t *)(&cam_dma_buf_[1280*1024*2]);
+  const uint32_t t_hw_low = meta[3];
+  const uint32_t t_hw_high = meta[4];
+  const uint64_t t_hw = ((uint64_t)t_hw_high << 32) | t_hw_low;
+
+  // t_hw is in microseconds. we need to add that to the t_offset
+  hardware_time_to_system_time(t_hw, t);
+
   return true;  
 }
 
@@ -711,4 +761,30 @@ bool OVC2::update_autoexposure_loop(uint8_t *image)
 
   //printf("new_exposure = %0.6f\n", new_exposure);
   return set_exposure(filtered_exposure);
+}
+
+bool OVC2::estimate_timestamp_offset()
+{
+  if (!set_bit(0, 9, true))  // assert timestamp-reset
+    return false;
+  if (!set_bit(0, 9, false))  // de-assert timestamp reset
+    return false;
+
+	t_prev_offset.tv_sec = t_offset.tv_sec;
+  t_prev_offset.tv_nsec = t_offset.tv_nsec;
+  // poll system time. Use that as the offset.
+  if (0 != clock_gettime(CLOCK_REALTIME, &t_offset)) {
+    printf("oh no, clock_gettime() returned an error :(\n");
+    return false;
+  }
+  return true;
+}
+
+void OVC2::hardware_time_to_system_time(
+  const uint64_t t_hw, struct timespec &t_out)
+{
+  uint64_t nsec_sum = t_offset.tv_nsec + t_hw * 1000;
+  uint64_t nsec_mod = nsec_sum % 1000000000;
+  t_out.tv_nsec = nsec_mod;
+  t_out.tv_sec = t_offset.tv_sec + (nsec_sum - nsec_mod) / 1000000000;
 }
