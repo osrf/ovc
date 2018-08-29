@@ -14,14 +14,81 @@ the art open hardware with open firmware and software. There are a few revs:
 
  * ovc1 hardware currently lives in 'hardware/ovc1' as a single KiCAD PCB.
    * schematics are provided as [PDF](https://github.com/osrf/ovc/raw/master/hardware/ovc1/ovc.pdf) or native KiCAD files
- * ovc2 hardware (under construction) lives in 'hardware/ovc2'
+ * ovc2 hardware lives in 'hardware/ovc2'
  
 # where do I find other stuff
 
- * Firmware and software for ovc1 is in the 'firmware' and 'software'
+ * Firmware and software for ovc1 and ovc2 are in the 'firmware' and 'software'
 directories in this repo.
 
 # how do I update everything
+
+## ovc2
+
+### Update source tree
+```
+cd ~/ovc
+git pull
+```
+
+### Compile kernel module
+```
+cd ~/ovc/software/ovc2/modules/ovc2_core
+make
+```
+
+### Compile ROS package (userland)
+```
+mkdir -p ~/ros/src
+ln -s ~/ovc/software/ovc2/ros/ovc2 ~/ros/src
+cd ~/ros
+catkin build
+```
+
+# how do I run stuff
+For convenience, the `~/.bashrc` of the default `nvidia` user adds
+`~/ovc/software/ovc2/scripts` to `$PATH`.
+
+Typically, all you need to run is the `ovc2_reconfigure` script, which does
+the following:
+ * unloads modules which use PCIe
+ * load the `ovc2_cfg` module, which configures the FPGA over SPI
+ * load the `pcie_tegra` module, which enumerates the PCI bus
+ * load the `ovc2_core` module, which provides a userland driver for ovc2 on three device nodes: `/dev/ovc2_core` `/dev/ovc2_cam` `/dev/ovc2_imu`
+
+For a typical software-development session, you typically just type
+`ovc2_reconfigure` and it's all automatic.
+
+Then, you can run the ROS image streamer and feature-visualizer nodes:
+
+Terminal 1:
+```
+roscore
+```
+
+Terminal 2:
+```
+cd ~/ros
+source devel/setup.bash
+rosrun ovc2 ovc2_node
+```
+
+Terminal 3:
+```
+rosrun ovc2 corner_viewer
+```
+
+I'm usually shelling into the camera, so "Terminal 1" and "Terminal 2" are
+remote shells on the camera, and "Terminal 3" is running locally on my
+workstation, setting `ROS_MASTER_URI` as needed to point to the camera (adjust
+the camera hostname as needed):
+
+```
+export ROS_MASTER_URI=http://ovc2a3.local:11311
+rosrun ovc corner_viewer
+```
+
+## ovc1
 
 ### Update source tree
 ```
