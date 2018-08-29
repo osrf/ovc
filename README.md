@@ -25,19 +25,23 @@ directories in this repo.
 
 ## ovc2
 
-### Update source tree
+On the OVC2, the TX2 simply configures the FPGA over SPI. Because there are
+no flash memories outside the TX2, the update process is considerably simpler
+than on the OVC1.
+
+#### Update source tree
 ```
 cd ~/ovc
 git pull
 ```
 
-### Compile kernel module
+#### Compile kernel module
 ```
 cd ~/ovc/software/ovc2/modules/ovc2_core
 make
 ```
 
-### Compile ROS package (userland)
+#### Compile ROS package (userland)
 ```
 mkdir -p ~/ros/src
 ln -s ~/ovc/software/ovc2/ros/ovc2 ~/ros/src
@@ -45,7 +49,48 @@ cd ~/ros
 catkin build
 ```
 
+## ovc1
+
+#### Update source tree
+```
+cd ~/ovc
+git pull
+```
+
+#### Compile kernel module
+```
+cd ~/ovc/software/ovc1/ovc_module
+make
+```
+
+#### Flash FPGA i/o image and reconfigure FPGA
+The OVC1 uses a configuration microcontroller to set up the FPGA I/O ring to
+allow PCIe-based configuration. This is great because it's super-fast, but it's
+a bit more complicated because the FPGA image lives partly in the
+microcontroller flash memory, and partly in the TX2 filesystem. As such, there
+are a multiple steps to updating the FPGA image. Fortunately, the FPGA I/O
+image should only change infrequently. Note that the microcontroller-flash
+script only needs to be run when the FPGA I/O image changes; most updates
+affect only the FPGA core, not the I/O ring.
+
+```
+cd ~/scripts
+./flash_fpga_config.sh
+./reconfigure_fpga.sh
+```
+
+#### Compile ROS package (userland)
+```
+mkdir -p ~/ros/src
+ln -s ~/ovc/software/ovc1/ros/ovc ~/ros/src
+cd ~/ros
+catkin build
+```
+
 # how do I run stuff
+
+## ovc2
+
 For convenience, the `~/.bashrc` of the default `nvidia` user adds
 `~/ovc/software/ovc2/scripts` to `$PATH`.
 
@@ -90,36 +135,7 @@ rosrun ovc corner_viewer
 
 ## ovc1
 
-### Update source tree
-```
-cd ~/ovc
-git pull
-```
-
-### Compile kernel module
-```
-cd ~/ovc/software/ovc1/ovc_module
-make
-```
-
-### Flash FPGA i/o image and reconfigure FPGA
-This should be infrequent; we'll let you know when this is necessary and eventually develop some sort of automatic routine to detect when the FPGA image is out-of-date.
-```
-cd ~/scripts
-./flash_fpga_config.sh
-./reconfigure_fpga.sh
-```
-
-### Compile ROS package (userland)
-```
-mkdir -p ~/ros/src
-ln -s ~/ovc/software/ovc1/ros/ovc ~/ros/src
-cd ~/ros
-catkin build
-```
-
-# how do I run stuff
-For a typical software-development session (unless you need to re-flash and reconfigure the FPGA; see above) you just need to load the kernel module. We'll automate this eventually, once it gets more stable, but for now (to avoid boot loops) let's leave the module-loading as a manual step...
+For a typical software-development session (unless you need to re-flash and reconfigure the FPGA) you just need to load the kernel module. We'll automate this eventually, once it gets more stable, but for now (to avoid boot loops) let's leave the module-loading as a manual step...
 ```
 ~/scripts/init_fpga.sh
 ```
