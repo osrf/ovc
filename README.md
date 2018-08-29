@@ -133,6 +133,20 @@ export ROS_MASTER_URI=http://ovc2a3.local:11311
 rosrun ovc corner_viewer
 ```
 
+#### Powering Down
+
+For reasons unknown at the moment, if you try to power down the TX2 without
+first unloading the `ovc2_core` kernel module, the system will hang during
+the shutdown process, requiring you to then hold the TX2 power button down
+until the PMIC finally does a hard-shutdown.
+
+If you run this script instead:
+```
+ovc2_poweroff
+```
+It will first unload the `ovc2_core` module and then run `poweroff`. It just
+saves one step to type `ovc2_poweroff` instead.
+
 ## ovc1
 
 For a typical software-development session (unless you need to re-flash and reconfigure the FPGA) you just need to load the kernel module. We'll automate this eventually, once it gets more stable, but for now (to avoid boot loops) let's leave the module-loading as a manual step...
