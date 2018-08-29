@@ -14,7 +14,7 @@ using message_filters::TimeSynchronizer;
 static const int IMG_WIDTH  = 1280;
 static const int IMG_HEIGHT = 1024;
 
-#define NUM_IMAGES 2
+#define NUM_IMAGES 1
 
 void sync_cb(const Image::ConstPtr &img_msg, const Metadata::ConstPtr &md_msg)
 {
