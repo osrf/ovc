@@ -2085,4 +2085,105 @@ NoConn ~ 9950 4500
 NoConn ~ 9950 4300
 NoConn ~ 9950 4100
 NoConn ~ 10950 3700
+$Comp
+L load_switches:TPS2660xPWP U?
+U 1 1 5B9C7C62
+P 11550 1850
+F 0 "U?" H 11525 2715 50  0000 C CNN
+F 1 "TPS2660xPWP" H 11525 2624 50  0000 C CNN
+F 2 "Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask3x3mm_ThermalVias" H 11600 2800 50  0001 C CNN
+F 3 "" H 11700 1850 50  0001 C CNN
+	1    11550 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10950 1350 10950 1250
+Wire Wire Line
+	10950 1250 10150 1250
+Connection ~ 10950 1250
+$Comp
+L Device:C_Small C?
+U 1 1 5B9E8BA5
+P 10150 1400
+F 0 "C?" H 10250 1450 50  0000 L CNN
+F 1 "1u" H 10250 1350 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 10150 1400 50  0001 C CNN
+F 3 "~" H 10150 1400 50  0001 C CNN
+F 4 "100 V" H 9800 1400 50  0000 L CNN "Voltage"
+	1    10150 1400
+	1    0    0    -1  
+$EndComp
+Connection ~ 10150 1250
+$Comp
+L power:GND #PWR?
+U 1 1 5B9F7443
+P 10150 1500
+F 0 "#PWR?" H 10150 1250 50  0001 C CNN
+F 1 "GND" H 10155 1327 50  0001 C CNN
+F 2 "" H 10150 1500 50  0001 C CNN
+F 3 "" H 10150 1500 50  0001 C CNN
+	1    10150 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9850 1250 10150 1250
+Text Label 9900 1250 0    60   ~ 0
+VIN
+$Comp
+L Device:R_Small R?
+U 1 1 5BA1AF91
+P 10650 1650
+F 0 "R?" H 10700 1700 50  0000 L CNN
+F 1 "712k" H 10700 1600 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" H 10650 1650 50  0001 C CNN
+F 3 "~" H 10650 1650 50  0001 C CNN
+F 4 "100 V" H 10350 1650 50  0000 L CNN "Voltage"
+	1    10650 1650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10650 1550 10950 1550
+Wire Wire Line
+	10950 1750 10650 1750
+Wire Wire Line
+	10150 1300 10150 1250
+Text Notes 9800 2050 0    50   ~ 0
+TODO: calculate\nUVLO and OVP\nfor 10v and 14v
+$Comp
+L power:+12V #PWR?
+U 1 1 5BA8EC65
+P 12750 1250
+AR Path="/5BA8EC65" Ref="#PWR?"  Part="1" 
+AR Path="/596A6D90/5BA8EC65" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 12750 1100 50  0001 C CNN
+F 1 "+12V" H 12765 1423 50  0000 C CNN
+F 2 "" H 12750 1250 50  0001 C CNN
+F 3 "" H 12750 1250 50  0001 C CNN
+	1    12750 1250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12100 1350 12100 1250
+Wire Wire Line
+	12100 1250 12750 1250
+Connection ~ 12100 1250
+$Comp
+L power:GND #PWR?
+U 1 1 5BAA2D42
+P 12250 2150
+F 0 "#PWR?" H 12250 1900 50  0001 C CNN
+F 1 "GND" H 12255 1977 50  0001 C CNN
+F 2 "" H 12250 2150 50  0001 C CNN
+F 3 "" H 12250 2150 50  0001 C CNN
+	1    12250 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12250 2150 12100 2150
+NoConn ~ 12100 2250
+NoConn ~ 12100 2350
+Text Notes 12200 1550 0    50   ~ 0
+open-drain: can probably connect directly to JETSON_PWR_BAD
+Text Notes 3950 4150 0    118  ~ 24
+TODO: what should JETSON_RESET_OUT connect to now?
 $EndSCHEMATC
