@@ -1,5 +1,20 @@
 # ovc2a Hardware Documentation
 
+### UARTs and other TX2 peripherals
+
+Here is a rendering of the bottom of the TX2 carrier board:
+![tx2-peripherals](https://github.com/osrf/ovc/raw/master/doc/ovc2a/ovc2a_mobo_bottom.png "TX2 peripherals")
+
+The right-hand side (the side with the two buttons) has several UARTs:
+ * UART0 is the Linux root console.
+ * UART2 is available for userland use
+ * UART3 is available for userland use
+
+Those UARTs are all buffered to 3.3v, but should still be treated as
+static-sensitive since they do not have ESD clamp diodes.
+
+They should appear in userland as `/dev/ttyTHS2` and `/dev/ttyTHS3`
+
 ### Ethernet
 
 Unfortunately we assumed the Ethernet PHY on the TX2 was capable of swapping
