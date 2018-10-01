@@ -14,7 +14,11 @@ and outdoor exploration and navigation operations on our Falcon 250
 quadrotor platform. This manuscript can be found on
 [arXiv](https://arxiv.org/abs/1809.07674v1).
 
+## OVC1
 ![OVC](./assets/images/ovc1_front_smaller.jpg)
+
+## OVC2
+![OVC](./assets/images/ovc2-img1.png)
 
 ## [Software Resources](./software.html)
 
@@ -40,5 +44,6 @@ Project overview of the DARPA Fast Lightweight Autonomy programme, featuring our
 unmanned aerial vehicle platform powered by the Open Vision Computer.
 [![Alt text](https://img.youtube.com/vi/vDYy3L9nvLk/0.jpg)](https://www.youtube.com/watch?v=vDYy3L9nvLk)
 
-
+### Falcon 250 with the OVC
+![OVC](./assets/images/ovc1-drone.png)
 
