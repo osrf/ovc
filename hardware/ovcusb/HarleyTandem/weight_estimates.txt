@@ -1,0 +1,18 @@
+screw: 0.225g
+lens holder: 2.5
+lens holder +3 M2 screws: 3.175g
+M12 lense: 5.77g
+Both 8.945
+
+3 cameras: 27.5g
+
+Processing board ~7-8g
+(prev stereo 13.1g 12.68: DF40 = 0.5)
+Sensor board
+PCB alone ~15g
+PCB+components ~18g
+PCB+components+optics = ~46g
+
+Stack total ~55g
+
+Tirnocular module + mounting ~65g
