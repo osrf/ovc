@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>The Open Vision Computer | An Integrated Sensing and Compute System for Mobile Robots</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="The Open Vision Computer" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An Integrated Sensing and Compute System for Mobile Robots" />
+<meta property="og:description" content="An Integrated Sensing and Compute System for Mobile Robots" />
+<link rel="canonical" href="http://localhost:4000/software.html" />
+<meta property="og:url" content="http://localhost:4000/software.html" />
+<meta property="og:site_name" content="The Open Vision Computer" />
+<script type="application/ld+json">
+{"description":"An Integrated Sensing and Compute System for Mobile Robots","@type":"WebPage","url":"http://localhost:4000/software.html","headline":"The Open Vision Computer","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>The Open Vision Computer</h1>
+        <p>An Integrated Sensing and Compute System for Mobile Robots</p>
+      </header>
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h2 id="software">Software</h2>
+
+<p>We have a collection of repositories to support the OVC for various computer
+vision and robotics related tasks,</p>
+
+<h3 id="real-time-semantic-segmentation">Real-time Semantic Segmentation</h3>
+<ul>
+<li><a href="https://github.com/ShreyasSkandanS/ss_segmentation.git">GitHub</a></li>
+<li>Type: ROS | Python | PyTorch</li>
+<li>Details: This package is based on ERFNet, a semantic segmentation deep learning
+network architecture. We have packaged together a quick and simple way to train
+this model on two classes for fast and accurate object segmentation. This
+package is designed to work on the OVC platform and we have achieved accurate
+object detection results at 10Hz at half the original camera resolution.</li>
+</ul>
+
+<h3 id="stereo-image-splitter">Stereo Image Splitter</h3>
+<ul>
+<li><a href="https://github.com/ShreyasSkandan/splitter.git">GitHub</a></li>
+<li>Type: ROS | C++ | OpenCV</li>
+<li>Details: This is a simple but useful ROS node to de-couple the single
+stacked, synchronized images into two individual synchronized image streams for
+both individual imagers.</li>
+</ul>
+
+<h3 id="stereo-image-rectifier">Stereo Image Rectifier</h3>
+<ul>
+<li><a href="https://github.com/ShreyasSkandanS/stereo_fisheye_rectify.git">GitHub</a></li>
+<li>Type: ROS | C++ | OpenCV</li>
+<li>Details: For our robotics related applications, we use a pair of wide-angle
+lenses for our cameras. This package performs a fisheye rectification of input
+images, either in the vertically concatenated stacked format or as synchronized
+separate image streams.</li>
+</ul>
+
+<h3 id="gpu-accelerated-dense-stereo-disparity-estimation">GPU Accelerated Dense Stereo Disparity Estimation</h3>
+<ul>
+<li><a href="https://github.com/ShreyasSkandanS/cuda_sgm_ros.git">GitHub</a></li>
+<li>Type: ROS | C++ | OpenCV</li>
+<li>Details: A ROS node of the Semi-Global Matching algorithm implemented originally by
+Hernandez et. al with a few modifications and a ROS front-end. Performs dense
+stereo depth estimation, with point cloud, disparity image and regular 8bit
+disparity image topics.</li>
+</ul>
+
+<h3 id="stereo-visual-inertial-odometry">Stereo Visual Inertial Odometry</h3>
+
+<ul>
+<li>Coming soon..</li>
+</ul>
+
+<h3 id="multicamera-calibration">Multicamera Calibration</h3>
+<ul>
+<li>Coming soon..</li>
+</ul>
+
+<p><a href="./">back</a></p>
+
+
+      </section>
+      <footer>
+        
+      </footer>
+    </div>
+
+    
+  </body>
+</html>
