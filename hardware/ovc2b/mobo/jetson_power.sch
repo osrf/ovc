@@ -491,4 +491,19 @@ Connection ~ 6150 3950
 Connection ~ 6150 4350
 NoConn ~ 4000 2200
 NoConn ~ 4000 2100
+$Comp
+L Motor:Fan_4pin M?
+U 1 1 5BBB625C
+P 4650 5800
+F 0 "M?" H 4808 5896 50  0000 L CNN
+F 1 "Jetson Heatsink and Fan" H 4808 5805 50  0000 L CNN
+F 2 "" H 4650 5810 50  0001 C CNN
+F 3 "http://www.formfactors.org/developer%5Cspecs%5Crev1_2_public.pdf" H 4650 5810 50  0001 C CNN
+F 4 "Auvidea" H 4650 5800 50  0001 C CNN "MFN"
+F 5 "29052" H 4650 5800 50  0001 C CNN "MPN"
+	1    4650 5800
+	-1   0    0    -1  
+$EndComp
+Text Notes 5200 5850 0    50   ~ 0
+TODO: connector and driver FETs
 $EndSCHEMATC
