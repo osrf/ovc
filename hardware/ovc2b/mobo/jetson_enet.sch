@@ -226,41 +226,39 @@ Text Label 4100 3500 0    60   ~ 0
 GBE_MDI3+
 Text Label 4100 3600 0    60   ~ 0
 GBE_MDI3-
-Text Label 7350 3250 0    60   ~ 0
-GBE_MDI0+
-Text Label 7350 3150 0    60   ~ 0
-GBE_MDI0-
-Text Label 7350 3450 0    60   ~ 0
-GBE_MDI1+
-Text Label 7350 3350 0    60   ~ 0
-GBE_MDI1-
-Text Label 7350 2950 0    60   ~ 0
-GBE_MDI2+
-Text Label 7350 3050 0    60   ~ 0
-GBE_MDI2-
 Text Label 7350 2750 0    60   ~ 0
-GBE_MDI3+
+GBE_MDI0+
 Text Label 7350 2850 0    60   ~ 0
+GBE_MDI0-
+Text Label 7350 2950 0    60   ~ 0
+GBE_MDI1+
+Text Label 7350 3050 0    60   ~ 0
+GBE_MDI1-
+Text Label 7350 3150 0    60   ~ 0
+GBE_MDI2+
+Text Label 7350 3250 0    60   ~ 0
+GBE_MDI2-
+Text Label 7350 3350 0    60   ~ 0
+GBE_MDI3+
+Text Label 7350 3450 0    60   ~ 0
 GBE_MDI3-
-Text Notes 8150 2150 0    60   ~ 0
-ok to swap pairs\nfor layout
 Text Notes 2000 4400 0    60   ~ 0
 VCC floated as per Littelfuse\nEthernet Protection Design Guide
-Text Label 4600 4550 0    60   ~ 0
-GBE_MDI0+
-Text Label 4600 4650 0    60   ~ 0
-GBE_MDI0-
-Text Label 4600 4450 0    60   ~ 0
-GBE_MDI1+
-Text Label 4600 4350 0    60   ~ 0
-GBE_MDI1-
-Text Label 4600 5200 0    60   ~ 0
-GBE_MDI2+
-Text Label 4600 5300 0    60   ~ 0
-GBE_MDI2-
 Text Label 4600 5500 0    60   ~ 0
-GBE_MDI3+
+GBE_MDI0+
 Text Label 4600 5400 0    60   ~ 0
+GBE_MDI0-
+Text Label 4600 5200 0    60   ~ 0
+GBE_MDI1+
+Text Label 4600 5300 0    60   ~ 0
+GBE_MDI1-
+Text Label 4600 4650 0    60   ~ 0
+GBE_MDI2+
+Text Label 4600 4550 0    60   ~ 0
+GBE_MDI2-
+Text Label 4600 4350 0    60   ~ 0
+GBE_MDI3+
+Text Label 4600 4450 0    60   ~ 0
 GBE_MDI3-
 Wire Wire Line
 	5550 3300 6050 3300
@@ -285,6 +283,14 @@ Wire Wire Line
 Wire Wire Line
 	4050 3600 4650 3600
 Wire Wire Line
+	7300 2750 7900 2750
+Wire Wire Line
+	7300 2850 7900 2850
+Wire Wire Line
+	7300 3050 7900 3050
+Wire Wire Line
+	7300 2950 7900 2950
+Wire Wire Line
 	7300 3150 7900 3150
 Wire Wire Line
 	7300 3250 7900 3250
@@ -292,14 +298,6 @@ Wire Wire Line
 	7300 3350 7900 3350
 Wire Wire Line
 	7300 3450 7900 3450
-Wire Wire Line
-	7300 2950 7900 2950
-Wire Wire Line
-	7300 3050 7900 3050
-Wire Wire Line
-	7300 2750 7900 2750
-Wire Wire Line
-	7300 2850 7900 2850
 Wire Wire Line
 	4450 2600 5200 2600
 Wire Wire Line
@@ -309,21 +307,21 @@ Wire Wire Line
 Wire Wire Line
 	4250 2800 4250 2750
 Wire Wire Line
-	4550 4650 5150 4650
-Wire Wire Line
-	4550 4350 5150 4350
-Wire Wire Line
-	4550 4450 5150 4450
-Wire Wire Line
-	4550 4550 5150 4550
+	4550 5400 5150 5400
 Wire Wire Line
 	4550 5300 5150 5300
 Wire Wire Line
-	4550 5400 5150 5400
+	4550 5200 5150 5200
 Wire Wire Line
 	4550 5500 5150 5500
 Wire Wire Line
-	4550 5200 5150 5200
+	4550 4550 5150 4550
+Wire Wire Line
+	4550 4450 5150 4450
+Wire Wire Line
+	4550 4350 5150 4350
+Wire Wire Line
+	4550 4650 5150 4650
 Wire Wire Line
 	7300 2300 7300 2550
 Wire Wire Line
@@ -335,4 +333,68 @@ NoConn ~ 3650 4350
 NoConn ~ 3650 5200
 NoConn ~ 7300 3550
 NoConn ~ 4050 2700
+Text Label 8250 3250 0    60   ~ 0
+GBE_MDI0+
+Text Label 8250 3150 0    60   ~ 0
+GBE_MDI0-
+Text Label 8250 3450 0    60   ~ 0
+GBE_MDI1+
+Text Label 8250 3350 0    60   ~ 0
+GBE_MDI1-
+Text Label 8250 2950 0    60   ~ 0
+GBE_MDI2+
+Text Label 8250 3050 0    60   ~ 0
+GBE_MDI2-
+Text Label 8250 2750 0    60   ~ 0
+GBE_MDI3+
+Text Label 8250 2850 0    60   ~ 0
+GBE_MDI3-
+Wire Wire Line
+	8200 3150 8800 3150
+Wire Wire Line
+	8200 3250 8800 3250
+Wire Wire Line
+	8200 3350 8800 3350
+Wire Wire Line
+	8200 3450 8800 3450
+Wire Wire Line
+	8200 2950 8800 2950
+Wire Wire Line
+	8200 3050 8800 3050
+Wire Wire Line
+	8200 2750 8800 2750
+Wire Wire Line
+	8200 2850 8800 2850
+Text Label 5400 4550 0    60   ~ 0
+GBE_MDI0+
+Text Label 5400 4650 0    60   ~ 0
+GBE_MDI0-
+Text Label 5400 4450 0    60   ~ 0
+GBE_MDI1+
+Text Label 5400 4350 0    60   ~ 0
+GBE_MDI1-
+Text Label 5400 5200 0    60   ~ 0
+GBE_MDI2+
+Text Label 5400 5300 0    60   ~ 0
+GBE_MDI2-
+Text Label 5400 5500 0    60   ~ 0
+GBE_MDI3+
+Text Label 5400 5400 0    60   ~ 0
+GBE_MDI3-
+Wire Wire Line
+	5350 4650 5950 4650
+Wire Wire Line
+	5350 4350 5950 4350
+Wire Wire Line
+	5350 4450 5950 4450
+Wire Wire Line
+	5350 4550 5950 4550
+Wire Wire Line
+	5350 5300 5950 5300
+Wire Wire Line
+	5350 5400 5950 5400
+Wire Wire Line
+	5350 5500 5950 5500
+Wire Wire Line
+	5350 5200 5950 5200
 $EndSCHEMATC
