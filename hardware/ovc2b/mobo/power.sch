@@ -1201,14 +1201,6 @@ Text Label 6000 3200 0    60   ~ 0
 JETSON_PWR_EN
 Text Notes 5200 3100 0    60   ~ 0
 3v3 when asserted
-Text GLabel 5850 3800 0    60   Input ~ 0
-JETSON_RESET_OUT
-Text Label 6000 3800 0    60   ~ 0
-1V8_PG
-Text Notes 5200 3700 0    60   ~ 0
-pullup provided in Jetson
-Text Notes 4450 3600 0    60   ~ 0
-This will hold the Tegra in reset until 1v8 is alive
 Text Notes 750  4300 0    118  ~ 24
 analog voltage-drop detector
 Text GLabel 3500 6250 2    60   Input ~ 0
@@ -1285,8 +1277,6 @@ Wire Wire Line
 	9200 1750 9200 1550
 Wire Wire Line
 	5850 3200 6800 3200
-Wire Wire Line
-	5850 3800 6350 3800
 Wire Wire Line
 	850  4700 850  5000
 Wire Wire Line
@@ -1704,10 +1694,10 @@ NoConn ~ 9950 4300
 NoConn ~ 9950 4100
 NoConn ~ 10950 3700
 $Comp
-L load_switches:TPS2660xPWP U?
+L load_switches:TPS2660xPWP U2
 U 1 1 5B9C7C62
 P 4050 1850
-F 0 "U?" H 4025 2715 50  0000 C CNN
+F 0 "U2" H 4025 2715 50  0000 C CNN
 F 1 "TPS2660xPWP" H 4025 2624 50  0000 C CNN
 F 2 "Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask3x3mm_ThermalVias" H 4100 2800 50  0001 C CNN
 F 3 "" H 4200 1850 50  0001 C CNN
@@ -1718,10 +1708,10 @@ Wire Wire Line
 	3450 1350 3450 1250
 Connection ~ 3450 1250
 $Comp
-L device:C_Small C?
+L device:C_Small C53
 U 1 1 5B9E8BA5
 P 2100 1400
-F 0 "C?" H 2200 1450 50  0000 L CNN
+F 0 "C53" H 2200 1450 50  0000 L CNN
 F 1 "1u" H 2200 1350 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric" H 2100 1400 50  0001 C CNN
 F 3 "~" H 2100 1400 50  0001 C CNN
@@ -1731,10 +1721,10 @@ F 4 "100 V" H 1750 1400 50  0000 L CNN "Voltage"
 $EndComp
 Connection ~ 2100 1250
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0140
 U 1 1 5B9F7443
 P 2100 1500
-F 0 "#PWR?" H 2100 1250 50  0001 C CNN
+F 0 "#PWR0140" H 2100 1250 50  0001 C CNN
 F 1 "GND" H 2105 1327 50  0001 C CNN
 F 2 "" H 2100 1500 50  0001 C CNN
 F 3 "" H 2100 1500 50  0001 C CNN
@@ -1744,11 +1734,11 @@ $EndComp
 Text Label 1800 1250 0    60   ~ 0
 VIN
 $Comp
-L device:R_Small R?
+L device:R_Small R36
 U 1 1 5BA1AF91
 P 2450 1400
-F 0 "R?" H 2500 1450 50  0000 L CNN
-F 1 "712k" H 2500 1350 50  0000 L CNN
+F 0 "R36" H 2500 1450 50  0000 L CNN
+F 1 "487k" H 2500 1350 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric" H 2450 1400 50  0001 C CNN
 F 3 "~" H 2450 1400 50  0001 C CNN
 F 4 "100 V" H 2700 1400 50  0000 L CNN "Voltage"
@@ -1767,10 +1757,10 @@ Wire Wire Line
 	4600 1350 4600 1250
 Connection ~ 4600 1250
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0151
 U 1 1 5BAA2D42
 P 4750 2150
-F 0 "#PWR?" H 4750 1900 50  0001 C CNN
+F 0 "#PWR0151" H 4750 1900 50  0001 C CNN
 F 1 "GND" H 4755 1977 50  0001 C CNN
 F 2 "" H 4750 2150 50  0001 C CNN
 F 3 "" H 4750 2150 50  0001 C CNN
@@ -1781,16 +1771,14 @@ Wire Wire Line
 	4750 2150 4600 2150
 NoConn ~ 4600 2250
 NoConn ~ 4600 2350
-Text Notes 3950 4150 0    118  ~ 24
-TODO: what should JETSON_RESET_OUT connect to now?
 Wire Wire Line
 	2450 1550 2450 1500
 $Comp
-L device:R_Small R?
+L device:R_Small R37
 U 1 1 5BA1BE6B
 P 2450 1650
-F 0 "R?" H 2509 1696 50  0000 L CNN
-F 1 "?" H 2509 1605 50  0000 L CNN
+F 0 "R37" H 2509 1696 50  0000 L CNN
+F 1 "18k9" H 2509 1605 50  0000 L CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" H 2450 1650 50  0001 C CNN
 F 3 "~" H 2450 1650 50  0001 C CNN
 	1    2450 1650
@@ -1798,21 +1786,21 @@ F 3 "~" H 2450 1650 50  0001 C CNN
 $EndComp
 Connection ~ 2450 1550
 $Comp
-L device:R_Small R?
+L device:R_Small R38
 U 1 1 5BA1E920
 P 2450 2350
-F 0 "R?" H 2509 2396 50  0000 L CNN
-F 1 "?" H 2509 2305 50  0000 L CNN
+F 0 "R38" H 2509 2396 50  0000 L CNN
+F 1 "47k" H 2509 2305 50  0000 L CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" H 2450 2350 50  0001 C CNN
 F 3 "~" H 2450 2350 50  0001 C CNN
 	1    2450 2350
 	1    0    0    -1  
 $EndComp
 $Comp
-L device:C_Small C?
+L device:C_Small C54
 U 1 1 5BA0E5BE
 P 2750 2350
-F 0 "C?" H 2600 2300 50  0000 C CNN
+F 0 "C54" H 2600 2300 50  0000 C CNN
 F 1 "47n" H 2650 2400 50  0000 R CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 2750 2350 50  0001 C CNN
 F 3 "~" H 2750 2350 50  0001 C CNN
@@ -1822,10 +1810,10 @@ $EndComp
 Text Notes 800  2000 0    50   ~ 0
 ramp=8e3*12*47e-9=4.5ms
 $Comp
-L device:R_Small R?
+L device:R_Small R39
 U 1 1 5BA5AA17
 P 3100 2350
-F 0 "R?" H 3000 2300 50  0000 C CNN
+F 0 "R39" H 3000 2300 50  0000 C CNN
 F 1 "402k" H 3050 2400 50  0000 R CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" H 3100 2350 50  0001 C CNN
 F 3 "~" H 3100 2350 50  0001 C CNN
@@ -1856,10 +1844,10 @@ Wire Wire Line
 NoConn ~ 4600 1750
 NoConn ~ 4600 1950
 $Comp
-L device:R_Small R?
+L device:R_Small R40
 U 1 1 5BB5AA89
 P 4750 2550
-F 0 "R?" H 4809 2596 50  0000 L CNN
+F 0 "R40" H 4809 2596 50  0000 L CNN
 F 1 "5k6" H 4809 2505 50  0000 L CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" H 4750 2550 50  0001 C CNN
 F 3 "~" H 4750 2550 50  0001 C CNN
@@ -1916,4 +1904,17 @@ Text Notes 2150 2750 0    50   ~ 0
 NOTE: RTN is not GND! TPS2660x has internal reverse polarity protection.
 Text Notes 5000 2600 0    50   ~ 0
 5k6 sets current limiter to 2.14 amp
+Text Label 2500 2650 0    50   ~ 0
+RTN
+$Comp
+L power:GND #PWR?
+U 1 1 5BC0CA2E
+P 6550 1750
+F 0 "#PWR?" H 6550 1500 50  0001 C CNN
+F 1 "GND" H 6555 1577 50  0001 C CNN
+F 2 "" H 6550 1750 50  0001 C CNN
+F 3 "" H 6550 1750 50  0001 C CNN
+	1    6550 1750
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

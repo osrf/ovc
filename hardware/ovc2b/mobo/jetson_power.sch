@@ -492,10 +492,10 @@ Connection ~ 6150 4350
 NoConn ~ 4000 2200
 NoConn ~ 4000 2100
 $Comp
-L Motor:Fan_4pin M?
+L Motor:Fan_4pin M1
 U 1 1 5BBB625C
 P 4650 5800
-F 0 "M?" H 4808 5896 50  0000 L CNN
+F 0 "M1" H 4808 5896 50  0000 L CNN
 F 1 "Jetson Heatsink and Fan" H 4808 5805 50  0000 L CNN
 F 2 "" H 4650 5810 50  0001 C CNN
 F 3 "http://www.formfactors.org/developer%5Cspecs%5Crev1_2_public.pdf" H 4650 5810 50  0001 C CNN
