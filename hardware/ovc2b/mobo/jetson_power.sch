@@ -720,9 +720,9 @@ Wire Wire Line
 	3800 5600 4200 5600
 Connection ~ 4200 5600
 Text Notes 4050 7200 0    50   ~ 0
-assuming a constant discharge current of 2 microamp to run the RTC,\n3v3 at full charge, and 1.65v at RTC power-off:
+assuming a constant discharge current of 2 microamp to run the RTC,\n2v5 at full charge, and 1.65v at RTC power-off:
 Text Notes 4050 7400 0    50   ~ 0
-clock runtime = 80e-3 / 2e-6 * (3.3 - 1.65) / 60 / 60 = 18.3 hours.
+clock runtime = 80e-3 / 2e-6 * (2.5 - 1.65) / 60 / 60 = 9.4 hours.
 Text Notes 4050 7550 0    50   ~ 0
 (not sure how wrong all those assumptions are, but at least it's "hours")
 $EndSCHEMATC
