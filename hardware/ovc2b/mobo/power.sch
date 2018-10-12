@@ -1217,8 +1217,8 @@ Text Label 3500 7000 0    60   ~ 0
 JETSON_PWR_EN
 Text Label 4750 6750 0    60   ~ 0
 ~PWR_EN
-Text Notes 750  7850 0    118  ~ 24
-active discharge of all rails except 2V5_MCU
+Text Notes 3750 8050 0    118  ~ 24
+active discharge of all rails
 Text Label 2550 9000 0    60   ~ 0
 DISCHARGE
 Text Label 4250 9000 0    60   ~ 0
