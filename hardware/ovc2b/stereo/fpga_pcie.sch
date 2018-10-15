@@ -452,4 +452,6 @@ NoConn ~ 2400 2700
 NoConn ~ 2400 2600
 NoConn ~ 2400 2300
 NoConn ~ 2400 2200
+Text Notes 5050 4350 0    118  ~ 24
+todo: voids under ac-coupling caps
 $EndSCHEMATC

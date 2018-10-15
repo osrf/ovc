@@ -204,4 +204,16 @@ NoConn ~ 3750 2650
 NoConn ~ 3850 2650
 NoConn ~ 3950 2650
 NoConn ~ 2750 3250
+$Comp
+L Sensor_Motion:MPU-9250 U9
+U 1 1 5BC4B4E3
+P 5050 5900
+F 0 "U9" H 4500 6800 50  0000 C CNN
+F 1 "ICM20948" H 4550 6700 50  0000 C CNN
+F 2 "Sensor_Motion:InvenSense_QFN-24_3x3mm_P0.4mm" H 5050 4900 50  0001 C CNN
+F 3 "https://store.invensense.com/datasheets/invensense/MPU9250REV1.0.pdf" H 5050 5750 50  0001 C CNN
+	1    5050 5900
+	1    0    0    -1  
+$EndComp
+NoConn ~ 5750 6200
 $EndSCHEMATC
