@@ -5,9 +5,9 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 10 12
-Title ""
-Date ""
-Rev ""
+Title "ovc2_mobo"
+Date "2018-10-15"
+Rev "B"
 Comp ""
 Comment1 ""
 Comment2 ""
