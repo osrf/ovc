@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name DCDC)(type KiCad)(uri /home/mquigley/hw/osrf_hw/kicad_modules/DCDC.pretty)(options "")(descr ""))
+)

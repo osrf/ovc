@@ -1,0 +1,5 @@
+100 ohm = 6.8   mil trace / 8.2   mil space
+        = 0.172 mm  trace / 0.208 mm  space
+
+85  ohm = 7.7   mil trace / 6.3   mil space
+        = 0.196 mm  trace / 0.160 mm  space
