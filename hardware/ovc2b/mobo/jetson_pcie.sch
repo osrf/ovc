@@ -251,8 +251,6 @@ Text Label 2650 3450 0    60   ~ 0
 PEX3_TX+
 Text Label 2650 3550 0    60   ~ 0
 PEX3_TX-
-Text Notes 5450 2800 0    50   ~ 0
-TODO: void ground plane under capacitor pads
 Wire Wire Line
 	2650 2350 3450 2350
 Wire Wire Line
