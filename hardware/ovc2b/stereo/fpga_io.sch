@@ -1055,9 +1055,9 @@ Text Label 16750 3400 0    50   ~ 0
 HSEXP_7-
 Text Label 16750 3500 0    50   ~ 0
 HSEXP_7+
-Text Label 4400 10350 0    50   ~ 0
+Text Label 16750 2400 0    50   ~ 0
 HSEXP_7-
-Text Label 4400 10250 0    50   ~ 0
+Text Label 16750 2300 0    50   ~ 0
 HSEXP_7+
 Text Notes 17600 6650 0    50   ~ 0
 always-enabled
@@ -1552,9 +1552,9 @@ Wire Wire Line
 Wire Wire Line
 	18050 3300 18050 3200
 Wire Wire Line
-	4350 10250 4800 10250
+	16700 2300 17150 2300
 Wire Wire Line
-	4350 10350 4800 10350
+	16700 2400 17150 2400
 Wire Wire Line
 	16750 3500 17200 3500
 Wire Wire Line
