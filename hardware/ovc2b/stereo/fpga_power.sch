@@ -1,5 +1,6 @@
 EESchema Schematic File Version 4
-EELAYER 26 0
+LIBS:ovc2_stereo-cache
+EELAYER 28 0
 EELAYER END
 $Descr A2 16535 23386 portrait
 encoding utf-8

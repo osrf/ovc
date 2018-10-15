@@ -1,5 +1,6 @@
 EESchema Schematic File Version 4
-EELAYER 26 0
+LIBS:ovc2_stereo-cache
+EELAYER 28 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -1240,11 +1241,11 @@ Text GLabel 3500 2050 2    60   Input ~ 0
 CAM1_CLKOUT+
 Text GLabel 3500 2150 2    60   Input ~ 0
 CAM1_CLKOUT-
-Text GLabel 8350 2550 0    60   Input ~ 0
+Text GLabel 8350 2650 0    60   Input ~ 0
 CAM2_MISO_3V3
 Text GLabel 8350 2750 0    60   Input ~ 0
 CAM2_SCK_3V3
-Text GLabel 8350 2650 0    60   Input ~ 0
+Text GLabel 8350 2550 0    60   Input ~ 0
 CAM2_MOSI_3V3
 Text GLabel 8350 2850 0    60   Input ~ 0
 CAM2_CS_3V3
@@ -1337,12 +1338,6 @@ Wire Wire Line
 Wire Wire Line
 	7650 1350 8350 1350
 Wire Wire Line
-	8350 1350 8350 1450
-Wire Wire Line
-	8350 1750 8350 1850
-Wire Wire Line
-	9550 1350 9550 1450
-Wire Wire Line
 	9550 1350 10100 1350
 Wire Wire Line
 	7850 2350 7950 2350
@@ -1370,10 +1365,6 @@ Wire Wire Line
 	1950 3500 2100 3500
 Wire Wire Line
 	2200 3600 2100 3600
-Wire Wire Line
-	8350 4050 8350 4150
-Wire Wire Line
-	9550 4150 9550 4250
 Wire Wire Line
 	8350 3050 8350 2950
 Wire Wire Line
@@ -1449,16 +1440,6 @@ Wire Wire Line
 Wire Wire Line
 	1800 2350 2200 2350
 Wire Wire Line
-	8350 1850 8350 1950
-Wire Wire Line
-	8350 1550 8350 1650
-Wire Wire Line
-	8350 1450 8350 1550
-Wire Wire Line
-	9550 1450 9550 1550
-Wire Wire Line
-	8350 1950 8350 2050
-Wire Wire Line
 	7950 2150 8200 2150
 Wire Wire Line
 	7950 2350 8350 2350
@@ -1472,20 +1453,6 @@ Wire Wire Line
 	3400 4450 3400 4550
 Wire Wire Line
 	2100 3500 2200 3500
-Wire Wire Line
-	8350 4450 8350 4550
-Wire Wire Line
-	8350 4350 8350 4450
-Wire Wire Line
-	8350 4250 8350 4350
-Wire Wire Line
-	8350 4150 8350 4250
-Wire Wire Line
-	9550 4250 9550 4350
-Wire Wire Line
-	9550 4350 9550 4450
-Wire Wire Line
-	9550 4450 9550 4550
 Wire Wire Line
 	7950 5950 8300 5950
 Wire Wire Line
@@ -1768,4 +1735,38 @@ NoConn ~ 3400 3650
 NoConn ~ 9550 3650
 Text Notes 5650 2850 0    118  ~ 24
 REV. A SCREW-UP:\nMOSI/MISO mismatch
+Wire Wire Line
+	8350 1450 8350 1550
+Wire Wire Line
+	9550 4450 9550 4550
+Wire Wire Line
+	9550 4350 9550 4450
+Wire Wire Line
+	8350 1550 8350 1650
+Wire Wire Line
+	9550 4250 9550 4350
+Wire Wire Line
+	9550 4150 9550 4250
+Wire Wire Line
+	8350 1850 8350 1950
+Wire Wire Line
+	9550 1450 9550 1550
+Wire Wire Line
+	8350 1750 8350 1850
+Wire Wire Line
+	8350 4250 8350 4350
+Wire Wire Line
+	8350 1950 8350 2050
+Wire Wire Line
+	8350 4350 8350 4450
+Wire Wire Line
+	8350 4450 8350 4550
+Wire Wire Line
+	8350 4150 8350 4250
+Wire Wire Line
+	9550 1350 9550 1450
+Wire Wire Line
+	8350 4050 8350 4150
+Wire Wire Line
+	8350 1350 8350 1450
 $EndSCHEMATC

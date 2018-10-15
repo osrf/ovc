@@ -1,5 +1,6 @@
 EESchema Schematic File Version 4
-EELAYER 26 0
+LIBS:ovc2_stereo-cache
+EELAYER 28 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
