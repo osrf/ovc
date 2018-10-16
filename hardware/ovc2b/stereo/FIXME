@@ -3,3 +3,6 @@
   input series termination available.
   HSEXP7+/- should go into any other bank instead.
 * bring IMU_SYNC_OUT to 100mil header instead of (or in addition to) SYNC_IN
+* add temperature sensor near FPGA somewhere
+* add fan connector and interface logic
+* finish low cost motion sensor IC interfacing

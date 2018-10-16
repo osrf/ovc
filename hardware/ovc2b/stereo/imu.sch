@@ -216,4 +216,26 @@ F 3 "https://store.invensense.com/datasheets/invensense/MPU9250REV1.0.pdf" H 505
 	1    0    0    -1  
 $EndComp
 NoConn ~ 5750 6200
+$Comp
+L power:+1V8 #PWR0239
+U 1 1 5BC59948
+P 4950 5000
+F 0 "#PWR0239" H 4950 4850 50  0001 C CNN
+F 1 "+1V8" H 4965 5173 50  0000 C CNN
+F 2 "" H 4950 5000 50  0001 C CNN
+F 3 "" H 4950 5000 50  0001 C CNN
+	1    4950 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0240
+U 1 1 5BC5CCC0
+P 5050 6800
+F 0 "#PWR0240" H 5050 6550 50  0001 C CNN
+F 1 "GND" H 5055 6627 50  0001 C CNN
+F 2 "" H 5050 6800 50  0001 C CNN
+F 3 "" H 5050 6800 50  0001 C CNN
+	1    5050 6800
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

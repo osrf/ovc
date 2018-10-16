@@ -1,0 +1,8 @@
+left:   78.5, 87
+right: 198.5, 87
+
+imager active area is offset by 1.37 vertical and 0.18 horizontal
+
+lens holder centers:
+left:   78.5-0.18, 87-1.37 =  78.32, 85.63
+right: 198.5-0.18, 87-1.37 = 198.32, 85.63
