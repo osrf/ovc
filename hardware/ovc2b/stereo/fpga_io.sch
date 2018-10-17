@@ -987,9 +987,9 @@ Text GLabel 15550 7300 0    60   Input ~ 0
 FPGA_TCK
 Text GLabel 15550 7550 0    60   Input ~ 0
 FPGA_TDI
-Text GLabel 15550 6800 0    60   Input ~ 0
+Text GLabel 12800 12150 2    60   Input ~ 0
 FPGA_NCONFIG
-Text GLabel 15550 6550 0    60   Input ~ 0
+Text GLabel 12800 12250 2    60   Input ~ 0
 FPGA_NSTATUS
 Text GLabel 13850 9700 2    60   Input ~ 0
 IMU_TX1_3V3
@@ -1095,11 +1095,11 @@ Text Label 20650 4850 2    50   ~ 0
 LED_DI_5V
 Text Label 20650 4750 2    50   ~ 0
 LED_CI_5V
-Text GLabel 16150 8400 0    60   Input ~ 0
+Text GLabel 12300 12250 0    60   Input ~ 0
 FPGA_CONFIG_DATA0
-Text GLabel 16150 8650 0    60   Input ~ 0
+Text GLabel 12800 12050 2    60   Input ~ 0
 FPGA_CONF_DONE
-Text GLabel 16150 8150 0    60   Input ~ 0
+Text GLabel 12300 12150 0    60   Input ~ 0
 FPGA_CONFIG_DCLK
 Text GLabel 13850 9500 2    60   Input ~ 0
 IMU_SCK_3V3
@@ -2276,45 +2276,8 @@ F 3 "~" H 13400 10850 50  0001 C CNN
 	1    13400 10850
 	1    0    0    -1  
 $EndComp
-$Comp
-L connector:TestPoint TP1
-U 1 1 5BC9C4DA
-P 15650 6550
-F 0 "TP1" H 15708 6668 50  0000 L CNN
-F 1 "NSTATUS" H 15708 6577 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Keystone_5000-5004_Miniature" H 15850 6550 50  0001 C CNN
-F 3 "~" H 15850 6550 50  0001 C CNN
-	1    15650 6550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	15650 6550 15550 6550
-$Comp
-L connector:TestPoint TP7
-U 1 1 5BD56C1C
-P 16250 8150
-F 0 "TP7" H 16308 8268 50  0000 L CNN
-F 1 "DCLK" H 16308 8177 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Keystone_5000-5004_Miniature" H 16450 8150 50  0001 C CNN
-F 3 "~" H 16450 8150 50  0001 C CNN
-	1    16250 8150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	15650 6800 15550 6800
-Text GLabel 15550 6800 0    60   Input ~ 0
+Text GLabel 12800 12150 2    60   Input ~ 0
 FPGA_NCONFIG
-$Comp
-L connector:TestPoint TP2
-U 1 1 5BDB535E
-P 15650 6800
-F 0 "TP2" H 15708 6918 50  0000 L CNN
-F 1 "NCONFIG" H 15708 6827 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Keystone_5000-5004_Miniature" H 15850 6800 50  0001 C CNN
-F 3 "~" H 15850 6800 50  0001 C CNN
-	1    15650 6800
-	1    0    0    -1  
-$EndComp
 $Comp
 L connector:TestPoint TP5
 U 1 1 5BDB6A64
@@ -2359,7 +2322,7 @@ F 3 "~" H 15850 7300 50  0001 C CNN
 	1    15650 7300
 	1    0    0    -1  
 $EndComp
-Text GLabel 16150 8150 0    60   Input ~ 0
+Text GLabel 12300 12150 0    60   Input ~ 0
 FPGA_CONFIG_DCLK
 Wire Wire Line
 	15550 7050 15650 7050
@@ -2369,32 +2332,30 @@ Wire Wire Line
 	15650 7550 15550 7550
 Wire Wire Line
 	15650 7800 15550 7800
-Wire Wire Line
-	16150 8150 16250 8150
 $Comp
-L connector:TestPoint TP8
-U 1 1 5C35B25A
-P 16250 8400
-F 0 "TP8" H 16308 8518 50  0000 L CNN
-F 1 "DATA0" H 16308 8427 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Keystone_5000-5004_Miniature" H 16450 8400 50  0001 C CNN
-F 3 "~" H 16450 8400 50  0001 C CNN
-	1    16250 8400
+L Connector_Generic:Conn_02x03_Odd_Even J5
+U 1 1 5BC9E94F
+P 12500 12150
+F 0 "J5" H 12550 12467 50  0000 C CNN
+F 1 "CONFIG" H 12550 12376 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 12500 12150 50  0001 C CNN
+F 3 "~" H 12500 12150 50  0001 C CNN
+	1    12500 12150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0241
+U 1 1 5BED7700
+P 12150 11950
+F 0 "#PWR0241" H 12150 11700 50  0001 C CNN
+F 1 "GND" H 12155 11777 50  0001 C CNN
+F 2 "" H 12150 11950 50  0001 C CNN
+F 3 "" H 12150 11950 50  0001 C CNN
+	1    12150 11950
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	16150 8400 16250 8400
-$Comp
-L connector:TestPoint TP9
-U 1 1 5C38A709
-P 16250 8650
-F 0 "TP9" H 16308 8768 50  0000 L CNN
-F 1 "DONE" H 16308 8677 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Keystone_5000-5004_Miniature" H 16450 8650 50  0001 C CNN
-F 3 "~" H 16450 8650 50  0001 C CNN
-	1    16250 8650
-	1    0    0    -1  
-$EndComp
+	12150 11950 12300 11950
 Wire Wire Line
-	16150 8650 16250 8650
+	12300 11950 12300 12050
 $EndSCHEMATC
