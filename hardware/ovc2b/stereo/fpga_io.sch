@@ -965,27 +965,25 @@ Text Notes 19600 6600 0    50   ~ 0
 DIR=high means A->B
 Text Notes 16400 10600 0    50   ~ 0
 DIR = high: A -> B
-Text GLabel 18100 10700 2    60   Input ~ 0
-CAM2_SCK_3V3
-Text GLabel 18100 10800 2    60   Input ~ 0
-CAM2_MOSI_3V3
-Text GLabel 18100 11000 2    60   Input ~ 0
-CAM2_CS_3V3
 Text GLabel 18100 11400 2    60   Input ~ 0
-CAM2_TRG_3V3
+CAM2_SCK_3V3
+Text GLabel 18100 11000 2    60   Input ~ 0
+CAM2_MOSI_3V3
 Text GLabel 18100 10900 2    60   Input ~ 0
+CAM2_CS_3V3
+Text GLabel 18100 10700 2    60   Input ~ 0
+CAM2_TRG_3V3
+Text GLabel 18100 10800 2    60   Input ~ 0
 CAM2_RST_3V3
 Text Notes 15600 15100 0    50   ~ 0
 DIR=low means B -> A
-Text Notes 14000 15200 0    50   ~ 0
-TODO: probably ditch the monitor channel and move to 1-channel shifter
-Text GLabel 15550 7800 0    60   Input ~ 0
+Text GLabel 12300 13000 0    60   Input ~ 0
 FPGA_TDO
-Text GLabel 15550 7050 0    60   Input ~ 0
+Text GLabel 12800 12800 2    60   Input ~ 0
 FPGA_TMS
-Text GLabel 15550 7300 0    60   Input ~ 0
+Text GLabel 12800 13000 2    60   Input ~ 0
 FPGA_TCK
-Text GLabel 15550 7550 0    60   Input ~ 0
+Text GLabel 12300 12800 0    60   Input ~ 0
 FPGA_TDI
 Text GLabel 12800 12150 2    60   Input ~ 0
 FPGA_NCONFIG
@@ -1285,27 +1283,27 @@ Text Label 14000 13250 0    50   ~ 0
 IMU_SYNC_OUT_1V8
 Text Label 14000 14700 0    50   ~ 0
 CAM2_MISO_1V8
-Text Label 4350 2400 0    50   ~ 0
+Text Label 4350 1200 0    50   ~ 0
 CAM2_MISO_1V8
-Text Label 16400 10700 0    50   ~ 0
-CAM2_SCK_1V8
-Text Label 16400 10800 0    50   ~ 0
-CAM2_MOSI_1V8
-Text Label 16400 11000 0    50   ~ 0
-CAM2_CS_1V8
-Text Label 16400 10900 0    50   ~ 0
-CAM2_RST_1V8
 Text Label 16400 11400 0    50   ~ 0
+CAM2_SCK_1V8
+Text Label 16400 11000 0    50   ~ 0
+CAM2_MOSI_1V8
+Text Label 16400 10900 0    50   ~ 0
+CAM2_CS_1V8
+Text Label 16400 10800 0    50   ~ 0
+CAM2_RST_1V8
+Text Label 16400 10700 0    50   ~ 0
 CAM2_TRG_1V8
 Text Label 4350 1900 0    50   ~ 0
 CAM2_SCK_1V8
-Text Label 4350 2000 0    50   ~ 0
+Text Label 4350 2700 0    50   ~ 0
 CAM2_MOSI_1V8
-Text Label 4350 1600 0    50   ~ 0
+Text Label 4350 2300 0    50   ~ 0
 CAM2_CS_1V8
-Text Label 4350 2200 0    50   ~ 0
+Text Label 4350 1300 0    50   ~ 0
 CAM2_RST_1V8
-Text Label 4350 2100 0    50   ~ 0
+Text Label 4350 2400 0    50   ~ 0
 CAM2_TRG_1V8
 Text GLabel 13350 9500 0    60   Input ~ 0
 IMU_MOSI_3V3
@@ -1323,7 +1321,7 @@ Text GLabel 15650 14800 2    60   Input ~ 0
 CAM2_MONITOR
 Text Label 14000 14800 0    50   ~ 0
 CAM2_MONITOR_1V8
-Text Label 10550 5600 0    50   ~ 0
+Text Label 4350 3400 0    50   ~ 0
 CAM2_MONITOR_1V8
 Text GLabel 17150 12950 2    60   Input ~ 0
 IMU_TX1_3V3
@@ -1840,27 +1838,27 @@ Wire Wire Line
 Wire Wire Line
 	14000 14700 14750 14700
 Wire Wire Line
-	4350 2400 5100 2400
+	4350 1200 5100 1200
 Wire Wire Line
-	16400 10700 17150 10700
-Wire Wire Line
-	16400 10800 17150 10800
+	16400 11400 17150 11400
 Wire Wire Line
 	16400 11000 17150 11000
 Wire Wire Line
 	16400 10900 17150 10900
 Wire Wire Line
-	16400 11400 17150 11400
+	16400 10800 17150 10800
+Wire Wire Line
+	16400 10700 17150 10700
 Wire Wire Line
 	4350 1900 5100 1900
 Wire Wire Line
-	4350 2000 5100 2000
+	4350 2700 5100 2700
 Wire Wire Line
-	4350 1600 5100 1600
+	4350 2300 5100 2300
 Wire Wire Line
-	4350 2200 5100 2200
+	4350 1300 5100 1300
 Wire Wire Line
-	4350 2100 5100 2100
+	4350 2400 5100 2400
 Wire Wire Line
 	15550 2600 15100 2600
 Wire Wire Line
@@ -1878,7 +1876,7 @@ Wire Wire Line
 Wire Wire Line
 	14000 14800 14750 14800
 Wire Wire Line
-	10550 5600 11300 5600
+	4350 3400 5100 3400
 Wire Wire Line
 	14000 12950 14750 12950
 Wire Wire Line
@@ -2164,25 +2162,6 @@ F 3 "" H 16600 10400 50  0001 C CNN
 	1    16600 10400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	17150 11300 17150 11200
-Connection ~ 17150 11200
-Wire Wire Line
-	17150 11200 17150 11100
-$Comp
-L power:GND #PWR0238
-U 1 1 5B4AEC8F
-P 17000 11100
-F 0 "#PWR0238" H 17000 10850 50  0001 C CNN
-F 1 "GND" H 17005 10927 50  0001 C CNN
-F 2 "" H 17000 11100 50  0001 C CNN
-F 3 "" H 17000 11100 50  0001 C CNN
-	1    17000 11100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	17000 11100 17150 11100
-Connection ~ 17150 11100
 $Comp
 L device:R_Small R22
 U 1 1 5B4FD054
@@ -2278,60 +2257,8 @@ F 3 "~" H 13400 10850 50  0001 C CNN
 $EndComp
 Text GLabel 12800 12150 2    60   Input ~ 0
 FPGA_NCONFIG
-$Comp
-L connector:TestPoint TP5
-U 1 1 5BDB6A64
-P 15650 7550
-F 0 "TP5" H 15708 7668 50  0000 L CNN
-F 1 "TDI" H 15708 7577 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Keystone_5000-5004_Miniature" H 15850 7550 50  0001 C CNN
-F 3 "~" H 15850 7550 50  0001 C CNN
-	1    15650 7550
-	1    0    0    -1  
-$EndComp
-$Comp
-L connector:TestPoint TP3
-U 1 1 5BDB6A6F
-P 15650 7050
-F 0 "TP3" H 15708 7168 50  0000 L CNN
-F 1 "TMS" H 15708 7077 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Keystone_5000-5004_Miniature" H 15850 7050 50  0001 C CNN
-F 3 "~" H 15850 7050 50  0001 C CNN
-	1    15650 7050
-	1    0    0    -1  
-$EndComp
-$Comp
-L connector:TestPoint TP6
-U 1 1 5BDE58E6
-P 15650 7800
-F 0 "TP6" H 15708 7918 50  0000 L CNN
-F 1 "TDO" H 15708 7827 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Keystone_5000-5004_Miniature" H 15850 7800 50  0001 C CNN
-F 3 "~" H 15850 7800 50  0001 C CNN
-	1    15650 7800
-	1    0    0    -1  
-$EndComp
-$Comp
-L connector:TestPoint TP4
-U 1 1 5BDE58F1
-P 15650 7300
-F 0 "TP4" H 15708 7418 50  0000 L CNN
-F 1 "TCK" H 15708 7327 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Keystone_5000-5004_Miniature" H 15850 7300 50  0001 C CNN
-F 3 "~" H 15850 7300 50  0001 C CNN
-	1    15650 7300
-	1    0    0    -1  
-$EndComp
 Text GLabel 12300 12150 0    60   Input ~ 0
 FPGA_CONFIG_DCLK
-Wire Wire Line
-	15550 7050 15650 7050
-Wire Wire Line
-	15550 7300 15650 7300
-Wire Wire Line
-	15650 7550 15550 7550
-Wire Wire Line
-	15650 7800 15550 7800
 $Comp
 L Connector_Generic:Conn_02x03_Odd_Even J5
 U 1 1 5BC9E94F
@@ -2358,4 +2285,114 @@ Wire Wire Line
 	12150 11950 12300 11950
 Wire Wire Line
 	12300 11950 12300 12050
+Text Notes 15000 10900 0    50   ~ 0
+TODO: more FPGA signals
+$Comp
+L Connector_Generic:Conn_02x03_Odd_Even J6
+U 1 1 5C1414FB
+P 12500 12900
+F 0 "J6" H 12550 13217 50  0000 C CNN
+F 1 "JTAG" H 12550 13126 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 12500 12900 50  0001 C CNN
+F 3 "~" H 12500 12900 50  0001 C CNN
+	1    12500 12900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0238
+U 1 1 5C1D1F58
+P 11650 12900
+F 0 "#PWR0238" H 11650 12650 50  0001 C CNN
+F 1 "GND" H 11655 12727 50  0001 C CNN
+F 2 "" H 11650 12900 50  0001 C CNN
+F 3 "" H 11650 12900 50  0001 C CNN
+	1    11650 12900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+1V8 #PWR0242
+U 1 1 5C231F4B
+P 13450 12900
+F 0 "#PWR0242" H 13450 12750 50  0001 C CNN
+F 1 "+1V8" H 13465 13073 50  0000 C CNN
+F 2 "" H 13450 12900 50  0001 C CNN
+F 3 "" H 13450 12900 50  0001 C CNN
+	1    13450 12900
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	12800 12900 13450 12900
+Wire Wire Line
+	12300 12900 11650 12900
+$Comp
+L Connector_Generic:Conn_01x05 J7
+U 1 1 5C6EA953
+P 19850 11200
+F 0 "J7" H 19930 11242 50  0000 L CNN
+F 1 "AUXOUT" H 19930 11151 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 19850 11200 50  0001 C CNN
+F 3 "~" H 19850 11200 50  0001 C CNN
+	1    19850 11200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	18100 11100 19650 11100
+Wire Wire Line
+	18100 11200 19650 11200
+Wire Wire Line
+	18100 11300 19650 11300
+$Comp
+L power:GND #PWR0243
+U 1 1 5C80098C
+P 19650 11400
+F 0 "#PWR0243" H 19650 11150 50  0001 C CNN
+F 1 "GND" H 19655 11227 50  0001 C CNN
+F 2 "" H 19650 11400 50  0001 C CNN
+F 3 "" H 19650 11400 50  0001 C CNN
+	1    19650 11400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR0244
+U 1 1 5C80309B
+P 19650 11000
+F 0 "#PWR0244" H 19650 10850 50  0001 C CNN
+F 1 "+3V3" H 19665 11173 50  0000 C CNN
+F 2 "" H 19650 11000 50  0001 C CNN
+F 3 "" H 19650 11000 50  0001 C CNN
+	1    19650 11000
+	-1   0    0    -1  
+$EndComp
+Text Label 18950 11100 0    50   ~ 0
+AUXOUT1_3V3
+Text Label 18950 11200 0    50   ~ 0
+AUXOUT2_3V3
+Text Label 18950 11300 0    50   ~ 0
+AUXOUT3_3V3
+Wire Wire Line
+	17150 11100 16400 11100
+Text Label 16400 11100 0    50   ~ 0
+AUXOUT1
+Wire Wire Line
+	17150 11200 16400 11200
+Text Label 16400 11200 0    50   ~ 0
+AUXOUT2
+Wire Wire Line
+	17150 11300 16400 11300
+Text Label 16400 11300 0    50   ~ 0
+AUXOUT3
+Wire Wire Line
+	5100 3300 4350 3300
+Text Label 4350 3300 0    50   ~ 0
+AUXOUT1
+Text Label 4350 1600 0    50   ~ 0
+AUXOUT2
+Wire Wire Line
+	4750 1500 4350 1500
+Text Label 4350 1500 0    50   ~ 0
+AUXOUT3
+Wire Wire Line
+	4350 1600 4750 1600
+Text Notes 13750 15500 0    50   ~ 0
+TODO: another pair of 2-channel shifters
 $EndSCHEMATC
