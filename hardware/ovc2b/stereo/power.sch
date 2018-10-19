@@ -1734,7 +1734,6 @@ NoConn ~ 9200 2400
 NoConn ~ 9200 4900
 NoConn ~ 8200 5600
 NoConn ~ 8200 5700
-NoConn ~ 12900 8800
 $Comp
 L Connector_Generic:Conn_01x04 J11
 U 1 1 5BC95A60
@@ -1962,4 +1961,12 @@ F 3 "" H 14450 4850 50  0001 C CNN
 	1    14450 4850
 	1    0    0    -1  
 $EndComp
+Text Label 12200 8800 0    60   ~ 0
+PG_GRP1
+Wire Wire Line
+	12200 8800 12900 8800
+Text Notes 11450 9000 0    50   ~ 0
+pull down PG_GRP1 if either\n0v9 or 1v03 is not ready
+Text Notes 6550 5750 0    50   ~ 0
+pull down PG_GRP1 if either\n0v9 or 1v03 is not ready
 $EndSCHEMATC

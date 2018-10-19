@@ -3,4 +3,3 @@
   input series termination available.
   HSEXP7+/- should go into any other bank instead.
 * bring IMU_SYNC_OUT to 100mil header instead of (or in addition to) SYNC_IN
-* route fan connector and interface logic

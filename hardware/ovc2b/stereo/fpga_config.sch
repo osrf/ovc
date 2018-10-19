@@ -166,12 +166,12 @@ $EndComp
 $Comp
 L power:GND #PWR0181
 U 1 1 5AAFCFFE
-P 3000 1450
-F 0 "#PWR0181" H 3000 1200 50  0001 C CNN
-F 1 "GND" H 3005 1277 50  0001 C CNN
-F 2 "" H 3000 1450 50  0001 C CNN
-F 3 "" H 3000 1450 50  0001 C CNN
-	1    3000 1450
+P 3000 1550
+F 0 "#PWR0181" H 3000 1300 50  0001 C CNN
+F 1 "GND" H 3005 1377 50  0001 C CNN
+F 2 "" H 3000 1550 50  0001 C CNN
+F 3 "" H 3000 1550 50  0001 C CNN
+	1    3000 1550
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -241,8 +241,8 @@ Text Label 5500 1400 0    60   ~ 0
 TDI
 Text Label 2850 2950 0    60   ~ 0
 DCLK
-Text Notes 2850 1650 0    50   ~ 0
-MSEL[2:0] = 0 for passive serial, fast POR delay
+Text Notes 3100 1650 0    50   ~ 0
+MSEL[2:0] = 001 for passive serial, standard POR delay
 Text GLabel 3250 950  2    50   Input ~ 0
 FPGA_TDO
 Text GLabel 3250 1050 2    50   Input ~ 0
@@ -312,19 +312,15 @@ Wire Wire Line
 Wire Wire Line
 	2800 1750 4300 1750
 Wire Wire Line
-	2800 1450 3000 1450
+	2800 1550 3000 1550
 Wire Wire Line
 	2800 1850 3400 1850
 Wire Wire Line
 	2800 2050 3400 2050
 Wire Wire Line
 	2800 1650 2800 1550
-Wire Wire Line
-	2800 1550 2800 1450
 Connection ~ 5200 2250
 Connection ~ 5400 900 
-Connection ~ 2800 1450
-Connection ~ 2800 1550
 NoConn ~ 2800 2250
 NoConn ~ 2800 2350
 NoConn ~ 2800 2450
@@ -332,4 +328,18 @@ NoConn ~ 2800 2550
 NoConn ~ 2800 2650
 NoConn ~ 2800 2750
 NoConn ~ 2800 2850
+Connection ~ 2800 1550
+$Comp
+L power:+1V8 #PWR0189
+U 1 1 5BD681A4
+P 3950 1450
+F 0 "#PWR0189" H 3950 1300 50  0001 C CNN
+F 1 "+1V8" H 3965 1623 50  0000 C CNN
+F 2 "" H 3950 1450 50  0001 C CNN
+F 3 "" H 3950 1450 50  0001 C CNN
+	1    3950 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 1450 2800 1450
 $EndSCHEMATC
