@@ -405,4 +405,44 @@ F 3 "" H 7950 5400 50  0001 C CNN
 	1    7950 5400
 	1    0    0    -1  
 $EndComp
+$Comp
+L Connector_Generic:Conn_02x04_Odd_Even J12
+U 1 1 5BEA742D
+P 5550 1750
+F 0 "J12" H 5600 2067 50  0000 C CNN
+F 1 "IMU DEBUG" H 5600 1976 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical" H 5550 1750 50  0001 C CNN
+F 3 "~" H 5550 1750 50  0001 C CNN
+	1    5550 1750
+	1    0    0    -1  
+$EndComp
+Text GLabel 5850 1950 2    60   Input ~ 0
+IMU_SCK_3V3
+Text GLabel 5350 1950 0    60   Input ~ 0
+IMU_MOSI_3V3
+Text GLabel 5850 1850 2    60   Input ~ 0
+IMU_MISO_3V3
+Text GLabel 5350 1850 0    60   Input ~ 0
+IMU_NRST_3V3
+$Comp
+L power:GND #PWR0258
+U 1 1 5BEB4680
+P 6050 1500
+F 0 "#PWR0258" H 6050 1250 50  0001 C CNN
+F 1 "GND" H 6055 1327 50  0001 C CNN
+F 2 "" H 6050 1500 50  0001 C CNN
+F 3 "" H 6050 1500 50  0001 C CNN
+	1    6050 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 1500 5850 1500
+Wire Wire Line
+	5850 1500 5850 1650
+Text GLabel 5850 1750 2    60   Input ~ 0
+IMU_CS_3V3
+Text GLabel 5350 1650 0    60   Input ~ 0
+IMU_SYNC_OUT_3V3
+Text GLabel 5350 1750 0    60   Input ~ 0
+IMU_SYNC_IN_3V3
 $EndSCHEMATC

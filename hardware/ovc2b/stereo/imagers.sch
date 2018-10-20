@@ -1213,17 +1213,17 @@ Text GLabel 9550 2150 2    60   Input ~ 0
 CAM2_CLKOUT-
 Text GLabel 7850 2350 0    60   Input ~ 0
 CAM2_CLKIN+
-Text GLabel 1700 2350 0    60   Input ~ 0
-CAM1_CLKIN-
 Text GLabel 1700 2150 0    60   Input ~ 0
+CAM1_CLKIN-
+Text GLabel 1700 2350 0    60   Input ~ 0
 CAM1_CLKIN+
 Text GLabel 3500 2450 2    60   Input ~ 0
 CAM1_DOUT0-
 Text GLabel 3500 2350 2    60   Input ~ 0
 CAM1_DOUT0+
-Text GLabel 3500 3350 2    60   Input ~ 0
-CAM1_SYNC-
 Text GLabel 3500 3250 2    60   Input ~ 0
+CAM1_SYNC-
+Text GLabel 3500 3350 2    60   Input ~ 0
 CAM1_SYNC+
 Text GLabel 3500 2650 2    60   Input ~ 0
 CAM1_DOUT1-
@@ -1233,9 +1233,9 @@ Text GLabel 3500 2850 2    60   Input ~ 0
 CAM1_DOUT2-
 Text GLabel 3500 2750 2    60   Input ~ 0
 CAM1_DOUT2+
-Text GLabel 3500 3050 2    60   Input ~ 0
-CAM1_DOUT3-
 Text GLabel 3500 2950 2    60   Input ~ 0
+CAM1_DOUT3-
+Text GLabel 3500 3050 2    60   Input ~ 0
 CAM1_DOUT3+
 Text GLabel 3500 2050 2    60   Input ~ 0
 CAM1_CLKOUT+
