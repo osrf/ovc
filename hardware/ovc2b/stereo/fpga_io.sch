@@ -840,57 +840,51 @@ Text GLabel 13900 11350 0    60   Input ~ 0
 IMU_CS_3V3
 Text GLabel 13900 11050 0    60   Input ~ 0
 IMU_NRST_3V3
-Text Label 14400 6900 0    50   ~ 0
+Text Label 14300 6900 0    50   ~ 0
 LSEXP_1
-Text Label 11600 10900 0    50   ~ 0
-LSEXP_1
-Text Label 14400 6800 0    50   ~ 0
+Text Label 14300 6800 0    50   ~ 0
 LSEXP_0
-Text Label 11450 8850 0    50   ~ 0
-LSEXP_0
-Text Label 14400 7100 0    50   ~ 0
+Text Label 14300 7100 0    50   ~ 0
 LSEXP_3
-Text Label 14400 7300 0    50   ~ 0
+Text Label 14300 7300 0    50   ~ 0
 LSEXP_5
-Text Label 14400 7000 0    50   ~ 0
+Text Label 14300 7000 0    50   ~ 0
 LSEXP_2
-Text Label 14400 7200 0    50   ~ 0
+Text Label 14300 7200 0    50   ~ 0
 LSEXP_4
-Text Label 14400 7400 0    50   ~ 0
+Text Label 14300 7400 0    50   ~ 0
 LSEXP_6
-Text Label 14400 7500 0    50   ~ 0
+Text Label 14300 7500 0    50   ~ 0
 LSEXP_7
-Text Label 11450 8450 0    50   ~ 0
-LSEXP_2
-Text Label 11450 8750 0    50   ~ 0
+Text Label 10600 10150 0    50   ~ 0
 LSEXP_3
-Text Label 11450 8550 0    50   ~ 0
+Text Label 10600 9550 0    50   ~ 0
 LSEXP_5
-Text Label 5700 11550 0    50   ~ 0
+Text Label 10600 10750 0    50   ~ 0
 LSEXP_4
-Text Label 5700 11350 0    50   ~ 0
+Text Label 11950 9300 0    50   ~ 0
 LSEXP_7
-Text Label 5700 11250 0    50   ~ 0
+Text Label 11950 9200 0    50   ~ 0
 LSEXP_6
-Text Label 11500 6300 0    50   ~ 0
+Text Label 11600 9550 0    50   ~ 0
 LSEXP_8
-Text Label 11500 6400 0    50   ~ 0
+Text Label 11600 9650 0    50   ~ 0
 LSEXP_10
-Text Label 11500 6500 0    50   ~ 0
+Text Label 11600 9750 0    50   ~ 0
 LSEXP_12
-Text Label 11500 6600 0    50   ~ 0
+Text Label 10600 8950 0    50   ~ 0
 LSEXP_14
-Text Label 12100 6300 0    50   ~ 0
+Text Label 12200 9550 0    50   ~ 0
 LSEXP_9
-Text Label 12100 6400 0    50   ~ 0
+Text Label 12200 9650 0    50   ~ 0
 LSEXP_11
-Text Label 12100 6500 0    50   ~ 0
+Text Label 12200 9750 0    50   ~ 0
 LSEXP_13
-Text Label 12100 6600 0    50   ~ 0
+Text Label 10600 8450 0    50   ~ 0
 LSEXP_15
-Text Label 5700 10850 0    50   ~ 0
+Text Label 10600 11150 0    50   ~ 0
 LSEXP_9
-Text Label 5700 10750 0    50   ~ 0
+Text Label 10600 10450 0    50   ~ 0
 LSEXP_8
 Text Label 18150 8100 0    50   ~ 0
 IMU_NRST_1V8
@@ -908,30 +902,16 @@ Text Label 18150 7800 0    50   ~ 0
 CAM1_CS_1V8
 Text Label 18150 7700 0    50   ~ 0
 CAM1_MOSI_1V8
-Text Label 5650 10250 0    50   ~ 0
+Text Label 10600 10850 0    50   ~ 0
 LSEXP_10
-Text Label 5700 11050 0    50   ~ 0
+Text Label 10600 9950 0    50   ~ 0
 LSEXP_12
-Text Label 5650 9650 0    50   ~ 0
-LSEXP_14
-Text Label 5700 10950 0    50   ~ 0
+Text Label 10600 10950 0    50   ~ 0
 LSEXP_11
-Text Label 5700 11150 0    50   ~ 0
+Text Label 10600 8850 0    50   ~ 0
 LSEXP_13
-Text Label 5650 10150 0    50   ~ 0
+Text Label 11550 10250 0    50   ~ 0
 LSEXP_15
-Text Label 5650 9250 0    50   ~ 0
-LSEXP_HV_5_1V8
-Text Label 5650 9550 0    50   ~ 0
-LSEXP_HV_4_1V8
-Text Label 5650 9450 0    50   ~ 0
-LSEXP_HV_3_1V8
-Text Label 5650 9350 0    50   ~ 0
-LSEXP_HV_2_1V8
-Text Label 5650 9850 0    50   ~ 0
-LSEXP_HV_1_1V8
-Text Label 5650 7650 0    50   ~ 0
-LSEXP_HV_0_1V8
 Text GLabel 14150 11050 2    60   Input ~ 0
 CAM1_TRG_3V3
 Text GLabel 14150 10850 2    60   Input ~ 0
@@ -1022,7 +1002,7 @@ Text Label 4350 10450 0    50   ~ 0
 CAM1_MISO_1V8
 Text Label 4400 7450 0    50   ~ 0
 IMU_MISO_1V8
-Text Label 4350 6850 0    50   ~ 0
+Text Label 4400 6850 0    50   ~ 0
 IMU_SYNC_OUT_1V8
 Text Label 4400 7350 0    50   ~ 0
 IMU_TX1_1V8
@@ -1271,41 +1251,35 @@ Wire Wire Line
 Wire Wire Line
 	20650 4200 20650 4650
 Wire Wire Line
-	11550 10900 12000 10900
+	10550 10150 11000 10150
 Wire Wire Line
-	11400 8850 11850 8850
+	10550 9550 11000 9550
 Wire Wire Line
-	11400 8450 11850 8450
+	10550 10750 11000 10750
 Wire Wire Line
-	11400 8750 11850 8750
+	11900 9300 12350 9300
 Wire Wire Line
-	11400 8550 11850 8550
+	11900 9200 12350 9200
 Wire Wire Line
-	5650 11550 6100 11550
+	11550 9550 12000 9550
 Wire Wire Line
-	5650 11350 6100 11350
+	11550 9650 12000 9650
 Wire Wire Line
-	5650 11250 6100 11250
+	11550 9750 12000 9750
 Wire Wire Line
-	11450 6300 11900 6300
+	10550 8950 11000 8950
 Wire Wire Line
-	11450 6400 11900 6400
+	12150 9550 12600 9550
 Wire Wire Line
-	11450 6500 11900 6500
+	12150 9650 12600 9650
 Wire Wire Line
-	11450 6600 11900 6600
+	12150 9750 12600 9750
 Wire Wire Line
-	12050 6300 12500 6300
+	10550 8450 11000 8450
 Wire Wire Line
-	12050 6400 12500 6400
+	10550 11150 11000 11150
 Wire Wire Line
-	12050 6500 12500 6500
-Wire Wire Line
-	12050 6600 12500 6600
-Wire Wire Line
-	5650 10850 6100 10850
-Wire Wire Line
-	5650 10750 6100 10750
+	10550 10450 11000 10450
 Wire Wire Line
 	18100 8100 18800 8100
 Wire Wire Line
@@ -1323,29 +1297,15 @@ Wire Wire Line
 Wire Wire Line
 	18800 7700 18100 7700
 Wire Wire Line
-	5650 10950 6100 10950
+	10550 10950 11000 10950
 Wire Wire Line
-	5650 11050 6100 11050
+	10550 9950 11000 9950
 Wire Wire Line
-	5600 9650 6050 9650
+	10550 10850 11000 10850
 Wire Wire Line
-	5600 10250 6050 10250
+	10550 8850 11000 8850
 Wire Wire Line
-	5650 11150 6100 11150
-Wire Wire Line
-	5600 10150 6050 10150
-Wire Wire Line
-	5600 9250 6300 9250
-Wire Wire Line
-	5600 9550 6300 9550
-Wire Wire Line
-	5600 9450 6300 9450
-Wire Wire Line
-	5600 9350 6300 9350
-Wire Wire Line
-	5600 9850 6300 9850
-Wire Wire Line
-	5600 7650 6300 7650
+	11500 10250 11950 10250
 Wire Wire Line
 	4350 9550 5050 9550
 Wire Wire Line
@@ -2338,17 +2298,6 @@ F 3 "~" H 13800 8000 50  0001 C CNN
 	1    13800 8000
 	-1   0    0    -1  
 $EndComp
-$Comp
-L power:GND #PWR0188
-U 1 1 5BCBE09A
-P 14000 9500
-F 0 "#PWR0188" H 14000 9250 50  0001 C CNN
-F 1 "GND" H 14005 9327 50  0001 C CNN
-F 2 "" H 14000 9500 50  0001 C CNN
-F 3 "" H 14000 9500 50  0001 C CNN
-	1    14000 9500
-	1    0    0    -1  
-$EndComp
 Text GLabel 4350 7550 2    50   Input ~ 0
 FAN_TACH
 Text GLabel 4350 7750 2    50   Input ~ 0
@@ -2480,62 +2429,37 @@ F 3 "" H 19850 7550 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	17700 3200 17900 3200
-$Comp
-L power:+1V8 #PWR0261
-U 1 1 5BDA8986
-P 14350 9600
-F 0 "#PWR0261" H 14350 9450 50  0001 C CNN
-F 1 "+1V8" H 14365 9773 50  0000 C CNN
-F 2 "" H 14350 9600 50  0001 C CNN
-F 3 "" H 14350 9600 50  0001 C CNN
-	1    14350 9600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	14150 9400 14000 9400
-Wire Wire Line
-	14150 9400 14150 9600
-Wire Wire Line
-	14150 9600 14350 9600
 Text GLabel 14000 7600 2    50   Input ~ 0
 GND
-Text GLabel 14000 7700 2    50   Input ~ 0
-+1V8
 Text GLabel 14000 6600 2    50   Input ~ 0
 GND
 Text GLabel 14000 6700 2    50   Input ~ 0
 +1V8
 Wire Wire Line
-	14000 6800 14800 6800
+	14000 6800 14700 6800
 Wire Wire Line
-	14000 6900 14800 6900
+	14000 6900 14700 6900
 Wire Wire Line
-	14000 7000 14800 7000
+	14000 7000 14700 7000
 Wire Wire Line
-	14000 7100 14800 7100
+	14000 7100 14700 7100
 Wire Wire Line
-	14000 7200 14800 7200
+	14000 7200 14700 7200
 Wire Wire Line
-	14000 7300 14800 7300
+	14000 7300 14700 7300
 Wire Wire Line
-	14000 7400 14800 7400
+	14000 7400 14700 7400
 Wire Wire Line
-	14000 7500 14800 7500
+	14000 7500 14700 7500
 Text Label 4350 1800 0    50   ~ 0
 LSEXP_1
 Text Label 4350 1700 0    50   ~ 0
 LSEXP_0
-Text Label 6100 3150 0    50   ~ 0
-LSEXP_3
-Text Label 6100 3350 0    50   ~ 0
-LSEXP_5
-Text Label 4750 2800 0    50   ~ 0
+Text Label 4350 2800 0    50   ~ 0
 LSEXP_2
-Text Label 6100 3250 0    50   ~ 0
-LSEXP_4
-Text Label 6100 3450 0    50   ~ 0
+Text Label 10600 10650 0    50   ~ 0
 LSEXP_6
-Text Label 6100 3550 0    50   ~ 0
+Text Label 10600 10550 0    50   ~ 0
 LSEXP_7
 Wire Wire Line
 	4350 1700 4750 1700
@@ -2544,13 +2468,115 @@ Wire Wire Line
 Wire Wire Line
 	4350 2800 5150 2800
 Wire Wire Line
-	5700 3150 6500 3150
+	10550 10650 11000 10650
 Wire Wire Line
-	5700 3250 6500 3250
+	10550 10550 11000 10550
+Text Label 14300 7800 0    50   ~ 0
+LSEXP_9
+Text Label 14300 7700 0    50   ~ 0
+LSEXP_8
+Text Label 14300 8000 0    50   ~ 0
+LSEXP_11
+Text Label 14300 8200 0    50   ~ 0
+LSEXP_13
+Text Label 14300 7900 0    50   ~ 0
+LSEXP_10
+Text Label 14300 8100 0    50   ~ 0
+LSEXP_12
+Text Label 14300 8300 0    50   ~ 0
+LSEXP_14
+Text Label 14300 8400 0    50   ~ 0
+LSEXP_15
 Wire Wire Line
-	5700 3350 6500 3350
+	14000 7700 14700 7700
 Wire Wire Line
-	5700 3450 6500 3450
+	14000 7800 14700 7800
 Wire Wire Line
-	5700 3550 6500 3550
+	14000 7900 14700 7900
+Wire Wire Line
+	14000 8000 14700 8000
+Wire Wire Line
+	14000 8100 14700 8100
+Wire Wire Line
+	14000 8200 14700 8200
+Wire Wire Line
+	14000 8300 14700 8300
+Wire Wire Line
+	14000 8400 14700 8400
+Text GLabel 14000 7600 2    50   Input ~ 0
+GND
+Text GLabel 14000 8500 2    50   Input ~ 0
+GND
+Text GLabel 14000 8500 2    50   Input ~ 0
+GND
+Text Label 14300 8700 0    50   ~ 0
+LSEXP_17
+Text Label 14300 8900 0    50   ~ 0
+LSEXP_19
+Text Label 14300 8800 0    50   ~ 0
+LSEXP_18
+Text Label 14300 9000 0    50   ~ 0
+LSEXP_20
+Text Label 14300 9100 0    50   ~ 0
+LSEXP_21
+Wire Wire Line
+	14000 8700 14700 8700
+Wire Wire Line
+	14000 8800 14700 8800
+Wire Wire Line
+	14000 8900 14700 8900
+Wire Wire Line
+	14000 9000 14700 9000
+Wire Wire Line
+	14000 9100 14700 9100
+Text Label 14300 8600 0    50   ~ 0
+LSEXP_16
+Wire Wire Line
+	14000 8600 14700 8600
+Text GLabel 14000 9500 2    50   Input ~ 0
+GND
+Text GLabel 14000 9500 2    50   Input ~ 0
+GND
+Text Label 14300 9200 0    50   ~ 0
+LSEXP_22
+Text Label 14300 9300 0    50   ~ 0
+LSEXP_23
+Wire Wire Line
+	14000 9200 14700 9200
+Wire Wire Line
+	14000 9300 14700 9300
+Text GLabel 14000 9400 2    50   Input ~ 0
++1V8
+Text Label 4650 11350 0    50   ~ 0
+LSEXP_17
+Text Label 4650 10850 0    50   ~ 0
+LSEXP_19
+Text Label 4650 11250 0    50   ~ 0
+LSEXP_18
+Text Label 4650 10750 0    50   ~ 0
+LSEXP_20
+Text Label 4650 10950 0    50   ~ 0
+LSEXP_21
+Wire Wire Line
+	4350 11350 5050 11350
+Wire Wire Line
+	4350 11250 5050 11250
+Wire Wire Line
+	4350 10850 5050 10850
+Wire Wire Line
+	4350 10750 5050 10750
+Wire Wire Line
+	4350 10950 5050 10950
+Text Label 10600 8550 0    50   ~ 0
+LSEXP_16
+Wire Wire Line
+	10550 8550 11000 8550
+Text Label 4650 11150 0    50   ~ 0
+LSEXP_22
+Text Label 4650 10150 0    50   ~ 0
+LSEXP_23
+Wire Wire Line
+	4350 11150 5050 11150
+Wire Wire Line
+	4350 10150 5050 10150
 $EndSCHEMATC

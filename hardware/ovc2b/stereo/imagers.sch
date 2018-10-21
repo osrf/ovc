@@ -1767,4 +1767,30 @@ Wire Wire Line
 	8350 4050 8350 4150
 Wire Wire Line
 	8350 1350 8350 1450
+$Comp
+L connector:TestPoint TP1
+U 1 1 5C7BC383
+P 5600 2050
+F 0 "TP1" H 5658 2168 50  0000 L CNN
+F 1 "TestPoint" H 5658 2077 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Keystone_5000-5004_Miniature" H 5800 2050 50  0001 C CNN
+F 3 "~" H 5800 2050 50  0001 C CNN
+	1    5600 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L connector:TestPoint TP2
+U 1 1 5C7D4879
+P 5600 2500
+F 0 "TP2" H 5658 2618 50  0000 L CNN
+F 1 "TestPoint" H 5658 2527 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Keystone_5000-5004_Miniature" H 5800 2500 50  0001 C CNN
+F 3 "~" H 5800 2500 50  0001 C CNN
+	1    5600 2500
+	1    0    0    -1  
+$EndComp
+Text GLabel 5600 2050 0    60   Input ~ 0
+CAM1_TRG_3V3
+Text GLabel 5600 2500 0    60   Input ~ 0
+CAM1_MISO_3V3
 $EndSCHEMATC
