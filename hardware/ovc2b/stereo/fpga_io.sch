@@ -840,25 +840,25 @@ Text GLabel 13900 11350 0    60   Input ~ 0
 IMU_CS_3V3
 Text GLabel 13900 11050 0    60   Input ~ 0
 IMU_NRST_3V3
-Text Label 11500 6800 0    50   ~ 0
+Text Label 14400 6900 0    50   ~ 0
 LSEXP_1
 Text Label 11600 10900 0    50   ~ 0
 LSEXP_1
-Text Label 12100 6800 0    50   ~ 0
+Text Label 14400 6800 0    50   ~ 0
 LSEXP_0
 Text Label 11450 8850 0    50   ~ 0
 LSEXP_0
-Text Label 11500 6900 0    50   ~ 0
+Text Label 14400 7100 0    50   ~ 0
 LSEXP_3
-Text Label 11500 7000 0    50   ~ 0
+Text Label 14400 7300 0    50   ~ 0
 LSEXP_5
-Text Label 12100 6900 0    50   ~ 0
+Text Label 14400 7000 0    50   ~ 0
 LSEXP_2
-Text Label 12100 7000 0    50   ~ 0
+Text Label 14400 7200 0    50   ~ 0
 LSEXP_4
-Text Label 12100 7100 0    50   ~ 0
+Text Label 14400 7400 0    50   ~ 0
 LSEXP_6
-Text Label 11500 7100 0    50   ~ 0
+Text Label 14400 7500 0    50   ~ 0
 LSEXP_7
 Text Label 11450 8450 0    50   ~ 0
 LSEXP_2
@@ -1271,25 +1271,9 @@ Wire Wire Line
 Wire Wire Line
 	20650 4200 20650 4650
 Wire Wire Line
-	11450 6800 11900 6800
-Wire Wire Line
 	11550 10900 12000 10900
 Wire Wire Line
-	12050 6800 12500 6800
-Wire Wire Line
 	11400 8850 11850 8850
-Wire Wire Line
-	11450 6900 11900 6900
-Wire Wire Line
-	11450 7000 11900 7000
-Wire Wire Line
-	12050 6900 12500 6900
-Wire Wire Line
-	12050 7000 12500 7000
-Wire Wire Line
-	12050 7100 12500 7100
-Wire Wire Line
-	11450 7100 11900 7100
 Wire Wire Line
 	11400 8450 11850 8450
 Wire Wire Line
@@ -2347,8 +2331,8 @@ $Comp
 L Connector_Generic:Conn_01x30 J4
 U 1 1 5DACB401
 P 13800 8000
-F 0 "J4" H 13718 9617 50  0000 C CNN
-F 1 "Conn_01x30" H 13718 9526 50  0000 C CNN
+F 0 "J4" H 13900 9650 50  0000 C CNN
+F 1 "FPGA 1V8 AUX" H 13900 9550 50  0000 C CNN
 F 2 "Connector_PinHeader_1.27mm:PinHeader_1x30_P1.27mm_Vertical" H 13800 8000 50  0001 C CNN
 F 3 "~" H 13800 8000 50  0001 C CNN
 	1    13800 8000
@@ -2494,4 +2478,79 @@ F 3 "" H 19850 7550 50  0001 C CNN
 	1    19850 7550
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	17700 3200 17900 3200
+$Comp
+L power:+1V8 #PWR0261
+U 1 1 5BDA8986
+P 14350 9600
+F 0 "#PWR0261" H 14350 9450 50  0001 C CNN
+F 1 "+1V8" H 14365 9773 50  0000 C CNN
+F 2 "" H 14350 9600 50  0001 C CNN
+F 3 "" H 14350 9600 50  0001 C CNN
+	1    14350 9600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14150 9400 14000 9400
+Wire Wire Line
+	14150 9400 14150 9600
+Wire Wire Line
+	14150 9600 14350 9600
+Text GLabel 14000 7600 2    50   Input ~ 0
+GND
+Text GLabel 14000 7700 2    50   Input ~ 0
++1V8
+Text GLabel 14000 6600 2    50   Input ~ 0
+GND
+Text GLabel 14000 6700 2    50   Input ~ 0
++1V8
+Wire Wire Line
+	14000 6800 14800 6800
+Wire Wire Line
+	14000 6900 14800 6900
+Wire Wire Line
+	14000 7000 14800 7000
+Wire Wire Line
+	14000 7100 14800 7100
+Wire Wire Line
+	14000 7200 14800 7200
+Wire Wire Line
+	14000 7300 14800 7300
+Wire Wire Line
+	14000 7400 14800 7400
+Wire Wire Line
+	14000 7500 14800 7500
+Text Label 4350 1800 0    50   ~ 0
+LSEXP_1
+Text Label 4350 1700 0    50   ~ 0
+LSEXP_0
+Text Label 6100 3150 0    50   ~ 0
+LSEXP_3
+Text Label 6100 3350 0    50   ~ 0
+LSEXP_5
+Text Label 4750 2800 0    50   ~ 0
+LSEXP_2
+Text Label 6100 3250 0    50   ~ 0
+LSEXP_4
+Text Label 6100 3450 0    50   ~ 0
+LSEXP_6
+Text Label 6100 3550 0    50   ~ 0
+LSEXP_7
+Wire Wire Line
+	4350 1700 4750 1700
+Wire Wire Line
+	4350 1800 4750 1800
+Wire Wire Line
+	4350 2800 5150 2800
+Wire Wire Line
+	5700 3150 6500 3150
+Wire Wire Line
+	5700 3250 6500 3250
+Wire Wire Line
+	5700 3350 6500 3350
+Wire Wire Line
+	5700 3450 6500 3450
+Wire Wire Line
+	5700 3550 6500 3550
 $EndSCHEMATC
