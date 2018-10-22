@@ -4,6 +4,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   roslib
   image_transport
+  camera_info_manager
   cv_bridge
   message_generation
   message_filters
@@ -27,6 +28,7 @@ catkin_package(
     message_runtime
     cv_bridge
     image_transport
+    camera_info_manager
     message_filters
 #  INCLUDE_DIRS include
 #  LIBRARIES falcam
