@@ -862,24 +862,8 @@ Text Label 10600 9550 0    50   ~ 0
 LSEXP_5
 Text Label 10600 10750 0    50   ~ 0
 LSEXP_4
-Text Label 11950 9300 0    50   ~ 0
-LSEXP_7
-Text Label 11950 9200 0    50   ~ 0
-LSEXP_6
-Text Label 11600 9550 0    50   ~ 0
-LSEXP_8
-Text Label 11600 9650 0    50   ~ 0
-LSEXP_10
-Text Label 11600 9750 0    50   ~ 0
-LSEXP_12
 Text Label 10600 8950 0    50   ~ 0
 LSEXP_14
-Text Label 12200 9550 0    50   ~ 0
-LSEXP_9
-Text Label 12200 9650 0    50   ~ 0
-LSEXP_11
-Text Label 12200 9750 0    50   ~ 0
-LSEXP_13
 Text Label 10600 8450 0    50   ~ 0
 LSEXP_15
 Text Label 10600 11150 0    50   ~ 0
@@ -910,8 +894,6 @@ Text Label 10600 10950 0    50   ~ 0
 LSEXP_11
 Text Label 10600 8850 0    50   ~ 0
 LSEXP_13
-Text Label 11550 10250 0    50   ~ 0
-LSEXP_15
 Text GLabel 14150 11050 2    60   Input ~ 0
 CAM1_TRG_3V3
 Text GLabel 14150 10850 2    60   Input ~ 0
@@ -982,11 +964,11 @@ Text Label 15150 3800 0    50   ~ 0
 HSEXP8
 Text Label 15150 2200 0    50   ~ 0
 HSEXP9
-Text Label 5650 8300 0    50   ~ 0
+Text Label 4400 8250 0    50   ~ 0
 HSEXP14
-Text Label 5650 8900 0    50   ~ 0
+Text Label 4400 8850 0    50   ~ 0
 HSEXP15
-Text Label 5650 8500 0    50   ~ 0
+Text Label 4400 8450 0    50   ~ 0
 HSEXP16
 Text GLabel 15650 14800 2    60   Input ~ 0
 CAM2_MONITOR
@@ -1257,23 +1239,7 @@ Wire Wire Line
 Wire Wire Line
 	10550 10750 11000 10750
 Wire Wire Line
-	11900 9300 12350 9300
-Wire Wire Line
-	11900 9200 12350 9200
-Wire Wire Line
-	11550 9550 12000 9550
-Wire Wire Line
-	11550 9650 12000 9650
-Wire Wire Line
-	11550 9750 12000 9750
-Wire Wire Line
 	10550 8950 11000 8950
-Wire Wire Line
-	12150 9550 12600 9550
-Wire Wire Line
-	12150 9650 12600 9650
-Wire Wire Line
-	12150 9750 12600 9750
 Wire Wire Line
 	10550 8450 11000 8450
 Wire Wire Line
@@ -1304,8 +1270,6 @@ Wire Wire Line
 	10550 10850 11000 10850
 Wire Wire Line
 	10550 8850 11000 8850
-Wire Wire Line
-	11500 10250 11950 10250
 Wire Wire Line
 	4350 9550 5050 9550
 Wire Wire Line
@@ -1383,11 +1347,11 @@ Wire Wire Line
 Wire Wire Line
 	15100 2200 15550 2200
 Wire Wire Line
-	5600 8300 6050 8300
+	4350 8250 4800 8250
 Wire Wire Line
-	5600 8900 6050 8900
+	4350 8850 4800 8850
 Wire Wire Line
-	5600 8500 6050 8500
+	4350 8450 4800 8450
 Wire Wire Line
 	14000 14800 14750 14800
 Wire Wire Line
