@@ -166,15 +166,25 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "ovc2");
   ros::NodeHandle nh, nh_private("~");
 
+  int imu_decimation;
+  nh_private.param<int>("imu_decimation", imu_decimation, 10);
+
+  int exposure_region_top, exposure_region_bottom;
+  nh_private.param<int>("exposure_region_top", exposure_region_top, 0);
+  nh_private.param<int>("exposure_region_bottom", exposure_region_bottom, 1024);
+
   OVC2 ovc2;
+  ovc2.set_imu_decimation(imu_decimation);
+  ovc2.set_exposure_region(exposure_region_top, exposure_region_bottom);
+
   if (!ovc2.init()) {
     ROS_FATAL("ovc2 init failed");
     return 1;
   }
 
   ROS_INFO("spinning up worker threads...");
-  std::thread cam_thread(cam_thread_fn, &ovc2, &nh);
-  std::thread imu_thread(imu_thread_fn, &ovc2, &nh);
+  std::thread cam_thread(cam_thread_fn, &ovc2, &nh_private);
+  std::thread imu_thread(imu_thread_fn, &ovc2, &nh_private);
 
   ROS_INFO("starting main spin loop...");
   ros::spin();
