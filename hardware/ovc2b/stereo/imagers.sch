@@ -1772,8 +1772,8 @@ L connector:TestPoint TP1
 U 1 1 5C7BC383
 P 5600 2050
 F 0 "TP1" H 5658 2168 50  0000 L CNN
-F 1 "TestPoint" H 5658 2077 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Keystone_5000-5004_Miniature" H 5800 2050 50  0001 C CNN
+F 1 "TRG" H 5658 2077 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5800 2050 50  0001 C CNN
 F 3 "~" H 5800 2050 50  0001 C CNN
 	1    5600 2050
 	1    0    0    -1  
@@ -1783,8 +1783,8 @@ L connector:TestPoint TP2
 U 1 1 5C7D4879
 P 5600 2500
 F 0 "TP2" H 5658 2618 50  0000 L CNN
-F 1 "TestPoint" H 5658 2527 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Keystone_5000-5004_Miniature" H 5800 2500 50  0001 C CNN
+F 1 "MISO" H 5658 2527 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5800 2500 50  0001 C CNN
 F 3 "~" H 5800 2500 50  0001 C CNN
 	1    5600 2500
 	1    0    0    -1  
@@ -1793,4 +1793,43 @@ Text GLabel 5600 2050 0    60   Input ~ 0
 CAM1_TRG_3V3
 Text GLabel 5600 2500 0    60   Input ~ 0
 CAM1_MISO_3V3
+$Comp
+L connector:TestPoint TP4
+U 1 1 5BEA038A
+P 5600 2950
+F 0 "TP4" H 5658 3068 50  0000 L CNN
+F 1 "CS" H 5658 2977 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5800 2950 50  0001 C CNN
+F 3 "~" H 5800 2950 50  0001 C CNN
+	1    5600 2950
+	1    0    0    -1  
+$EndComp
+Text GLabel 5600 2950 0    60   Input ~ 0
+CAM1_CS_3V3
+$Comp
+L connector:TestPoint TP5
+U 1 1 5BEB1A77
+P 5600 3400
+F 0 "TP5" H 5658 3518 50  0000 L CNN
+F 1 "MOSI" H 5658 3427 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5800 3400 50  0001 C CNN
+F 3 "~" H 5800 3400 50  0001 C CNN
+	1    5600 3400
+	1    0    0    -1  
+$EndComp
+Text GLabel 5600 3400 0    60   Input ~ 0
+CAM1_MOSI_3V3
+$Comp
+L connector:TestPoint TP6
+U 1 1 5BEBF972
+P 5600 3850
+F 0 "TP6" H 5658 3968 50  0000 L CNN
+F 1 "SCK" H 5658 3877 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5800 3850 50  0001 C CNN
+F 3 "~" H 5800 3850 50  0001 C CNN
+	1    5600 3850
+	1    0    0    -1  
+$EndComp
+Text GLabel 5600 3850 0    60   Input ~ 0
+CAM1_SCK_3V3
 $EndSCHEMATC

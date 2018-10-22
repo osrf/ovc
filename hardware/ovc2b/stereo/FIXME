@@ -1,5 +1,0 @@
-* it would be nice to see CRC_ERROR for configuration debugging
-* HSEXP 7 +/- go into bank 2L, which is a 3V bank and doesn't have differential
-  input series termination available.
-  HSEXP7+/- should go into any other bank instead.
-* bring IMU_SYNC_OUT to 100mil header instead of (or in addition to) SYNC_IN

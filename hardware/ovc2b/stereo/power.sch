@@ -393,7 +393,7 @@ L device:R_Small R58
 U 1 1 59F7887D
 P 3450 8600
 F 0 "R58" H 3509 8646 50  0000 L CNN
-F 1 "47" H 3509 8555 50  0000 L CNN
+F 1 "1k" H 3509 8555 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603" H 3450 8600 50  0001 C CNN
 F 3 "" H 3450 8600 50  0001 C CNN
 F 4 "digikey" H 3509 8746 50  0001 C CNN "D1"
@@ -445,7 +445,7 @@ L device:R_Small R60
 U 1 1 59F94350
 P 1750 8600
 F 0 "R60" H 1809 8646 50  0000 L CNN
-F 1 "47" H 1809 8555 50  0000 L CNN
+F 1 "1k" H 1809 8555 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603" H 1750 8600 50  0001 C CNN
 F 3 "" H 1750 8600 50  0001 C CNN
 F 4 "digikey" H 1809 8746 50  0001 C CNN "D1"
@@ -1969,4 +1969,110 @@ Text Notes 11450 9000 0    50   ~ 0
 pull down PG_GRP1 if either\n0v9 or 1v03 is not ready
 Text Notes 6550 5750 0    50   ~ 0
 pull down PG_GRP1 if either\n0v9 or 1v03 is not ready
+Text Notes 1350 9650 0    50   ~ 0
+Make sure 0v9 and 1v03 ramp down after 1v8 and 3v3 have ramped down.
+$Comp
+L Connector_Generic:Conn_01x03 J13
+U 1 1 5BED1667
+P 5800 6800
+F 0 "J13" H 5800 7150 50  0000 C CNN
+F 1 "POWER TEST" H 5900 7050 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 5800 6800 50  0001 C CNN
+F 3 "~" H 5800 6800 50  0001 C CNN
+	1    5800 6800
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0188
+U 1 1 5BEDDDE3
+P 6150 6900
+F 0 "#PWR0188" H 6150 6650 50  0001 C CNN
+F 1 "GND" H 6155 6727 50  0001 C CNN
+F 2 "" H 6150 6900 50  0001 C CNN
+F 3 "" H 6150 6900 50  0001 C CNN
+	1    6150 6900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6000 6900 6150 6900
+$Comp
+L power:+1V8 #PWR0259
+U 1 1 5BEED7F7
+P 6250 6800
+F 0 "#PWR0259" H 6250 6650 50  0001 C CNN
+F 1 "+1V8" H 6265 6973 50  0000 C CNN
+F 2 "" H 6250 6800 50  0001 C CNN
+F 3 "" H 6250 6800 50  0001 C CNN
+	1    6250 6800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 6800 6000 6800
+$Comp
+L power:+3V3 #PWR0260
+U 1 1 5BF079C3
+P 6100 6700
+F 0 "#PWR0260" H 6100 6550 50  0001 C CNN
+F 1 "+3V3" H 6115 6873 50  0000 C CNN
+F 2 "" H 6100 6700 50  0001 C CNN
+F 3 "" H 6100 6700 50  0001 C CNN
+	1    6100 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6000 6700 6100 6700
+$Comp
+L connector:TestPoint TP7
+U 1 1 5BF1FFD8
+P 5000 6900
+F 0 "TP7" H 5058 7018 50  0000 L CNN
+F 1 "12V" H 5058 6927 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5200 6900 50  0001 C CNN
+F 3 "~" H 5200 6900 50  0001 C CNN
+	1    5000 6900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR0261
+U 1 1 5BF256E9
+P 4750 6900
+F 0 "#PWR0261" H 4750 6750 50  0001 C CNN
+F 1 "+12V" H 4765 7073 50  0000 C CNN
+F 2 "" H 4750 6900 50  0001 C CNN
+F 3 "" H 4750 6900 50  0001 C CNN
+	1    4750 6900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 6900 5000 6900
+Text GLabel 4750 7200 0    50   Input ~ 0
+1V03
+Text GLabel 4750 7500 0    50   Input ~ 0
+0V9
+$Comp
+L connector:TestPoint TP8
+U 1 1 5BF51CB2
+P 5000 7200
+F 0 "TP8" H 5058 7318 50  0000 L CNN
+F 1 "1V03" H 5058 7227 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5200 7200 50  0001 C CNN
+F 3 "~" H 5200 7200 50  0001 C CNN
+	1    5000 7200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 7200 4750 7200
+$Comp
+L connector:TestPoint TP9
+U 1 1 5BF630D4
+P 5000 7500
+F 0 "TP9" H 5058 7618 50  0000 L CNN
+F 1 "0V9" H 5058 7527 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5200 7500 50  0001 C CNN
+F 3 "~" H 5200 7500 50  0001 C CNN
+	1    5000 7500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 7500 4750 7500
 $EndSCHEMATC
