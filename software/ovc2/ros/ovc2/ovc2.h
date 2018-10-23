@@ -29,6 +29,14 @@ public:
   struct ovc2_imu_data imu_data_;
   bool update_autoexposure_loop(uint8_t *image);
   double get_exposure() { return exposure_; }
+
+  void set_imu_decimation(const uint8_t imu_decim);
+  void set_exposure_region(const uint32_t top, const uint32_t bottom);
+
+  static const int IMAGE_WIDTH = 1280;
+  static const int IMAGE_HEIGHT = 2048;
+
+
 private:
   bool init_complete_;
   int fd_, fd_imu_, fd_cam_;
@@ -37,6 +45,10 @@ private:
   double exposure_;
   struct timespec t_offset, t_prev_offset, t_prev_imu;
   double t_prev_poll;
+
+  uint8_t imu_decimation = 10;
+  uint32_t exposure_region_top;
+  uint32_t exposure_region_bottom;
 
   bool enable_reg_ram();
 	bool configure_imager(const int imager_idx);

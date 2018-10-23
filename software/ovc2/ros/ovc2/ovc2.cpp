@@ -99,7 +99,7 @@ bool OVC2::init()
     return false;
   }
   printf("cam dma initialized OK\n");
-  if (!set_sync_timing(7)) {
+  if (!set_sync_timing(imu_decimation)) {
     printf("OH NO couldn't set sync timing\n");
     return false;
   }
@@ -573,7 +573,7 @@ bool OVC2::imu_append_checksum(char *msg)
     return false;
   }
   int msg_len = strlen(msg);
-  uint8_t csum = 0; 
+  uint8_t csum = 0;
   for (int i = 1; i < msg_len; i++)
     csum ^= msg[i];
   char csum_ascii[10] = {0};
@@ -709,7 +709,25 @@ bool OVC2::wait_for_image(uint8_t **p, struct timespec &t)
   // t_hw is in microseconds. we need to add that to the t_offset
   hardware_time_to_system_time(t_hw, t);
 
-  return true;  
+  return true;
+}
+
+void OVC2::set_imu_decimation(const uint8_t imu_decim) {
+  imu_decimation = imu_decim;
+  return;
+}
+
+void OVC2::set_exposure_region(const uint32_t top, const uint32_t bottom) {
+
+  exposure_region_top = top;
+  exposure_region_bottom = bottom;
+
+  if (top < 0 || top >= IMAGE_HEIGHT/2-1)
+    printf("Exposure region top [%d] is invalid\n", top);
+  if (bottom < 1 || bottom >= IMAGE_HEIGHT/2)
+    printf("Exposure region bottom [%d] is invalid\n", bottom);
+
+  return;
 }
 
 bool OVC2::set_sync_timing(const uint32_t imu_decimation)
@@ -748,10 +766,20 @@ bool OVC2::update_autoexposure_loop(uint8_t *image)
   // todo: move this image-sum calculation into the FPGA
   const uint32_t PIXEL_SKIP = 23;  // skip ahead a prime number of pixels
   uint32_t sum = 0;
-  for (int i = 0; i < 1280*1024; i += PIXEL_SKIP)
+  //for (int i = 0; i < 1280*1024; i += PIXEL_SKIP)
+  //  sum += image[i];
+  //const double current_brightness = sum / (double)(1280*1024/PIXEL_SKIP);
+  //const double target_brightness = 100;  // target average pixel value
+
+  for (uint32_t i = exposure_region_top*IMAGE_WIDTH;
+      i < exposure_region_bottom*IMAGE_WIDTH; i += PIXEL_SKIP)
     sum += image[i];
-  const double current_brightness = sum / (double)(1280*1024/PIXEL_SKIP);
+
+  const double current_brightness = sum /
+    (double)((exposure_region_bottom-exposure_region_top)*IMAGE_WIDTH/PIXEL_SKIP);
   const double target_brightness = 100;  // target average pixel value
+
+
   double new_exposure = exposure_ * target_brightness / current_brightness;
   // clamp to sane values
   if (new_exposure < 10e-6)

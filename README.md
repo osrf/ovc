@@ -15,7 +15,7 @@ the art open hardware with open firmware and software. There are a few revs:
  * ovc1 hardware currently lives in 'hardware/ovc1' as a single KiCAD PCB.
    * schematics are provided as [PDF](https://github.com/osrf/ovc/raw/master/hardware/ovc1/ovc.pdf) or native KiCAD files
  * ovc2 hardware lives in 'hardware/ovc2'
- 
+
 # where do I find other stuff
 
  * Firmware and software for ovc1 and ovc2 are in the 'firmware' and 'software'
@@ -39,6 +39,13 @@ git pull
 ```
 cd ~/ovc/software/ovc2/modules/ovc2_core
 make
+cd ~/ovc/software/ovc2/modules/ovc2_cfg
+make
+```
+In case there is a compilation error for ovc2_core, try
+```
+cd /usr/src/linux-headers-4.4.38-tegra/
+sudo make modules_prepare
 ```
 
 #### Compile ROS package (userland)
@@ -92,7 +99,7 @@ catkin build
 ## ovc2
 
 For convenience, the `~/.bashrc` of the default `nvidia` user adds
-`~/ovc/software/ovc2/scripts` to `$PATH`.
+`~/ovc/software/ovc2/scripts` to `$PATH`. Create a link for the `ovc2a.rbf` file (located at `~/ovc/firmware/ovc2/stable`) at the home folder.
 
 Typically, all you need to run is the `ovc2_reconfigure` script, which does
 the following:
