@@ -11,6 +11,7 @@ module reg_ram_iface
  output [9:0] cam_rxd_align_req,
  output [3:0] cam_rxd_align_sel,
  output [15:0] trigger_exposure_usec,
+ output [15:0] flash_usec,
  output [7:0] trigger_imu_decim,
  output [31:0] cam_spi_ctrl,
  output [31:0] cam_spi_txd,
@@ -91,6 +92,10 @@ localparam [15:0] EXPOSURE_INIT = 16'd5000;
 r #(16, EXPOSURE_INIT) trigger_exposure_usec_r
 (.c(c), .rst(1'b0), .en(trigger_exposure_usec_en),
  .d(reg_ram_q[15:0]), .q(trigger_exposure_usec));
+
+r #(16) flash_usec_r
+(.c(c), .rst(1'b0), .en(trigger_exposure_usec_en),
+ .d(reg_ram_q[31:16]), .q(flash_usec));
 
 // for initializing with something sane, assume IMU rate is 200 Hz
 localparam [7:0] IMU_DECIM_INIT = 8'h07;  // decimation rate of 7 = 28.57 fps

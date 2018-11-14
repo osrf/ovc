@@ -4,7 +4,9 @@ module trigger
  input  imu_sync,
  input  [7:0] imu_decim,  // imu-per-image decimation rate
  input  [15:0] exposure_usec,
- output q);
+ input  [15:0] flash_usec,
+ output trigger,
+ output flash);
 
 // for initializing with something sane, assume IMU rate is 200 Hz
 /*
@@ -36,6 +38,14 @@ r #(16) trigger_cnt_r
  .d(trigger_cnt + 1'b1), .q(trigger_cnt));
 
 // register once to help timing a bit
-d1 q_r(.c(c), .d(|trigger_cnt), .q(q));
+d1 trigger_r(.c(c), .d(|trigger_cnt), .q(trigger));
+
+wire flash_start = trigger_start & |flash_usec;
+wire [15:0] flash_cnt;
+r #(16) flash_cnt_r
+(.c(c), .rst(flash_cnt > flash_usec),
+ .en(flash_start | (|flash_cnt & usec_div)),
+ .d(flash_cnt + 1'b1), .q(flash_cnt));
+d1 flash_r(.c(c), .d(|flash_cnt), .q(flash));
 
 endmodule

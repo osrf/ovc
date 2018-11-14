@@ -29,7 +29,7 @@ module top_wrapper(
 );
 
 assign imu_tare = 1'b0;
-assign imu_sync_in = 1'b0;
+//assign imu_sync_in = 1'b0;
 
 wire pcie_npor = pcie_perst;
 wire [31:0] qsys_pio_output;
@@ -229,6 +229,7 @@ top top_inst(
   .imu_mosi(imu_mosi),
   .imu_miso(imu_miso),
   .imu_sync(imu_sync_out),
+  .led_flash(imu_sync_in),
 
   .reg_ram_addr(reg_ram_addr),
   .reg_ram_wr(reg_ram_wr),

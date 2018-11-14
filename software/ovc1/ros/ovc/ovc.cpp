@@ -591,20 +591,37 @@ bool OVC::set_sync_timing(const uint8_t imu_decimation)
   return true;
 }
 
-bool OVC::set_exposure(float seconds)
+bool OVC::set_exposure_and_flash(float exposure_seconds, float flash_seconds)
 {
   //printf("set_exposure(%0.6f)\n", seconds);
-  if (seconds > 0.065)
-    seconds = 0.065;
+  // avoid overflow/wrap of uint16 usec counter
+  if (exposure_seconds > 0.065)
+    exposure_seconds = 0.065;
+  if (flash_seconds > 0.065)
+    flash_seconds = 0.065;
+
+  // avoid undefined behavior from negative parameters...
+  if (exposure_seconds < 0)
+    exposure_seconds = 0.0001;
+  if (flash_seconds < 0)
+    flash_seconds = 0.0001;
+
   struct ovc_ioctl_set_exposure set_exposure;
-  set_exposure.exposure_usec = seconds * 1000000;
-  exposure_ = seconds;
+  set_exposure.exposure_usec = exposure_seconds * 1000000;
+  set_exposure.flash_usec = flash_seconds * 1000000;
+  exposure_ = exposure_seconds;
   int rc = ioctl(fd, OVC_IOCTL_SET_EXPOSURE, &set_exposure);
   if (rc) {
     printf("unexpected return from set_exposure ioctl call: %d\n", rc);
     return false;
   }
   return true;
+}
+
+
+bool OVC::set_exposure(float seconds)
+{
+  return set_exposure_and_flash(seconds, 0);
 }
 
 // lightly edited from the original implementation available here:
