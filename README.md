@@ -161,7 +161,7 @@ For a typical software-development session (unless you need to re-flash and reco
 ```
 ~/scripts/init_fpga.sh
 ```
-That script will load the OVC kernel module, configure the FPGA core using the blob in `~/opencam/firmware/ovc/fpga/stable/ovc.core.rbf`, and re-load the OVC module to allocate DMA buffers.
+That script will load the OVC kernel module, configure the FPGA core using the blob in `~/ovc/firmware/ovc1/fpga/stable/ovc.core.rbf`, and re-load the OVC module to allocate DMA buffers.
 
 Then, you can run the ROS image streamer and feature-visualizer nodes:
 

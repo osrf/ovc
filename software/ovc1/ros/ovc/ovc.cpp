@@ -778,7 +778,7 @@ bool OVC::update_autoexposure_loop(uint8_t *image)
   double filtered_exposure = alpha * new_exposure + (1.0 - alpha) * exposure_;
 
   //printf("new_exposure = %0.6f\n", new_exposure);
-  return set_exposure(filtered_exposure);
+  return set_exposure_and_flash(filtered_exposure, filtered_exposure + 0.001);
 }
 
 bool OVC::set_corner_threshold(const uint8_t threshold)
