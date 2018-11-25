@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name cameras)(type Legacy)(uri /home/mquigley/hw/osrf_hw/kicad_libraries/cameras.lib)(options "")(descr ""))
+  (lib (name trenz)(type Legacy)(uri /home/mquigley/hw/osrf_hw/kicad_libraries/trenz.lib)(options "")(descr ""))
+  (lib (name IMU)(type Legacy)(uri /home/mquigley/hw/osrf_hw/kicad_libraries/IMU.lib)(options "")(descr ""))
+)

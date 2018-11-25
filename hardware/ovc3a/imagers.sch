@@ -1,0 +1,120 @@
+EESchema Schematic File Version 4
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 2 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector_Generic:Conn_01x01 J?
+U 1 1 5BFA9CB3
+P 4400 2700
+AR Path="/5BFA9CB3" Ref="J?"  Part="1" 
+AR Path="/5BFA87C9/5BFA9CB3" Ref="J1"  Part="1" 
+F 0 "J1" H 4480 2742 50  0000 L CNN
+F 1 "LEFT_LENS" H 4480 2651 50  0000 L CNN
+F 2 "LensHolder:LENS_HOLDER_20MM_WITH_PINS" H 4400 2700 50  0001 C CNN
+F 3 "~" H 4400 2700 50  0001 C CNN
+	1    4400 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J?
+U 1 1 5BFA9CB9
+P 4400 2950
+AR Path="/5BFA9CB9" Ref="J?"  Part="1" 
+AR Path="/5BFA87C9/5BFA9CB9" Ref="J2"  Part="1" 
+F 0 "J2" H 4480 2992 50  0000 L CNN
+F 1 "RIGHT_LENS" H 4480 2901 50  0000 L CNN
+F 2 "LensHolder:LENS_HOLDER_20MM_WITH_PINS" H 4400 2950 50  0001 C CNN
+F 3 "~" H 4400 2950 50  0001 C CNN
+	1    4400 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L cameras:NOIP1SN1300A, U?
+U 1 1 5BFA9CD2
+P 2600 3600
+AR Path="/5BFA9CD2" Ref="U?"  Part="1" 
+AR Path="/5BFA87C9/5BFA9CD2" Ref="U1"  Part="1" 
+F 0 "U1" H 2600 5565 50  0000 C CNN
+F 1 "NOIP1SN1300A," H 2600 5474 50  0000 C CNN
+F 2 "ONSemi:ONSEMI-LCC48-1.016" H 2600 3600 50  0001 C CNN
+F 3 "" H 2600 3600 50  0001 C CNN
+F 4 "_" H 2600 3600 50  0001 C CNN "MFN"
+F 5 "_" H 2600 3600 50  0001 C CNN "MFP"
+F 6 "digikey" H 2600 3600 50  0001 C CNN "D1"
+F 7 "mouser" H 2600 3600 50  0001 C CNN "D2"
+F 8 "_" H 2600 3600 50  0001 C CNN "D1PN"
+F 9 "_" H 2600 3600 50  0001 C CNN "D1PL"
+F 10 "_" H 2600 3600 50  0001 C CNN "D2PN"
+F 11 "_" H 2600 3600 50  0001 C CNN "D2PL"
+F 12 "_" H 2600 3600 50  0001 C CNN "Package"
+F 13 "_" H 2600 3600 50  0001 C CNN "Description"
+F 14 "_" H 2600 3600 50  0001 C CNN "Voltage"
+F 15 "_" H 2600 3600 50  0001 C CNN "Power"
+F 16 "_" H 2600 3600 50  0001 C CNN "Tolerance"
+F 17 "_" H 2600 3600 50  0001 C CNN "Temperature"
+F 18 "_" H 2600 3600 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 2600 3600 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 2600 3600 50  0001 C CNN "Cont.Current"
+F 21 "_" H 2600 3600 50  0001 C CNN "Frequency"
+F 22 "_" H 2600 3600 50  0001 C CNN "ResonnanceFreq"
+	1    2600 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L cameras:NOIP1SN1300A, U?
+U 1 1 5BFA9CEB
+P 6300 3650
+AR Path="/5BFA9CEB" Ref="U?"  Part="1" 
+AR Path="/5BFA87C9/5BFA9CEB" Ref="U2"  Part="1" 
+F 0 "U2" H 6300 5615 50  0000 C CNN
+F 1 "NOIP1SN1300A," H 6300 5524 50  0000 C CNN
+F 2 "ONSemi:ONSEMI-LCC48-1.016" H 6300 3650 50  0001 C CNN
+F 3 "" H 6300 3650 50  0001 C CNN
+F 4 "_" H 6300 3650 50  0001 C CNN "MFN"
+F 5 "_" H 6300 3650 50  0001 C CNN "MFP"
+F 6 "digikey" H 6300 3650 50  0001 C CNN "D1"
+F 7 "mouser" H 6300 3650 50  0001 C CNN "D2"
+F 8 "_" H 6300 3650 50  0001 C CNN "D1PN"
+F 9 "_" H 6300 3650 50  0001 C CNN "D1PL"
+F 10 "_" H 6300 3650 50  0001 C CNN "D2PN"
+F 11 "_" H 6300 3650 50  0001 C CNN "D2PL"
+F 12 "_" H 6300 3650 50  0001 C CNN "Package"
+F 13 "_" H 6300 3650 50  0001 C CNN "Description"
+F 14 "_" H 6300 3650 50  0001 C CNN "Voltage"
+F 15 "_" H 6300 3650 50  0001 C CNN "Power"
+F 16 "_" H 6300 3650 50  0001 C CNN "Tolerance"
+F 17 "_" H 6300 3650 50  0001 C CNN "Temperature"
+F 18 "_" H 6300 3650 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 6300 3650 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 6300 3650 50  0001 C CNN "Cont.Current"
+F 21 "_" H 6300 3650 50  0001 C CNN "Frequency"
+F 22 "_" H 6300 3650 50  0001 C CNN "ResonnanceFreq"
+	1    6300 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4200 2700 4200 2950
+$Comp
+L power:GND #PWR0101
+U 1 1 5BFAA744
+P 4200 2950
+F 0 "#PWR0101" H 4200 2700 50  0001 C CNN
+F 1 "GND" H 4205 2777 50  0001 C CNN
+F 2 "" H 4200 2950 50  0001 C CNN
+F 3 "" H 4200 2950 50  0001 C CNN
+	1    4200 2950
+	1    0    0    -1  
+$EndComp
+Connection ~ 4200 2950
+$EndSCHEMATC
