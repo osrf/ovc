@@ -129,12 +129,66 @@ Wire Wire Line
 	3800 5150 4450 5150
 Text Label 3850 5150 0    50   ~ 0
 CONN_SBU1
-Text Notes 4800 3600 0    50   ~ 0
-TPD8S300A for ESD protection on PD/USB2 pins
-Text Notes 4800 3750 0    50   ~ 0
-TPS65987D power-delivery port controller, lots of features
-Text Notes 4800 3900 0    50   ~ 0
-simpler option: STUSB4500
-Text Notes 4800 4050 0    50   ~ 0
-FT4233H for PD as well as JTAG, etc. (not available yet?)
+$Comp
+L usb_controller:STUSB4500 U5
+U 1 1 5BFED805
+P 6150 4050
+F 0 "U5" H 6250 5115 50  0000 C CNN
+F 1 "STUSB4500" H 6250 5024 50  0000 C CNN
+F 2 "Package_DFN_QFN:QFN-24-1EP_4x4mm_P0.5mm_EP2.7x2.7mm" H 6150 5150 50  0001 C CNN
+F 3 "" H 5800 3750 50  0001 C CNN
+	1    6150 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 4150 5550 4150
+Wire Wire Line
+	5550 4150 5550 4250
+Wire Wire Line
+	5550 4250 5650 4250
+Wire Wire Line
+	5650 4350 5550 4350
+Wire Wire Line
+	5550 4350 5550 4450
+Wire Wire Line
+	5550 4450 5650 4450
+Wire Wire Line
+	5550 4250 5100 4250
+Connection ~ 5550 4250
+Text Label 5100 4250 0    50   ~ 0
+CONN_CC1
+Wire Wire Line
+	5550 4350 5100 4350
+Connection ~ 5550 4350
+Text Label 5100 4350 0    50   ~ 0
+CONN_CC2
+$Comp
+L power:GND #PWR0103
+U 1 1 5BFF11DE
+P 5550 4950
+F 0 "#PWR0103" H 5550 4700 50  0001 C CNN
+F 1 "GND" H 5555 4777 50  0001 C CNN
+F 2 "" H 5550 4950 50  0001 C CNN
+F 3 "" H 5550 4950 50  0001 C CNN
+	1    5550 4950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 4950 5550 4950
+Wire Wire Line
+	5650 4850 5550 4850
+Wire Wire Line
+	5550 4850 5550 4950
+Connection ~ 5550 4950
+Wire Wire Line
+	5650 4650 5550 4650
+Wire Wire Line
+	5550 4650 5550 4850
+Connection ~ 5550 4850
+Wire Wire Line
+	5650 4550 5550 4550
+Wire Wire Line
+	5550 4550 5550 4650
+Connection ~ 5550 4650
+NoConn ~ 5650 4750
 $EndSCHEMATC
