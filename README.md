@@ -189,3 +189,45 @@ hostname as needed, if you have changed it from the default `tegra-ubuntu`):
 export ROS_MASTER_URI=http://ovc.local:11311
 rosrun ovc corner_viewer
 ```
+
+#### Re-flashing MCU (uncommon)
+In the event that the MCU is somehow horribly messed up and needs a total
+re-flash, you can do the following actions to restore it, using the handy
+`stm32flash` program. Unfortunately, because we're using a relatively new
+MCU (STM32L452) we need to build it from souce, but it's not hard:
+```
+mkdir ~/mcu
+cd ~/mcu
+git clone https://git.code.sf.net/p/stm32flash/code stm32flash
+cd stm32flash
+make
+```
+
+First, we need to do a "button dance" in order to boot the MCU into its
+bootloader. Note that the buttons are tiny. Be sure to ground yourself using
+either a wrist-strap or diligently touching the HDMI connector shield before
+risking unloading your body's static charge into the tiny components near
+the buttons!
+ * press and hold the `MCU_RESET` button
+ * press and hold the `MCU_BOOT` button
+ * release `MCU_RESET`
+ * release `MCU_BOOT`
+If done correctly, the MCU LED should light up. You can verify that the MCU
+is in bootloader mode by querying it with `stm32flash`:
+```
+~/mcu/stm32flash/stm32flash /dev/ttyTHS1
+```
+If the MCU is alive and in bootloader mode, that command should print out some
+information about the memory banks of the STM32.
+
+Now, we can restore the MCU flash bank. First, make sure your checkout of the
+`ovc` repo is up-to-date. On a TX2 shell:
+```
+cd ~/ovc
+git pull
+```
+There should be a MCU firmware blob sitting in `~/ovc/firmware/ovc1/mcu/stable`
+that we will now flash to the MCU:
+```
+~/mcu/stm32flash/stm32flash -v -w ovc1_mcu.bin /dev/ttyTHS1
+```
