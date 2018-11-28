@@ -229,5 +229,17 @@ git pull
 There should be a MCU firmware blob sitting in `~/ovc/firmware/ovc1/mcu/stable`
 that we will now flash to the MCU:
 ```
-~/mcu/stm32flash/stm32flash -v -w ovc1_mcu.bin /dev/ttyTHS1
+~/mcu/stm32flash/stm32flash -v -w ~/ovc/firmware/ovc1/mcu/stable/ovc1_mcu.bin /dev/ttyTHS1
 ```
+Once that operation has completed, you can push the `MCU_RESET` button and then
+flash the FPGA I/O ring configuration:
+```
+~/ovc/software/ovc1/scripts/flash_fpga_config.sh
+```
+Then you should be able to configure the FPGA:
+```
+~/ovc/software/ovc1/scripts/reconfigure_fpga.sh
+```
+If all goes well, `lspci` should show the FPGA connected as device `1234:5678`
+
+Hooray!
