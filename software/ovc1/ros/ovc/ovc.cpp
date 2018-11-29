@@ -553,7 +553,7 @@ bool OVC::wait_for_image(uint8_t **p, struct timespec &t)
   int read_rc = read(fd, &dummy, sizeof(int));
   if (read_rc < 0)
     return false;  // bogus
-    
+
   *p = dma_buf;  // todo: rotate around DMA buffer ring
 
   uint32_t *meta = (uint32_t *)(&dma_buf[1280*1024*2]);
@@ -701,7 +701,7 @@ bool OVC::wait_for_imu_state(OVCIMUState &imu_state, struct timespec &t)
     return false;  // bogus
 
   // now there is a new IMU packet for us to go pick up
- 
+
   struct ovc_ioctl_imu_read imu_read;
   int rc = ioctl(fd, OVC_IOCTL_IMU_READ, &imu_read);
   if (rc) {

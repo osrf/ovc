@@ -27,7 +27,7 @@
  * and/or other materials provided with the distribution.
  *
  * 3. The name of the author may not be used to endorse or promote products
- * derived from this software without specific prior written permission. 
+ * derived from this software without specific prior written permission.
  *
  * Alternatively, provided that this notice is retained in full, this software
  * may be distributed under the terms of the GNU General Public License ("GPL")
@@ -177,7 +177,7 @@ static int altera_cvp_write_bit(int bit, u8 value)
 		default:
 			return -EINVAL; /* only the bits above are writeable */
 	}
-} 
+}
 
 static int altera_cvp_set_num_clks(int num_clks)
 {
@@ -582,7 +582,7 @@ static long ovc_ioctl(struct file *f, unsigned int ioctl_num, unsigned long ioct
   switch (ioctl_num) {
     case OVC_IOCTL_SPI_XFER:
     {
-      struct ovc_ioctl_spi_xfer spi_xfer; 
+      struct ovc_ioctl_spi_xfer spi_xfer;
       u32 spi_ctrl, spi_txd, spi_rxd, start_mask;
       int i;
 
@@ -677,7 +677,7 @@ static long ovc_ioctl(struct file *f, unsigned int ioctl_num, unsigned long ioct
     }
     case OVC_IOCTL_DMA_START:
     {
-      struct ovc_ioctl_dma_start dma_start; 
+      struct ovc_ioctl_dma_start dma_start;
       u32 pio_prev_value;
       //int i;
       void *pio_bar = cvp_dev.bar2_addr;
@@ -748,7 +748,7 @@ static long ovc_ioctl(struct file *f, unsigned int ioctl_num, unsigned long ioct
       */
 
       /*
-      print_hex_dump(KERN_DEBUG, "dma_buf: ", DUMP_PREFIX_ADDRESS, 
+      print_hex_dump(KERN_DEBUG, "dma_buf: ", DUMP_PREFIX_ADDRESS,
         16, 4, cvp_dev.dma_buf, 128 * dma_start.len + 512, 0);
       */
 
@@ -831,7 +831,7 @@ static long ovc_ioctl(struct file *f, unsigned int ioctl_num, unsigned long ioct
       }
 
       /*
-      print_hex_dump(KERN_DEBUG, "imu_txrx_buf: ", DUMP_PREFIX_ADDRESS, 
+      print_hex_dump(KERN_DEBUG, "imu_txrx_buf: ", DUMP_PREFIX_ADDRESS,
         4, 4, imu_txrx.buf, 60, 0);
       for (i = 0; i < 32; i++) {
         printk("buf[%d] = 0x%02x\n", i, (int)imu_txrx.buf[i]);
@@ -919,7 +919,8 @@ static long ovc_ioctl(struct file *f, unsigned int ioctl_num, unsigned long ioct
       struct ovc_ioctl_set_exposure exposure;
       if (copy_from_user(&exposure, (void *)ioctl_param, _IOC_SIZE(ioctl_num)))
         return -EACCES;  // oh noes
-      iowrite32(exposure.exposure_usec, cvp_dev.bar4_addr + 5*4);
+      iowrite32((u32)exposure.exposure_usec | (exposure.flash_usec << 16),
+                cvp_dev.bar4_addr + 5*4);
       return 0;
     }
     case OVC_IOCTL_SET_AST_PARAMS:
@@ -1017,7 +1018,7 @@ static irqreturn_t ovc_irq_handler(int irq, void *dev_id)
 
 static int altera_cvp_probe(struct pci_dev *dev, const struct pci_device_id *id)
 {
-	int rc = 0;  
+	int rc = 0;
 
 	if((dev->vendor == vid) && (dev->device == did)) {
 		rc = pci_enable_device(dev);
@@ -1059,7 +1060,7 @@ static int altera_cvp_probe(struct pci_dev *dev, const struct pci_device_id *id)
     //DMA_ATTR_WRITE_COMBINE);
     cvp_dev.dma_buf = kmalloc(OVC_DMA_BUF_SIZE, GFP_KERNEL);
     dev_info(&dev->dev, "dma_buf kernel addr = 0x%px\n", cvp_dev.dma_buf);
-    
+
     cvp_dev.dma_handle =
       dma_map_single(&dev->dev, cvp_dev.dma_buf,
                      OVC_DMA_BUF_SIZE, DMA_FROM_DEVICE);
