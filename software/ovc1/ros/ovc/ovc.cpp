@@ -553,7 +553,7 @@ bool OVC::wait_for_image(uint8_t **p, struct timespec &t)
   int read_rc = read(fd, &dummy, sizeof(int));
   if (read_rc < 0)
     return false;  // bogus
-    
+
   *p = dma_buf;  // todo: rotate around DMA buffer ring
 
   uint32_t *meta = (uint32_t *)(&dma_buf[1280*1024*2]);
@@ -591,20 +591,37 @@ bool OVC::set_sync_timing(const uint8_t imu_decimation)
   return true;
 }
 
-bool OVC::set_exposure(float seconds)
+bool OVC::set_exposure_and_flash(float exposure_seconds, float flash_seconds)
 {
   //printf("set_exposure(%0.6f)\n", seconds);
-  if (seconds > 0.065)
-    seconds = 0.065;
+  // avoid overflow/wrap of uint16 usec counter
+  if (exposure_seconds > 0.065)
+    exposure_seconds = 0.065;
+  if (flash_seconds > 0.065)
+    flash_seconds = 0.065;
+
+  // avoid undefined behavior from negative parameters...
+  if (exposure_seconds < 0)
+    exposure_seconds = 0.0001;
+  if (flash_seconds < 0)
+    flash_seconds = 0.0001;
+
   struct ovc_ioctl_set_exposure set_exposure;
-  set_exposure.exposure_usec = seconds * 1000000;
-  exposure_ = seconds;
+  set_exposure.exposure_usec = exposure_seconds * 1000000;
+  set_exposure.flash_usec = flash_seconds * 1000000;
+  exposure_ = exposure_seconds;
   int rc = ioctl(fd, OVC_IOCTL_SET_EXPOSURE, &set_exposure);
   if (rc) {
     printf("unexpected return from set_exposure ioctl call: %d\n", rc);
     return false;
   }
   return true;
+}
+
+
+bool OVC::set_exposure(float seconds)
+{
+  return set_exposure_and_flash(seconds, 0);
 }
 
 // lightly edited from the original implementation available here:
@@ -684,7 +701,7 @@ bool OVC::wait_for_imu_state(OVCIMUState &imu_state, struct timespec &t)
     return false;  // bogus
 
   // now there is a new IMU packet for us to go pick up
- 
+
   struct ovc_ioctl_imu_read imu_read;
   int rc = ioctl(fd, OVC_IOCTL_IMU_READ, &imu_read);
   if (rc) {
@@ -761,7 +778,7 @@ bool OVC::update_autoexposure_loop(uint8_t *image)
   double filtered_exposure = alpha * new_exposure + (1.0 - alpha) * exposure_;
 
   //printf("new_exposure = %0.6f\n", new_exposure);
-  return set_exposure(filtered_exposure);
+  return set_exposure_and_flash(filtered_exposure, filtered_exposure + 0.001);
 }
 
 bool OVC::set_corner_threshold(const uint8_t threshold)

@@ -199,7 +199,7 @@ initial begin
   sim_reg_ram_inst.mem[7] = 32'h0000_0000;
   #200_000;
   sim_reg_ram_inst.mem[10] = 32'h0000_0042;  // test increase corner threshold
-  sim_reg_ram_inst.mem[5] = 32'd10;  // 10 usec exposure (minimum time)
+  sim_reg_ram_inst.mem[5] = 32'h0010_000a;  // 16 usec flash, 10 usec exposure
   #200_000;
   
 

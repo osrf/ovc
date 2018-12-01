@@ -16,6 +16,7 @@ public:
   bool wait_for_imu_state(OVCIMUState &imu_state, struct timespec &t);
   bool update_autoexposure_loop(uint8_t *image);
   bool set_exposure(float seconds);
+  bool set_exposure_and_flash(float exposure_seconds, float flash_seconds);
   bool estimate_timestamp_offset();
   bool set_sync_timing(const uint8_t imu_decimation);
   static const int IMAGE_WIDTH = 1280;

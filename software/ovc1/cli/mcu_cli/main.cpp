@@ -423,11 +423,14 @@ bool write_flash(const uint32_t start_addr, const uint8_t len,
     return false;
   }
   uint8_t response[10] = {0};
+  usleep(50000);  // never do this
+  /*
   int nrx = await_response(response, sizeof(response));
   if (nrx <= 0 || response[2] != 0) {
     printf("bad response to write-flash command :(\n");
     return false;
   }
+  */
   return true;
 }
 

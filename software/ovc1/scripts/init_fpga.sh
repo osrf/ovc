@@ -1,9 +1,9 @@
 #!/bin/bash
 set -o verbose
-cd ~/opencam/software/ovc_module
+cd ~/ovc/software/ovc1/ovc_module
 sudo ./ovc_load
 sleep 3
-cp /home/nvidia/opencam/firmware/ovc/fpga/stable/ovc.core.rbf /dev/ovc_cvp
+cp /home/nvidia/ovc/firmware/ovc1/fpga/stable/ovc.core.rbf /dev/ovc_cvp
 sleep 3
 sudo rmmod ovc
 sudo ./ovc_load

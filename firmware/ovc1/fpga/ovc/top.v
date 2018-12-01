@@ -29,6 +29,7 @@ module top
   input [1:0] cam_miso,
 
   input imu_sync,
+  output led_flash,
   output [7:0] imu_ram_addr,
   output imu_ram_wr,
   output [31:0] imu_ram_d,
@@ -62,6 +63,7 @@ wire [31:0] reg_dma_wr_addr_base;
 wire [9:0] reg_cam_rxd_align_req;
 wire [3:0] reg_cam_rxd_align_sel;
 wire [15:0] reg_trigger_exposure_usec;
+wire [15:0] reg_flash_usec;
 wire [7:0] reg_trigger_imu_decim;
 wire [31:0] cam_spi_rxd, cam_spi_txd, cam_spi_ctrl;
 wire [7:0] ast_threshold;  //corners_t;
@@ -75,6 +77,7 @@ reg_ram_iface reg_ram_iface_inst
  .cam_rxd_align_req(reg_cam_rxd_align_req),
  .cam_rxd_align_sel(reg_cam_rxd_align_sel),
  .trigger_exposure_usec(reg_trigger_exposure_usec),
+ .flash_usec(reg_flash_usec),
  .trigger_imu_decim(reg_trigger_imu_decim),
  //////////////////////////////////////////////////
  .cam_spi_ctrl(cam_spi_ctrl),
@@ -163,13 +166,15 @@ oneshot #(.SYNC(0)) imu_sync_oneshot_r
 
 trigger trigger_inst
 (.c(c), .imu_sync(imu_sync_oneshot), .imu_decim(reg_trigger_imu_decim),
- .exposure_usec(reg_trigger_exposure_usec), .q(cam_trigger));
+ .exposure_usec(reg_trigger_exposure_usec),
+ .flash_usec(reg_flash_usec),
+ .trigger(cam_trigger), .flash(led_flash));
 
 wire trigger_oneshot;
 oneshot #(.SYNC(0)) trigger_oneshot_r
 (.c(c), .d(cam_trigger), .q(trigger_oneshot));
 assign t_image_en = trigger_oneshot;
- 
+
 //////////////////////////////////////////////////////////
 
 `ifdef SIM

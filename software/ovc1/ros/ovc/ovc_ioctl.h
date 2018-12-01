@@ -102,7 +102,8 @@ struct ovc_ioctl_set_sync_timing
 
 struct ovc_ioctl_set_exposure
 {
-  uint32_t exposure_usec;
+  uint16_t exposure_usec;
+  uint16_t flash_usec;
 } __attribute__((packed));
 #define OVC_IOCTL_SET_EXPOSURE _IOWR(OVC_MAGIC, 11, struct ovc_ioctl_set_exposure)
 
