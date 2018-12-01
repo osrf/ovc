@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:ovc3-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
@@ -514,4 +515,6 @@ F 3 "" H 3100 4850 50  0001 C CNN
 $EndComp
 Text Notes 1800 4600 0    50   ~ 0
 todo: less terrible schematic layout
+Text Notes 4650 6150 0    50   ~ 0
+USB type-C mux options:\nHD3SS3202 (passive)\nPTN36043 (active)
 $EndSCHEMATC
