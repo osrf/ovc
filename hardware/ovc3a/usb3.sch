@@ -517,4 +517,170 @@ Text Notes 1800 4600 0    50   ~ 0
 todo: less terrible schematic layout
 Text Notes 4650 6150 0    50   ~ 0
 USB type-C mux options:\nHD3SS3202 (passive)\nPTN36043 (active)\nTUSB1042I (active)
+$Comp
+L usb_controller:HD3SS3202 U6
+U 1 1 5C0EC424
+P 5950 1950
+F 0 "U6" H 5950 2815 50  0000 C CNN
+F 1 "HD3SS3202" H 5950 2724 50  0000 C CNN
+F 2 "USB:TI_R_PUQFN_N16" H 6000 2900 50  0001 C CNN
+F 3 "" H 6000 2900 50  0001 C CNN
+	1    5950 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C7
+U 1 1 5C0ED1F3
+P 5200 1350
+F 0 "C7" V 5150 1150 50  0000 L CNN
+F 1 "100n" V 5150 1400 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 5200 1350 50  0001 C CNN
+F 3 "~" H 5200 1350 50  0001 C CNN
+	1    5200 1350
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5300 1350 5500 1350
+$Comp
+L Device:C_Small C5
+U 1 1 5C0F1EB1
+P 4850 1450
+F 0 "C5" V 4800 1250 50  0000 L CNN
+F 1 "100n" V 4800 1500 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 4850 1450 50  0001 C CNN
+F 3 "~" H 4850 1450 50  0001 C CNN
+	1    4850 1450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4950 1450 5500 1450
+Wire Wire Line
+	5100 1650 4100 1650
+Wire Wire Line
+	4100 1750 4750 1750
+$Comp
+L Device:C_Small C8
+U 1 1 5C102AEA
+P 5200 1650
+F 0 "C8" V 5150 1450 50  0000 L CNN
+F 1 "100n" V 5150 1700 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 5200 1650 50  0001 C CNN
+F 3 "~" H 5200 1650 50  0001 C CNN
+	1    5200 1650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5300 1650 5500 1650
+$Comp
+L Device:C_Small C6
+U 1 1 5C102AF5
+P 4850 1750
+F 0 "C6" V 4800 1550 50  0000 L CNN
+F 1 "100n" V 4800 1800 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 4850 1750 50  0001 C CNN
+F 3 "~" H 4850 1750 50  0001 C CNN
+	1    4850 1750
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4950 1750 5500 1750
+Wire Wire Line
+	5100 1350 4100 1350
+Wire Wire Line
+	4100 1450 4750 1450
+Wire Wire Line
+	5500 2350 4900 2350
+Wire Wire Line
+	5500 2450 4900 2450
+Wire Wire Line
+	5500 2050 4900 2050
+Wire Wire Line
+	5500 2150 4900 2150
+Text Label 4900 2450 0    50   ~ 0
+CONN_RX1-
+Text Label 4900 2350 0    50   ~ 0
+CONN_RX1+
+Text Label 4900 2050 0    50   ~ 0
+CONN_RX2+
+Text Label 4900 2150 0    50   ~ 0
+CONN_RX2-
+Text Label 4100 1750 0    50   ~ 0
+CONN_TX1+
+Text Label 4100 1650 0    50   ~ 0
+CONN_TX1-
+Text Label 4100 1350 0    50   ~ 0
+CONN_TX2+
+Text Label 4100 1450 0    50   ~ 0
+CONN_TX2-
+Text Label 6450 1750 0    50   ~ 0
+USB3_TX-
+Text Label 6450 1650 0    50   ~ 0
+USB3_TX+
+Wire Wire Line
+	6400 1650 6850 1650
+Wire Wire Line
+	6400 1750 6850 1750
+Text Label 6450 1950 0    50   ~ 0
+USB3_RX-
+Text Label 6450 1850 0    50   ~ 0
+USB3_RX+
+Wire Wire Line
+	6400 1850 6850 1850
+Wire Wire Line
+	6400 1950 6850 1950
+$Comp
+L power:GND #PWR?
+U 1 1 5C11C719
+P 6550 2550
+AR Path="/5C11C719" Ref="#PWR?"  Part="1" 
+AR Path="/5BFFC89B/5C11C719" Ref="#PWR0110"  Part="1" 
+F 0 "#PWR0110" H 6550 2300 50  0001 C CNN
+F 1 "GND" H 6555 2377 50  0001 C CNN
+F 2 "" H 6550 2550 50  0001 C CNN
+F 3 "" H 6550 2550 50  0001 C CNN
+	1    6550 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 2550 6400 2550
+$Comp
+L Device:R_Small R9
+U 1 1 5C11FC6B
+P 6550 2450
+F 0 "R9" H 6609 2496 50  0000 L CNN
+F 1 "10k" H 6609 2405 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 6550 2450 50  0001 C CNN
+F 3 "~" H 6550 2450 50  0001 C CNN
+	1    6550 2450
+	1    0    0    -1  
+$EndComp
+Connection ~ 6550 2550
+Wire Wire Line
+	6550 2350 6400 2350
+Wire Wire Line
+	6550 2350 7000 2350
+Connection ~ 6550 2350
+Text Label 6650 2350 0    50   ~ 0
+USB3_OE
+Wire Wire Line
+	6400 2150 7000 2150
+Text Label 6450 2150 0    50   ~ 0
+USB3_SEL
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5C12726F
+P 6550 1350
+AR Path="/5C12726F" Ref="#PWR?"  Part="1" 
+AR Path="/5BFFC89B/5C12726F" Ref="#PWR0111"  Part="1" 
+F 0 "#PWR0111" H 6550 1200 50  0001 C CNN
+F 1 "+3V3" H 6565 1523 50  0000 C CNN
+F 2 "" H 6550 1350 50  0001 C CNN
+F 3 "" H 6550 1350 50  0001 C CNN
+	1    6550 1350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 1350 6400 1350
+Text Notes 3400 1700 0    50   ~ 0
+polarity swap OK
 $EndSCHEMATC
