@@ -515,7 +515,7 @@ F 3 "" H 3100 4850 50  0001 C CNN
 $EndComp
 Text Notes 1800 4600 0    50   ~ 0
 todo: less terrible schematic layout
-Text Notes 4650 6150 0    50   ~ 0
+Text Notes 5200 3050 0    50   ~ 0
 USB type-C mux options:\nHD3SS3202 (passive)\nPTN36043 (active)\nTUSB1042I (active)
 $Comp
 L usb_controller:HD3SS3202 U6
@@ -683,4 +683,213 @@ Wire Wire Line
 	6550 1350 6400 1350
 Text Notes 3400 1700 0    50   ~ 0
 polarity swap OK
+Text Notes 3400 2100 0    50   ~ 0
+TODO: ESD on all inbound lines
+Text Notes 2650 3350 0    50   ~ 0
+SBU not used
+$Comp
+L DCDC_Converters:LMZ31707 U7
+U 1 1 5C0FFA31
+P 7450 4250
+F 0 "U7" H 7450 5137 60  0000 C CNN
+F 1 "LMZ31707" H 7450 5031 60  0000 C CNN
+F 2 "DCDC:TI_RVQ_42" H 7300 5040 60  0001 C CNN
+F 3 "" H 6900 5000 60  0000 C CNN
+	1    7450 4250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6800 4150 6800 4050
+Connection ~ 6800 3750
+Wire Wire Line
+	6800 3750 6800 3650
+Connection ~ 6800 3850
+Wire Wire Line
+	6800 3850 6800 3750
+Connection ~ 6800 3950
+Wire Wire Line
+	6800 3950 6800 3850
+Connection ~ 6800 4050
+Wire Wire Line
+	6800 4050 6800 3950
+Wire Wire Line
+	8100 4150 8100 4050
+Connection ~ 8100 3750
+Wire Wire Line
+	8100 3750 8100 3650
+Connection ~ 8100 3850
+Wire Wire Line
+	8100 3850 8100 3750
+Connection ~ 8100 3950
+Wire Wire Line
+	8100 3950 8100 3850
+Connection ~ 8100 4050
+Wire Wire Line
+	8100 4050 8100 3950
+$Comp
+L power:+3V3 #PWR0112
+U 1 1 5C10581E
+P 8100 3450
+F 0 "#PWR0112" H 8100 3300 50  0001 C CNN
+F 1 "+3V3" H 8115 3623 50  0000 C CNN
+F 2 "" H 8100 3450 50  0001 C CNN
+F 3 "" H 8100 3450 50  0001 C CNN
+	1    8100 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 3450 8100 3650
+Connection ~ 8100 3650
+Wire Wire Line
+	8100 5150 8100 5050
+Wire Wire Line
+	8100 4350 8300 4350
+Connection ~ 8100 4350
+Connection ~ 8100 4450
+Wire Wire Line
+	8100 4450 8100 4350
+Connection ~ 8100 4550
+Wire Wire Line
+	8100 4550 8100 4450
+Connection ~ 8100 4650
+Wire Wire Line
+	8100 4650 8100 4550
+Connection ~ 8100 4750
+Wire Wire Line
+	8100 4750 8100 4650
+Connection ~ 8100 4850
+Wire Wire Line
+	8100 4850 8100 4750
+Connection ~ 8100 4950
+Wire Wire Line
+	8100 4950 8100 4850
+Connection ~ 8100 5050
+Wire Wire Line
+	8100 5050 8100 4950
+Wire Wire Line
+	8100 4250 8100 4150
+Connection ~ 8100 4150
+Text Label 8150 4350 0    50   ~ 0
+PH
+$Comp
+L Device:R_Small R11
+U 1 1 5C110FEC
+P 8550 5450
+F 0 "R11" H 8609 5496 50  0000 L CNN
+F 1 "316R" H 8609 5405 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 8550 5450 50  0001 C CNN
+F 3 "~" H 8550 5450 50  0001 C CNN
+	1    8550 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R10
+U 1 1 5C111BAD
+P 8200 5450
+F 0 "R10" H 8259 5496 50  0000 L CNN
+F 1 "90k9" H 8259 5405 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 8200 5450 50  0001 C CNN
+F 3 "~" H 8200 5450 50  0001 C CNN
+	1    8200 5450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 5350 8200 5350
+Wire Wire Line
+	8100 5250 8550 5250
+Wire Wire Line
+	8550 5250 8550 5350
+Wire Wire Line
+	8200 5550 8200 5700
+Wire Wire Line
+	8200 5700 8550 5700
+Wire Wire Line
+	8550 5550 8550 5700
+Connection ~ 8550 5700
+Wire Wire Line
+	8550 5700 8950 5700
+Text Label 8700 5700 0    50   ~ 0
+AGND
+Wire Wire Line
+	7250 5850 7150 5850
+Connection ~ 7150 5850
+Wire Wire Line
+	7150 5850 6750 5850
+Text Label 6750 5850 0    50   ~ 0
+AGND
+Wire Wire Line
+	7350 5850 7450 5850
+Connection ~ 7450 5850
+Wire Wire Line
+	7450 5850 7550 5850
+Connection ~ 7550 5850
+Wire Wire Line
+	7550 5850 7650 5850
+Connection ~ 7650 5850
+Wire Wire Line
+	7650 5850 7750 5850
+$Comp
+L power:GND #PWR?
+U 1 1 5C125BD5
+P 7350 5850
+AR Path="/5C125BD5" Ref="#PWR?"  Part="1" 
+AR Path="/5BFFC89B/5C125BD5" Ref="#PWR0113"  Part="1" 
+F 0 "#PWR0113" H 7350 5600 50  0001 C CNN
+F 1 "GND" H 7355 5677 50  0001 C CNN
+F 2 "" H 7350 5850 50  0001 C CNN
+F 3 "" H 7350 5850 50  0001 C CNN
+	1    7350 5850
+	1    0    0    -1  
+$EndComp
+Connection ~ 7350 5850
+NoConn ~ 6800 4850
+NoConn ~ 6800 4950
+NoConn ~ 6800 5050
+NoConn ~ 6800 5150
+NoConn ~ 6800 5250
+NoConn ~ 6800 5350
+Wire Wire Line
+	6800 4750 6650 4750
+Wire Wire Line
+	6650 4750 6650 4950
+Wire Wire Line
+	6650 4950 6250 4950
+Text Label 6400 4950 0    50   ~ 0
+AGND
+$Comp
+L Device:C_Small C9
+U 1 1 5C13FDFA
+P 6250 4750
+F 0 "C9" H 6342 4796 50  0000 L CNN
+F 1 "3n3" H 6342 4705 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 6250 4750 50  0001 C CNN
+F 3 "~" H 6250 4750 50  0001 C CNN
+	1    6250 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 4850 6250 4950
+Wire Wire Line
+	6800 4650 6250 4650
+NoConn ~ 6800 4550
+NoConn ~ 6800 4450
+NoConn ~ 6800 4350
+$Comp
+L power:VBUS #PWR0114
+U 1 1 5C153C10
+P 6800 3450
+F 0 "#PWR0114" H 6800 3300 50  0001 C CNN
+F 1 "VBUS" H 6815 3623 50  0000 C CNN
+F 2 "" H 6800 3450 50  0001 C CNN
+F 3 "" H 6800 3450 50  0001 C CNN
+	1    6800 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6800 3450 6800 3650
+Connection ~ 6800 3650
+Text Notes 6000 3650 0    50   ~ 0
+todo: input caps
+Text Notes 8300 3650 0    50   ~ 0
+todo: output caps
 $EndSCHEMATC
