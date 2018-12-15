@@ -1,71 +1,99 @@
-15344923990270
-DCDC
-INDUCTOR_4x4
-
-
+21625671509639
+Connector_Samtec
+Samtec_FMC_ASP-134602-01_10x40_P1.27mm_Vertical
+https://www.marutsu.co.jp/contents/shop/marutsu/ds/asp-134602-01.pdf
+FMC HPC
 0
-2
-2
-DCDC
-INDUCTOR_6x6
-
-
+400
+400
+Connector_Samtec
+Samtec_FMC_ASP-134604-01_4x40_Vertical
+http://www.samtec.com/standards/vita.aspx
+FMC LPC VITA 
 0
-2
-2
-DCDC
-INDUCTOR_7x7
-
-
+162
+160
+Connector_Samtec
+Samtec_LSHM-105-xx.x-x-DV-N_2x05_P0.50mm_Vertical
+Molex LSHM 0.50 mm Razor Beam High-Speed Hermaphroditic Terminal/Socket Strip, LSHM-105-xx.x-x-DV-N, 5 Pins per row (http://suddendocs.samtec.com/prints/lshm-1xx-xx.x-x-dv-a-x-x-tr-footprint.pdf), generated with kicad-footprint-generator
+connector Samtec  side entry
 0
-2
-2
-DCDC
-INDUCTOR_10x10
-
-
+10
+10
+Connector_Samtec
+Samtec_LSHM-105-xx.x-x-DV-S_2x05-1SH_P0.50mm_Vertical
+Molex LSHM 0.50 mm Razor Beam High-Speed Hermaphroditic Terminal/Socket Strip, LSHM-105-xx.x-x-DV-S, 5 Pins per row (http://suddendocs.samtec.com/prints/lshm-1xx-xx.x-x-dv-a-x-x-tr-footprint.pdf), generated with kicad-footprint-generator
+connector Samtec  side entry
 0
-2
-2
-DCDC
-INDUCTOR_12.5x12.5
-
-
-0
-2
-2
-DCDC
-LTM8073
-
-
-0
-48
-48
-DCDC
-MPM3630
-
-
+12
+11
+Connector_Samtec
+Samtec_LSHM-110-xx.x-x-DV-N_2x10_P0.50mm_Vertical
+Molex LSHM 0.50 mm Razor Beam High-Speed Hermaphroditic Terminal/Socket Strip, LSHM-110-xx.x-x-DV-N, 10 Pins per row (http://suddendocs.samtec.com/prints/lshm-1xx-xx.x-x-dv-a-x-x-tr-footprint.pdf), generated with kicad-footprint-generator
+connector Samtec  side entry
 0
 20
-18
-DCDC
-R-78xx-0.5
-
-
+20
+Connector_Samtec
+Samtec_LSHM-110-xx.x-x-DV-S_2x10-1SH_P0.50mm_Vertical
+Molex LSHM 0.50 mm Razor Beam High-Speed Hermaphroditic Terminal/Socket Strip, LSHM-110-xx.x-x-DV-S, 10 Pins per row (http://suddendocs.samtec.com/prints/lshm-1xx-xx.x-x-dv-a-x-x-tr-footprint.pdf), generated with kicad-footprint-generator
+connector Samtec  side entry
 0
-3
-3
-DCDC
-TI_RVQ_42
-
-
+22
+21
+Connector_Samtec
+Samtec_LSHM-120-xx.x-x-DV-N_2x20_P0.50mm_Vertical
+Molex LSHM 0.50 mm Razor Beam High-Speed Hermaphroditic Terminal/Socket Strip, LSHM-120-xx.x-x-DV-N, 20 Pins per row (http://suddendocs.samtec.com/prints/lshm-1xx-xx.x-x-dv-a-x-x-tr-footprint.pdf), generated with kicad-footprint-generator
+connector Samtec  side entry
 0
-43
+40
+40
+Connector_Samtec
+Samtec_LSHM-120-xx.x-x-DV-S_2x20-1SH_P0.50mm_Vertical
+Molex LSHM 0.50 mm Razor Beam High-Speed Hermaphroditic Terminal/Socket Strip, LSHM-120-xx.x-x-DV-S, 20 Pins per row (http://suddendocs.samtec.com/prints/lshm-1xx-xx.x-x-dv-a-x-x-tr-footprint.pdf), generated with kicad-footprint-generator
+connector Samtec  side entry
+0
 42
-DCDC
-TPS82130
-
-
+41
+Connector_Samtec
+Samtec_LSHM-130-xx.x-x-DV-N_2x30_P0.50mm_Vertical
+Molex LSHM 0.50 mm Razor Beam High-Speed Hermaphroditic Terminal/Socket Strip, LSHM-130-xx.x-x-DV-N, 30 Pins per row (http://suddendocs.samtec.com/prints/lshm-1xx-xx.x-x-dv-a-x-x-tr-footprint.pdf), generated with kicad-footprint-generator
+connector Samtec  side entry
 0
-9
-9
+60
+60
+Connector_Samtec
+Samtec_LSHM-130-xx.x-x-DV-S_2x30-1SH_P0.50mm_Vertical
+Molex LSHM 0.50 mm Razor Beam High-Speed Hermaphroditic Terminal/Socket Strip, LSHM-130-xx.x-x-DV-S, 30 Pins per row (http://suddendocs.samtec.com/prints/lshm-1xx-xx.x-x-dv-a-x-x-tr-footprint.pdf), generated with kicad-footprint-generator
+connector Samtec  side entry
+0
+62
+61
+Connector_Samtec
+Samtec_LSHM-140-xx.x-x-DV-N_2x40_P0.50mm_Vertical
+Molex LSHM 0.50 mm Razor Beam High-Speed Hermaphroditic Terminal/Socket Strip, LSHM-140-xx.x-x-DV-N, 40 Pins per row (http://suddendocs.samtec.com/prints/lshm-1xx-xx.x-x-dv-a-x-x-tr-footprint.pdf), generated with kicad-footprint-generator
+connector Samtec  side entry
+0
+80
+80
+Connector_Samtec
+Samtec_LSHM-140-xx.x-x-DV-S_2x40-1SH_P0.50mm_Vertical
+Molex LSHM 0.50 mm Razor Beam High-Speed Hermaphroditic Terminal/Socket Strip, LSHM-140-xx.x-x-DV-S, 40 Pins per row (http://suddendocs.samtec.com/prints/lshm-1xx-xx.x-x-dv-a-x-x-tr-footprint.pdf), generated with kicad-footprint-generator
+connector Samtec  side entry
+0
+82
+81
+Connector_Samtec
+Samtec_LSHM-150-xx.x-x-DV-N_2x50_P0.50mm_Vertical
+Molex LSHM 0.50 mm Razor Beam High-Speed Hermaphroditic Terminal/Socket Strip, LSHM-150-xx.x-x-DV-N, 50 Pins per row (http://suddendocs.samtec.com/prints/lshm-1xx-xx.x-x-dv-a-x-x-tr-footprint.pdf), generated with kicad-footprint-generator
+connector Samtec  side entry
+0
+100
+100
+Connector_Samtec
+Samtec_LSHM-150-xx.x-x-DV-S_2x50-1SH_P0.50mm_Vertical
+Molex LSHM 0.50 mm Razor Beam High-Speed Hermaphroditic Terminal/Socket Strip, LSHM-150-xx.x-x-DV-S, 50 Pins per row (http://suddendocs.samtec.com/prints/lshm-1xx-xx.x-x-dv-a-x-x-tr-footprint.pdf), generated with kicad-footprint-generator
+connector Samtec  side entry
+0
+102
+101
