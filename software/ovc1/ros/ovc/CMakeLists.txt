@@ -4,6 +4,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   roslib
   image_transport
+  camera_info_manager
   cv_bridge
   dynamic_reconfigure
   message_generation
@@ -30,6 +31,7 @@ catkin_package(
     message_runtime
     cv_bridge
     image_transport
+    camera_info_manager
     message_filters
 #  INCLUDE_DIRS include
 #  LIBRARIES falcam
@@ -49,7 +51,7 @@ target_link_libraries(ovc_c ovc)
 
 add_executable(ovc_node ovc_node.cpp)
 add_dependencies(ovc_node
-  ovc_gencfg 
+  ovc_gencfg
   ${ovc_EXPORTED_TARGETS}
   ${catkin_EXPORTED_TARGETS})
 target_link_libraries(ovc_node ovc ${catkin_LIBRARIES})
