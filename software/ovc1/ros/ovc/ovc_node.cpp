@@ -13,6 +13,9 @@ void cam_thread_fn(OVC *ovc, ros::NodeHandle *nh)
 {
   image_transport::ImageTransport image_t(*nh);
   image_transport::Publisher image_pub = image_t.advertise("image", 2);
+  image_transport::Publisher single_image_pubs[2] =
+    { image_t.advertise("image_0", 2),
+      image_t.advertise("image_1", 2)};
   sensor_msgs::ImagePtr img_msg;
   std_msgs::Header header;
 
@@ -41,6 +44,18 @@ void cam_thread_fn(OVC *ovc, ros::NodeHandle *nh)
     cv::Mat img(cvSize(1280, 1024*2), CV_8UC1, img_data, 1280);
     img_msg = cv_bridge::CvImage(header, "mono8", img).toImageMsg();
     image_pub.publish(img_msg);
+
+    const int image_cols = 1280;
+    const int single_image_rows = 1024;
+    for (int i=0; i<2; i++) {
+      if (single_image_pubs[i].getNumSubscribers() > 0) {
+        cv::Mat subimg(img, cv::Rect(0, single_image_rows * i,
+                                     image_cols, single_image_rows));
+        const sensor_msgs::ImagePtr single_img_msg =
+          cv_bridge::CvImage(header, "mono8", subimg).toImageMsg();
+        single_image_pubs[i].publish(single_img_msg);
+      }
+    }
 
     uint32_t num_corners[2];
     uint32_t *meta = (uint32_t *)metadata_buf;
