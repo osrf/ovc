@@ -1,5 +1,6 @@
 #include <cv_bridge/cv_bridge.h>
 #include <image_transport/image_transport.h>
+#include <camera_info_manager/camera_info_manager.h>
 #include <ros/ros.h>
 #include <thread>
 #include <sensor_msgs/Image.h>
@@ -9,16 +10,54 @@
 #include "ovc/ImageCornerArray.h"
 #include "ovc/ImageCorner.h"
 
+using std::string;
+using camera_info_manager::CameraInfoManager;
+using image_transport::ImageTransport;
+
+void setup_publishers(ros::NodeHandle *nh,
+                      ros::NodeHandle *nhs,
+                      string *frame_ids,
+                      std::shared_ptr<ImageTransport> *it,
+                      image_transport::Publisher *cam_pubs,
+                      ros::Publisher *cinfo_pubs,
+                      std::shared_ptr<CameraInfoManager> *cinfo_mgrs) {
+  std::string cname[2] = {"left", "right"};
+  for (int i = 0; i < 2; i++) {
+    // camerainfomanager requires separate node handle so
+    // advertised services don't collide
+    nhs[i] = ros::NodeHandle(*nh, cname[i]);
+    std::string calib_url;
+    nhs[i].param<string>("calib_url", calib_url,
+                      "file://.ros/camera_info_" + cname[i] + ".yaml");
+    nhs[i].param<string>("frame_id", frame_ids[i], "ovc_" + cname[i]);
+
+    it[i].reset(new ImageTransport(nhs[i]));
+    cam_pubs[i] = it[i]->advertise("image_raw", 2);
+    cinfo_pubs[i] = nhs[i].advertise<sensor_msgs::CameraInfo>("camera_info", 2);
+    cinfo_mgrs[i].reset(new CameraInfoManager(nhs[i], cname[i], calib_url));
+  }
+}
+
 void cam_thread_fn(OVC *ovc, ros::NodeHandle *nh)
 {
-  image_transport::ImageTransport image_t(*nh);
+  ImageTransport image_t(*nh);
   image_transport::Publisher image_pub = image_t.advertise("image", 2);
-  sensor_msgs::ImagePtr img_msg;
-  std_msgs::Header header;
 
   ros::Publisher metadata_pub =
     nh->advertise<ovc::Metadata>("image_metadata", 2);
+
+  ros::NodeHandle                    node_handles[2];
+  std::shared_ptr<ImageTransport>    single_image_t[2];
+  std::shared_ptr<CameraInfoManager> cinfo_mgrs[2];
+  image_transport::Publisher         single_image_pubs[2];
+  ros::Publisher                     camera_info_pubs[2];
+  std::string                        frame_id[2];
+  setup_publishers(nh, node_handles, frame_id, single_image_t,
+                   single_image_pubs, camera_info_pubs, cinfo_mgrs);
+  sensor_msgs::ImagePtr img_msg;
+  std_msgs::Header header;
   ovc::Metadata metadata_msg;
+
   uint8_t *metadata_buf = new uint8_t[256*1024];  // 256k block
 
   while (ros::ok()) {
@@ -41,6 +80,25 @@ void cam_thread_fn(OVC *ovc, ros::NodeHandle *nh)
     cv::Mat img(cvSize(1280, 1024*2), CV_8UC1, img_data, 1280);
     img_msg = cv_bridge::CvImage(header, "mono8", img).toImageMsg();
     image_pub.publish(img_msg);
+
+    const int image_cols = 1280;
+    const int single_image_rows = 1024;
+    for (int i=0; i<2; i++) {
+      header.frame_id = frame_id[i];
+      if (single_image_pubs[i].getNumSubscribers() > 0) {
+        cv::Mat subimg(img, cv::Rect(0, single_image_rows * i,
+                                     image_cols, single_image_rows));
+        const sensor_msgs::ImagePtr single_img_msg =
+          cv_bridge::CvImage(header, "mono8", subimg).toImageMsg();
+        single_image_pubs[i].publish(single_img_msg);
+      }
+      if (camera_info_pubs[i].getNumSubscribers() > 0) {
+        const auto cinfo_msg = boost::make_shared<sensor_msgs::CameraInfo>(
+                                cinfo_mgrs[i]->getCameraInfo());
+        cinfo_msg->header = header;
+        camera_info_pubs[i].publish(cinfo_msg);
+      }
+    }
 
     uint32_t num_corners[2];
     uint32_t *meta = (uint32_t *)metadata_buf;

@@ -19,6 +19,7 @@ public:
   bool set_exposure_and_flash(float exposure_seconds, float flash_seconds);
   bool estimate_timestamp_offset();
   bool set_sync_timing(const uint8_t imu_decimation);
+  void set_imu_decimation(const uint8_t imu_decimation);
   static const int IMAGE_WIDTH = 1280;
   static const int IMAGE_HEIGHT = 2048;
 
@@ -37,6 +38,7 @@ private:
   /////////////////////////////////
   bool init_complete;
   int fd, fd_imu;
+  uint8_t imu_decimation{10};
   uint8_t *dma_buf;
 public:
   double exposure_;

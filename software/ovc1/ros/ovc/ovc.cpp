@@ -78,7 +78,7 @@ bool OVC::init()
     return false;
   }
 
-  if (!set_sync_timing(7))
+  if (!set_sync_timing(imu_decimation))
     return false;
 
   if (!set_exposure(0.005)) {
@@ -576,6 +576,10 @@ bool OVC::wait_for_image(uint8_t **p, struct timespec &t)
   printf("wrote image dump file\n");
   */
   return true;
+}
+
+void OVC::set_imu_decimation(const uint8_t imu_decim) {
+  imu_decimation = imu_decim;
 }
 
 bool OVC::set_sync_timing(const uint8_t imu_decimation)
