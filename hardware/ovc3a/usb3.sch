@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:ovc3-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
@@ -15,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L connector:USB_C_Receptacle J?
+L Connector:USB_C_Receptacle J?
 U 1 1 5BFFDDF4
 P 1300 2050
 AR Path="/5BFFDDF4" Ref="J?"  Part="1" 
