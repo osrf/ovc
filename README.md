@@ -243,3 +243,31 @@ Then you should be able to configure the FPGA:
 If all goes well, `lspci` should show the FPGA connected as device `1234:5678`
 
 Hooray!
+
+# Hardware Design
+
+We are using the very latest KiCAD: the nightly development builds.
+Installation instructions are here: http://kicad-pcb.org/download/ubuntu/
+Short version:
+
+```
+sudo add-apt-repository --yes ppa:js-reynaud/kicad-dev-nightly
+sudo apt update
+sudo apt install kicad-nightly
+```
+
+Once you have installed `kicad-nightly` on your machine, then you will
+need to set up the repos as follows:
+
+```
+mkdir ~/hw
+cd ~/hw
+git clone ssh://git@github.com/osrf/osrf_hw
+git clone ssh://git@github.com/osrf/ovc
+```
+
+Then you should be able to view the latest developments:
+```
+cd ~/hw/ovc/hardware/ovc3a
+kicad-nightly ovc3.pro
+```
