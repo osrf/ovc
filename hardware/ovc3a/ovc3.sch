@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:ovc3-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 5
+Sheet 1 6
 Title ""
 Date ""
 Rev ""
@@ -36,5 +37,11 @@ S 1100 3450 1100 200
 U 5C124FC6
 F0 "te0820" 118
 F1 "te0820.sch" 50
+$EndSheet
+$Sheet
+S 1100 4100 1100 200 
+U 5C3FFE40
+F0 "gpio" 118
+F1 "gpio.sch" 50
 $EndSheet
 $EndSCHEMATC

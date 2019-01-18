@@ -9,4 +9,6 @@
   (lib (name usb_controller)(type Legacy)(uri ${KIWORKSPACE}/osrf_hw/kicad_libraries/usb_controller.lib)(options "")(descr ""))
   (lib (name Device)(type Legacy)(uri /usr/share/kicad-nightly/library/Device.lib)(options "")(descr ""))
   (lib (name Connector)(type Legacy)(uri /usr/share/kicad-nightly/library/Connector.lib)(options "")(descr ""))
+  (lib (name Isolator)(type Legacy)(uri /usr/share/kicad-nightly/library/Isolator.lib)(options "")(descr ""))
+  (lib (name Sensor_motion)(type Legacy)(uri /usr/share/kicad-nightly/library/Sensor_Motion.lib)(options "")(descr ""))
 )
