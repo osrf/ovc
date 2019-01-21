@@ -1,4 +1,4 @@
-78919912880472
+80467735194472
 Connector_Samtec
 Samtec_FMC_ASP-134602-01_10x40_P1.27mm_Vertical
 https://www.marutsu.co.jp/contents/shop/marutsu/ds/asp-134602-01.pdf
@@ -224,6 +224,13 @@ Lens
 4
 1
 LensHolder
+LENS_HOLDER_20MM_PT-LH010M
+
+
+0
+4
+1
+LensHolder
 LENS_HOLDER_20MM_WITH_PINS
 
 
@@ -305,8 +312,8 @@ TE0820
 
 
 0
-4
-1
+270
+262
 USB
 MOLEX_0484060003
 
