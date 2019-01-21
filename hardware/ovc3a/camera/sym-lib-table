@@ -11,4 +11,6 @@
   (lib (name Connector)(type Legacy)(uri /usr/share/kicad-nightly/library/Connector.lib)(options "")(descr ""))
   (lib (name Isolator)(type Legacy)(uri /usr/share/kicad-nightly/library/Isolator.lib)(options "")(descr ""))
   (lib (name Sensor_motion)(type Legacy)(uri /usr/share/kicad-nightly/library/Sensor_Motion.lib)(options "")(descr ""))
+  (lib (name Mechanical)(type Legacy)(uri /usr/share/kicad-nightly/library/Mechanical.lib)(options "")(descr ""))
+  (lib (name Graphic)(type Legacy)(uri /usr/share/kicad-nightly/library/Graphic.lib)(options "")(descr ""))
 )

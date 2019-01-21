@@ -6,4 +6,7 @@
   (lib (name USB)(type KiCad)(uri ${KIWORKSPACE}/osrf_hw/kicad_modules/USB.pretty)(options "")(descr ""))
   (lib (name DCDC)(type KiCad)(uri ${KIWORKSPACE}/osrf_hw/kicad_modules/DCDC.pretty)(options "")(descr ""))
   (lib (name Connector_Samtec)(type KiCad)(uri /usr/share/kicad-nightly/modules/Connector_Samtec.pretty)(options "")(descr ""))
+  (lib (name Sensor_Motion)(type KiCad)(uri /usr/share/kicad-nightly/modules/Sensor_Motion.pretty)(options "")(descr ""))
+  (lib (name Symbol)(type KiCad)(uri /usr/share/kicad-nightly/modules/Symbol.pretty)(options "")(descr ""))
+  (lib (name Connector_PinHeader_2.00mm)(type KiCad)(uri /usr/share/kicad-nightly/modules/Connector_PinHeader_2.00mm.pretty)(options "")(descr ""))
 )

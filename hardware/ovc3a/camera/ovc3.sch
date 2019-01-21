@@ -44,4 +44,15 @@ U 5C3FFE40
 F0 "gpio" 118
 F1 "gpio.sch" 50
 $EndSheet
+$Comp
+L Graphic:Logo_Open_Hardware_Small LOGO1
+U 1 1 5C46A97F
+P 2200 6600
+F 0 "LOGO1" H 2200 6875 50  0001 C CNN
+F 1 "Logo_Open_Hardware_Small" H 2200 6375 50  0001 C CNN
+F 2 "Symbol:OSHW-Symbol_6.7x6mm_SilkScreen" H 2200 6600 50  0001 C CNN
+F 3 "~" H 2200 6600 50  0001 C CNN
+	1    2200 6600
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
