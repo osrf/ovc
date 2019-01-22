@@ -9,4 +9,6 @@
   (lib (name Sensor_Motion)(type KiCad)(uri /usr/share/kicad-nightly/modules/Sensor_Motion.pretty)(options "")(descr ""))
   (lib (name Symbol)(type KiCad)(uri /usr/share/kicad-nightly/modules/Symbol.pretty)(options "")(descr ""))
   (lib (name Connector_PinHeader_2.00mm)(type KiCad)(uri /usr/share/kicad-nightly/modules/Connector_PinHeader_2.00mm.pretty)(options "")(descr ""))
+  (lib (name Connectors_OSRF)(type KiCad)(uri ${KIWORKSPACE}/osrf_hw/kicad_modules/Connectors_OSRF.pretty)(options "")(descr ""))
+  (lib (name Ethernet)(type KiCad)(uri ${KIWORKSPACE}/osrf_hw/kicad_modules/Ethernet.pretty)(options "")(descr ""))
 )
