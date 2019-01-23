@@ -14,4 +14,5 @@
   (lib (name Mechanical)(type Legacy)(uri /usr/share/kicad-nightly/library/Mechanical.lib)(options "")(descr ""))
   (lib (name Graphic)(type Legacy)(uri /usr/share/kicad-nightly/library/Graphic.lib)(options "")(descr ""))
   (lib (name Ethernet)(type Legacy)(uri ${KIWORKSPACE}/osrf_hw/kicad_libraries/ethernet.lib)(options "")(descr ""))
+  (lib (name Power_Management)(type Legacy)(uri /usr/share/kicad-nightly/library/Power_Management.lib)(options "")(descr ""))
 )

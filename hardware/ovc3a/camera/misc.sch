@@ -57,4 +57,167 @@ F 22 "_" H 2250 4750 50  0001 C CNN "ResonnanceFreq"
 	1    2250 4750
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	3050 1800 3300 1800
+Wire Wire Line
+	3300 1900 3050 1900
+Wire Wire Line
+	3300 2100 3050 2100
+Wire Wire Line
+	3050 2000 3300 2000
+Wire Wire Line
+	3300 2200 3050 2200
+Wire Wire Line
+	3050 2300 3300 2300
+Wire Wire Line
+	3300 2400 3050 2400
+Wire Wire Line
+	3050 2500 3300 2500
+$Comp
+L Device:C_Small C10
+U 1 1 5C4844F8
+P 3400 1150
+F 0 "C10" H 3492 1196 50  0000 L CNN
+F 1 "100n" H 3492 1105 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 3400 1150 50  0001 C CNN
+F 3 "~" H 3400 1150 50  0001 C CNN
+	1    3400 1150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3050 1600 3200 1600
+Wire Wire Line
+	3200 1600 3200 950 
+Wire Wire Line
+	3200 950  3400 950 
+Wire Wire Line
+	3400 950  3400 1050
+Wire Wire Line
+	3050 1700 3200 1700
+Wire Wire Line
+	3200 1700 3200 1600
+Connection ~ 3200 1600
+$Comp
+L power:GND #PWR0115
+U 1 1 5C4874B9
+P 3400 1400
+F 0 "#PWR0115" H 3400 1150 50  0001 C CNN
+F 1 "GND" H 3405 1227 50  0000 C CNN
+F 2 "" H 3400 1400 50  0001 C CNN
+F 3 "" H 3400 1400 50  0001 C CNN
+	1    3400 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0116
+U 1 1 5C48A3ED
+P 3300 2850
+F 0 "#PWR0116" H 3300 2600 50  0001 C CNN
+F 1 "GND" H 3305 2677 50  0000 C CNN
+F 2 "" H 3300 2850 50  0001 C CNN
+F 3 "" H 3300 2850 50  0001 C CNN
+	1    3300 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3050 2700 3300 2700
+Wire Wire Line
+	3300 2700 3300 2850
+Wire Wire Line
+	3050 2600 3300 2600
+Wire Wire Line
+	3300 2600 3300 2700
+Connection ~ 3300 2700
+Wire Wire Line
+	3400 1400 3400 1250
+Wire Wire Line
+	3700 4450 3450 4450
+Wire Wire Line
+	3700 4550 3450 4550
+Wire Wire Line
+	3700 4650 3450 4650
+Wire Wire Line
+	3700 5150 3450 5150
+Wire Wire Line
+	3700 5050 3450 5050
+Wire Wire Line
+	3700 4850 3450 4850
+$Comp
+L power:GND #PWR0117
+U 1 1 5C49A0AD
+P 4450 5100
+F 0 "#PWR0117" H 4450 4850 50  0001 C CNN
+F 1 "GND" H 4455 4927 50  0000 C CNN
+F 2 "" H 4450 5100 50  0001 C CNN
+F 3 "" H 4450 5100 50  0001 C CNN
+	1    4450 5100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3450 4750 4450 4750
+Wire Wire Line
+	3450 4950 4450 4950
+Wire Wire Line
+	4450 4950 4450 5100
+$Comp
+L power:GND #PWR0119
+U 1 1 5C49BFA5
+P 1400 5000
+F 0 "#PWR0119" H 1400 4750 50  0001 C CNN
+F 1 "GND" H 1405 4827 50  0000 C CNN
+F 2 "" H 1400 5000 50  0001 C CNN
+F 3 "" H 1400 5000 50  0001 C CNN
+	1    1400 5000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1550 4850 1400 4850
+Wire Wire Line
+	1400 4850 1400 5000
+Wire Wire Line
+	4450 4250 4450 4750
+$Comp
+L power:+1V8 #PWR0118
+U 1 1 5C49AC58
+P 4450 4250
+F 0 "#PWR0118" H 4450 4100 50  0001 C CNN
+F 1 "+1V8" H 4465 4423 50  0000 C CNN
+F 2 "" H 4450 4250 50  0001 C CNN
+F 3 "" H 4450 4250 50  0001 C CNN
+	1    4450 4250
+	1    0    0    -1  
+$EndComp
+Text GLabel 3700 4450 2    50   Input ~ 0
+SD_DAT2
+Text GLabel 3700 4550 2    50   Input ~ 0
+SD_DAT3
+Text GLabel 3700 4650 2    50   Input ~ 0
+SD_CMD
+Text GLabel 3700 4850 2    50   Input ~ 0
+SD_CLK
+Text GLabel 3700 5050 2    50   Input ~ 0
+SD_DAT0
+Text GLabel 3700 5150 2    50   Input ~ 0
+SD_DAT1
+Text GLabel 3300 1800 2    50   Input ~ 0
+PHY_MDI0_P
+Text GLabel 3300 1900 2    50   Input ~ 0
+PHY_MDI0_N
+Text GLabel 3300 2000 2    50   Input ~ 0
+PHY_MDI1_P
+Text GLabel 3300 2100 2    50   Input ~ 0
+PHY_MDI1_N
+Text GLabel 3300 2200 2    50   Input ~ 0
+PHY_MDI2_P
+Text GLabel 3300 2300 2    50   Input ~ 0
+PHY_MDI2_N
+Text GLabel 3300 2400 2    50   Input ~ 0
+PHY_MDI3_P
+Text GLabel 3300 2500 2    50   Input ~ 0
+PHY_MDI3_N
+Text GLabel 3650 950  2    50   Input ~ 0
+ETH_VCC
+Wire Wire Line
+	3650 950  3400 950 
+Connection ~ 3400 950 
 $EndSCHEMATC
