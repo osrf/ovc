@@ -254,7 +254,7 @@ Wire Wire Line
 	3150 3400 3050 3400
 Connection ~ 3150 3900
 Wire Wire Line
-	3150 3400 3150 3000
+	3150 3400 3150 3300
 Wire Wire Line
 	3150 3000 3050 3000
 Connection ~ 3150 3400
@@ -303,21 +303,8 @@ Wire Wire Line
 Wire Wire Line
 	1100 3200 1200 3200
 Connection ~ 1100 4400
-$Comp
-L power:+3.3V #PWR0128
-U 1 1 5C5300EA
-P 1000 1600
-F 0 "#PWR0128" H 1000 1450 50  0001 C CNN
-F 1 "+3.3V" H 1015 1773 50  0000 C CNN
-F 2 "" H 1000 1600 50  0001 C CNN
-F 3 "" H 1000 1600 50  0001 C CNN
-	1    1000 1600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	1200 1800 1000 1800
-Wire Wire Line
-	1000 1800 1000 1600
 Wire Wire Line
 	1200 1900 1000 1900
 Wire Wire Line
@@ -359,22 +346,6 @@ Wire Wire Line
 	8000 4150 7750 4150
 Wire Wire Line
 	7750 4050 8000 4050
-Text GLabel 950  6600 0    50   Input ~ 0
-SPI_SS0
-Wire Wire Line
-	950  6600 1200 6600
-Text GLabel 950  6500 0    50   Input ~ 0
-SPI_CLK
-Wire Wire Line
-	950  6500 1200 6500
-Text GLabel 950  6000 0    50   Input ~ 0
-SPI_MOSI
-Wire Wire Line
-	950  6000 1200 6000
-Text GLabel 3300 6300 2    50   Input ~ 0
-SPI_MISO
-Wire Wire Line
-	3300 6300 3050 6300
 Text GLabel 950  6300 0    50   Input ~ 0
 SCL
 Wire Wire Line
@@ -426,7 +397,7 @@ $EndComp
 Wire Wire Line
 	650  2200 650  2100
 Wire Wire Line
-	650  1800 1000 1800
+	650  1800 900  1800
 Text GLabel 3200 3200 2    50   Input ~ 0
 PGOOD
 Text Notes 8450 5500 0    50   ~ 0
@@ -490,7 +461,7 @@ F 3 "~" H 6700 1950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Notes 3100 1450 0    50   ~ 0
-TODO Mode for SD card boot\nIO banks voltages
+IO banks voltages
 Connection ~ 6400 2150
 Wire Wire Line
 	6400 2250 6400 2150
@@ -635,8 +606,142 @@ Wire Wire Line
 	8050 5850 8150 5850
 Wire Wire Line
 	8750 5850 8650 5850
-Text GLabel 950  6700 0    50   Input ~ 0
-SPI_SS1
+$Comp
+L power:+3.3V #PWR0159
+U 1 1 5E806E31
+P 3850 2900
+F 0 "#PWR0159" H 3850 2750 50  0001 C CNN
+F 1 "+3.3V" H 3865 3073 50  0000 C CNN
+F 2 "" H 3850 2900 50  0001 C CNN
+F 3 "" H 3850 2900 50  0001 C CNN
+	1    3850 2900
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	950  6700 1200 6700
+	3050 3100 3850 3100
+Wire Wire Line
+	3850 3100 3850 2900
+Wire Wire Line
+	3050 3300 3150 3300
+Connection ~ 3150 3300
+Wire Wire Line
+	3150 3300 3150 3000
+Wire Wire Line
+	6250 2550 6400 2550
+$Comp
+L power:+3.3V #PWR0165
+U 1 1 5E827309
+P 8350 5550
+F 0 "#PWR0165" H 8350 5400 50  0001 C CNN
+F 1 "+3.3V" H 8365 5723 50  0000 C CNN
+F 2 "" H 8350 5550 50  0001 C CNN
+F 3 "" H 8350 5550 50  0001 C CNN
+	1    8350 5550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8350 5650 8350 5550
+Text GLabel 4150 6350 0    50   Input ~ 0
+JTAG_TMS
+Text GLabel 4150 6450 0    50   Input ~ 0
+JTAG_TDI
+Text GLabel 4150 6550 0    50   Input ~ 0
+JTAG_TDO
+Text GLabel 4150 6650 0    50   Input ~ 0
+JTAG_TCK
+Wire Wire Line
+	4150 6350 4350 6350
+Wire Wire Line
+	4350 6450 4150 6450
+Wire Wire Line
+	4150 6550 4350 6550
+Wire Wire Line
+	4350 6650 4150 6650
+Text GLabel 6400 2550 2    50   Input ~ 0
+JTAG_HALT
+Text GLabel 2600 7350 0    50   Input ~ 0
+ICM-SPI_CS
+Wire Wire Line
+	2600 7350 2850 7350
+Text GLabel 2600 7250 0    50   Input ~ 0
+ICM-SPI_CLK
+Wire Wire Line
+	2600 7250 2850 7250
+Text GLabel 2600 7050 0    50   Input ~ 0
+ICM-SPI_MOSI
+Wire Wire Line
+	2600 7050 2850 7050
+Text GLabel 2600 7150 0    50   Input ~ 0
+ICM-SPI_MISO
+Wire Wire Line
+	2600 7150 2850 7150
+Wire Wire Line
+	2600 7550 2850 7550
+Text GLabel 2600 7550 0    50   Input ~ 0
+ICM-IMU_SYNC
+Wire Wire Line
+	2600 7650 2850 7650
+Text GLabel 2600 7650 0    50   Input ~ 0
+ICM-IMU_INT1
+$Comp
+L power:+1V8 #PWR0128
+U 1 1 5C51A720
+P 1150 1600
+F 0 "#PWR0128" H 1150 1450 50  0001 C CNN
+F 1 "+1V8" H 1165 1773 50  0000 C CNN
+F 2 "" H 1150 1600 50  0001 C CNN
+F 3 "" H 1150 1600 50  0001 C CNN
+	1    1150 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR0184
+U 1 1 5C51B750
+P 900 1600
+F 0 "#PWR0184" H 900 1450 50  0001 C CNN
+F 1 "+3.3V" H 915 1773 50  0000 C CNN
+F 2 "" H 900 1600 50  0001 C CNN
+F 3 "" H 900 1600 50  0001 C CNN
+	1    900  1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	900  1600 900  1800
+Connection ~ 900  1800
+Wire Wire Line
+	900  1800 1000 1800
+Wire Wire Line
+	1150 1600 1150 2200
+Wire Wire Line
+	1150 2200 1200 2200
+Wire Wire Line
+	1200 2300 1150 2300
+Wire Wire Line
+	1150 2300 1150 2200
+Connection ~ 1150 2200
+$Comp
+L power:+1V8 #PWR0185
+U 1 1 5C53737E
+P 4250 1600
+F 0 "#PWR0185" H 4250 1450 50  0001 C CNN
+F 1 "+1V8" H 4265 1773 50  0000 C CNN
+F 2 "" H 4250 1600 50  0001 C CNN
+F 3 "" H 4250 1600 50  0001 C CNN
+	1    4250 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 1600 4250 1950
+Wire Wire Line
+	4250 2150 4350 2150
+Wire Wire Line
+	4350 2050 4250 2050
+Connection ~ 4250 2050
+Wire Wire Line
+	4250 2050 4250 2150
+Wire Wire Line
+	4350 1950 4250 1950
+Connection ~ 4250 1950
+Wire Wire Line
+	4250 1950 4250 2050
 $EndSCHEMATC

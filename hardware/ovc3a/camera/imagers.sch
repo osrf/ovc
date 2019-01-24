@@ -2263,8 +2263,6 @@ Wire Wire Line
 	6200 650  6600 650 
 Connection ~ 6600 650 
 Wire Wire Line
-	6600 650  7000 650 
-Wire Wire Line
 	6200 850  6600 850 
 Wire Wire Line
 	5400 850  5800 850 
@@ -2295,4 +2293,57 @@ Wire Wire Line
 Connection ~ 9950 950 
 Wire Wire Line
 	9950 950  10350 950 
+$Comp
+L Device:C_Small C63
+U 1 1 5E8325BE
+P 3800 800
+F 0 "C63" H 3892 846 50  0000 L CNN
+F 1 "100n" H 3892 755 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 3800 800 50  0001 C CNN
+F 3 "~" H 3800 800 50  0001 C CNN
+	1    3800 800 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3450 700  3800 700 
+Connection ~ 3450 700 
+Wire Wire Line
+	3800 900  3450 900 
+Connection ~ 3450 900 
+$Comp
+L Device:C_Small C64
+U 1 1 5E8B5EF2
+P 7350 750
+F 0 "C64" H 7442 796 50  0000 L CNN
+F 1 "100n" H 7442 705 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 7350 750 50  0001 C CNN
+F 3 "~" H 7350 750 50  0001 C CNN
+	1    7350 750 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7000 850  7350 850 
+Connection ~ 7000 850 
+Wire Wire Line
+	6600 650  7000 650 
+Connection ~ 7000 650 
+Wire Wire Line
+	7000 650  7350 650 
+$Comp
+L Device:C_Small C65
+U 1 1 5E93B259
+P 10700 850
+F 0 "C65" H 10792 896 50  0000 L CNN
+F 1 "100n" H 10792 805 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 10700 850 50  0001 C CNN
+F 3 "~" H 10700 850 50  0001 C CNN
+	1    10700 850 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10350 750  10700 750 
+Connection ~ 10350 750 
+Wire Wire Line
+	10700 950  10350 950 
+Connection ~ 10350 950 
 $EndSCHEMATC

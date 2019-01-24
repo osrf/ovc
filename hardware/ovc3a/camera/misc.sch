@@ -249,7 +249,7 @@ Wire Wire Line
 Wire Wire Line
 	1700 2350 1700 2500
 Text GLabel 1200 2250 0    50   Input ~ 0
-LED_L
+ETH_LED_L
 Wire Wire Line
 	1200 2250 1400 2250
 $Comp
@@ -281,7 +281,7 @@ Wire Wire Line
 Wire Wire Line
 	1700 1800 1700 1950
 Text GLabel 1200 1700 0    50   Input ~ 0
-LED_R
+ETH_LED_R
 Wire Wire Line
 	1200 1700 1400 1700
 $Comp
@@ -290,7 +290,7 @@ U 1 1 5C4F53CA
 P 6900 2550
 F 0 "J5" H 6950 3467 50  0000 C CNN
 F 1 "Conn_02x15_Odd_Even" H 6950 3376 50  0000 C CNN
-F 2 "Connector_PinHeader_2.00mm:PinHeader_2x15_P2.00mm_Vertical" H 6900 2550 50  0001 C CNN
+F 2 "Connector_PinSocket_2.00mm:PinSocket_2x15_P2.00mm_Vertical" H 6900 2550 50  0001 C CNN
 F 3 "~" H 6900 2550 50  0001 C CNN
 	1    6900 2550
 	1    0    0    -1  
@@ -364,14 +364,6 @@ F 3 "" H 6650 3400 50  0001 C CNN
 $EndComp
 Text GLabel 6500 2150 0    50   Input ~ 0
 PGOOD
-Text GLabel 6500 3150 0    50   Input ~ 0
-SPI_SS1
-Text GLabel 6500 3050 0    50   Input ~ 0
-SPI_CLK
-Text GLabel 7400 3150 2    50   Input ~ 0
-SPI_MOSI
-Text GLabel 7400 3050 2    50   Input ~ 0
-SPI_MISO
 Wire Wire Line
 	6650 2050 6650 2650
 Wire Wire Line
@@ -414,15 +406,227 @@ Wire Wire Line
 Wire Wire Line
 	6700 2150 6500 2150
 Wire Wire Line
-	7400 3050 7200 3050
-Wire Wire Line
-	7200 3150 7400 3150
-Wire Wire Line
-	6500 3050 6700 3050
-Wire Wire Line
-	6700 3150 6500 3150
-Wire Wire Line
 	6700 1850 6450 1850
 Wire Wire Line
 	7450 1850 7200 1850
+$Comp
+L Connector_Generic:Conn_02x04_Odd_Even J6
+U 1 1 5E9E978B
+P 7000 4750
+F 0 "J6" H 7100 5100 50  0000 C CNN
+F 1 "Conn_02x04_Counter_Clockwise" H 7400 5000 50  0000 C CNN
+F 2 "Connector_PinSocket_2.00mm:PinSocket_2x04_P2.00mm_Vertical" H 7000 4750 50  0001 C CNN
+F 3 "~" H 7000 4750 50  0001 C CNN
+	1    7000 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0167
+U 1 1 5E9EB5DC
+P 7050 5150
+F 0 "#PWR0167" H 7050 4900 50  0001 C CNN
+F 1 "GND" H 7055 4977 50  0000 C CNN
+F 2 "" H 7050 5150 50  0001 C CNN
+F 3 "" H 7050 5150 50  0001 C CNN
+	1    7050 5150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7300 4950 7300 5100
+Wire Wire Line
+	7300 5100 7050 5100
+Wire Wire Line
+	7050 5150 7050 5100
+Connection ~ 7050 5100
+Wire Wire Line
+	7050 5100 6800 5100
+Wire Wire Line
+	6800 4950 6800 5100
+Text GLabel 6700 4750 0    50   Input ~ 0
+JTAG_TMS
+Text GLabel 6700 4850 0    50   Input ~ 0
+JTAG_TDI
+Text GLabel 7400 4850 2    50   Input ~ 0
+JTAG_TDO
+Text GLabel 7400 4750 2    50   Input ~ 0
+JTAG_TCK
+Wire Wire Line
+	7400 4750 7300 4750
+Wire Wire Line
+	7400 4850 7300 4850
+Wire Wire Line
+	6800 4750 6700 4750
+Wire Wire Line
+	6800 4850 6700 4850
+$Comp
+L power:+3.3V #PWR0182
+U 1 1 5EA225E7
+P 6700 4400
+F 0 "#PWR0182" H 6700 4250 50  0001 C CNN
+F 1 "+3.3V" H 6715 4573 50  0000 C CNN
+F 2 "" H 6700 4400 50  0001 C CNN
+F 3 "" H 6700 4400 50  0001 C CNN
+	1    6700 4400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6800 4650 6700 4650
+Wire Wire Line
+	6700 4650 6700 4400
+Text GLabel 7400 4650 2    50   Input ~ 0
+JTAG_HALT
+Wire Wire Line
+	7400 4650 7300 4650
+$Comp
+L Device:LED D1
+U 1 1 5EA32365
+P 5850 5650
+F 0 "D1" H 5843 5395 50  0000 C CNN
+F 1 "LED" H 5843 5486 50  0000 C CNN
+F 2 "LED_SMD:LED_0402_1005Metric" H 5850 5650 50  0001 C CNN
+F 3 "~" H 5850 5650 50  0001 C CNN
+	1    5850 5650
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:LED D2
+U 1 1 5EA38CC0
+P 5850 6100
+F 0 "D2" H 5843 5845 50  0000 C CNN
+F 1 "LED" H 5843 5936 50  0000 C CNN
+F 2 "LED_SMD:LED_0402_1005Metric" H 5850 6100 50  0001 C CNN
+F 3 "~" H 5850 6100 50  0001 C CNN
+	1    5850 6100
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0183
+U 1 1 5EA39EBE
+P 6150 6250
+F 0 "#PWR0183" H 6150 6000 50  0001 C CNN
+F 1 "GND" H 6155 6077 50  0000 C CNN
+F 2 "" H 6150 6250 50  0001 C CNN
+F 3 "" H 6150 6250 50  0001 C CNN
+	1    6150 6250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6000 6100 6150 6100
+Wire Wire Line
+	6150 6100 6150 6250
+Wire Wire Line
+	6000 5650 6150 5650
+Wire Wire Line
+	6150 5650 6150 6100
+Connection ~ 6150 6100
+$Comp
+L Device:R_Small R14
+U 1 1 5EA3E3D8
+P 5450 5650
+F 0 "R14" V 5254 5650 50  0000 C CNN
+F 1 "220R" V 5345 5650 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5450 5650 50  0001 C CNN
+F 3 "~" H 5450 5650 50  0001 C CNN
+	1    5450 5650
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_Small R15
+U 1 1 5EA3ED75
+P 5450 6100
+F 0 "R15" V 5254 6100 50  0000 C CNN
+F 1 "220R" V 5345 6100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5450 6100 50  0001 C CNN
+F 3 "~" H 5450 6100 50  0001 C CNN
+	1    5450 6100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5550 6100 5700 6100
+Wire Wire Line
+	5550 5650 5700 5650
+Text GLabel 5150 5650 0    50   Input ~ 0
+LED0
+Text GLabel 5150 6100 0    50   Input ~ 0
+LED1
+Wire Wire Line
+	5150 5650 5350 5650
+Wire Wire Line
+	5350 6100 5150 6100
+Wire Wire Line
+	6500 2250 6700 2250
+Text GLabel 6500 2350 0    50   Input ~ 0
+GPIO3
+Wire Wire Line
+	6500 2350 6700 2350
+Text GLabel 6500 2450 0    50   Input ~ 0
+GPIO5
+Wire Wire Line
+	6500 2450 6700 2450
+Text GLabel 6500 2550 0    50   Input ~ 0
+GPIO7
+Wire Wire Line
+	6500 2550 6700 2550
+Text GLabel 6500 2750 0    50   Input ~ 0
+GPIO9
+Wire Wire Line
+	6500 2750 6700 2750
+Text GLabel 6500 2850 0    50   Input ~ 0
+GPIO11
+Wire Wire Line
+	6500 2850 6700 2850
+Wire Wire Line
+	6500 2950 6700 2950
+Wire Wire Line
+	6500 3050 6700 3050
+Wire Wire Line
+	6500 3150 6700 3150
+Text GLabel 7400 2150 2    50   Input ~ 0
+GPIO0
+Wire Wire Line
+	7400 2150 7200 2150
+Text GLabel 7400 2250 2    50   Input ~ 0
+GPIO2
+Wire Wire Line
+	7400 2250 7200 2250
+Text GLabel 7400 2350 2    50   Input ~ 0
+GPIO4
+Wire Wire Line
+	7400 2350 7200 2350
+Text GLabel 7400 2450 2    50   Input ~ 0
+GPIO6
+Wire Wire Line
+	7400 2450 7200 2450
+Text GLabel 7400 2550 2    50   Input ~ 0
+GPIO8
+Wire Wire Line
+	7400 2550 7200 2550
+Text GLabel 7400 2750 2    50   Input ~ 0
+GPIO10
+Wire Wire Line
+	7400 2750 7200 2750
+Wire Wire Line
+	7400 2850 7200 2850
+Wire Wire Line
+	7400 2950 7200 2950
+Wire Wire Line
+	7400 3050 7200 3050
+Wire Wire Line
+	7400 3150 7200 3150
+Text GLabel 6500 2250 0    50   Input ~ 0
+GPIO1
+Text GLabel 6500 2950 0    50   Input ~ 0
+GPIO13
+Text GLabel 6500 3050 0    50   Input ~ 0
+GPIO15
+Text GLabel 6500 3150 0    50   Input ~ 0
+GPIO17
+Text GLabel 7400 2850 2    50   Input ~ 0
+GPIO12
+Text GLabel 7400 2950 2    50   Input ~ 0
+GPIO14
+Text GLabel 7400 3050 2    50   Input ~ 0
+GPIO16
+Text GLabel 7400 3150 2    50   Input ~ 0
+GPIO18
 $EndSCHEMATC
