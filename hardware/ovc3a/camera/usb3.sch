@@ -50,12 +50,8 @@ Wire Wire Line
 	1900 2150 2550 2150
 Text Label 1950 2150 0    50   ~ 0
 CONN_RX1+
-Wire Wire Line
-	1900 2350 2550 2350
 Text Label 1950 2350 0    50   ~ 0
 CONN_TX1-
-Wire Wire Line
-	1900 2450 2550 2450
 Text Label 1950 2450 0    50   ~ 0
 CONN_TX1+
 Wire Wire Line
@@ -76,20 +72,12 @@ Text Label 1950 3050 0    50   ~ 0
 CONN_TX2+
 Wire Wire Line
 	1900 1550 2550 1550
-Text Label 1950 1550 0    50   ~ 0
-CONN_D-1
 Wire Wire Line
 	1900 1650 2550 1650
-Text Label 1950 1650 0    50   ~ 0
-CONN_D-2
 Wire Wire Line
 	1900 1750 2550 1750
-Text Label 1950 1750 0    50   ~ 0
-CONN_D+1
 Wire Wire Line
 	1900 1850 2550 1850
-Text Label 1950 1850 0    50   ~ 0
-CONN_D+2
 Wire Wire Line
 	1900 1350 2550 1350
 Text Label 1950 1350 0    50   ~ 0
@@ -235,27 +223,19 @@ F 3 "~" H 3550 6500 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3200 6600 3550 6600
-Text Label 3250 6600 0    50   ~ 0
-SCL
-Text Label 3250 6700 0    50   ~ 0
-SDA
 $Comp
 L Device:R_Small R3
 U 1 1 5C00694A
-P 3850 6500
-F 0 "R3" H 3909 6546 50  0000 L CNN
-F 1 "10k" H 3909 6455 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 3850 6500 50  0001 C CNN
-F 3 "~" H 3850 6500 50  0001 C CNN
-	1    3850 6500
+P 4200 6500
+F 0 "R3" H 4259 6546 50  0000 L CNN
+F 1 "10k" H 4259 6455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 4200 6500 50  0001 C CNN
+F 3 "~" H 4200 6500 50  0001 C CNN
+	1    4200 6500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	3550 6400 3850 6400
-Wire Wire Line
-	3850 6700 3850 6600
-Wire Wire Line
-	3200 6700 3850 6700
 $Comp
 L Device:C_Small C1
 U 1 1 5C00849E
@@ -306,7 +286,6 @@ Text Label 1750 5700 0    50   ~ 0
 1V2
 Text Label 3250 6900 0    50   ~ 0
 RESET
-Connection ~ 3850 6400
 NoConn ~ 3200 6800
 Text Label 3250 6100 0    50   ~ 0
 ABSIDE
@@ -612,18 +591,10 @@ Text Label 4100 1350 0    50   ~ 0
 CONN_TX2+
 Text Label 4100 1450 0    50   ~ 0
 CONN_TX2-
-Text Label 6450 1750 0    50   ~ 0
-USB3_TX-
-Text Label 6450 1650 0    50   ~ 0
-USB3_TX+
 Wire Wire Line
 	6400 1650 6850 1650
 Wire Wire Line
 	6400 1750 6850 1750
-Text Label 6450 1950 0    50   ~ 0
-USB3_RX-
-Text Label 6450 1850 0    50   ~ 0
-USB3_RX+
 Wire Wire Line
 	6400 1850 6850 1850
 Wire Wire Line
@@ -657,15 +628,7 @@ $EndComp
 Connection ~ 6550 2550
 Wire Wire Line
 	6550 2350 6400 2350
-Wire Wire Line
-	6550 2350 7000 2350
 Connection ~ 6550 2350
-Text Label 6650 2350 0    50   ~ 0
-USB3_OE
-Wire Wire Line
-	6400 2150 7000 2150
-Text Label 6450 2150 0    50   ~ 0
-USB3_SEL
 $Comp
 L power:+3V3 #PWR?
 U 1 1 5C12726F
@@ -808,15 +771,9 @@ Wire Wire Line
 Connection ~ 8550 5700
 Wire Wire Line
 	8550 5700 8950 5700
-Text Label 8700 5700 0    50   ~ 0
-AGND
 Wire Wire Line
 	7250 5850 7150 5850
 Connection ~ 7150 5850
-Wire Wire Line
-	7150 5850 6750 5850
-Text Label 6750 5850 0    50   ~ 0
-AGND
 Wire Wire Line
 	7350 5850 7450 5850
 Connection ~ 7450 5850
@@ -854,8 +811,8 @@ Wire Wire Line
 	6650 4750 6650 4950
 Wire Wire Line
 	6650 4950 6250 4950
-Text Label 6400 4950 0    50   ~ 0
-AGND
+Text Label 6350 4950 0    50   ~ 0
+PWGND
 $Comp
 L Device:C_Small C9
 U 1 1 5C13FDFA
@@ -892,4 +849,68 @@ Text Notes 6000 3650 0    50   ~ 0
 todo: input caps
 Text Notes 8300 3650 0    50   ~ 0
 todo: output caps
+Wire Wire Line
+	1900 2450 2550 2450
+Wire Wire Line
+	1900 2350 2550 2350
+Wire Wire Line
+	4200 6700 4200 6600
+Wire Wire Line
+	3200 6700 4200 6700
+Wire Wire Line
+	4200 6400 3850 6400
+Connection ~ 3850 6400
+Text GLabel 3800 6600 2    50   Input ~ 0
+SCL
+Wire Wire Line
+	3800 6600 3550 6600
+Connection ~ 3550 6600
+Text GLabel 4500 6700 2    50   Input ~ 0
+SDA
+Wire Wire Line
+	4500 6700 4200 6700
+Connection ~ 4200 6700
+Wire Wire Line
+	2550 1550 2550 1600
+Wire Wire Line
+	2550 1750 2550 1800
+NoConn ~ 8300 4350
+Text Label 6750 5850 0    50   ~ 0
+PWGND
+Text Label 8700 5700 0    50   ~ 0
+PWGND
+Wire Wire Line
+	7150 5850 6750 5850
+Text Label 6450 2150 0    50   ~ 0
+ABSIDE
+Wire Wire Line
+	6400 2150 6850 2150
+Text GLabel 6850 1650 2    50   Input ~ 0
+USB3_TX+
+Text GLabel 6850 1750 2    50   Input ~ 0
+USB3_TX-
+Text GLabel 6850 1850 2    50   Input ~ 0
+USB3_RX+
+Text GLabel 6850 1950 2    50   Input ~ 0
+USB3_RX-
+Text GLabel 2750 1800 2    50   Input ~ 0
+USB2_D+
+Text GLabel 2750 1600 2    50   Input ~ 0
+USB2_D-
+Wire Wire Line
+	2750 1600 2550 1600
+Connection ~ 2550 1600
+Wire Wire Line
+	2550 1600 2550 1650
+Wire Wire Line
+	2750 1800 2550 1800
+Connection ~ 2550 1800
+Wire Wire Line
+	2550 1800 2550 1850
+Text GLabel 7100 2350 2    50   Input ~ 0
+nPGOOD
+Wire Wire Line
+	6550 2350 7100 2350
+Text Notes 6800 2550 0    50   ~ 0
+TODO, check if can remove pulldown resistor
 $EndSCHEMATC

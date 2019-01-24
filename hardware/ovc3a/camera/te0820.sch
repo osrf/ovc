@@ -16,10 +16,6 @@ Comment4 ""
 $EndDescr
 Text Notes 1500 1050 0    157  ~ 31
 https://wiki.trenz-electronic.de/display/PD/TE0820+TRM
-Text Notes 7700 2700 0    50   ~ 0
-usb3
-Text Notes 10350 2700 0    50   ~ 0
-usb3
 $Comp
 L trenz:TE0820 M1
 U 1 1 5C465161
@@ -29,17 +25,6 @@ F 1 "TE0820" H 2125 6874 50  0000 C CNN
 F 2 "Trenz:TE0820" H 2150 1400 50  0001 C CNN
 F 3 "" H 700 1450 50  0001 C CNN
 	1    2150 4250
-	1    0    0    -1  
-$EndComp
-$Comp
-L trenz:TE0820 M1
-U 2 1 5C46B666
-P 5300 4100
-F 0 "M1" H 5300 6715 50  0000 C CNN
-F 1 "TE0820" H 5300 6624 50  0000 C CNN
-F 2 "Trenz:TE0820" H 5300 1250 50  0001 C CNN
-F 3 "" H 3850 1300 50  0001 C CNN
-	2    5300 4100
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -224,91 +209,6 @@ Wire Wire Line
 	7900 1950 7900 2250
 Connection ~ 7900 2250
 $Comp
-L power:GND #PWR0124
-U 1 1 5C4BF9DD
-P 6350 6850
-F 0 "#PWR0124" H 6350 6600 50  0001 C CNN
-F 1 "GND" H 6355 6677 50  0000 C CNN
-F 2 "" H 6350 6850 50  0001 C CNN
-F 3 "" H 6350 6850 50  0001 C CNN
-	1    6350 6850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6250 6150 6350 6150
-Wire Wire Line
-	6350 6150 6350 6850
-Wire Wire Line
-	6250 5150 6350 5150
-Wire Wire Line
-	6250 4650 6350 4650
-Wire Wire Line
-	6250 4150 6350 4150
-Wire Wire Line
-	6250 3650 6350 3650
-Wire Wire Line
-	6250 3150 6350 3150
-Wire Wire Line
-	6250 2650 6350 2650
-$Comp
-L power:GND #PWR0125
-U 1 1 5C4CC26C
-P 4250 6850
-F 0 "#PWR0125" H 4250 6600 50  0001 C CNN
-F 1 "GND" H 4255 6677 50  0000 C CNN
-F 2 "" H 4250 6850 50  0001 C CNN
-F 3 "" H 4250 6850 50  0001 C CNN
-	1    4250 6850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4350 5650 4250 5650
-Wire Wire Line
-	4250 5650 4250 6850
-Wire Wire Line
-	6250 5650 6350 5650
-Wire Wire Line
-	6350 6150 6350 5650
-Connection ~ 6350 6150
-Connection ~ 6350 5650
-Wire Wire Line
-	6350 5650 6350 5150
-Connection ~ 6350 5150
-Wire Wire Line
-	6350 5150 6350 4650
-Connection ~ 6350 4650
-Wire Wire Line
-	6350 4650 6350 4150
-Connection ~ 6350 4150
-Wire Wire Line
-	6350 3650 6350 4150
-Connection ~ 6350 3650
-Wire Wire Line
-	6350 3650 6350 3150
-Connection ~ 6350 3150
-Wire Wire Line
-	6350 3150 6350 2650
-Wire Wire Line
-	4250 5650 4250 5150
-Wire Wire Line
-	4250 5150 4350 5150
-Connection ~ 4250 5650
-Wire Wire Line
-	4350 4650 4250 4650
-Wire Wire Line
-	4250 4650 4250 5150
-Connection ~ 4250 5150
-Wire Wire Line
-	4250 4650 4250 4150
-Wire Wire Line
-	4250 4150 4350 4150
-Connection ~ 4250 4650
-Wire Wire Line
-	4250 4150 4250 3650
-Wire Wire Line
-	4250 3650 4350 3650
-Connection ~ 4250 4150
-$Comp
 L power:GND #PWR0126
 U 1 1 5C4FB8D1
 P 3150 6850
@@ -439,36 +339,6 @@ Wire Wire Line
 	1000 2500 1200 2500
 Connection ~ 1000 2400
 $Comp
-L power:+3.3V #PWR0129
-U 1 1 5C547A9F
-P 6400 1600
-F 0 "#PWR0129" H 6400 1450 50  0001 C CNN
-F 1 "+3.3V" H 6415 1773 50  0000 C CNN
-F 2 "" H 6400 1600 50  0001 C CNN
-F 3 "" H 6400 1600 50  0001 C CNN
-	1    6400 1600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6250 1750 6400 1750
-Wire Wire Line
-	6400 1750 6400 1600
-Wire Wire Line
-	6250 1850 6400 1850
-Wire Wire Line
-	6400 1850 6400 1750
-Connection ~ 6400 1750
-Wire Wire Line
-	6250 1950 6400 1950
-Wire Wire Line
-	6400 1950 6400 1850
-Connection ~ 6400 1850
-Wire Wire Line
-	6250 2050 6400 2050
-Wire Wire Line
-	6400 2050 6400 1950
-Connection ~ 6400 1950
-$Comp
 L power:+3.3V #PWR0130
 U 1 1 5C56FA25
 P 4100 6100
@@ -480,8 +350,6 @@ F 3 "" H 4100 6100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4350 6250 4100 6250
-Wire Wire Line
 	4100 6250 4100 6100
 Text GLabel 7750 4050 0    50   Input ~ 0
 USB2_D+
@@ -491,4 +359,284 @@ Wire Wire Line
 	8000 4150 7750 4150
 Wire Wire Line
 	7750 4050 8000 4050
+Text GLabel 950  6600 0    50   Input ~ 0
+SPI_SS0
+Wire Wire Line
+	950  6600 1200 6600
+Text GLabel 950  6500 0    50   Input ~ 0
+SPI_CLK
+Wire Wire Line
+	950  6500 1200 6500
+Text GLabel 950  6000 0    50   Input ~ 0
+SPI_MOSI
+Wire Wire Line
+	950  6000 1200 6000
+Text GLabel 3300 6300 2    50   Input ~ 0
+SPI_MISO
+Wire Wire Line
+	3300 6300 3050 6300
+Text GLabel 950  6300 0    50   Input ~ 0
+SCL
+Wire Wire Line
+	950  6300 1200 6300
+Text GLabel 950  6100 0    50   Input ~ 0
+SDA
+Wire Wire Line
+	950  6100 1200 6100
+Text GLabel 7750 2650 0    50   Input ~ 0
+USB3_TX+
+Text GLabel 7750 2750 0    50   Input ~ 0
+USB3_TX-
+Text GLabel 10300 2650 2    50   Input ~ 0
+USB3_RX+
+Text GLabel 10300 2750 2    50   Input ~ 0
+USB3_RX-
+Wire Wire Line
+	8000 2650 7750 2650
+Wire Wire Line
+	8000 2750 7750 2750
+Wire Wire Line
+	10050 2650 10300 2650
+Wire Wire Line
+	10300 2750 10050 2750
+$Comp
+L Device:C_Small C52
+U 1 1 5C4DD4B5
+P 650 2000
+F 0 "C52" H 742 2046 50  0000 L CNN
+F 1 "100n" H 742 1955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 650 2000 50  0001 C CNN
+F 3 "~" H 650 2000 50  0001 C CNN
+	1    650  2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	650  1900 650  1800
+$Comp
+L power:GND #PWR0179
+U 1 1 5C4DD4BD
+P 650 2200
+F 0 "#PWR0179" H 650 1950 50  0001 C CNN
+F 1 "GND" H 655 2027 50  0000 C CNN
+F 2 "" H 650 2200 50  0001 C CNN
+F 3 "" H 650 2200 50  0001 C CNN
+	1    650  2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	650  2200 650  2100
+Wire Wire Line
+	650  1800 1000 1800
+Text GLabel 3200 3200 2    50   Input ~ 0
+PGOOD
+Text Notes 8450 5500 0    50   ~ 0
+what supply for PGOOD?
+Text GLabel 8750 5850 2    50   Input ~ 0
+nPGOOD
+Wire Wire Line
+	8350 6150 8350 6050
+$Comp
+L power:GND #PWR0180
+U 1 1 5C4B031F
+P 8350 6150
+F 0 "#PWR0180" H 8350 5900 50  0001 C CNN
+F 1 "GND" H 8355 5977 50  0000 C CNN
+F 2 "" H 8350 6150 50  0001 C CNN
+F 3 "" H 8350 6150 50  0001 C CNN
+	1    8350 6150
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xGxx:74LVC1GU04DRL U13
+U 1 1 5C498BE4
+P 8350 5850
+F 0 "U13" H 8700 5750 50  0000 L CNN
+F 1 "74LVC1GU04DRL" H 8700 5650 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-553" H 8350 5600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1gu04.pdf" H 8275 5850 50  0001 C CNN
+	1    8350 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3200 3200 3050 3200
+Text Notes 6900 4350 0    50   ~ 0
+TODO check VBUS_V_EN
+Wire Wire Line
+	6700 2150 6700 2050
+$Comp
+L power:GND #PWR0181
+U 1 1 5C4D3B8D
+P 6700 2150
+F 0 "#PWR0181" H 6700 1900 50  0001 C CNN
+F 1 "GND" H 6705 1977 50  0000 C CNN
+F 2 "" H 6700 2150 50  0001 C CNN
+F 3 "" H 6700 2150 50  0001 C CNN
+	1    6700 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 1750 6400 1750
+Wire Wire Line
+	6700 1850 6700 1750
+$Comp
+L Device:C_Small C53
+U 1 1 5C4C5023
+P 6700 1950
+F 0 "C53" H 6792 1996 50  0000 L CNN
+F 1 "100n" H 6792 1905 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 6700 1950 50  0001 C CNN
+F 3 "~" H 6700 1950 50  0001 C CNN
+	1    6700 1950
+	1    0    0    -1  
+$EndComp
+Text Notes 3100 1450 0    50   ~ 0
+TODO Mode for SD card boot\nIO banks voltages
+Connection ~ 6400 2150
+Wire Wire Line
+	6400 2250 6400 2150
+Wire Wire Line
+	6250 2250 6400 2250
+Wire Wire Line
+	6400 2050 6400 2150
+Connection ~ 6400 2050
+Wire Wire Line
+	6400 1950 6400 2050
+Wire Wire Line
+	6250 2150 6400 2150
+Wire Wire Line
+	4350 6250 4100 6250
+Connection ~ 6400 1950
+Wire Wire Line
+	6250 2050 6400 2050
+Connection ~ 6400 1850
+Wire Wire Line
+	6400 1950 6400 1850
+Wire Wire Line
+	6250 1950 6400 1950
+Connection ~ 6400 1750
+Wire Wire Line
+	6400 1850 6400 1750
+Wire Wire Line
+	6250 1850 6400 1850
+Wire Wire Line
+	6400 1750 6400 1600
+Wire Wire Line
+	6250 1750 6400 1750
+$Comp
+L power:+3.3V #PWR0129
+U 1 1 5C547A9F
+P 6400 1600
+F 0 "#PWR0129" H 6400 1450 50  0001 C CNN
+F 1 "+3.3V" H 6415 1773 50  0000 C CNN
+F 2 "" H 6400 1600 50  0001 C CNN
+F 3 "" H 6400 1600 50  0001 C CNN
+	1    6400 1600
+	1    0    0    -1  
+$EndComp
+Connection ~ 4250 4150
+Wire Wire Line
+	4250 3650 4350 3650
+Wire Wire Line
+	4250 4150 4250 3650
+Connection ~ 4250 4650
+Wire Wire Line
+	4250 4150 4350 4150
+Wire Wire Line
+	4250 4650 4250 4150
+Connection ~ 4250 5150
+Wire Wire Line
+	4250 4650 4250 5150
+Wire Wire Line
+	4350 4650 4250 4650
+Connection ~ 4250 5650
+Wire Wire Line
+	4250 5150 4350 5150
+Wire Wire Line
+	4250 5650 4250 5150
+Wire Wire Line
+	6350 3150 6350 2650
+Connection ~ 6350 3150
+Wire Wire Line
+	6350 3650 6350 3150
+Connection ~ 6350 3650
+Wire Wire Line
+	6350 3650 6350 4150
+Connection ~ 6350 4150
+Wire Wire Line
+	6350 4650 6350 4150
+Connection ~ 6350 4650
+Wire Wire Line
+	6350 5150 6350 4650
+Connection ~ 6350 5150
+Wire Wire Line
+	6350 5650 6350 5150
+Connection ~ 6350 5650
+Connection ~ 6350 6150
+Wire Wire Line
+	6350 6150 6350 5650
+Wire Wire Line
+	6250 5650 6350 5650
+Wire Wire Line
+	4250 5650 4250 6850
+Wire Wire Line
+	4350 5650 4250 5650
+$Comp
+L power:GND #PWR0125
+U 1 1 5C4CC26C
+P 4250 6850
+F 0 "#PWR0125" H 4250 6600 50  0001 C CNN
+F 1 "GND" H 4255 6677 50  0000 C CNN
+F 2 "" H 4250 6850 50  0001 C CNN
+F 3 "" H 4250 6850 50  0001 C CNN
+	1    4250 6850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 2650 6350 2650
+Wire Wire Line
+	6250 3150 6350 3150
+Wire Wire Line
+	6250 3650 6350 3650
+Wire Wire Line
+	6250 4150 6350 4150
+Wire Wire Line
+	6250 4650 6350 4650
+Wire Wire Line
+	6250 5150 6350 5150
+Wire Wire Line
+	6350 6150 6350 6850
+Wire Wire Line
+	6250 6150 6350 6150
+$Comp
+L power:GND #PWR0124
+U 1 1 5C4BF9DD
+P 6350 6850
+F 0 "#PWR0124" H 6350 6600 50  0001 C CNN
+F 1 "GND" H 6355 6677 50  0000 C CNN
+F 2 "" H 6350 6850 50  0001 C CNN
+F 3 "" H 6350 6850 50  0001 C CNN
+	1    6350 6850
+	1    0    0    -1  
+$EndComp
+$Comp
+L trenz:TE0820 M1
+U 2 1 5C46B666
+P 5300 4100
+F 0 "M1" H 5300 6715 50  0000 C CNN
+F 1 "TE0820" H 5300 6624 50  0000 C CNN
+F 2 "Trenz:TE0820" H 5300 1250 50  0001 C CNN
+F 3 "" H 3850 1300 50  0001 C CNN
+	2    5300 4100
+	1    0    0    -1  
+$EndComp
+Text GLabel 8050 5850 0    50   Input ~ 0
+PGOOD
+Wire Wire Line
+	8050 5850 8150 5850
+Wire Wire Line
+	8750 5850 8650 5850
+Text GLabel 950  6700 0    50   Input ~ 0
+SPI_SS1
+Wire Wire Line
+	950  6700 1200 6700
 $EndSCHEMATC
