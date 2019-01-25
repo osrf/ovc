@@ -1,4 +1,4 @@
-update=Thu 24 Jan 2019 04:53:27 PM +08
+update=Thu 24 Jan 2019 06:11:20 PM +08
 last_client=kicad
 [general]
 version=1
@@ -28,16 +28,16 @@ MinViaDrill=0.2032
 MinMicroViaDiameter=0.2032
 MinMicroViaDrill=0.09999999999999999
 MinHoleToHole=0.25
-TrackWidth1=0.25
+TrackWidth1=0.127
 TrackWidth2=0.127
 TrackWidth3=0.1524
 TrackWidth4=0.2032
-ViaDiameter1=0.8
-ViaDrill1=0.4
+ViaDiameter1=0.4572
+ViaDrill1=0.2032
 ViaDiameter2=0.4572
 ViaDrill2=0.2032
-dPairWidth1=0.2
-dPairGap1=0.25
+dPairWidth1=0.1778
+dPairGap1=0.2032
 dPairViaGap1=0.25
 dPairWidth2=0.1778
 dPairGap2=0.2032
@@ -66,3 +66,15 @@ SolderMaskClearance=0.051
 SolderMaskMinWidth=0.25
 SolderPasteClearance=0
 SolderPasteRatio=-0
+[pcbnew/Netclasses]
+[pcbnew/Netclasses/1]
+Name=Diff pairs
+Clearance=0.2032
+TrackWidth=0.1778
+ViaDiameter=0.4572
+ViaDrill=0.2032
+uViaDiameter=0.3
+uViaDrill=0.1
+dPairWidth=0.1778
+dPairGap=0.2032
+dPairViaGap=0.25
