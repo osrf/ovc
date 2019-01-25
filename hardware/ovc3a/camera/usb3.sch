@@ -561,9 +561,9 @@ CONN_TX1+
 Text Label 4100 1650 0    50   ~ 0
 CONN_TX1-
 Text Label 4100 1350 0    50   ~ 0
-CONN_TX2+
-Text Label 4100 1450 0    50   ~ 0
 CONN_TX2-
+Text Label 4100 1450 0    50   ~ 0
+CONN_TX2+
 Wire Wire Line
 	6400 1650 6850 1650
 Wire Wire Line
@@ -587,21 +587,6 @@ F 3 "" H 6550 2550 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6550 2550 6400 2550
-$Comp
-L Device:R_Small R9
-U 1 1 5C11FC6B
-P 6550 2450
-F 0 "R9" H 6609 2496 50  0000 L CNN
-F 1 "10k" H 6609 2405 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 6550 2450 50  0001 C CNN
-F 3 "~" H 6550 2450 50  0001 C CNN
-	1    6550 2450
-	1    0    0    -1  
-$EndComp
-Connection ~ 6550 2550
-Wire Wire Line
-	6550 2350 6400 2350
-Connection ~ 6550 2350
 $Comp
 L power:+3V3 #PWR?
 U 1 1 5C12726F
@@ -882,10 +867,6 @@ Wire Wire Line
 	2550 1800 2550 1850
 Text GLabel 7100 2350 2    50   Input ~ 0
 nPGOOD
-Wire Wire Line
-	6550 2350 7100 2350
-Text Notes 6800 2550 0    50   ~ 0
-TODO, check if can remove pulldown resistor
 $Comp
 L Device:C_Small C5
 U 1 1 5C0F1EB1
@@ -906,9 +887,9 @@ Wire Wire Line
 Wire Wire Line
 	5150 1350 5500 1350
 Text Label 5300 1350 0    50   ~ 0
-T2+
-Text Label 5300 1450 0    50   ~ 0
 T2-
+Text Label 5300 1450 0    50   ~ 0
+T2+
 Wire Wire Line
 	5150 1650 5500 1650
 Wire Wire Line
@@ -918,7 +899,9 @@ Wire Wire Line
 Wire Wire Line
 	4850 1750 5500 1750
 Text Label 5300 1650 0    50   ~ 0
-T1+
-Text Label 5300 1750 0    50   ~ 0
 T1-
+Text Label 5300 1750 0    50   ~ 0
+T1+
+Wire Wire Line
+	6400 2350 7100 2350
 $EndSCHEMATC
