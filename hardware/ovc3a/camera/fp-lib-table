@@ -12,4 +12,6 @@
   (lib (name Connectors_OSRF)(type KiCad)(uri ${KIWORKSPACE}/osrf_hw/kicad_modules/Connectors_OSRF.pretty)(options "")(descr ""))
   (lib (name Ethernet)(type KiCad)(uri ${KIWORKSPACE}/osrf_hw/kicad_modules/Ethernet.pretty)(options "")(descr ""))
   (lib (name Connector_Card)(type KiCad)(uri /usr/share/kicad-nightly/modules/Connector_Card.pretty)(options "")(descr ""))
+  (lib (name Resistor_SMD)(type KiCad)(uri /usr/share/kicad-nightly/modules/Resistor_SMD.pretty)(options "")(descr ""))
+  (lib (name Capacitor_SMD)(type KiCad)(uri /usr/share/kicad-nightly/modules/Capacitor_SMD.pretty)(options "")(descr ""))
 )

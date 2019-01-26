@@ -41,3 +41,4 @@ modules.order
 *.mod.c
 *.swp
 bin
+fp-info-cache
