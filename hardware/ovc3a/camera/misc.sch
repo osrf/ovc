@@ -25,38 +25,6 @@ F 3 "" H 2650 2400 60  0001 C CNN
 	1    2650 2400
 	1    0    0    -1  
 $EndComp
-$Comp
-L connectors:microSD_Card CON?
-U 1 1 5C477F77
-P 2250 4750
-AR Path="/5C4799A5/5C477F77" Ref="CON?"  Part="1" 
-AR Path="/5C470144/5C477F77" Ref="CON1"  Part="1" 
-F 0 "CON1" H 2500 5455 50  0000 C CNN
-F 1 "microSD_Card" H 2500 5364 50  0000 C CNN
-F 2 "Connectors_OSRF:MicroSD_Molex_503182-21853" H 2500 5273 50  0000 C CNN
-F 3 "http://www.molex.com/webdocs/datasheets/pdf/en-us/5031821853_MEMORY_CARD_SOCKET.pdf" H 2450 4750 50  0001 C CNN
-F 4 "_" H 2250 4750 50  0001 C CNN "MFN"
-F 5 "_" H 2250 4750 50  0001 C CNN "MFP"
-F 6 "digikey" H 2250 4750 50  0001 C CNN "D1"
-F 7 "mouser" H 2250 4750 50  0001 C CNN "D2"
-F 8 "_" H 2250 4750 50  0001 C CNN "D1PN"
-F 9 "_" H 2250 4750 50  0001 C CNN "D1PL"
-F 10 "_" H 2250 4750 50  0001 C CNN "D2PN"
-F 11 "_" H 2250 4750 50  0001 C CNN "D2PL"
-F 12 "_" H 2250 4750 50  0001 C CNN "Package"
-F 13 "_" H 2250 4750 50  0001 C CNN "Description"
-F 14 "_" H 2250 4750 50  0001 C CNN "Voltage"
-F 15 "_" H 2250 4750 50  0001 C CNN "Power"
-F 16 "_" H 2250 4750 50  0001 C CNN "Tolerance"
-F 17 "_" H 2250 4750 50  0001 C CNN "Temperature"
-F 18 "_" H 2250 4750 50  0001 C CNN "ReverseVoltage"
-F 19 "_" H 2250 4750 50  0001 C CNN "ForwardVoltage"
-F 20 "_" H 2250 4750 50  0001 C CNN "Cont.Current"
-F 21 "_" H 2250 4750 50  0001 C CNN "Frequency"
-F 22 "_" H 2250 4750 50  0001 C CNN "ResonnanceFreq"
-	1    2250 4750
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3050 1800 3300 1800
 Wire Wire Line
@@ -131,62 +99,32 @@ Connection ~ 3300 2700
 Wire Wire Line
 	3400 1400 3400 1250
 Wire Wire Line
-	3700 4450 3450 4450
+	3450 5850 3200 5850
 Wire Wire Line
-	3700 4550 3450 4550
+	3450 5950 3200 5950
 Wire Wire Line
-	3700 4650 3450 4650
+	3450 6050 3200 6050
 Wire Wire Line
-	3700 5150 3450 5150
+	3450 6550 3200 6550
 Wire Wire Line
-	3700 5050 3450 5050
+	3450 6450 3200 6450
 Wire Wire Line
-	3700 4850 3450 4850
-$Comp
-L power:GND #PWR0117
-U 1 1 5C49A0AD
-P 4450 5100
-F 0 "#PWR0117" H 4450 4850 50  0001 C CNN
-F 1 "GND" H 4455 4927 50  0000 C CNN
-F 2 "" H 4450 5100 50  0001 C CNN
-F 3 "" H 4450 5100 50  0001 C CNN
-	1    4450 5100
-	1    0    0    -1  
-$EndComp
+	3450 6250 3200 6250
 Wire Wire Line
-	3450 4750 4450 4750
+	3200 6150 4050 6150
 Wire Wire Line
-	3450 4950 4450 4950
-Wire Wire Line
-	4450 4950 4450 5100
-$Comp
-L power:GND #PWR0119
-U 1 1 5C49BFA5
-P 1400 5000
-F 0 "#PWR0119" H 1400 4750 50  0001 C CNN
-F 1 "GND" H 1405 4827 50  0000 C CNN
-F 2 "" H 1400 5000 50  0001 C CNN
-F 3 "" H 1400 5000 50  0001 C CNN
-	1    1400 5000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1550 4850 1400 4850
-Wire Wire Line
-	1400 4850 1400 5000
-Wire Wire Line
-	4450 4250 4450 4750
-Text GLabel 3700 4450 2    50   Input ~ 0
+	3200 6350 4050 6350
+Text GLabel 3450 5850 2    50   Input ~ 0
 SD_DAT2
-Text GLabel 3700 4550 2    50   Input ~ 0
+Text GLabel 3450 5950 2    50   Input ~ 0
 SD_DAT3
-Text GLabel 3700 4650 2    50   Input ~ 0
+Text GLabel 3450 6050 2    50   Input ~ 0
 SD_CMD
-Text GLabel 3700 4850 2    50   Input ~ 0
+Text GLabel 3450 6250 2    50   Input ~ 0
 SD_CLK
-Text GLabel 3700 5050 2    50   Input ~ 0
+Text GLabel 3450 6450 2    50   Input ~ 0
 SD_DAT0
-Text GLabel 3700 5150 2    50   Input ~ 0
+Text GLabel 3450 6550 2    50   Input ~ 0
 SD_DAT1
 Text GLabel 3300 1800 2    50   Input ~ 0
 PHY_MDI0_P
@@ -212,12 +150,12 @@ Connection ~ 3400 950
 $Comp
 L power:+3.3V #PWR0118
 U 1 1 5C4E6A5A
-P 4450 4250
-F 0 "#PWR0118" H 4450 4100 50  0001 C CNN
-F 1 "+3.3V" H 4465 4423 50  0000 C CNN
-F 2 "" H 4450 4250 50  0001 C CNN
-F 3 "" H 4450 4250 50  0001 C CNN
-	1    4450 4250
+P 4050 6150
+F 0 "#PWR0118" H 4050 6000 50  0001 C CNN
+F 1 "+3.3V" H 4065 6323 50  0000 C CNN
+F 2 "" H 4050 6150 50  0001 C CNN
+F 3 "" H 4050 6150 50  0001 C CNN
+	1    4050 6150
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -629,4 +567,40 @@ Text GLabel 7400 3050 2    50   Input ~ 0
 GPIO16
 Text GLabel 7400 3150 2    50   Input ~ 0
 GPIO18
+$Comp
+L Connector:Micro_SD_Card_Det_Hirose_DM3AT J7
+U 1 1 5C4D360F
+P 2300 6250
+F 0 "J7" H 2250 7067 50  0000 C CNN
+F 1 "Micro_SD_Card_Det_Hirose_DM3AT" H 2250 6976 50  0000 C CNN
+F 2 "Connector_Card:microSD_HC_Hirose_DM3AT-SF-PEJM5" H 4350 6950 50  0001 C CNN
+F 3 "https://www.hirose.com/product/en/download_file/key_name/DM3/category/Catalog/doc_file_id/49662/?file_category_id=4&item_id=195&is_series=1" H 2300 6350 50  0001 C CNN
+F 4 "DM3AT-SF-PEJM5" H 2300 6250 50  0001 C CNN "MPN"
+	1    2300 6250
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0117
+U 1 1 5C49A0AD
+P 4050 6350
+F 0 "#PWR0117" H 4050 6100 50  0001 C CNN
+F 1 "GND" H 4055 6177 50  0001 C CNN
+F 2 "" H 4050 6350 50  0001 C CNN
+F 3 "" H 4050 6350 50  0001 C CNN
+	1    4050 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0119
+U 1 1 5C4F8C21
+P 1350 6750
+F 0 "#PWR0119" H 1350 6500 50  0001 C CNN
+F 1 "GND" H 1355 6577 50  0001 C CNN
+F 2 "" H 1350 6750 50  0001 C CNN
+F 3 "" H 1350 6750 50  0001 C CNN
+	1    1350 6750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1350 6750 1500 6750
 $EndSCHEMATC

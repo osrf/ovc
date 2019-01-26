@@ -11,4 +11,5 @@
   (lib (name Connector_PinHeader_2.00mm)(type KiCad)(uri /usr/share/kicad-nightly/modules/Connector_PinHeader_2.00mm.pretty)(options "")(descr ""))
   (lib (name Connectors_OSRF)(type KiCad)(uri ${KIWORKSPACE}/osrf_hw/kicad_modules/Connectors_OSRF.pretty)(options "")(descr ""))
   (lib (name Ethernet)(type KiCad)(uri ${KIWORKSPACE}/osrf_hw/kicad_modules/Ethernet.pretty)(options "")(descr ""))
+  (lib (name Connector_Card)(type KiCad)(uri /usr/share/kicad-nightly/modules/Connector_Card.pretty)(options "")(descr ""))
 )
