@@ -57,4 +57,6 @@ F1 "misc.sch" 50
 $EndSheet
 Text Notes 3900 2700 0    118  ~ 24
 TODO: linux root console as 3v3 UART header (gnd, tx, rx)
+Text Notes 3850 3400 0    118  ~ 24
+TODO: FFC for bonus cameras: Molex 505110 series, 20pin(?)
 $EndSCHEMATC
