@@ -904,4 +904,33 @@ Text Label 5300 1750 0    50   ~ 0
 T1+
 Wire Wire Line
 	6400 2350 7100 2350
+$Comp
+L Connector_Generic:Conn_01x02 J8
+U 1 1 5C4E1192
+P 5050 4150
+F 0 "J8" H 5130 4142 50  0000 L CNN
+F 1 "AUX_PWR" H 5130 4051 50  0000 L CNN
+F 2 "Connector_Molex:Molex_Nano-Fit_105313-xx02_1x02_P2.50mm_Horizontal" H 5050 4150 50  0001 C CNN
+F 3 "~" H 5050 4150 50  0001 C CNN
+	1    5050 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 4150 4550 4150
+Connection ~ 4550 4150
+$Comp
+L power:GND #PWR?
+U 1 1 5C4E6EF6
+P 4750 4250
+AR Path="/5C4E6EF6" Ref="#PWR?"  Part="1" 
+AR Path="/5BFFC89B/5C4E6EF6" Ref="#PWR0186"  Part="1" 
+F 0 "#PWR0186" H 4750 4000 50  0001 C CNN
+F 1 "GND" H 4755 4077 50  0001 C CNN
+F 2 "" H 4750 4250 50  0001 C CNN
+F 3 "" H 4750 4250 50  0001 C CNN
+	1    4750 4250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 4250 4850 4250
 $EndSCHEMATC

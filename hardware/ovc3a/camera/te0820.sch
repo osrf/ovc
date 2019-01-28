@@ -354,9 +354,9 @@ Text GLabel 950  6100 0    50   Input ~ 0
 SDA
 Wire Wire Line
 	950  6100 1200 6100
-Text GLabel 7750 2650 0    50   Input ~ 0
-USB3_TX+
 Text GLabel 7750 2750 0    50   Input ~ 0
+USB3_TX+
+Text GLabel 7750 2650 0    50   Input ~ 0
 USB3_TX-
 Text GLabel 10300 2650 2    50   Input ~ 0
 USB3_RX+
@@ -744,4 +744,6 @@ Wire Wire Line
 Connection ~ 4250 1950
 Wire Wire Line
 	4250 1950 4250 2050
+Text Notes 6950 3050 0    50   ~ 0
+todo: double-check\nthat polarity swap\nis OK for USB3
 $EndSCHEMATC

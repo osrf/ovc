@@ -55,4 +55,6 @@ U 5C470144
 F0 "misc" 118
 F1 "misc.sch" 50
 $EndSheet
+Text Notes 3900 2700 0    118  ~ 24
+TODO: linux root console as 3v3 UART header (gnd, tx, rx)
 $EndSCHEMATC
