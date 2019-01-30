@@ -18,17 +18,6 @@ Text Notes 1500 1050 0    157  ~ 31
 https://wiki.trenz-electronic.de/display/PD/TE0820+TRM
 $Comp
 L trenz:TE0820 M1
-U 1 1 5C465161
-P 2150 4250
-F 0 "M1" H 2125 6965 50  0000 C CNN
-F 1 "TE0820" H 2125 6874 50  0000 C CNN
-F 2 "Trenz:TE0820" H 2150 1400 50  0001 C CNN
-F 3 "" H 700 1450 50  0001 C CNN
-	1    2150 4250
-	1    0    0    -1  
-$EndComp
-$Comp
-L trenz:TE0820 M1
 U 3 1 5C4798F1
 P 9050 3100
 F 0 "M1" H 9025 4715 50  0000 C CNN
@@ -101,18 +90,14 @@ ETH_VCC
 $Comp
 L power:+1V8 #PWR0121
 U 1 1 5C4A76FF
-P 600 3500
-F 0 "#PWR0121" H 600 3350 50  0001 C CNN
-F 1 "+1V8" H 615 3673 50  0000 C CNN
-F 2 "" H 600 3500 50  0001 C CNN
-F 3 "" H 600 3500 50  0001 C CNN
-	1    600  3500
+P 200 3450
+F 0 "#PWR0121" H 200 3300 50  0001 C CNN
+F 1 "+1V8" H 215 3623 50  0000 C CNN
+F 2 "" H 200 3450 50  0001 C CNN
+F 3 "" H 200 3450 50  0001 C CNN
+	1    200  3450
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1200 3700 600  3700
-Wire Wire Line
-	600  3700 600  3500
 $Comp
 L power:GND #PWR0122
 U 1 1 5C4A9AAE
@@ -746,4 +731,89 @@ Wire Wire Line
 	4250 1950 4250 2050
 Text Notes 6950 3050 0    50   ~ 0
 todo: double-check\nthat polarity swap\nis OK for USB3
+Text Notes 550  7300 0    50   ~ 0
+TODO, check if polarity inversion OK
+$Comp
+L trenz:TE0820 M1
+U 1 1 5C465161
+P 2150 4250
+F 0 "M1" H 2125 6965 50  0000 C CNN
+F 1 "TE0820" H 2125 6874 50  0000 C CNN
+F 2 "Trenz:TE0820" H 2150 1400 50  0001 C CNN
+F 3 "" H 700 1450 50  0001 C CNN
+	1    2150 4250
+	1    0    0    -1  
+$EndComp
+Text GLabel 950  3300 0    50   Input ~ 0
+CAM1_SCL
+Wire Wire Line
+	950  3300 1200 3300
+Text GLabel 1000 3400 0    50   Input ~ 0
+CAM1_SHUTTER
+Text GLabel 1000 3500 0    50   Input ~ 0
+CAM1_SADDR
+Wire Wire Line
+	1000 3400 1200 3400
+Wire Wire Line
+	1200 3500 1000 3500
+Wire Wire Line
+	1000 3600 1200 3600
+Text GLabel 1000 3600 0    50   Input ~ 0
+CAM1_nOE
+Wire Wire Line
+	200  3700 200  3450
+Wire Wire Line
+	200  3700 1200 3700
+Text GLabel 1000 4000 0    50   Input ~ 0
+CAM1_nRESET
+Text GLabel 1000 3800 0    50   Input ~ 0
+CAM1_TRIG
+Text GLabel 1000 3900 0    50   Input ~ 0
+CAM1_FLASH
+Wire Wire Line
+	1200 4000 1000 4000
+Wire Wire Line
+	1200 3900 1000 3900
+Wire Wire Line
+	1000 3800 1200 3800
+Text GLabel 1000 4100 0    50   Input ~ 0
+CAM1_SDA
+Text GLabel 1000 4200 0    50   Input ~ 0
+CAM1_FV
+Text GLabel 1000 4300 0    50   Input ~ 0
+CAM1_LV
+Wire Wire Line
+	1000 4200 1200 4200
+Wire Wire Line
+	1200 4300 1000 4300
+Wire Wire Line
+	1000 4100 1200 4100
+Text GLabel 1000 4500 0    50   Input ~ 0
+CAM1_EXTCLK
+Wire Wire Line
+	1000 4500 1200 4500
+Text GLabel 1000 4800 0    50   Input ~ 0
+CAM1_D1+
+Text GLabel 1000 4700 0    50   Input ~ 0
+CAM1_D1-
+Wire Wire Line
+	1000 4700 1200 4700
+Wire Wire Line
+	1200 4800 1000 4800
+Text GLabel 1000 5100 0    50   Input ~ 0
+CAM1_CLK+
+Text GLabel 1000 5000 0    50   Input ~ 0
+CAM1_CLK-
+Wire Wire Line
+	1000 5000 1200 5000
+Wire Wire Line
+	1200 5100 1000 5100
+Text GLabel 1000 5300 0    50   Input ~ 0
+CAM1_D0+
+Text GLabel 1000 5200 0    50   Input ~ 0
+CAM1_D0-
+Wire Wire Line
+	1000 5200 1200 5200
+Wire Wire Line
+	1200 5300 1000 5300
 $EndSCHEMATC
