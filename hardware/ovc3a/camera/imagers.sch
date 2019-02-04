@@ -183,38 +183,18 @@ Text GLabel 3500 1800 2    50   Input ~ 0
 CAM0_SDA
 Wire Wire Line
 	3500 1800 3300 1800
-Text GLabel 3500 1900 2    50   Input ~ 0
-CAM0_SADDR
 Wire Wire Line
 	3500 1900 3300 1900
 Text GLabel 3500 2600 2    50   Input ~ 0
 CAM0_nRESET
 Wire Wire Line
 	3500 2600 3300 2600
-Text GLabel 3500 2700 2    50   Input ~ 0
-CAM0_nOE
 Wire Wire Line
 	3500 2700 3300 2700
 Text GLabel 3500 2400 2    50   Input ~ 0
 CAM0_TRIG
 Wire Wire Line
 	3500 2400 3300 2400
-Text GLabel 3500 5400 2    50   Input ~ 0
-CAM0_SHUTTER
-Wire Wire Line
-	3500 5400 3300 5400
-Text GLabel 3500 5500 2    50   Input ~ 0
-CAM0_FLASH
-Wire Wire Line
-	3500 5500 3300 5500
-Text GLabel 3500 5000 2    50   Input ~ 0
-CAM0_FV
-Wire Wire Line
-	3500 5000 3300 5000
-Text GLabel 3500 5100 2    50   Input ~ 0
-CAM0_LV
-Wire Wire Line
-	3500 5100 3300 5100
 Text GLabel 3500 1500 2    50   Input ~ 0
 CAM0_EXTCLK
 Wire Wire Line
@@ -243,18 +223,12 @@ Text GLabel 7050 1800 2    50   Input ~ 0
 CAM1_SDA
 Wire Wire Line
 	7050 1800 6850 1800
-Text GLabel 7050 1900 2    50   Input ~ 0
-CAM1_SADDR
 Wire Wire Line
 	7050 1900 6850 1900
 Text GLabel 7050 2600 2    50   Input ~ 0
 CAM1_nRESET
 Wire Wire Line
 	7050 2600 6850 2600
-Text GLabel 7050 2700 2    50   Input ~ 0
-CAM1_nOE
-Wire Wire Line
-	7050 2700 6850 2700
 Text GLabel 7050 2400 2    50   Input ~ 0
 CAM1_TRIG
 Wire Wire Line
@@ -279,38 +253,6 @@ F 3 "" H 7650 2250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7650 2250 7650 2100
-Text GLabel 7050 5400 2    50   Input ~ 0
-CAM1_SHUTTER
-Wire Wire Line
-	7050 5400 6850 5400
-Text GLabel 7050 5500 2    50   Input ~ 0
-CAM1_FLASH
-Wire Wire Line
-	7050 5500 6850 5500
-Text GLabel 7050 5000 2    50   Input ~ 0
-CAM1_FV
-Wire Wire Line
-	7050 5000 6850 5000
-Text GLabel 7050 5100 2    50   Input ~ 0
-CAM1_LV
-Wire Wire Line
-	7050 5100 6850 5100
-Text GLabel 10450 5400 2    50   Input ~ 0
-CAM2_SHUTTER
-Wire Wire Line
-	10450 5400 10250 5400
-Text GLabel 10450 5500 2    50   Input ~ 0
-CAM2_FLASH
-Wire Wire Line
-	10450 5500 10250 5500
-Text GLabel 10450 5000 2    50   Input ~ 0
-CAM2_FV
-Wire Wire Line
-	10450 5000 10250 5000
-Text GLabel 10450 5100 2    50   Input ~ 0
-CAM2_LV
-Wire Wire Line
-	10450 5100 10250 5100
 Text GLabel 10450 1700 2    50   Input ~ 0
 CAM2_SCL
 Wire Wire Line
@@ -319,16 +261,12 @@ Text GLabel 10450 1800 2    50   Input ~ 0
 CAM2_SDA
 Wire Wire Line
 	10450 1800 10250 1800
-Text GLabel 10450 1900 2    50   Input ~ 0
-CAM2_SADDR
 Wire Wire Line
 	10450 1900 10250 1900
 Text GLabel 10450 2600 2    50   Input ~ 0
 CAM2_nRESET
 Wire Wire Line
 	10450 2600 10250 2600
-Text GLabel 10450 2700 2    50   Input ~ 0
-CAM2_nOE
 Wire Wire Line
 	10450 2700 10250 2700
 Text GLabel 10450 2400 2    50   Input ~ 0
@@ -1105,11 +1043,11 @@ Wire Wire Line
 Wire Wire Line
 	5250 2200 5250 2100
 Wire Wire Line
-	11050 2100 10250 2100
+	11050 2100 10450 2100
 Wire Wire Line
-	7650 2100 6850 2100
+	7650 2100 7050 2100
 Wire Wire Line
-	4100 2100 3300 2100
+	4100 2100 3500 2100
 Wire Wire Line
 	8950 2600 8850 2600
 Wire Wire Line
@@ -1355,17 +1293,6 @@ Wire Wire Line
 	8950 2200 8650 2200
 Wire Wire Line
 	8650 2200 8650 2100
-$Comp
-L power:GNDA #PWR0173
-U 1 1 5C930259
-P 1850 5950
-F 0 "#PWR0173" H 1850 5700 50  0001 C CNN
-F 1 "GNDA" H 1855 5777 50  0000 C CNN
-F 2 "" H 1850 5950 50  0001 C CNN
-F 3 "" H 1850 5950 50  0001 C CNN
-	1    1850 5950
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2000 5850 1850 5850
 Wire Wire Line
@@ -1448,17 +1375,6 @@ Wire Wire Line
 Wire Wire Line
 	1850 4300 1850 4400
 Connection ~ 1850 4400
-$Comp
-L power:GNDA #PWR0175
-U 1 1 5CB4C707
-P 5400 5950
-F 0 "#PWR0175" H 5400 5700 50  0001 C CNN
-F 1 "GNDA" H 5405 5777 50  0000 C CNN
-F 2 "" H 5400 5950 50  0001 C CNN
-F 3 "" H 5400 5950 50  0001 C CNN
-	1    5400 5950
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5550 5850 5400 5850
 Wire Wire Line
@@ -1541,17 +1457,6 @@ Wire Wire Line
 Wire Wire Line
 	5400 4300 5400 4400
 Connection ~ 5400 4400
-$Comp
-L power:GNDA #PWR0177
-U 1 1 5CB78463
-P 8800 5950
-F 0 "#PWR0177" H 8800 5700 50  0001 C CNN
-F 1 "GNDA" H 8805 5777 50  0000 C CNN
-F 2 "" H 8800 5950 50  0001 C CNN
-F 3 "" H 8800 5950 50  0001 C CNN
-	1    8800 5950
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	8950 5850 8800 5850
 Wire Wire Line
@@ -1896,7 +1801,7 @@ F 3 "" H 2650 900 50  0001 C CNN
 	1    2650 900 
 	1    0    0    -1  
 $EndComp
-Text Label 1800 2700 2    50   ~ 0
+Text Label 1850 2700 2    50   ~ 0
 CAM0_1V2
 Text Label 8250 2100 2    50   ~ 0
 CAM1_2V8
@@ -2346,4 +2251,167 @@ Connection ~ 10350 750
 Wire Wire Line
 	10700 950  10350 950 
 Connection ~ 10350 950 
+$Comp
+L power:GND #PWR0173
+U 1 1 5C556768
+P 8800 5950
+F 0 "#PWR0173" H 8800 5700 50  0001 C CNN
+F 1 "GND" H 8805 5777 50  0000 C CNN
+F 2 "" H 8800 5950 50  0001 C CNN
+F 3 "" H 8800 5950 50  0001 C CNN
+	1    8800 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0175
+U 1 1 5C556ADE
+P 5400 5950
+F 0 "#PWR0175" H 5400 5700 50  0001 C CNN
+F 1 "GND" H 5405 5777 50  0000 C CNN
+F 2 "" H 5400 5950 50  0001 C CNN
+F 3 "" H 5400 5950 50  0001 C CNN
+	1    5400 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0177
+U 1 1 5C556F63
+P 1850 5950
+F 0 "#PWR0177" H 1850 5700 50  0001 C CNN
+F 1 "GND" H 1855 5777 50  0000 C CNN
+F 2 "" H 1850 5950 50  0001 C CNN
+F 3 "" H 1850 5950 50  0001 C CNN
+	1    1850 5950
+	1    0    0    -1  
+$EndComp
+NoConn ~ 3550 5000
+Wire Wire Line
+	3300 5000 3550 5000
+Wire Wire Line
+	3300 5100 3550 5100
+Wire Wire Line
+	3300 5400 3550 5400
+NoConn ~ 3550 5100
+NoConn ~ 3550 5400
+Wire Wire Line
+	6850 5000 7100 5000
+Wire Wire Line
+	6850 5100 7100 5100
+Wire Wire Line
+	6850 5400 7100 5400
+NoConn ~ 7100 5000
+NoConn ~ 7100 5100
+NoConn ~ 7100 5400
+Wire Wire Line
+	10250 5000 10500 5000
+Wire Wire Line
+	10250 5100 10500 5100
+Wire Wire Line
+	10250 5400 10500 5400
+NoConn ~ 10500 5000
+NoConn ~ 10500 5100
+NoConn ~ 10500 5400
+Wire Wire Line
+	7050 2700 6850 2700
+Text GLabel 1450 2700 0    50   Input ~ 0
+CAM0_1V2
+Wire Wire Line
+	7050 1900 7050 2100
+Connection ~ 7050 2100
+Wire Wire Line
+	7050 2100 6850 2100
+$Comp
+L power:GND #PWR0187
+U 1 1 5D300266
+P 7050 2700
+F 0 "#PWR0187" H 7050 2450 50  0001 C CNN
+F 1 "GND" H 7055 2527 50  0000 C CNN
+F 2 "" H 7050 2700 50  0001 C CNN
+F 3 "" H 7050 2700 50  0001 C CNN
+	1    7050 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10450 1900 10450 2100
+Connection ~ 10450 2100
+Wire Wire Line
+	10450 2100 10250 2100
+Wire Wire Line
+	3500 1900 3500 2100
+Connection ~ 3500 2100
+Wire Wire Line
+	3500 2100 3300 2100
+$Comp
+L power:GND #PWR0188
+U 1 1 5D3CF42F
+P 3500 2700
+F 0 "#PWR0188" H 3500 2450 50  0001 C CNN
+F 1 "GND" H 3505 2527 50  0000 C CNN
+F 2 "" H 3500 2700 50  0001 C CNN
+F 3 "" H 3500 2700 50  0001 C CNN
+	1    3500 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0189
+U 1 1 5D3CF9A9
+P 10450 2700
+F 0 "#PWR0189" H 10450 2450 50  0001 C CNN
+F 1 "GND" H 10455 2527 50  0000 C CNN
+F 2 "" H 10450 2700 50  0001 C CNN
+F 3 "" H 10450 2700 50  0001 C CNN
+	1    10450 2700
+	1    0    0    -1  
+$EndComp
+Text Label 3300 5500 0    50   ~ 0
+CAM0_FLASH
+Wire Wire Line
+	3800 5500 3800 5350
+Wire Wire Line
+	3300 5500 3800 5500
+Text Label 6850 5500 0    50   ~ 0
+CAM1_FLASH
+Wire Wire Line
+	7350 5500 7350 5350
+Wire Wire Line
+	6850 5500 7350 5500
+$Comp
+L Connector:TestPoint TP3
+U 1 1 5D4EDF1C
+P 10750 5350
+F 0 "TP3" H 10808 5468 50  0000 L CNN
+F 1 "TestPoint" H 10808 5377 50  0000 L CNN
+F 2 "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm" H 10950 5350 50  0001 C CNN
+F 3 "~" H 10950 5350 50  0001 C CNN
+	1    10750 5350
+	1    0    0    -1  
+$EndComp
+Text Label 10250 5500 0    50   ~ 0
+CAM2_FLASH
+Wire Wire Line
+	10750 5500 10750 5350
+Wire Wire Line
+	10250 5500 10750 5500
+$Comp
+L Connector:TestPoint TP2
+U 1 1 5D532D52
+P 7350 5350
+F 0 "TP2" H 7408 5468 50  0000 L CNN
+F 1 "TestPoint" H 7408 5377 50  0000 L CNN
+F 2 "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm" H 7550 5350 50  0001 C CNN
+F 3 "~" H 7550 5350 50  0001 C CNN
+	1    7350 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP1
+U 1 1 5D5FDF42
+P 3800 5350
+F 0 "TP1" H 3858 5468 50  0000 L CNN
+F 1 "TestPoint" H 3858 5377 50  0000 L CNN
+F 2 "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm" H 4000 5350 50  0001 C CNN
+F 3 "~" H 4000 5350 50  0001 C CNN
+	1    3800 5350
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
