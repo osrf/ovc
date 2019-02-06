@@ -65,4 +65,6 @@ F1 "bonus_cameras.sch" 59
 $EndSheet
 Text Notes 3900 3100 0    118  ~ 24
 TODO: 3v3 -> 1v2 dc/dc, enabled on PGOOD
+Text Notes 3900 3500 0    118  ~ 24
+TODO: i2c level shifters. TCA980x ?
 $EndSCHEMATC
