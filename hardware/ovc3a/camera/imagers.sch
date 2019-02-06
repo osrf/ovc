@@ -175,14 +175,6 @@ Wire Wire Line
 	10250 3000 10450 3000
 Text GLabel 10450 3300 2    50   Input ~ 0
 CAM2_D0-
-Text GLabel 3500 1700 2    50   Input ~ 0
-CAM0_SCL
-Wire Wire Line
-	3500 1700 3300 1700
-Text GLabel 3500 1800 2    50   Input ~ 0
-CAM0_SDA
-Wire Wire Line
-	3500 1800 3300 1800
 Wire Wire Line
 	3500 1900 3300 1900
 Text GLabel 3500 2600 2    50   Input ~ 0
@@ -2414,4 +2406,12 @@ F 3 "~" H 4000 5350 50  0001 C CNN
 	1    3800 5350
 	1    0    0    -1  
 $EndComp
+Text GLabel 3300 1700 2    50   Input ~ 0
+CAM0_SCL_1V8
+Text GLabel 3300 1800 2    50   Input ~ 0
+CAM0_SDA_1V8
+Text GLabel 3300 1700 2    50   Input ~ 0
+CAM0_SCL_1V8
+Text GLabel 3300 1800 2    50   Input ~ 0
+CAM0_SDA_1V8
 $EndSCHEMATC

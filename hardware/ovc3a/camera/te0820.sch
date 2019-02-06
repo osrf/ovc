@@ -746,8 +746,193 @@ Text GLabel 1650 5600 0    50   Input ~ 0
 CAM2_CLK-
 Text GLabel 1650 5500 0    50   Input ~ 0
 CAM2_CLK+
-Text Notes 3100 9450 0    157  ~ 31
-TODO: 1v2 -> 1v8 i2c-capable buffers
-Text Notes 3100 9750 0    157  ~ 31
-TODO: 1v2 -> 1v8 unidirectional buffers
+Text Notes 6100 8800 0    118  ~ 24
+TODO: more i2c level shifters
+$Comp
+L voltage_translators:TCA9803 U14
+U 1 1 5C5C5C16
+P 7250 8150
+F 0 "U14" H 7275 8515 50  0000 C CNN
+F 1 "TCA9803" H 7275 8424 50  0000 C CNN
+F 2 "Package_SO:VSSOP-8_3.0x3.0mm_P0.65mm" H 6900 8350 50  0001 C CNN
+F 3 "" H 6900 8350 50  0001 C CNN
+	1    7250 8150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C52
+U 1 1 5C5C8655
+P 5450 7900
+F 0 "C52" H 5542 7946 50  0000 L CNN
+F 1 "100n" H 5542 7855 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 5450 7900 50  0001 C CNN
+F 3 "~" H 5450 7900 50  0001 C CNN
+	1    5450 7900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6900 7800 6900 8050
+$Comp
+L power:+1V2 #PWR0185
+U 1 1 5C5D2F61
+P 5850 7800
+F 0 "#PWR0185" H 5850 7650 50  0001 C CNN
+F 1 "+1V2" H 5865 7973 50  0000 C CNN
+F 2 "" H 5850 7800 50  0001 C CNN
+F 3 "" H 5850 7800 50  0001 C CNN
+	1    5850 7800
+	1    0    0    -1  
+$EndComp
+$Comp
+L device:R_Small R16
+U 1 1 5C5D3BED
+P 6200 7900
+F 0 "R16" H 6259 7946 50  0000 L CNN
+F 1 "2k2" H 6259 7855 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 6200 7900 50  0001 C CNN
+F 3 "~" H 6200 7900 50  0001 C CNN
+	1    6200 7900
+	1    0    0    -1  
+$EndComp
+$Comp
+L device:R_Small R9
+U 1 1 5C5D40C4
+P 5850 7900
+F 0 "R9" H 5909 7946 50  0000 L CNN
+F 1 "2k2" H 5909 7855 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 5850 7900 50  0001 C CNN
+F 3 "~" H 5850 7900 50  0001 C CNN
+	1    5850 7900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 7800 6200 7800
+Wire Wire Line
+	6200 8000 6200 8150
+Wire Wire Line
+	5850 8000 5850 8250
+Wire Wire Line
+	5850 8250 6900 8250
+$Comp
+L power:GND #PWR0200
+U 1 1 5C5F1BFA
+P 5450 8000
+F 0 "#PWR0200" H 5450 7750 50  0001 C CNN
+F 1 "GND" H 5455 7827 50  0001 C CNN
+F 2 "" H 5450 8000 50  0001 C CNN
+F 3 "" H 5450 8000 50  0001 C CNN
+	1    5450 8000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0201
+U 1 1 5C5F2352
+P 6900 8350
+F 0 "#PWR0201" H 6900 8100 50  0001 C CNN
+F 1 "GND" H 6905 8177 50  0001 C CNN
+F 2 "" H 6900 8350 50  0001 C CNN
+F 3 "" H 6900 8350 50  0001 C CNN
+	1    6900 8350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+1V8 #PWR0202
+U 1 1 5C5F3BE5
+P 7650 7800
+F 0 "#PWR0202" H 7650 7650 50  0001 C CNN
+F 1 "+1V8" H 7665 7973 50  0000 C CNN
+F 2 "" H 7650 7800 50  0001 C CNN
+F 3 "" H 7650 7800 50  0001 C CNN
+	1    7650 7800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7650 7800 7650 8050
+$Comp
+L Device:C_Small C66
+U 1 1 5C5FE1AD
+P 7850 7900
+F 0 "C66" H 7942 7946 50  0000 L CNN
+F 1 "100n" H 7942 7855 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 7850 7900 50  0001 C CNN
+F 3 "~" H 7850 7900 50  0001 C CNN
+	1    7850 7900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 7800 7650 7800
+Connection ~ 7650 7800
+$Comp
+L power:GND #PWR0203
+U 1 1 5C608CEB
+P 7850 8000
+F 0 "#PWR0203" H 7850 7750 50  0001 C CNN
+F 1 "GND" H 7855 7827 50  0001 C CNN
+F 2 "" H 7850 8000 50  0001 C CNN
+F 3 "" H 7850 8000 50  0001 C CNN
+	1    7850 8000
+	1    0    0    -1  
+$EndComp
+Connection ~ 5850 7800
+Wire Wire Line
+	6200 7800 6900 7800
+Connection ~ 6200 7800
+Wire Wire Line
+	5850 7800 5450 7800
+Text GLabel 8000 8150 2    50   Input ~ 0
+CAM0_SCL_1V8
+Wire Wire Line
+	8000 8150 7650 8150
+Text GLabel 8000 8250 2    50   Input ~ 0
+CAM0_SDA_1V8
+Wire Wire Line
+	8000 8250 7650 8250
+Text Label 6250 8150 0    50   ~ 0
+CAM0_SCL_1V2
+Wire Wire Line
+	6200 8150 6900 8150
+Text Label 6250 8250 0    50   ~ 0
+CAM0_SDA_1V2
+$Comp
+L power:+1V2 #PWR0204
+U 1 1 5C69045A
+P 7850 8500
+F 0 "#PWR0204" H 7850 8350 50  0001 C CNN
+F 1 "+1V2" H 7865 8673 50  0000 C CNN
+F 2 "" H 7850 8500 50  0001 C CNN
+F 3 "" H 7850 8500 50  0001 C CNN
+	1    7850 8500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7650 8350 7650 8500
+Wire Wire Line
+	7650 8500 7850 8500
+Text Notes 7950 8450 0    50   ~ 0
+always enabled
+Wire Wire Line
+	8450 3650 9050 3650
+Text Label 8500 3550 0    50   ~ 0
+CAM0_SCL_1V2
+Wire Wire Line
+	8450 3550 9050 3550
+Text Label 8500 3650 0    50   ~ 0
+CAM0_SDA_1V2
+Text GLabel 8000 8150 2    50   Input ~ 0
+CAM0_SCL_1V8
+Text GLabel 8000 8250 2    50   Input ~ 0
+CAM0_SDA_1V8
+$Comp
+L voltage_translators:SN74AXCH8T245 U15
+U 1 1 5C7EEEC9
+P 1600 9450
+F 0 "U15" H 1575 10537 60  0000 C CNN
+F 1 "SN74AXCH8T245" H 1575 10431 60  0000 C CNN
+F 2 "Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm" H 1600 9450 60  0001 C CNN
+F 3 "" H 1600 9450 60  0000 C CNN
+	1    1600 9450
+	1    0    0    -1  
+$EndComp
+Text Notes 900  10850 0    118  ~ 24
+TODO: more unidirectional level shifters
 $EndSCHEMATC
