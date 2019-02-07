@@ -15,4 +15,6 @@
   (lib (name Resistor_SMD)(type KiCad)(uri /usr/share/kicad-nightly/modules/Resistor_SMD.pretty)(options "")(descr ""))
   (lib (name Capacitor_SMD)(type KiCad)(uri /usr/share/kicad-nightly/modules/Capacitor_SMD.pretty)(options "")(descr ""))
   (lib (name Connector_Molex)(type KiCad)(uri /usr/share/kicad-nightly/modules/Connector_Molex.pretty)(options "")(descr ""))
+  (lib (name Package_TO_SOT_SMD)(type KiCad)(uri /usr/share/kicad-nightly/modules/Package_TO_SOT_SMD.pretty)(options "")(descr ""))
+  (lib (name Package_SO)(type KiCad)(uri /usr/share/kicad-nightly/modules/Package_SO.pretty)(options "")(descr ""))
 )

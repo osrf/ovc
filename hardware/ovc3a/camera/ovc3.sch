@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 6
+Sheet 1 7
 Title ""
 Date ""
 Rev ""
@@ -57,6 +57,12 @@ F1 "misc.sch" 50
 $EndSheet
 Text Notes 3900 2700 0    118  ~ 24
 TODO: linux root console as 3v3 UART header (gnd, tx, rx)
-Text Notes 3850 3400 0    118  ~ 24
-TODO: FFC for bonus cameras: Molex 505110 series, 20pin(?)
+$Sheet
+S 1100 4750 1100 200 
+U 5C58B8AF
+F0 "bonus_cameras" 118
+F1 "bonus_cameras.sch" 59
+$EndSheet
+Text Notes 3900 3100 0    118  ~ 24
+TODO: 3v3 -> 1v2 dc/dc, enabled on PGOOD
 $EndSCHEMATC

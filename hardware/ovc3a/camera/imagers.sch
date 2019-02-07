@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 6
+Sheet 2 7
 Title ""
 Date ""
 Rev ""
@@ -175,14 +175,6 @@ Wire Wire Line
 	10250 3000 10450 3000
 Text GLabel 10450 3300 2    50   Input ~ 0
 CAM2_D0-
-Text GLabel 3500 1700 2    50   Input ~ 0
-CAM0_SCL
-Wire Wire Line
-	3500 1700 3300 1700
-Text GLabel 3500 1800 2    50   Input ~ 0
-CAM0_SDA
-Wire Wire Line
-	3500 1800 3300 1800
 Wire Wire Line
 	3500 1900 3300 1900
 Text GLabel 3500 2600 2    50   Input ~ 0
@@ -215,14 +207,10 @@ F 3 "" H 4100 2250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4100 2250 4100 2100
-Text GLabel 7050 1700 2    50   Input ~ 0
-CAM1_SCL
-Wire Wire Line
-	7050 1700 6850 1700
-Text GLabel 7050 1800 2    50   Input ~ 0
-CAM1_SDA
-Wire Wire Line
-	7050 1800 6850 1800
+Text GLabel 6850 1700 2    50   Input ~ 0
+CAM1_SCL_1V8
+Text GLabel 6850 1800 2    50   Input ~ 0
+CAM1_SDA_1V8
 Wire Wire Line
 	7050 1900 6850 1900
 Text GLabel 7050 2600 2    50   Input ~ 0
@@ -253,14 +241,6 @@ F 3 "" H 7650 2250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7650 2250 7650 2100
-Text GLabel 10450 1700 2    50   Input ~ 0
-CAM2_SCL
-Wire Wire Line
-	10450 1700 10250 1700
-Text GLabel 10450 1800 2    50   Input ~ 0
-CAM2_SDA
-Wire Wire Line
-	10450 1800 10250 1800
 Wire Wire Line
 	10450 1900 10250 1900
 Text GLabel 10450 2600 2    50   Input ~ 0
@@ -273,10 +253,8 @@ Text GLabel 10450 2400 2    50   Input ~ 0
 CAM2_TRIG
 Wire Wire Line
 	10450 2400 10250 2400
-Text GLabel 10450 1500 2    50   Input ~ 0
+Text GLabel 10250 1500 2    50   Input ~ 0
 CAM2_EXTCLK
-Wire Wire Line
-	10450 1500 10250 1500
 NoConn ~ 10500 2200
 Wire Wire Line
 	10500 2200 10250 2200
@@ -2414,4 +2392,16 @@ F 3 "~" H 4000 5350 50  0001 C CNN
 	1    3800 5350
 	1    0    0    -1  
 $EndComp
+Text GLabel 3300 1700 2    50   Input ~ 0
+CAM0_SCL_1V8
+Text GLabel 3300 1800 2    50   Input ~ 0
+CAM0_SDA_1V8
+Text GLabel 3300 1700 2    50   Input ~ 0
+CAM0_SCL_1V8
+Text GLabel 3300 1800 2    50   Input ~ 0
+CAM0_SDA_1V8
+Text GLabel 10250 1800 2    50   Input ~ 0
+CAM2_SDA_1V8
+Text GLabel 10250 1700 2    50   Input ~ 0
+CAM2_SCL_1V8
 $EndSCHEMATC
