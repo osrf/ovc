@@ -778,9 +778,11 @@ F 3 "" H 1550 10100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L device:R_Small R16
+L Device:R_Small R16
 U 1 1 5C5D3BED
 P 1900 10200
+AR Path="/5C5D3BED" Ref="R16"  Part="1" 
+AR Path="/5C124FC6/5C5D3BED" Ref="R16"  Part="1" 
 F 0 "R16" H 1959 10246 50  0000 L CNN
 F 1 "2k2" H 1959 10155 50  0000 L CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" H 1900 10200 50  0001 C CNN
@@ -789,9 +791,11 @@ F 3 "~" H 1900 10200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L device:R_Small R9
+L Device:R_Small R9
 U 1 1 5C5D40C4
 P 1550 10200
+AR Path="/5C5D40C4" Ref="R9"  Part="1" 
+AR Path="/5C124FC6/5C5D40C4" Ref="R9"  Part="1" 
 F 0 "R9" H 1609 10246 50  0000 L CNN
 F 1 "2k2" H 1609 10155 50  0000 L CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" H 1550 10200 50  0001 C CNN
@@ -799,8 +803,6 @@ F 3 "~" H 1550 10200 50  0001 C CNN
 	1    1550 10200
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1550 10100 1900 10100
 Wire Wire Line
 	1900 10300 1900 10450
 Wire Wire Line
@@ -868,9 +870,6 @@ F 3 "" H 3550 10300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 1550 10100
-Wire Wire Line
-	1900 10100 2600 10100
-Connection ~ 1900 10100
 Wire Wire Line
 	1550 10100 1150 10100
 Text GLabel 3700 10450 2    50   Input ~ 0
@@ -1186,9 +1185,11 @@ F 3 "" H 6600 10050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L device:R_Small R18
+L Device:R_Small R18
 U 1 1 5C7F89E1
 P 6950 10150
+AR Path="/5C7F89E1" Ref="R18"  Part="1" 
+AR Path="/5C124FC6/5C7F89E1" Ref="R18"  Part="1" 
 F 0 "R18" H 7009 10196 50  0000 L CNN
 F 1 "2k2" H 7009 10105 50  0000 L CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" H 6950 10150 50  0001 C CNN
@@ -1197,9 +1198,11 @@ F 3 "~" H 6950 10150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L device:R_Small R17
+L Device:R_Small R17
 U 1 1 5C7F89EB
 P 6600 10150
+AR Path="/5C7F89EB" Ref="R17"  Part="1" 
+AR Path="/5C124FC6/5C7F89EB" Ref="R17"  Part="1" 
 F 0 "R17" H 6659 10196 50  0000 L CNN
 F 1 "2k2" H 6659 10105 50  0000 L CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" H 6600 10150 50  0001 C CNN
@@ -1207,8 +1210,6 @@ F 3 "~" H 6600 10150 50  0001 C CNN
 	1    6600 10150
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6600 10050 6950 10050
 Wire Wire Line
 	6950 10250 6950 10400
 Wire Wire Line
@@ -1277,9 +1278,6 @@ F 3 "" H 8600 10250 50  0001 C CNN
 $EndComp
 Connection ~ 6600 10050
 Wire Wire Line
-	6950 10050 7650 10050
-Connection ~ 6950 10050
-Wire Wire Line
 	6600 10050 6200 10050
 Text GLabel 8750 10400 2    50   Input ~ 0
 CAM1_SCL_1V8
@@ -1312,4 +1310,14 @@ Text Notes 8700 10700 0    50   ~ 0
 always enabled
 Text GLabel 8750 10500 2    50   Input ~ 0
 CAM1_SDA_1V8
+Wire Wire Line
+	1550 10100 1900 10100
+Wire Wire Line
+	6600 10050 6950 10050
+Connection ~ 6950 10050
+Wire Wire Line
+	6950 10050 7650 10050
+Connection ~ 1900 10100
+Wire Wire Line
+	1900 10100 2600 10100
 $EndSCHEMATC
