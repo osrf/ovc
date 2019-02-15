@@ -262,33 +262,29 @@ Wire Wire Line
 $Comp
 L power:+1V8 #PWR0140
 U 1 1 5C522639
-P 6150 1450
-F 0 "#PWR0140" H 6150 1300 50  0001 C CNN
-F 1 "+1V8" H 6165 1623 50  0000 C CNN
-F 2 "" H 6150 1450 50  0001 C CNN
-F 3 "" H 6150 1450 50  0001 C CNN
-	1    6150 1450
+P 6150 1550
+F 0 "#PWR0140" H 6150 1400 50  0001 C CNN
+F 1 "+1V8" H 6165 1723 50  0000 C CNN
+F 2 "" H 6150 1550 50  0001 C CNN
+F 3 "" H 6150 1550 50  0001 C CNN
+	1    6150 1550
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+1V8 #PWR0141
 U 1 1 5C522CA8
-P 7750 1450
-F 0 "#PWR0141" H 7750 1300 50  0001 C CNN
-F 1 "+1V8" H 7765 1623 50  0000 C CNN
-F 2 "" H 7750 1450 50  0001 C CNN
-F 3 "" H 7750 1450 50  0001 C CNN
-	1    7750 1450
+P 7750 1550
+F 0 "#PWR0141" H 7750 1400 50  0001 C CNN
+F 1 "+1V8" H 7765 1723 50  0000 C CNN
+F 2 "" H 7750 1550 50  0001 C CNN
+F 3 "" H 7750 1550 50  0001 C CNN
+	1    7750 1550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	7200 1950 7750 1950
 Wire Wire Line
-	7750 1950 7750 1450
-Wire Wire Line
 	6700 1950 6150 1950
-Wire Wire Line
-	6150 1950 6150 1450
 $Comp
 L power:GND #PWR0143
 U 1 1 5C52693D
@@ -300,12 +296,8 @@ F 3 "" H 6650 3400 50  0001 C CNN
 	1    6650 3400
 	1    0    0    -1  
 $EndComp
-Text GLabel 6500 2150 0    50   Input ~ 0
+Text GLabel 6500 2250 0    50   Input ~ 0
 PGOOD
-Wire Wire Line
-	6650 2050 6650 2650
-Wire Wire Line
-	6650 2050 6700 2050
 Wire Wire Line
 	6700 2650 6650 2650
 Connection ~ 6650 2650
@@ -316,8 +308,6 @@ Wire Wire Line
 Connection ~ 6650 3250
 Wire Wire Line
 	6650 3250 6650 3400
-Wire Wire Line
-	7250 2050 7250 2650
 $Comp
 L power:GND #PWR0142
 U 1 1 5C52535B
@@ -338,11 +328,7 @@ Wire Wire Line
 	7200 2650 7250 2650
 Connection ~ 7250 2650
 Wire Wire Line
-	7250 2650 7250 3250
-Wire Wire Line
-	7200 2050 7250 2050
-Wire Wire Line
-	6700 2150 6500 2150
+	6700 2250 6500 2250
 Wire Wire Line
 	6700 1850 6450 1850
 Wire Wire Line
@@ -353,7 +339,7 @@ U 1 1 5E9E978B
 P 7000 4750
 F 0 "J6" H 7100 5100 50  0000 C CNN
 F 1 "Conn_02x04_Counter_Clockwise" H 7400 5000 50  0000 C CNN
-F 2 "Connector_PinSocket_2.00mm:PinSocket_2x04_P2.00mm_Vertical" H 7000 4750 50  0001 C CNN
+F 2 "Connector_PinSocket_2.00mm:PinSocket_2x04_P2.00mm_Horizontal" H 7000 4750 50  0001 C CNN
 F 3 "~" H 7000 4750 50  0001 C CNN
 	1    7000 4750
 	1    0    0    -1  
@@ -492,57 +478,49 @@ Wire Wire Line
 Wire Wire Line
 	5350 6100 5150 6100
 Wire Wire Line
-	6500 2250 6700 2250
-Text GLabel 6500 2350 0    50   Input ~ 0
-GPIO3
-Wire Wire Line
 	6500 2350 6700 2350
 Text GLabel 6500 2450 0    50   Input ~ 0
-GPIO5
+GPIO3
 Wire Wire Line
 	6500 2450 6700 2450
 Text GLabel 6500 2550 0    50   Input ~ 0
-GPIO7
+GPIO5
 Wire Wire Line
 	6500 2550 6700 2550
 Text GLabel 6500 2750 0    50   Input ~ 0
-GPIO9
+GPIO7
 Wire Wire Line
 	6500 2750 6700 2750
 Text GLabel 6500 2850 0    50   Input ~ 0
-GPIO11
+GPIO9
 Wire Wire Line
 	6500 2850 6700 2850
+Text GLabel 6500 2950 0    50   Input ~ 0
+GPIO11
 Wire Wire Line
 	6500 2950 6700 2950
 Wire Wire Line
 	6500 3050 6700 3050
 Wire Wire Line
 	6500 3150 6700 3150
-Text GLabel 7400 2150 2    50   Input ~ 0
-GPIO0
-Wire Wire Line
-	7400 2150 7200 2150
 Text GLabel 7400 2250 2    50   Input ~ 0
-GPIO2
+GPIO0
 Wire Wire Line
 	7400 2250 7200 2250
 Text GLabel 7400 2350 2    50   Input ~ 0
-GPIO4
+GPIO2
 Wire Wire Line
 	7400 2350 7200 2350
 Text GLabel 7400 2450 2    50   Input ~ 0
-GPIO6
+GPIO4
 Wire Wire Line
 	7400 2450 7200 2450
 Text GLabel 7400 2550 2    50   Input ~ 0
-GPIO8
+GPIO6
 Wire Wire Line
 	7400 2550 7200 2550
-Text GLabel 7400 2750 2    50   Input ~ 0
+Text GLabel 7400 2850 2    50   Input ~ 0
 GPIO10
-Wire Wire Line
-	7400 2750 7200 2750
 Wire Wire Line
 	7400 2850 7200 2850
 Wire Wire Line
@@ -551,22 +529,18 @@ Wire Wire Line
 	7400 3050 7200 3050
 Wire Wire Line
 	7400 3150 7200 3150
-Text GLabel 6500 2250 0    50   Input ~ 0
+Text GLabel 6500 2350 0    50   Input ~ 0
 GPIO1
-Text GLabel 6500 2950 0    50   Input ~ 0
-GPIO13
 Text GLabel 6500 3050 0    50   Input ~ 0
-GPIO15
+GPIO13
 Text GLabel 6500 3150 0    50   Input ~ 0
-GPIO17
-Text GLabel 7400 2850 2    50   Input ~ 0
-GPIO12
+GPIO15
 Text GLabel 7400 2950 2    50   Input ~ 0
-GPIO14
+GPIO12
 Text GLabel 7400 3050 2    50   Input ~ 0
-GPIO16
+GPIO14
 Text GLabel 7400 3150 2    50   Input ~ 0
-GPIO18
+GPIO16
 $Comp
 L Connector:Micro_SD_Card_Det_Hirose_DM3AT J7
 U 1 1 5C4D360F
@@ -603,4 +577,52 @@ F 3 "" H 1350 6750 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	1350 6750 1500 6750
+Wire Wire Line
+	7250 2650 7250 3250
+Wire Wire Line
+	7400 2750 7200 2750
+Text GLabel 7400 2750 2    50   Input ~ 0
+GPIO8
+Wire Wire Line
+	6700 2150 6650 2150
+Wire Wire Line
+	6650 2150 6650 2650
+Wire Wire Line
+	7200 2150 7250 2150
+Wire Wire Line
+	7250 2150 7250 2650
+$Comp
+L power:+1V2 #PWR0232
+U 1 1 5CA0D06A
+P 8000 1550
+F 0 "#PWR0232" H 8000 1400 50  0001 C CNN
+F 1 "+1V2" H 8015 1723 50  0000 C CNN
+F 2 "" H 8000 1550 50  0001 C CNN
+F 3 "" H 8000 1550 50  0001 C CNN
+	1    8000 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7750 1550 7750 1950
+Wire Wire Line
+	6150 1550 6150 1950
+$Comp
+L power:+1V2 #PWR0233
+U 1 1 5CA12CD0
+P 5850 1550
+F 0 "#PWR0233" H 5850 1400 50  0001 C CNN
+F 1 "+1V2" H 5865 1723 50  0000 C CNN
+F 2 "" H 5850 1550 50  0001 C CNN
+F 3 "" H 5850 1550 50  0001 C CNN
+	1    5850 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 1550 5850 2050
+Wire Wire Line
+	5850 2050 6700 2050
+Wire Wire Line
+	7200 2050 8000 2050
+Wire Wire Line
+	8000 2050 8000 1550
 $EndSCHEMATC

@@ -26,19 +26,19 @@ F 3 "https://store.invensense.com/datasheets/invensense/MPU9250REV1.0.pdf" H 420
 	1    0    0    -1  
 $EndComp
 Text GLabel 3450 2450 0    50   Input ~ 0
-ICM-SPI_CS
+ICM-SPI_CS_1V8
 Wire Wire Line
 	3450 2450 3700 2450
 Text GLabel 3450 2350 0    50   Input ~ 0
-ICM-SPI_CLK
+ICM-SPI_CLK_1V8
 Wire Wire Line
 	3450 2350 3700 2350
 Text GLabel 3450 2150 0    50   Input ~ 0
-ICM-SPI_MOSI
+ICM-SPI_MOSI_1V8
 Wire Wire Line
 	3450 2150 3700 2150
 Text GLabel 3450 2250 0    50   Input ~ 0
-ICM-SPI_MISO
+ICM-SPI_MISO_1V8
 Wire Wire Line
 	3450 2250 3700 2250
 $Comp
@@ -160,7 +160,7 @@ Wire Wire Line
 Wire Wire Line
 	3450 2650 3700 2650
 Text GLabel 3450 2650 0    50   Input ~ 0
-ICM-IMU_SYNC
+ICM-IMU_SYNC_1V8
 Wire Wire Line
 	4100 1150 4100 1750
 Wire Wire Line
@@ -168,7 +168,7 @@ Wire Wire Line
 Wire Wire Line
 	3450 2750 3700 2750
 Text GLabel 3450 2750 0    50   Input ~ 0
-ICM-IMU_INT1
+ICM-IMU_INT1_1V8
 $Comp
 L power:+1V8 #PWR0134
 U 1 1 5C55489B
