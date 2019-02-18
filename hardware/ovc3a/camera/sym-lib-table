@@ -18,4 +18,6 @@
   (lib (name 74xGxx)(type Legacy)(uri /usr/share/kicad-nightly/library/74xGxx.lib)(options "")(descr ""))
   (lib (name Regulator_Linear)(type Legacy)(uri /usr/share/kicad-nightly/library/Regulator_Linear.lib)(options "")(descr ""))
   (lib (name voltage_translators)(type Legacy)(uri ${KIWORKSPACE}/osrf_hw/kicad_libraries/voltage_translators.lib)(options "")(descr ""))
+  (lib (name Regulator_Switching)(type Legacy)(uri /usr/share/kicad-nightly/library/Regulator_Switching.lib)(options "")(descr ""))
+  (lib (name Interface)(type Legacy)(uri /usr/share/kicad-nightly/library/Interface.lib)(options "")(descr ""))
 )
