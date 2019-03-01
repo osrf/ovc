@@ -545,6 +545,8 @@ $Comp
 L Connector:Micro_SD_Card_Det_Hirose_DM3AT J7
 U 1 1 5C4D360F
 P 2300 6250
+AR Path="/5C4D360F" Ref="J7"  Part="1" 
+AR Path="/5C470144/5C4D360F" Ref="J7"  Part="1" 
 F 0 "J7" H 2250 7067 50  0000 C CNN
 F 1 "Micro_SD_Card_Det_Hirose_DM3AT" H 2250 6976 50  0000 C CNN
 F 2 "Connector_Card:microSD_HC_Hirose_DM3AT-SF-PEJM5" H 4350 6950 50  0001 C CNN

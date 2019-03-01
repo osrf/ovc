@@ -1931,57 +1931,6 @@ F 3 "" H 10900 2700 50  0001 C CNN
 	1    10900 2700
 	1    0    0    -1  
 $EndComp
-Text Label 3300 5500 0    50   ~ 0
-CAM0_FLASH
-Wire Wire Line
-	3800 5500 3800 5350
-Wire Wire Line
-	3300 5500 3800 5500
-Text Label 6850 5500 0    50   ~ 0
-CAM1_FLASH
-Wire Wire Line
-	7350 5500 7350 5350
-Wire Wire Line
-	6850 5500 7350 5500
-$Comp
-L Connector:TestPoint TP3
-U 1 1 5D4EDF1C
-P 10750 5350
-F 0 "TP3" H 10808 5468 50  0000 L CNN
-F 1 "TestPoint" H 10808 5377 50  0000 L CNN
-F 2 "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm" H 10950 5350 50  0001 C CNN
-F 3 "~" H 10950 5350 50  0001 C CNN
-	1    10750 5350
-	1    0    0    -1  
-$EndComp
-Text Label 10250 5500 0    50   ~ 0
-CAM2_FLASH
-Wire Wire Line
-	10750 5500 10750 5350
-Wire Wire Line
-	10250 5500 10750 5500
-$Comp
-L Connector:TestPoint TP2
-U 1 1 5D532D52
-P 7350 5350
-F 0 "TP2" H 7408 5468 50  0000 L CNN
-F 1 "TestPoint" H 7408 5377 50  0000 L CNN
-F 2 "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm" H 7550 5350 50  0001 C CNN
-F 3 "~" H 7550 5350 50  0001 C CNN
-	1    7350 5350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:TestPoint TP1
-U 1 1 5D5FDF42
-P 3800 5350
-F 0 "TP1" H 3858 5468 50  0000 L CNN
-F 1 "TestPoint" H 3858 5377 50  0000 L CNN
-F 2 "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm" H 4000 5350 50  0001 C CNN
-F 3 "~" H 4000 5350 50  0001 C CNN
-	1    3800 5350
-	1    0    0    -1  
-$EndComp
 Text GLabel 3300 1700 2    50   Input ~ 0
 CAM0_SCL_1V8
 Text GLabel 3300 1800 2    50   Input ~ 0
@@ -2132,4 +2081,7 @@ Wire Wire Line
 	1300 2200 2000 2200
 Wire Wire Line
 	4850 2200 5550 2200
+NoConn ~ 3300 5500
+NoConn ~ 6850 5500
+NoConn ~ 10250 5500
 $EndSCHEMATC

@@ -1202,9 +1202,9 @@ Wire Wire Line
 	1600 2750 1750 2750
 Wire Wire Line
 	1600 2850 1750 2850
-Text Label 1600 2750 2    50   ~ 0
-CAM1_SCL_1V2
 Text Label 1600 2850 2    50   ~ 0
+CAM1_SCL_1V2
+Text Label 1600 2750 2    50   ~ 0
 CAM1_SDA_1V2
 Wire Wire Line
 	700  4350 700  3850
@@ -1217,23 +1217,23 @@ Text GLabel 1750 3950 0    50   Input ~ 0
 CAM1_D0-
 Wire Wire Line
 	1550 3050 1750 3050
-Text GLabel 8450 8700 2    50   Input ~ 0
+Text GLabel 8450 8800 2    50   Input ~ 0
 CAM1_nRESET_1V8
-Text Label 7350 8700 2    50   ~ 0
+Text Label 7350 8800 2    50   ~ 0
 CAM1_nRESET_1V2
 Wire Wire Line
 	7350 8700 7500 8700
 Text Label 1550 3250 2    50   ~ 0
 CAM1_nRESET_1V2
-Text GLabel 8450 8800 2    50   Input ~ 0
+Text GLabel 8450 8900 2    50   Input ~ 0
 CAM1_TRIG_1V8
-Text Label 7350 8800 2    50   ~ 0
+Text Label 7350 8900 2    50   ~ 0
 CAM1_TRIG_1V2
 Wire Wire Line
 	7350 8800 7500 8800
-Text GLabel 8450 8900 2    50   Input ~ 0
+Text GLabel 8450 8700 2    50   Input ~ 0
 CAM1_EXTCLK_1V8
-Text Label 7350 8900 2    50   ~ 0
+Text Label 7350 8700 2    50   ~ 0
 CAM1_EXTCLK_1V2
 Wire Wire Line
 	7350 8900 7500 8900
