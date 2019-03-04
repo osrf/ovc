@@ -1237,17 +1237,17 @@ Text Label 7350 8700 2    50   ~ 0
 CAM1_EXTCLK_1V2
 Wire Wire Line
 	7350 8900 7500 8900
-Text GLabel 8450 8400 2    50   Input ~ 0
+Text GLabel 8450 8200 2    50   Input ~ 0
 CAM2_nRESET_1V8
-Text GLabel 8450 8600 2    50   Input ~ 0
+Text GLabel 8450 8400 2    50   Input ~ 0
 CAM2_TRIG_1V8
-Text GLabel 8450 8500 2    50   Input ~ 0
+Text GLabel 8450 8300 2    50   Input ~ 0
 CAM2_EXTCLK_1V8
-Text Label 7350 8400 2    50   ~ 0
+Text Label 7350 8200 2    50   ~ 0
 CAM2_nRESET_1V2
 Wire Wire Line
 	7350 8400 7500 8400
-Text Label 7350 8600 2    50   ~ 0
+Text Label 7350 8400 2    50   ~ 0
 CAM2_TRIG_1V2
 Wire Wire Line
 	7350 8500 7500 8500
@@ -1539,21 +1539,21 @@ BONUS1_DAT0+
 Wire Wire Line
 	5800 5200 6550 5200
 Wire Wire Line
-	3950 6450 4200 6450
+	12750 7250 13000 7250
 Wire Wire Line
-	3950 6550 4200 6550
-Text GLabel 3950 6550 0    50   Input ~ 0
-ICM-IMU_INT1_1V8
-Text GLabel 3000 8950 2    50   Input ~ 0
+	12750 7350 13000 7350
+Text GLabel 12750 7350 0    50   Input ~ 0
+ICM_IMU_INT1_1V8
+Text GLabel 11600 7700 2    50   Input ~ 0
 ICM-IMU_SYNC_1V8
-Text GLabel 3950 6450 0    50   Input ~ 0
-ICM-SPI_MISO_1V8
-Text GLabel 3000 8650 2    50   Input ~ 0
+Text GLabel 12750 7250 0    50   Input ~ 0
+ICM_SPI_MISO_1V8
+Text GLabel 8450 8500 2    50   Input ~ 0
+ICM_SPI_CS_1V8
+Text GLabel 8450 8600 2    50   Input ~ 0
+ICM_SPI_CLK_1V8
+Text GLabel 11600 7600 2    50   Input ~ 0
 ICM-SPI_MOSI_1V8
-Text GLabel 3000 8750 2    50   Input ~ 0
-ICM-SPI_CLK_1V8
-Text GLabel 3000 8850 2    50   Input ~ 0
-ICM-SPI_CS_1V8
 $Comp
 L power:+1V8 #PWR0212
 U 1 1 5C7D561A
@@ -1590,40 +1590,40 @@ Wire Wire Line
 Connection ~ 1950 8050
 Wire Wire Line
 	1950 8050 2050 8050
-Text Label 1900 8650 2    50   ~ 0
-ICM-SPI_MOSI_1V2
+Text Label 7350 8500 2    50   ~ 0
+ICM_SPI_CS_1V2
 Wire Wire Line
-	1900 8650 2050 8650
-Text Label 1900 8750 2    50   ~ 0
-ICM-SPI_CLK_1V2
+	7350 8200 7500 8200
+Text Label 7350 8600 2    50   ~ 0
+ICM_SPI_CLK_1V2
 Wire Wire Line
-	1900 8750 2050 8750
-Text Label 1900 8850 2    50   ~ 0
-ICM-SPI_CS_1V2
+	7350 8300 7500 8300
+Text Label 11100 7600 2    50   ~ 0
+ICM_SPI_MOSI_1V2
 Wire Wire Line
-	1900 8850 2050 8850
-Text Label 1900 8950 2    50   ~ 0
-ICM-SPI_SYNC_1V2
+	11100 7600 11250 7600
+Text Label 11100 7700 2    50   ~ 0
+ICM_SPI_SYNC_1V2
 Wire Wire Line
-	1900 8950 2050 8950
-Text Notes 1550 6500 0    50   ~ 0
+	11100 7700 11250 7700
+Text Notes 10350 7300 0    50   ~ 0
 TODO level shifter for IMU output signals
 Wire Wire Line
 	850  3150 1750 3150
-Text Label 7350 8500 2    50   ~ 0
+Text Label 7350 8300 2    50   ~ 0
 CAM2_EXTCLK_1V2
 Text Label 1600 3650 2    50   ~ 0
-CAM2_nRESET_1V2
+CAM2_TRIG_1V2
 Wire Wire Line
 	1600 3650 1750 3650
 Text Label 1600 3450 2    50   ~ 0
-CAM2_TRIG_1V2
+ICM_SPI_CLK_1V2
 Wire Wire Line
 	1600 3550 1750 3550
 Wire Wire Line
 	1600 3450 1750 3450
 Text Label 1600 3550 2    50   ~ 0
-CAM2_EXTCLK_1V2
+ICM_SPI_CS_1V2
 Text GLabel 3600 4550 2    50   Input ~ 0
 BONUS2_CLK0-
 Text GLabel 3600 4450 2    50   Input ~ 0
@@ -1632,4 +1632,12 @@ Text GLabel 3600 3150 2    50   Input ~ 0
 BONUS2_CLK1+
 Text GLabel 3600 3250 2    50   Input ~ 0
 BONUS2_CLK1-
+Wire Wire Line
+	1750 3750 1600 3750
+Wire Wire Line
+	1250 4150 1750 4150
+Text Label 1250 4150 2    50   ~ 0
+CAM2_nRESET_1V2
+Text Label 1600 3750 2    50   ~ 0
+CAM2_EXTCLK_1V2
 $EndSCHEMATC
