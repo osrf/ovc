@@ -1237,17 +1237,17 @@ Text Label 7350 8700 2    50   ~ 0
 CAM1_EXTCLK_1V2
 Wire Wire Line
 	7350 8900 7500 8900
-Text GLabel 8450 8200 2    50   Input ~ 0
-CAM2_nRESET_1V8
 Text GLabel 8450 8400 2    50   Input ~ 0
+CAM2_nRESET_1V8
+Text GLabel 8450 8200 2    50   Input ~ 0
 CAM2_TRIG_1V8
 Text GLabel 8450 8300 2    50   Input ~ 0
 CAM2_EXTCLK_1V8
-Text Label 7350 8200 2    50   ~ 0
+Text Label 7350 8400 2    50   ~ 0
 CAM2_nRESET_1V2
 Wire Wire Line
 	7350 8400 7500 8400
-Text Label 7350 8400 2    50   ~ 0
+Text Label 7350 8200 2    50   ~ 0
 CAM2_TRIG_1V2
 Wire Wire Line
 	7350 8500 7500 8500
@@ -1612,7 +1612,7 @@ Wire Wire Line
 	850  3150 1750 3150
 Text Label 7350 8300 2    50   ~ 0
 CAM2_EXTCLK_1V2
-Text Label 1600 3650 2    50   ~ 0
+Text Label 1300 4150 2    50   ~ 0
 CAM2_TRIG_1V2
 Wire Wire Line
 	1600 3650 1750 3650
@@ -1635,9 +1635,35 @@ BONUS2_CLK1-
 Wire Wire Line
 	1750 3750 1600 3750
 Wire Wire Line
-	1250 4150 1750 4150
-Text Label 1250 4150 2    50   ~ 0
+	1300 4150 1750 4150
+Text Label 1600 3650 2    50   ~ 0
 CAM2_nRESET_1V2
 Text Label 1600 3750 2    50   ~ 0
 CAM2_EXTCLK_1V2
+$Comp
+L Connector_Generic:Conn_01x03 J11
+U 1 1 5C8591D2
+P 11100 9500
+F 0 "J11" H 11018 9817 50  0000 C CNN
+F 1 "CAM2_I2C_DEBUG" H 11018 9726 50  0000 C CNN
+F 2 "Connector_PinHeader_2.00mm:PinHeader_1x03_P2.00mm_Vertical" H 11100 9500 50  0001 C CNN
+F 3 "~" H 11100 9500 50  0001 C CNN
+	1    11100 9500
+	-1   0    0    -1  
+$EndComp
+Text GLabel 11300 9400 2    50   Input ~ 0
+CAM2_SCL_1V8
+Text GLabel 11300 9500 2    50   Input ~ 0
+CAM2_SDA_1V8
+$Comp
+L power:GND #PWR0234
+U 1 1 5C87FF03
+P 11300 9600
+F 0 "#PWR0234" H 11300 9350 50  0001 C CNN
+F 1 "GND" H 11305 9427 50  0001 C CNN
+F 2 "" H 11300 9600 50  0001 C CNN
+F 3 "" H 11300 9600 50  0001 C CNN
+	1    11300 9600
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

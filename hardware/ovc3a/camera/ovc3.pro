@@ -1,4 +1,4 @@
-update=Wed 30 Jan 2019 04:05:18 PM +08
+update=Tue Mar  5 13:15:01 2019
 last_client=kicad
 [general]
 version=1
@@ -35,6 +35,8 @@ TrackWidth4=0.1778
 TrackWidth5=0.2032
 TrackWidth6=0.254
 TrackWidth7=0.4064
+TrackWidth8=1
+TrackWidth9=2
 ViaDiameter1=0.3556
 ViaDrill1=0.1524
 ViaDiameter2=0.3556
