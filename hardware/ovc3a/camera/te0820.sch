@@ -463,8 +463,6 @@ Wire Wire Line
 	1700 1750 1700 1650
 Text Notes 10650 1900 0    50   ~ 0
 todo: double-check\nthat polarity swap\nis OK for USB3
-Text Notes 1100 6750 0    50   ~ 0
-TODO, check if polarity inversion OK
 $Comp
 L trenz:TE0820 M1
 U 1 1 5C465161
@@ -476,8 +474,6 @@ F 3 "" H 1250 900 50  0001 C CNN
 	1    2700 3700
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1750 3250 1550 3250
 Text GLabel 1750 4650 0    50   Input ~ 0
 CAM1_CLK+
 Text GLabel 1750 4750 0    50   Input ~ 0
@@ -552,8 +548,6 @@ F 3 "" H 4500 5650 50  0001 C CNN
 	1    4500 5650
 	1    0    0    -1  
 $EndComp
-Text Notes 750  5200 0    50   ~ 0
-TODO: PSBATT supercap?
 $Comp
 L power:GND #PWR0126
 U 1 1 5C7CFAEF
@@ -648,8 +642,6 @@ Text GLabel 3600 5850 2    50   Input ~ 0
 CAM2_CLK-
 Text GLabel 3600 5950 2    50   Input ~ 0
 CAM2_CLK+
-Text Notes 10200 8400 0    118  ~ 24
-TODO: more i2c level shifters
 $Comp
 L voltage_translators:TCA9803 U14
 U 1 1 5C5C5C16
@@ -830,7 +822,7 @@ F 3 "" H 2550 8550 60  0000 C CNN
 	1    2550 8550
 	1    0    0    -1  
 $EndComp
-Text Notes 10200 8100 0    118  ~ 24
+Text Notes 9850 6600 0    118  ~ 24
 TODO: more unidirectional level shifters
 Text Notes 1250 7350 0    118  ~ 24
 left-hand side level shifters
@@ -961,9 +953,9 @@ Wire Wire Line
 	8000 9400 8100 9400
 Connection ~ 8000 9400
 Wire Wire Line
-	7100 7700 7500 7700
+	7100 7700 7400 7700
 Text Notes 6150 7950 0    50   ~ 0
-always enabled, B->A
+always enabled, A->B
 $Comp
 L Device:C_Small C71
 U 1 1 5C7D5624
@@ -1011,8 +1003,6 @@ Connection ~ 8600 8000
 Connection ~ 7100 7700
 Wire Wire Line
 	7100 7900 7100 8000
-Wire Wire Line
-	7100 8000 7400 8000
 $Comp
 L power:GND #PWR0214
 U 1 1 5C7D564C
@@ -1024,7 +1014,6 @@ F 3 "" H 7100 8000 50  0001 C CNN
 	1    7100 8000
 	1    0    0    -1  
 $EndComp
-Connection ~ 7100 8000
 Text Notes 6600 7350 0    118  ~ 24
 right-hand side level shifters
 $Comp
@@ -1216,14 +1205,14 @@ Wire Wire Line
 Text GLabel 1750 3950 0    50   Input ~ 0
 CAM1_D0-
 Wire Wire Line
-	1550 3050 1750 3050
+	1550 2950 1750 2950
 Text GLabel 8450 8800 2    50   Input ~ 0
 CAM1_nRESET_1V8
 Text Label 7350 8800 2    50   ~ 0
 CAM1_nRESET_1V2
 Wire Wire Line
 	7350 8700 7500 8700
-Text Label 1550 3250 2    50   ~ 0
+Text Label 1750 3050 2    50   ~ 0
 CAM1_nRESET_1V2
 Text GLabel 8450 8900 2    50   Input ~ 0
 CAM1_TRIG_1V8
@@ -1253,12 +1242,10 @@ Wire Wire Line
 	7350 8500 7500 8500
 Wire Wire Line
 	7350 8600 7500 8600
-Text Label 1550 3350 2    50   ~ 0
+Text Label 1750 3250 2    50   ~ 0
 CAM1_EXTCLK_1V2
-Text Label 1550 3050 2    50   ~ 0
+Text Label 1550 2950 2    50   ~ 0
 CAM1_TRIG_1V2
-Wire Wire Line
-	1550 3350 1750 3350
 $Comp
 L voltage_translators:TCA9803 U18
 U 1 1 5C9B9E0A
@@ -1538,22 +1525,18 @@ Text GLabel 6500 5300 0    50   Input ~ 0
 BONUS1_DAT0+
 Wire Wire Line
 	5800 5200 6550 5200
-Wire Wire Line
-	12750 7250 13000 7250
-Wire Wire Line
-	12750 7350 13000 7350
-Text GLabel 12750 7350 0    50   Input ~ 0
+Text GLabel 11900 8950 2    50   Input ~ 0
 ICM_IMU_INT1_1V8
-Text GLabel 11600 7700 2    50   Input ~ 0
-ICM-IMU_SYNC_1V8
-Text GLabel 12750 7250 0    50   Input ~ 0
+Text GLabel 11900 9050 2    50   Input ~ 0
+ICM_IMU_SYNC_1V8
+Text GLabel 11900 8850 2    50   Input ~ 0
 ICM_SPI_MISO_1V8
 Text GLabel 8450 8500 2    50   Input ~ 0
 ICM_SPI_CS_1V8
 Text GLabel 8450 8600 2    50   Input ~ 0
 ICM_SPI_CLK_1V8
-Text GLabel 11600 7600 2    50   Input ~ 0
-ICM-SPI_MOSI_1V8
+Text GLabel 11900 9150 2    50   Input ~ 0
+ICM_SPI_MOSI_1V8
 $Comp
 L power:+1V8 #PWR0212
 U 1 1 5C7D561A
@@ -1580,7 +1563,6 @@ Wire Wire Line
 	7500 7900 7400 7900
 Wire Wire Line
 	7400 7900 7400 8000
-Connection ~ 7400 8000
 Wire Wire Line
 	7400 8000 7500 8000
 Wire Wire Line
@@ -1598,31 +1580,23 @@ Text Label 7350 8600 2    50   ~ 0
 ICM_SPI_CLK_1V2
 Wire Wire Line
 	7350 8300 7500 8300
-Text Label 11100 7600 2    50   ~ 0
+Text Label 10800 9150 2    50   ~ 0
 ICM_SPI_MOSI_1V2
 Wire Wire Line
-	11100 7600 11250 7600
-Text Label 11100 7700 2    50   ~ 0
+	10800 8850 10950 8850
+Text Label 10800 9050 2    50   ~ 0
 ICM_SPI_SYNC_1V2
 Wire Wire Line
-	11100 7700 11250 7700
-Text Notes 10350 7300 0    50   ~ 0
-TODO level shifter for IMU output signals
+	10800 8950 10950 8950
 Wire Wire Line
 	850  3150 1750 3150
 Text Label 7350 8300 2    50   ~ 0
 CAM2_EXTCLK_1V2
-Text Label 1300 4150 2    50   ~ 0
+Text Label 1750 3750 2    50   ~ 0
 CAM2_TRIG_1V2
-Wire Wire Line
-	1600 3650 1750 3650
-Text Label 1600 3450 2    50   ~ 0
+Text Label 1750 3350 2    50   ~ 0
 ICM_SPI_CLK_1V2
-Wire Wire Line
-	1600 3550 1750 3550
-Wire Wire Line
-	1600 3450 1750 3450
-Text Label 1600 3550 2    50   ~ 0
+Text Label 1750 3450 2    50   ~ 0
 ICM_SPI_CS_1V2
 Text GLabel 3600 4550 2    50   Input ~ 0
 BONUS2_CLK0-
@@ -1632,38 +1606,155 @@ Text GLabel 3600 3150 2    50   Input ~ 0
 BONUS2_CLK1+
 Text GLabel 3600 3250 2    50   Input ~ 0
 BONUS2_CLK1-
-Wire Wire Line
-	1750 3750 1600 3750
-Wire Wire Line
-	1300 4150 1750 4150
-Text Label 1600 3650 2    50   ~ 0
+Text Label 1750 3550 2    50   ~ 0
 CAM2_nRESET_1V2
-Text Label 1600 3750 2    50   ~ 0
+Text Label 1750 3650 2    50   ~ 0
 CAM2_EXTCLK_1V2
 $Comp
-L Connector_Generic:Conn_01x03 J11
-U 1 1 5C8591D2
-P 11100 9500
-F 0 "J11" H 11018 9817 50  0000 C CNN
-F 1 "CAM2_I2C_DEBUG" H 11018 9726 50  0000 C CNN
-F 2 "Connector_PinHeader_2.00mm:PinHeader_1x03_P2.00mm_Vertical" H 11100 9500 50  0001 C CNN
-F 3 "~" H 11100 9500 50  0001 C CNN
-	1    11100 9500
-	-1   0    0    -1  
-$EndComp
-Text GLabel 11300 9400 2    50   Input ~ 0
-CAM2_SCL_1V8
-Text GLabel 11300 9500 2    50   Input ~ 0
-CAM2_SDA_1V8
-$Comp
-L power:GND #PWR0234
-U 1 1 5C87FF03
-P 11300 9600
-F 0 "#PWR0234" H 11300 9350 50  0001 C CNN
-F 1 "GND" H 11305 9427 50  0001 C CNN
-F 2 "" H 11300 9600 50  0001 C CNN
-F 3 "" H 11300 9600 50  0001 C CNN
-	1    11300 9600
+L voltage_translators:SN74AVC4T245 U8
+U 1 1 5C80D567
+P 11450 9150
+F 0 "U8" H 11425 10237 60  0000 C CNN
+F 1 "SN74AXC4T245" H 11425 10131 60  0000 C CNN
+F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 11425 10131 60  0001 C CNN
+F 3 "" H 11450 9150 60  0000 C CNN
+	1    11450 9150
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	10550 8350 10850 8350
+$Comp
+L Device:C_Small C14
+U 1 1 5C83C0ED
+P 10550 8450
+F 0 "C14" H 10642 8496 50  0000 L CNN
+F 1 "100n" H 10642 8405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 10550 8450 50  0001 C CNN
+F 3 "~" H 10550 8450 50  0001 C CNN
+	1    10550 8450
+	1    0    0    -1  
+$EndComp
+Connection ~ 10550 8350
+$Comp
+L power:+1V2 #PWR0235
+U 1 1 5C83C0F8
+P 10550 8350
+F 0 "#PWR0235" H 10550 8200 50  0001 C CNN
+F 1 "+1V2" H 10565 8523 50  0000 C CNN
+F 2 "" H 10550 8350 50  0001 C CNN
+F 3 "" H 10550 8350 50  0001 C CNN
+	1    10550 8350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 7900 7400 7700
+Connection ~ 7400 7900
+Connection ~ 7400 7700
+Wire Wire Line
+	7400 7700 7500 7700
+$Comp
+L Device:C_Small C15
+U 1 1 5C897BD6
+P 12050 8450
+F 0 "C15" H 12142 8496 50  0000 L CNN
+F 1 "100n" H 12142 8405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 12050 8450 50  0001 C CNN
+F 3 "~" H 12050 8450 50  0001 C CNN
+	1    12050 8450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11900 8350 12050 8350
+Connection ~ 12050 8350
+$Comp
+L power:+1V8 #PWR0236
+U 1 1 5C897BE2
+P 12050 8350
+F 0 "#PWR0236" H 12050 8200 50  0001 C CNN
+F 1 "+1V8" H 12065 8523 50  0000 C CNN
+F 2 "" H 12050 8350 50  0001 C CNN
+F 3 "" H 12050 8350 50  0001 C CNN
+	1    12050 8350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11900 8550 11900 8650
+Wire Wire Line
+	11900 8650 12050 8650
+Wire Wire Line
+	12050 8650 12050 8550
+Connection ~ 11900 8650
+$Comp
+L power:GND #PWR0237
+U 1 1 5C8BF838
+P 12050 8650
+F 0 "#PWR0237" H 12050 8400 50  0001 C CNN
+F 1 "GND" H 12055 8477 50  0001 C CNN
+F 2 "" H 12050 8650 50  0001 C CNN
+F 3 "" H 12050 8650 50  0001 C CNN
+	1    12050 8650
+	1    0    0    -1  
+$EndComp
+Connection ~ 12050 8650
+$Comp
+L power:GND #PWR0238
+U 1 1 5C8C08C3
+P 10550 8650
+F 0 "#PWR0238" H 10550 8400 50  0001 C CNN
+F 1 "GND" H 10555 8477 50  0001 C CNN
+F 2 "" H 10550 8650 50  0001 C CNN
+F 3 "" H 10550 8650 50  0001 C CNN
+	1    10550 8650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10550 8550 10550 8650
+Text Notes 9900 8650 0    50   ~ 0
+1DIR = B->A\n2DIR = A->B
+Text Label 10800 8850 2    50   ~ 0
+ICM_SPI_MISO_1V2
+Wire Wire Line
+	10800 9050 10950 9050
+Text Label 10800 8950 2    50   ~ 0
+ICM_IMU_INT1_1V2
+Wire Wire Line
+	10800 9150 10950 9150
+$Comp
+L power:GND #PWR0239
+U 1 1 5C97DC41
+P 10950 9450
+F 0 "#PWR0239" H 10950 9200 50  0001 C CNN
+F 1 "GND" H 10955 9277 50  0001 C CNN
+F 2 "" H 10950 9450 50  0001 C CNN
+F 3 "" H 10950 9450 50  0001 C CNN
+	1    10950 9450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10950 9450 10950 9350
+Connection ~ 10950 9450
+Wire Wire Line
+	10950 8550 10550 8550
+Connection ~ 10550 8550
+Wire Wire Line
+	10950 8650 10850 8650
+Wire Wire Line
+	10850 8650 10850 8350
+Connection ~ 10850 8350
+Wire Wire Line
+	10850 8350 10950 8350
+Text Label 1750 4150 2    50   ~ 0
+ICM_SPI_MISO_1V2
+Text Label 1750 5150 2    50   ~ 0
+PSBATT
+Text Label 1750 4250 2    50   ~ 0
+ICM_IMU_INT1_1V2
+Text Label 1750 5350 2    50   ~ 0
+CAM2_SCL_1V2
+Text Label 1750 5250 2    50   ~ 0
+CAM2_SDA_1V2
+Text Label 1750 4950 2    50   ~ 0
+ICM_SPI_MOSI_1V2
+Text Label 1750 5050 2    50   ~ 0
+ICM_SPI_SYNC_1V2
 $EndSCHEMATC
