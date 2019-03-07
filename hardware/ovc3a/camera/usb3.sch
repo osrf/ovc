@@ -226,12 +226,12 @@ Wire Wire Line
 $Comp
 L Device:R_Small R3
 U 1 1 5C00694A
-P 4200 6500
-F 0 "R3" H 4259 6546 50  0000 L CNN
-F 1 "10k" H 4259 6455 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 4200 6500 50  0001 C CNN
-F 3 "~" H 4200 6500 50  0001 C CNN
-	1    4200 6500
+P 4250 6500
+F 0 "R3" H 4309 6546 50  0000 L CNN
+F 1 "10k" H 4309 6455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 4250 6500 50  0001 C CNN
+F 3 "~" H 4250 6500 50  0001 C CNN
+	1    4250 6500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -812,22 +812,22 @@ Wire Wire Line
 Wire Wire Line
 	1900 2350 2550 2350
 Wire Wire Line
-	4200 6700 4200 6600
+	4250 6700 4250 6600
 Wire Wire Line
-	3200 6700 4200 6700
+	3200 6700 4250 6700
 Wire Wire Line
-	4200 6400 3850 6400
+	4250 6400 3850 6400
 Connection ~ 3850 6400
 Text GLabel 3800 6600 2    50   Input ~ 0
-SCL
+USB_SCL
 Wire Wire Line
 	3800 6600 3550 6600
 Connection ~ 3550 6600
-Text GLabel 4500 6700 2    50   Input ~ 0
-SDA
+Text GLabel 4550 6700 2    50   Input ~ 0
+USB_SDA
 Wire Wire Line
-	4500 6700 4200 6700
-Connection ~ 4200 6700
+	4550 6700 4250 6700
+Connection ~ 4250 6700
 Wire Wire Line
 	2550 1550 2550 1600
 Wire Wire Line

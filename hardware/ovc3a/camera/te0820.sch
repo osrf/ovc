@@ -27,24 +27,6 @@ F 3 "" H 11250 -150 50  0001 C CNN
 	3    12700 2650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3600 1350 3750 1350
-Wire Wire Line
-	3750 1450 3600 1450
-Wire Wire Line
-	3600 1650 3750 1650
-Wire Wire Line
-	3750 1750 3600 1750
-Wire Wire Line
-	3600 1850 3750 1850
-Wire Wire Line
-	3750 1950 3600 1950
-Wire Wire Line
-	3600 2050 3750 2050
-Wire Wire Line
-	3750 2250 3600 2250
-Wire Wire Line
-	3750 2350 3600 2350
 Text GLabel 1750 2150 0    50   Input ~ 0
 SD_DAT2
 Text GLabel 1750 2050 0    50   Input ~ 0
@@ -57,23 +39,23 @@ Text GLabel 1750 2350 0    50   Input ~ 0
 SD_DAT0
 Text GLabel 1750 2250 0    50   Input ~ 0
 SD_DAT1
-Text GLabel 3750 1350 2    50   Input ~ 0
+Text GLabel 3600 1350 2    50   Input ~ 0
 PHY_MDI0_P
-Text GLabel 3750 1450 2    50   Input ~ 0
+Text GLabel 3600 1450 2    50   Input ~ 0
 PHY_MDI0_N
-Text GLabel 3750 1650 2    50   Input ~ 0
+Text GLabel 3600 1650 2    50   Input ~ 0
 PHY_MDI1_P
-Text GLabel 3750 1750 2    50   Input ~ 0
+Text GLabel 3600 1750 2    50   Input ~ 0
 PHY_MDI1_N
-Text GLabel 3750 1950 2    50   Input ~ 0
+Text GLabel 3600 1950 2    50   Input ~ 0
 PHY_MDI2_P
-Text GLabel 3750 2050 2    50   Input ~ 0
+Text GLabel 3600 2050 2    50   Input ~ 0
 PHY_MDI2_N
-Text GLabel 3750 2250 2    50   Input ~ 0
+Text GLabel 3600 2250 2    50   Input ~ 0
 PHY_MDI3_P
-Text GLabel 3750 2350 2    50   Input ~ 0
+Text GLabel 3600 2350 2    50   Input ~ 0
 PHY_MDI3_N
-Text GLabel 3750 1850 2    50   Input ~ 0
+Text GLabel 3600 1850 2    50   Input ~ 0
 ETH_VCC
 $Comp
 L power:+1V8 #PWR0121
@@ -156,26 +138,7 @@ Wire Wire Line
 	11550 1500 11550 1800
 Connection ~ 11550 1800
 Wire Wire Line
-	3700 2850 3600 2850
-Wire Wire Line
-	3700 2850 3700 2750
-Wire Wire Line
-	3700 2450 3600 2450
-Wire Wire Line
-	3700 2450 3700 2150
-Wire Wire Line
-	3700 2150 3600 2150
-Connection ~ 3700 2450
-Wire Wire Line
-	3700 2150 3700 1550
-Wire Wire Line
-	3700 1550 3600 1550
-Connection ~ 3700 2150
-Wire Wire Line
-	3700 1550 3700 1250
-Wire Wire Line
-	3700 1250 3600 1250
-Connection ~ 3700 1550
+	4500 2450 3600 2450
 $Comp
 L power:GND #PWR0127
 U 1 1 5C51C6A1
@@ -229,11 +192,11 @@ Wire Wire Line
 Wire Wire Line
 	11400 3600 11650 3600
 Text GLabel 1500 5750 0    50   Input ~ 0
-SCL
+PS_SCL
 Wire Wire Line
 	1500 5750 1750 5750
 Text GLabel 1500 5550 0    50   Input ~ 0
-SDA
+PS_SDA
 Wire Wire Line
 	1500 5550 1750 5550
 Text GLabel 11400 2300 0    50   Input ~ 0
@@ -252,7 +215,7 @@ Wire Wire Line
 	13700 2200 13950 2200
 Wire Wire Line
 	13950 2300 13700 2300
-Text GLabel 3750 2650 2    50   Input ~ 0
+Text GLabel 3800 2650 2    50   Input ~ 0
 PGOOD
 Text Notes 12100 5050 0    50   ~ 0
 what supply for PGOOD?
@@ -283,7 +246,7 @@ F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1gu04.pdf" H 11925 5400 50  0001 C 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3750 2650 3600 2650
+	3800 2650 3600 2650
 Text Notes 10550 3950 0    50   ~ 0
 TODO check VBUS_V_EN
 $Comp
@@ -403,12 +366,7 @@ Wire Wire Line
 Wire Wire Line
 	12400 5400 12300 5400
 Wire Wire Line
-	3600 2550 4350 2550
-Wire Wire Line
-	3600 2750 3700 2750
-Connection ~ 3700 2750
-Wire Wire Line
-	3700 2750 3700 2450
+	3600 2550 4150 2550
 Wire Wire Line
 	8550 2100 8700 2100
 $Comp
@@ -495,17 +453,15 @@ Text GLabel 8800 1700 2    50   Input ~ 0
 Wire Wire Line
 	8800 1700 8700 1700
 Connection ~ 8700 1700
-Text Notes 3800 2800 0    50   ~ 0
-TODO: bootmode to DIP?
 $Comp
 L power:+3.3V #PWR0122
 U 1 1 5C64A971
-P 4350 2550
-F 0 "#PWR0122" H 4350 2400 50  0001 C CNN
-F 1 "+3.3V" H 4365 2723 50  0000 C CNN
-F 2 "" H 4350 2550 50  0001 C CNN
-F 3 "" H 4350 2550 50  0001 C CNN
-	1    4350 2550
+P 4300 2700
+F 0 "#PWR0122" H 4300 2550 50  0001 C CNN
+F 1 "+3.3V" H 4315 2873 50  0000 C CNN
+F 2 "" H 4300 2700 50  0001 C CNN
+F 3 "" H 4300 2700 50  0001 C CNN
+	1    4300 2700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -535,8 +491,6 @@ F 3 "" H 6250 1700 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6250 1700 6650 1700
-Text Notes 4450 2550 0    50   ~ 0
-TODO: double check EP1
 $Comp
 L power:GND #PWR0125
 U 1 1 5C7AB061
@@ -811,122 +765,10 @@ Text Label 8600 2900 0    50   ~ 0
 CAM0_SDA_1V2
 Text GLabel 3700 10550 2    50   Input ~ 0
 CAM0_SDA_1V8
-$Comp
-L voltage_translators:SN74AXCH8T245 U15
-U 1 1 5C7EEEC9
-P 2550 8550
-F 0 "U15" H 2525 9637 60  0000 C CNN
-F 1 "SN74AXCH8T245" H 2525 9531 60  0000 C CNN
-F 2 "Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm" H 2550 8550 60  0001 C CNN
-F 3 "" H 2550 8550 60  0000 C CNN
-	1    2550 8550
-	1    0    0    -1  
-$EndComp
 Text Notes 9850 6600 0    118  ~ 24
 TODO: more unidirectional level shifters
 Text Notes 1250 7350 0    118  ~ 24
 left-hand side level shifters
-$Comp
-L power:GND #PWR0205
-U 1 1 5C651E04
-P 2550 9450
-F 0 "#PWR0205" H 2550 9200 50  0001 C CNN
-F 1 "GND" H 2555 9277 50  0001 C CNN
-F 2 "" H 2550 9450 50  0001 C CNN
-F 3 "" H 2550 9450 50  0001 C CNN
-	1    2550 9450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2550 9450 2650 9450
-Connection ~ 2550 9450
-$Comp
-L power:+1V2 #PWR0206
-U 1 1 5C66AB01
-P 1650 7750
-F 0 "#PWR0206" H 1650 7600 50  0001 C CNN
-F 1 "+1V2" H 1665 7923 50  0000 C CNN
-F 2 "" H 1650 7750 50  0001 C CNN
-F 3 "" H 1650 7750 50  0001 C CNN
-	1    1650 7750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1650 7750 2050 7750
-Text Notes 700  8000 0    50   ~ 0
-always enabled, B->A
-$Comp
-L power:+1V8 #PWR0207
-U 1 1 5C679B73
-P 3150 7750
-F 0 "#PWR0207" H 3150 7600 50  0001 C CNN
-F 1 "+1V8" H 3165 7923 50  0000 C CNN
-F 2 "" H 3150 7750 50  0001 C CNN
-F 3 "" H 3150 7750 50  0001 C CNN
-	1    3150 7750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C68
-U 1 1 5C67A2DF
-P 3150 7850
-F 0 "C68" H 3242 7896 50  0000 L CNN
-F 1 "100n" H 3242 7805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 3150 7850 50  0001 C CNN
-F 3 "~" H 3150 7850 50  0001 C CNN
-	1    3150 7850
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0208
-U 1 1 5C67B76F
-P 3150 8050
-F 0 "#PWR0208" H 3150 7800 50  0001 C CNN
-F 1 "GND" H 3155 7877 50  0001 C CNN
-F 2 "" H 3150 8050 50  0001 C CNN
-F 3 "" H 3150 8050 50  0001 C CNN
-	1    3150 8050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3150 8050 3000 8050
-Wire Wire Line
-	3000 7850 3000 7750
-Wire Wire Line
-	3000 7750 3150 7750
-Connection ~ 3000 7750
-$Comp
-L Device:C_Small C67
-U 1 1 5C6A0230
-P 1650 7850
-F 0 "C67" H 1742 7896 50  0000 L CNN
-F 1 "100n" H 1742 7805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 1650 7850 50  0001 C CNN
-F 3 "~" H 1650 7850 50  0001 C CNN
-	1    1650 7850
-	1    0    0    -1  
-$EndComp
-Connection ~ 3150 7750
-Wire Wire Line
-	3150 7950 3150 8050
-Connection ~ 3150 8050
-Connection ~ 1650 7750
-Wire Wire Line
-	1650 7950 1650 8050
-Wire Wire Line
-	1650 8050 1950 8050
-$Comp
-L power:GND #PWR0209
-U 1 1 5C6EC77F
-P 1650 8050
-F 0 "#PWR0209" H 1650 7800 50  0001 C CNN
-F 1 "GND" H 1655 7877 50  0001 C CNN
-F 2 "" H 1650 8050 50  0001 C CNN
-F 3 "" H 1650 8050 50  0001 C CNN
-	1    1650 8050
-	1    0    0    -1  
-$EndComp
-Connection ~ 1650 8050
 $Comp
 L voltage_translators:SN74AXCH8T245 U16
 U 1 1 5C7D55F6
@@ -1412,23 +1254,17 @@ Wire Wire Line
 Connection ~ 9000 10050
 Wire Wire Line
 	9000 10050 9700 10050
-Text GLabel 3000 8250 2    50   Input ~ 0
+Text GLabel 3100 8250 2    50   Input ~ 0
 CAM0_nRESET_1V8
-Text GLabel 3000 8350 2    50   Input ~ 0
+Text GLabel 3100 8350 2    50   Input ~ 0
 CAM0_TRIG_1V8
-Text GLabel 3000 8450 2    50   Input ~ 0
+Text GLabel 3100 8450 2    50   Input ~ 0
 CAM0_EXTCLK_1V8
-Wire Wire Line
-	1900 8250 2050 8250
-Text Label 1900 8350 2    50   ~ 0
+Text Label 2000 8350 2    50   ~ 0
 CAM0_TRIG_1V2
-Wire Wire Line
-	1900 8350 2050 8350
-Text Label 1900 8450 2    50   ~ 0
+Text Label 2000 8450 2    50   ~ 0
 CAM0_EXTCLK_1V2
-Wire Wire Line
-	1900 8450 2050 8450
-Text Label 1900 8250 2    50   ~ 0
+Text Label 2000 8250 2    50   ~ 0
 CAM0_nRESET_1V2
 Text Notes 4600 3800 0    50   ~ 0
 MIPI Lanes:\ncam0 = B64 L1+L2\ncam1 = B66 L1+L2\ncam2 = B66 L10+L11\nbonus1 = \nbonus2_0 = B66 L16+L17
@@ -1562,13 +1398,6 @@ Wire Wire Line
 	7400 7900 7400 8000
 Wire Wire Line
 	7400 8000 7500 8000
-Wire Wire Line
-	2050 7950 1950 7950
-Wire Wire Line
-	1950 7950 1950 8050
-Connection ~ 1950 8050
-Wire Wire Line
-	1950 8050 2050 8050
 Text Label 7350 8500 2    50   ~ 0
 ICM_SPI_CS_1V2
 Wire Wire Line
@@ -1769,4 +1598,200 @@ Wire Wire Line
 	6450 1500 6650 1500
 Text Notes 5450 1450 0    50   ~ 0
 Bank 65 needs to be\n>1v5 for the Si5338
+Text Label 14250 8050 2    50   ~ 0
+PSBATT
+$Comp
+L Connector_Generic:Conn_01x02 J12
+U 1 1 5C826B34
+P 14450 8050
+F 0 "J12" H 14530 8042 50  0000 L CNN
+F 1 "RTC_BAT" H 14530 7951 50  0000 L CNN
+F 2 "Connector_PinHeader_2.00mm:PinHeader_1x02_P2.00mm_Vertical" H 14450 8050 50  0001 C CNN
+F 3 "~" H 14450 8050 50  0001 C CNN
+	1    14450 8050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0241
+U 1 1 5C826EF2
+P 14250 8150
+F 0 "#PWR0241" H 14250 7900 50  0001 C CNN
+F 1 "GND" H 14255 7977 50  0001 C CNN
+F 2 "" H 14250 8150 50  0001 C CNN
+F 3 "" H 14250 8150 50  0001 C CNN
+	1    14250 8150
+	1    0    0    -1  
+$EndComp
+Text Notes 14000 7900 0    50   ~ 0
+TODO: small clock battery?
+Text Label 1750 5650 2    50   ~ 0
+JTAGEN
+Text Label 14500 7300 2    50   ~ 0
+JTAGEN
+Text Notes 12800 7100 0    118  ~ 24
+TODO: DIP switch for boot select?
+Text Label 3600 2750 0    50   ~ 0
+MODE
+Text Label 14300 7400 0    50   ~ 0
+MODE
+Wire Wire Line
+	4150 2550 4150 2700
+Wire Wire Line
+	4150 2700 4300 2700
+Wire Wire Line
+	4500 2850 4500 2450
+Wire Wire Line
+	3600 2850 4500 2850
+Wire Wire Line
+	3600 1250 4500 1250
+Wire Wire Line
+	3600 1550 4500 1550
+Connection ~ 4500 1550
+Wire Wire Line
+	4500 1550 4500 1250
+Wire Wire Line
+	3600 2150 4500 2150
+Connection ~ 4500 2150
+Wire Wire Line
+	4500 2150 4500 1550
+Connection ~ 4500 2450
+Wire Wire Line
+	4500 2450 4500 2150
+Wire Wire Line
+	4500 3350 4500 2850
+Connection ~ 4500 3350
+Connection ~ 4500 2850
+Text GLabel 10700 7450 2    50   Input ~ 0
+USB_SDA
+Text GLabel 10700 7350 2    50   Input ~ 0
+USB_SCL
+Text Notes 9850 7250 0    118  ~ 24
+TODO: 3v3 i/o for usb
+Wire Wire Line
+	2000 8250 2150 8250
+Wire Wire Line
+	2000 8350 2150 8350
+$Comp
+L voltage_translators:SN74AVC4T245 U11
+U 1 1 5CB50D98
+P 2650 8550
+F 0 "U11" H 2625 9637 60  0000 C CNN
+F 1 "SN74AXC4T245" H 2625 9531 60  0000 C CNN
+F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 2625 9531 60  0001 C CNN
+F 3 "" H 2650 8550 60  0000 C CNN
+	1    2650 8550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C18
+U 1 1 5CB50DA3
+P 1750 7850
+F 0 "C18" H 1842 7896 50  0000 L CNN
+F 1 "100n" H 1842 7805 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 1750 7850 50  0001 C CNN
+F 3 "~" H 1750 7850 50  0001 C CNN
+	1    1750 7850
+	1    0    0    -1  
+$EndComp
+Connection ~ 1750 7750
+$Comp
+L power:+1V2 #PWR0138
+U 1 1 5CB50DAE
+P 1750 7750
+F 0 "#PWR0138" H 1750 7600 50  0001 C CNN
+F 1 "+1V2" H 1765 7923 50  0000 C CNN
+F 2 "" H 1750 7750 50  0001 C CNN
+F 3 "" H 1750 7750 50  0001 C CNN
+	1    1750 7750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C19
+U 1 1 5CB50DB8
+P 3250 7850
+F 0 "C19" H 3342 7896 50  0000 L CNN
+F 1 "100n" H 3342 7805 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 3250 7850 50  0001 C CNN
+F 3 "~" H 3250 7850 50  0001 C CNN
+	1    3250 7850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 7750 3250 7750
+Connection ~ 3250 7750
+$Comp
+L power:+1V8 #PWR0140
+U 1 1 5CB50DC4
+P 3250 7750
+F 0 "#PWR0140" H 3250 7600 50  0001 C CNN
+F 1 "+1V8" H 3265 7923 50  0000 C CNN
+F 2 "" H 3250 7750 50  0001 C CNN
+F 3 "" H 3250 7750 50  0001 C CNN
+	1    3250 7750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 7950 3100 8050
+Wire Wire Line
+	3100 8050 3250 8050
+Wire Wire Line
+	3250 8050 3250 7950
+Connection ~ 3100 8050
+$Comp
+L power:GND #PWR0205
+U 1 1 5CB50DD2
+P 3250 8050
+F 0 "#PWR0205" H 3250 7800 50  0001 C CNN
+F 1 "GND" H 3255 7877 50  0001 C CNN
+F 2 "" H 3250 8050 50  0001 C CNN
+F 3 "" H 3250 8050 50  0001 C CNN
+	1    3250 8050
+	1    0    0    -1  
+$EndComp
+Connection ~ 3250 8050
+$Comp
+L power:GND #PWR0206
+U 1 1 5CB50DDD
+P 1750 7950
+F 0 "#PWR0206" H 1750 7700 50  0001 C CNN
+F 1 "GND" H 1755 7777 50  0001 C CNN
+F 2 "" H 1750 7950 50  0001 C CNN
+F 3 "" H 1750 7950 50  0001 C CNN
+	1    1750 7950
+	1    0    0    -1  
+$EndComp
+Text Notes 1100 8050 0    50   ~ 0
+1DIR = A->B\n2DIR = A->B
+Wire Wire Line
+	2000 8450 2150 8450
+Wire Wire Line
+	2000 8550 2150 8550
+$Comp
+L power:GND #PWR0207
+U 1 1 5CB50DED
+P 2150 8850
+F 0 "#PWR0207" H 2150 8600 50  0001 C CNN
+F 1 "GND" H 2155 8677 50  0001 C CNN
+F 2 "" H 2150 8850 50  0001 C CNN
+F 3 "" H 2150 8850 50  0001 C CNN
+	1    2150 8850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 8850 2150 8750
+Connection ~ 2150 8850
+Wire Wire Line
+	2150 8050 2050 8050
+Wire Wire Line
+	2050 7750 2150 7750
+Wire Wire Line
+	1750 7750 2050 7750
+Connection ~ 2050 7750
+Wire Wire Line
+	2050 8050 2050 7950
+Wire Wire Line
+	2150 7950 2050 7950
+Connection ~ 2050 7950
+Wire Wire Line
+	2050 7950 2050 7750
 $EndSCHEMATC
