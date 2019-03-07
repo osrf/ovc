@@ -2083,7 +2083,7 @@ Wire Wire Line
 	4850 2200 5550 2200
 NoConn ~ 3300 5500
 NoConn ~ 6850 5500
-Text GLabel 7650 5050 2    50   Input ~ 0
+Text GLabel 7650 5150 2    50   Input ~ 0
 CAM2_TRIG_1V8
 Text GLabel 7650 4950 2    50   Input ~ 0
 CAM2_SDA_1V8
@@ -2091,7 +2091,7 @@ Text GLabel 7650 4850 2    50   Input ~ 0
 CAM2_SCL_1V8
 Text GLabel 10250 5500 2    50   Input ~ 0
 CAM2_FLASH_1V8
-Text GLabel 7650 5150 2    50   Input ~ 0
+Text GLabel 7650 5050 2    50   Input ~ 0
 CAM2_FLASH_1V8
 $Comp
 L power:GND #PWR?
