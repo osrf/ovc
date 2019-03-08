@@ -492,19 +492,6 @@ F 3 "" H 7400 2750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6300 3250 6700 3250
-$Comp
-L power:GND #PWR0143
-U 1 1 5CA73F84
-P 6300 3250
-F 0 "#PWR0143" H 6300 3000 50  0001 C CNN
-F 1 "GND" H 6305 3077 50  0001 C CNN
-F 2 "" H 6300 3250 50  0001 C CNN
-F 3 "" H 6300 3250 50  0001 C CNN
-	1    6300 3250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
 	7200 2450 7400 2450
 Wire Wire Line
 	7200 2750 7400 2750
@@ -539,4 +526,66 @@ Wire Wire Line
 Wire Wire Line
 	7600 3150 7600 2850
 Connection ~ 7600 3150
+$Comp
+L Device:C_Small C80
+U 1 1 5D0D8BF1
+P 9050 1350
+F 0 "C80" H 9142 1396 50  0000 L CNN
+F 1 "1u" H 9142 1305 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9050 1350 50  0001 C CNN
+F 3 "~" H 9050 1350 50  0001 C CNN
+	1    9050 1350
+	1    0    0    -1  
+$EndComp
+Text Notes 8750 950  0    50   ~ 0
+Bulk capacitors between layers
+$Comp
+L power:GND #PWR0143
+U 1 1 5CA73F84
+P 9250 1550
+F 0 "#PWR0143" H 9250 1300 50  0001 C CNN
+F 1 "GND" H 9255 1377 50  0001 C CNN
+F 2 "" H 9250 1550 50  0001 C CNN
+F 3 "" H 9250 1550 50  0001 C CNN
+	1    9250 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9050 1450 9050 1550
+Wire Wire Line
+	9050 1550 9250 1550
+Connection ~ 9250 1550
+Wire Wire Line
+	9450 1550 9250 1550
+Wire Wire Line
+	9050 1250 9250 1250
+Wire Wire Line
+	9250 1250 9250 1200
+$Comp
+L power:+3.3V #PWR0249
+U 1 1 5D0DC24F
+P 9250 1200
+F 0 "#PWR0249" H 9250 1050 50  0001 C CNN
+F 1 "+3.3V" H 9250 1350 50  0000 C CNN
+F 2 "" H 9250 1200 50  0001 C CNN
+F 3 "" H 9250 1200 50  0001 C CNN
+	1    9250 1200
+	1    0    0    -1  
+$EndComp
+Connection ~ 9250 1250
+Wire Wire Line
+	9250 1250 9450 1250
+Wire Wire Line
+	9450 1450 9450 1550
+$Comp
+L Device:C_Small C81
+U 1 1 5D0DB01E
+P 9450 1350
+F 0 "C81" H 9542 1396 50  0000 L CNN
+F 1 "1u" H 9542 1305 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9450 1350 50  0001 C CNN
+F 3 "~" H 9450 1350 50  0001 C CNN
+	1    9450 1350
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

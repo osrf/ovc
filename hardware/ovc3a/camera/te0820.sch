@@ -191,12 +191,8 @@ Wire Wire Line
 	11650 3700 11400 3700
 Wire Wire Line
 	11400 3600 11650 3600
-Text GLabel 1500 5750 0    50   Input ~ 0
-PS_SCL
 Wire Wire Line
 	1500 5750 1750 5750
-Text GLabel 1500 5550 0    50   Input ~ 0
-PS_SDA
 Wire Wire Line
 	1500 5550 1750 5550
 Text GLabel 11400 2300 0    50   Input ~ 0
@@ -438,10 +434,6 @@ Text GLabel 1750 4750 0    50   Input ~ 0
 CAM1_CLK-
 Text GLabel 1750 4050 0    50   Input ~ 0
 CAM1_D0+
-Text GLabel 8550 4800 2    50   Input ~ 0
-CAM0_D0+
-Text GLabel 8550 4900 2    50   Input ~ 0
-CAM0_D0-
 Text GLabel 8550 4300 2    50   Input ~ 0
 CAM0_CLK+
 Text GLabel 8550 4400 2    50   Input ~ 0
@@ -1254,43 +1246,43 @@ Wire Wire Line
 Connection ~ 9000 10050
 Wire Wire Line
 	9000 10050 9700 10050
-Text GLabel 3100 8250 2    50   Input ~ 0
+Text GLabel 3100 8450 2    50   Input ~ 0
 CAM0_nRESET_1V8
 Text GLabel 3100 8350 2    50   Input ~ 0
 CAM0_TRIG_1V8
-Text GLabel 3100 8450 2    50   Input ~ 0
+Text GLabel 3100 8250 2    50   Input ~ 0
 CAM0_EXTCLK_1V8
 Text Label 2000 8350 2    50   ~ 0
 CAM0_TRIG_1V2
-Text Label 2000 8450 2    50   ~ 0
-CAM0_EXTCLK_1V2
 Text Label 2000 8250 2    50   ~ 0
+CAM0_EXTCLK_1V2
+Text Label 2000 8450 2    50   ~ 0
 CAM0_nRESET_1V2
 Text Notes 4600 3800 0    50   ~ 0
 MIPI Lanes:\ncam0 = B64 L1+L2\ncam1 = B66 L1+L2\ncam2 = B66 L10+L11\nbonus1 = \nbonus2_0 = B66 L16+L17
-Text GLabel 3600 3650 2    50   Input ~ 0
+Text GLabel 1750 4250 0    50   Input ~ 0
 BONUS2_DAT0+
-Text GLabel 3600 3750 2    50   Input ~ 0
+Text GLabel 1750 4150 0    50   Input ~ 0
 BONUS2_DAT0-
-Text GLabel 3600 3450 2    50   Input ~ 0
-BONUS2_DAT1+
 Text GLabel 3600 3550 2    50   Input ~ 0
+BONUS2_DAT1+
+Text GLabel 3600 3450 2    50   Input ~ 0
 BONUS2_DAT1-
-Text GLabel 4950 6450 2    50   Input ~ 0
+Text GLabel 3600 4250 2    50   Input ~ 0
 BONUS2_EXTCLK
-Text GLabel 4950 6650 2    50   Input ~ 0
+Text GLabel 3600 4150 2    50   Input ~ 0
 BONUS2_SCL0
-Text GLabel 4950 6750 2    50   Input ~ 0
+Text GLabel 3600 4050 2    50   Input ~ 0
 BONUS2_SDA0
-Text GLabel 4950 6850 2    50   Input ~ 0
+Text GLabel 3600 3950 2    50   Input ~ 0
 BONUS2_SCL1
-Text GLabel 4950 6950 2    50   Input ~ 0
+Text GLabel 3600 3750 2    50   Input ~ 0
 BONUS2_SDA1
-Text GLabel 4950 7050 2    50   Input ~ 0
+Text GLabel 3600 3650 2    50   Input ~ 0
 BONUS2_FLASH
-Text GLabel 4950 7150 2    50   Input ~ 0
+Text GLabel 3600 3050 2    50   Input ~ 0
 BONUS2_RESET
-Text GLabel 4950 7250 2    50   Input ~ 0
+Text GLabel 3600 2950 2    50   Input ~ 0
 BONUS2_TRIGGER
 Connection ~ 6550 4200
 Wire Wire Line
@@ -1316,8 +1308,6 @@ Wire Wire Line
 Wire Wire Line
 	6550 3700 6550 3200
 Connection ~ 6550 3700
-Text GLabel 6500 4800 0    50   Input ~ 0
-BONUS1_CLK0+
 Text GLabel 8550 3000 2    50   Input ~ 0
 BONUS1_CLK1+
 Text GLabel 8550 3100 2    50   Input ~ 0
@@ -1326,36 +1316,8 @@ Text GLabel 8550 3300 2    50   Input ~ 0
 BONUS1_DAT1+
 Text GLabel 8550 3400 2    50   Input ~ 0
 BONUS1_DAT1-
-Text GLabel 4950 7550 2    50   Input ~ 0
-BONUS1_EXTCLK
-Text GLabel 4950 7750 2    50   Input ~ 0
+Text GLabel 6500 3900 0    50   Input ~ 0
 BONUS1_SCL0
-Text GLabel 4950 7850 2    50   Input ~ 0
-BONUS1_SDA0
-Text GLabel 4950 7950 2    50   Input ~ 0
-BONUS1_SCL1
-Text GLabel 4950 8050 2    50   Input ~ 0
-BONUS1_SDA1
-Text GLabel 4950 8150 2    50   Input ~ 0
-BONUS1_FLASH
-Text GLabel 4950 8250 2    50   Input ~ 0
-BONUS1_RESET
-Text GLabel 4950 8350 2    50   Input ~ 0
-BONUS1_TRIGGER
-Wire Wire Line
-	6650 4800 6500 4800
-Wire Wire Line
-	6650 4900 6500 4900
-Text GLabel 6500 4900 0    50   Input ~ 0
-BONUS1_CLK0-
-Wire Wire Line
-	6650 5400 6500 5400
-Wire Wire Line
-	6500 5300 6650 5300
-Text GLabel 6500 5400 0    50   Input ~ 0
-BONUS1_DAT0-
-Text GLabel 6500 5300 0    50   Input ~ 0
-BONUS1_DAT0+
 Wire Wire Line
 	5800 5200 6550 5200
 Text GLabel 11900 8950 2    50   Input ~ 0
@@ -1424,9 +1386,9 @@ Text Label 1750 3350 2    50   ~ 0
 ICM_SPI_CLK_1V2
 Text Label 1750 3450 2    50   ~ 0
 ICM_SPI_CS_1V2
-Text GLabel 3600 4550 2    50   Input ~ 0
-BONUS2_CLK0-
 Text GLabel 3600 4450 2    50   Input ~ 0
+BONUS2_CLK0-
+Text GLabel 3600 4550 2    50   Input ~ 0
 BONUS2_CLK0+
 Text GLabel 3600 3150 2    50   Input ~ 0
 BONUS2_CLK1+
@@ -1569,11 +1531,11 @@ Wire Wire Line
 Connection ~ 10850 8350
 Wire Wire Line
 	10850 8350 10950 8350
-Text Label 1750 4150 2    50   ~ 0
+Text Label 3600 4950 0    50   ~ 0
 ICM_SPI_MISO_1V2
 Text Label 1750 5150 2    50   ~ 0
 PSBATT
-Text Label 1750 4250 2    50   ~ 0
+Text Label 3600 5050 0    50   ~ 0
 ICM_IMU_INT1_1V2
 Text Label 1750 5350 2    50   ~ 0
 CAM2_SCL_1V2
@@ -1661,12 +1623,10 @@ Wire Wire Line
 	4500 3350 4500 2850
 Connection ~ 4500 3350
 Connection ~ 4500 2850
-Text GLabel 10700 7450 2    50   Input ~ 0
+Text GLabel 1500 5550 0    50   Input ~ 0
 USB_SDA
-Text GLabel 10700 7350 2    50   Input ~ 0
+Text GLabel 1500 5750 0    50   Input ~ 0
 USB_SCL
-Text Notes 9850 7250 0    118  ~ 24
-TODO: 3v3 i/o for usb
 Wire Wire Line
 	2000 8250 2150 8250
 Wire Wire Line
@@ -1794,4 +1754,128 @@ Wire Wire Line
 Connection ~ 2050 7950
 Wire Wire Line
 	2050 7950 2050 7750
+$Comp
+L power:GND #PWR0246
+U 1 1 5C9FB400
+P 14250 9250
+F 0 "#PWR0246" H 14250 9000 50  0001 C CNN
+F 1 "GND" H 14255 9077 50  0000 C CNN
+F 2 "" H 14250 9250 50  0001 C CNN
+F 3 "" H 14250 9250 50  0001 C CNN
+	1    14250 9250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	14300 9200 14250 9200
+Wire Wire Line
+	14250 9200 14250 9250
+Text Label 3600 5750 0    50   ~ 0
+UART_RX
+Text Label 1750 5450 2    50   ~ 0
+UART_TX
+Text Label 14300 9100 2    50   ~ 0
+UART_RX
+Text Label 14300 9000 2    50   ~ 0
+UART_TX
+Text GLabel 6500 3500 0    50   Input ~ 0
+BONUS1_DAT0+
+Text GLabel 6500 3600 0    50   Input ~ 0
+BONUS1_DAT0-
+Wire Wire Line
+	6500 3500 6650 3500
+Wire Wire Line
+	6650 3600 6500 3600
+Wire Wire Line
+	6650 4300 6500 4300
+Text GLabel 6500 4300 0    50   Input ~ 0
+BONUS1_CLK0+
+$Comp
+L Connector_Generic:Conn_01x03 J13
+U 1 1 5C9FA194
+P 14500 9100
+F 0 "J13" H 14580 9142 50  0000 L CNN
+F 1 "UART" H 14580 9051 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal" H 14500 9100 50  0001 C CNN
+F 3 "~" H 14500 9100 50  0001 C CNN
+	1    14500 9100
+	1    0    0    -1  
+$EndComp
+Text GLabel 8550 4500 2    50   Input ~ 0
+CAM0_D0+
+Text GLabel 8550 4600 2    50   Input ~ 0
+CAM0_D0-
+Text GLabel 6650 5400 0    50   Input ~ 0
+GPIO3
+Text GLabel 6500 5100 0    50   Input ~ 0
+GPIO5
+Text GLabel 3600 4750 2    50   Input ~ 0
+GPIO7
+Text GLabel 3600 5250 2    50   Input ~ 0
+GPIO9
+Text GLabel 3600 6050 2    50   Input ~ 0
+GPIO11
+Text GLabel 6650 5700 0    50   Input ~ 0
+GPIO0
+Text GLabel 6650 5500 0    50   Input ~ 0
+GPIO2
+Text GLabel 6650 5300 0    50   Input ~ 0
+GPIO4
+Text GLabel 3600 4650 2    50   Input ~ 0
+GPIO6
+Text GLabel 3600 5450 2    50   Input ~ 0
+GPIO10
+Text GLabel 6650 5600 0    50   Input ~ 0
+GPIO1
+Text GLabel 3600 5550 2    50   Input ~ 0
+GPIO13
+Text GLabel 3600 6150 2    50   Input ~ 0
+GPIO12
+Text GLabel 3600 5150 2    50   Input ~ 0
+GPIO8
+Wire Wire Line
+	6650 3900 6500 3900
+Wire Wire Line
+	6650 4400 6500 4400
+Text GLabel 6500 4400 0    50   Input ~ 0
+BONUS1_CLK0-
+Text GLabel 6500 4000 0    50   Input ~ 0
+BONUS1_SDA0
+Wire Wire Line
+	6650 4000 6500 4000
+Wire Wire Line
+	6500 3800 6650 3800
+Text GLabel 6500 3800 0    50   Input ~ 0
+BONUS1_EXTCLK
+Wire Wire Line
+	6500 5000 6650 5000
+Wire Wire Line
+	6650 4900 6500 4900
+Text GLabel 6500 4900 0    50   Input ~ 0
+BONUS1_RESET
+Text GLabel 6500 5000 0    50   Input ~ 0
+BONUS1_TRIGGER
+Text GLabel 6500 4800 0    50   Input ~ 0
+BONUS1_FLASH
+Wire Wire Line
+	6500 4800 6650 4800
+Text GLabel 6500 4600 0    50   Input ~ 0
+BONUS1_SDA1
+Wire Wire Line
+	6650 4600 6500 4600
+Wire Wire Line
+	6500 4500 6650 4500
+Text GLabel 6500 4500 0    50   Input ~ 0
+BONUS1_SCL1
+Wire Wire Line
+	6500 5100 6650 5100
+Text Label 8550 6100 0    50   ~ 0
+CAM0_SCL_1V2
+Text Label 8550 6200 0    50   ~ 0
+CAM0_SDA_1V2
+Text Label 8550 5500 0    50   ~ 0
+CAM0_TRIG_1V2
+Text Label 8550 5400 0    50   ~ 0
+CAM0_EXTCLK_1V2
+Text Label 8550 5600 0    50   ~ 0
+CAM0_nRESET_1V2
 $EndSCHEMATC

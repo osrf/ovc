@@ -55,14 +55,10 @@ U 5C470144
 F0 "misc" 118
 F1 "misc.sch" 50
 $EndSheet
-Text Notes 3900 2700 0    118  ~ 24
-TODO: linux root console as 3v3 UART header (gnd, tx, rx)
 $Sheet
 S 1100 4750 1100 200 
 U 5C58B8AF
 F0 "bonus_cameras" 118
 F1 "bonus_cameras.sch" 59
 $EndSheet
-Text Notes 3900 3100 0    118  ~ 24
-TODO: 3v3 -> 1v2 dc/dc, enabled on PGOOD
 $EndSCHEMATC
