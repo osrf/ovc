@@ -1133,6 +1133,18 @@ X A26_B505_RX3_N JB3.9 1000 950 300 L 50 50 3 1 B
 ENDDRAW
 ENDDEF
 #
+# trenz_Trenz_conn_dummy
+#
+DEF trenz_Trenz_conn_dummy CONN 0 40 Y Y 1 F N
+F0 "CONN" 200 -300 50 H V C CNN
+F1 "trenz_Trenz_conn_dummy" 0 -400 50 H V C CNN
+F2 "" -600 400 50 H I C CNN
+F3 "" -600 400 50 H I C CNN
+DRAW
+S -300 200 300 -200 1 1 10 f
+ENDDRAW
+ENDDEF
+#
 # usb_controller_HD3SS3202
 #
 DEF usb_controller_HD3SS3202 U 0 40 Y Y 1 F N
