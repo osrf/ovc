@@ -415,7 +415,7 @@ Wire Wire Line
 	1750 1750 1700 1750
 Wire Wire Line
 	1700 1750 1700 1650
-Text Notes 10650 1900 0    50   ~ 0
+Text Notes 10500 2050 0    50   ~ 0
 todo: double-check\nthat polarity swap\nis OK for USB3
 $Comp
 L trenz:TE0820 M1
@@ -440,11 +440,6 @@ Text GLabel 8550 4400 2    50   Input ~ 0
 CAM0_CLK-
 Text GLabel 1750 4450 0    50   Input ~ 0
 CAM2_D0-
-Text GLabel 8800 1700 2    50   Input ~ 0
-3V3OUT
-Wire Wire Line
-	8800 1700 8700 1700
-Connection ~ 8700 1700
 $Comp
 L power:+3.3V #PWR0122
 U 1 1 5C64A971
@@ -747,14 +742,6 @@ Wire Wire Line
 	3350 10800 3550 10800
 Text Notes 3650 10750 0    50   ~ 0
 always enabled
-Wire Wire Line
-	8550 2900 9150 2900
-Text Label 8600 2800 0    50   ~ 0
-CAM0_SCL_1V2
-Wire Wire Line
-	8550 2800 9150 2800
-Text Label 8600 2900 0    50   ~ 0
-CAM0_SDA_1V2
 Text GLabel 3700 10550 2    50   Input ~ 0
 CAM0_SDA_1V8
 Text Notes 9850 6600 0    118  ~ 24
@@ -1868,9 +1855,9 @@ Text GLabel 6500 4500 0    50   Input ~ 0
 BONUS1_SCL1
 Wire Wire Line
 	6500 5100 6650 5100
-Text Label 8550 6100 0    50   ~ 0
+Text Label 8550 6000 0    50   ~ 0
 CAM0_SCL_1V2
-Text Label 8550 6200 0    50   ~ 0
+Text Label 8550 6100 0    50   ~ 0
 CAM0_SDA_1V2
 Text Label 8550 5500 0    50   ~ 0
 CAM0_TRIG_1V2
@@ -1878,4 +1865,48 @@ Text Label 8550 5400 0    50   ~ 0
 CAM0_EXTCLK_1V2
 Text Label 8550 5600 0    50   ~ 0
 CAM0_nRESET_1V2
+Text Notes 750  6400 0    50   ~ 0
+TODO: Ground JTAGEN (GPIO means can program CPLD)
+Text GLabel 8550 5000 2    50   Input ~ 0
+LED0
+Text GLabel 8550 4000 2    50   Input ~ 0
+LED1
+Text GLabel 11450 1700 0    50   Input ~ 0
+ETH_LED_L
+Text GLabel 11450 1600 0    50   Input ~ 0
+ETH_LED_R
+Wire Wire Line
+	11450 1700 11650 1700
+Wire Wire Line
+	11650 1600 11450 1600
+Text Notes 9250 1200 0    50   ~ 0
+TODO: Check if 3v3OUT can be connected to 3v3
+$Comp
+L Device:C_Small C85
+U 1 1 5CB5AC5E
+P 850 1450
+F 0 "C85" H 942 1496 50  0000 L CNN
+F 1 "100n" H 942 1405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 850 1450 50  0001 C CNN
+F 3 "~" H 850 1450 50  0001 C CNN
+	1    850  1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1200 1350 850  1350
+$Comp
+L power:GND #PWR0251
+U 1 1 5CB70AE0
+P 850 1550
+F 0 "#PWR0251" H 850 1300 50  0001 C CNN
+F 1 "GND" H 855 1377 50  0000 C CNN
+F 2 "" H 850 1550 50  0001 C CNN
+F 3 "" H 850 1550 50  0001 C CNN
+	1    850  1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8700 1700 8700 1600
+Connection ~ 8700 1700
+Connection ~ 8700 1600
 $EndSCHEMATC
