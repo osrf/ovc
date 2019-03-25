@@ -48,17 +48,6 @@ F 3 "" H 700 4850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3V #PWR0130
-U 1 1 5C56FA25
-P 5950 5800
-F 0 "#PWR0130" H 5950 5650 50  0001 C CNN
-F 1 "+3.3V" H 5965 5973 50  0000 C CNN
-F 2 "" H 5950 5800 50  0001 C CNN
-F 3 "" H 5950 5800 50  0001 C CNN
-	1    5950 5800
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR0180
 U 1 1 5C4B031F
 P 12000 5700
@@ -1022,28 +1011,6 @@ F 3 "" H 2150 8850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0246
-U 1 1 5C9FB400
-P 14250 9250
-F 0 "#PWR0246" H 14250 9000 50  0001 C CNN
-F 1 "GND" H 14255 9077 50  0000 C CNN
-F 2 "" H 14250 9250 50  0001 C CNN
-F 3 "" H 14250 9250 50  0001 C CNN
-	1    14250 9250
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x03 J13
-U 1 1 5C9FA194
-P 14500 9100
-F 0 "J13" H 14580 9142 50  0000 L CNN
-F 1 "UART" H 14580 9051 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal" H 14500 9100 50  0001 C CNN
-F 3 "~" H 14500 9100 50  0001 C CNN
-	1    14500 9100
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C_Small C85
 U 1 1 5CB5AC5E
 P 850 1450
@@ -1073,6 +1040,8 @@ $Comp
 L trenz:Trenz_conn_dummy CONN1
 U 1 1 5CCBA004
 P 14750 4650
+AR Path="/5CCBA004" Ref="CONN1"  Part="1" 
+AR Path="/5C124FC6/5CCBA004" Ref="CONN1"  Part="1" 
 F 0 "CONN1" H 15080 4696 50  0000 L CNN
 F 1 "Trenz_conn_dummy" H 15080 4605 50  0000 L CNN
 F 2 "" H 14150 5050 50  0001 C CNN
@@ -1088,6 +1057,8 @@ $Comp
 L trenz:Trenz_conn_dummy CONN2
 U 1 1 5CCBB054
 P 14750 5200
+AR Path="/5CCBB054" Ref="CONN2"  Part="1" 
+AR Path="/5C124FC6/5CCBB054" Ref="CONN2"  Part="1" 
 F 0 "CONN2" H 15080 5246 50  0000 L CNN
 F 1 "Trenz_conn_dummy" H 15080 5155 50  0000 L CNN
 F 2 "" H 14150 5600 50  0001 C CNN
@@ -1103,6 +1074,8 @@ $Comp
 L trenz:Trenz_conn_dummy CONN3
 U 1 1 5CCCF087
 P 14750 5800
+AR Path="/5CCCF087" Ref="CONN3"  Part="1" 
+AR Path="/5C124FC6/5CCCF087" Ref="CONN3"  Part="1" 
 F 0 "CONN3" H 15080 5846 50  0000 L CNN
 F 1 "Trenz_conn_dummy" H 15080 5755 50  0000 L CNN
 F 2 "" H 14150 6200 50  0001 C CNN
@@ -1160,24 +1133,12 @@ Text GLabel 13950 2300 2    50   Input ~ 0
 USB3_RX-
 Text GLabel 3800 2650 2    50   Input ~ 0
 PGOOD
-Text Notes 12100 5050 0    50   ~ 0
-what supply for PGOOD?
 Text GLabel 12400 5400 2    50   Input ~ 0
 nPGOOD
 Text Notes 10550 3950 0    50   ~ 0
 TODO check VBUS_V_EN
 Text Notes 3650 900  0    50   ~ 0
 IO banks voltages
-Text GLabel 11700 5400 0    50   Input ~ 0
-PGOOD
-Text GLabel 6450 5900 0    50   Input ~ 0
-JTAG_TMS
-Text GLabel 6450 6000 0    50   Input ~ 0
-JTAG_TDI
-Text GLabel 6450 6100 0    50   Input ~ 0
-JTAG_TDO
-Text GLabel 6450 6200 0    50   Input ~ 0
-JTAG_TCK
 Text GLabel 8700 2100 2    50   Input ~ 0
 JTAG_HALT
 Text Notes 10500 2050 0    50   ~ 0
@@ -1210,8 +1171,6 @@ Text Notes 3650 10750 0    50   ~ 0
 always enabled
 Text GLabel 3700 10550 2    50   Input ~ 0
 CAM0_SDA_1V8
-Text Notes 9850 6600 0    118  ~ 24
-TODO: more unidirectional level shifters
 Text Notes 1250 7350 0    118  ~ 24
 left-hand side level shifters
 Text Notes 6150 7950 0    50   ~ 0
@@ -1402,14 +1361,6 @@ Text GLabel 1500 5750 0    50   Input ~ 0
 USB_SCL
 Text Notes 1100 8050 0    50   ~ 0
 1DIR = A->B\n2DIR = A->B
-Text Label 3600 5750 0    50   ~ 0
-UART_RX
-Text Label 1750 5450 2    50   ~ 0
-UART_TX
-Text Label 14300 9100 2    50   ~ 0
-UART_RX
-Text Label 14300 9000 2    50   ~ 0
-UART_TX
 Text GLabel 8550 3300 2    50   Input ~ 0
 BONUS1_DAT0+
 Text GLabel 8550 3400 2    50   Input ~ 0
@@ -1428,7 +1379,7 @@ Text GLabel 3600 4750 2    50   Input ~ 0
 GPIO7
 Text GLabel 3600 5250 2    50   Input ~ 0
 GPIO9
-Text GLabel 3600 6050 2    50   Input ~ 0
+Text GLabel 3600 5450 2    50   Input ~ 0
 GPIO11
 Text GLabel 6650 5700 0    50   Input ~ 0
 GPIO0
@@ -1438,12 +1389,10 @@ Text GLabel 6650 5300 0    50   Input ~ 0
 GPIO4
 Text GLabel 3600 4650 2    50   Input ~ 0
 GPIO6
-Text GLabel 3600 5450 2    50   Input ~ 0
+Text GLabel 3600 6050 2    50   Input ~ 0
 GPIO10
 Text GLabel 6650 5600 0    50   Input ~ 0
 GPIO1
-Text GLabel 3600 5550 2    50   Input ~ 0
-GPIO13
 Text GLabel 3600 6150 2    50   Input ~ 0
 GPIO12
 Text GLabel 3600 5150 2    50   Input ~ 0
@@ -1474,7 +1423,7 @@ Text Label 8550 5400 0    50   ~ 0
 CAM0_EXTCLK_1V2
 Text Label 8550 5600 0    50   ~ 0
 CAM0_nRESET_1V2
-Text Notes 750  6400 0    50   ~ 0
+Text Notes 13400 7550 0    50   ~ 0
 TODO: Ground JTAGEN (GPIO means can program CPLD)
 Text GLabel 8550 5000 2    50   Input ~ 0
 LED0
@@ -1484,8 +1433,6 @@ Text GLabel 11450 1700 0    50   Input ~ 0
 ETH_LED_L
 Text GLabel 11450 1600 0    50   Input ~ 0
 ETH_LED_R
-Text Notes 9250 1200 0    50   ~ 0
-TODO: Check if 3v3OUT can be connected to 3v3
 Wire Wire Line
 	13700 4000 13800 4000
 Wire Wire Line
@@ -1657,14 +1604,6 @@ Wire Wire Line
 Wire Wire Line
 	12000 5200 12000 5100
 Wire Wire Line
-	6450 5900 6650 5900
-Wire Wire Line
-	6650 6000 6450 6000
-Wire Wire Line
-	6450 6100 6650 6100
-Wire Wire Line
-	6650 6200 6450 6200
-Wire Wire Line
 	1200 1050 1200 1250
 Wire Wire Line
 	1700 1650 1750 1650
@@ -1676,8 +1615,6 @@ Wire Wire Line
 	1500 1750 1700 1750
 Wire Wire Line
 	6250 1700 6650 1700
-Wire Wire Line
-	5950 5800 6650 5800
 Wire Wire Line
 	10850 3500 11550 3500
 Wire Wire Line
@@ -1947,10 +1884,6 @@ Wire Wire Line
 Wire Wire Line
 	2050 7950 2050 7750
 Wire Wire Line
-	14300 9200 14250 9200
-Wire Wire Line
-	14250 9200 14250 9250
-Wire Wire Line
 	6500 3500 6650 3500
 Wire Wire Line
 	6650 3600 6500 3600
@@ -1982,8 +1915,6 @@ Wire Wire Line
 	11650 1600 11450 1600
 Wire Wire Line
 	1200 1350 850  1350
-Wire Wire Line
-	8700 1700 8700 1600
 Connection ~ 13800 4000
 Connection ~ 13800 3500
 Connection ~ 13800 3000
@@ -2060,6 +1991,24 @@ Connection ~ 3250 8050
 Connection ~ 2150 8850
 Connection ~ 2050 7750
 Connection ~ 2050 7950
-Connection ~ 8700 1700
-Connection ~ 8700 1600
+Text Notes 14600 7300 0    50   ~ 0
+10k pullup to 3v3, switch to GND
+Text GLabel 8700 1800 2    50   Input ~ 0
+3V3_VOUT
+Text GLabel 11700 5400 0    50   Input ~ 0
+3V3_VOUT
+Text GLabel 6650 6200 0    50   Input ~ 0
+JTAG_TCK
+Text GLabel 6650 6100 0    50   Input ~ 0
+JTAG_TDO
+Text GLabel 6650 6000 0    50   Input ~ 0
+JTAG_TDI
+Text GLabel 6650 5900 0    50   Input ~ 0
+JTAG_TMS
+Text GLabel 3600 5750 2    50   Input ~ 0
+ROOT_RX
+Text GLabel 1750 5450 0    50   Input ~ 0
+ROOT_TX
+Text GLabel 6650 5800 0    50   Input ~ 0
+VCC_JTAG
 $EndSCHEMATC

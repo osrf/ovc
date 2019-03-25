@@ -145,17 +145,6 @@ F 7 "DNP" H 6950 3500 50  0001 C CNN "MPN"
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3V #PWR0139
-U 1 1 5C51EDE5
-P 7400 2150
-F 0 "#PWR0139" H 7400 2000 50  0001 C CNN
-F 1 "+3.3V" H 7400 2300 50  0000 C CNN
-F 2 "" H 7400 2150 50  0001 C CNN
-F 3 "" H 7400 2150 50  0001 C CNN
-	1    7400 2150
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+1V8 #PWR0141
 U 1 1 5C522CA8
 P 7400 2450
@@ -169,12 +158,12 @@ $EndComp
 $Comp
 L power:GND #PWR0142
 U 1 1 5C52535B
-P 7600 3150
-F 0 "#PWR0142" H 7600 2900 50  0001 C CNN
-F 1 "GND" H 7605 2977 50  0001 C CNN
-F 2 "" H 7600 3150 50  0001 C CNN
-F 3 "" H 7600 3150 50  0001 C CNN
-	1    7600 3150
+P 7650 3150
+F 0 "#PWR0142" H 7650 2900 50  0001 C CNN
+F 1 "GND" H 7655 2977 50  0001 C CNN
+F 2 "" H 7650 3150 50  0001 C CNN
+F 3 "" H 7650 3150 50  0001 C CNN
+	1    7650 3150
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -201,17 +190,6 @@ F 1 "GND" H 7055 4977 50  0001 C CNN
 F 2 "" H 7050 5150 50  0001 C CNN
 F 3 "" H 7050 5150 50  0001 C CNN
 	1    7050 5150
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR0182
-U 1 1 5EA225E7
-P 6700 4400
-F 0 "#PWR0182" H 6700 4250 50  0001 C CNN
-F 1 "+3.3V" H 6715 4573 50  0000 C CNN
-F 2 "" H 6700 4400 50  0001 C CNN
-F 3 "" H 6700 4400 50  0001 C CNN
-	1    6700 4400
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -335,58 +313,6 @@ F 3 "" H 7400 2750 50  0001 C CNN
 	1    7400 2750
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:C_Small C80
-U 1 1 5D0D8BF1
-P 9050 1350
-F 0 "C80" H 9142 1396 50  0000 L CNN
-F 1 "1u" H 9142 1305 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 9050 1350 50  0001 C CNN
-F 3 "~" H 9050 1350 50  0001 C CNN
-F 4 "Digikey" H 9142 1496 50  0001 C CNN "D1N"
-F 5 "1276-1036-1-ND" H 9142 1496 50  0001 C CNN "D1PN"
-F 6 "Samsung Electro-Mechanics" H 9142 1496 50  0001 C CNN "MFN"
-F 7 "CL10A105KQ8NNNC" H 9142 1496 50  0001 C CNN "MPN"
-	1    9050 1350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0143
-U 1 1 5CA73F84
-P 9250 1550
-F 0 "#PWR0143" H 9250 1300 50  0001 C CNN
-F 1 "GND" H 9255 1377 50  0001 C CNN
-F 2 "" H 9250 1550 50  0001 C CNN
-F 3 "" H 9250 1550 50  0001 C CNN
-	1    9250 1550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR0249
-U 1 1 5D0DC24F
-P 9250 1200
-F 0 "#PWR0249" H 9250 1050 50  0001 C CNN
-F 1 "+3.3V" H 9250 1350 50  0000 C CNN
-F 2 "" H 9250 1200 50  0001 C CNN
-F 3 "" H 9250 1200 50  0001 C CNN
-	1    9250 1200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C81
-U 1 1 5D0DB01E
-P 9450 1350
-F 0 "C81" H 9542 1396 50  0000 L CNN
-F 1 "1u" H 9542 1305 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 9450 1350 50  0001 C CNN
-F 3 "~" H 9450 1350 50  0001 C CNN
-F 4 "Digikey" H 9542 1496 50  0001 C CNN "D1N"
-F 5 "1276-1036-1-ND" H 9542 1496 50  0001 C CNN "D1PN"
-F 6 "Samsung Electro-Mechanics" H 9542 1496 50  0001 C CNN "MFN"
-F 7 "CL10A105KQ8NNNC" H 9542 1496 50  0001 C CNN "MPN"
-	1    9450 1350
-	1    0    0    -1  
-$EndComp
 Text GLabel 3450 5850 2    50   Input ~ 0
 SD_DAT2
 Text GLabel 3450 5950 2    50   Input ~ 0
@@ -421,17 +347,15 @@ Text GLabel 1200 2250 0    50   Input ~ 0
 ETH_LED_L
 Text GLabel 1200 1700 0    50   Input ~ 0
 ETH_LED_R
-Text GLabel 7200 2950 2    50   Input ~ 0
-PGOOD
-Text GLabel 6700 4750 0    50   Input ~ 0
+Text GLabel 6800 4750 0    50   Input ~ 0
 JTAG_TMS
-Text GLabel 6700 4850 0    50   Input ~ 0
+Text GLabel 6800 4850 0    50   Input ~ 0
 JTAG_TDI
-Text GLabel 7400 4850 2    50   Input ~ 0
+Text GLabel 7300 4850 2    50   Input ~ 0
 JTAG_TDO
-Text GLabel 7400 4750 2    50   Input ~ 0
+Text GLabel 7300 4750 2    50   Input ~ 0
 JTAG_TCK
-Text GLabel 7400 4650 2    50   Input ~ 0
+Text GLabel 7300 4650 2    50   Input ~ 0
 JTAG_HALT
 Text GLabel 5150 5650 0    50   Input ~ 0
 LED0
@@ -445,7 +369,7 @@ Text GLabel 6700 2650 0    50   Input ~ 0
 GPIO7
 Text GLabel 6700 2850 0    50   Input ~ 0
 GPIO9
-Text GLabel 6700 3050 0    50   Input ~ 0
+Text GLabel 7200 2950 2    50   Input ~ 0
 GPIO11
 Text GLabel 6700 1950 0    50   Input ~ 0
 GPIO0
@@ -460,13 +384,9 @@ GPIO10
 Text GLabel 6700 2050 0    50   Input ~ 0
 GPIO1
 Text GLabel 7200 3050 2    50   Input ~ 0
-GPIO13
-Text GLabel 6700 3150 0    50   Input ~ 0
 GPIO12
 Text GLabel 6700 2750 0    50   Input ~ 0
 GPIO8
-Text Notes 8750 950  0    50   ~ 0
-Bulk capacitors between layers
 Wire Wire Line
 	3050 1800 3300 1800
 Wire Wire Line
@@ -540,8 +460,6 @@ Wire Wire Line
 Wire Wire Line
 	1200 1700 1400 1700
 Wire Wire Line
-	7400 2150 7200 2150
-Wire Wire Line
 	7300 4950 7300 5100
 Wire Wire Line
 	7300 5100 7050 5100
@@ -551,20 +469,6 @@ Wire Wire Line
 	7050 5100 6800 5100
 Wire Wire Line
 	6800 4950 6800 5100
-Wire Wire Line
-	7400 4750 7300 4750
-Wire Wire Line
-	7400 4850 7300 4850
-Wire Wire Line
-	6800 4750 6700 4750
-Wire Wire Line
-	6800 4850 6700 4850
-Wire Wire Line
-	6800 4650 6700 4650
-Wire Wire Line
-	6700 4650 6700 4400
-Wire Wire Line
-	7400 4650 7300 4650
 Wire Wire Line
 	6000 6100 6150 6100
 Wire Wire Line
@@ -594,49 +498,52 @@ Wire Wire Line
 Wire Wire Line
 	7200 2650 7200 2750
 Wire Wire Line
-	7200 1950 7600 1950
+	7200 1950 7650 1950
 Wire Wire Line
-	7600 1950 7600 2250
+	7650 1950 7650 2250
 Wire Wire Line
-	7200 2250 7600 2250
+	7200 2250 7650 2250
 Wire Wire Line
-	7600 2250 7600 2550
+	7650 2250 7650 2550
 Wire Wire Line
-	7200 2550 7600 2550
+	7200 2550 7650 2550
 Wire Wire Line
-	7600 2550 7600 2850
+	7650 2550 7650 2850
 Wire Wire Line
-	7200 2850 7600 2850
+	7200 2850 7650 2850
 Wire Wire Line
-	7200 3150 7600 3150
+	7200 3150 7650 3150
 Wire Wire Line
-	7600 3150 7600 2850
-Wire Wire Line
-	9050 1450 9050 1550
-Wire Wire Line
-	9050 1550 9250 1550
-Wire Wire Line
-	9450 1550 9250 1550
-Wire Wire Line
-	9050 1250 9250 1250
-Wire Wire Line
-	9250 1250 9250 1200
-Wire Wire Line
-	9250 1250 9450 1250
-Wire Wire Line
-	9450 1450 9450 1550
+	7650 3150 7650 2850
 Connection ~ 3200 1600
 Connection ~ 3300 2700
 Connection ~ 3400 950 
 Connection ~ 7050 5100
 Connection ~ 6150 6100
 Connection ~ 7200 2450
-Connection ~ 7200 2150
 Connection ~ 7200 2750
-Connection ~ 7600 2250
-Connection ~ 7600 2550
-Connection ~ 7600 2850
-Connection ~ 7600 3150
-Connection ~ 9250 1550
-Connection ~ 9250 1250
+Connection ~ 7650 2250
+Connection ~ 7650 2550
+Connection ~ 7650 2850
+Connection ~ 7650 3150
+Text GLabel 6700 3050 0    50   Input ~ 0
+ROOT_TX
+Text GLabel 6700 3150 0    50   Input ~ 0
+ROOT_RX
+Text GLabel 6800 4650 0    50   Input ~ 0
+VCC_JTAG
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5CDCB2B3
+P 7400 2150
+F 0 "#PWR?" H 7400 2000 50  0001 C CNN
+F 1 "+3V3" H 7400 2300 50  0000 C CNN
+F 2 "" H 7400 2150 50  0001 C CNN
+F 3 "" H 7400 2150 50  0001 C CNN
+	1    7400 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 2150 7200 2150
+Connection ~ 7200 2150
 $EndSCHEMATC
