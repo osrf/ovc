@@ -146,23 +146,23 @@ $EndComp
 $Comp
 L power:+3.3V #PWR0122
 U 1 1 5C64A971
-P 4300 2700
-F 0 "#PWR0122" H 4300 2550 50  0001 C CNN
-F 1 "+3.3V" H 4315 2873 50  0000 C CNN
-F 2 "" H 4300 2700 50  0001 C CNN
-F 3 "" H 4300 2700 50  0001 C CNN
-	1    4300 2700
+P 4150 2700
+F 0 "#PWR0122" H 4150 2550 50  0001 C CNN
+F 1 "+3.3V" H 4165 2873 50  0000 C CNN
+F 2 "" H 4150 2700 50  0001 C CNN
+F 3 "" H 4150 2700 50  0001 C CNN
+	1    4150 2700
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+1V2 #PWR0123
 U 1 1 5C68AA4E
-P 1500 1750
-F 0 "#PWR0123" H 1500 1600 50  0001 C CNN
-F 1 "+1V2" H 1515 1923 50  0000 C CNN
-F 2 "" H 1500 1750 50  0001 C CNN
-F 3 "" H 1500 1750 50  0001 C CNN
-	1    1500 1750
+P 1350 1750
+F 0 "#PWR0123" H 1350 1600 50  0001 C CNN
+F 1 "+1V2" H 1365 1923 50  0000 C CNN
+F 2 "" H 1350 1750 50  0001 C CNN
+F 3 "" H 1350 1750 50  0001 C CNN
+	1    1350 1750
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -232,148 +232,48 @@ F 3 "" H 14100 4000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L voltage_translators:TCA9803 U14
-U 1 1 5C5C5C16
-P 2950 10450
-F 0 "U14" H 2975 10815 50  0000 C CNN
-F 1 "TCA9803" H 2975 10724 50  0000 C CNN
-F 2 "Package_SO:VSSOP-8_3.0x3.0mm_P0.65mm" H 2600 10650 50  0001 C CNN
-F 3 "" H 2600 10650 50  0001 C CNN
-F 4 "Digikey" H 2975 10915 50  0001 C CNN "D1N"
-F 5 "296-47829-1-ND" H 2975 10915 50  0001 C CNN "D1PN"
-F 6 "Texas Instruments" H 2975 10915 50  0001 C CNN "MFN"
-F 7 "TCA9803DGKR" H 2975 10915 50  0001 C CNN "MPN"
-	1    2950 10450
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C52
-U 1 1 5C5C8655
-P 1150 10200
-F 0 "C52" H 1242 10246 50  0000 L CNN
-F 1 "100n" H 1242 10155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 1150 10200 50  0001 C CNN
-F 3 "~" H 1150 10200 50  0001 C CNN
-F 4 "Digikey" H 1242 10346 50  0001 C CNN "D1N"
-F 5 "1276-1004-1-ND" H 1242 10346 50  0001 C CNN "D1PN"
-F 6 "Samsung Electro-Mechanics" H 1242 10346 50  0001 C CNN "MFN"
-F 7 "CL05F104ZO5NNNC" H 1242 10346 50  0001 C CNN "MPN"
-	1    1150 10200
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+1V2 #PWR0185
-U 1 1 5C5D2F61
-P 1550 10100
-F 0 "#PWR0185" H 1550 9950 50  0001 C CNN
-F 1 "+1V2" H 1565 10273 50  0000 C CNN
-F 2 "" H 1550 10100 50  0001 C CNN
-F 3 "" H 1550 10100 50  0001 C CNN
-	1    1550 10100
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:R_Small R16
 U 1 1 5C5D3BED
-P 1900 10200
+P 3550 10300
 AR Path="/5C5D3BED" Ref="R16"  Part="1" 
 AR Path="/5C124FC6/5C5D3BED" Ref="R16"  Part="1" 
-F 0 "R16" H 1959 10246 50  0000 L CNN
-F 1 "2k2" H 1959 10155 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 1900 10200 50  0001 C CNN
-F 3 "~" H 1900 10200 50  0001 C CNN
-F 4 "Digikey" H 1959 10346 50  0001 C CNN "D1N"
-F 5 "311-2.20KLRCT-ND" H 1959 10346 50  0001 C CNN "D1PN"
-F 6 "Yageo" H 1959 10346 50  0001 C CNN "MFN"
-F 7 "RC0402FR-072K2L" H 1959 10346 50  0001 C CNN "MPN"
-	1    1900 10200
+F 0 "R16" H 3609 10346 50  0000 L CNN
+F 1 "2k2" H 3609 10255 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 3550 10300 50  0001 C CNN
+F 3 "~" H 3550 10300 50  0001 C CNN
+F 4 "Digikey" H 3609 10446 50  0001 C CNN "D1N"
+F 5 "311-2.20KLRCT-ND" H 3609 10446 50  0001 C CNN "D1PN"
+F 6 "Yageo" H 3609 10446 50  0001 C CNN "MFN"
+F 7 "RC0402FR-072K2L" H 3609 10446 50  0001 C CNN "MPN"
+	1    3550 10300
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R_Small R9
 U 1 1 5C5D40C4
-P 1550 10200
+P 3200 10300
 AR Path="/5C5D40C4" Ref="R9"  Part="1" 
 AR Path="/5C124FC6/5C5D40C4" Ref="R9"  Part="1" 
-F 0 "R9" H 1609 10246 50  0000 L CNN
-F 1 "2k2" H 1609 10155 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 1550 10200 50  0001 C CNN
-F 3 "~" H 1550 10200 50  0001 C CNN
-F 4 "Digikey" H 1609 10346 50  0001 C CNN "D1N"
-F 5 "311-2.20KLRCT-ND" H 1609 10346 50  0001 C CNN "D1PN"
-F 6 "Yageo" H 1609 10346 50  0001 C CNN "MFN"
-F 7 "RC0402FR-072K2L" H 1609 10346 50  0001 C CNN "MPN"
-	1    1550 10200
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0200
-U 1 1 5C5F1BFA
-P 1150 10300
-F 0 "#PWR0200" H 1150 10050 50  0001 C CNN
-F 1 "GND" H 1155 10127 50  0001 C CNN
-F 2 "" H 1150 10300 50  0001 C CNN
-F 3 "" H 1150 10300 50  0001 C CNN
-	1    1150 10300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0201
-U 1 1 5C5F2352
-P 2600 10650
-F 0 "#PWR0201" H 2600 10400 50  0001 C CNN
-F 1 "GND" H 2605 10477 50  0001 C CNN
-F 2 "" H 2600 10650 50  0001 C CNN
-F 3 "" H 2600 10650 50  0001 C CNN
-	1    2600 10650
+F 0 "R9" H 3259 10346 50  0000 L CNN
+F 1 "2k2" H 3259 10255 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 3200 10300 50  0001 C CNN
+F 3 "~" H 3200 10300 50  0001 C CNN
+F 4 "Digikey" H 3259 10446 50  0001 C CNN "D1N"
+F 5 "311-2.20KLRCT-ND" H 3259 10446 50  0001 C CNN "D1PN"
+F 6 "Yageo" H 3259 10446 50  0001 C CNN "MFN"
+F 7 "RC0402FR-072K2L" H 3259 10446 50  0001 C CNN "MPN"
+	1    3200 10300
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+1V8 #PWR0202
 U 1 1 5C5F3BE5
-P 3350 10100
-F 0 "#PWR0202" H 3350 9950 50  0001 C CNN
-F 1 "+1V8" H 3365 10273 50  0000 C CNN
-F 2 "" H 3350 10100 50  0001 C CNN
-F 3 "" H 3350 10100 50  0001 C CNN
-	1    3350 10100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C66
-U 1 1 5C5FE1AD
-P 3550 10200
-F 0 "C66" H 3642 10246 50  0000 L CNN
-F 1 "100n" H 3642 10155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 3550 10200 50  0001 C CNN
-F 3 "~" H 3550 10200 50  0001 C CNN
-F 4 "Digikey" H 3642 10346 50  0001 C CNN "D1N"
-F 5 "1276-1004-1-ND" H 3642 10346 50  0001 C CNN "D1PN"
-F 6 "Samsung Electro-Mechanics" H 3642 10346 50  0001 C CNN "MFN"
-F 7 "CL05F104ZO5NNNC" H 3642 10346 50  0001 C CNN "MPN"
-	1    3550 10200
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0203
-U 1 1 5C608CEB
-P 3550 10300
-F 0 "#PWR0203" H 3550 10050 50  0001 C CNN
-F 1 "GND" H 3555 10127 50  0001 C CNN
-F 2 "" H 3550 10300 50  0001 C CNN
-F 3 "" H 3550 10300 50  0001 C CNN
-	1    3550 10300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+1V2 #PWR0204
-U 1 1 5C69045A
-P 3550 10800
-F 0 "#PWR0204" H 3550 10650 50  0001 C CNN
-F 1 "+1V2" H 3565 10973 50  0000 C CNN
-F 2 "" H 3550 10800 50  0001 C CNN
-F 3 "" H 3550 10800 50  0001 C CNN
-	1    3550 10800
+P 3200 10200
+F 0 "#PWR0202" H 3200 10050 50  0001 C CNN
+F 1 "+1V8" H 3215 10373 50  0000 C CNN
+F 2 "" H 3200 10200 50  0001 C CNN
+F 3 "" H 3200 10200 50  0001 C CNN
+	1    3200 10200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -911,106 +811,6 @@ F 3 "" H 14250 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L voltage_translators:SN74AVC4T245 U11
-U 1 1 5CB50D98
-P 2650 8550
-F 0 "U11" H 2625 9637 60  0000 C CNN
-F 1 "SN74AXC4T245" H 2625 9531 60  0000 C CNN
-F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 2625 9531 60  0001 C CNN
-F 3 "" H 2650 8550 60  0000 C CNN
-F 4 "Digikey" H 2625 9737 50  0001 C CNN "D1N"
-F 5 "296-53432-1-ND" H 2625 9737 50  0001 C CNN "D1PN"
-F 6 "Texas Instruments" H 2625 9737 50  0001 C CNN "MFN"
-F 7 "SN74AXC4T245RSVR" H 2625 9737 50  0001 C CNN "MPN"
-	1    2650 8550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C18
-U 1 1 5CB50DA3
-P 1750 7850
-F 0 "C18" H 1842 7896 50  0000 L CNN
-F 1 "100n" H 1842 7805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 1750 7850 50  0001 C CNN
-F 3 "~" H 1750 7850 50  0001 C CNN
-F 4 "Digikey" H 1842 7996 50  0001 C CNN "D1N"
-F 5 "1276-1004-1-ND" H 1842 7996 50  0001 C CNN "D1PN"
-F 6 "Samsung Electro-Mechanics" H 1842 7996 50  0001 C CNN "MFN"
-F 7 "CL05F104ZO5NNNC" H 1842 7996 50  0001 C CNN "MPN"
-	1    1750 7850
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+1V2 #PWR0138
-U 1 1 5CB50DAE
-P 1750 7750
-F 0 "#PWR0138" H 1750 7600 50  0001 C CNN
-F 1 "+1V2" H 1765 7923 50  0000 C CNN
-F 2 "" H 1750 7750 50  0001 C CNN
-F 3 "" H 1750 7750 50  0001 C CNN
-	1    1750 7750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C19
-U 1 1 5CB50DB8
-P 3250 7850
-F 0 "C19" H 3342 7896 50  0000 L CNN
-F 1 "100n" H 3342 7805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 3250 7850 50  0001 C CNN
-F 3 "~" H 3250 7850 50  0001 C CNN
-F 4 "Digikey" H 3342 7996 50  0001 C CNN "D1N"
-F 5 "1276-1004-1-ND" H 3342 7996 50  0001 C CNN "D1PN"
-F 6 "Samsung Electro-Mechanics" H 3342 7996 50  0001 C CNN "MFN"
-F 7 "CL05F104ZO5NNNC" H 3342 7996 50  0001 C CNN "MPN"
-	1    3250 7850
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+1V8 #PWR0140
-U 1 1 5CB50DC4
-P 3250 7750
-F 0 "#PWR0140" H 3250 7600 50  0001 C CNN
-F 1 "+1V8" H 3265 7923 50  0000 C CNN
-F 2 "" H 3250 7750 50  0001 C CNN
-F 3 "" H 3250 7750 50  0001 C CNN
-	1    3250 7750
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0205
-U 1 1 5CB50DD2
-P 3250 8050
-F 0 "#PWR0205" H 3250 7800 50  0001 C CNN
-F 1 "GND" H 3255 7877 50  0001 C CNN
-F 2 "" H 3250 8050 50  0001 C CNN
-F 3 "" H 3250 8050 50  0001 C CNN
-	1    3250 8050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0206
-U 1 1 5CB50DDD
-P 1750 7950
-F 0 "#PWR0206" H 1750 7700 50  0001 C CNN
-F 1 "GND" H 1755 7777 50  0001 C CNN
-F 2 "" H 1750 7950 50  0001 C CNN
-F 3 "" H 1750 7950 50  0001 C CNN
-	1    1750 7950
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0207
-U 1 1 5CB50DED
-P 2150 8850
-F 0 "#PWR0207" H 2150 8600 50  0001 C CNN
-F 1 "GND" H 2155 8677 50  0001 C CNN
-F 2 "" H 2150 8850 50  0001 C CNN
-F 3 "" H 2150 8850 50  0001 C CNN
-	1    2150 8850
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C_Small C85
 U 1 1 5CB5AC5E
 P 850 1450
@@ -1131,16 +931,12 @@ Text GLabel 13950 2200 2    50   Input ~ 0
 USB3_RX+
 Text GLabel 13950 2300 2    50   Input ~ 0
 USB3_RX-
-Text GLabel 3800 2650 2    50   Input ~ 0
-PGOOD
 Text GLabel 12400 5400 2    50   Input ~ 0
 nPGOOD
 Text Notes 10550 3950 0    50   ~ 0
 TODO check VBUS_V_EN
 Text Notes 3650 900  0    50   ~ 0
 IO banks voltages
-Text GLabel 8700 2100 2    50   Input ~ 0
-JTAG_HALT
 Text Notes 10500 2050 0    50   ~ 0
 todo: double-check\nthat polarity swap\nis OK for USB3
 Text GLabel 1750 4650 0    50   Input ~ 0
@@ -1161,21 +957,13 @@ Text GLabel 3600 5850 2    50   Input ~ 0
 CAM2_CLK-
 Text GLabel 3600 5950 2    50   Input ~ 0
 CAM2_CLK+
-Text GLabel 3700 10450 2    50   Input ~ 0
+Text GLabel 8550 2500 2    50   Input ~ 0
 CAM0_SCL_1V8
-Text Label 1950 10450 0    50   ~ 0
-CAM0_SCL_1V2
-Text Label 1950 10550 0    50   ~ 0
-CAM0_SDA_1V2
-Text Notes 3650 10750 0    50   ~ 0
-always enabled
-Text GLabel 3700 10550 2    50   Input ~ 0
+Text GLabel 8550 2600 2    50   Input ~ 0
 CAM0_SDA_1V8
-Text Notes 1250 7350 0    118  ~ 24
-left-hand side level shifters
 Text Notes 6150 7950 0    50   ~ 0
 always enabled, A->B
-Text Notes 6600 7350 0    118  ~ 24
+Text Notes 6650 7250 0    118  ~ 24
 right-hand side level shifters
 Text GLabel 7300 10450 2    50   Input ~ 0
 CAM1_SCL_1V8
@@ -1231,18 +1019,12 @@ Text Notes 10750 10700 0    50   ~ 0
 always enabled
 Text GLabel 10800 10500 2    50   Input ~ 0
 CAM2_SDA_1V8
-Text GLabel 3100 8450 2    50   Input ~ 0
+Text GLabel 8550 2400 2    50   Input ~ 0
 CAM0_nRESET_1V8
-Text GLabel 3100 8350 2    50   Input ~ 0
+Text GLabel 8550 2300 2    50   Input ~ 0
 CAM0_TRIG_1V8
-Text GLabel 3100 8250 2    50   Input ~ 0
+Text GLabel 8550 2000 2    50   Input ~ 0
 CAM0_EXTCLK_1V8
-Text Label 2000 8350 2    50   ~ 0
-CAM0_TRIG_1V2
-Text Label 2000 8250 2    50   ~ 0
-CAM0_EXTCLK_1V2
-Text Label 2000 8450 2    50   ~ 0
-CAM0_nRESET_1V2
 Text Notes 4600 3800 0    50   ~ 0
 MIPI Lanes:\ncam0 = B64 L1+L2\ncam1 = B66 L1+L2\ncam2 = B66 L10+L11\nbonus1 = \nbonus2_0 = B66 L16+L17
 Text GLabel 1750 4250 0    50   Input ~ 0
@@ -1344,23 +1126,19 @@ Bank 65 needs to be\n>1v5 for the Si5338
 Text Label 14250 8050 2    50   ~ 0
 PSBATT
 Text Notes 14000 7900 0    50   ~ 0
-TODO: small clock battery?
+TODO: small clock battery
 Text Label 1750 5650 2    50   ~ 0
 JTAGEN
-Text Label 14500 7300 2    50   ~ 0
+Text Label 14250 7300 0    50   ~ 0
 JTAGEN
 Text Notes 12800 7100 0    118  ~ 24
-TODO: DIP switch for boot select?
-Text Label 3600 2750 0    50   ~ 0
-MODE
-Text Label 14300 7400 0    50   ~ 0
+TODO: DIP switch for boot select
+Text Label 14250 7400 0    50   ~ 0
 MODE
 Text GLabel 1500 5550 0    50   Input ~ 0
 USB_SDA
-Text GLabel 1500 5750 0    50   Input ~ 0
+Text GLabel 1750 5750 0    50   Input ~ 0
 USB_SCL
-Text Notes 1100 8050 0    50   ~ 0
-1DIR = A->B\n2DIR = A->B
 Text GLabel 8550 3300 2    50   Input ~ 0
 BONUS1_DAT0+
 Text GLabel 8550 3400 2    50   Input ~ 0
@@ -1413,26 +1191,10 @@ Text GLabel 6500 4600 0    50   Input ~ 0
 BONUS1_SDA1
 Text GLabel 6500 4500 0    50   Input ~ 0
 BONUS1_SCL1
-Text Label 8550 6000 0    50   ~ 0
-CAM0_SCL_1V2
-Text Label 8550 6100 0    50   ~ 0
-CAM0_SDA_1V2
-Text Label 8550 5500 0    50   ~ 0
-CAM0_TRIG_1V2
-Text Label 8550 5400 0    50   ~ 0
-CAM0_EXTCLK_1V2
-Text Label 8550 5600 0    50   ~ 0
-CAM0_nRESET_1V2
-Text Notes 13400 7550 0    50   ~ 0
-TODO: Ground JTAGEN (GPIO means can program CPLD)
-Text GLabel 8550 5000 2    50   Input ~ 0
+Text GLabel 1750 5850 0    50   Input ~ 0
 LED0
-Text GLabel 8550 4000 2    50   Input ~ 0
+Text GLabel 1750 5950 0    50   Input ~ 0
 LED1
-Text GLabel 11450 1700 0    50   Input ~ 0
-ETH_LED_L
-Text GLabel 11450 1600 0    50   Input ~ 0
-ETH_LED_R
 Wire Wire Line
 	13700 4000 13800 4000
 Wire Wire Line
@@ -1514,8 +1276,6 @@ Wire Wire Line
 Wire Wire Line
 	11400 3600 11650 3600
 Wire Wire Line
-	1500 5750 1750 5750
-Wire Wire Line
 	1500 5550 1750 5550
 Wire Wire Line
 	11650 2200 11400 2200
@@ -1527,8 +1287,6 @@ Wire Wire Line
 	13950 2300 13700 2300
 Wire Wire Line
 	12000 5700 12000 5600
-Wire Wire Line
-	3800 2650 3600 2650
 Wire Wire Line
 	8950 1300 8700 1300
 Wire Wire Line
@@ -1598,9 +1356,7 @@ Wire Wire Line
 Wire Wire Line
 	12400 5400 12300 5400
 Wire Wire Line
-	3600 2550 4150 2550
-Wire Wire Line
-	8550 2100 8700 2100
+	3600 2550 4000 2550
 Wire Wire Line
 	12000 5200 12000 5100
 Wire Wire Line
@@ -1612,7 +1368,7 @@ Wire Wire Line
 Wire Wire Line
 	1700 1750 1700 1650
 Wire Wire Line
-	1500 1750 1700 1750
+	1350 1750 1700 1750
 Wire Wire Line
 	6250 1700 6650 1700
 Wire Wire Line
@@ -1649,30 +1405,6 @@ Wire Wire Line
 	700  2650 1750 2650
 Wire Wire Line
 	700  4350 1750 4350
-Wire Wire Line
-	2600 10100 2600 10350
-Wire Wire Line
-	1900 10300 1900 10450
-Wire Wire Line
-	1550 10300 1550 10550
-Wire Wire Line
-	1550 10550 2600 10550
-Wire Wire Line
-	3350 10100 3350 10350
-Wire Wire Line
-	3550 10100 3350 10100
-Wire Wire Line
-	1550 10100 1150 10100
-Wire Wire Line
-	3700 10450 3350 10450
-Wire Wire Line
-	3700 10550 3350 10550
-Wire Wire Line
-	1900 10450 2600 10450
-Wire Wire Line
-	3350 10650 3350 10800
-Wire Wire Line
-	3350 10800 3550 10800
 Wire Wire Line
 	8000 9400 8100 9400
 Wire Wire Line
@@ -1712,13 +1444,9 @@ Wire Wire Line
 Wire Wire Line
 	6950 10800 7150 10800
 Wire Wire Line
-	1550 10100 1900 10100
-Wire Wire Line
 	5150 10100 5500 10100
 Wire Wire Line
 	5500 10100 6200 10100
-Wire Wire Line
-	1900 10100 2600 10100
 Wire Wire Line
 	1600 2750 1750 2750
 Wire Wire Line
@@ -1832,9 +1560,9 @@ Wire Wire Line
 Wire Wire Line
 	6450 1500 6650 1500
 Wire Wire Line
-	4150 2550 4150 2700
+	4000 2550 4000 2700
 Wire Wire Line
-	4150 2700 4300 2700
+	4000 2700 4150 2700
 Wire Wire Line
 	4500 2850 4500 2450
 Wire Wire Line
@@ -1853,36 +1581,6 @@ Wire Wire Line
 	4500 2450 4500 2150
 Wire Wire Line
 	4500 3350 4500 2850
-Wire Wire Line
-	2000 8250 2150 8250
-Wire Wire Line
-	2000 8350 2150 8350
-Wire Wire Line
-	3100 7750 3250 7750
-Wire Wire Line
-	3100 7950 3100 8050
-Wire Wire Line
-	3100 8050 3250 8050
-Wire Wire Line
-	3250 8050 3250 7950
-Wire Wire Line
-	2000 8450 2150 8450
-Wire Wire Line
-	2000 8550 2150 8550
-Wire Wire Line
-	2150 8850 2150 8750
-Wire Wire Line
-	2150 8050 2050 8050
-Wire Wire Line
-	2050 7750 2150 7750
-Wire Wire Line
-	1750 7750 2050 7750
-Wire Wire Line
-	2050 8050 2050 7950
-Wire Wire Line
-	2150 7950 2050 7950
-Wire Wire Line
-	2050 7950 2050 7750
 Wire Wire Line
 	6500 3500 6650 3500
 Wire Wire Line
@@ -1909,10 +1607,6 @@ Wire Wire Line
 	6500 4500 6650 4500
 Wire Wire Line
 	6500 5100 6650 5100
-Wire Wire Line
-	11450 1700 11650 1700
-Wire Wire Line
-	11650 1600 11450 1600
 Wire Wire Line
 	1200 1350 850  1350
 Connection ~ 13800 4000
@@ -1952,8 +1646,6 @@ Connection ~ 4500 4350
 Connection ~ 4500 3850
 Connection ~ 700  4850
 Connection ~ 700  4350
-Connection ~ 3350 10100
-Connection ~ 1550 10100
 Connection ~ 8000 9400
 Connection ~ 8450 7700
 Connection ~ 8600 7700
@@ -1962,7 +1654,6 @@ Connection ~ 7100 7700
 Connection ~ 6950 10100
 Connection ~ 5150 10100
 Connection ~ 5500 10100
-Connection ~ 1900 10100
 Connection ~ 700  3850
 Connection ~ 10450 10050
 Connection ~ 8650 10050
@@ -1984,17 +1675,8 @@ Connection ~ 4500 2150
 Connection ~ 4500 2450
 Connection ~ 4500 3350
 Connection ~ 4500 2850
-Connection ~ 1750 7750
-Connection ~ 3250 7750
-Connection ~ 3100 8050
-Connection ~ 3250 8050
-Connection ~ 2150 8850
-Connection ~ 2050 7750
-Connection ~ 2050 7950
 Text Notes 14600 7300 0    50   ~ 0
 10k pullup to 3v3, switch to GND
-Text GLabel 8700 1800 2    50   Input ~ 0
-3V3_VOUT
 Text GLabel 11700 5400 0    50   Input ~ 0
 3V3_VOUT
 Text GLabel 6650 6200 0    50   Input ~ 0
@@ -2011,4 +1693,56 @@ Text GLabel 1750 5450 0    50   Input ~ 0
 ROOT_TX
 Text GLabel 6650 5800 0    50   Input ~ 0
 VCC_JTAG
+Wire Wire Line
+	1750 1550 1500 1550
+Text Label 1500 1550 0    50   ~ 0
+NOSEQ
+Wire Wire Line
+	14550 7500 14250 7500
+Text Label 14250 7500 0    50   ~ 0
+NOSEQ
+Text Notes 14600 7500 0    50   ~ 0
+10k pullup to 3v3, switch to GND
+Text Notes 14600 7400 0    50   ~ 0
+10k pullup to 3v3, switch to GND
+Wire Wire Line
+	14550 7400 14250 7400
+Wire Wire Line
+	14550 7300 14250 7300
+NoConn ~ 3600 2650
+Wire Wire Line
+	3600 2750 3900 2750
+Text Label 3650 2750 0    50   ~ 0
+MODE
+Wire Wire Line
+	1750 5650 1450 5650
+Text GLabel 8700 1800 2    50   Input ~ 0
+3V3_VOUT
+NoConn ~ 8550 2100
+Text Notes 8600 2100 0    50   ~ 0
+pullup provided on TE0820
+NoConn ~ 6650 1300
+NoConn ~ 6650 1400
+NoConn ~ 6650 2200
+Wire Wire Line
+	3200 10200 3550 10200
+Connection ~ 3200 10200
+Text GLabel 3550 10500 2    50   Input ~ 0
+CAM0_SCL_1V8
+Text GLabel 3550 10600 2    50   Input ~ 0
+CAM0_SDA_1V8
+Wire Wire Line
+	3200 10400 3200 10600
+Wire Wire Line
+	3200 10600 3550 10600
+Wire Wire Line
+	3550 10500 3550 10400
+Text Notes 9750 5000 0    50   ~ 0
+available MIPI clock:\nAC9, AD7, AG4, AE2, AG9, AG6, AD2, AD5
+Text Notes 9100 4400 0    50   ~ 0
+MIPI CLK
+Text Notes 9100 5050 0    50   ~ 0
+MIPI CLK
+Text Notes 9100 4050 0    50   ~ 0
+MIPI CLK
 $EndSCHEMATC
