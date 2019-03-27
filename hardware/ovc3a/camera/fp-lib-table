@@ -17,4 +17,6 @@
   (lib (name Connector_Molex)(type KiCad)(uri /usr/share/kicad-nightly/modules/Connector_Molex.pretty)(options "")(descr ""))
   (lib (name Package_TO_SOT_SMD)(type KiCad)(uri /usr/share/kicad-nightly/modules/Package_TO_SOT_SMD.pretty)(options "")(descr ""))
   (lib (name Package_SO)(type KiCad)(uri /usr/share/kicad-nightly/modules/Package_SO.pretty)(options "")(descr ""))
+  (lib (name Battery)(type KiCad)(uri /usr/share/kicad-nightly/modules/Battery.pretty)(options "")(descr ""))
+  (lib (name Button_Switch_SMD)(type KiCad)(uri /usr/share/kicad-nightly/modules/Button_Switch_SMD.pretty)(options "")(descr ""))
 )

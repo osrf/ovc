@@ -299,31 +299,31 @@ Text GLabel 5000 5650 0    50   Input ~ 0
 LED0
 Text GLabel 5000 6100 0    50   Input ~ 0
 LED1
-Text GLabel 6700 2250 0    50   Input ~ 0
-GPIO3
-Text GLabel 6700 2450 0    50   Input ~ 0
-GPIO5
-Text GLabel 6700 2650 0    50   Input ~ 0
-GPIO7
-Text GLabel 6700 2850 0    50   Input ~ 0
-GPIO9
-Text GLabel 6700 3050 0    50   Input ~ 0
-GPIO11
-Text GLabel 5900 1950 0    50   Input ~ 0
-GPIO0
-Text GLabel 6700 2150 0    50   Input ~ 0
-GPIO2
 Text GLabel 6700 2350 0    50   Input ~ 0
-GPIO4
+GPIO3
 Text GLabel 6700 2550 0    50   Input ~ 0
-GPIO6
-Text GLabel 6700 2950 0    50   Input ~ 0
-GPIO10
-Text GLabel 6700 2050 0    50   Input ~ 0
-GPIO1
-Text GLabel 6700 3150 0    50   Input ~ 0
-GPIO12
+GPIO5
 Text GLabel 6700 2750 0    50   Input ~ 0
+GPIO7
+Text GLabel 6700 2950 0    50   Input ~ 0
+GPIO9
+Text GLabel 6700 3150 0    50   Input ~ 0
+GPIO11
+Text GLabel 6700 2050 0    50   Input ~ 0
+GPIO0
+Text GLabel 6700 2250 0    50   Input ~ 0
+GPIO2
+Text GLabel 6700 2450 0    50   Input ~ 0
+GPIO4
+Text GLabel 6700 2650 0    50   Input ~ 0
+GPIO6
+Text GLabel 6700 3050 0    50   Input ~ 0
+GPIO10
+Text GLabel 6700 2150 0    50   Input ~ 0
+GPIO1
+Text GLabel 7200 2750 2    50   Input ~ 0
+GPIO12
+Text GLabel 6700 2850 0    50   Input ~ 0
 GPIO8
 Wire Wire Line
 	3050 1800 3300 1800
@@ -402,16 +402,11 @@ Wire Wire Line
 Wire Wire Line
 	7200 2650 7650 2650
 Wire Wire Line
-	7200 2850 7650 2850
-Wire Wire Line
 	7200 3350 7650 3350
-Wire Wire Line
-	7650 3350 7650 2850
 Connection ~ 3200 1600
 Connection ~ 3300 2700
 Connection ~ 3400 950 
 Connection ~ 6150 6100
-Connection ~ 7650 2850
 Text GLabel 8650 4800 2    50   Input ~ 0
 VCC_JTAG
 $Comp
@@ -484,8 +479,6 @@ Wire Wire Line
 Connection ~ 7200 2250
 Connection ~ 7650 2650
 Wire Wire Line
-	7650 2650 7650 2850
-Wire Wire Line
 	7650 2050 7650 2350
 Wire Wire Line
 	7200 2450 7200 2550
@@ -499,4 +492,16 @@ Text GLabel 6700 3250 0    50   Input ~ 0
 ROOT_RX
 Text GLabel 6700 3350 0    50   Input ~ 0
 ROOT_TX
+Wire Wire Line
+	7650 2650 7650 3350
+Text GLabel 7200 2850 2    50   Input ~ 0
+GPIO13
+Text GLabel 7200 2950 2    50   Input ~ 0
+GPIO14
+Text GLabel 7200 3050 2    50   Input ~ 0
+GPIO15
+Text GLabel 7200 3150 2    50   Input ~ 0
+GPIO16
+Text GLabel 7200 3250 2    50   Input ~ 0
+GPIO17
 $EndSCHEMATC
