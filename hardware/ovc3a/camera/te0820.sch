@@ -778,28 +778,6 @@ F 3 "" H 6450 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 J12
-U 1 1 5C826B34
-P 14450 8050
-F 0 "J12" H 14530 8042 50  0000 L CNN
-F 1 "RTC_BAT" H 14530 7951 50  0000 L CNN
-F 2 "Connector_PinHeader_2.00mm:PinHeader_1x02_P2.00mm_Vertical" H 14450 8050 50  0001 C CNN
-F 3 "~" H 14450 8050 50  0001 C CNN
-	1    14450 8050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0241
-U 1 1 5C826EF2
-P 14250 8150
-F 0 "#PWR0241" H 14250 7900 50  0001 C CNN
-F 1 "GND" H 14255 7977 50  0001 C CNN
-F 2 "" H 14250 8150 50  0001 C CNN
-F 3 "" H 14250 8150 50  0001 C CNN
-	1    14250 8150
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C_Small C85
 U 1 1 5CB5AC5E
 P 850 1450
@@ -1082,8 +1060,6 @@ Text Label 10800 8950 2    50   ~ 0
 ICM_IMU_INT1_1V2
 Text Label 3600 4950 0    50   ~ 0
 ICM_SPI_MISO_1V2
-Text Label 1750 5150 2    50   ~ 0
-PSBATT
 Text Label 3600 5050 0    50   ~ 0
 ICM_IMU_INT1_1V2
 Text Label 1750 5350 2    50   ~ 0
@@ -1096,17 +1072,11 @@ Text Label 1750 5050 2    50   ~ 0
 ICM_SPI_SYNC_1V2
 Text Notes 5450 1450 0    50   ~ 0
 Bank 65 needs to be\n>1v5 for the Si5338
-Text Label 14250 8050 2    50   ~ 0
-PSBATT
-Text Notes 14000 7900 0    50   ~ 0
-TODO: small clock battery
 Text Label 1750 5650 2    50   ~ 0
 JTAGEN
-Text Label 14250 7300 0    50   ~ 0
+Text Label 14400 9150 0    50   ~ 0
 JTAGEN
-Text Notes 12800 7100 0    118  ~ 24
-TODO: DIP switch for boot select
-Text Label 14250 7400 0    50   ~ 0
+Text Label 14400 9050 0    50   ~ 0
 MODE
 Text GLabel 1500 5550 0    50   Input ~ 0
 USB_SDA
@@ -1545,8 +1515,6 @@ Connection ~ 4500 2150
 Connection ~ 4500 2450
 Connection ~ 4500 3350
 Connection ~ 4500 2850
-Text Notes 14600 7300 0    50   ~ 0
-10k pullup to 3v3, switch to GND
 Text GLabel 11700 5400 0    50   Input ~ 0
 3V3_VOUT
 Text GLabel 6650 6200 0    50   Input ~ 0
@@ -1567,18 +1535,8 @@ Wire Wire Line
 	1750 1550 1500 1550
 Text Label 1500 1550 0    50   ~ 0
 NOSEQ
-Wire Wire Line
-	14550 7500 14250 7500
-Text Label 14250 7500 0    50   ~ 0
+Text Label 14400 8950 0    50   ~ 0
 NOSEQ
-Text Notes 14600 7500 0    50   ~ 0
-10k pullup to 3v3, switch to GND
-Text Notes 14600 7400 0    50   ~ 0
-10k pullup to 3v3, switch to GND
-Wire Wire Line
-	14550 7400 14250 7400
-Wire Wire Line
-	14550 7300 14250 7300
 NoConn ~ 3600 2650
 Wire Wire Line
 	3600 2750 3900 2750
@@ -1788,4 +1746,158 @@ Text GLabel 13700 3200 2    50   Input ~ 0
 GPIO17
 Text GLabel 13700 3100 2    50   Input ~ 0
 GPIO16
+$Comp
+L Switch:SW_DIP_x04 SW1
+U 1 1 5C9DA7FA
+P 14050 9150
+F 0 "SW1" H 14050 9617 50  0000 C CNN
+F 1 "SW_DIP_x04" H 14050 9526 50  0000 C CNN
+F 2 "Button_Switch_SMD:SW_DIP_SPSTx04_Slide_6.7x11.72mm_W8.61mm_P2.54mm_LowProfile" H 14050 9150 50  0001 C CNN
+F 3 "~" H 14050 9150 50  0001 C CNN
+F 4 "418121270804" H 14050 9150 50  0001 C CNN "MPN"
+F 5 "Wurth" H 14050 9150 50  0001 C CNN "MFN"
+F 6 "digikey" H 14050 9150 50  0001 C CNN "D1N"
+F 7 "732-6963-1-ND" H 14050 9150 50  0001 C CNN "D1PN"
+	1    14050 9150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0206
+U 1 1 5C9E63E2
+P 13750 9250
+F 0 "#PWR0206" H 13750 9000 50  0001 C CNN
+F 1 "GND" H 13755 9077 50  0001 C CNN
+F 2 "" H 13750 9250 50  0001 C CNN
+F 3 "" H 13750 9250 50  0001 C CNN
+	1    13750 9250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5CA21E6B
+P 15100 8950
+AR Path="/5BFFC89B/5CA21E6B" Ref="R?"  Part="1" 
+AR Path="/5C124FC6/5CA21E6B" Ref="R12"  Part="1" 
+F 0 "R12" V 15050 8700 50  0000 L CNN
+F 1 "10k" V 15050 9100 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 15100 8950 50  0001 C CNN
+F 3 "~" H 15100 8950 50  0001 C CNN
+F 4 "Digikey" H 15159 9096 50  0001 C CNN "D1N"
+F 5 "P10KDECT-ND" H 15159 9096 50  0001 C CNN "D1PN"
+F 6 "Panasonic Electronic Components" H 15159 9096 50  0001 C CNN "MFN"
+F 7 "ERA-2AED103X" H 15159 9096 50  0001 C CNN "MPN"
+	1    15100 8950
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5CA5050E
+P 15100 9050
+AR Path="/5BFFC89B/5CA5050E" Ref="R?"  Part="1" 
+AR Path="/5C124FC6/5CA5050E" Ref="R13"  Part="1" 
+F 0 "R13" V 15050 8800 50  0000 L CNN
+F 1 "10k" V 15050 9200 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 15100 9050 50  0001 C CNN
+F 3 "~" H 15100 9050 50  0001 C CNN
+F 4 "Digikey" H 15159 9196 50  0001 C CNN "D1N"
+F 5 "P10KDECT-ND" H 15159 9196 50  0001 C CNN "D1PN"
+F 6 "Panasonic Electronic Components" H 15159 9196 50  0001 C CNN "MFN"
+F 7 "ERA-2AED103X" H 15159 9196 50  0001 C CNN "MPN"
+	1    15100 9050
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5CA5CA43
+P 15100 9150
+AR Path="/5BFFC89B/5CA5CA43" Ref="R?"  Part="1" 
+AR Path="/5C124FC6/5CA5CA43" Ref="R21"  Part="1" 
+F 0 "R21" V 15050 8900 50  0000 L CNN
+F 1 "10k" V 15050 9300 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 15100 9150 50  0001 C CNN
+F 3 "~" H 15100 9150 50  0001 C CNN
+F 4 "Digikey" H 15159 9296 50  0001 C CNN "D1N"
+F 5 "P10KDECT-ND" H 15159 9296 50  0001 C CNN "D1PN"
+F 6 "Panasonic Electronic Components" H 15159 9296 50  0001 C CNN "MFN"
+F 7 "ERA-2AED103X" H 15159 9296 50  0001 C CNN "MPN"
+	1    15100 9150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5CA5CA51
+P 15100 9250
+AR Path="/5BFFC89B/5CA5CA51" Ref="R?"  Part="1" 
+AR Path="/5C124FC6/5CA5CA51" Ref="R22"  Part="1" 
+F 0 "R22" V 15050 9000 50  0000 L CNN
+F 1 "10k" V 15050 9400 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 15100 9250 50  0001 C CNN
+F 3 "~" H 15100 9250 50  0001 C CNN
+F 4 "Digikey" H 15159 9396 50  0001 C CNN "D1N"
+F 5 "P10KDECT-ND" H 15159 9396 50  0001 C CNN "D1PN"
+F 6 "Panasonic Electronic Components" H 15159 9396 50  0001 C CNN "MFN"
+F 7 "ERA-2AED103X" H 15159 9396 50  0001 C CNN "MPN"
+	1    15100 9250
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+3.3V #PWR0207
+U 1 1 5CADCCB5
+P 15500 8950
+F 0 "#PWR0207" H 15500 8800 50  0001 C CNN
+F 1 "+3.3V" H 15515 9123 50  0000 C CNN
+F 2 "" H 15500 8950 50  0001 C CNN
+F 3 "" H 15500 8950 50  0001 C CNN
+	1    15500 8950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13750 8950 13750 9050
+Connection ~ 13750 9050
+Wire Wire Line
+	13750 9050 13750 9150
+Connection ~ 13750 9150
+Wire Wire Line
+	13750 9150 13750 9250
+Connection ~ 13750 9250
+Wire Wire Line
+	14350 9250 15000 9250
+Wire Wire Line
+	14350 9150 15000 9150
+Wire Wire Line
+	14350 9050 15000 9050
+Wire Wire Line
+	14350 8950 15000 8950
+NoConn ~ 1750 5150
+Wire Wire Line
+	15200 8950 15500 8950
+$Comp
+L power:+1V8 #PWR0241
+U 1 1 5CCBF8D2
+P 15700 9050
+F 0 "#PWR0241" H 15700 8900 50  0001 C CNN
+F 1 "+1V8" H 15715 9223 50  0000 C CNN
+F 2 "" H 15700 9050 50  0001 C CNN
+F 3 "" H 15700 9050 50  0001 C CNN
+	1    15700 9050
+	1    0    0    -1  
+$EndComp
+Text Label 13700 3600 0    50   ~ 0
+DIPSWITCH
+Wire Wire Line
+	13700 3600 14100 3600
+Text Label 14400 9250 0    50   ~ 0
+DIPSWITCH
+Wire Wire Line
+	15200 9050 15700 9050
+Wire Wire Line
+	15200 9250 15700 9250
+Wire Wire Line
+	15700 9250 15700 9150
+Connection ~ 15700 9050
+Wire Wire Line
+	15200 9150 15700 9150
+Connection ~ 15700 9150
+Wire Wire Line
+	15700 9150 15700 9050
 $EndSCHEMATC
