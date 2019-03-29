@@ -19,4 +19,5 @@
   (lib (name Package_SO)(type KiCad)(uri /usr/share/kicad-nightly/modules/Package_SO.pretty)(options "")(descr ""))
   (lib (name Battery)(type KiCad)(uri /usr/share/kicad-nightly/modules/Battery.pretty)(options "")(descr ""))
   (lib (name Button_Switch_SMD)(type KiCad)(uri /usr/share/kicad-nightly/modules/Button_Switch_SMD.pretty)(options "")(descr ""))
+  (lib (name Diode_SMD)(type KiCad)(uri /usr/share/kicad-nightly/modules/Diode_SMD.pretty)(options "")(descr ""))
 )

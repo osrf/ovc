@@ -20,4 +20,6 @@
   (lib (name voltage_translators)(type Legacy)(uri ${KIWORKSPACE}/osrf_hw/kicad_libraries/voltage_translators.lib)(options "")(descr ""))
   (lib (name Regulator_Switching)(type Legacy)(uri /usr/share/kicad-nightly/library/Regulator_Switching.lib)(options "")(descr ""))
   (lib (name Interface)(type Legacy)(uri /usr/share/kicad-nightly/library/Interface.lib)(options "")(descr ""))
+  (lib (name Diode)(type Legacy)(uri /usr/share/kicad-nightly/library/Diode.lib)(options "")(descr ""))
+  (lib (name Power_Protection)(type Legacy)(uri /usr/share/kicad-nightly/library/Power_Protection.lib)(options "")(descr ""))
 )
