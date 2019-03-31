@@ -3,7 +3,7 @@ import re
 import sys
 from bs4 import BeautifulSoup
 
-PREFIX_ORDERING = ['C','D','FB','J','Q','R','U','X','SW']
+PREFIX_ORDERING = ['C','D','FB','J','CONN','Q','R','U','X','SW']
 line_number = 1  # globals are awesome
 
 def extract_field(fields, field_name, refdes, opt=False):
@@ -24,17 +24,28 @@ def extract_refdes_number(refdes):
 def extract_refdes_designator(refdes):
     return re.findall(r'[A-Z]+|\d+',refdes)[0]
 
+def matches_prefix(refdes, prefix):
+    if refdes.startswith(prefix) and \
+            refdes > len(prefix) and \
+            refdes[len(prefix)].isdigit():
+        return True
+    else:
+        return False
+
 def write_components(output_file, components_dict, prefix):
     global line_number
     line_items = []
     for refdes, tag in components_dict.iteritems():
-        if refdes.startswith(prefix):
+        if matches_prefix(refdes, prefix):
             mpn = extract_field(tag.fields, 'MPN', refdes)
             mfn = extract_field(tag.fields, 'MFN', refdes)
             dist = extract_field(tag.fields, 'D1', refdes)
             distpn = extract_field(tag.fields, 'D1PN', refdes)
             value = tag.value.next
-            footprint = tag.footprint.next
+            if tag.footprint is not None:
+                footprint = tag.footprint.next
+            else:
+                footprint = 'undefined'
             subst = extract_field(tag.fields, 'Substitution OK?', refdes, opt=True)
             voltage = extract_field(tag.fields, 'voltage', refdes, opt=True)
             thermal = extract_field(tag.fields, 'thermal', refdes, opt=True)
@@ -99,10 +110,10 @@ if __name__ == '__main__':
             # make sure it's a prefix we know about
             matched_prefix = False
             for prefix in PREFIX_ORDERING:
-                if c['ref'].startswith(prefix):
+                if matches_prefix(c['ref'], prefix):
                     matched_prefix = True
             if not matched_prefix:
-                print("unknown refdes prefix: '{0}'".format(c['ref']))
+                print("ignoring refdes prefix: '{0}'".format(c['ref']))
         # now print them all to the output file
         for prefix in PREFIX_ORDERING:
             write_components(of, components, prefix)
