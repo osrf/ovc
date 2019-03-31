@@ -2,8 +2,8 @@
 <export version="D">
   <design>
     <source>/home/mquigley/hw/ovc/hardware/ovc3a/camera/ovc3.sch</source>
-    <date>Fri Mar 29 17:48:26 2019</date>
-    <tool>Eeschema 5.1.0-unknown-2447933~94~ubuntu18.04.1</tool>
+    <date>Sun Mar 31 23:36:41 2019</date>
+    <tool>Eeschema 5.1.0-unknown-c1c4a09~94~ubuntu18.04.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>ovc3</title>
@@ -101,6 +101,12 @@
       <value>Logo_Open_Hardware_Small</value>
       <footprint>Symbol:OSHW-Symbol_6.7x6mm_SilkScreen</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="D1">DNP</field>
+        <field name="D1PN">DNP</field>
+        <field name="MFN">DNP</field>
+        <field name="MPN">DNP</field>
+      </fields>
       <libsource lib="Graphic" part="Logo_Open_Hardware_Small" description="Open Hardware logo, small"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5C46A97F</tstamp>
@@ -109,6 +115,12 @@
       <value>LEFT_LENS</value>
       <footprint>LensHolder:LENS_HOLDER_20MM_PT-LH010M</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="D1">DNP</field>
+        <field name="D1PN">DNP</field>
+        <field name="MFN">DNP</field>
+        <field name="MPN">DNP</field>
+      </fields>
       <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
       <tstamp>5BFA9CB3</tstamp>
@@ -117,6 +129,12 @@
       <value>RIGHT_LENS</value>
       <footprint>LensHolder:LENS_HOLDER_20MM_PT-LH010M</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="D1">DNP</field>
+        <field name="D1PN">DNP</field>
+        <field name="MFN">DNP</field>
+        <field name="MPN">DNP</field>
+      </fields>
       <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
       <tstamp>5BFA9CB9</tstamp>
@@ -125,6 +143,7 @@
       <value>AR0144CS</value>
       <footprint>ONSemi:BGA-72_9x8_5.545x5.565mm</footprint>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">AR0144CSSM00SUKA0-CPBR2OS-ND</field>
         <field name="MFN">ON Semiconductor</field>
@@ -138,6 +157,7 @@
       <value>AR0144CS</value>
       <footprint>ONSemi:BGA-72_9x8_5.545x5.565mm</footprint>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">AR0144CSSM00SUKA0-CPBR2OS-ND</field>
         <field name="MFN">ON Semiconductor</field>
@@ -151,6 +171,7 @@
       <value>AR0144CS</value>
       <footprint>ONSemi:BGA-72_9x8_5.545x5.565mm</footprint>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">AR0144CSSC00SUKA0-CPBR2OS-ND</field>
         <field name="MFN">ON Semiconductor</field>
@@ -164,6 +185,12 @@
       <value>MIDDLE_LENS</value>
       <footprint>LensHolder:LENS_HOLDER_20MM_PT-LH010M</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="D1">DNP</field>
+        <field name="D1PN">DNP</field>
+        <field name="MFN">DNP</field>
+        <field name="MPN">DNP</field>
+      </fields>
       <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
       <tstamp>5C45E77D</tstamp>
@@ -173,6 +200,7 @@
       <footprint>Package_TO_SOT_SMD:SOT-23-5</footprint>
       <datasheet>http://www.ti.com/lit/ds/symlink/lp5907.pdf</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">296-39063-1-ND</field>
         <field name="MFN">Texas Instruments</field>
@@ -187,10 +215,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1235-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05A105MQ5NNNC</field>
+        <field name="D1PN">1276-1445-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05A105KA5NQNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
@@ -201,10 +230,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1235-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05A105MQ5NNNC</field>
+        <field name="D1PN">1276-1445-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05A105KA5NQNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
@@ -215,6 +245,7 @@
       <footprint>Package_TO_SOT_SMD:SOT-23-5</footprint>
       <datasheet>http://www.ti.com/lit/ds/symlink/lp5907.pdf</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">296-39063-1-ND</field>
         <field name="MFN">Texas Instruments</field>
@@ -229,10 +260,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1235-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05A105MQ5NNNC</field>
+        <field name="D1PN">1276-1445-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05A105KA5NQNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
@@ -243,10 +275,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1235-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05A105MQ5NNNC</field>
+        <field name="D1PN">1276-1445-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05A105KA5NQNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
@@ -257,9 +290,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-6830-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05A106MP8NUB8</field>
       </fields>
       <libsource lib="Device" part="CP1_Small" description="Polarized capacitor, small US symbol"/>
@@ -271,9 +305,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -285,9 +320,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -299,9 +335,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-6830-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05A106MP8NUB8</field>
       </fields>
       <libsource lib="Device" part="CP1_Small" description="Polarized capacitor, small US symbol"/>
@@ -313,9 +350,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-6830-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05A106MP8NUB8</field>
       </fields>
       <libsource lib="Device" part="CP1_Small" description="Polarized capacitor, small US symbol"/>
@@ -327,9 +365,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -341,9 +380,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-6830-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05A106MP8NUB8</field>
       </fields>
       <libsource lib="Device" part="CP1_Small" description="Polarized capacitor, small US symbol"/>
@@ -355,9 +395,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -369,9 +410,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -383,9 +425,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-6830-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05A106MP8NUB8</field>
       </fields>
       <libsource lib="Device" part="CP1_Small" description="Polarized capacitor, small US symbol"/>
@@ -397,9 +440,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-6830-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05A106MP8NUB8</field>
       </fields>
       <libsource lib="Device" part="CP1_Small" description="Polarized capacitor, small US symbol"/>
@@ -411,9 +455,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -425,9 +470,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-6830-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05A106MP8NUB8</field>
       </fields>
       <libsource lib="Device" part="CP1_Small" description="Polarized capacitor, small US symbol"/>
@@ -439,10 +485,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1051-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05B103KO5NNNC</field>
+        <field name="D1PN">1276-1004-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
@@ -453,10 +500,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1051-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05B103KO5NNNC</field>
+        <field name="D1PN">1276-1004-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
@@ -467,9 +515,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -481,9 +530,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-6830-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05A106MP8NUB8</field>
       </fields>
       <libsource lib="Device" part="CP1_Small" description="Polarized capacitor, small US symbol"/>
@@ -495,9 +545,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -509,9 +560,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -523,9 +575,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -537,9 +590,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -551,9 +605,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-6830-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05A106MP8NUB8</field>
       </fields>
       <libsource lib="Device" part="CP1_Small" description="Polarized capacitor, small US symbol"/>
@@ -565,10 +620,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1051-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05B103KO5NNNC</field>
+        <field name="D1PN">1276-1004-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
@@ -579,10 +635,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1051-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05B103KO5NNNC</field>
+        <field name="D1PN">1276-1004-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
@@ -593,10 +650,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1051-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05B103KO5NNNC</field>
+        <field name="D1PN">1276-1004-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
@@ -607,9 +665,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-6830-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05A106MP8NUB8</field>
       </fields>
       <libsource lib="Device" part="CP1_Small" description="Polarized capacitor, small US symbol"/>
@@ -621,9 +680,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -635,9 +695,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-6830-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05A106MP8NUB8</field>
       </fields>
       <libsource lib="Device" part="CP1_Small" description="Polarized capacitor, small US symbol"/>
@@ -649,9 +710,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -663,9 +725,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -677,9 +740,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -691,9 +755,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-6830-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05A106MP8NUB8</field>
       </fields>
       <libsource lib="Device" part="CP1_Small" description="Polarized capacitor, small US symbol"/>
@@ -705,10 +770,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1051-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05B103KO5NNNC</field>
+        <field name="D1PN">1276-1004-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
@@ -719,9 +785,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -733,9 +800,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -747,9 +815,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -761,9 +830,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -775,9 +845,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -789,9 +860,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -803,9 +875,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -817,9 +890,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -831,9 +905,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -844,6 +919,12 @@
       <value>CAM2_TIMING_DEBUG</value>
       <footprint>Connector_PinHeader_2.00mm:PinHeader_1x05_P2.00mm_Vertical</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="D1">DNP</field>
+        <field name="D1PN">DNP</field>
+        <field name="MFN">DNP</field>
+        <field name="MPN">DNP</field>
+      </fields>
       <libsource lib="Connector_Generic" part="Conn_01x05" description="Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <sheetpath names="/imagers/" tstamps="/5BFA87C9/"/>
       <tstamp>5C86A330</tstamp>
@@ -853,8 +934,9 @@
       <footprint>Sensor_Motion:InvenSense_QFN-24_3x3mm_P0.4mm</footprint>
       <datasheet>https://store.invensense.com/datasheets/invensense/MPU9250REV1.0.pdf</datasheet>
       <fields>
+        <field name="D1">Mouser</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1428-1123-1-ND</field>
+        <field name="D1PN">410-ICM-20948</field>
         <field name="MFN">TDK InvenSense</field>
         <field name="MPN">ICM-20948</field>
       </fields>
@@ -867,9 +949,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -881,9 +964,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -895,9 +979,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -909,9 +994,10 @@
       <footprint>USB:USB_C_Receptacle_Wurth_632723300011</footprint>
       <datasheet>https://www.usb.org/sites/default/files/documents/usb_type-c.zip</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">732-9618-1-ND</field>
-        <field name="MFN">Wurth Electronics</field>
+        <field name="MFN">Wurth</field>
         <field name="MPN">632723300011</field>
       </fields>
       <libsource lib="Connector" part="USB_C_Receptacle" description="USB Full-Featured Type-C Receptacle connector"/>
@@ -922,6 +1008,7 @@
       <value>STUSB4500</value>
       <footprint>Package_DFN_QFN:QFN-24-1EP_4x4mm_P0.5mm_EP2.7x2.7mm</footprint>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">497-18060-1-ND</field>
         <field name="MFN">STMicroelectronics</field>
@@ -936,9 +1023,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P100KDECT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERA-2AED104X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -950,9 +1038,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P10KDECT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERA-2AED103X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -964,9 +1053,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P10KDECT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERA-2AED103X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -978,10 +1068,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1235-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05A105MQ5NNNC</field>
+        <field name="D1PN">1276-1445-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05A105KA5NQNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/usb3/" tstamps="/5BFFC89B/"/>
@@ -992,10 +1083,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1235-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05A105MQ5NNNC</field>
+        <field name="D1PN">1276-1445-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05A105KA5NQNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/usb3/" tstamps="/5BFFC89B/"/>
@@ -1006,9 +1098,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P100KDECT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERA-2AED104X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -1020,9 +1113,10 @@
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">RHM1.0KDCT-ND</field>
-        <field name="MFN">Rohm Semiconductor</field>
+        <field name="MFN">Rohm</field>
         <field name="MPN">ESR03EZPJ102</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -1034,9 +1128,10 @@
       <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">SI2369DS-T1-GE3CT-ND</field>
-        <field name="MFN">Vishay Siliconix</field>
+        <field name="MFN">Vishay</field>
         <field name="MPN">SI2369DS-T1-GE3</field>
       </fields>
       <libsource lib="Device" part="Q_PMOS_GSD" description="P-MOSFET transistor, gate/source/drain"/>
@@ -1048,9 +1143,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P22.0KLCT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERJ-2RKF2202X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -1062,9 +1158,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P100KDECT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERA-2AED104X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -1076,9 +1173,10 @@
       <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">SI2369DS-T1-GE3CT-ND</field>
-        <field name="MFN">Vishay Siliconix</field>
+        <field name="MFN">Vishay</field>
         <field name="MPN">SI2369DS-T1-GE3</field>
       </fields>
       <libsource lib="Device" part="Q_PMOS_GSD" description="P-MOSFET transistor, gate/source/drain"/>
@@ -1090,10 +1188,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1051-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05B103KO5NNNC</field>
+        <field name="D1PN">1276-1004-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/usb3/" tstamps="/5BFFC89B/"/>
@@ -1104,9 +1203,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P100DECT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERA-2AED101X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -1118,9 +1218,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1445-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05A105KA5NQNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1131,6 +1232,7 @@
       <value>HD3SS3202</value>
       <footprint>USB:TI_R_PUQFN_N16</footprint>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">296-51121-1-ND</field>
         <field name="MFN">Texas Instruments</field>
@@ -1145,9 +1247,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1159,9 +1262,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1173,9 +1277,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1187,9 +1292,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P316LCT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERJ-2RKF3160X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -1201,9 +1307,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P90.9KDCCT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERA-2AEB9092X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -1215,9 +1322,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1552-2-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05B332KB5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1229,9 +1337,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1243,6 +1352,7 @@
       <footprint>Connector_Molex:Molex_Nano-Fit_105313-xx02_1x02_P2.50mm_Horizontal</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">WM16893-ND</field>
         <field name="MFN">Molex</field>
@@ -1257,6 +1367,7 @@
       <footprint>DCDC:Converter_DCDC_Intel_QFN-24_4x6mm_P0.65mm_ThermalVias</footprint>
       <datasheet>https://www.intel.sg/content/dam/www/programmable/us/en/pdfs/literature/ds/en5322qi_03454.pdf</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">544-2849-1-ND</field>
         <field name="MFN">Intel</field>
@@ -1271,9 +1382,10 @@
       <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">490-7611-1-ND</field>
-        <field name="MFN">Murata Electronics</field>
+        <field name="MFN">Murata</field>
         <field name="MPN">GRM188R60J226MEA0D</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1285,10 +1397,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1235-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05A105MQ5NNNC</field>
+        <field name="D1PN">1276-1445-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05A105KA5NQNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/usb3/" tstamps="/5BFFC89B/"/>
@@ -1296,13 +1409,14 @@
     </comp>
     <comp ref="C68">
       <value>10u</value>
-      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1119-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL10A106MQ8NNNC</field>
+        <field name="D1PN">1276-6830-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05A106MP8NUB8</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/usb3/" tstamps="/5BFFC89B/"/>
@@ -1313,9 +1427,10 @@
       <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">490-7611-1-ND</field>
-        <field name="MFN">Murata Electronics</field>
+        <field name="MFN">Murata</field>
         <field name="MPN">GRM188R60J226MEA0D</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1326,6 +1441,7 @@
       <value>LMZ31707</value>
       <footprint>DCDC:TI_RVQ_42</footprint>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">296-37921-1-ND</field>
         <field name="MFN">Texas Instruments</field>
@@ -1340,9 +1456,10 @@
       <footprint>Capacitor_SMD:C_1206_3216Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">490-7217-1-ND</field>
-        <field name="MFN">Murata Electronics</field>
+        <field name="MFN">Murata</field>
         <field name="MPN">GRM31CR60J107ME39K</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1354,9 +1471,10 @@
       <footprint>Capacitor_SMD:C_1206_3216Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1167-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL31A476MQHNNNE</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1368,9 +1486,10 @@
       <footprint>Capacitor_SMD:C_1206_3216Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-3047-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL31A226KAHNNNE</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1382,9 +1501,10 @@
       <footprint>Capacitor_SMD:C_1206_3216Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-3047-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL31A226KAHNNNE</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1396,9 +1516,10 @@
       <footprint>Capacitor_SMD:C_1206_3216Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1167-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL31A476MQHNNNE</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1410,9 +1531,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1424,6 +1546,7 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P330JCT-ND</field>
         <field name="MFN">Panasonic</field>
@@ -1438,9 +1561,10 @@
       <footprint>LED_SMD:LED_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">VLMS1500-GS08CT-ND</field>
-        <field name="MFN">Vishay Semiconductor</field>
+        <field name="MFN">Vishay</field>
         <field name="MPN">VLMS1500-GS08</field>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
@@ -1452,6 +1576,7 @@
       <footprint>Capacitor_SMD:CP_Elec_6.3x7.7</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">digikey</field>
         <field name="D1PN">P15097TR-ND</field>
         <field name="MFN">Panasonic</field>
@@ -1464,8 +1589,10 @@
     </comp>
     <comp ref="C19">
       <value>4u7</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">digikey</field>
         <field name="D1PN">1276-1900-1-ND</field>
         <field name="MFN">Samsung</field>
@@ -1481,6 +1608,7 @@
       <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
       <datasheet>http://www.littelfuse.com/~/media/files/littelfuse/technical%20resources/documents/data%20sheets/sp05xxba.pdf</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">digikey</field>
         <field name="D1PN">497-6689-1-ND</field>
         <field name="MFN">ST</field>
@@ -1495,6 +1623,7 @@
       <footprint>Diode_SMD:D_SMB</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">digikey</field>
         <field name="D1PN">SMBJ22ABCT-ND</field>
         <field name="MFN">Bourns</field>
@@ -1509,6 +1638,7 @@
       <footprint>Diode_SMD:D_SOD-323</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">digikey</field>
         <field name="D1PN">SDMK0340L-FDICT-ND</field>
         <field name="MFN">Diodes Inc</field>
@@ -1523,10 +1653,11 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1276-1235-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
-        <field name="MPN">CL05A105MQ5NNNC</field>
+        <field name="D1PN">1276-1445-1-ND</field>
+        <field name="MFN">Samsung</field>
+        <field name="MPN">CL05A105KA5NQNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/usb3/" tstamps="/5BFFC89B/"/>
@@ -1537,9 +1668,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P470LCT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERJ-2RKF4700X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -1551,9 +1683,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P1.00KLCT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERJ-2RKF1001X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -1563,6 +1696,12 @@
     <comp ref="M1">
       <value>TE0820</value>
       <footprint>Trenz:TE0820</footprint>
+      <fields>
+        <field name="D1">DNP</field>
+        <field name="D1PN">DNP</field>
+        <field name="MFN">DNP</field>
+        <field name="MPN">DNP</field>
+      </fields>
       <libsource lib="trenz" part="TE0820" description=""/>
       <sheetpath names="/te0820/" tstamps="/5C124FC6/"/>
       <tstamp>5C4798F1</tstamp>
@@ -1572,9 +1711,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1586,6 +1726,7 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">311-2.20KLRCT-ND</field>
         <field name="MFN">Yageo</field>
@@ -1600,6 +1741,7 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">311-2.20KLRCT-ND</field>
         <field name="MFN">Yageo</field>
@@ -1613,6 +1755,7 @@
       <value>SN74AXCH8T245</value>
       <footprint>Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm</footprint>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">296-50281-1-ND</field>
         <field name="MFN">Texas Instruments</field>
@@ -1627,9 +1770,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1641,9 +1785,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1654,6 +1799,7 @@
       <value>TCA9803</value>
       <footprint>Package_SO:VSSOP-8_3.0x3.0mm_P0.65mm</footprint>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">296-47829-1-ND</field>
         <field name="MFN">Texas Instruments</field>
@@ -1668,9 +1814,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1682,6 +1829,7 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">311-2.20KLRCT-ND</field>
         <field name="MFN">Yageo</field>
@@ -1696,6 +1844,7 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">311-2.20KLRCT-ND</field>
         <field name="MFN">Yageo</field>
@@ -1710,9 +1859,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1723,6 +1873,7 @@
       <value>TCA9803</value>
       <footprint>Package_SO:VSSOP-8_3.0x3.0mm_P0.65mm</footprint>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">296-47829-1-ND</field>
         <field name="MFN">Texas Instruments</field>
@@ -1737,9 +1888,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1751,6 +1903,7 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">311-2.20KLRCT-ND</field>
         <field name="MFN">Yageo</field>
@@ -1765,6 +1918,7 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">311-2.20KLRCT-ND</field>
         <field name="MFN">Yageo</field>
@@ -1779,9 +1933,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1792,6 +1947,7 @@
       <value>SN74AXC4T245</value>
       <footprint>Package_SO:TSSOP-16_4.4x5mm_P0.65mm</footprint>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">296-53432-1-ND</field>
         <field name="MFN">Texas Instruments</field>
@@ -1806,9 +1962,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1820,9 +1977,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1834,9 +1992,10 @@
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">1276-1004-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL05F104ZO5NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1846,9 +2005,10 @@
     <comp ref="CONN1">
       <value>Trenz_conn_dummy</value>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">SAM9034CT-ND</field>
-        <field name="MFN">Samtec Inc.</field>
+        <field name="MFN">Samtec</field>
         <field name="MPN">LSHM-130-04.0-L-DV-A-S-K-TR</field>
       </fields>
       <libsource lib="trenz" part="Trenz_conn_dummy" description=""/>
@@ -1858,9 +2018,10 @@
     <comp ref="CONN2">
       <value>Trenz_conn_dummy</value>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">SAM9033CT-ND</field>
-        <field name="MFN">Samtec Inc.</field>
+        <field name="MFN">Samtec</field>
         <field name="MPN">LSHM-150-04.0-L-DV-A-S-K-TR</field>
       </fields>
       <libsource lib="trenz" part="Trenz_conn_dummy" description=""/>
@@ -1870,9 +2031,10 @@
     <comp ref="CONN3">
       <value>Trenz_conn_dummy</value>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">SAM9033CT-ND</field>
-        <field name="MFN">Samtec Inc.</field>
+        <field name="MFN">Samtec</field>
         <field name="MPN">LSHM-150-04.0-L-DV-A-S-K-TR</field>
       </fields>
       <libsource lib="trenz" part="Trenz_conn_dummy" description=""/>
@@ -1884,6 +2046,7 @@
       <footprint>Button_Switch_SMD:SW_DIP_SPSTx04_Slide_6.7x11.72mm_W8.61mm_P2.54mm_LowProfile</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">digikey</field>
         <field name="D1PN">732-6963-1-ND</field>
         <field name="MFN">Wurth</field>
@@ -1898,9 +2061,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P10KDECT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERA-2AED103X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -1912,9 +2076,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P10KDECT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERA-2AED103X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -1926,9 +2091,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P10KDECT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERA-2AED103X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -1940,9 +2106,10 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P10KDECT-ND</field>
-        <field name="MFN">Panasonic Electronic Components</field>
+        <field name="MFN">Panasonic</field>
         <field name="MPN">ERA-2AED103X</field>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
@@ -1954,6 +2121,8 @@
       <footprint>Connector_PinHeader_1.27mm:PinHeader_2x04_P1.27mm_Vertical</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">DNP</field>
+        <field name="D1PN">DNP</field>
         <field name="MFN">DNP</field>
         <field name="MPN">DNP</field>
       </fields>
@@ -1965,9 +2134,10 @@
       <value>ARJ11C-MBSAS-A-BA-7MU2</value>
       <footprint>Ethernet:ARJ11C-MBSAS-A-BA-7MU2</footprint>
       <fields>
+        <field name="D1">Mouser</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">ARJ11C-MBSAS-A-BA-7MU2-ND</field>
-        <field name="MFN">Abracon LLC</field>
+        <field name="D1PN">815-RJ1CMBSASABA7MU2</field>
+        <field name="MFN">Abracon</field>
         <field name="MPN">ARJ11C-MBSAS-A-BA-7MU2</field>
       </fields>
       <libsource lib="Ethernet" part="ARJ11C-MBSAS-A-BA-7MU2" description=""/>
@@ -1979,9 +2149,10 @@
       <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">1280-1000-1-ND</field>
-        <field name="MFN">Samsung Electro-Mechanics</field>
+        <field name="D1PN">1276-1000-1-ND</field>
+        <field name="MFN">Samsung</field>
         <field name="MPN">CL10B104KB8NNNC</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -1993,6 +2164,7 @@
       <footprint>Connector_PinHeader_1.27mm:PinHeader_2x15_P1.27mm_Vertical</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">DNP</field>
         <field name="D1N">DNP</field>
         <field name="D1PN">DNP</field>
         <field name="MFN">DNP</field>
@@ -2007,9 +2179,10 @@
       <footprint>LED_SMD:LED_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">VLMS1500-GS08CT-ND</field>
-        <field name="MFN">Vishay Semiconductor</field>
+        <field name="MFN">Vishay</field>
         <field name="MPN">VLMS1500-GS08</field>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
@@ -2021,9 +2194,10 @@
       <footprint>LED_SMD:LED_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
-        <field name="D1PN">VLMG1500-GS08TR-ND</field>
-        <field name="MFN">Vishay Semiconductor</field>
+        <field name="D1PN">VLMG1500-GS08CT-ND</field>
+        <field name="MFN">Vishay</field>
         <field name="MPN">VLMG1500-GS08</field>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
@@ -2035,6 +2209,7 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P330JCT-ND</field>
         <field name="MFN">Panasonic</field>
@@ -2049,6 +2224,7 @@
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">P330JCT-ND</field>
         <field name="MFN">Panasonic</field>
@@ -2063,9 +2239,10 @@
       <footprint>Connector_Card:microSD_HC_Hirose_DM3AT-SF-PEJM5</footprint>
       <datasheet>https://www.hirose.com/product/en/download_file/key_name/DM3/category/Catalog/doc_file_id/49662/?file_category_id=4&amp;item_id=195&amp;is_series=1</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">HR1964CT-ND</field>
-        <field name="MFN">Hirose Electric</field>
+        <field name="MFN">Hirose</field>
         <field name="MPN">DM3AT-SF-PEJM5</field>
       </fields>
       <libsource lib="Connector" part="Micro_SD_Card_Det_Hirose_DM3AT" description="Micro SD Card Socket with card detection pins"/>
@@ -2076,6 +2253,12 @@
       <value>JTAG</value>
       <footprint>Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Horizontal</footprint>
       <datasheet>~</datasheet>
+      <fields>
+        <field name="D1">DNP</field>
+        <field name="D1PN">DNP</field>
+        <field name="MFN">DNP</field>
+        <field name="MPN">DNP</field>
+      </fields>
       <libsource lib="Connector_Generic" part="Conn_02x03_Odd_Even" description="Generic connector, double row, 02x03, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <sheetpath names="/misc/" tstamps="/5C470144/"/>
       <tstamp>5CD032F0</tstamp>
@@ -2085,6 +2268,7 @@
       <footprint>Connectors_OSRF:MOLEX_505110_2691</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">WM24281CT-ND</field>
         <field name="MFN">Molex</field>
@@ -2099,6 +2283,7 @@
       <footprint>Connectors_OSRF:MOLEX_505110_2691</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">WM24281CT-ND</field>
         <field name="MFN">Molex</field>
@@ -2113,6 +2298,7 @@
       <footprint>Connectors_OSRF:MOLEX_505110_2691</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">WM24281CT-ND</field>
         <field name="MFN">Molex</field>
@@ -2127,6 +2313,7 @@
       <footprint>Connectors_OSRF:MOLEX_505110_2691</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="D1">Digikey</field>
         <field name="D1N">Digikey</field>
         <field name="D1PN">WM24281CT-ND</field>
         <field name="MFN">Molex</field>
@@ -3253,137 +3440,137 @@
   </libraries>
   <nets>
     <net code="1" name="+1V8">
-      <node ref="M1" pin="JB2.6"/>
-      <node ref="C57" pin="1"/>
-      <node ref="C30" pin="1"/>
-      <node ref="C25" pin="1"/>
-      <node ref="U18" pin="8"/>
-      <node ref="J5" pin="1"/>
-      <node ref="C74" pin="1"/>
-      <node ref="C58" pin="1"/>
-      <node ref="C72" pin="1"/>
-      <node ref="C11" pin="1"/>
-      <node ref="J13" pin="24"/>
-      <node ref="U3" pin="8"/>
-      <node ref="J5" pin="2"/>
-      <node ref="U2" pin="E3"/>
-      <node ref="U2" pin="C2"/>
-      <node ref="U2" pin="B8"/>
-      <node ref="U2" pin="A2"/>
-      <node ref="U2" pin="C8"/>
-      <node ref="U1" pin="C8"/>
-      <node ref="U1" pin="C2"/>
-      <node ref="U1" pin="B8"/>
-      <node ref="U1" pin="A2"/>
-      <node ref="U16" pin="23"/>
-      <node ref="R13" pin="1"/>
-      <node ref="R21" pin="1"/>
-      <node ref="R22" pin="1"/>
-      <node ref="U16" pin="24"/>
-      <node ref="U4" pin="C2"/>
-      <node ref="C59" pin="1"/>
-      <node ref="U4" pin="B8"/>
-      <node ref="U8" pin="16"/>
-      <node ref="U4" pin="A2"/>
-      <node ref="U4" pin="E3"/>
-      <node ref="C15" pin="1"/>
-      <node ref="U4" pin="C8"/>
-      <node ref="U1" pin="E3"/>
-      <node ref="C71" pin="1"/>
       <node ref="U17" pin="8"/>
+      <node ref="U16" pin="23"/>
+      <node ref="U16" pin="24"/>
+      <node ref="C71" pin="1"/>
+      <node ref="C58" pin="1"/>
+      <node ref="U1" pin="A2"/>
+      <node ref="U1" pin="E3"/>
+      <node ref="U3" pin="8"/>
       <node ref="C40" pin="1"/>
       <node ref="C35" pin="1"/>
       <node ref="R16" pin="1"/>
       <node ref="R9" pin="1"/>
+      <node ref="U2" pin="C8"/>
+      <node ref="U1" pin="C8"/>
+      <node ref="U1" pin="C2"/>
+      <node ref="U1" pin="B8"/>
+      <node ref="R22" pin="1"/>
+      <node ref="R21" pin="1"/>
+      <node ref="R13" pin="1"/>
+      <node ref="J5" pin="2"/>
+      <node ref="U4" pin="B8"/>
+      <node ref="U4" pin="C8"/>
+      <node ref="C15" pin="1"/>
+      <node ref="U8" pin="16"/>
+      <node ref="U4" pin="A2"/>
+      <node ref="U4" pin="E3"/>
+      <node ref="U4" pin="C2"/>
+      <node ref="C59" pin="1"/>
+      <node ref="C11" pin="1"/>
+      <node ref="J5" pin="1"/>
       <node ref="C50" pin="1"/>
       <node ref="C45" pin="1"/>
       <node ref="M1" pin="JB1.40"/>
-      <node ref="U15" pin="18"/>
+      <node ref="U2" pin="E3"/>
+      <node ref="J10" pin="24"/>
+      <node ref="C30" pin="1"/>
+      <node ref="J13" pin="24"/>
+      <node ref="C57" pin="1"/>
+      <node ref="C72" pin="1"/>
       <node ref="J9" pin="24"/>
       <node ref="J14" pin="24"/>
-      <node ref="J10" pin="24"/>
+      <node ref="U18" pin="8"/>
+      <node ref="C25" pin="1"/>
+      <node ref="U2" pin="B8"/>
+      <node ref="M1" pin="JB2.6"/>
+      <node ref="U2" pin="C2"/>
+      <node ref="U2" pin="A2"/>
+      <node ref="U15" pin="18"/>
+      <node ref="C74" pin="1"/>
     </net>
     <net code="2" name="+1V2">
-      <node ref="R18" pin="1"/>
-      <node ref="R19" pin="1"/>
-      <node ref="U2" pin="C5"/>
-      <node ref="R20" pin="1"/>
-      <node ref="U2" pin="C6"/>
-      <node ref="M1" pin="JB2.10"/>
       <node ref="U18" pin="1"/>
       <node ref="U18" pin="5"/>
+      <node ref="J12" pin="4"/>
+      <node ref="U4" pin="C5"/>
+      <node ref="U4" pin="C6"/>
       <node ref="C73" pin="1"/>
-      <node ref="C39" pin="1"/>
-      <node ref="C34" pin="1"/>
-      <node ref="C31" pin="1"/>
       <node ref="C26" pin="1"/>
-      <node ref="U1" pin="G6"/>
+      <node ref="C31" pin="1"/>
+      <node ref="M1" pin="JB2.10"/>
+      <node ref="R20" pin="1"/>
+      <node ref="R19" pin="1"/>
+      <node ref="C39" pin="1"/>
       <node ref="R17" pin="1"/>
-      <node ref="U15" pin="13"/>
-      <node ref="U1" pin="D8"/>
-      <node ref="U2" pin="F2"/>
-      <node ref="U17" pin="1"/>
+      <node ref="R18" pin="1"/>
+      <node ref="C34" pin="1"/>
       <node ref="C46" pin="1"/>
-      <node ref="C29" pin="1"/>
-      <node ref="C70" pin="1"/>
-      <node ref="C24" pin="1"/>
-      <node ref="J9" pin="25"/>
-      <node ref="C61" pin="1"/>
-      <node ref="U4" pin="B2"/>
-      <node ref="U4" pin="A3"/>
-      <node ref="M1" pin="JB1.10"/>
-      <node ref="M1" pin="JB1.12"/>
-      <node ref="C60" pin="1"/>
-      <node ref="C69" pin="1"/>
+      <node ref="U2" pin="C6"/>
+      <node ref="U2" pin="C5"/>
+      <node ref="U2" pin="B2"/>
+      <node ref="U2" pin="A3"/>
+      <node ref="U8" pin="1"/>
+      <node ref="U16" pin="1"/>
+      <node ref="U16" pin="11"/>
       <node ref="U2" pin="G4"/>
-      <node ref="U17" pin="5"/>
+      <node ref="U16" pin="2"/>
       <node ref="U4" pin="G6"/>
       <node ref="U4" pin="G5"/>
       <node ref="U4" pin="G4"/>
-      <node ref="U16" pin="1"/>
-      <node ref="U16" pin="11"/>
-      <node ref="U16" pin="2"/>
-      <node ref="U2" pin="A3"/>
-      <node ref="U1" pin="F2"/>
-      <node ref="C65" pin="1"/>
-      <node ref="C49" pin="1"/>
-      <node ref="M1" pin="JB2.8"/>
-      <node ref="U2" pin="B2"/>
-      <node ref="U4" pin="C5"/>
-      <node ref="C44" pin="1"/>
-      <node ref="U2" pin="D8"/>
-      <node ref="C51" pin="1"/>
-      <node ref="J10" pin="25"/>
-      <node ref="U1" pin="G4"/>
-      <node ref="U1" pin="G5"/>
-      <node ref="C63" pin="1"/>
-      <node ref="U8" pin="1"/>
+      <node ref="C61" pin="1"/>
+      <node ref="C60" pin="1"/>
+      <node ref="M1" pin="JB1.10"/>
+      <node ref="M1" pin="JB1.12"/>
+      <node ref="U1" pin="D8"/>
       <node ref="C62" pin="1"/>
+      <node ref="C63" pin="1"/>
       <node ref="U8" pin="3"/>
-      <node ref="C36" pin="1"/>
+      <node ref="U4" pin="B2"/>
+      <node ref="U4" pin="A3"/>
+      <node ref="C64" pin="1"/>
+      <node ref="C14" pin="1"/>
+      <node ref="C65" pin="1"/>
       <node ref="U2" pin="G6"/>
       <node ref="U2" pin="G5"/>
+      <node ref="M1" pin="JB2.8"/>
       <node ref="U4" pin="F2"/>
-      <node ref="C14" pin="1"/>
-      <node ref="C64" pin="1"/>
-      <node ref="U4" pin="D8"/>
-      <node ref="U4" pin="C6"/>
-      <node ref="J5" pin="12"/>
-      <node ref="J5" pin="14"/>
-      <node ref="J14" pin="25"/>
-      <node ref="J12" pin="4"/>
+      <node ref="U2" pin="F2"/>
       <node ref="C41" pin="1"/>
-      <node ref="U1" pin="B2"/>
+      <node ref="U2" pin="D8"/>
       <node ref="U1" pin="C6"/>
       <node ref="U1" pin="C5"/>
+      <node ref="C51" pin="1"/>
+      <node ref="U1" pin="B2"/>
+      <node ref="U4" pin="D8"/>
+      <node ref="C44" pin="1"/>
+      <node ref="C49" pin="1"/>
+      <node ref="U1" pin="A3"/>
+      <node ref="C36" pin="1"/>
+      <node ref="U1" pin="G6"/>
+      <node ref="U1" pin="G5"/>
+      <node ref="U1" pin="G4"/>
+      <node ref="C24" pin="1"/>
+      <node ref="C70" pin="1"/>
+      <node ref="C29" pin="1"/>
+      <node ref="U1" pin="F2"/>
+      <node ref="U17" pin="1"/>
+      <node ref="U17" pin="5"/>
+      <node ref="C69" pin="1"/>
       <node ref="C75" pin="1"/>
       <node ref="U15" pin="7"/>
       <node ref="U15" pin="6"/>
       <node ref="U15" pin="5"/>
-      <node ref="J13" pin="25"/>
       <node ref="C76" pin="1"/>
+      <node ref="J5" pin="12"/>
+      <node ref="J5" pin="14"/>
+      <node ref="U15" pin="13"/>
+      <node ref="J10" pin="25"/>
+      <node ref="J9" pin="25"/>
+      <node ref="J14" pin="25"/>
+      <node ref="J13" pin="25"/>
       <node ref="U15" pin="4"/>
-      <node ref="U1" pin="A3"/>
     </net>
     <net code="3" name="Net-(U4-PadC1)">
       <node ref="U4" pin="C1"/>
@@ -3559,14 +3746,14 @@
       <node ref="U18" pin="7"/>
     </net>
     <net code="60" name="CAM2_SDA_1V8">
-      <node ref="U4" pin="E6"/>
       <node ref="J11" pin="2"/>
+      <node ref="U4" pin="E6"/>
       <node ref="U18" pin="6"/>
     </net>
     <net code="61" name="CAM2_TRIG_1V8">
-      <node ref="J11" pin="4"/>
       <node ref="U4" pin="E7"/>
       <node ref="U16" pin="21"/>
+      <node ref="J11" pin="4"/>
     </net>
     <net code="62" name="CAM2_FLASH_1V8">
       <node ref="U4" pin="F6"/>
@@ -3576,124 +3763,123 @@
       <node ref="U4" pin="A4"/>
     </net>
     <net code="64" name="CAM2_CLK+">
-      <node ref="U4" pin="A5"/>
       <node ref="M1" pin="JB1.95"/>
+      <node ref="U4" pin="A5"/>
     </net>
     <net code="65" name="CAM2_D0+">
-      <node ref="U4" pin="A6"/>
       <node ref="M1" pin="JB1.68"/>
+      <node ref="U4" pin="A6"/>
     </net>
     <net code="66" name="CAM2_EXTCLK_1V8">
-      <node ref="U16" pin="20"/>
       <node ref="U4" pin="B3"/>
+      <node ref="U16" pin="20"/>
     </net>
     <net code="67" name="CAM2_D1-">
       <node ref="U4" pin="B4"/>
     </net>
     <net code="68" name="CAM2_CLK-">
-      <node ref="U4" pin="B5"/>
       <node ref="M1" pin="JB1.93"/>
+      <node ref="U4" pin="B5"/>
     </net>
     <net code="69" name="CAM2_D0-">
       <node ref="M1" pin="JB1.66"/>
       <node ref="U4" pin="B6"/>
     </net>
     <net code="70" name="GND">
-      <node ref="C19" pin="2"/>
-      <node ref="D4" pin="3"/>
-      <node ref="D3" pin="1"/>
-      <node ref="J12" pin="6"/>
-      <node ref="C18" pin="2"/>
-      <node ref="SW1" pin="1"/>
-      <node ref="SW1" pin="2"/>
-      <node ref="SW1" pin="3"/>
-      <node ref="SW1" pin="4"/>
-      <node ref="J3" pin="A12"/>
-      <node ref="U5" pin="10"/>
-      <node ref="U5" pin="12"/>
-      <node ref="U5" pin="13"/>
-      <node ref="J3" pin="A1"/>
-      <node ref="J3" pin="B1"/>
-      <node ref="J3" pin="B12"/>
-      <node ref="R1" pin="2"/>
-      <node ref="C1" pin="2"/>
-      <node ref="C2" pin="2"/>
-      <node ref="U15" pin="2"/>
-      <node ref="U15" pin="25"/>
-      <node ref="J8" pin="2"/>
       <node ref="J3" pin="S1"/>
-      <node ref="U15" pin="8"/>
-      <node ref="C78" pin="2"/>
-      <node ref="U5" pin="25"/>
-      <node ref="C76" pin="2"/>
-      <node ref="C82" pin="2"/>
-      <node ref="C83" pin="2"/>
-      <node ref="U15" pin="3"/>
-      <node ref="C84" pin="1"/>
-      <node ref="U7" pin="21"/>
-      <node ref="U7" pin="33"/>
-      <node ref="U7" pin="32"/>
-      <node ref="U7" pin="31"/>
-      <node ref="U7" pin="20"/>
-      <node ref="C77" pin="2"/>
-      <node ref="C68" pin="2"/>
-      <node ref="C67" pin="2"/>
-      <node ref="C75" pin="2"/>
-      <node ref="C79" pin="2"/>
-      <node ref="U15" pin="9"/>
-      <node ref="D5" pin="2"/>
-      <node ref="C52" pin="2"/>
-      <node ref="M1" pin="JB3.11"/>
-      <node ref="U15" pin="11"/>
+      <node ref="J8" pin="2"/>
+      <node ref="J3" pin="B1"/>
+      <node ref="U5" pin="10"/>
+      <node ref="J3" pin="A12"/>
+      <node ref="J3" pin="A1"/>
       <node ref="U15" pin="15"/>
+      <node ref="U15" pin="25"/>
+      <node ref="U5" pin="12"/>
+      <node ref="U15" pin="2"/>
+      <node ref="U5" pin="13"/>
       <node ref="U6" pin="15"/>
       <node ref="U6" pin="2"/>
       <node ref="C3" pin="2"/>
-      <node ref="J13" pin="13"/>
-      <node ref="J13" pin="15"/>
-      <node ref="J13" pin="10"/>
-      <node ref="J13" pin="26"/>
-      <node ref="J13" pin="27"/>
-      <node ref="J13" pin="4"/>
-      <node ref="J13" pin="7"/>
-      <node ref="J13" pin="1"/>
+      <node ref="U15" pin="11"/>
+      <node ref="U7" pin="21"/>
+      <node ref="C77" pin="2"/>
+      <node ref="C68" pin="2"/>
+      <node ref="U7" pin="20"/>
+      <node ref="U7" pin="31"/>
+      <node ref="U15" pin="9"/>
+      <node ref="U15" pin="8"/>
+      <node ref="C79" pin="2"/>
+      <node ref="C75" pin="2"/>
+      <node ref="C67" pin="2"/>
+      <node ref="U7" pin="32"/>
+      <node ref="U7" pin="33"/>
+      <node ref="C52" pin="2"/>
+      <node ref="D4" pin="3"/>
+      <node ref="D5" pin="2"/>
+      <node ref="C19" pin="2"/>
+      <node ref="C78" pin="2"/>
+      <node ref="C82" pin="2"/>
+      <node ref="C83" pin="2"/>
+      <node ref="C84" pin="1"/>
+      <node ref="U5" pin="25"/>
+      <node ref="R1" pin="2"/>
+      <node ref="C1" pin="2"/>
+      <node ref="C2" pin="2"/>
+      <node ref="C18" pin="2"/>
+      <node ref="C76" pin="2"/>
+      <node ref="M1" pin="JB3.29"/>
+      <node ref="D3" pin="1"/>
+      <node ref="U15" pin="3"/>
+      <node ref="J3" pin="B12"/>
+      <node ref="U9" pin="SHLD"/>
+      <node ref="U9" pin="MNT"/>
+      <node ref="U9" pin="14"/>
       <node ref="U9" pin="11"/>
       <node ref="J5" pin="4"/>
       <node ref="J5" pin="30"/>
       <node ref="J5" pin="16"/>
       <node ref="J5" pin="10"/>
-      <node ref="J6" pin="2"/>
-      <node ref="U9" pin="14"/>
       <node ref="J7" pin="11"/>
       <node ref="D2" pin="1"/>
       <node ref="D1" pin="1"/>
+      <node ref="J6" pin="2"/>
       <node ref="J7" pin="6"/>
-      <node ref="U9" pin="SHLD"/>
-      <node ref="U9" pin="MNT"/>
+      <node ref="J9" pin="10"/>
+      <node ref="J14" pin="27"/>
+      <node ref="J14" pin="26"/>
       <node ref="J9" pin="27"/>
       <node ref="J9" pin="4"/>
       <node ref="J9" pin="7"/>
-      <node ref="J14" pin="15"/>
-      <node ref="J14" pin="27"/>
-      <node ref="J14" pin="4"/>
-      <node ref="J14" pin="7"/>
-      <node ref="J14" pin="1"/>
-      <node ref="J14" pin="10"/>
-      <node ref="J14" pin="13"/>
-      <node ref="J10" pin="26"/>
-      <node ref="J14" pin="26"/>
-      <node ref="J10" pin="7"/>
+      <node ref="J13" pin="1"/>
       <node ref="J9" pin="1"/>
-      <node ref="J9" pin="10"/>
+      <node ref="J14" pin="15"/>
       <node ref="J9" pin="13"/>
       <node ref="J9" pin="15"/>
       <node ref="J9" pin="26"/>
       <node ref="J10" pin="27"/>
       <node ref="J10" pin="4"/>
+      <node ref="J10" pin="7"/>
+      <node ref="J13" pin="26"/>
+      <node ref="J13" pin="4"/>
+      <node ref="J13" pin="7"/>
+      <node ref="J13" pin="10"/>
+      <node ref="J13" pin="13"/>
+      <node ref="J13" pin="15"/>
+      <node ref="J13" pin="27"/>
+      <node ref="J14" pin="4"/>
+      <node ref="J14" pin="7"/>
+      <node ref="J14" pin="1"/>
+      <node ref="J14" pin="10"/>
+      <node ref="J14" pin="13"/>
       <node ref="J10" pin="1"/>
       <node ref="J10" pin="10"/>
       <node ref="J10" pin="13"/>
       <node ref="J10" pin="15"/>
+      <node ref="J10" pin="26"/>
+      <node ref="U17" pin="4"/>
+      <node ref="C70" pin="2"/>
+      <node ref="C71" pin="2"/>
+      <node ref="U16" pin="22"/>
       <node ref="M1" pin="JB1.74"/>
       <node ref="M1" pin="JB1.73"/>
       <node ref="M1" pin="JB1.7"/>
@@ -3701,23 +3887,31 @@
       <node ref="M1" pin="JB1.63"/>
       <node ref="M1" pin="JB1.54"/>
       <node ref="M1" pin="JB1.53"/>
+      <node ref="M1" pin="JB3.46"/>
+      <node ref="M1" pin="JB3.24"/>
+      <node ref="M1" pin="JB3.23"/>
+      <node ref="M1" pin="JB3.18"/>
+      <node ref="M1" pin="JB3.17"/>
+      <node ref="M1" pin="JB3.12"/>
+      <node ref="M1" pin="JB3.11"/>
+      <node ref="M1" pin="JB3.6"/>
+      <node ref="M1" pin="JB3.55"/>
+      <node ref="M1" pin="JB3.5"/>
       <node ref="M1" pin="JB1.89"/>
-      <node ref="M1" pin="JB1.83"/>
-      <node ref="U16" pin="22"/>
+      <node ref="M1" pin="JB3.45"/>
       <node ref="M1" pin="JB3.36"/>
       <node ref="M1" pin="JB3.35"/>
       <node ref="U16" pin="13"/>
       <node ref="U16" pin="12"/>
-      <node ref="U17" pin="4"/>
-      <node ref="C70" pin="2"/>
-      <node ref="C71" pin="2"/>
-      <node ref="M1" pin="JB3.45"/>
+      <node ref="M1" pin="JB1.83"/>
+      <node ref="M1" pin="JB3.30"/>
+      <node ref="C69" pin="2"/>
+      <node ref="M1" pin="JB2.49"/>
       <node ref="M1" pin="JB2.60"/>
       <node ref="C73" pin="2"/>
       <node ref="U18" pin="4"/>
       <node ref="C72" pin="2"/>
-      <node ref="C69" pin="2"/>
-      <node ref="M1" pin="JB2.49"/>
+      <node ref="M1" pin="JB2.50"/>
       <node ref="M1" pin="JB2.19"/>
       <node ref="C74" pin="2"/>
       <node ref="C10" pin="2"/>
@@ -3727,27 +3921,7 @@
       <node ref="M1" pin="JB2.70"/>
       <node ref="M1" pin="JB2.69"/>
       <node ref="M1" pin="JB2.59"/>
-      <node ref="M1" pin="JB2.50"/>
-      <node ref="M1" pin="JB3.24"/>
-      <node ref="M1" pin="JB1.1"/>
-      <node ref="M1" pin="JB1.43"/>
-      <node ref="M1" pin="JB1.33"/>
-      <node ref="M1" pin="JB1.30"/>
-      <node ref="M1" pin="JB1.25"/>
-      <node ref="M1" pin="JB3.30"/>
-      <node ref="M1" pin="JB3.29"/>
-      <node ref="M1" pin="JB3.23"/>
-      <node ref="M1" pin="JB3.18"/>
-      <node ref="M1" pin="JB3.17"/>
-      <node ref="M1" pin="JB3.12"/>
-      <node ref="M1" pin="JB3.6"/>
-      <node ref="M1" pin="JB3.55"/>
-      <node ref="M1" pin="JB3.5"/>
-      <node ref="M1" pin="JB3.46"/>
-      <node ref="C85" pin="2"/>
-      <node ref="M1" pin="JB2.89"/>
-      <node ref="M1" pin="JB2.80"/>
-      <node ref="M1" pin="JB2.79"/>
+      <node ref="C53" pin="2"/>
       <node ref="C15" pin="2"/>
       <node ref="C14" pin="2"/>
       <node ref="U8" pin="9"/>
@@ -3756,103 +3930,58 @@
       <node ref="U8" pin="15"/>
       <node ref="U8" pin="14"/>
       <node ref="M1" pin="JB1.19"/>
-      <node ref="C53" pin="2"/>
-      <node ref="C35" pin="2"/>
-      <node ref="C32" pin="2"/>
-      <node ref="C40" pin="2"/>
-      <node ref="C38" pin="2"/>
-      <node ref="C29" pin="2"/>
-      <node ref="C62" pin="2"/>
-      <node ref="C60" pin="2"/>
-      <node ref="C61" pin="2"/>
-      <node ref="C59" pin="2"/>
-      <node ref="C45" pin="2"/>
-      <node ref="C42" pin="2"/>
-      <node ref="C50" pin="2"/>
-      <node ref="C47" pin="2"/>
-      <node ref="C33" pin="2"/>
-      <node ref="C46" pin="2"/>
+      <node ref="M1" pin="JB2.79"/>
+      <node ref="M1" pin="JB1.1"/>
+      <node ref="M1" pin="JB1.43"/>
+      <node ref="M1" pin="JB1.33"/>
+      <node ref="M1" pin="JB1.30"/>
+      <node ref="M1" pin="JB1.25"/>
+      <node ref="SW1" pin="3"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="SW1" pin="1"/>
+      <node ref="C85" pin="2"/>
+      <node ref="SW1" pin="4"/>
+      <node ref="J12" pin="6"/>
+      <node ref="M1" pin="JB2.89"/>
+      <node ref="M1" pin="JB2.80"/>
       <node ref="C41" pin="2"/>
-      <node ref="C63" pin="2"/>
-      <node ref="C24" pin="2"/>
+      <node ref="U3" pin="20"/>
+      <node ref="C28" pin="2"/>
+      <node ref="C27" pin="2"/>
+      <node ref="C46" pin="2"/>
+      <node ref="C51" pin="2"/>
+      <node ref="C37" pin="2"/>
+      <node ref="U3" pin="18"/>
+      <node ref="C48" pin="2"/>
+      <node ref="C43" pin="2"/>
+      <node ref="C29" pin="2"/>
       <node ref="C36" pin="2"/>
+      <node ref="C24" pin="2"/>
       <node ref="C49" pin="2"/>
       <node ref="C44" pin="2"/>
-      <node ref="C51" pin="2"/>
-      <node ref="C11" pin="2"/>
-      <node ref="C12" pin="2"/>
-      <node ref="U3" pin="18"/>
-      <node ref="U3" pin="20"/>
-      <node ref="C23" pin="2"/>
-      <node ref="C26" pin="2"/>
-      <node ref="C31" pin="2"/>
-      <node ref="C58" pin="2"/>
-      <node ref="C65" pin="2"/>
-      <node ref="C64" pin="2"/>
-      <node ref="C55" pin="2"/>
-      <node ref="C13" pin="2"/>
-      <node ref="C27" pin="2"/>
-      <node ref="C56" pin="2"/>
-      <node ref="C25" pin="2"/>
-      <node ref="C30" pin="2"/>
-      <node ref="C57" pin="2"/>
-      <node ref="C54" pin="2"/>
-      <node ref="C34" pin="2"/>
-      <node ref="C39" pin="2"/>
-      <node ref="U2" pin="G7"/>
-      <node ref="U4" pin="D5"/>
-      <node ref="U1" pin="A1"/>
-      <node ref="U4" pin="D6"/>
-      <node ref="U4" pin="D7"/>
-      <node ref="U4" pin="D9"/>
-      <node ref="U4" pin="E8"/>
-      <node ref="U4" pin="F1"/>
-      <node ref="U4" pin="F7"/>
-      <node ref="U1" pin="G7"/>
-      <node ref="U2" pin="H3"/>
-      <node ref="U1" pin="G3"/>
-      <node ref="U2" pin="H4"/>
-      <node ref="U1" pin="F8"/>
-      <node ref="U1" pin="F7"/>
-      <node ref="U1" pin="D5"/>
-      <node ref="U1" pin="F1"/>
-      <node ref="U1" pin="E8"/>
-      <node ref="U2" pin="H5"/>
-      <node ref="U2" pin="D6"/>
-      <node ref="U2" pin="D5"/>
+      <node ref="U2" pin="D9"/>
       <node ref="U1" pin="B7"/>
-      <node ref="J2" pin="1"/>
+      <node ref="U2" pin="D5"/>
+      <node ref="U2" pin="D6"/>
+      <node ref="U2" pin="D7"/>
       <node ref="U1" pin="A8"/>
-      <node ref="U4" pin="F8"/>
-      <node ref="U4" pin="H6"/>
-      <node ref="C22" pin="2"/>
-      <node ref="U4" pin="A8"/>
-      <node ref="U4" pin="B7"/>
-      <node ref="U4" pin="A1"/>
-      <node ref="C17" pin="2"/>
-      <node ref="C16" pin="2"/>
-      <node ref="C20" pin="2"/>
-      <node ref="U12" pin="2"/>
-      <node ref="C21" pin="2"/>
-      <node ref="U2" pin="H6"/>
-      <node ref="U2" pin="H7"/>
-      <node ref="U1" pin="D9"/>
+      <node ref="U2" pin="E8"/>
+      <node ref="U2" pin="F1"/>
+      <node ref="U2" pin="F7"/>
+      <node ref="U1" pin="G7"/>
       <node ref="U1" pin="D7"/>
-      <node ref="U1" pin="D6"/>
-      <node ref="U10" pin="2"/>
-      <node ref="J4" pin="1"/>
-      <node ref="U4" pin="H7"/>
-      <node ref="U4" pin="H5"/>
-      <node ref="U4" pin="H4"/>
-      <node ref="U4" pin="H3"/>
-      <node ref="U4" pin="G7"/>
-      <node ref="U4" pin="G3"/>
-      <node ref="C37" pin="2"/>
-      <node ref="C28" pin="2"/>
-      <node ref="C43" pin="2"/>
-      <node ref="C48" pin="2"/>
-      <node ref="J1" pin="1"/>
+      <node ref="U1" pin="D9"/>
+      <node ref="U1" pin="E8"/>
+      <node ref="U1" pin="F1"/>
+      <node ref="U1" pin="D5"/>
+      <node ref="U1" pin="F7"/>
+      <node ref="U1" pin="F8"/>
+      <node ref="U1" pin="G3"/>
       <node ref="U2" pin="F8"/>
+      <node ref="U1" pin="A1"/>
+      <node ref="J11" pin="5"/>
+      <node ref="C12" pin="2"/>
+      <node ref="C11" pin="2"/>
       <node ref="U2" pin="B7"/>
       <node ref="U2" pin="A1"/>
       <node ref="U1" pin="H7"/>
@@ -3862,12 +3991,70 @@
       <node ref="U1" pin="H3"/>
       <node ref="U2" pin="A8"/>
       <node ref="U2" pin="G3"/>
-      <node ref="U2" pin="F7"/>
-      <node ref="U2" pin="F1"/>
-      <node ref="U2" pin="E8"/>
-      <node ref="U2" pin="D9"/>
-      <node ref="U2" pin="D7"/>
-      <node ref="J11" pin="5"/>
+      <node ref="C62" pin="2"/>
+      <node ref="C63" pin="2"/>
+      <node ref="C64" pin="2"/>
+      <node ref="C65" pin="2"/>
+      <node ref="C57" pin="2"/>
+      <node ref="C54" pin="2"/>
+      <node ref="C39" pin="2"/>
+      <node ref="C23" pin="2"/>
+      <node ref="C34" pin="2"/>
+      <node ref="C26" pin="2"/>
+      <node ref="C31" pin="2"/>
+      <node ref="C58" pin="2"/>
+      <node ref="C38" pin="2"/>
+      <node ref="C33" pin="2"/>
+      <node ref="C13" pin="2"/>
+      <node ref="C47" pin="2"/>
+      <node ref="C35" pin="2"/>
+      <node ref="C32" pin="2"/>
+      <node ref="C40" pin="2"/>
+      <node ref="C60" pin="2"/>
+      <node ref="C30" pin="2"/>
+      <node ref="C25" pin="2"/>
+      <node ref="C56" pin="2"/>
+      <node ref="C61" pin="2"/>
+      <node ref="C55" pin="2"/>
+      <node ref="C59" pin="2"/>
+      <node ref="C45" pin="2"/>
+      <node ref="C42" pin="2"/>
+      <node ref="C50" pin="2"/>
+      <node ref="C20" pin="2"/>
+      <node ref="U4" pin="D5"/>
+      <node ref="U4" pin="D6"/>
+      <node ref="U4" pin="H6"/>
+      <node ref="U4" pin="D7"/>
+      <node ref="U2" pin="H7"/>
+      <node ref="C17" pin="2"/>
+      <node ref="U4" pin="F1"/>
+      <node ref="U4" pin="B7"/>
+      <node ref="U4" pin="F7"/>
+      <node ref="U4" pin="A8"/>
+      <node ref="U4" pin="F8"/>
+      <node ref="U4" pin="A1"/>
+      <node ref="U2" pin="H6"/>
+      <node ref="U2" pin="H5"/>
+      <node ref="U2" pin="H4"/>
+      <node ref="U2" pin="H3"/>
+      <node ref="J1" pin="1"/>
+      <node ref="U2" pin="G7"/>
+      <node ref="U4" pin="D9"/>
+      <node ref="C21" pin="2"/>
+      <node ref="U4" pin="E8"/>
+      <node ref="C22" pin="2"/>
+      <node ref="U12" pin="2"/>
+      <node ref="C16" pin="2"/>
+      <node ref="U4" pin="H4"/>
+      <node ref="U4" pin="H3"/>
+      <node ref="J2" pin="1"/>
+      <node ref="J4" pin="1"/>
+      <node ref="U4" pin="H7"/>
+      <node ref="U4" pin="H5"/>
+      <node ref="U4" pin="G7"/>
+      <node ref="U4" pin="G3"/>
+      <node ref="U10" pin="2"/>
+      <node ref="U1" pin="D6"/>
     </net>
     <net code="71" name="Net-(U12-Pad4)">
       <node ref="U12" pin="4"/>
@@ -3877,90 +4064,90 @@
       <node ref="U16" pin="19"/>
     </net>
     <net code="73" name="+3V3">
-      <node ref="U15" pin="19"/>
-      <node ref="U12" pin="3"/>
-      <node ref="J5" pin="6"/>
-      <node ref="J7" pin="4"/>
-      <node ref="J9" pin="23"/>
-      <node ref="C16" pin="1"/>
-      <node ref="M1" pin="JB1.4"/>
+      <node ref="J13" pin="23"/>
+      <node ref="U10" pin="1"/>
       <node ref="U12" pin="1"/>
-      <node ref="M1" pin="JB1.27"/>
-      <node ref="C20" pin="1"/>
-      <node ref="J5" pin="8"/>
-      <node ref="U15" pin="10"/>
-      <node ref="U15" pin="12"/>
-      <node ref="U15" pin="16"/>
+      <node ref="M1" pin="JB1.14"/>
+      <node ref="J7" pin="4"/>
       <node ref="C53" pin="1"/>
+      <node ref="U12" pin="3"/>
+      <node ref="U10" pin="3"/>
+      <node ref="J5" pin="8"/>
+      <node ref="J14" pin="23"/>
+      <node ref="C16" pin="1"/>
+      <node ref="U7" pin="38"/>
+      <node ref="M1" pin="JB2.3"/>
+      <node ref="M1" pin="JB1.16"/>
       <node ref="M1" pin="JB2.1"/>
-      <node ref="M1" pin="JB1.6"/>
       <node ref="M1" pin="JB1.2"/>
       <node ref="C18" pin="1"/>
-      <node ref="C85" pin="1"/>
-      <node ref="R23" pin="1"/>
-      <node ref="R12" pin="1"/>
       <node ref="M1" pin="JB2.5"/>
-      <node ref="M1" pin="JB2.7"/>
-      <node ref="M1" pin="JB2.3"/>
-      <node ref="U10" pin="3"/>
-      <node ref="U10" pin="1"/>
-      <node ref="M1" pin="JB1.16"/>
-      <node ref="M1" pin="JB1.14"/>
-      <node ref="U7" pin="38"/>
-      <node ref="U7" pin="35"/>
-      <node ref="C83" pin="1"/>
-      <node ref="U7" pin="27"/>
-      <node ref="U7" pin="41"/>
+      <node ref="J5" pin="6"/>
+      <node ref="C85" pin="1"/>
       <node ref="C12" pin="1"/>
-      <node ref="U7" pin="34"/>
-      <node ref="U7" pin="37"/>
-      <node ref="C79" pin="1"/>
-      <node ref="C77" pin="1"/>
-      <node ref="J14" pin="23"/>
+      <node ref="J10" pin="23"/>
+      <node ref="C83" pin="1"/>
       <node ref="U5" pin="22"/>
+      <node ref="R23" pin="1"/>
+      <node ref="U7" pin="41"/>
+      <node ref="C77" pin="1"/>
+      <node ref="U15" pin="19"/>
+      <node ref="M1" pin="JB2.7"/>
+      <node ref="C79" pin="1"/>
+      <node ref="U7" pin="37"/>
+      <node ref="M1" pin="JB1.4"/>
+      <node ref="C20" pin="1"/>
+      <node ref="M1" pin="JB1.6"/>
+      <node ref="U7" pin="27"/>
+      <node ref="U7" pin="34"/>
+      <node ref="U7" pin="35"/>
+      <node ref="U7" pin="36"/>
+      <node ref="U15" pin="12"/>
+      <node ref="J9" pin="23"/>
+      <node ref="U15" pin="10"/>
       <node ref="U15" pin="20"/>
       <node ref="U3" pin="13"/>
-      <node ref="U7" pin="36"/>
-      <node ref="J10" pin="23"/>
-      <node ref="J13" pin="23"/>
       <node ref="C67" pin="1"/>
       <node ref="C68" pin="1"/>
+      <node ref="M1" pin="JB1.27"/>
+      <node ref="R12" pin="1"/>
+      <node ref="U15" pin="16"/>
     </net>
     <net code="74" name="Net-(U10-Pad4)">
       <node ref="U10" pin="4"/>
     </net>
     <net code="75" name="CAM0_SDA_1V8">
-      <node ref="M1" pin="JB2.23"/>
       <node ref="U1" pin="E6"/>
       <node ref="R9" pin="2"/>
+      <node ref="M1" pin="JB2.23"/>
     </net>
     <net code="76" name="CAM0_TRIG_1V8">
-      <node ref="M1" pin="JB2.27"/>
       <node ref="U1" pin="E7"/>
+      <node ref="M1" pin="JB2.27"/>
     </net>
     <net code="77" name="CAM0_nRESET_1V8">
-      <node ref="M1" pin="JB2.25"/>
       <node ref="U1" pin="G1"/>
+      <node ref="M1" pin="JB2.25"/>
     </net>
     <net code="78" name="/imagers/CAM0_2V8">
+      <node ref="U1" pin="H2"/>
+      <node ref="U1" pin="H8"/>
+      <node ref="U1" pin="H9"/>
+      <node ref="C54" pin="1"/>
+      <node ref="C17" pin="1"/>
+      <node ref="U1" pin="F9"/>
+      <node ref="U1" pin="G2"/>
+      <node ref="U1" pin="G8"/>
+      <node ref="U1" pin="H1"/>
+      <node ref="C23" pin="1"/>
+      <node ref="C22" pin="1"/>
       <node ref="C28" pin="1"/>
       <node ref="C27" pin="1"/>
-      <node ref="U1" pin="H8"/>
-      <node ref="C23" pin="1"/>
-      <node ref="U1" pin="H1"/>
-      <node ref="U1" pin="H2"/>
-      <node ref="U1" pin="G8"/>
-      <node ref="U1" pin="G2"/>
-      <node ref="U1" pin="F9"/>
-      <node ref="C22" pin="1"/>
-      <node ref="C17" pin="1"/>
       <node ref="U10" pin="5"/>
-      <node ref="C54" pin="1"/>
-      <node ref="U1" pin="H9"/>
     </net>
     <net code="79" name="CAM0_D0-">
-      <node ref="U1" pin="B6"/>
       <node ref="M1" pin="JB2.54"/>
+      <node ref="U1" pin="B6"/>
     </net>
     <net code="80" name="CAM0_D1+">
       <node ref="U1" pin="A4"/>
@@ -3985,25 +4172,25 @@
       <node ref="M1" pin="JB2.57"/>
     </net>
     <net code="86" name="CAM0_SCL_1V8">
+      <node ref="R16" pin="2"/>
       <node ref="U1" pin="C7"/>
       <node ref="M1" pin="JB2.21"/>
-      <node ref="R16" pin="2"/>
     </net>
     <net code="87" name="CAM1_SDA_1V8">
-      <node ref="U17" pin="6"/>
       <node ref="U2" pin="E6"/>
+      <node ref="U17" pin="6"/>
     </net>
     <net code="88" name="CAM1_SCL_1V8">
       <node ref="U2" pin="C7"/>
       <node ref="U17" pin="7"/>
     </net>
     <net code="89" name="CAM1_TRIG_1V8">
-      <node ref="U2" pin="E7"/>
       <node ref="U16" pin="14"/>
+      <node ref="U2" pin="E7"/>
     </net>
     <net code="90" name="CAM1_nRESET_1V8">
-      <node ref="U2" pin="G1"/>
       <node ref="U16" pin="15"/>
+      <node ref="U2" pin="G1"/>
     </net>
     <net code="91" name="CAM1_D1+">
       <node ref="U2" pin="A4"/>
@@ -4013,8 +4200,8 @@
       <node ref="M1" pin="JB1.70"/>
     </net>
     <net code="93" name="CAM1_D0+">
-      <node ref="M1" pin="JB1.58"/>
       <node ref="U2" pin="A6"/>
+      <node ref="M1" pin="JB1.58"/>
     </net>
     <net code="94" name="CAM1_EXTCLK_1V8">
       <node ref="U16" pin="16"/>
@@ -4024,40 +4211,40 @@
       <node ref="U2" pin="B4"/>
     </net>
     <net code="96" name="CAM1_CLK-">
-      <node ref="U2" pin="B5"/>
       <node ref="M1" pin="JB1.72"/>
+      <node ref="U2" pin="B5"/>
     </net>
     <net code="97" name="CAM1_D0-">
-      <node ref="M1" pin="JB1.56"/>
       <node ref="U2" pin="B6"/>
+      <node ref="M1" pin="JB1.56"/>
     </net>
     <net code="98" name="/imagers/CAM1_2V8">
-      <node ref="C38" pin="1"/>
-      <node ref="C32" pin="1"/>
-      <node ref="C56" pin="1"/>
-      <node ref="C55" pin="1"/>
-      <node ref="C21" pin="1"/>
-      <node ref="U12" pin="5"/>
-      <node ref="C37" pin="1"/>
-      <node ref="C48" pin="1"/>
-      <node ref="U4" pin="H1"/>
-      <node ref="C47" pin="1"/>
-      <node ref="U4" pin="H2"/>
-      <node ref="U4" pin="G8"/>
-      <node ref="U2" pin="G8"/>
-      <node ref="U2" pin="H1"/>
-      <node ref="U2" pin="H2"/>
-      <node ref="C42" pin="1"/>
-      <node ref="U2" pin="H8"/>
+      <node ref="C43" pin="1"/>
       <node ref="U2" pin="H9"/>
-      <node ref="U4" pin="H8"/>
+      <node ref="U2" pin="H2"/>
+      <node ref="C48" pin="1"/>
+      <node ref="U12" pin="5"/>
       <node ref="U4" pin="H9"/>
+      <node ref="U4" pin="H8"/>
+      <node ref="C32" pin="1"/>
+      <node ref="U2" pin="H8"/>
+      <node ref="C37" pin="1"/>
       <node ref="U2" pin="G2"/>
       <node ref="U2" pin="F9"/>
-      <node ref="U4" pin="F9"/>
-      <node ref="C33" pin="1"/>
+      <node ref="U2" pin="G8"/>
+      <node ref="U2" pin="H1"/>
+      <node ref="C42" pin="1"/>
+      <node ref="U4" pin="H2"/>
+      <node ref="U4" pin="G8"/>
       <node ref="U4" pin="G2"/>
-      <node ref="C43" pin="1"/>
+      <node ref="C55" pin="1"/>
+      <node ref="C56" pin="1"/>
+      <node ref="C21" pin="1"/>
+      <node ref="C47" pin="1"/>
+      <node ref="C33" pin="1"/>
+      <node ref="U4" pin="F9"/>
+      <node ref="C38" pin="1"/>
+      <node ref="U4" pin="H1"/>
     </net>
     <net code="99" name="ICM_SPI_MISO_1V8">
       <node ref="U3" pin="24"/>
@@ -4084,8 +4271,8 @@
       <node ref="U3" pin="11"/>
     </net>
     <net code="105" name="Net-(C13-Pad1)">
-      <node ref="C13" pin="1"/>
       <node ref="U3" pin="10"/>
+      <node ref="C13" pin="1"/>
     </net>
     <net code="106" name="Net-(U3-Pad16)">
       <node ref="U3" pin="16"/>
@@ -4126,658 +4313,660 @@
     <net code="118" name="Net-(U3-Pad5)">
       <node ref="U3" pin="5"/>
     </net>
-    <net code="119" name="/usb3/CONN_TX1-">
-      <node ref="J3" pin="A3"/>
-      <node ref="C8" pin="2"/>
-    </net>
-    <net code="120" name="/usb3/CONN_TX1+">
-      <node ref="C6" pin="2"/>
-      <node ref="J3" pin="A2"/>
-    </net>
-    <net code="121" name="Net-(C9-Pad1)">
-      <node ref="U7" pin="28"/>
-      <node ref="C9" pin="1"/>
-    </net>
-    <net code="122" name="USB_SDA">
-      <node ref="M1" pin="JB1.88"/>
-      <node ref="R3" pin="2"/>
-      <node ref="U5" pin="8"/>
-    </net>
-    <net code="123" name="USB_SCL">
-      <node ref="U5" pin="7"/>
-      <node ref="M1" pin="JB1.92"/>
-      <node ref="R2" pin="2"/>
-    </net>
-    <net code="124" name="3V3_VOUT">
-      <node ref="C84" pin="2"/>
-      <node ref="M1" pin="JB2.9"/>
-      <node ref="U6" pin="3"/>
-      <node ref="R6" pin="1"/>
-      <node ref="R3" pin="1"/>
-      <node ref="M1" pin="JB2.11"/>
-      <node ref="R2" pin="1"/>
-    </net>
-    <net code="125" name="Net-(C4-Pad2)">
-      <node ref="C4" pin="2"/>
-      <node ref="R7" pin="1"/>
-    </net>
-    <net code="126" name="Net-(C3-Pad1)">
-      <node ref="Q1" pin="2"/>
-      <node ref="Q2" pin="2"/>
-      <node ref="R4" pin="1"/>
-      <node ref="U5" pin="24"/>
-      <node ref="C3" pin="1"/>
-    </net>
-    <net code="127" name="VBUS">
-      <node ref="C82" pin="1"/>
-      <node ref="U7" pin="11"/>
-      <node ref="U7" pin="3"/>
-      <node ref="R8" pin="1"/>
-      <node ref="U7" pin="40"/>
-      <node ref="U7" pin="39"/>
-      <node ref="U7" pin="1"/>
-      <node ref="U7" pin="12"/>
-      <node ref="C78" pin="1"/>
-      <node ref="J8" pin="1"/>
-      <node ref="C4" pin="1"/>
-      <node ref="Q2" pin="3"/>
-    </net>
-    <net code="128" name="Net-(R5-Pad2)">
-      <node ref="R5" pin="2"/>
-      <node ref="U5" pin="16"/>
-    </net>
-    <net code="129" name="Net-(R10-Pad1)">
+    <net code="119" name="Net-(R10-Pad1)">
       <node ref="U7" pin="22"/>
       <node ref="R10" pin="1"/>
     </net>
-    <net code="130" name="Net-(R11-Pad1)">
-      <node ref="U7" pin="26"/>
+    <net code="120" name="Net-(R11-Pad1)">
       <node ref="R11" pin="1"/>
+      <node ref="U7" pin="26"/>
     </net>
-    <net code="131" name="/usb3/CONN_RX1+">
-      <node ref="U6" pin="8"/>
-      <node ref="J3" pin="B11"/>
-    </net>
-    <net code="132" name="/usb3/CONN_RX1-">
-      <node ref="J3" pin="B10"/>
-      <node ref="U6" pin="7"/>
-    </net>
-    <net code="133" name="/usb3/CONN_RX2+">
-      <node ref="U6" pin="12"/>
-      <node ref="J3" pin="A11"/>
-    </net>
-    <net code="134" name="/usb3/CONN_RX2-">
-      <node ref="J3" pin="A10"/>
-      <node ref="U6" pin="11"/>
-    </net>
-    <net code="135" name="USB3_TX+">
-      <node ref="M1" pin="JB3.22"/>
-      <node ref="U6" pin="16"/>
-    </net>
-    <net code="136" name="USB3_TX-">
-      <node ref="U6" pin="1"/>
-      <node ref="M1" pin="JB3.20"/>
-    </net>
-    <net code="137" name="USB3_RX+">
-      <node ref="U6" pin="4"/>
-      <node ref="M1" pin="JB3.19"/>
-    </net>
-    <net code="138" name="USB3_RX-">
-      <node ref="U6" pin="5"/>
-      <node ref="M1" pin="JB3.21"/>
-    </net>
-    <net code="139" name="Net-(D3-Pad2)">
-      <node ref="R23" pin="2"/>
-      <node ref="D3" pin="2"/>
-    </net>
-    <net code="140" name="Net-(U15-Pad17)">
-      <node ref="U15" pin="17"/>
-    </net>
-    <net code="141" name="Net-(C52-Pad1)">
-      <node ref="R24" pin="2"/>
-      <node ref="R25" pin="1"/>
-      <node ref="D6" pin="1"/>
-      <node ref="C52" pin="1"/>
-    </net>
-    <net code="142" name="Net-(R25-Pad2)">
-      <node ref="U5" pin="18"/>
-      <node ref="R25" pin="2"/>
-    </net>
-    <net code="143" name="Net-(U7-Pad25)">
-      <node ref="U7" pin="25"/>
-    </net>
-    <net code="144" name="Net-(U5-Pad15)">
-      <node ref="U5" pin="15"/>
-    </net>
-    <net code="145" name="Net-(U7-Pad5)">
-      <node ref="U7" pin="5"/>
-    </net>
-    <net code="146" name="Net-(U7-Pad9)">
-      <node ref="U7" pin="9"/>
-    </net>
-    <net code="147" name="Net-(U7-Pad24)">
-      <node ref="U7" pin="24"/>
-    </net>
-    <net code="148" name="Net-(U7-Pad6)">
-      <node ref="U7" pin="6"/>
-    </net>
-    <net code="149" name="Net-(U7-Pad4)">
-      <node ref="U7" pin="4"/>
-    </net>
-    <net code="150" name="Net-(U7-Pad8)">
-      <node ref="U7" pin="8"/>
-    </net>
-    <net code="151" name="Net-(U7-Pad30)">
-      <node ref="U7" pin="30"/>
-    </net>
-    <net code="152" name="Net-(U7-Pad7)">
-      <node ref="U7" pin="7"/>
-    </net>
-    <net code="153" name="Net-(U5-Pad20)">
-      <node ref="U5" pin="20"/>
-    </net>
-    <net code="154" name="Net-(U15-Pad14)">
-      <node ref="U15" pin="14"/>
-    </net>
-    <net code="155" name="Net-(U5-Pad3)">
-      <node ref="U5" pin="3"/>
-    </net>
-    <net code="156" name="Net-(U5-Pad19)">
-      <node ref="U5" pin="19"/>
-    </net>
-    <net code="157" name="Net-(U5-Pad11)">
-      <node ref="U5" pin="11"/>
-    </net>
-    <net code="158" name="Net-(U5-Pad14)">
-      <node ref="U5" pin="14"/>
-    </net>
-    <net code="159" name="Net-(U15-Pad1)">
-      <node ref="U15" pin="1"/>
-    </net>
-    <net code="160" name="Net-(U15-Pad21)">
-      <node ref="U15" pin="21"/>
-    </net>
-    <net code="161" name="Net-(U15-Pad22)">
-      <node ref="U15" pin="22"/>
-    </net>
-    <net code="162" name="Net-(U15-Pad23)">
-      <node ref="U15" pin="23"/>
-    </net>
-    <net code="163" name="Net-(U15-Pad24)">
-      <node ref="U15" pin="24"/>
-    </net>
-    <net code="164" name="USB2_D+">
-      <node ref="M1" pin="JB3.48"/>
-      <node ref="J3" pin="B6"/>
-      <node ref="J3" pin="A6"/>
-    </net>
-    <net code="165" name="USB2_D-">
-      <node ref="J3" pin="B7"/>
-      <node ref="J3" pin="A7"/>
-      <node ref="M1" pin="JB3.50"/>
-    </net>
-    <net code="166" name="/usb3/RESET">
-      <node ref="R1" pin="1"/>
-      <node ref="U5" pin="6"/>
-    </net>
-    <net code="167" name="/usb3/CONN_CC2">
-      <node ref="U5" pin="4"/>
-      <node ref="D4" pin="2"/>
-      <node ref="U5" pin="5"/>
-      <node ref="J3" pin="B5"/>
-    </net>
-    <net code="168" name="/usb3/CONN_CC1">
-      <node ref="U5" pin="1"/>
-      <node ref="D4" pin="1"/>
-      <node ref="U5" pin="2"/>
-      <node ref="J3" pin="A5"/>
-    </net>
-    <net code="169" name="/usb3/CONN_VBUS">
-      <node ref="J3" pin="A9"/>
-      <node ref="D6" pin="2"/>
-      <node ref="R24" pin="1"/>
-      <node ref="J3" pin="B4"/>
-      <node ref="D5" pin="1"/>
-      <node ref="C19" pin="1"/>
-      <node ref="J3" pin="A4"/>
-      <node ref="Q1" pin="3"/>
-      <node ref="J3" pin="B9"/>
-    </net>
-    <net code="170" name="/usb3/CONN_SBU2">
-      <node ref="J3" pin="B8"/>
-    </net>
-    <net code="171" name="/usb3/CONN_SBU1">
-      <node ref="J3" pin="A8"/>
-    </net>
-    <net code="172" name="/usb3/2V7">
-      <node ref="U5" pin="23"/>
-      <node ref="C1" pin="1"/>
-    </net>
-    <net code="173" name="/usb3/1V2">
-      <node ref="C2" pin="1"/>
-      <node ref="U5" pin="21"/>
-    </net>
-    <net code="174" name="/usb3/CONN_TX2+">
-      <node ref="C5" pin="2"/>
-      <node ref="J3" pin="B2"/>
-    </net>
-    <net code="175" name="/usb3/ABSIDE">
-      <node ref="U6" pin="6"/>
-      <node ref="U5" pin="17"/>
-      <node ref="R6" pin="2"/>
-    </net>
-    <net code="176" name="/usb3/DISCH">
-      <node ref="R8" pin="2"/>
-      <node ref="U5" pin="9"/>
-    </net>
-    <net code="177" name="/usb3/GATES">
-      <node ref="Q2" pin="1"/>
-      <node ref="R7" pin="2"/>
-      <node ref="R4" pin="2"/>
-      <node ref="Q1" pin="1"/>
-      <node ref="R5" pin="1"/>
-    </net>
-    <net code="178" name="/usb3/CONN_TX2-">
-      <node ref="J3" pin="B3"/>
-      <node ref="C7" pin="2"/>
-    </net>
-    <net code="179" name="/usb3/T1+">
-      <node ref="U6" pin="9"/>
-      <node ref="C6" pin="1"/>
-    </net>
-    <net code="180" name="/usb3/PH">
-      <node ref="U7" pin="42"/>
-      <node ref="U7" pin="13"/>
-      <node ref="U7" pin="19"/>
-      <node ref="U7" pin="14"/>
-      <node ref="U7" pin="15"/>
-      <node ref="U7" pin="16"/>
-      <node ref="U7" pin="17"/>
-      <node ref="U7" pin="18"/>
-      <node ref="U7" pin="10"/>
-    </net>
-    <net code="181" name="/usb3/PWGND">
+    <net code="121" name="/usb3/PWGND">
+      <node ref="R11" pin="2"/>
+      <node ref="R10" pin="2"/>
       <node ref="C9" pin="2"/>
       <node ref="U7" pin="23"/>
       <node ref="U7" pin="29"/>
       <node ref="U7" pin="2"/>
-      <node ref="R10" pin="2"/>
-      <node ref="R11" pin="2"/>
     </net>
-    <net code="182" name="/usb3/T2-">
-      <node ref="U6" pin="14"/>
+    <net code="122" name="/usb3/CONN_RX2+">
+      <node ref="U6" pin="12"/>
+      <node ref="J3" pin="A11"/>
+    </net>
+    <net code="123" name="/usb3/CONN_RX2-">
+      <node ref="J3" pin="A10"/>
+      <node ref="U6" pin="11"/>
+    </net>
+    <net code="124" name="USB3_TX+">
+      <node ref="M1" pin="JB3.22"/>
+      <node ref="U6" pin="16"/>
+    </net>
+    <net code="125" name="USB3_TX-">
+      <node ref="U6" pin="1"/>
+      <node ref="M1" pin="JB3.20"/>
+    </net>
+    <net code="126" name="USB3_RX+">
+      <node ref="U6" pin="4"/>
+      <node ref="M1" pin="JB3.19"/>
+    </net>
+    <net code="127" name="USB3_RX-">
+      <node ref="M1" pin="JB3.21"/>
+      <node ref="U6" pin="5"/>
+    </net>
+    <net code="128" name="USB2_D+">
+      <node ref="J3" pin="B6"/>
+      <node ref="M1" pin="JB3.48"/>
+      <node ref="J3" pin="A6"/>
+    </net>
+    <net code="129" name="/usb3/CONN_TX2+">
+      <node ref="C5" pin="2"/>
+      <node ref="J3" pin="B2"/>
+    </net>
+    <net code="130" name="/usb3/CONN_TX2-">
+      <node ref="J3" pin="B3"/>
+      <node ref="C7" pin="2"/>
+    </net>
+    <net code="131" name="/usb3/CONN_TX1-">
+      <node ref="C8" pin="2"/>
+      <node ref="J3" pin="A3"/>
+    </net>
+    <net code="132" name="/usb3/CONN_TX1+">
+      <node ref="C6" pin="2"/>
+      <node ref="J3" pin="A2"/>
+    </net>
+    <net code="133" name="USB2_D-">
+      <node ref="M1" pin="JB3.50"/>
+      <node ref="J3" pin="A7"/>
+      <node ref="J3" pin="B7"/>
+    </net>
+    <net code="134" name="USB_SDA">
+      <node ref="M1" pin="JB1.88"/>
+      <node ref="R3" pin="2"/>
+      <node ref="U5" pin="8"/>
+    </net>
+    <net code="135" name="Net-(C9-Pad1)">
+      <node ref="U7" pin="28"/>
+      <node ref="C9" pin="1"/>
+    </net>
+    <net code="136" name="USB_SCL">
+      <node ref="M1" pin="JB1.92"/>
+      <node ref="U5" pin="7"/>
+      <node ref="R2" pin="2"/>
+    </net>
+    <net code="137" name="/usb3/T2-">
       <node ref="C7" pin="1"/>
+      <node ref="U6" pin="14"/>
     </net>
-    <net code="183" name="/usb3/T2+">
+    <net code="138" name="/usb3/ABSIDE">
+      <node ref="R6" pin="2"/>
+      <node ref="U6" pin="6"/>
+      <node ref="U5" pin="17"/>
+    </net>
+    <net code="139" name="/usb3/T2+">
       <node ref="C5" pin="1"/>
       <node ref="U6" pin="13"/>
     </net>
-    <net code="184" name="/usb3/T1-">
+    <net code="140" name="/usb3/T1-">
       <node ref="C8" pin="1"/>
       <node ref="U6" pin="10"/>
     </net>
-    <net code="185" name="/te0820/ICM_SPI_MISO_1V2">
-      <node ref="M1" pin="JB1.75"/>
-      <node ref="U8" pin="4"/>
+    <net code="141" name="/usb3/T1+">
+      <node ref="U6" pin="9"/>
+      <node ref="C6" pin="1"/>
     </net>
-    <net code="186" name="/te0820/ICM_SPI_SYNC_1V2">
-      <node ref="M1" pin="JB1.78"/>
-      <node ref="U8" pin="6"/>
+    <net code="142" name="VBUS">
+      <node ref="J8" pin="1"/>
+      <node ref="U7" pin="11"/>
+      <node ref="U7" pin="3"/>
+      <node ref="C4" pin="1"/>
+      <node ref="Q2" pin="3"/>
+      <node ref="R8" pin="1"/>
+      <node ref="C78" pin="1"/>
+      <node ref="U7" pin="39"/>
+      <node ref="U7" pin="40"/>
+      <node ref="U7" pin="12"/>
+      <node ref="C82" pin="1"/>
+      <node ref="U7" pin="1"/>
     </net>
-    <net code="187" name="/te0820/ICM_SPI_MOSI_1V2">
-      <node ref="M1" pin="JB1.76"/>
-      <node ref="U8" pin="7"/>
+    <net code="143" name="Net-(C3-Pad1)">
+      <node ref="C3" pin="1"/>
+      <node ref="Q2" pin="2"/>
+      <node ref="R4" pin="1"/>
+      <node ref="U5" pin="24"/>
+      <node ref="Q1" pin="2"/>
     </net>
-    <net code="188" name="/te0820/CAM2_EXTCLK_1V2">
-      <node ref="U16" pin="4"/>
-      <node ref="M1" pin="JB1.50"/>
+    <net code="144" name="Net-(C4-Pad2)">
+      <node ref="C4" pin="2"/>
+      <node ref="R7" pin="1"/>
     </net>
-    <net code="189" name="/te0820/CAM1_EXTCLK_1V2">
-      <node ref="U16" pin="8"/>
-      <node ref="M1" pin="JB1.42"/>
+    <net code="145" name="Net-(R5-Pad2)">
+      <node ref="U5" pin="16"/>
+      <node ref="R5" pin="2"/>
     </net>
-    <net code="190" name="/te0820/CAM1_nRESET_1V2">
-      <node ref="M1" pin="JB1.38"/>
-      <node ref="U16" pin="9"/>
+    <net code="146" name="/usb3/CONN_RX1+">
+      <node ref="U6" pin="8"/>
+      <node ref="J3" pin="B11"/>
     </net>
-    <net code="191" name="/te0820/CAM1_TRIG_1V2">
-      <node ref="M1" pin="JB1.36"/>
-      <node ref="U16" pin="10"/>
+    <net code="147" name="/usb3/CONN_RX1-">
+      <node ref="U6" pin="7"/>
+      <node ref="J3" pin="B10"/>
     </net>
-    <net code="192" name="/te0820/ICM_IMU_INT1_1V2">
-      <node ref="U8" pin="5"/>
-      <node ref="M1" pin="JB1.77"/>
+    <net code="148" name="Net-(U7-Pad6)">
+      <node ref="U7" pin="6"/>
     </net>
-    <net code="193" name="/te0820/JTAGEN">
-      <node ref="R21" pin="2"/>
-      <node ref="M1" pin="JB1.90"/>
-      <node ref="SW1" pin="6"/>
+    <net code="149" name="Net-(U5-Pad3)">
+      <node ref="U5" pin="3"/>
     </net>
-    <net code="194" name="Net-(M1-PadJB2.30)">
-      <node ref="M1" pin="JB2.30"/>
+    <net code="150" name="Net-(U5-Pad19)">
+      <node ref="U5" pin="19"/>
     </net>
-    <net code="195" name="AUX4">
-      <node ref="J12" pin="7"/>
-      <node ref="M1" pin="JB1.98"/>
+    <net code="151" name="Net-(U5-Pad11)">
+      <node ref="U5" pin="11"/>
     </net>
-    <net code="196" name="/te0820/MODE">
-      <node ref="R13" pin="2"/>
-      <node ref="M1" pin="JB1.31"/>
-      <node ref="SW1" pin="7"/>
+    <net code="152" name="Net-(U5-Pad14)">
+      <node ref="U5" pin="14"/>
     </net>
-    <net code="197" name="Net-(M1-PadJB1.80)">
-      <node ref="M1" pin="JB1.80"/>
+    <net code="153" name="Net-(U5-Pad20)">
+      <node ref="U5" pin="20"/>
     </net>
-    <net code="198" name="/te0820/DIPSWITCH">
+    <net code="154" name="Net-(U5-Pad15)">
+      <node ref="U5" pin="15"/>
+    </net>
+    <net code="155" name="Net-(U7-Pad5)">
+      <node ref="U7" pin="5"/>
+    </net>
+    <net code="156" name="Net-(U7-Pad9)">
+      <node ref="U7" pin="9"/>
+    </net>
+    <net code="157" name="Net-(U7-Pad24)">
+      <node ref="U7" pin="24"/>
+    </net>
+    <net code="158" name="Net-(U7-Pad4)">
+      <node ref="U7" pin="4"/>
+    </net>
+    <net code="159" name="Net-(U7-Pad8)">
+      <node ref="U7" pin="8"/>
+    </net>
+    <net code="160" name="Net-(U7-Pad30)">
+      <node ref="U7" pin="30"/>
+    </net>
+    <net code="161" name="Net-(U7-Pad7)">
+      <node ref="U7" pin="7"/>
+    </net>
+    <net code="162" name="Net-(U7-Pad25)">
+      <node ref="U7" pin="25"/>
+    </net>
+    <net code="163" name="Net-(U15-Pad14)">
+      <node ref="U15" pin="14"/>
+    </net>
+    <net code="164" name="Net-(U15-Pad17)">
+      <node ref="U15" pin="17"/>
+    </net>
+    <net code="165" name="Net-(C52-Pad1)">
+      <node ref="R25" pin="1"/>
+      <node ref="C52" pin="1"/>
+      <node ref="D6" pin="1"/>
+      <node ref="R24" pin="2"/>
+    </net>
+    <net code="166" name="3V3_VOUT">
+      <node ref="M1" pin="JB2.9"/>
+      <node ref="M1" pin="JB2.11"/>
+      <node ref="R6" pin="1"/>
+      <node ref="C84" pin="2"/>
+      <node ref="U6" pin="3"/>
+      <node ref="R2" pin="1"/>
+      <node ref="R3" pin="1"/>
+    </net>
+    <net code="167" name="Net-(D3-Pad2)">
+      <node ref="D3" pin="2"/>
+      <node ref="R23" pin="2"/>
+    </net>
+    <net code="168" name="Net-(R25-Pad2)">
+      <node ref="U5" pin="18"/>
+      <node ref="R25" pin="2"/>
+    </net>
+    <net code="169" name="Net-(U15-Pad1)">
+      <node ref="U15" pin="1"/>
+    </net>
+    <net code="170" name="Net-(U15-Pad21)">
+      <node ref="U15" pin="21"/>
+    </net>
+    <net code="171" name="Net-(U15-Pad22)">
+      <node ref="U15" pin="22"/>
+    </net>
+    <net code="172" name="Net-(U15-Pad23)">
+      <node ref="U15" pin="23"/>
+    </net>
+    <net code="173" name="Net-(U15-Pad24)">
+      <node ref="U15" pin="24"/>
+    </net>
+    <net code="174" name="/usb3/CONN_CC2">
+      <node ref="U5" pin="4"/>
+      <node ref="D4" pin="2"/>
+      <node ref="J3" pin="B5"/>
+      <node ref="U5" pin="5"/>
+    </net>
+    <net code="175" name="/usb3/2V7">
+      <node ref="C1" pin="1"/>
+      <node ref="U5" pin="23"/>
+    </net>
+    <net code="176" name="/usb3/1V2">
+      <node ref="U5" pin="21"/>
+      <node ref="C2" pin="1"/>
+    </net>
+    <net code="177" name="/usb3/RESET">
+      <node ref="R1" pin="1"/>
+      <node ref="U5" pin="6"/>
+    </net>
+    <net code="178" name="/usb3/DISCH">
+      <node ref="R8" pin="2"/>
+      <node ref="U5" pin="9"/>
+    </net>
+    <net code="179" name="/usb3/CONN_VBUS">
+      <node ref="Q1" pin="3"/>
+      <node ref="C19" pin="1"/>
+      <node ref="D5" pin="1"/>
+      <node ref="D6" pin="2"/>
+      <node ref="J3" pin="A9"/>
+      <node ref="J3" pin="B4"/>
+      <node ref="J3" pin="B9"/>
+      <node ref="R24" pin="1"/>
+      <node ref="J3" pin="A4"/>
+    </net>
+    <net code="180" name="/usb3/GATES">
+      <node ref="R4" pin="2"/>
+      <node ref="Q2" pin="1"/>
+      <node ref="R7" pin="2"/>
+      <node ref="R5" pin="1"/>
+      <node ref="Q1" pin="1"/>
+    </net>
+    <net code="181" name="/usb3/CONN_CC1">
+      <node ref="U5" pin="2"/>
+      <node ref="U5" pin="1"/>
+      <node ref="D4" pin="1"/>
+      <node ref="J3" pin="A5"/>
+    </net>
+    <net code="182" name="/usb3/PH">
+      <node ref="U7" pin="16"/>
+      <node ref="U7" pin="15"/>
+      <node ref="U7" pin="14"/>
+      <node ref="U7" pin="13"/>
+      <node ref="U7" pin="10"/>
+      <node ref="U7" pin="42"/>
+      <node ref="U7" pin="19"/>
+      <node ref="U7" pin="18"/>
+      <node ref="U7" pin="17"/>
+    </net>
+    <net code="183" name="/usb3/CONN_SBU2">
+      <node ref="J3" pin="B8"/>
+    </net>
+    <net code="184" name="/usb3/CONN_SBU1">
+      <node ref="J3" pin="A8"/>
+    </net>
+    <net code="185" name="/te0820/DIPSWITCH">
+      <node ref="SW1" pin="5"/>
       <node ref="M1" pin="JB3.47"/>
       <node ref="R22" pin="2"/>
-      <node ref="SW1" pin="5"/>
     </net>
-    <net code="199" name="Net-(M1-PadJB2.4)">
-      <node ref="M1" pin="JB2.4"/>
-    </net>
-    <net code="200" name="/te0820/NOSEQ">
+    <net code="186" name="/te0820/NOSEQ">
       <node ref="SW1" pin="8"/>
       <node ref="R12" pin="2"/>
       <node ref="M1" pin="JB1.8"/>
     </net>
-    <net code="201" name="Net-(M1-PadJB1.29)">
+    <net code="187" name="/te0820/MODE">
+      <node ref="R13" pin="2"/>
+      <node ref="M1" pin="JB1.31"/>
+      <node ref="SW1" pin="7"/>
+    </net>
+    <net code="188" name="/te0820/CAM2_nRESET_1V2">
+      <node ref="M1" pin="JB1.48"/>
+      <node ref="U16" pin="5"/>
+    </net>
+    <net code="189" name="/te0820/CAM2_TRIG_1V2">
+      <node ref="M1" pin="JB1.52"/>
+      <node ref="U16" pin="3"/>
+    </net>
+    <net code="190" name="/te0820/CAM1_TRIG_1V2">
+      <node ref="M1" pin="JB1.36"/>
+      <node ref="U16" pin="10"/>
+    </net>
+    <net code="191" name="/te0820/CAM1_nRESET_1V2">
+      <node ref="M1" pin="JB1.38"/>
+      <node ref="U16" pin="9"/>
+    </net>
+    <net code="192" name="/te0820/ICM_SPI_CS_1V2">
+      <node ref="U16" pin="6"/>
+      <node ref="M1" pin="JB1.46"/>
+    </net>
+    <net code="193" name="/te0820/ICM_SPI_CLK_1V2">
+      <node ref="M1" pin="JB1.44"/>
+      <node ref="U16" pin="7"/>
+    </net>
+    <net code="194" name="/te0820/ICM_SPI_MOSI_1V2">
+      <node ref="U8" pin="7"/>
+      <node ref="M1" pin="JB1.76"/>
+    </net>
+    <net code="195" name="/te0820/ICM_SPI_SYNC_1V2">
+      <node ref="M1" pin="JB1.78"/>
+      <node ref="U8" pin="6"/>
+    </net>
+    <net code="196" name="/te0820/CAM2_EXTCLK_1V2">
+      <node ref="U16" pin="4"/>
+      <node ref="M1" pin="JB1.50"/>
+    </net>
+    <net code="197" name="/te0820/ICM_SPI_MISO_1V2">
+      <node ref="U8" pin="4"/>
+      <node ref="M1" pin="JB1.75"/>
+    </net>
+    <net code="198" name="/te0820/ICM_IMU_INT1_1V2">
+      <node ref="M1" pin="JB1.77"/>
+      <node ref="U8" pin="5"/>
+    </net>
+    <net code="199" name="/te0820/JTAGEN">
+      <node ref="SW1" pin="6"/>
+      <node ref="R21" pin="2"/>
+      <node ref="M1" pin="JB1.90"/>
+    </net>
+    <net code="200" name="Net-(M1-PadJB1.29)">
       <node ref="M1" pin="JB1.29"/>
     </net>
-    <net code="202" name="Net-(M1-PadJB2.17)">
+    <net code="201" name="Net-(M1-PadJB2.17)">
       <node ref="M1" pin="JB2.17"/>
     </net>
-    <net code="203" name="Net-(M1-PadJB2.2)">
+    <net code="202" name="Net-(M1-PadJB2.2)">
       <node ref="M1" pin="JB2.2"/>
+    </net>
+    <net code="203" name="Net-(M1-PadJB2.4)">
+      <node ref="M1" pin="JB2.4"/>
     </net>
     <net code="204" name="Net-(M1-PadJB2.20)">
       <node ref="M1" pin="JB2.20"/>
     </net>
-    <net code="205" name="PHY_MDI1_P">
-      <node ref="U9" pin="3"/>
-      <node ref="M1" pin="JB1.9"/>
+    <net code="205" name="Net-(M1-PadJB2.30)">
+      <node ref="M1" pin="JB2.30"/>
     </net>
-    <net code="206" name="AUX0">
-      <node ref="J12" pin="2"/>
-      <node ref="M1" pin="JB1.79"/>
+    <net code="206" name="Net-(M1-PadJB1.80)">
+      <node ref="M1" pin="JB1.80"/>
     </net>
-    <net code="207" name="AUX1">
-      <node ref="J12" pin="1"/>
-      <node ref="M1" pin="JB1.81"/>
+    <net code="207" name="/te0820/CAM1_SCL_1V2">
+      <node ref="R18" pin="2"/>
+      <node ref="M1" pin="JB1.34"/>
+      <node ref="U17" pin="2"/>
     </net>
-    <net code="208" name="/te0820/CAM2_SDA_1V2">
-      <node ref="M1" pin="JB1.82"/>
-      <node ref="R19" pin="2"/>
-      <node ref="U18" pin="3"/>
+    <net code="208" name="/te0820/CAM1_SDA_1V2">
+      <node ref="M1" pin="JB1.32"/>
+      <node ref="U17" pin="3"/>
+      <node ref="R17" pin="2"/>
     </net>
     <net code="209" name="/te0820/CAM2_SCL_1V2">
       <node ref="U18" pin="2"/>
       <node ref="R20" pin="2"/>
       <node ref="M1" pin="JB1.84"/>
     </net>
-    <net code="210" name="Net-(M1-PadJB1.85)">
+    <net code="210" name="/te0820/CAM2_SDA_1V2">
+      <node ref="U18" pin="3"/>
+      <node ref="M1" pin="JB1.82"/>
+      <node ref="R19" pin="2"/>
+    </net>
+    <net code="211" name="PHY_MDI1_P">
+      <node ref="U9" pin="3"/>
+      <node ref="M1" pin="JB1.9"/>
+    </net>
+    <net code="212" name="AUX0">
+      <node ref="J12" pin="2"/>
+      <node ref="M1" pin="JB1.79"/>
+    </net>
+    <net code="213" name="AUX1">
+      <node ref="J12" pin="1"/>
+      <node ref="M1" pin="JB1.81"/>
+    </net>
+    <net code="214" name="Net-(M1-PadJB1.85)">
       <node ref="M1" pin="JB1.85"/>
     </net>
-    <net code="211" name="ROOT_TX">
-      <node ref="M1" pin="JB1.86"/>
+    <net code="215" name="ROOT_TX">
       <node ref="J5" pin="29"/>
+      <node ref="M1" pin="JB1.86"/>
     </net>
-    <net code="212" name="Net-(M1-PadJB1.87)">
+    <net code="216" name="Net-(M1-PadJB1.87)">
       <node ref="M1" pin="JB1.87"/>
     </net>
-    <net code="213" name="ROOT_RX">
-      <node ref="M1" pin="JB1.91"/>
+    <net code="217" name="ROOT_RX">
       <node ref="J5" pin="27"/>
+      <node ref="M1" pin="JB1.91"/>
     </net>
-    <net code="214" name="LED0">
+    <net code="218" name="LED0">
       <node ref="M1" pin="JB1.94"/>
       <node ref="R14" pin="2"/>
     </net>
-    <net code="215" name="LED1">
+    <net code="219" name="LED1">
       <node ref="M1" pin="JB1.96"/>
       <node ref="R15" pin="2"/>
     </net>
-    <net code="216" name="AUX2">
-      <node ref="J12" pin="3"/>
-      <node ref="M1" pin="JB1.97"/>
-    </net>
-    <net code="217" name="AUX3">
+    <net code="220" name="AUX3">
       <node ref="M1" pin="JB1.99"/>
       <node ref="J12" pin="5"/>
     </net>
-    <net code="218" name="BONUS2_DAT0+">
-      <node ref="M1" pin="JB1.62"/>
+    <net code="221" name="BONUS2_DAT0+">
       <node ref="J10" pin="5"/>
+      <node ref="M1" pin="JB1.62"/>
     </net>
-    <net code="219" name="PHY_MDI0_N">
+    <net code="222" name="PHY_MDI0_N">
       <node ref="U9" pin="2"/>
       <node ref="M1" pin="JB1.5"/>
     </net>
-    <net code="220" name="BONUS2_SDA1">
+    <net code="223" name="BONUS2_SDA1">
       <node ref="J10" pin="19"/>
       <node ref="M1" pin="JB1.51"/>
     </net>
-    <net code="221" name="/te0820/CAM2_TRIG_1V2">
-      <node ref="M1" pin="JB1.52"/>
-      <node ref="U16" pin="3"/>
-    </net>
-    <net code="222" name="BONUS2_SCL1">
+    <net code="224" name="BONUS2_SCL1">
       <node ref="M1" pin="JB1.55"/>
       <node ref="J10" pin="18"/>
     </net>
-    <net code="223" name="BONUS2_SDA0">
-      <node ref="M1" pin="JB1.57"/>
+    <net code="225" name="BONUS2_SDA0">
       <node ref="J10" pin="17"/>
+      <node ref="M1" pin="JB1.57"/>
     </net>
-    <net code="224" name="BONUS2_SCL0">
+    <net code="226" name="BONUS2_SCL0">
       <node ref="J10" pin="16"/>
       <node ref="M1" pin="JB1.59"/>
     </net>
-    <net code="225" name="BONUS2_DAT0-">
+    <net code="227" name="BONUS2_DAT0-">
       <node ref="M1" pin="JB1.60"/>
       <node ref="J10" pin="6"/>
     </net>
-    <net code="226" name="BONUS2_EXTCLK">
-      <node ref="M1" pin="JB1.61"/>
+    <net code="228" name="BONUS2_EXTCLK">
       <node ref="J10" pin="14"/>
+      <node ref="M1" pin="JB1.61"/>
     </net>
-    <net code="227" name="BONUS2_CLK0-">
+    <net code="229" name="BONUS2_CLK0-">
       <node ref="J10" pin="3"/>
       <node ref="M1" pin="JB1.65"/>
     </net>
-    <net code="228" name="BONUS2_CLK0+">
-      <node ref="J10" pin="2"/>
+    <net code="230" name="BONUS2_CLK0+">
       <node ref="M1" pin="JB1.67"/>
+      <node ref="J10" pin="2"/>
     </net>
-    <net code="229" name="BONUS1_RESET">
-      <node ref="J9" pin="21"/>
+    <net code="231" name="BONUS1_RESET">
       <node ref="M1" pin="JB1.69"/>
+      <node ref="J9" pin="21"/>
     </net>
-    <net code="230" name="BONUS1_FLASH">
+    <net code="232" name="BONUS1_FLASH">
       <node ref="M1" pin="JB1.71"/>
       <node ref="J9" pin="20"/>
     </net>
-    <net code="231" name="BONUS2_FLASH">
-      <node ref="J10" pin="20"/>
+    <net code="233" name="BONUS2_FLASH">
       <node ref="M1" pin="JB1.49"/>
+      <node ref="J10" pin="20"/>
     </net>
-    <net code="232" name="GPIO16">
+    <net code="234" name="GPIO16">
       <node ref="J5" pin="26"/>
       <node ref="M1" pin="JB3.37"/>
     </net>
-    <net code="233" name="GPIO15">
-      <node ref="J5" pin="24"/>
+    <net code="235" name="GPIO15">
       <node ref="M1" pin="JB3.38"/>
+      <node ref="J5" pin="24"/>
     </net>
-    <net code="234" name="GPIO17">
+    <net code="236" name="GPIO17">
       <node ref="M1" pin="JB3.39"/>
       <node ref="J5" pin="28"/>
     </net>
-    <net code="235" name="Net-(M1-PadJB3.4)">
+    <net code="237" name="Net-(M1-PadJB3.4)">
       <node ref="M1" pin="JB3.4"/>
     </net>
-    <net code="236" name="GPIO14">
+    <net code="238" name="GPIO14">
       <node ref="M1" pin="JB3.40"/>
       <node ref="J5" pin="22"/>
     </net>
-    <net code="237" name="Net-(M1-PadJB3.41)">
+    <net code="239" name="Net-(M1-PadJB3.41)">
       <node ref="M1" pin="JB3.41"/>
     </net>
-    <net code="238" name="GPIO13">
-      <node ref="M1" pin="JB3.42"/>
+    <net code="240" name="GPIO13">
       <node ref="J5" pin="20"/>
+      <node ref="M1" pin="JB3.42"/>
     </net>
-    <net code="239" name="Net-(M1-PadJB3.43)">
+    <net code="241" name="Net-(M1-PadJB3.43)">
       <node ref="M1" pin="JB3.43"/>
     </net>
-    <net code="240" name="GPIO12">
+    <net code="242" name="GPIO12">
       <node ref="J5" pin="18"/>
       <node ref="M1" pin="JB3.44"/>
     </net>
-    <net code="241" name="Net-(M1-PadJB3.34)">
+    <net code="243" name="Net-(M1-PadJB3.34)">
       <node ref="M1" pin="JB3.34"/>
     </net>
-    <net code="242" name="Net-(M1-PadJB3.49)">
+    <net code="244" name="Net-(M1-PadJB3.49)">
       <node ref="M1" pin="JB3.49"/>
     </net>
-    <net code="243" name="Net-(M1-PadJB3.51)">
+    <net code="245" name="Net-(M1-PadJB3.51)">
       <node ref="M1" pin="JB3.51"/>
     </net>
-    <net code="244" name="Net-(M1-PadJB3.52)">
+    <net code="246" name="Net-(M1-PadJB3.52)">
       <node ref="M1" pin="JB3.52"/>
     </net>
-    <net code="245" name="Net-(M1-PadJB3.53)">
+    <net code="247" name="Net-(M1-PadJB3.53)">
       <node ref="M1" pin="JB3.53"/>
     </net>
-    <net code="246" name="Net-(M1-PadJB3.54)">
+    <net code="248" name="Net-(M1-PadJB3.54)">
       <node ref="M1" pin="JB3.54"/>
     </net>
-    <net code="247" name="Net-(M1-PadJB3.56)">
+    <net code="249" name="Net-(M1-PadJB3.56)">
       <node ref="M1" pin="JB3.56"/>
     </net>
-    <net code="248" name="Net-(M1-PadJB3.57)">
+    <net code="250" name="Net-(M1-PadJB3.57)">
       <node ref="M1" pin="JB3.57"/>
     </net>
-    <net code="249" name="Net-(M1-PadJB3.58)">
+    <net code="251" name="Net-(M1-PadJB3.58)">
       <node ref="M1" pin="JB3.58"/>
     </net>
-    <net code="250" name="Net-(M1-PadJB3.59)">
+    <net code="252" name="Net-(M1-PadJB3.59)">
       <node ref="M1" pin="JB3.59"/>
     </net>
-    <net code="251" name="Net-(M1-PadJB3.60)">
+    <net code="253" name="Net-(M1-PadJB3.60)">
       <node ref="M1" pin="JB3.60"/>
     </net>
-    <net code="252" name="Net-(M1-PadJB3.1)">
+    <net code="254" name="Net-(M1-PadJB3.1)">
       <node ref="M1" pin="JB3.1"/>
     </net>
-    <net code="253" name="Net-(M1-PadJB3.10)">
+    <net code="255" name="Net-(M1-PadJB3.10)">
       <node ref="M1" pin="JB3.10"/>
     </net>
-    <net code="254" name="Net-(M1-PadJB3.13)">
+    <net code="256" name="Net-(M1-PadJB3.13)">
       <node ref="M1" pin="JB3.13"/>
     </net>
-    <net code="255" name="Net-(M1-PadJB3.14)">
+    <net code="257" name="Net-(M1-PadJB3.14)">
       <node ref="M1" pin="JB3.14"/>
     </net>
-    <net code="256" name="Net-(M1-PadJB3.15)">
+    <net code="258" name="Net-(M1-PadJB3.15)">
       <node ref="M1" pin="JB3.15"/>
     </net>
-    <net code="257" name="Net-(M1-PadJB3.16)">
+    <net code="259" name="Net-(M1-PadJB3.16)">
       <node ref="M1" pin="JB3.16"/>
     </net>
-    <net code="258" name="Net-(M1-PadJB3.2)">
+    <net code="260" name="Net-(M1-PadJB3.2)">
       <node ref="M1" pin="JB3.2"/>
     </net>
-    <net code="259" name="Net-(M1-PadJB3.7)">
+    <net code="261" name="Net-(M1-PadJB3.7)">
       <node ref="M1" pin="JB3.7"/>
     </net>
-    <net code="260" name="Net-(M1-PadJB3.25)">
+    <net code="262" name="Net-(M1-PadJB3.25)">
       <node ref="M1" pin="JB3.25"/>
     </net>
-    <net code="261" name="Net-(M1-PadJB3.26)">
+    <net code="263" name="Net-(M1-PadJB3.26)">
       <node ref="M1" pin="JB3.26"/>
     </net>
-    <net code="262" name="Net-(M1-PadJB3.27)">
+    <net code="264" name="Net-(M1-PadJB3.27)">
       <node ref="M1" pin="JB3.27"/>
     </net>
-    <net code="263" name="Net-(M1-PadJB3.28)">
+    <net code="265" name="Net-(M1-PadJB3.28)">
       <node ref="M1" pin="JB3.28"/>
     </net>
-    <net code="264" name="Net-(M1-PadJB3.3)">
+    <net code="266" name="Net-(M1-PadJB3.3)">
       <node ref="M1" pin="JB3.3"/>
     </net>
-    <net code="265" name="Net-(M1-PadJB3.31)">
+    <net code="267" name="Net-(M1-PadJB3.31)">
       <node ref="M1" pin="JB3.31"/>
     </net>
-    <net code="266" name="Net-(M1-PadJB3.32)">
+    <net code="268" name="Net-(M1-PadJB3.32)">
       <node ref="M1" pin="JB3.32"/>
     </net>
-    <net code="267" name="Net-(M1-PadJB3.33)">
+    <net code="269" name="Net-(M1-PadJB3.33)">
       <node ref="M1" pin="JB3.33"/>
     </net>
-    <net code="268" name="BONUS2_TRIGGER">
-      <node ref="M1" pin="JB1.35"/>
+    <net code="270" name="BONUS2_TRIGGER">
       <node ref="J10" pin="22"/>
+      <node ref="M1" pin="JB1.35"/>
     </net>
-    <net code="269" name="SD_DAT1">
-      <node ref="M1" pin="JB1.22"/>
+    <net code="271" name="SD_DAT1">
       <node ref="J7" pin="8"/>
+      <node ref="M1" pin="JB1.22"/>
     </net>
-    <net code="270" name="PHY_MDI3_N">
+    <net code="272" name="PHY_MDI3_N">
       <node ref="U9" pin="10"/>
       <node ref="M1" pin="JB1.23"/>
     </net>
-    <net code="271" name="SD_DAT0">
-      <node ref="J7" pin="7"/>
+    <net code="273" name="SD_DAT0">
       <node ref="M1" pin="JB1.24"/>
+      <node ref="J7" pin="7"/>
     </net>
-    <net code="272" name="SD_CMD">
+    <net code="274" name="SD_CMD">
       <node ref="M1" pin="JB1.26"/>
       <node ref="J7" pin="3"/>
     </net>
-    <net code="273" name="SD_CLK">
+    <net code="275" name="SD_CLK">
       <node ref="J7" pin="5"/>
       <node ref="M1" pin="JB1.28"/>
     </net>
-    <net code="274" name="PHY_MDI0_P">
+    <net code="276" name="PHY_MDI0_P">
       <node ref="M1" pin="JB1.3"/>
       <node ref="U9" pin="1"/>
     </net>
-    <net code="275" name="PHY_MDI3_P">
+    <net code="277" name="PHY_MDI3_P">
       <node ref="U9" pin="9"/>
       <node ref="M1" pin="JB1.21"/>
     </net>
-    <net code="276" name="BONUS2_RESET">
-      <node ref="J10" pin="21"/>
+    <net code="278" name="BONUS2_RESET">
       <node ref="M1" pin="JB1.37"/>
+      <node ref="J10" pin="21"/>
     </net>
-    <net code="277" name="BONUS2_CLK1+">
-      <node ref="J10" pin="8"/>
+    <net code="279" name="BONUS2_CLK1+">
       <node ref="M1" pin="JB1.39"/>
+      <node ref="J10" pin="8"/>
     </net>
-    <net code="278" name="BONUS2_CLK1-">
+    <net code="280" name="BONUS2_CLK1-">
       <node ref="M1" pin="JB1.41"/>
       <node ref="J10" pin="9"/>
     </net>
-    <net code="279" name="/te0820/ICM_SPI_CLK_1V2">
-      <node ref="U16" pin="7"/>
-      <node ref="M1" pin="JB1.44"/>
+    <net code="281" name="/te0820/CAM1_EXTCLK_1V2">
+      <node ref="U16" pin="8"/>
+      <node ref="M1" pin="JB1.42"/>
     </net>
-    <net code="280" name="BONUS2_DAT1-">
-      <node ref="M1" pin="JB1.45"/>
+    <net code="282" name="BONUS2_DAT1-">
       <node ref="J10" pin="12"/>
+      <node ref="M1" pin="JB1.45"/>
     </net>
-    <net code="281" name="/te0820/ICM_SPI_CS_1V2">
-      <node ref="U16" pin="6"/>
-      <node ref="M1" pin="JB1.46"/>
-    </net>
-    <net code="282" name="BONUS2_DAT1+">
+    <net code="283" name="BONUS2_DAT1+">
       <node ref="J10" pin="11"/>
       <node ref="M1" pin="JB1.47"/>
-    </net>
-    <net code="283" name="/te0820/CAM2_nRESET_1V2">
-      <node ref="U16" pin="5"/>
-      <node ref="M1" pin="JB1.48"/>
     </net>
     <net code="284" name="Net-(M1-PadJB3.8)">
       <node ref="M1" pin="JB3.8"/>
@@ -4786,38 +4975,38 @@
       <node ref="M1" pin="JB3.9"/>
     </net>
     <net code="286" name="AUX5">
-      <node ref="M1" pin="JB1.100"/>
       <node ref="J12" pin="8"/>
+      <node ref="M1" pin="JB1.100"/>
     </net>
     <net code="287" name="PHY_MDI1_N">
       <node ref="U9" pin="4"/>
       <node ref="M1" pin="JB1.11"/>
     </net>
     <net code="288" name="ETH_VCC">
+      <node ref="M1" pin="JB1.13"/>
+      <node ref="U9" pin="5"/>
       <node ref="U9" pin="6"/>
       <node ref="C10" pin="1"/>
-      <node ref="U9" pin="5"/>
-      <node ref="M1" pin="JB1.13"/>
     </net>
     <net code="289" name="PHY_MDI2_P">
-      <node ref="U9" pin="7"/>
       <node ref="M1" pin="JB1.15"/>
+      <node ref="U9" pin="7"/>
     </net>
     <net code="290" name="PHY_MDI2_N">
-      <node ref="U9" pin="8"/>
       <node ref="M1" pin="JB1.17"/>
+      <node ref="U9" pin="8"/>
     </net>
     <net code="291" name="SD_DAT3">
-      <node ref="J7" pin="2"/>
       <node ref="M1" pin="JB1.18"/>
+      <node ref="J7" pin="2"/>
     </net>
     <net code="292" name="SD_DAT2">
       <node ref="M1" pin="JB1.20"/>
       <node ref="J7" pin="1"/>
     </net>
     <net code="293" name="BONUS4_SCL1">
-      <node ref="J14" pin="18"/>
       <node ref="M1" pin="JB2.87"/>
+      <node ref="J14" pin="18"/>
     </net>
     <net code="294" name="BONUS4_CLK0-">
       <node ref="J14" pin="3"/>
@@ -4836,40 +5025,40 @@
       <node ref="M1" pin="JB2.77"/>
     </net>
     <net code="298" name="BONUS4_SCL0">
-      <node ref="J14" pin="16"/>
       <node ref="M1" pin="JB2.78"/>
+      <node ref="J14" pin="16"/>
     </net>
     <net code="299" name="BONUS3_DAT1+">
       <node ref="M1" pin="JB2.81"/>
       <node ref="J13" pin="11"/>
     </net>
     <net code="300" name="BONUS4_CLK1+">
-      <node ref="M1" pin="JB2.82"/>
       <node ref="J14" pin="8"/>
+      <node ref="M1" pin="JB2.82"/>
     </net>
     <net code="301" name="BONUS3_DAT1-">
-      <node ref="J13" pin="12"/>
       <node ref="M1" pin="JB2.83"/>
+      <node ref="J13" pin="12"/>
     </net>
     <net code="302" name="BONUS4_CLK1-">
-      <node ref="J14" pin="9"/>
       <node ref="M1" pin="JB2.84"/>
+      <node ref="J14" pin="9"/>
     </net>
     <net code="303" name="BONUS4_SDA0">
       <node ref="J14" pin="17"/>
       <node ref="M1" pin="JB2.85"/>
     </net>
     <net code="304" name="BONUS4_DAT1+">
-      <node ref="J14" pin="11"/>
       <node ref="M1" pin="JB2.86"/>
+      <node ref="J14" pin="11"/>
     </net>
     <net code="305" name="BONUS4_DAT1-">
-      <node ref="M1" pin="JB2.88"/>
       <node ref="J14" pin="12"/>
+      <node ref="M1" pin="JB2.88"/>
     </net>
     <net code="306" name="BONUS4_SDA1">
-      <node ref="M1" pin="JB2.90"/>
       <node ref="J14" pin="19"/>
+      <node ref="M1" pin="JB2.90"/>
     </net>
     <net code="307" name="BONUS4_RESET">
       <node ref="J14" pin="21"/>
@@ -4892,34 +5081,32 @@
       <node ref="J14" pin="5"/>
     </net>
     <net code="312" name="JTAG_TDI">
-      <node ref="J6" pin="5"/>
       <node ref="M1" pin="JB2.96"/>
+      <node ref="J6" pin="5"/>
     </net>
     <net code="313" name="BONUS4_DAT0-">
-      <node ref="M1" pin="JB2.97"/>
       <node ref="J14" pin="6"/>
+      <node ref="M1" pin="JB2.97"/>
     </net>
     <net code="314" name="JTAG_TDO">
-      <node ref="J6" pin="3"/>
       <node ref="M1" pin="JB2.98"/>
+      <node ref="J6" pin="3"/>
     </net>
     <net code="315" name="BONUS4_TRIGGER">
-      <node ref="M1" pin="JB2.99"/>
       <node ref="J14" pin="22"/>
+      <node ref="M1" pin="JB2.99"/>
     </net>
-    <net code="316" name="/te0820/CAM1_SCL_1V2">
-      <node ref="R18" pin="2"/>
-      <node ref="U17" pin="2"/>
-      <node ref="M1" pin="JB1.34"/>
+    <net code="316" name="AUX2">
+      <node ref="M1" pin="JB1.97"/>
+      <node ref="J12" pin="3"/>
     </net>
-    <net code="317" name="/te0820/CAM1_SDA_1V2">
-      <node ref="R17" pin="2"/>
-      <node ref="U17" pin="3"/>
-      <node ref="M1" pin="JB1.32"/>
+    <net code="317" name="AUX4">
+      <node ref="M1" pin="JB1.98"/>
+      <node ref="J12" pin="7"/>
     </net>
     <net code="318" name="JTAG_TCK">
-      <node ref="J6" pin="1"/>
       <node ref="M1" pin="JB2.100"/>
+      <node ref="J6" pin="1"/>
     </net>
     <net code="319" name="GPIO0">
       <node ref="M1" pin="JB2.12"/>
@@ -4929,24 +5116,24 @@
       <node ref="M1" pin="JB2.13"/>
     </net>
     <net code="321" name="GPIO1">
-      <node ref="M1" pin="JB2.14"/>
       <node ref="J5" pin="5"/>
+      <node ref="M1" pin="JB2.14"/>
     </net>
     <net code="322" name="GPIO2">
       <node ref="M1" pin="JB2.16"/>
       <node ref="J5" pin="7"/>
     </net>
     <net code="323" name="GPIO3">
-      <node ref="M1" pin="JB2.18"/>
       <node ref="J5" pin="9"/>
+      <node ref="M1" pin="JB2.18"/>
     </net>
     <net code="324" name="BONUS4_CLK0+">
       <node ref="J14" pin="2"/>
       <node ref="M1" pin="JB2.72"/>
     </net>
     <net code="325" name="BONUS1_DAT1-">
-      <node ref="M1" pin="JB2.48"/>
       <node ref="J9" pin="12"/>
+      <node ref="M1" pin="JB2.48"/>
     </net>
     <net code="326" name="BONUS3_SDA1">
       <node ref="J13" pin="19"/>
@@ -4961,8 +5148,8 @@
       <node ref="J9" pin="16"/>
     </net>
     <net code="329" name="BONUS1_SDA0">
-      <node ref="J9" pin="17"/>
       <node ref="M1" pin="JB2.58"/>
+      <node ref="J9" pin="17"/>
     </net>
     <net code="330" name="BONUS3_CLK0+">
       <node ref="M1" pin="JB2.61"/>
@@ -4977,48 +5164,48 @@
       <node ref="M1" pin="JB2.63"/>
     </net>
     <net code="333" name="BONUS1_CLK1-">
-      <node ref="J9" pin="9"/>
       <node ref="M1" pin="JB2.64"/>
+      <node ref="J9" pin="9"/>
     </net>
     <net code="334" name="BONUS3_DAT0+">
       <node ref="J13" pin="5"/>
       <node ref="M1" pin="JB2.65"/>
     </net>
     <net code="335" name="BONUS1_SCL1">
-      <node ref="M1" pin="JB2.66"/>
       <node ref="J9" pin="18"/>
+      <node ref="M1" pin="JB2.66"/>
     </net>
     <net code="336" name="BONUS3_DAT0-">
-      <node ref="J13" pin="6"/>
       <node ref="M1" pin="JB2.67"/>
+      <node ref="J13" pin="6"/>
     </net>
     <net code="337" name="BONUS1_SDA1">
       <node ref="J9" pin="19"/>
       <node ref="M1" pin="JB2.68"/>
     </net>
     <net code="338" name="BONUS3_RESET">
-      <node ref="J13" pin="21"/>
       <node ref="M1" pin="JB2.71"/>
+      <node ref="J13" pin="21"/>
     </net>
     <net code="339" name="BONUS3_TRIGGER">
-      <node ref="J13" pin="22"/>
       <node ref="M1" pin="JB2.73"/>
+      <node ref="J13" pin="22"/>
     </net>
     <net code="340" name="BONUS1_DAT1+">
-      <node ref="J9" pin="11"/>
       <node ref="M1" pin="JB2.46"/>
+      <node ref="J9" pin="11"/>
     </net>
     <net code="341" name="BONUS3_SCL1">
-      <node ref="J13" pin="18"/>
       <node ref="M1" pin="JB2.47"/>
+      <node ref="J13" pin="18"/>
     </net>
     <net code="342" name="GPIO4">
-      <node ref="J5" pin="11"/>
       <node ref="M1" pin="JB2.22"/>
+      <node ref="J5" pin="11"/>
     </net>
     <net code="343" name="GPIO5">
-      <node ref="M1" pin="JB2.24"/>
       <node ref="J5" pin="13"/>
+      <node ref="M1" pin="JB2.24"/>
     </net>
     <net code="344" name="GPIO6">
       <node ref="J5" pin="15"/>
@@ -5037,20 +5224,20 @@
       <node ref="M1" pin="JB2.32"/>
     </net>
     <net code="348" name="GPIO9">
-      <node ref="J5" pin="21"/>
       <node ref="M1" pin="JB2.34"/>
+      <node ref="J5" pin="21"/>
     </net>
     <net code="349" name="BONUS3_SCL0">
-      <node ref="M1" pin="JB2.33"/>
       <node ref="J13" pin="16"/>
+      <node ref="M1" pin="JB2.33"/>
     </net>
     <net code="350" name="BONUS3_SDA0">
-      <node ref="J13" pin="17"/>
       <node ref="M1" pin="JB2.45"/>
+      <node ref="J13" pin="17"/>
     </net>
     <net code="351" name="BONUS1_EXTCLK">
-      <node ref="J9" pin="14"/>
       <node ref="M1" pin="JB2.44"/>
+      <node ref="J9" pin="14"/>
     </net>
     <net code="352" name="BONUS1_DAT0-">
       <node ref="M1" pin="JB2.43"/>
@@ -5061,12 +5248,12 @@
       <node ref="J9" pin="22"/>
     </net>
     <net code="354" name="BONUS1_DAT0+">
-      <node ref="J9" pin="5"/>
       <node ref="M1" pin="JB2.41"/>
+      <node ref="J9" pin="5"/>
     </net>
     <net code="355" name="GPIO11">
-      <node ref="M1" pin="JB2.38"/>
       <node ref="J5" pin="25"/>
+      <node ref="M1" pin="JB2.38"/>
     </net>
     <net code="356" name="BONUS1_CLK0-">
       <node ref="J9" pin="3"/>
@@ -5077,22 +5264,22 @@
       <node ref="J5" pin="23"/>
     </net>
     <net code="358" name="BONUS1_CLK0+">
-      <node ref="M1" pin="JB2.35"/>
       <node ref="J9" pin="2"/>
+      <node ref="M1" pin="JB2.35"/>
     </net>
-    <net code="359" name="Net-(D2-Pad2)">
+    <net code="359" name="Net-(U9-Pad12)">
+      <node ref="U9" pin="12"/>
+    </net>
+    <net code="360" name="Net-(U9-Pad13)">
+      <node ref="U9" pin="13"/>
+    </net>
+    <net code="361" name="Net-(D2-Pad2)">
       <node ref="R15" pin="1"/>
       <node ref="D2" pin="2"/>
     </net>
-    <net code="360" name="Net-(D1-Pad2)">
+    <net code="362" name="Net-(D1-Pad2)">
       <node ref="R14" pin="1"/>
       <node ref="D1" pin="2"/>
-    </net>
-    <net code="361" name="Net-(U9-Pad12)">
-      <node ref="U9" pin="12"/>
-    </net>
-    <net code="362" name="Net-(U9-Pad13)">
-      <node ref="U9" pin="13"/>
     </net>
     <net code="363" name="Net-(J7-Pad9)">
       <node ref="J7" pin="9"/>
