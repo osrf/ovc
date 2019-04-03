@@ -1,5 +1,5 @@
 # Bill of Materials for 'ovc3' rev.a
-# Schematic date: Sun Mar 31 23:36:41 2019
+# Schematic date: Wed Apr  3 10:53:18 2019
 Line Item,Quantity,Designator,Footprint,Value,Tolerance,Thermal,Voltage,Manufacturer,Manufacturer Part Number,Distributor,Distributor Part Number,Substitution OK?
 1,9,"C1,C2,C3,C16,C17,C20,C21,C52,C67",Capacitor_SMD:C_0402_1005Metric,1u,,,,Samsung,CL05A105KA5NQNC,Digikey,1276-1445-1-ND,
 2,49,"C4,C5,C6,C7,C8,C11,C12,C13,C14,C15,C26,C27,C28,C29,C30,C31,C36,C37,C38,C39,C40,C41,C44,C47,C48,C49,C50,C51,C53,C54,C55,C56,C57,C58,C59,C60,C61,C62,C63,C64,C65,C69,C70,C71,C72,C73,C74,C84,C85",Capacitor_SMD:C_0402_1005Metric,100n,,,,Samsung,CL05F104ZO5NNNC,Digikey,1276-1004-1-ND,
@@ -26,7 +26,7 @@ Line Item,Quantity,Designator,Footprint,Value,Tolerance,Thermal,Voltage,Manufact
 23,2,"CONN2,CONN3",undefined,Trenz_conn_dummy,,,,Samtec,LSHM-150-04.0-L-DV-A-S-K-TR,Digikey,SAM9033CT-ND,
 24,2,"Q1,Q2",Package_TO_SOT_SMD:SOT-23,SI2369DS,,,,Vishay,SI2369DS-T1-GE3,Digikey,SI2369DS-T1-GE3CT-ND,
 25,3,"R1,R4,R6",Resistor_SMD:R_0402_1005Metric,100k,,,,Panasonic,ERA-2AED104X,Digikey,P100KDECT-ND,
-26,6,"R2,R3,R12,R13,R21,R22",Resistor_SMD:R_0402_1005Metric,10k,,,,Panasonic,ERA-2AED103X,Digikey,P10KDECT-ND,
+26,7,"R2,R3,R12,R13,R21,R22,R26",Resistor_SMD:R_0402_1005Metric,10k,,,,Panasonic,ERA-2AED103X,Digikey,P10KDECT-ND,
 27,1,"R5",Resistor_SMD:R_0402_1005Metric,22k,,,,Panasonic,ERJ-2RKF2202X,Digikey,P22.0KLCT-ND,
 28,1,"R7",Resistor_SMD:R_0402_1005Metric,100R,,,,Panasonic,ERA-2AED101X,Digikey,P100DECT-ND,
 29,1,"R8",Resistor_SMD:R_0603_1608Metric,1k,,,,Rohm,ESR03EZPJ102,Digikey,RHM1.0KDCT-ND,
@@ -35,7 +35,7 @@ Line Item,Quantity,Designator,Footprint,Value,Tolerance,Thermal,Voltage,Manufact
 32,1,"R11",Resistor_SMD:R_0402_1005Metric,316R,,,,Panasonic,ERJ-2RKF3160X,Digikey,P316LCT-ND,
 33,3,"R14,R15,R23",Resistor_SMD:R_0402_1005Metric,330R,,,,Panasonic,ERJ-2GEJ331X,Digikey,P330JCT-ND,
 34,1,"R24",Resistor_SMD:R_0402_1005Metric,470,,,,Panasonic,ERJ-2RKF4700X,Digikey,P470LCT-ND,
-35,1,"R25",Resistor_SMD:R_0402_1005Metric,1k,,,,Panasonic,ERJ-2RKF1001X,Digikey,P1.00KLCT-ND,
+35,2,"R25,R27",Resistor_SMD:R_0402_1005Metric,1k,,,,Panasonic,ERJ-2RKF1001X,Digikey,P1.00KLCT-ND,
 36,2,"U1,U2",ONSemi:BGA-72_9x8_5.545x5.565mm,AR0144CS,,,,ON Semiconductor,AR0144CSSM00SUKA0-CPBR2,Digikey,AR0144CSSM00SUKA0-CPBR2OS-ND,
 37,1,"U3",Sensor_Motion:InvenSense_QFN-24_3x3mm_P0.4mm,ICM-20948,,,,TDK InvenSense,ICM-20948,Mouser,410-ICM-20948,
 38,1,"U4",ONSemi:BGA-72_9x8_5.545x5.565mm,AR0144CS,,,,ON Semiconductor,AR0144CSSC00SUKA0-CPBR2,Digikey,AR0144CSSC00SUKA0-CPBR2OS-ND,
