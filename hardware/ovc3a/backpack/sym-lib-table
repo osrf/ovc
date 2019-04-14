@@ -1,6 +1,7 @@
 (sym_lib_table
-  (lib (name IMU)(type Legacy)(uri ${KIWORKSPACE}/osrf_hw/kicad_libraries/IMU.lib)(options "")(descr ""))
-  (lib (name Isolator)(type Legacy)(uri /usr/share/kicad-nightly/library/Isolator.lib)(options "")(descr ""))
-  (lib (name Mechanical)(type Legacy)(uri /usr/share/kicad-nightly/library/Mechanical.lib)(options "")(descr ""))
-  (lib (name Sensor_Motion)(type Legacy)(uri /usr/share/kicad-nightly/library/Sensor_Motion.lib)(options "")(descr ""))
+  (lib (name "IMU")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/IMU.lib")(options "")(descr ""))
+  (lib (name "Isolator")(type "Legacy")(uri "/usr/share/kicad-nightly/library/Isolator.lib")(options "")(descr ""))
+  (lib (name "Mechanical")(type "Legacy")(uri "/usr/share/kicad-nightly/library/Mechanical.lib")(options "")(descr ""))
+  (lib (name "Sensor_Motion")(type "Legacy")(uri "/usr/share/kicad-nightly/library/Sensor_Motion.lib")(options "")(descr ""))
+  (lib (name "Interface_UART")(type "Legacy")(uri "/usr/share/kicad-nightly/library/Interface_UART.lib")(options "")(descr ""))
 )
