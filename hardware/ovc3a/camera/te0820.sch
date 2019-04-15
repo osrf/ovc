@@ -2023,4 +2023,6 @@ F 3 "" H 10500 3600 50  0001 C CNN
 	1    10500 3600
 	1    0    0    -1  
 $EndComp
+Text Notes 4950 7700 0    118  ~ 24
+ERROR in rev.A:\nDIR2 should be LOW
 $EndSCHEMATC
