@@ -1,1 +1,4 @@
-U16 DIR2 pin is incorrect. It should be LOW.
+Rev.A FIXME list
+================
+* U16 DIR2 pin is incorrect. It should be LOW.
+* U8 part number is incorrect. It should be SN74AXC4T245PWR
