@@ -1,5 +1,6 @@
 (fp_lib_table
-  (lib (name Package_SO)(type KiCad)(uri /usr/share/kicad-nightly/modules/Package_SO.pretty)(options "")(descr ""))
-  (lib (name IMU)(type KiCad)(uri ${KIWORKSPACE}/osrf_hw/kicad_modules/IMU.pretty)(options "")(descr ""))
-  (lib (name MountingHole)(type KiCad)(uri /usr/share/kicad-nightly/modules/MountingHole.pretty)(options "")(descr ""))
+  (lib (name "Package_SO")(type "KiCad")(uri "/usr/share/kicad-nightly/modules/Package_SO.pretty")(options "")(descr ""))
+  (lib (name "IMU")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/IMU.pretty")(options "")(descr ""))
+  (lib (name "MountingHole")(type "KiCad")(uri "/usr/share/kicad-nightly/modules/MountingHole.pretty")(options "")(descr ""))
+  (lib (name "Package_QFP")(type "KiCad")(uri "/usr/share/kicad-nightly/modules/Package_QFP.pretty")(options "")(descr ""))
 )
