@@ -1457,4 +1457,65 @@ F 3 "" H 13400 6600 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 Connection ~ 13400 6600
+$Comp
+L Connector_Generic:Conn_02x04_Odd_Even J?
+U 1 1 5CBC986F
+P 8900 7600
+F 0 "J?" H 8950 7917 50  0000 C CNN
+F 1 "CAM_IO2" H 8950 7826 50  0000 C CNN
+F 2 "Connector_PinSocket_1.27mm:PinSocket_2x04_P1.27mm_Vertical" H 8900 7600 50  0001 C CNN
+F 3 "~" H 8900 7600 50  0001 C CNN
+	1    8900 7600
+	1    0    0    -1  
+$EndComp
+Text Label 9200 7500 0    50   ~ 0
+CAM_AUX0_1V2
+Text Label 9200 7800 0    50   ~ 0
+CAM_AUX5_1V2
+Text Label 8100 7500 0    50   ~ 0
+CAM_AUX1_1V2
+Text Label 8100 7600 0    50   ~ 0
+CAM_AUX2_1V2
+Text Label 8100 7700 0    50   ~ 0
+CAM_AUX3_1V2
+Text Label 8100 7800 0    50   ~ 0
+CAM_AUX4_1V2
+Wire Wire Line
+	8100 7500 8700 7500
+Wire Wire Line
+	8100 7600 8700 7600
+Wire Wire Line
+	8100 7700 8700 7700
+Wire Wire Line
+	8100 7800 8700 7800
+Wire Wire Line
+	9200 7800 9800 7800
+Wire Wire Line
+	9200 7500 9800 7500
+$Comp
+L power:+1V2 #PWR?
+U 1 1 5CBD3F4C
+P 10000 7600
+F 0 "#PWR?" H 10000 7450 50  0001 C CNN
+F 1 "+1V2" H 10015 7773 50  0000 C CNN
+F 2 "" H 10000 7600 50  0001 C CNN
+F 3 "" H 10000 7600 50  0001 C CNN
+	1    10000 7600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9200 7600 10000 7600
+Wire Wire Line
+	9200 7700 10000 7700
+$Comp
+L power:GND #PWR?
+U 1 1 5CBD457D
+P 10000 7700
+F 0 "#PWR?" H 10000 7450 50  0001 C CNN
+F 1 "GND" H 10005 7527 50  0001 C CNN
+F 2 "" H 10000 7700 50  0001 C CNN
+F 3 "" H 10000 7700 50  0001 C CNN
+	1    10000 7700
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
