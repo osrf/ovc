@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Firmware Update</title>
+</head>
+<body>
+
+	<table>
+    <tr>
+      <th><img src="wwwlogo.png"></th>
+      <th>  <font size="24"> <center>Web Firmware Update  v1.0 </center></font> </th>
+    </tr>
+
+    <tr>
+      <td colspan="2">  <center>
+        <table border="1">
+
+          <tr>
+            <th colspan="3"> <center>Command  </center></th>
+            <th colspan="1"> <center>Notes  </center></th>
+          </tr>
+          <tr>
+            <th colspan="4"> <center>General Commands  </center></th>
+          </tr>
+          <tr>
+            <form action="/cgi-bin/reboot.cgi" method="post" enctype="multipart/form-data">
+            <td colspan="3"><input type="submit" name="submit" value="Reboot device"></td>
+            <td colspan="1">Restarts whole system</td>
+            </form>
+          </tr>
+
+          <tr>
+            <th colspan="4"> <center>Flash access  </center></th>
+          </tr>
+
+          <tr>
+            <form action="/cgi-bin/erase_flash_all.cgi" method="post" enctype="multipart/form-data">
+              <td colspan="3"><input type="submit" name="submit" value="Erase Flash"></td>
+              <td colspan="1"><label for="file">Erase all flash partitions (mtd*)</label></td>
+            </form>
+          </tr>
+
+          <tr>
+          <form action="/cgi-bin/mtd0.cgi" method="post" enctype="multipart/form-data">
+            <td  colspan="2"><input type="file" name="file" id="file"></td>
+            <td  colspan="1"><input type="submit" name="submit" value="Write QSPI mtd0"></td>
+            <td  colspan="1">Default Boot (use for Boot.bin)</td>
+          </form>
+          </tr>
+          <tr>
+          <form action="/cgi-bin/mtd1.cgi" method="post" enctype="multipart/form-data">
+            <td  colspan="2"><input type="file" name="file" id="file"></td>
+            <td  colspan="1"><input type="submit" name="submit" value="Write QSPI mtd1"></td>
+            <td  colspan="1">Default Bootenv</td>
+          </form>
+          </tr>
+          <tr>
+          <form action="/cgi-bin/mtd2.cgi" method="post" enctype="multipart/form-data">
+            <td  colspan="2"><input type="file" name="file" id="file"></td>
+            <td  colspan="1"><input type="submit" name="submit" value="Write QSPI mtd2"></td>
+            <td  colspan="1">Default kernel (use for image.ub)</td>
+          </form>
+          </tr>
+          <tr>
+          <form action="/cgi-bin/mtd3.cgi" method="post" enctype="multipart/form-data">
+            <td  colspan="2"><input type="file" name="file" id="file"></td>
+            <td  colspan="1"><input type="submit" name="submit" value="Write QSPI mtd3"></td>
+            <td  colspan="1">Default not defined</td>
+          </form>
+          </tr>
+          
+          <tr>
+            <th colspan="4"> <center>SD  </center></th>
+          </tr>
+          <tr>
+              <form action="/cgi-bin/mmcblk0p1.cgi" method="post" enctype="multipart/form-data">
+                  <td  colspan="2"><input type="file" name="file" id="file"></td>
+                  <td  colspan="1"><input type="submit" name="submit" value="Write mmcblk0p1"></td>
+                  <td  colspan="1">SD0 (use for Boot.bin and image.ub)</td>
+              </form>
+          </tr>
+          <tr>
+              <form action="/cgi-bin/mmcblk1p1.cgi" method="post" enctype="multipart/form-data">
+                  <td  colspan="2"><input type="file" name="file" id="file"></td>
+                  <td  colspan="1"><input type="submit" name="submit" value="Write mmcblk1p1"></td>
+                  <td  colspan="1">SD1 (use for Boot.bin and image.ub)</td>
+              </form>
+          </tr>
+          <tr>
+            <td  colspan="4">Web interface is for general usage, check which mtd* and mmcblk*p1 is available on the device</td>
+          </tr>
+
+        </table>
+      </center> </td>
+    </tr>
+    
+	</table>
+
+</body>
+</html>
+

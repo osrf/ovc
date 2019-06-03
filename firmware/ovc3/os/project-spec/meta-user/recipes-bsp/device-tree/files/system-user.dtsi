@@ -1,0 +1,65 @@
+/include/ "system-conf.dtsi"
+/* SDIO */
+
+&sdhci1 {
+   disable-wp;
+   no-1-8-v;
+};
+
+/* ETH PHY */
+&gem3 {
+
+	status = "okay";
+  ethernet_phy0: ethernet-phy@0 {
+		compatible = "marvell,88e1510";
+		device_type = "ethernet-phy";
+    		reg = <1>;
+	};
+};
+/* USB 2.0 */
+&dwc3_0 {
+    status = "okay";
+    dr_mode = "peripheral"; 
+};
+
+/* QSPI PHY */
+&qspi {
+    #address-cells = <1>;
+    #size-cells = <0>;
+    status = "okay";
+    flash0: flash@0 {
+        compatible = "jedec,spi-nor";
+        reg = <0x0>;
+        #address-cells = <1>;
+        #size-cells = <1>;
+    };
+};
+
+// spidev for IMU
+&spi1 {
+	// Change to mode 3
+	spi-cpha=<1>;
+	spi-cpol=<1>;
+	spidev@0x00 {
+		compatible = "spidev";
+		spi-max-frequency = <5000000>;
+		reg = <0>;
+	};
+};
+
+// UIO for VDMA, will allow interrupt on frame transferred and configuration through AXI4 lite
+
+&axi_vdma_0 {
+    compatible = "generic-uio";
+};
+&axi_vdma_1 {
+    compatible = "generic-uio";
+};
+&axi_vdma_2 {
+    compatible = "generic-uio";
+};
+// UIO for custom IMU synchroniser IP
+&axi_gpio_0 {
+    compatible = "generic-uio";
+};
+
