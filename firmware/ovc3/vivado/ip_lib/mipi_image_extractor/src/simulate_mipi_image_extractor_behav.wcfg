@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="simulate_mipi_image_extractor_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="simulate_mipi_image_extractor" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="90550000000001fs"></ZoomEndTime>
+      <Cursor1Time time="10431445000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="583"></NameColumnWidth>
+      <ValueColumnWidth column_width="128"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="20" />
+   <wvobject type="logic" fp_name="/simulate_mipi_image_extractor/DUT/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/simulate_mipi_image_extractor/DUT/mipi_data">
+      <obj_property name="ElementShortName">mipi_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mipi_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/simulate_mipi_image_extractor/DUT/mipi_data_valid">
+      <obj_property name="ElementShortName">mipi_data_valid</obj_property>
+      <obj_property name="ObjectShortName">mipi_data_valid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/simulate_mipi_image_extractor/dma_ready">
+      <obj_property name="ElementShortName">dma_ready</obj_property>
+      <obj_property name="ObjectShortName">dma_ready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/simulate_mipi_image_extractor/DUT/row_done">
+      <obj_property name="ElementShortName">row_done</obj_property>
+      <obj_property name="ObjectShortName">row_done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/simulate_mipi_image_extractor/DUT/frame_done">
+      <obj_property name="ElementShortName">frame_done</obj_property>
+      <obj_property name="ObjectShortName">frame_done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/simulate_mipi_image_extractor/DUT/new_frame">
+      <obj_property name="ElementShortName">new_frame</obj_property>
+      <obj_property name="ObjectShortName">new_frame</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/simulate_mipi_image_extractor/DUT/pixel_data">
+      <obj_property name="ElementShortName">pixel_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/simulate_mipi_image_extractor/DUT/pixel_data_valid">
+      <obj_property name="ElementShortName">pixel_data_valid</obj_property>
+      <obj_property name="ObjectShortName">pixel_data_valid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/simulate_mipi_image_extractor/DUT/row_count">
+      <obj_property name="ElementShortName">row_count[9:0]</obj_property>
+      <obj_property name="ObjectShortName">row_count[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/simulate_mipi_image_extractor/DUT/pixel_count">
+      <obj_property name="ElementShortName">pixel_count[10:0]</obj_property>
+      <obj_property name="ObjectShortName">pixel_count[10:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/simulate_mipi_image_extractor/DUT/state">
+      <obj_property name="ElementShortName">state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">state[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/simulate_mipi_image_extractor/DUT/rx_buf">
+      <obj_property name="ElementShortName">rx_buf[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_buf[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/simulate_mipi_image_extractor/DUT/rx_buf_count">
+      <obj_property name="ElementShortName">rx_buf_count[2:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_buf_count[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/simulate_mipi_image_extractor/DUT/line_valid">
+      <obj_property name="ElementShortName">line_valid</obj_property>
+      <obj_property name="ObjectShortName">line_valid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/simulate_mipi_image_extractor/DUT/frame_valid">
+      <obj_property name="ElementShortName">frame_valid</obj_property>
+      <obj_property name="ObjectShortName">frame_valid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/simulate_mipi_image_extractor/DUT/line_buffered">
+      <obj_property name="ElementShortName">line_buffered</obj_property>
+      <obj_property name="ObjectShortName">line_buffered</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/simulate_mipi_image_extractor/DUT/linebuf_state">
+      <obj_property name="ElementShortName">linebuf_state</obj_property>
+      <obj_property name="ObjectShortName">linebuf_state</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/simulate_mipi_image_extractor/DUT/line_pixel_count">
+      <obj_property name="ElementShortName">line_pixel_count[10:0]</obj_property>
+      <obj_property name="ObjectShortName">line_pixel_count[10:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/simulate_mipi_image_extractor/DUT/line_data">
+      <obj_property name="ElementShortName">line_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">line_data[7:0]</obj_property>
+   </wvobject>
+</wave_config>

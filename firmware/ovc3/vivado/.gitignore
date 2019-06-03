@@ -1,0 +1,19 @@
+# Files from Trenz electronics
+
+block_design/*
+board_files/*
+prebuilt/*
+scripts/*
+settings/*
+
+ip_lib/labtools_fmeter/*
+
+# XSDK workspace, no custom apps so it can be rebuilt from examples
+workspace/*
+
+# For Vivado exclude all and only add necessary files
+vivado/*
+!vivado/test_board.srcs
+!vivado/test_board.xpr
+
+#vivado/test_board.srcs/sources_1/bd/zusys/
