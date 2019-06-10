@@ -16,4 +16,5 @@ vivado/*
 !vivado/test_board.srcs
 !vivado/test_board.xpr
 
-#vivado/test_board.srcs/sources_1/bd/zusys/
+# Vivado logs
+v_log/*
