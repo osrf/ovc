@@ -9,7 +9,6 @@ allow-hotplug enp9s0u1
 iface enp9s0u1 inet static
   address 10.0.1.2
   netmask 255.255.255.0
-  gateway 10.0.1.1
   mtu 13500
   pre-up sleep 5 # Hack to wait for ovc networking to restart
 ~~~~
