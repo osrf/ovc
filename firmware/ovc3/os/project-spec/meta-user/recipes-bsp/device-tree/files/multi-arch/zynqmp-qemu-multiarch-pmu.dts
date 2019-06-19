@@ -132,7 +132,7 @@
 		phandle = <0x5>;
 	};
 
-	rp_gpio_mpu_intr: rp_gpio_pmu_intr@0 {
+	rp_gpio_pmu_intr: rp_gpio_pmu_intr@0 {
 		compatible = "remote-port-gpio";
 		remote-ports = <0x5 0x1>;
 		num-gpios = <0x1>;
@@ -185,7 +185,7 @@
 	pmu_memattr: pmu_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x1>;
-		master-id = <0x40>;
+		requester-id = <0x40>;
 		linux,phandle = <0x3>;
 		phandle = <0x3>;
 	};
@@ -193,97 +193,103 @@
 	apu0_s_memattr: apu0_s_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x1>;
-		master-id = <0x80>;
+		requester-id = <0x80>;
 	};
 
 	apu0_ns_memattr: apu0_ns_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x0>;
-		master-id = <0x80>;
+		requester-id = <0x80>;
 	};
 
 	apu1_s_memattr: apu1_s_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x1>;
-		master-id = <0x8d>;
+		requester-id = <0x8d>;
 	};
 
 	apu1_ns_memattr: apu1_ns_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x0>;
-		master-id = <0x8d>;
+		requester-id = <0x8d>;
 	};
 
 	apu2_s_memattr: apu2_s_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x1>;
-		master-id = <0x8e>;
+		requester-id = <0x8e>;
 	};
 
 	apu2_ns_memattr: apu2_ns_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x0>;
-		master-id = <0x8e>;
+		requester-id = <0x8e>;
 	};
 
 	apu3_s_memattr: apu3_s_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x1>;
-		master-id = <0x8f>;
+		requester-id = <0x8f>;
 	};
 
 	apu3_ns_memattr: apu3_ns_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x0>;
-		master-id = <0x8f>;
+		requester-id = <0x8f>;
 	};
 
 	rpu0_memattr: rpu0_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x1>;
-		master-id = <0x2e>;
+		requester-id = <0x2e>;
 	};
 
 	rpu1_memattr: rpu1_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x1>;
-		master-id = <0x2f>;
+		requester-id = <0x2f>;
 	};
 
 	gem0_memattr: gem0_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x0>;
-		master-id = <0x874>;
+		requester-id = <0x874>;
 	};
 
 	gem1_memattr: gem1_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x0>;
-		master-id = <0x875>;
+		requester-id = <0x875>;
 	};
 
 	gem2_memattr: gem2_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x0>;
-		master-id = <0x876>;
+		requester-id = <0x876>;
 	};
 
 	gem3_memattr: gem3_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x0>;
-		master-id = <0x877>;
+		requester-id = <0x877>;
 	};
 
 	qspi_dma_memattr: qspi_dma_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x0>;
-		master-id = <0x873>;
+		requester-id = <0x873>;
 	};
 
 	pcie_ns_memattr: pcie_ns_ma {
 		compatible = "qemu:memory-transaction-attr";
 		secure = <0x0>;
-		master-id = <0x4d0>;
+		requester-id = <0x4d0>;
+	};
+
+	csu_dma_memattr: csu_dma_ma {
+		compatible = "qemu:memory-transaction-attr";
+		secure = <0x0>;
+		requester-id = <0x851>;
 	};
 
 	protected_amba: protected_amba@0 {

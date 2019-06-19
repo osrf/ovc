@@ -1,0 +1,40 @@
+From 5416918fc372f347c40e8c635ed0fbcc1fba7407 Mon Sep 17 00:00:00 2001
+From: T Karthik Reddy <t.karthik.reddy@xilinx.com>
+Date: Wed, 1 May 2019 10:14:49 +0530
+Subject: [PATCH] drivers: usb: dwc3: setup phy before dwc3 core soft reset
+
+Phy setup should be done before dwc3 soft core reset as it is done
+in linux & this fixes unreliable detection of usb cable on host side.
+
+Signed-off-by: T Karthik Reddy <t.karthik.reddy@xilinx.com>
+Signed-off-by: Siva Durga Prasad Paladugu <siva.durga.paladugu@xilinx.com>
+Signed-off-by: Michal Simek <michal.simek@xilinx.com>
+---
+ drivers/usb/dwc3/core.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+index 56e2a04..2498f0e 100644
+--- a/drivers/usb/dwc3/core.c
++++ b/drivers/usb/dwc3/core.c
+@@ -440,6 +440,8 @@ static int dwc3_core_init(struct dwc3 *dwc)
+ 		goto err0;
+ 	}
+ 
++	dwc3_phy_setup(dwc);
++
+ 	ret = dwc3_core_soft_reset(dwc);
+ 	if (ret)
+ 		goto err0;
+@@ -514,8 +516,6 @@ static int dwc3_core_init(struct dwc3 *dwc)
+ 
+ 	dwc3_writel(dwc->regs, DWC3_GCTL, reg);
+ 
+-	dwc3_phy_setup(dwc);
+-
+ 	ret = dwc3_alloc_scratch_buffers(dwc);
+ 	if (ret)
+ 		goto err0;
+-- 
+2.7.4
+

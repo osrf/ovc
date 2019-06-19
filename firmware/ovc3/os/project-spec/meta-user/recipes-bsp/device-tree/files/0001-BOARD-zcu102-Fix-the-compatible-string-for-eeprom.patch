@@ -1,0 +1,43 @@
+From 309b36b2d1e797adaf6bd02814c7f6f49c2fe310 Mon Sep 17 00:00:00 2001
+From: Venkatesh Yadav Abbarapu <venkatesh.abbarapu@xilinx.com>
+Date: Wed, 15 May 2019 00:43:16 -0400
+Subject: [PATCH] BOARD: zcu102: Fix the compatible string for eeprom
+
+The compatible string of eeprom has changed from at,24c08 to
+atmel,24c08.
+
+Signed-off-by: Venkatesh Yadav Abbarapu <venkatesh.abbarapu@xilinx.com>
+---
+ device_tree/data/kernel_dtsi/2019.1/BOARD/zcu102-rev1.0.dtsi | 2 +-
+ device_tree/data/kernel_dtsi/2019.1/BOARD/zcu102-revb.dtsi   | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/device_tree/data/kernel_dtsi/2019.1/BOARD/zcu102-rev1.0.dtsi b/device_tree/data/kernel_dtsi/2019.1/BOARD/zcu102-rev1.0.dtsi
+index 975917a..fde0623 100644
+--- a/device_tree/data/kernel_dtsi/2019.1/BOARD/zcu102-rev1.0.dtsi
++++ b/device_tree/data/kernel_dtsi/2019.1/BOARD/zcu102-rev1.0.dtsi
+@@ -319,7 +319,7 @@ drivers/hwmon/pmbus/Makefile:11:obj-$(CONFIG_SENSORS_MAX20751)  += max20751.o
+ 			 * 768B - 1024B address 0x57
+ 			 */
+ 			eeprom: eeprom@54 { /* u23 */
+-				compatible = "at,24c08";
++				compatible = "atmel,24c08";
+ 				reg = <0x54>;
+ 			};
+ 		};
+diff --git a/device_tree/data/kernel_dtsi/2019.1/BOARD/zcu102-revb.dtsi b/device_tree/data/kernel_dtsi/2019.1/BOARD/zcu102-revb.dtsi
+index 7edbe47..fb68e39 100644
+--- a/device_tree/data/kernel_dtsi/2019.1/BOARD/zcu102-revb.dtsi
++++ b/device_tree/data/kernel_dtsi/2019.1/BOARD/zcu102-revb.dtsi
+@@ -309,7 +309,7 @@ drivers/hwmon/pmbus/Makefile:11:obj-$(CONFIG_SENSORS_MAX20751)  += max20751.o
+ 			 * 768B - 1024B address 0x57
+ 			 */
+ 			eeprom: eeprom@54 { /* u23 */
+-				compatible = "at,24c08";
++				compatible = "atmel,24c08";
+ 				reg = <0x54>;
+ 			};
+ 		};
+-- 
+2.7.4
+
