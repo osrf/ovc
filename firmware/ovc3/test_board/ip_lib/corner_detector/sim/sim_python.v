@@ -131,7 +131,7 @@ initial begin
         send(LE, INC_DATA);
       send(WN, INC_DATA);
       send(CS, RST_DATA);
-      for (irg = 0; irg < 3; irg = irg + 1) // irg=3 for zeroROT, 87 otherwise
+      for (irg = 0; irg < 300; irg = irg + 1) // irg=3 for zeroROT, 87 otherwise
         send(TR, RST_DATA);
     end
   end

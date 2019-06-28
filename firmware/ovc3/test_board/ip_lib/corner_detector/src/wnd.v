@@ -19,8 +19,8 @@ d1 lv_d1_r(.c(c), .d(lv), .q(lv_d1));
 //wire end_of_row = ~lv & lv_d1;
 wire row_start = lv & ~lv_d1;
 
-wire [4:0] postrow_cnt;
-r #(5) postrow_cnt_r
+wire [15:0] postrow_cnt;
+r #(16) postrow_cnt_r
 (.c(c), .en(1'b1), .rst(lv), .d(postrow_cnt+1'b1), .q(postrow_cnt));
 wire postrow_end = postrow_cnt == CDW;
 

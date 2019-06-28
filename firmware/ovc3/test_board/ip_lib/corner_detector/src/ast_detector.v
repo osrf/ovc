@@ -33,8 +33,14 @@ wire [WROWS*WCOLS*8-1:0] wnd_w0, wnd_w1, wnd_w2, wnd_w3;
 wire wv;
 wire [9:0] wrow;
 wire [8:0] wcol;  // dword index of w0
+wire [31:0] byte_swapped = {
+  d[7:0],
+  d[15:8],
+  d[23:16],
+  d[31:24]
+};
 wnd wnd_inst
-(.c(c), .p(d), .lv(lv), .fv(fv),
+(.c(c), .p(byte_swapped), .lv(lv), .fv(fv),
  .wv(wv), .w0(wnd_w0), .w1(wnd_w1), .w2(wnd_w2), .w3(wnd_w3),
  .row(wrow), .col(wcol));
 
@@ -111,12 +117,14 @@ r #(10) nm_row_r
 // deal with row wraparound due to latency in the AST+nonmax pipelines
 localparam [8:0] COLS_DIV_4 = COLS / 4;
 wire [8:0] nm_col;
+dn #(.W(9), .N(DETECTOR_LATENCY)) wcol_d(.c(c), .d(wcol), .q(nm_col));
+/*
 r #(9) nm_col_r
 (.c(c), .en(1'b1), .rst(1'b0), .q(nm_col),
  .d(wcol >= DETECTOR_LATENCY ?
     wcol  - DETECTOR_LATENCY :
-    wcol  + COLS_DIV_4 - DETECTOR_LATENCY + 9'd4));
-
+    wcol  + COLS_DIV_4));
+*/
 // mask out detections that occur near the image right boundary
 // (todo: move this upstream somewhere...)
 wire nm_invalid = (wrow < 10'd8)   |

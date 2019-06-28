@@ -32,7 +32,7 @@ wire [31:0] ast_q;
 wire [15:0] ast_corner_count;
 wire ast_qv;
 ast_detector #(.CAM_ADDR(1'b0), .COLS(IMAGE_COLS)) ast_inst
-(.c(cam_rxc), .t(8'd25), .en(1'b1), .d(cam_d), .lv(cam_lv), .fv(cam_fv),
+(.c(cam_rxc), .t(8'd35), .en(1'b1), .d(cam_d), .lv(cam_lv), .fv(cam_fv),
  .q(ast_q), .qv(ast_qv), .qv_cnt(ast_corner_count));
 
 integer f_log;

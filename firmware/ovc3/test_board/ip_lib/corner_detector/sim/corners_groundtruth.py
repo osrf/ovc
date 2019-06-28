@@ -4,8 +4,8 @@ import cv2
 from matplotlib import pyplot as pl
 
 img = cv2.imread('cowells_stairs_640x64.png', cv2.IMREAD_COLOR)
-fast = cv2.FastFeatureDetector()
-fast.setInt('threshold', 29)
+fast = cv2.FastFeatureDetector_create()
+fast.setThreshold(25)
 #print("type: %d" % fast.getInt('Type'))
 #fast.setBool('nonmaxSuppression', False)
 kp = fast.detect(img, None)
