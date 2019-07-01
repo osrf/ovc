@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Fri May 31 15:55:28 2019
+//Date        : Mon Jul  1 17:10:55 2019
 //Host        : luca running 64-bit Ubuntu 18.04.2 LTS
 //Command     : generate_target zusys_wrapper.bd
 //Design      : zusys_wrapper
@@ -93,8 +93,6 @@ module zusys_wrapper
     IMU_CS,
     IMU_MISO,
     IMU_MOSI,
-    LED0,
-    LED1,
     x0,
     x1);
   output BONUS1_EXTCLK;
@@ -180,8 +178,6 @@ module zusys_wrapper
   output IMU_CS;
   input IMU_MISO;
   output IMU_MOSI;
-  output LED0;
-  output LED1;
   output [0:0]x0;
   output [0:0]x1;
 
@@ -286,8 +282,6 @@ module zusys_wrapper
   wire IMU_CS;
   wire IMU_MISO;
   wire IMU_MOSI;
-  wire LED0;
-  wire LED1;
   wire [0:0]x0;
   wire [0:0]x1;
 
@@ -417,8 +411,6 @@ module zusys_wrapper
         .IMU_CS(IMU_CS),
         .IMU_MISO(IMU_MISO),
         .IMU_MOSI(IMU_MOSI),
-        .LED0(LED0),
-        .LED1(LED1),
         .x0(x0),
         .x1(x1));
 endmodule

@@ -27,12 +27,14 @@ reg[7:0] mipi_data = 8'b0;
 reg mipi_data_valid = 0;
 reg dma_ready = 1'b1;
 reg mipi_read_enable = 1'b1;
+reg[31:0] corner_data = 32'h12345678;
+reg corner_data_valid = 1'b0;
 wire row_done;
 wire frame_done;
 wire new_frame;
 wire[7:0] pixel_data;
 wire pixel_data_valid;
-wire[7:0] line_data;
+wire[31:0] line_data;
 wire line_valid;
 wire frame_valid;
 
@@ -41,6 +43,8 @@ mipi_image_extractor DUT(
     .mipi_data(mipi_data),
     .mipi_data_valid(mipi_data_valid),
     .dma_ready(dma_ready),
+    .corner_data(corner_data),
+    .corner_data_valid(corner_data_valid),
     .mipi_read_enable(mipi_read_enable),
     .row_done(row_done),
     .frame_done(frame_done),
@@ -120,4 +124,29 @@ initial begin
     forever #10;
 end
 
+integer jj=0;
+initial begin
+    #305;
+    corner_data_valid = 1'b1;
+    for (jj=0; jj<31000; jj=jj+1) begin
+        #10;
+        corner_data = 32'h87654321;
+        #10;
+        corner_data = 32'h12345678;
+    end
+    corner_data_valid = 1'b0;
+    forever #10;
+end
+
+integer ci=0;
+initial begin
+    #1305;
+    for (ci=0; ci<300; ci=ci+1) begin
+        corner_data_valid = 1'b1;
+        #10;
+        corner_data_valid = 1'b0;
+        #100;
+    end;
+    forever #10;
+end
 endmodule

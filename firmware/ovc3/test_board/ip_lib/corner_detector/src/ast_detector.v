@@ -6,7 +6,7 @@ module ast_detector
 (input c,
  input [7:0] t,  // threshold for corner detection
  input en,
- input [31:0] d,
+ input [7:0] d,
  input lv,
  input fv,
  output [31:0] q,
@@ -29,28 +29,19 @@ wire frame_end_delayed;
 dn #(.N(8)) frame_end_d16_r(.c(c), .d(frame_end), .q(frame_end_delayed));
 
 localparam WROWS=7, WCOLS=7;
-wire [WROWS*WCOLS*8-1:0] wnd_w0, wnd_w1, wnd_w2, wnd_w3;
+wire [WROWS*WCOLS*8-1:0] wnd_w0;
 wire wv;
 wire [9:0] wrow;
-wire [8:0] wcol;  // dword index of w0
-wire [31:0] byte_swapped = {
-  d[7:0],
-  d[15:8],
-  d[23:16],
-  d[31:24]
-};
+wire [10:0] wcol;  // dword index of w0
+
 wnd wnd_inst
-(.c(c), .p(byte_swapped), .lv(lv), .fv(fv),
- .wv(wv), .w0(wnd_w0), .w1(wnd_w1), .w2(wnd_w2), .w3(wnd_w3),
- .row(wrow), .col(wcol));
+(.c(c), .p(d), .lv(lv), .fv(fv),
+ .wv(wv), .w0(wnd_w0), .row(wrow), .col(wcol));
 
-wire [3:0] ast_qv;
-wire [31:0] ast_q;
+wire ast_qv;
+wire [7:0] ast_q;
 
-ast_7x7 a0(.c(c), .t(t_s), .d(wnd_w0), .dv(wv), .q(ast_q[ 7: 0]), .qv(ast_qv[0]));
-ast_7x7 a1(.c(c), .t(t_s), .d(wnd_w1), .dv(wv), .q(ast_q[15: 8]), .qv(ast_qv[1]));
-ast_7x7 a2(.c(c), .t(t_s), .d(wnd_w2), .dv(wv), .q(ast_q[23:16]), .qv(ast_qv[2]));
-ast_7x7 a3(.c(c), .t(t_s), .d(wnd_w3), .dv(wv), .q(ast_q[31:24]), .qv(ast_qv[3]));
+ast_7x7 a0(.c(c), .t(t_s), .d(wnd_w0), .dv(wv), .q(ast_q), .qv(ast_qv));
 
 /*
 `ifdef SIM
@@ -72,40 +63,28 @@ dn #(.N(AST_LATENCY)) fv_dn_r(.c(c), .d(fv), .q(fv_dn));
 dn #(.N(AST_LATENCY)) lv_dn_r(.c(c), .d(lv), .q(lv_dn));
 
 wire score_wv;
-wire [71:0] score_w0, score_w1, score_w2, score_w3;
+wire [71:0] score_w0;
 wire [9:0] srow;
-wire [8:0] scol;  // dword index of score_w0
+wire [10:0] scol;  // dword index of score_w0
 wnd #(.COLS(3), .ROWS(3)) score_wnd
 (.c(c),
- .p({ast_q[7:0], ast_q[15:8], ast_q[23:16], ast_q[31:24]}),
+ .p(ast_q),
  .lv(lv_dn), .fv(fv_dn),
- .wv(score_wv), .w0(score_w0), .w1(score_w1), .w2(score_w2), .w3(score_w3),
+ .wv(score_wv), .w0(score_w0),
  .row(srow), .col(scol));
 
 // compute max of each 3x3 score window
-wire [7:0] max_w0, max_w1, max_w2, max_w3;
+wire [7:0] max_w0;
 max #(.W(8), .L(9)) max_s0(.c(c), .d(score_w0), .q(max_w0));
-max #(.W(8), .L(9)) max_s1(.c(c), .d(score_w1), .q(max_w1));
-max #(.W(8), .L(9)) max_s2(.c(c), .d(score_w2), .q(max_w2));
-max #(.W(8), .L(9)) max_s3(.c(c), .d(score_w3), .q(max_w3));
 
 wire [7:0] center_w0 = score_w0[4*8 +:8];
-wire [7:0] center_w1 = score_w1[4*8 +:8];
-wire [7:0] center_w2 = score_w2[4*8 +:8];
-wire [7:0] center_w3 = score_w3[4*8 +:8];
 
 // delay the center scores N cycles
-wire [7:0] center_w0_dn, center_w1_dn, center_w2_dn, center_w3_dn;
+wire [7:0] center_w0_dn;
 dn #(.W(8), .N(8)) center_w0_dn_r(.c(c), .d(center_w0), .q(center_w0_dn));
-dn #(.W(8), .N(8)) center_w1_dn_r(.c(c), .d(center_w1), .q(center_w1_dn));
-dn #(.W(8), .N(8)) center_w2_dn_r(.c(c), .d(center_w2), .q(center_w2_dn));
-dn #(.W(8), .N(8)) center_w3_dn_r(.c(c), .d(center_w3), .q(center_w3_dn));
 
-wire [3:0] nm_qv = { |center_w3_dn & (center_w3_dn == max_w3),
-                     |center_w2_dn & (center_w2_dn == max_w2),
-                     |center_w1_dn & (center_w1_dn == max_w1),
-                     |center_w0_dn & (center_w0_dn == max_w0) };
-wire [31:0] nm_q = { max_w3, max_w2, max_w1, max_w0 };
+wire nm_qv = { |center_w0_dn & (center_w0_dn == max_w0) };
+wire [7:0] nm_q = { max_w0 };
 
 localparam [8:0] DETECTOR_LATENCY = 9'd22;
 // "nm_row" is the row of the center point of the 3x3 nonmax neighborhood
@@ -116,8 +95,8 @@ r #(10) nm_row_r
 
 // deal with row wraparound due to latency in the AST+nonmax pipelines
 localparam [8:0] COLS_DIV_4 = COLS / 4;
-wire [8:0] nm_col;
-dn #(.W(9), .N(DETECTOR_LATENCY)) wcol_d(.c(c), .d(wcol), .q(nm_col));
+wire [10:0] nm_col;
+dn #(.W(11), .N(DETECTOR_LATENCY)) wcol_d(.c(c), .d(wcol), .q(nm_col));
 /*
 r #(9) nm_col_r
 (.c(c), .en(1'b1), .rst(1'b0), .q(nm_col),
@@ -129,51 +108,31 @@ r #(9) nm_col_r
 // (todo: move this upstream somewhere...)
 wire nm_invalid = (wrow < 10'd8)   |
                   (nm_col  < 9'h8) |
-                  (nm_col >= COLS_DIV_4 - 3'h4);
+                  (nm_col >= COLS - 3'h4);
+                  //(nm_col >= COLS_DIV_4 - 3'h4);
 
 // make a shallow FIFO for each detector
-wire [127:0] dfifo_q;
-wire [3:0] dfifo_rd, dfifo_empty;
-genvar i;
-generate
-  for (i = 0; i < 4; i = i + 1) begin: shallow_fifos
-    wire [1:0] i_2bit = 2'h3 - i;
-    wire [31:0] dfifo_d = { CAM_ADDR, 2'h0, // bits 31-29
-                            {nm_col, i_2bit},  // bits 28-18
-                            nm_row,  // bits 17-8
-                            nm_q[i*8 +:8] };  // bits 7-0
-    shallow_fifo dfifo (
-        .clk(c),      // input wire clk
-        .din(dfifo_d),      // input wire [31 : 0] din
-        .wr_en(en & nm_qv[i] & ~nm_invalid),  // input wire wr_en
-        .rd_en(dfifo_rd[i]),  // input wire rd_en
-        .dout(dfifo_q[32*i +:32]),    // output wire [31 : 0] dout
-        .full(),    // output wire full
-        .empty(dfifo_empty[i])  // output wire empty
-    );
+wire [31:0] dfifo_q = { CAM_ADDR, 2'h0, // bits 31-29
+                        nm_col,  // bits 28-18
+                        nm_row,  // bits 17-8
+                        nm_q};  // bits 7-0
+
+/*
+shallow_fifo dfifo (
+    .clk(c),      // input wire clk
+    .din(dfifo_d),      // input wire [31 : 0] din
+    .wr_en(en & nm_qv & ~nm_invalid),  // input wire wr_en
+    .rd_en(dfifo_rd),  // input wire rd_en
+    .dout(dfifo_q),    // output wire [31 : 0] dout
+    .full(),    // output wire full
+    .empty(dfifo_empty)  // output wire empty
+);
+*/
 //    scfifo #(.lpm_width(32), .lpm_numwords(256), .lpm_widthu(8),
 //             .lpm_showahead("ON"), .intended_device_family("CYCLONE V")) dfifo
 //    (.clock(c), .aclr(1'b0), .sclr(1'b0),
 //     .wrreq(en & nm_qv[i] & ~nm_invalid), .data(dfifo_d),
 //     .rdreq(dfifo_rd[i]), .q(dfifo_q[32*i +:32]), .empty(dfifo_empty[i]));
-  end
-endgenerate
-
-`ifdef SIM
-genvar ast_idx;
-generate
-  for (ast_idx = 0; ast_idx < 4; ast_idx = ast_idx + 1) begin:ast_debug
-    wire [1:0] i_2bit = 2'h3 - ast_idx;
-    always @(posedge c) begin
-      //if (ast_qv[ast_idx])
-      //  $display("%d %d %d", wcol, wrow, ast_q[ast_idx*8 +:8]);
-      if (en & nm_qv[ast_idx] & CAM_ADDR == 1'b0) begin
-        //$display("%1d corner: (%d, %d)", ast_idx, {nm_col,i_2bit}, nm_row);
-      end
-    end
-  end
-endgenerate
-`endif
 
 // now, a bigger FIFO that vacuums all the smaller FIFOs together and
 // crosses the clock domain to rd_clk
@@ -197,6 +156,8 @@ r #(16) qv_cnt_r
 wire qv_full;
 d1 qv_full_r(.c(c), .d(qv_cnt > MAX_QV-2'h2), .q(qv_full));
 
+assign q = dfifo_q;
+assign qv = en & nm_qv & ~nm_invalid & !qv_full;
 //s #(32) corner_count_r(.c(rd_clk), .d(ast_qv_cnt), .q(corner_count));
 
 /*
@@ -219,15 +180,10 @@ dcfifo #(.lpm_width(128), .lpm_numwords(64), .lpm_widthu(7),
  .rdclk(rd_clk), .rdreq(q_read), .q(q), .rdusedw(q_avail), .rdempty(q_empty));
 */
 
-// spin through the dfifo's and whenever we find a non-empty one, dump it
-wire [3:0] dfifo_sel;
-r #(4, 4'h1) dfifo_sel_r
-(.c(c), .rst(1'b0), .en(1'b1),
- .d({dfifo_sel[2:0], dfifo_sel[3]}), .q(dfifo_sel));
-
+/*
 hmux #(.DWIDTH(32), .WORDCOUNT(4), .OUTPUT_REG(1)) dfifo_q_mux
 (.c(c), .d(dfifo_q), .sel(dfifo_sel), .q(q));
-
+*/
 /*
 wire [3:0] dfifo_nonempty = { |dfifo_usedw[31:24],
                               |dfifo_usedw[23:16],
@@ -238,9 +194,7 @@ wire [3:0] dfifo_nonempty = { |dfifo_usedw[31:24],
 //hmux #(.DWIDTH(1), .WORDCOUNT(4), .OUTPUT_REG(1)) dfifo_nonempty_mux
 //(.c(c), .d(dfifo_nonempty), .sel(dfifo_sel), .q(rfifo_wr));
 
-d1 #(4) dfifo_rd_r(.c(c), .d(dfifo_sel & ~dfifo_empty), .q(dfifo_rd));
 //d1 qv_d1_r(.c(c), .d(|dfifo_rd), .q(qv));
-assign qv = |dfifo_rd & ~qv_full;
 
 //assign rfifo_wr = |dfifo_rd;
 

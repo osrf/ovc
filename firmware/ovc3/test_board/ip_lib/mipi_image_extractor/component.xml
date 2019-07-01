@@ -109,7 +109,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>18aaba7c</spirit:value>
+            <spirit:value>6ad22a2e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -128,7 +128,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>18aaba7c</spirit:value>
+            <spirit:value>6ad22a2e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -157,7 +157,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>04ac4e93</spirit:value>
+            <spirit:value>8219d0fa</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -208,6 +208,36 @@
       </spirit:port>
       <spirit:port>
         <spirit:name>dma_ready</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>corner_data</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">31</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>corner_data_valid</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -293,11 +323,14 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:typeName>reg</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="bitString" spirit:bitStringLength="8">0x00</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -365,6 +398,19 @@
           </spirit:driver>
         </spirit:wire>
       </spirit:port>
+      <spirit:port>
+        <spirit:name>sending_corners</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
     </spirit:ports>
     <spirit:modelParameters>
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
@@ -376,6 +422,11 @@
         <spirit:name>COL_NUM</spirit:name>
         <spirit:displayName>Col Num</spirit:displayName>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.COL_NUM">1280</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>CORNER_DETECTION_LATENCY</spirit:name>
+        <spirit:displayName>Corner Detection Latency</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CORNER_DETECTION_LATENCY">20</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -390,8 +441,12 @@
       <spirit:file>
         <spirit:name>src/mipi_image_extractor.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_9cf273ca</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_c9318f01</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/corner_fifo/corner_fifo.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -416,6 +471,10 @@
         <spirit:fileType>systemVerilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
+      <spirit:file>
+        <spirit:name>src/corner_fifo/corner_fifo.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_fifo_generator_13_2__ref_view_fileset</spirit:name>
@@ -433,15 +492,15 @@
         <spirit:name>src/simulate_mipi_image_extractor.sv</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
+        <spirit:userFileType>USED_IN_testbench</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/simulate_mipi_image_extractor_behav.wcfg</spirit:name>
         <spirit:fileType>unknown</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_testbench</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -449,7 +508,7 @@
       <spirit:file>
         <spirit:name>xgui/mipi_image_extractor_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_04ac4e93</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_8219d0fa</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -470,6 +529,11 @@
       <spirit:name>Component_Name</spirit:name>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">mipi_image_extractor_v1_0</spirit:value>
     </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>CORNER_DETECTION_LATENCY</spirit:name>
+      <spirit:displayName>Corner Detection Latency</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CORNER_DETECTION_LATENCY">20</spirit:value>
+    </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
@@ -485,8 +549,8 @@
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-05-31T07:54:18Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>7</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-07-01T06:50:38Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@241bbbdc_ARCHIVE_LOCATION">/home/luca/Downloads/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@3d9c620c_ARCHIVE_LOCATION">/home/luca/Downloads/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
@@ -504,15 +568,74 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@65ee0618_ARCHIVE_LOCATION">/home/luca/Downloads/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@6ff876e4_ARCHIVE_LOCATION">/home/luca/Downloads/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@27919811_ARCHIVE_LOCATION">/home/luca/Downloads/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ad363d3_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3674e936_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@552a9433_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a5393bb_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@279581fc_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3633f1a5_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@68d46dd0_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6f06f4ae_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54356f2e_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d3a6392_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@579118a8_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58616518_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6cf5bd0e_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6182a117_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@64da9041_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3790519b_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@23dc2b7_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3dee397a_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@32450dc8_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13600682_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11505540_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21d91fc9_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@632e75c_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c03dc06_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1c507632_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@650a70fd_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@8ae0680_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f3349c_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@655d5d4d_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a5162f5_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ccbbb7e_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e300ad_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26650a77_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1deac606_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c101ae0_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3dfd4818_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@925de4d_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@576d2c93_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@417a93bc_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3fe4591e_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a434e2c_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a4775b0_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@519b8d1a_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@788ee611_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@44f78861_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@38821ebc_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@15c73015_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13fdeabd_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5fa78818_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@12a252c0_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c33aab3_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2588ad61_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f383817_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2906807e_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4aaa904a_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@352b7a3d_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@59c0d3ca_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78fbbb66_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@418e9e54_ARCHIVE_LOCATION">/home/luca/hw/ovc/firmware/ovc3/test_board/ip_lib/mipi_image_extractor</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="818c6224"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="56aa4399"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="eafe7cf7"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="5a267e8b"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="59f6be4a"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="6cb742cb"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="727ea8a9"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="25ee9986"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="55096f75"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

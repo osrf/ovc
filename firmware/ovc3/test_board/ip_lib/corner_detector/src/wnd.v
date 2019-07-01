@@ -2,17 +2,14 @@
 module wnd
 #(parameter COLS=7, ROWS=7)
 (input c,
- input [31:0] p,
+ input [7:0] p,
  input lv, input fv,
  output [ROWS*COLS*8-1:0] w0,  // the window buffer centered on byte 0
- output [ROWS*COLS*8-1:0] w1,  // the window buffer centered on byte 1
- output [ROWS*COLS*8-1:0] w2,  // the window buffer centered on byte 2
- output [ROWS*COLS*8-1:0] w3,  // the window buffer centered on byte 3
  output wv,  // window-valid
  output [9:0] row,  // rows are in image rows
- output [8:0] col);  // cols are the "dword" index into this row
+ output [10:0] col);  // cols are the byte index into this row
 
-localparam CDW = (COLS >> 2) + 2;  // number of "dword columns" in window
+localparam CDW = (COLS);  // number of bytes in window
 
 wire lv_d1;
 d1 lv_d1_r(.c(c), .d(lv), .q(lv_d1));
@@ -29,28 +26,28 @@ r #(10) rcnt_r(.c(c), .rst(~fv), .en(postrow_end), .d(rcnt+1'b1), .q(rcnt));
 assign row = rcnt;
 
 wire w_active = ~(~lv & postrow_cnt >= CDW);
-r #(9) col_r
+r #(11) col_r
 (.c(c), .en(1'b1), .rst(~w_active), .d(col+1'b1), .q(col));
 
-wire [ROWS*CDW*32-1:0] w_next, w;
-r #(ROWS*CDW*32) w_r  // register to help timing a bit
+wire [ROWS*CDW*8-1:0] w_next, w;
+r #(ROWS*CDW*8) w_r  // register to help timing a bit
 (.c(c), .rst(~fv), .en(1'b1), .d(w_next), .q(w)); 
 
 //wire bram_we = (col >= COLS) & (postrow_cnt <= COLS - 1);
 wire bram_we = (col >= CDW) & (postrow_cnt <= CDW);
-wire [8:0] waddr = col - CDW - 1;
+wire [10:0] waddr = col - CDW - 1;
 assign wv = rcnt > ROWS & fv & col >= CDW+1 & (postrow_cnt < CDW);
 
 genvar i;
 generate
 for (i = 0; i < ROWS; i = i + 1) begin: gen_rows
   // todo: rewrite this in order to register on the BRAM output (for timing).
-  wire [31:0] ram_q;
+  wire [7:0] ram_q;
   // to slide the window "to the right" in the image, we need to shift-left
   // each row of the window buffer and stick either the BRAM read or the
   // inbound pixels onto the right side of the row buffer. Note that,
   // confusingly, this will be in the MSB's of the bit vector assignment...
-  wire [31:0] w_rhs = i == ROWS-1 ? p : ram_q; //w_next[(i*COLS*8) +: 8]; // q;
+  wire [7:0] w_rhs = i == ROWS-1 ? p : ram_q; //w_next[(i*COLS*8) +: 8]; // q;
   // each window row buffer is CDW*32 = 3*32 = 96 bits 
   // next_row_0 = { new_pixels , prev_row_0[95:32] = w[ 95: 32] }
   // next_row_1 = { bram_read_1, prev_row_1[95:32] = w[191:128] }
@@ -61,17 +58,17 @@ for (i = 0; i < ROWS; i = i + 1) begin: gen_rows
   assign w_next[(i*COLS+COLS)*8-1:i*COLS*8] = 
     {w_lr, w[(i*COLS+COLS)*8-1:(i*COLS+1)*8]};
   */
-  assign w_next[((i+1)*CDW)*32-1:i*CDW*32] = 
-      {w_rhs, w[((i+1)*CDW)*32-1:(i*CDW+1)*32]};
+  assign w_next[((i+1)*CDW)*8-1:i*CDW*8] = 
+      {w_rhs, w[((i+1)*CDW)*8-1:(i*CDW+1)*8]};
 
   // now, for the BRAM data: we want the left-hand column of the window
   // to be written one row "up" in the BRAMS
   //wire [7:0] d = (i < ROWS) ? w[(i+1)*COLS+7:(i+1)*COLS] : p; //8'h0;
-  wire [31:0] ram_d;
+  wire [7:0] ram_d;
   if (i < ROWS - 1) 
-    assign ram_d = w[(i+1)*CDW*32 +:32];
+    assign ram_d = w[(i+1)*CDW*8 +:8];
   else
-    assign ram_d = w[i*CDW*32 +:32];  // doesn't matter, will get overwritten
+    assign ram_d = w[i*CDW*8 +:8];  // doesn't matter, will get overwritten
                                       // maybe better to just set to zero?
          //  (i+1)*COLS+7:(i+1)*COLS]; // : p; //8'h0;
 
@@ -80,10 +77,7 @@ for (i = 0; i < ROWS; i = i + 1) begin: gen_rows
   // todo write beyond the RHS of the line-valid as we shift-out the window
 
   // now pick out the windows centered on each pixel column
-  assign w0[(i+1)*COLS*8-1:i*COLS*8] = w[i*CDW*32+24 +:(COLS*8)];
-  assign w1[(i+1)*COLS*8-1:i*COLS*8] = w[i*CDW*32+16 +:(COLS*8)];
-  assign w2[(i+1)*COLS*8-1:i*COLS*8] = w[i*CDW*32+08 +:(COLS*8)];
-  assign w3[(i+1)*COLS*8-1:i*COLS*8] = w[i*CDW*32+00 +:(COLS*8)];
+  assign w0[(i+1)*COLS*8-1:i*COLS*8] = w[i*CDW*8 +:(COLS*8)];
 end
 endgenerate
 
@@ -97,18 +91,20 @@ always begin
   if (lv) begin
     //print_window();
     lv_cnt = lv_cnt + 1;
-    if (lv_cnt > 194 && lv_cnt < 199)
+    //if (lv_cnt > 194*4 && lv_cnt < 199*4)
+      //print_window();
+    if (lv_cnt == 640*7)
       print_window();
     //  $finish();
   end
 end
 
-localparam BRAM_PRINT_COLS = 14;
+localparam BRAM_PRINT_COLS = 640;
 integer pr, pc;
 reg [7:0] wnd_pix;
 task print_window;
 begin
-/*
+
   $display("\n");
   $display("== BRAMS ==");
   //for (pr = 0; pr < ROWS; pr = pr + 1) begin: print_bram_rows
@@ -123,13 +119,12 @@ begin
     $write("\n");
     //end
     
-  //end
-*/
+
 
   $display("== WINDOW == p=0x%2x col=%x wv=%1x", p, col, wv);
   for (pr = 0; pr < ROWS; pr = pr + 1) begin: print_rows
-    for (pc = 0; pc < CDW*4; pc = pc + 1) begin: print_cols
-      $write("%2x ", w[(pr*CDW*4+pc)*8 +: 8]);
+    for (pc = 0; pc < CDW; pc = pc + 1) begin: print_cols
+      $write("%2x ", w[(pr*CDW+pc)*8 +: 8]);
     end
     $write("\n");
   end
@@ -140,6 +135,7 @@ begin
     end
     $write("\n");
   end
+  /*
   $display("== W1 ==");
   for (pr = 0; pr < ROWS; pr = pr + 1) begin: print_w1_rows
     for (pc = 0; pc < COLS; pc = pc + 1) begin: print_w1_cols
@@ -161,6 +157,7 @@ begin
     end
     $write("\n");
   end
+  */
 
 end
 endtask

@@ -69,4 +69,7 @@
 &axi_gpio_0 {
     compatible = "generic-uio";
 };
-
+// Configuration GPIO for fast corner detection
+&axi_gpio_1 {
+    compatible = "generic-uio";
+};

@@ -18,6 +18,15 @@ proc validate_PARAM_VALUE.COL_NUM { PARAM_VALUE.COL_NUM } {
 	return true
 }
 
+proc update_PARAM_VALUE.CORNER_DETECTION_LATENCY { PARAM_VALUE.CORNER_DETECTION_LATENCY } {
+	# Procedure called to update CORNER_DETECTION_LATENCY when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.CORNER_DETECTION_LATENCY { PARAM_VALUE.CORNER_DETECTION_LATENCY } {
+	# Procedure called to validate CORNER_DETECTION_LATENCY
+	return true
+}
+
 proc update_PARAM_VALUE.ROW_NUM { PARAM_VALUE.ROW_NUM } {
 	# Procedure called to update ROW_NUM when any of the dependent parameters in the arguments change
 }
@@ -36,5 +45,10 @@ proc update_MODELPARAM_VALUE.ROW_NUM { MODELPARAM_VALUE.ROW_NUM PARAM_VALUE.ROW_
 proc update_MODELPARAM_VALUE.COL_NUM { MODELPARAM_VALUE.COL_NUM PARAM_VALUE.COL_NUM } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.COL_NUM}] ${MODELPARAM_VALUE.COL_NUM}
+}
+
+proc update_MODELPARAM_VALUE.CORNER_DETECTION_LATENCY { MODELPARAM_VALUE.CORNER_DETECTION_LATENCY PARAM_VALUE.CORNER_DETECTION_LATENCY } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.CORNER_DETECTION_LATENCY}] ${MODELPARAM_VALUE.CORNER_DETECTION_LATENCY}
 }
 

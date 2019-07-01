@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root MajorVersion="0" MinorVersion="37">
-  <CompositeFile CompositeFileTopName="zusys" CanBeSetAsTop="true" CanDisplayChildGraph="true">
+  <CompositeFile CompositeFileTopName="zusys" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1559548256"/>
-    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1559548256"/>
-    <Generation Name="SIMULATION" State="RESET" Timestamp="1559548256"/>
-    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1559548256"/>
+    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1561972910"/>
+    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1561972910"/>
+    <Generation Name="SIMULATION" State="RESET" Timestamp="1561972910"/>
+    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1561972910"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/zusys_zynq_ultra_ps_e_0_0/zusys_zynq_ultra_ps_e_0_0.xci" Type="IP">
         <Instance HierarchyPath="zynq_ultra_ps_e_0"/>
@@ -223,16 +223,40 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/zusys_vio_0_0/zusys_vio_0_0.xci" Type="IP">
-        <Instance HierarchyPath="vio_0"/>
+      <File Name="ip/zusys_xbar_0/zusys_xbar_0.xci" Type="IP">
+        <Instance HierarchyPath="ps8_0_axi_periph/xbar"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/zusys_xbar_0/zusys_xbar_0.xci" Type="IP">
-        <Instance HierarchyPath="ps8_0_axi_periph/xbar"/>
+      <File Name="ip/zusys_axi_gpio_1_0/zusys_axi_gpio_1_0.xci" Type="IP">
+        <Instance HierarchyPath="axi_gpio_1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/zusys_xlslice_0_0/zusys_xlslice_0_0.xci" Type="IP">
+        <Instance HierarchyPath="xlslice_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/zusys_xlslice_1_0/zusys_xlslice_1_0.xci" Type="IP">
+        <Instance HierarchyPath="xlslice_1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/zusys_ast_detector_0_1/zusys_ast_detector_0_1.xci" Type="IP">
+        <Instance HierarchyPath="ast_detector_1"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
