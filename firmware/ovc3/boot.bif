@@ -1,0 +1,10 @@
+//arch = zynqmp; split = false; format = BIN
+the_ROM_image:
+{
+	[fsbl_config]a53_x64
+	[bootloader]/home/luca/hw/ovc/firmware/ovc3/test_board/vivado/test_board.sdk/fsbl/Debug/fsbl.elf
+	[pmufw_image]/home/luca/hw/ovc/firmware/ovc3/test_board/vivado/test_board.sdk/pmufw/Debug/pmufw.elf
+	[destination_device = pl]/home/luca/hw/ovc/firmware/ovc3/test_board/vivado/test_board.runs/impl_1/zusys_wrapper.bit
+	[destination_cpu = a53-0, exception_level = el-3, trustzone]/home/luca/hw/ovc/firmware/ovc3/os/images/linux/bl31.elf
+	[destination_cpu = a53-0, exception_level = el-2]/home/luca/hw/ovc/firmware/ovc3/os/images/linux/u-boot.elf
+}

@@ -39,4 +39,32 @@ Try one of the following steps (start from 1 and proceed down if they fail):
 4. Use the root console exposed in the pin header behind, useful to debug early boot failures.
 
 ## Hacking the board
-TODO upload the Vivado, Xilinx SDK and Petalinux project.
+This folder contains all the source files needed to build the project, except the root file system itself (which is a custom version of Ubuntu 18.04 for the armv7 architecture and is only available in the shared drive).
+
+It is not the purpose of this documentation to cover how to generate boot images, the Xilinx documentation should be followed.
+
+
+
+#### Vivado project
+
+The Vivado project that includes all the FPGA design files can be found in the test_board folder. In order to run it you will need the board files included in the [reference design for the TE0820 module by Trenz](https://shop.trenz-electronic.de/Download/?path=Trenz_Electronic/Modules_and_Module_Carriers/4x5/TE0820/Reference_Design), download it then unzip the folders "scripts", "board_files" and "sw_lib" to the test_board folder. Those folders contain, respectively, 
+
+* Scripts needed to run the Vivado project
+* Board definition for the modules
+* Custom software for the module (most importantly the FSBL).
+
+If all went well you should be able to open the project by running
+
+`sh vivado_open_existing_project_guimode.sh`
+
+
+
+#### Petalinux project
+
+The Petalinux project is contained in the os folder and it should work out of the box with the Petalinux toolchain, just make sure to import the hardware definition before trying to build the project.
+
+
+
+#### Building the bootable image
+
+The kernel image can be built with the Petalinux tools, the bootable image **must be custom made with the customized FSBL provided by Trenz**. An example boot.bif to see what's the order of the executables in the image can be found in the repo.

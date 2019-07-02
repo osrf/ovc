@@ -1,7 +1,7 @@
 OVC 3 is running a full Ubuntu distribution and a ROS node in itself.
-On startup, it will configure itself as a USB ethernet gadget with a static IP of 10.0.1.1 and it will look for a ROS master in 10.0.1.2, once it is found it will start publishing the images and IMU data.
+On startup, it will configure itself as a USB ethernet gadget with a static IP of 10.0.1.1 and ia DHCP server that will assign an IP of 10.0.1.2 to the connected host, it will then look for a ROS master in 10.0.1.2, once it is found it will start publishing the images and IMU data.
 
-In order to get data, it is necessary to configure a static IP in the workstation for the interface that will be exported by the OVC.
+**The board should automatically assign an IP to your machine**, however if this doesn't work you can manually configure your PC to have a static IP.
 To do so, edit your /etc/network/interfaces file and add the following:
 
 ~~~~
@@ -18,3 +18,4 @@ Please note, the name of the interface (enp9s0u1 in the example) might be differ
 ip a
 
 on your machine.
+
