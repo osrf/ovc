@@ -1,3 +1,5 @@
+## Setup
+
 OVC 3 is running a full Ubuntu distribution and a ROS node in itself.
 On startup, it will configure itself as a USB ethernet gadget with a static IP of 10.0.1.1 and ia DHCP server that will assign an IP of 10.0.1.2 to the connected host, it will then look for a ROS master in 10.0.1.2, once it is found it will start publishing the images and IMU data.
 
@@ -19,3 +21,6 @@ ip a
 
 on your machine.
 
+## Message definitions
+
+If you want to read all the output from the node (i.e. the image corners) you will need the custom message definitions, you can obtain them by building the node on your host machine as well.

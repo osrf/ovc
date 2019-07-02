@@ -13,7 +13,7 @@ Explaining the flow of bootable image creation is out of the scope of this readm
 * The default FSBL provided by Xilinx doesn't work, use the one provided by Trenz in their sw\_lib.
 * Bootable image configured through petalinux doesn't work because of the custom FSBL, create the image manually through Xilinx SDK.
 
-The tested order of boot (and tool used to build it) is:
+The tested order of boot (and tool used to build it) is, an example boot.bif is provided in the main folder:
 1. TE0820 FSBL (XSDK)
 2. Standard pmufw (XSDK)
 3. FPGA bitfile for configuration (Vivado)
@@ -21,6 +21,3 @@ The tested order of boot (and tool used to build it) is:
 5. u-boot.elf (Petalinux)
 
 Make sure to export your hardware definition (.hdf) file to petalinux to correctly configure the kernel image and binaries.
-
-### Final quirks
-The Petalinux project is version 2018.3 while the Vivado project is in Vivado 2019.1. This works but is unsupported behavior. Interrupts temporarily don't work if the kernel is compiled with Petalinux 2019.1, currently being investigated and once solved the whole design will be migrated to 2019.1
