@@ -1827,8 +1827,6 @@ F 3 "" H 14800 4650 50  0001 C CNN
 	1    14800 4650
 	1    0    0    -1  
 $EndComp
-Text Notes 11150 2700 0    118  ~ 24
-TODO: IMU SPI and sync header for debugging
 $Comp
 L Device:C_Small C26
 U 1 1 5D26B127
@@ -1901,8 +1899,6 @@ Text Notes 6825 6050 0    50   ~ 0
 OUTPUT
 Text Label 6100 6050 0    50   ~ 0
 IMU_SYNC_IN
-Text Notes 3575 6900 0    118  ~ 24
-TODO: random 3v3 input
 $Comp
 L power:+3.3V #PWR0128
 U 1 1 5D368AD3
@@ -1996,4 +1992,6 @@ F 3 "" H 7250 6250 50  0001 C CNN
 	1    7250 6250
 	-1   0    0    -1  
 $EndComp
+Text Notes 9850 6125 0    79   ~ 16
+USB-UART for linux root console
 $EndSCHEMATC
