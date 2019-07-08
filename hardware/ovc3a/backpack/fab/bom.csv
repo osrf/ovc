@@ -1,0 +1,23 @@
+# Bill of Materials for 'OVC BACKPACK' rev.A
+# Schematic date: Mon Jul  8 23:24:45 2019
+Line Item,Quantity,Designator,Footprint,Value,Manufacturer,Manufacturer Part Number
+1,5,"C1,C4,C5,C8,C23",Capacitor_SMD:C_0603_1608Metric,10u,Murata,GRM188R61A106KE69D
+2,19,"C2,C3,C6,C7,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,C19,C21,C24,C25,C26",Capacitor_SMD:C_0603_1608Metric,100n,Samsung,CL10B104KO8NNNC
+3,2,"C20,C22",Capacitor_SMD:C_0603_1608Metric,47p,Murata,GCM1885C2A470JA16D
+4,1,"D1",LED_SMD:LED_0603_1608Metric,RXLED,Lite-On,LTST-C191KRKT
+5,1,"D2",LED_SMD:LED_0603_1608Metric,TXLED,Lite-On,LTST-C191KGKT
+6,2,"FB1,FB2",Resistor_SMD:R_0603_1608Metric,ferrite,Murata,BLM18KG601SN1D
+7,1,"J1",Connector_Molex:Molex_Nano-Fit_105313-xx05_1x05_P2.50mm_Horizontal,GPIO1,Molex,WM15144-ND
+8,1,"J2",Connector_PinHeader_1.27mm:PinHeader_2x15_P1.27mm_Vertical,TO_CAMERA,Amphenol/FCI,20021111-00030T4LF
+9,5,"J3,J6,J7,J8,J9",DNP,DNP,DNP,DNP
+10,1,"J4",Connector_Molex:Molex_Nano-Fit_105313-xx03_1x03_P2.50mm_Horizontal,RS232,Molex,WM15142-ND
+11,1,"J5",Connector_USB:USB_Micro-B_Wuerth_629105150521_CircularHoles,USB_B_Micro,Wurth,629105150521
+12,2,"R1,R2",Resistor_SMD:R_0603_1608Metric,27R,Yageo,RC0603FR-0727RL
+13,2,"R3,R4",Resistor_SMD:R_0603_1608Metric,270R,Yageo,RC0603FR-07270RL
+14,2,"R5,R6",Resistor_SMD:R_0603_1608Metric,10k,Yageo,RC0603FR-0710KL
+15,2,"U1,U9",DNP,DNP,DNP,DNP
+16,2,"U2,U3",Package_SO:SOIC-16W_7.5x10.3mm_P1.27mm,ISOW7842,Texas Instruments,ISOW7842DWER
+17,1,"U4",Package_SO:TSSOP-16_4.4x5mm_P0.65mm,MAX3221E,Texas Instruments,MAX3221EIPWR
+18,2,"U5,U6",Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm,SN74AXCH8T245,Texas Instruments,SN74AXCH8T245PWR
+19,1,"U7",Package_SO:VSSOP-8_2.3x2mm_P0.5mm,SN74AVCH2T45,Texas Instruments,SN74AVCH2T45DCUT
+20,1,"U8",Package_SO:SSOP-16_3.9x4.9mm_P0.635mm,FT230XS,FTDI,FT230XS-R
