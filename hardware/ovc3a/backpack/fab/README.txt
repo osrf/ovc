@@ -9,6 +9,7 @@ PCB fabrication notes
 Assembly notes:
 ====
  * SMT only on top side, minimum size 0603
+ * all legged IC packages: TSSOP, SOIC, etc.
  * a few through-hole connectors on top: J1, J4
  * one through-hole connector in center of bottom: J2
  * a few non-populated 2.54mm through-hole headers (for debugging)
