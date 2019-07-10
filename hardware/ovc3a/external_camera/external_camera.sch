@@ -1,0 +1,340 @@
+EESchema Schematic File Version 5
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "OVC3 external camera"
+Date "2019-07-10"
+Rev "A"
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector_Generic:Conn_01x27 J1
+U 1 1 5D259F1D
+P 2075 2825
+F 0 "J1" H 1993 4342 50  0000 C CNN
+F 1 "FFC" H 1993 4251 50  0000 C CNN
+F 2 "Connectors_OSRF:MOLEX_505110_2691" H 2075 2825 50  0001 C CNN
+F 3 "~" H 2075 2825 50  0001 C CNN
+	1    2075 2825
+	-1   0    0    -1  
+$EndComp
+Text Notes 2050 4375 0    50   ~ 0
+pin 27 is the connector mounting pad
+Text Notes 2050 1150 0    50   ~ 0
+pinout is reversed compared to the\nmotherboard since we're using FFC\nwith same-side pins
+$Comp
+L power:GND #PWR0102
+U 1 1 5D25B523
+P 2375 1275
+F 0 "#PWR0102" H 2375 1025 50  0001 C CNN
+F 1 "GND" H 2380 1102 50  0001 C CNN
+F 2 "" H 2375 1275 50  0001 C CNN
+F 3 "" H 2375 1275 50  0001 C CNN
+	1    2375 1275
+	1    0    0    -1  
+$EndComp
+Text Label 2325 3925 0    50   ~ 0
+MIPI_CLK0+
+Wire Wire Line
+	2275 3925 2825 3925
+Text Label 2325 3825 0    50   ~ 0
+MIPI_CLK0-
+Wire Wire Line
+	2275 3825 2825 3825
+Text Label 2325 3625 0    50   ~ 0
+MIPI_DAT0+
+Wire Wire Line
+	2275 3525 2825 3525
+Text Label 2325 3525 0    50   ~ 0
+MIPI_DAT0-
+Wire Wire Line
+	2275 3625 2825 3625
+Text Label 2325 3325 0    50   ~ 0
+MIPI_CLK1+
+Wire Wire Line
+	2275 3225 2825 3225
+Text Label 2325 3225 0    50   ~ 0
+MIPI_CLK1-
+Wire Wire Line
+	2275 3325 2825 3325
+Text Label 2325 3025 0    50   ~ 0
+MIPI_DAT1+
+Wire Wire Line
+	2275 2925 2825 2925
+Text Label 2325 2925 0    50   ~ 0
+MIPI_DAT1-
+Wire Wire Line
+	2275 3025 2825 3025
+Text Label 2325 2725 0    50   ~ 0
+EXTCLK
+Wire Wire Line
+	2825 2725 2275 2725
+Wire Wire Line
+	2950 2625 2950 2825
+Connection ~ 2950 3425
+Wire Wire Line
+	2950 2825 2950 3125
+Connection ~ 2950 3725
+Wire Wire Line
+	2275 3725 2950 3725
+Wire Wire Line
+	2275 3425 2950 3425
+Wire Wire Line
+	2950 3125 2950 3425
+Wire Wire Line
+	2275 3125 2950 3125
+Connection ~ 2950 3125
+$Comp
+L power:GND #PWR0101
+U 1 1 5D25B0DB
+P 2950 4125
+F 0 "#PWR0101" H 2950 3875 50  0001 C CNN
+F 1 "GND" H 2955 3952 50  0001 C CNN
+F 2 "" H 2950 4125 50  0001 C CNN
+F 3 "" H 2950 4125 50  0001 C CNN
+	1    2950 4125
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 3425 2950 3725
+Wire Wire Line
+	2275 4125 2950 4125
+Wire Wire Line
+	2950 3725 2950 4125
+Connection ~ 2275 4125
+Connection ~ 2950 4125
+Wire Wire Line
+	2275 4125 2275 4025
+Wire Wire Line
+	2275 2825 2950 2825
+Connection ~ 2950 2825
+Wire Wire Line
+	2275 2625 2950 2625
+Wire Wire Line
+	2275 2525 2825 2525
+Text Label 2325 2525 0    50   ~ 0
+SCL0
+Text Label 2325 2425 0    50   ~ 0
+SDA0
+Wire Wire Line
+	2275 2425 2825 2425
+Text Label 2325 2225 0    50   ~ 0
+SDA1
+Text Label 2325 2325 0    50   ~ 0
+SCL1
+Wire Wire Line
+	2275 2325 2825 2325
+Wire Wire Line
+	2275 2225 2825 2225
+Wire Wire Line
+	2275 2125 2825 2125
+Text Label 2325 2125 0    50   ~ 0
+FLASH
+Wire Wire Line
+	2275 2025 2825 2025
+Text Label 2325 2025 0    50   ~ 0
+RESET
+Wire Wire Line
+	2275 1925 2825 1925
+Text Label 2325 1925 0    50   ~ 0
+TRIGGER
+$Comp
+L power:+3V3 #PWR0103
+U 1 1 5D25D19D
+P 2900 1825
+F 0 "#PWR0103" H 2900 1675 50  0001 C CNN
+F 1 "+3V3" H 2915 1998 50  0000 C CNN
+F 2 "" H 2900 1825 50  0001 C CNN
+F 3 "" H 2900 1825 50  0001 C CNN
+	1    2900 1825
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2900 1825 2275 1825
+$Comp
+L power:+1V8 #PWR0104
+U 1 1 5D25D8A2
+P 2725 1725
+F 0 "#PWR0104" H 2725 1575 50  0001 C CNN
+F 1 "+1V8" H 2740 1898 50  0000 C CNN
+F 2 "" H 2725 1725 50  0001 C CNN
+F 3 "" H 2725 1725 50  0001 C CNN
+	1    2725 1725
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2725 1725 2275 1725
+$Comp
+L power:+1V2 #PWR0105
+U 1 1 5D25E062
+P 2550 1625
+F 0 "#PWR0105" H 2550 1475 50  0001 C CNN
+F 1 "+1V2" H 2565 1798 50  0000 C CNN
+F 2 "" H 2550 1625 50  0001 C CNN
+F 3 "" H 2550 1625 50  0001 C CNN
+	1    2550 1625
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2550 1625 2275 1625
+Wire Wire Line
+	2375 1275 2275 1275
+Wire Wire Line
+	2275 1275 2275 1525
+$Comp
+L Connector_Generic:Conn_01x01 J2
+U 1 1 5D25EF85
+P 2250 4875
+F 0 "J2" H 2250 4650 50  0000 C CNN
+F 1 "LEFT_LENS" H 2100 4750 50  0000 C CNN
+F 2 "LensHolder:LENS_HOLDER_20MM_PT-LH010M" H 2250 4875 50  0001 C CNN
+F 3 "~" H 2250 4875 50  0001 C CNN
+	1    2250 4875
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J3
+U 1 1 5D25FA18
+P 2250 5225
+F 0 "J3" H 2250 5025 50  0000 C CNN
+F 1 "RIGHT_LENS" H 2100 5100 50  0000 C CNN
+F 2 "LensHolder:LENS_HOLDER_20MM_PT-LH010M" H 2250 5225 50  0001 C CNN
+F 3 "~" H 2250 5225 50  0001 C CNN
+	1    2250 5225
+	-1   0    0    1   
+$EndComp
+$Comp
+L cameras:AR0144CS U2
+U 1 1 5D26512D
+P 8850 3200
+F 0 "U2" H 8850 5365 50  0000 C CNN
+F 1 "AR0144CS" H 8850 5274 50  0000 C CNN
+F 2 "ONSemi:BGA-72_9x8_5.545x5.565mm" H 8400 5250 50  0001 C CNN
+F 3 "" H 8400 5250 50  0001 C CNN
+	1    8850 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L cameras:AR0144CS U1
+U 1 1 5D263C70
+P 5400 3200
+F 0 "U1" H 5400 5365 50  0000 C CNN
+F 1 "AR0144CS" H 5400 5274 50  0000 C CNN
+F 2 "ONSemi:BGA-72_9x8_5.545x5.565mm" H 4950 5250 50  0001 C CNN
+F 3 "" H 4950 5250 50  0001 C CNN
+	1    5400 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 4100 4750 4200
+Connection ~ 4750 4200
+Wire Wire Line
+	4750 4200 4750 4300
+Connection ~ 4750 4300
+Wire Wire Line
+	4750 4300 4750 4400
+Connection ~ 4750 4400
+Wire Wire Line
+	4750 4400 4750 4500
+Connection ~ 4750 4500
+Wire Wire Line
+	4750 4500 4750 4600
+Connection ~ 4750 4600
+Wire Wire Line
+	4750 4600 4750 4700
+Connection ~ 4750 4700
+Wire Wire Line
+	4750 4700 4750 4800
+Connection ~ 4750 4800
+Wire Wire Line
+	4750 4800 4750 4900
+Connection ~ 4750 4900
+Wire Wire Line
+	4750 4900 4750 5000
+Wire Wire Line
+	4750 5000 4750 5250
+Connection ~ 4750 5000
+Connection ~ 4750 5250
+Wire Wire Line
+	4750 5250 4750 5350
+Connection ~ 4750 5350
+Wire Wire Line
+	4750 5350 4750 5450
+Connection ~ 4750 5450
+Wire Wire Line
+	4750 5450 4750 5550
+Connection ~ 4750 5550
+Wire Wire Line
+	4750 5550 4750 5650
+$Comp
+L power:GND #PWR0106
+U 1 1 5D26A526
+P 4750 5650
+F 0 "#PWR0106" H 4750 5400 50  0001 C CNN
+F 1 "GND" H 4755 5477 50  0001 C CNN
+F 2 "" H 4750 5650 50  0001 C CNN
+F 3 "" H 4750 5650 50  0001 C CNN
+	1    4750 5650
+	1    0    0    -1  
+$EndComp
+Connection ~ 4750 5650
+Wire Wire Line
+	8200 4100 8200 4200
+Connection ~ 8200 4200
+Wire Wire Line
+	8200 4200 8200 4300
+Connection ~ 8200 4300
+Wire Wire Line
+	8200 4300 8200 4400
+Connection ~ 8200 4400
+Wire Wire Line
+	8200 4400 8200 4500
+Connection ~ 8200 4500
+Wire Wire Line
+	8200 4500 8200 4600
+Connection ~ 8200 4600
+Wire Wire Line
+	8200 4600 8200 4700
+Connection ~ 8200 4700
+Wire Wire Line
+	8200 4700 8200 4800
+Connection ~ 8200 4800
+Wire Wire Line
+	8200 4800 8200 4900
+Connection ~ 8200 4900
+Wire Wire Line
+	8200 4900 8200 5000
+Connection ~ 8200 5000
+Wire Wire Line
+	8200 5000 8200 5250
+Connection ~ 8200 5250
+Wire Wire Line
+	8200 5250 8200 5350
+Connection ~ 8200 5350
+Wire Wire Line
+	8200 5350 8200 5450
+Connection ~ 8200 5450
+Wire Wire Line
+	8200 5450 8200 5550
+Connection ~ 8200 5550
+Wire Wire Line
+	8200 5550 8200 5650
+$Comp
+L power:GND #PWR0107
+U 1 1 5D26A951
+P 8200 5650
+F 0 "#PWR0107" H 8200 5400 50  0001 C CNN
+F 1 "GND" H 8205 5477 50  0001 C CNN
+F 2 "" H 8200 5650 50  0001 C CNN
+F 3 "" H 8200 5650 50  0001 C CNN
+	1    8200 5650
+	1    0    0    -1  
+$EndComp
+Connection ~ 8200 5650
+$EndSCHEMATC
