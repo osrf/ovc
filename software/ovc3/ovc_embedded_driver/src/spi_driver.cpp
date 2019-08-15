@@ -96,12 +96,12 @@ IMUReading SPIDriver::readSensors()
   tx_buf[0] = ACCEL_XOUT_H | MASK_READ;
   Transmit(1, 12);
   // Cast to make sure we don't lose the sign
-  ret.a_x = static_cast<int16_t>(rx_buf[0] << 8 | rx_buf[1]) / accel_sens;
-  ret.a_y = static_cast<int16_t>(rx_buf[2] << 8 | rx_buf[3]) / accel_sens;
-  ret.a_z = static_cast<int16_t>(rx_buf[4] << 8 | rx_buf[5]) / accel_sens;
-  ret.g_x = static_cast<int16_t>(rx_buf[6] << 8 | rx_buf[7]) / gyro_sens;
-  ret.g_y = static_cast<int16_t>(rx_buf[8] << 8 | rx_buf[9]) / gyro_sens;
-  ret.g_z = static_cast<int16_t>(rx_buf[10] << 8 | rx_buf[11]) / gyro_sens;
+  ret.a_x = static_cast<int16_t>(rx_buf[0] << 8 | rx_buf[1]) * accel_sens;
+  ret.a_y = static_cast<int16_t>(rx_buf[2] << 8 | rx_buf[3]) * accel_sens;
+  ret.a_z = static_cast<int16_t>(rx_buf[4] << 8 | rx_buf[5]) * accel_sens;
+  ret.g_x = static_cast<int16_t>(rx_buf[6] << 8 | rx_buf[7]) * gyro_sens;
+  ret.g_y = static_cast<int16_t>(rx_buf[8] << 8 | rx_buf[9]) * gyro_sens;
+  ret.g_z = static_cast<int16_t>(rx_buf[10] << 8 | rx_buf[11]) * gyro_sens;
   //std::cout << "Got IMU n. " << ret.num_sample << std::endl;
   return ret;
 }

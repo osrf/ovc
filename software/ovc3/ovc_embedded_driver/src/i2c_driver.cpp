@@ -44,7 +44,7 @@ void I2CDriver::writeRegister(uint16_t reg_addr, int val)
 {
   std::vector<uint8_t> payload(sizeof(reg_addr) + 1); // We need to add one byte for address
   payload[0] = reg_addr & 0xFF;
-  for (int i=1; i<=sizeof(reg_addr); ++i)
+  for (size_t i=1; i<=sizeof(reg_addr); ++i)
     payload[i] = val >> (8 * (sizeof(reg_addr) - i));
   i2c_smbus_write_i2c_block_data(i2c_fd, reg_addr >> 8, payload.size(), &payload[0]); 
 }

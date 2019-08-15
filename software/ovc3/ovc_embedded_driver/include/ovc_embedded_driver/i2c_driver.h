@@ -1,3 +1,5 @@
+#ifndef I2C_DRIVER_H 
+#define I2C_DRIVER_H
 #include <string>
 
 class I2CDriver
@@ -96,3 +98,4 @@ public:
   void controlAnalogGain();
 
 };
+#endif

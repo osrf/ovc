@@ -1,3 +1,6 @@
+#ifndef VDMA_DRIVER_H
+#define VDMA_DRIVER_H
+
 #include <string>
 #include <vector>
 #include <ovc_embedded_driver/uio_driver.h>
@@ -39,8 +42,9 @@ public:
 
   void setHeader(const std::vector<uint8_t>& header, int index = -1);
 
-  VDMADriver(int uio_num, int cam_num, const std::vector<uint8_t>& sample_msg, size_t img_size);
+  VDMADriver(int uio_num, int cam_num, const std::vector<uint8_t>& sample_msg);
   unsigned char* getImage();
 
   std::vector<uint32_t> getCorners();
 };
+#endif

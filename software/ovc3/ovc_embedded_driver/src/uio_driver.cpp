@@ -19,12 +19,12 @@ UIODriver::UIODriver(int uio_num, size_t map_size)
 void UIODriver::writeRegister(int reg_addr, int value)
 {
   *(uio_mmap + reg_addr) = value;
-};
+}
 
 unsigned int UIODriver::readRegister(int reg_addr) const
 {
   return *(uio_mmap + reg_addr); 
-};
+}
 
 // Used to reset the interrupt, depends on UIO device
 void UIODriver::setResetRegisterMask(unsigned int reg_addr, unsigned int mask)
@@ -40,5 +40,5 @@ void UIODriver::waitInterrupt()
   writeRegister(reset_register, reset_mask);
   // Reset UIO and blocking read
   write(uio_file, (char *)&IRQ_RST, sizeof(IRQ_RST));
-  unsigned int nb = read(uio_file, &dummy, sizeof(dummy));
+  read(uio_file, &dummy, sizeof(dummy));
 }

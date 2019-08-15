@@ -1,5 +1,5 @@
-#ifndef UIO_DRIVER_INCLUDE_H
-#define UIO_DRIVER_INCLUDE_H
+#ifndef UIO_DRIVER_H
+#define UIO_DRIVER_H
 
 class UIODriver
 {

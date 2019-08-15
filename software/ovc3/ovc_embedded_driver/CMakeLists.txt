@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(ovc_embedded_driver)
 
-add_compile_options(-std=c++14)
+add_compile_options(-std=c++14 -Wall -Wpedantic)
 # For debugging
 # add_compile_options(-std=c++14 -fsanitize=address)
 
@@ -47,7 +47,6 @@ find_package(catkin REQUIRED COMPONENTS roscpp image_transport message_generatio
 add_message_files(
    FILES
    ImageCorner.msg
-   ImageCornerArray.msg
    Metadata.msg
 )
 
@@ -124,6 +123,7 @@ add_library(${PROJECT_NAME}
   src/i2c_driver.cpp
   src/spi_driver.cpp
   src/dma_shapeshifter.cpp
+  src/image_publisher.cpp
 )
 
 ## Add cmake target dependencies of the library

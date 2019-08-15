@@ -1,3 +1,5 @@
+#ifndef SPI_DRIVER_H
+#define SPI_DRIVER_H
 #include <string>
 
 #include <ovc_embedded_driver/uio_driver.h>
@@ -36,8 +38,8 @@ class SPIDriver
 
   static constexpr unsigned char CHIP_ID = 0xEA;
 
-  static constexpr float DEFAULT_ACCEL_SENS = 16384; // LSB / g, TODO m/s?
-  static constexpr float DEFAULT_GYRO_SENS = 131; // LSB / dps, TODO rad/s?
+  static constexpr float DEFAULT_ACCEL_SENS = 1./16384; // LSB / g, inverse (multiply by)
+  static constexpr float DEFAULT_GYRO_SENS = 1./131; // LSB / dps
 
   // AXI GPIO addresses
   static constexpr unsigned int GPIO_DATA = 0x0000 / sizeof(unsigned int);
@@ -46,9 +48,9 @@ class SPIDriver
   static constexpr unsigned int ISR = 0x0120 / sizeof(unsigned int);
 
   int spi_fd;
-  UIODriver uio;
-
   float accel_sens, gyro_sens;
+
+  UIODriver uio;
 
   unsigned char tx_buf[BUF_SIZE], rx_buf[BUF_SIZE];
 
@@ -66,3 +68,4 @@ public:
   IMUReading readSensors();
 
 };
+#endif

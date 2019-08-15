@@ -1,2 +1,2 @@
 Header header
-ovc_embedded_driver/ImageCornerArray corner_array
+ovc_embedded_driver/ImageCorner[] corners
