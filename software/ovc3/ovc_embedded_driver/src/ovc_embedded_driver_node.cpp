@@ -35,12 +35,18 @@ void publish_imu(ros::NodeHandle nh, std::shared_ptr<AtomicRosTime> time_ptr)
     // TODO check if delay incurred by SPI transaction is indeed negligible
     ros::Time cur_time = ros::Time::now();
     imu_msg.header.stamp = cur_time;
-    imu_msg.angular_velocity.x = imu.g_x;
-    imu_msg.angular_velocity.y = imu.g_y;
-    imu_msg.angular_velocity.z = imu.g_z;
-    imu_msg.linear_acceleration.x = imu.a_x;
-    imu_msg.linear_acceleration.y = imu.a_y;
-    imu_msg.linear_acceleration.z = imu.a_z;
+    imu_msg.header.frame_id = "ovc_imu_link"
+
+    // Multiply by 0.017 to change from deg/s to rad/s
+    imu_msg.angular_velocity.x = imu.g_x * 0.0174533;
+    imu_msg.angular_velocity.y = imu.g_y * 0.0174533;
+    imu_msg.angular_velocity.z = imu.g_z * 0.0174533;
+
+    // Multiply by 9.80 to change from g/s^2 to m/s^2
+    imu_msg.linear_acceleration.x = imu.a_x * 9.80665;
+    imu_msg.linear_acceleration.y = imu.a_y * 9.80665;
+    imu_msg.linear_acceleration.z = imu.a_z * 9.80665;
+
     // Sample synchronised with frame trigger
     imu_pub.publish(imu_msg);
     if (imu.num_sample == 0)
@@ -50,7 +56,7 @@ void publish_imu(ros::NodeHandle nh, std::shared_ptr<AtomicRosTime> time_ptr)
 
 void configureFAST(bool enable, int thresh)
 {
-  static UIODriver uio(FAST_CONFIG_GPIO, 0x1000); 
+  static UIODriver uio(FAST_CONFIG_GPIO, 0x1000);
   uint32_t write_val = thresh & 0xFF;
   write_val |= enable << 8;
   uio.writeRegister(0, write_val);
