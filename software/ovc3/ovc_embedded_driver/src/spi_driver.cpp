@@ -7,6 +7,9 @@
 
 #include <ovc_embedded_driver/spi_driver.h>
 
+static constexpr float DEG_TO_RAD(0.0174533);
+static constexpr float G_TO_METRES(9.80665);
+
 SPIDriver::SPIDriver(int gpio_uio_num) :
   accel_sens(DEFAULT_ACCEL_SENS), gyro_sens(DEFAULT_GYRO_SENS), uio(UIODriver(gpio_uio_num, GPIO_UIO_SIZE))
 {
@@ -96,19 +99,24 @@ IMUReading SPIDriver::readSensors()
   tx_buf[0] = ACCEL_XOUT_H | MASK_READ;
   Transmit(1, 12);
   // Cast to make sure we don't lose the sign
-  ret.a_x = static_cast<int16_t>(rx_buf[0] << 8 | rx_buf[1]) * accel_sens;
-  ret.a_y = static_cast<int16_t>(rx_buf[2] << 8 | rx_buf[3]) * accel_sens;
-  ret.a_z = static_cast<int16_t>(rx_buf[4] << 8 | rx_buf[5]) * accel_sens;
-  ret.g_x = static_cast<int16_t>(rx_buf[6] << 8 | rx_buf[7]) * gyro_sens;
-  ret.g_y = static_cast<int16_t>(rx_buf[8] << 8 | rx_buf[9]) * gyro_sens;
-  ret.g_z = static_cast<int16_t>(rx_buf[10] << 8 | rx_buf[11]) * gyro_sens;
+
+  // Linear Accelerations
+  ret.a_x = static_cast<int16_t>(rx_buf[0] << 8 | rx_buf[1]) * accel_sens * G_TO_METRES;
+  ret.a_y = static_cast<int16_t>(rx_buf[2] << 8 | rx_buf[3]) * accel_sens * G_TO_METRES;
+  ret.a_z = static_cast<int16_t>(rx_buf[4] << 8 | rx_buf[5]) * accel_sens * G_TO_METRES;
+
+  // Angular velocities
+  ret.g_x = static_cast<int16_t>(rx_buf[6] << 8 | rx_buf[7]) * gyro_sens * DEG_TO_RAD;
+  ret.g_y = static_cast<int16_t>(rx_buf[8] << 8 | rx_buf[9]) * gyro_sens * DEG_TO_RAD;
+  ret.g_z = static_cast<int16_t>(rx_buf[10] << 8 | rx_buf[11]) * gyro_sens * DEG_TO_RAD;
+
   //std::cout << "Got IMU n. " << ret.num_sample << std::endl;
   return ret;
 }
 
 void SPIDriver::Transmit(size_t tx_len, size_t rx_len)
 {
-  struct spi_ioc_transfer xfer[2]; 
+  struct spi_ioc_transfer xfer[2];
   memset(xfer, 0, sizeof xfer);
   xfer[0].tx_buf = (uint64_t) tx_buf;
   xfer[0].len = tx_len;
