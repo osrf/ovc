@@ -13,7 +13,7 @@ add_message_files(
    Metadata.msg
 )
 
- add_service_files(
+add_service_files(
    FILES
    ConfigureFAST.srv
 )
@@ -25,8 +25,8 @@ generate_messages(
 
 catkin_package(
   INCLUDE_DIRS include
+  CATKIN_DEPENDS message_runtime
 #  LIBRARIES ovc_embedded_driver
-#  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
 )
 
@@ -43,8 +43,10 @@ add_library(${PROJECT_NAME}
   src/dma_shapeshifter.cpp
   src/image_publisher.cpp
 )
+add_dependencies(${PROJECT_NAME} ovc_embedded_driver_generate_messages_cpp)
 
 add_executable(${PROJECT_NAME}_node src/ovc_embedded_driver_node.cpp)
+add_dependencies(${PROJECT_NAME}_node ovc_embedded_driver_generate_messages_cpp)
 add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
