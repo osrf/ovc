@@ -33,14 +33,17 @@ void publish_imu(ros::NodeHandle nh, std::shared_ptr<AtomicRosTime> time_ptr)
   {
     IMUReading imu = spi.readSensors();
     // TODO check if delay incurred by SPI transaction is indeed negligible
-    ros::Time cur_time = ros::Time::now();
-    imu_msg.header.stamp = cur_time;
+
+    imu_msg.header.stamp = ros::Time::now();
+    imu_msg.header.frame_id = "ovc_imu_link";
+
     imu_msg.angular_velocity.x = imu.g_x;
     imu_msg.angular_velocity.y = imu.g_y;
     imu_msg.angular_velocity.z = imu.g_z;
     imu_msg.linear_acceleration.x = imu.a_x;
     imu_msg.linear_acceleration.y = imu.a_y;
     imu_msg.linear_acceleration.z = imu.a_z;
+
     // Sample synchronised with frame trigger
     imu_pub.publish(imu_msg);
     if (imu.num_sample == 0)
