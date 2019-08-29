@@ -28,7 +28,7 @@ ImagePublisher::ImagePublisher(ros::NodeHandle nh_p, CameraHWParameters params, 
   image_msg.data.resize(IMAGE_SIZE);
   image_msg.height = RES_Y;
   image_msg.width = RES_X;
-  image_msg.header.frame_id = "ovc_image_link";
+  image_msg.header.frame_id = "ovc_camera_link_optical";
   if (params.is_rgb)
     image_msg.encoding="bayer_grbg8";
   else
