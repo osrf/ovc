@@ -32,6 +32,10 @@ std::condition_variable num_sample_condition_var;
 std::mutex num_sample_guard_mutex;
 std::unique_lock<std::mutex> num_sample_guard(num_sample_guard_mutex);
 
+std::condition_variable time_condition_var;
+std::mutex time_guard_mutex;
+std::unique_lock<std::mutex> time_guard(time_guard_mutex);
+
 // IMU publisher synchronisation vars
 int num_sample = -1;
 std::atomic<bool> new_imu_sample(false);
@@ -52,6 +56,8 @@ void update_time_ptr(ros::NodeHandle nh,
     if (num_sample == 0)
     {
       time_ptr->update(curr_time_ptr->get());
+      time_ptr->increment_write_count();
+      time_condition_var.notify_all();
     }
   }
 }
@@ -132,13 +138,16 @@ int main(int argc, char **argv)
   for (size_t i=0; i<NUM_CAMERAS; ++i)
   {
     CameraHWParameters params(DMA_DEVICES[i], I2C_DEVICES[i], CAMERA_NAMES[i], i == COLOR_CAMERA_ID);
-    image_publisher[i] = std::make_unique<ImagePublisher>(nh, params, time_ptr);
+    image_publisher[i] = std::make_unique<ImagePublisher>(nh, params, time_ptr, time_condition_var, time_guard);
     threads[i] = std::make_unique<std::thread>(&ImagePublisher::publish, image_publisher[i].get());
   }
 
   // INIT
-  time_ptr->update(ros::Time::now());
   curr_time_ptr->update(ros::Time::now());
+  time_ptr->update(curr_time_ptr->get());
+  time_ptr->increment_write_count();
+  time_condition_var.notify_all(); // Signal image publishers to begin
+
   spinner.start();
 
   // Wait for each thread to end

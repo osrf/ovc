@@ -39,15 +39,21 @@ class ImagePublisher
   sensor_msgs::Image image_msg;
 
   std::shared_ptr<AtomicRosTime> time_ptr;
+  std::condition_variable& time_condition_var;
+  std::unique_lock<std::mutex>& time_guard;
 
   size_t image_msg_size;
   bool run_fast;
   void publishCorners(const ros::Time& frame_time);
 
+  uint8_t last_time_write_count;
+
 public:
   ImagePublisher(ros::NodeHandle nh_p,
                  CameraHWParameters params,
-                 std::shared_ptr<AtomicRosTime> t_ptr);
+                 std::shared_ptr<AtomicRosTime> t_ptr,
+                 std::condition_variable& t_cond_var,
+                 std::unique_lock<std::mutex>& t_guard);
 
   void publish();
 };

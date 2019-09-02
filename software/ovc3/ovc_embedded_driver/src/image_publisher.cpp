@@ -1,3 +1,4 @@
+#include <condition_variable>
 
 #include <sensor_msgs/Image.h>
 #include <ros/message_traits.h>
@@ -10,12 +11,19 @@ using namespace ovc_embedded_driver;
 
 ImagePublisher::ImagePublisher(ros::NodeHandle nh_p,
                                CameraHWParameters params,
-                               std::shared_ptr<AtomicRosTime> t_ptr)
+                               std::shared_ptr<AtomicRosTime> t_ptr,
+                               std::condition_variable& t_cond_var,
+                               std::unique_lock<std::mutex>& t_guard)
   : nh(nh_p)
   , i2c(params.i2c_num)
   , time_ptr(t_ptr)
   , run_fast(!params.is_rgb)
+  , time_condition_var(t_cond_var)
+  , time_guard(t_guard)
 {
+  // Initialise condition variable conditions
+  last_time_write_count = time_ptr->get_write_count();
+
   const std::string img_namespace("ovc/" + params.camera_name + "/");
 
   // Prepare the shapeshifter
@@ -56,7 +64,15 @@ void ImagePublisher::publish()
     unsigned char* image_ptr = vdma->getImage();
     i2c.controlAnalogGain();
 
+    // Wait for time to update before reading it
+    while (last_time_write_count == time_ptr->time_write_count)
+    {
+       time_condition_var.wait(time_guard);
+    }
+
     image_msg.header.stamp = time_ptr->get();
+    last_time_write_count = time_ptr->time_write_count;
+    time_ptr->time_read_count += 1;
 
     // Serialize the new timestamp, set it and publish
     SerializeToByteArray(image_msg.header, image_msg_buffer);
