@@ -32,10 +32,6 @@ std::condition_variable num_sample_condition_var;
 std::mutex num_sample_guard_mutex;
 std::unique_lock<std::mutex> num_sample_guard(num_sample_guard_mutex);
 
-std::condition_variable time_condition_var;
-std::mutex time_guard_mutex;
-std::unique_lock<std::mutex> time_guard(time_guard_mutex);
-
 // IMU publisher synchronisation vars
 int num_sample = -1;
 std::atomic<bool> new_imu_sample(false);
