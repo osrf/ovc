@@ -54,6 +54,18 @@
 	};
 };
 
+// SPI on backpack board
+&spi0 {
+	// Change to mode 3
+	spi-cpha=<1>;
+	spi-cpol=<1>;
+	spidev@0x00 {
+		compatible = "spidev";
+		spi-max-frequency = <8000000>;
+		reg = <0>;
+	};
+};
+
 // UIO for VDMA, will allow interrupt on frame transferred and configuration through AXI4 lite
 
 &axi_vdma_0 {

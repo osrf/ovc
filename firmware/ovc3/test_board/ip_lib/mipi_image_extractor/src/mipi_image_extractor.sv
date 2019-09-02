@@ -47,9 +47,11 @@ localparam row_start = 32'h2C000513;
 parameter ROW_NUM = 800; // 800 rows, 2 for data and 2 for statistics
 parameter COL_NUM = 1280; // 1280 columns
 parameter CORNER_DETECTION_LATENCY = 20;
+parameter CORNER_LINES = 4; // How many lines after the image are reserved for corner features
 localparam COL_DIV_4 = COL_NUM / 4;
 reg[9:0] row_count = 10'b0;
 reg[10:0] pixel_count = 11'b0;
+reg[2:0] corner_line_count = 3'b0;
 
 enum reg[2:0] {WAIT_FRAME_START=0, WAITING_FOR_ROW_HEADER=1, RX_PIXEL=2, SEND_CORNER_COUNT=3, SEND_CORNERS=4} state = WAIT_FRAME_START;
 reg[31:0] rx_buf = 32'b0;
@@ -159,6 +161,7 @@ always @(posedge clk) begin
     case (state)
         WAIT_FRAME_START: begin
             corner_detection_delay <= 6'b0;
+            corner_line_count  <= 3'b0;
             corner_rd_en <= 1'b0;
             pixel_data <= 8'b0;
             mipi_read_enable <= 1'b1;
@@ -234,6 +237,7 @@ always @(posedge clk) begin
                 corner_data_reg <= corner_count;
             end else if (corner_detection_delay == CORNER_DETECTION_LATENCY) begin
                 pixel_data_valid <= 1'b1;
+                pixel_count <= pixel_count + 1;
                 if (pixel_count == 4) begin
                     pixel_data <= corner_data_internal;
                     
@@ -242,7 +246,7 @@ always @(posedge clk) begin
                 end else begin
                     pixel_data <= corner_data_reg[7:0];
                     corner_data_reg[23:0] <= corner_data_reg[31:8];
-                    pixel_count <= pixel_count + 1;
+                    
                 end
             end else begin
                 corner_detection_delay <= corner_detection_delay + 6'b1;
@@ -260,14 +264,21 @@ always @(posedge clk) begin
             pixel_data_valid <= 1'b1;
             pixel_count <= pixel_count + 1;
             // Tlast logic
-            if (pixel_count == COL_NUM-2) begin
+            if (pixel_count == COL_NUM-1) begin
                 row_done <= 1'b1;
-            end else if (pixel_count == COL_NUM-1) begin
+                corner_rd_en <= 1'b0;
+            end else if (pixel_count == COL_NUM) begin
                 pixel_count <= 11'b0;
                 row_done <= 1'b0;
-                frame_done <= 1'b1;
+                corner_rd_en <= 1'b0;
                 pixel_data_valid <= 1'b0;
-                state <= WAIT_FRAME_START;
+                if (corner_line_count  == CORNER_LINES-1) begin
+                    frame_done <= 1'b1;
+                    state <= WAIT_FRAME_START;
+                end else begin
+                    corner_rd_en <= 1'b1; 
+                    corner_line_count <= corner_line_count + 3'b1;
+                end
             end
         end
         default: state <= WAIT_FRAME_START;

@@ -127,21 +127,21 @@ end
 integer jj=0;
 initial begin
     #305;
-    corner_data_valid = 1'b1;
+//    corner_data_valid = 1'b1;
     for (jj=0; jj<31000; jj=jj+1) begin
         #10;
         corner_data = 32'h87654321;
         #10;
         corner_data = 32'h12345678;
     end
-    corner_data_valid = 1'b0;
+//    corner_data_valid = 1'b0;
     forever #10;
 end
 
 integer ci=0;
 initial begin
     #1305;
-    for (ci=0; ci<300; ci=ci+1) begin
+    for (ci=0; ci<2000; ci=ci+1) begin
         corner_data_valid = 1'b1;
         #10;
         corner_data_valid = 1'b0;

@@ -145,7 +145,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>MAX_QV</spirit:name>
         <spirit:displayName>Max Qv</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MAX_QV">310</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MAX_QV">1250</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -164,7 +164,7 @@
     <spirit:parameter>
       <spirit:name>MAX_QV</spirit:name>
       <spirit:displayName>Max Qv</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.MAX_QV">310</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.MAX_QV">1250</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>

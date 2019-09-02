@@ -2092,7 +2092,7 @@ interrupt is set.
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_IIC_FREQ</spirit:name>
         <spirit:displayName>C Iic Freq</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_IIC_FREQ">100000</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_IIC_FREQ">400000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_TEN_BIT_ADR</spirit:name>
@@ -2254,7 +2254,7 @@ interrupt is set.
       <spirit:name>IIC_FREQ_KHZ</spirit:name>
       <spirit:displayName>SCL Clock Frequency (in KHz)</spirit:displayName>
       <spirit:description>This parameter determines the approximate frequency of the master mode generated SCL clock signal (Hz)</spirit:description>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.IIC_FREQ_KHZ" spirit:order="1100" spirit:minimum="1.0" spirit:maximum="1000.0">100</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.IIC_FREQ_KHZ" spirit:order="1100" spirit:minimum="1.0" spirit:maximum="1000.0">400</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>

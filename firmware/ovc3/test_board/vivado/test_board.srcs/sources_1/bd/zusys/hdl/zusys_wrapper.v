@@ -1,8 +1,8 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Mon Jul  1 17:10:55 2019
-//Host        : luca running 64-bit Ubuntu 18.04.2 LTS
+//Date        : Mon Sep  2 14:23:53 2019
+//Host        : luca running 64-bit Ubuntu 18.04.3 LTS
 //Command     : generate_target zusys_wrapper.bd
 //Design      : zusys_wrapper
 //Purpose     : IP block netlist
@@ -155,24 +155,24 @@ module zusys_wrapper
   output [0:0]CAM2_NRESET;
   output [0:0]CAM2_TRIG;
   input DIP_SWITCH;
-  output GPIO0;
-  output GPIO1;
+  input GPIO0;
+  input GPIO1;
   output GPIO10;
-  output GPIO11;
+  input GPIO11;
   output GPIO12;
-  output GPIO13;
+  output [0:0]GPIO13;
   output GPIO14;
   output GPIO15;
   output GPIO16;
   output GPIO17;
-  output GPIO2;
-  output GPIO3;
+  input GPIO2;
+  input GPIO3;
   output GPIO4;
   output GPIO5;
   output GPIO6;
   output GPIO7;
-  output GPIO8;
-  output GPIO9;
+  input GPIO8;
+  input GPIO9;
   input ICM_IMU_INT1;
   output IMU_CLK;
   output IMU_CS;
@@ -264,7 +264,7 @@ module zusys_wrapper
   wire GPIO10;
   wire GPIO11;
   wire GPIO12;
-  wire GPIO13;
+  wire [0:0]GPIO13;
   wire GPIO14;
   wire GPIO15;
   wire GPIO16;

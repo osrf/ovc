@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="37">
   <CompositeFile CompositeFileTopName="zusys" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1561972910"/>
-    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1561972910"/>
-    <Generation Name="SIMULATION" State="RESET" Timestamp="1561972910"/>
-    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1561972910"/>
+    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1567406419"/>
+    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1567406419"/>
+    <Generation Name="SIMULATION" State="RESET" Timestamp="1567406419"/>
+    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1567406419"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/zusys_zynq_ultra_ps_e_0_0/zusys_zynq_ultra_ps_e_0_0.xci" Type="IP">
         <Instance HierarchyPath="zynq_ultra_ps_e_0"/>
