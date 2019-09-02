@@ -41,7 +41,7 @@ int num_sample = -1;
 std::atomic<bool> new_imu_sample(false);
 
 void update_time_ptr(ros::NodeHandle nh,
-                     std::shared_ptr<AtomicRosTime> time_ptr,
+                     std::shared_ptr<AtomicRosTime> frame_time_ptr,
                      std::shared_ptr<AtomicRosTime> curr_time_ptr)
 {
   while (ros::ok())
@@ -55,15 +55,13 @@ void update_time_ptr(ros::NodeHandle nh,
     // Only update time on the 7th IMU sample
     if (num_sample == 0)
     {
-      time_ptr->update(curr_time_ptr->get());
-      time_ptr->increment_write_count();
-      time_condition_var.notify_all();
+      frame_time_ptr->update(curr_time_ptr->get());
     }
   }
 }
 
 void publish_imu(ros::NodeHandle nh,
-                 std::shared_ptr<AtomicRosTime> time_ptr,
+                 std::shared_ptr<AtomicRosTime> frame_time_ptr,
                  std::shared_ptr<AtomicRosTime> curr_time_ptr)
 {
   ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("/ovc/imu", 10);
@@ -118,35 +116,33 @@ int main(int argc, char **argv)
   ros::NodeHandle nh;
 
   std::shared_ptr<AtomicRosTime> curr_time_ptr = std::make_shared<AtomicRosTime>();
-  std::shared_ptr<AtomicRosTime> time_ptr = std::make_shared<AtomicRosTime>();
+  std::shared_ptr<AtomicRosTime> frame_time_ptr = std::make_shared<AtomicRosTime>();
   ros::ServiceServer fast_serv = nh.advertiseService("/ovc/configure_fast", configureFAST_cb);
   ros::AsyncSpinner spinner(1);
 
   configureFAST(1, 60);
 
   // Init threads
-  std::unique_ptr<std::thread> threads[NUM_CAMERAS + 2]; // one each for IMU and time_ptr update threads
+  std::unique_ptr<std::thread> threads[NUM_CAMERAS + 2]; // one each for IMU and frame_time_ptr update threads
   std::unique_ptr<ImagePublisher> image_publisher[NUM_CAMERAS];
 
   // IMU thread
-  threads[NUM_CAMERAS] = std::make_unique<std::thread>(publish_imu, nh, time_ptr, curr_time_ptr);
+  threads[NUM_CAMERAS] = std::make_unique<std::thread>(publish_imu, nh, frame_time_ptr, curr_time_ptr);
 
   // Time object update thread
-  threads[NUM_CAMERAS + 1] = std::make_unique<std::thread>(update_time_ptr, nh, time_ptr, curr_time_ptr);
+  threads[NUM_CAMERAS + 1] = std::make_unique<std::thread>(update_time_ptr, nh, frame_time_ptr, curr_time_ptr);
 
   // Image Publisher threads
   for (size_t i=0; i<NUM_CAMERAS; ++i)
   {
     CameraHWParameters params(DMA_DEVICES[i], I2C_DEVICES[i], CAMERA_NAMES[i], i == COLOR_CAMERA_ID);
-    image_publisher[i] = std::make_unique<ImagePublisher>(nh, params, time_ptr, time_condition_var, time_guard);
+    image_publisher[i] = std::make_unique<ImagePublisher>(nh, params, frame_time_ptr);
     threads[i] = std::make_unique<std::thread>(&ImagePublisher::publish, image_publisher[i].get());
   }
 
   // INIT
   curr_time_ptr->update(ros::Time::now());
-  time_ptr->update(curr_time_ptr->get());
-  time_ptr->increment_write_count();
-  time_condition_var.notify_all(); // Signal image publishers to begin
+  frame_time_ptr->update(curr_time_ptr->get());
 
   spinner.start();
 

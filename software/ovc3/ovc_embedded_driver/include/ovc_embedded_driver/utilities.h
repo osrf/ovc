@@ -16,16 +16,25 @@ private:
   std::mutex time_ops_mutex;
   ros::Time time;
 
-public:
-  // These variables are public to save on function call overhead
-  std::atomic<uint8_t> time_read_count;
-  std::atomic<uint8_t> time_write_count;
+  std::condition_variable time_condition_var;
+  std::mutex time_guard_mutex;
+  std::unique_lock<std::mutex> time_guard;
 
-  AtomicRosTime() : time_read_count(0), time_write_count(0) {}
+public:
+  AtomicRosTime()
+  : time_guard(time_guard_mutex)
+  , time_write_count(0)
+  {}
+
+  // These variables are public to save on function call overhead
+  std::atomic<uint8_t> time_write_count;
 
   void update(const ros::Time& t) {
     std::lock_guard<std::mutex> lock(time_ops_mutex);
     time = t;
+
+    time_write_count += 1;
+    time_condition_var.notify_all();
   }
 
   ros::Time get() {
@@ -33,14 +42,15 @@ public:
     return time;
   }
 
-  // Getters and setters
-  void increment_read_count() { time_read_count += 1; }
-  void increment_write_count() { time_write_count += 1; }
-  void reset_read_count() { time_read_count = 0; }
-  void reset_write_count() { time_write_count = 0; }
+  ros::Time get_wait(const uint8_t last_timestamp_number)
+  {
+    while (last_timestamp_number == time_write_count)
+    {
+       time_condition_var.wait(time_guard);
+    }
 
-  uint8_t get_read_count() { return time_read_count.load(); }
-  uint8_t get_write_count() { return time_write_count.load(); }
+    return time;
+  }
 };
 
 } // namespace ovc_embedded_driver
