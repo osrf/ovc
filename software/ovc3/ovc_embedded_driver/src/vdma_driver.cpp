@@ -113,7 +113,8 @@ void VDMADriver::configureVDMA()
 
 void VDMADriver::startVDMA()
 {
-  uio.writeRegister(VSIZE_REG, RES_Y + 1); // + 1 because the last line contains corners
+  static constexpr uint8_t CORNER_LINES = 4;
+  uio.writeRegister(VSIZE_REG, RES_Y + CORNER_LINES); // last n lines contain corner information
 }
 
 void VDMADriver::updateLastFramebuffer()
