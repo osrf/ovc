@@ -8,9 +8,16 @@
 
 using namespace ovc_embedded_driver;
 
-ImagePublisher::ImagePublisher(ros::NodeHandle nh_p, CameraHWParameters params, std::shared_ptr<AtomicRosTime> t_ptr) : nh(nh_p), i2c(params.i2c_num), time_ptr(t_ptr), run_fast(!params.is_rgb)
+ImagePublisher::ImagePublisher(ros::NodeHandle nh_p,
+                               CameraHWParameters params,
+                               std::shared_ptr<AtomicRosTime> t_ptr)
+  : nh(nh_p)
+  , i2c(params.i2c_num)
+  , time_ptr(t_ptr)
+  , run_fast(!params.is_rgb)
 {
   const std::string img_namespace("ovc/" + params.camera_name + "/");
+
   // Prepare the shapeshifter
   shape_shifter.morph(
                   ros::message_traits::MD5Sum<sensor_msgs::Image>::value(),

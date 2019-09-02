@@ -8,8 +8,6 @@ struct IMUReading
 {
   float a_x, a_y, a_z;
   float g_x, g_y, g_z; 
-
-  int num_sample; // Number relative to start of frame, 0 means synchronised with frame start
 };
 
 class SPIDriver 
@@ -65,6 +63,7 @@ class SPIDriver
 
 public:
   SPIDriver(int gpio_uio_num);
+  int getSampleNumber();
   IMUReading readSensors();
 
 };
