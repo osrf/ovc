@@ -13,7 +13,7 @@ static constexpr float G_TO_METRES(9.80665);
 SPIDriver::SPIDriver(int gpio_uio_num) :
   accel_sens(DEFAULT_ACCEL_SENS), gyro_sens(DEFAULT_GYRO_SENS), uio(UIODriver(gpio_uio_num, GPIO_UIO_SIZE))
 {
-  spi_fd = open("/dev/spidev1.0", O_RDWR);
+  spi_fd = open("/dev/spidev2.0", O_RDWR);
 
   if (spi_fd < 0)
     std::cout << "Failed in opening spi file" << std::endl;
@@ -124,10 +124,10 @@ void SPIDriver::Transmit(size_t tx_len, size_t rx_len)
   memset(xfer, 0, sizeof xfer);
   xfer[0].tx_buf = (uint64_t) tx_buf;
   xfer[0].len = tx_len;
-  xfer[0].speed_hz = 1000000;
+  xfer[0].speed_hz = 7000000;
   xfer[1].rx_buf = (uint64_t) rx_buf;
   xfer[1].len = rx_len;
-  xfer[1].speed_hz = 1000000;
+  xfer[1].speed_hz = 7000000;
   
   int status = ioctl(spi_fd, SPI_IOC_MESSAGE(2), xfer);
   if (status < 0)
