@@ -60,7 +60,7 @@ void publish_imu(ros::NodeHandle nh,
                  std::shared_ptr<AtomicRosTime> frame_time_ptr,
                  std::shared_ptr<AtomicRosTime> curr_time_ptr)
 {
-  ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("/ovc/imu", 10);
+  ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("imu", 10);
   sensor_msgs::Imu imu_msg;
 
   while (ros::ok())
@@ -109,11 +109,11 @@ int main(int argc, char **argv)
 {
   // Init ROS
   ros::init(argc, argv, "ovc_embedded_driver_node");
-  ros::NodeHandle nh;
+  ros::NodeHandle nh("/ovc");
 
   std::shared_ptr<AtomicRosTime> curr_time_ptr = std::make_shared<AtomicRosTime>();
   std::shared_ptr<AtomicRosTime> frame_time_ptr = std::make_shared<AtomicRosTime>();
-  ros::ServiceServer fast_serv = nh.advertiseService("/ovc/configure_fast", configureFAST_cb);
+  ros::ServiceServer fast_serv = nh.advertiseService("configure_fast", configureFAST_cb);
   ros::AsyncSpinner spinner(1);
 
   configureFAST(1, 60);

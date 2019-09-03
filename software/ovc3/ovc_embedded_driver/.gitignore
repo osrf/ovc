@@ -1,5 +1,7 @@
 # Vim files
 *.swp
 *.swo
+# Calibration parameters, change from unit to unit
+calibration/
 
 tags

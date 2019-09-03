@@ -12,15 +12,14 @@ using namespace ovc_embedded_driver;
 ImagePublisher::ImagePublisher(ros::NodeHandle nh_p,
                                CameraHWParameters params,
                                std::shared_ptr<AtomicRosTime> t_ptr)
-  : nh(nh_p)
+  : nh(nh_p, params.camera_name)
   , i2c(params.i2c_num)
   , time_ptr(t_ptr)
+  , cam_info_manager(nh, params.camera_name)
   , run_fast(!params.is_rgb)
 {
   // Initialise condition variable conditions
   last_time_write_count = time_ptr->time_write_count.load();
-
-  const std::string img_namespace("ovc/" + params.camera_name + "/");
 
   // Prepare the shapeshifter
   shape_shifter.morph(
@@ -29,11 +28,16 @@ ImagePublisher::ImagePublisher(ros::NodeHandle nh_p,
                   ros::message_traits::Definition<sensor_msgs::Image>::value(),
                   "");
 
+  // Load calibration parameters
+  std::string cam_info_url("package://ovc_embedded_driver/calibration/" +
+      params.camera_name + ".yaml");
+  if (cam_info_manager.validateURL(cam_info_url))
+    cam_info_manager.loadCameraInfo(cam_info_url);
+
   // Advertise topics
-  std::string img_topic_name(img_namespace + "image_raw");
-  image_pub = shape_shifter.advertise(nh, img_topic_name.c_str(), 1);
-  std::string metadata_name(img_namespace + "image_metadata");
-  corner_pub = nh.advertise<Metadata>(metadata_name.c_str(), 1);
+  image_pub = shape_shifter.advertise(nh, "image_raw", 1);
+  corner_pub = nh.advertise<Metadata>("image_metadata", 1);
+  cam_info_pub = nh.advertise<sensor_msgs::CameraInfo>("camera_info", 1);
 
   // Prepare image message
   image_msg.data.resize(IMAGE_SIZE);
@@ -68,6 +72,11 @@ void ImagePublisher::publish()
     vdma->setHeader(image_msg_buffer);
     shape_shifter.assign_data(image_ptr, image_msg_size);
     image_pub.publish(shape_shifter);
+    // Published synchronised camera_info message
+    cam_info_msg = cam_info_manager.getCameraInfo();
+    cam_info_msg.header.frame_id = "ovc_camera_link_optical";
+    cam_info_msg.header.stamp = image_msg.header.stamp;
+    cam_info_pub.publish(cam_info_msg);
 
     // Publish features after the image so we don't affect the frame latency with feature computation
     if (run_fast)

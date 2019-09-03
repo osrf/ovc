@@ -5,7 +5,7 @@ add_compile_options(-std=c++14 -Wall -Wpedantic)
 # For debugging
 # add_compile_options(-std=c++14 -fsanitize=address)
 
-find_package(catkin REQUIRED COMPONENTS roscpp image_transport message_generation)
+find_package(catkin REQUIRED COMPONENTS roscpp image_transport message_generation camera_info_manager)
 
 add_message_files(
    FILES
@@ -48,6 +48,9 @@ add_dependencies(${PROJECT_NAME} ovc_embedded_driver_generate_messages_cpp)
 add_executable(${PROJECT_NAME}_node src/ovc_embedded_driver_node.cpp)
 add_dependencies(${PROJECT_NAME}_node ovc_embedded_driver_generate_messages_cpp)
 add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(${PROJECT_NAME}
+  ${catkin_LIBRARIES}
+)
 target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
   ${PROJECT_NAME}
