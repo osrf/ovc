@@ -17,10 +17,10 @@ namespace ovc_embedded_driver {
 
 template <typename T>
 void SerializeToByteArray(const T& msg, std::vector<uint8_t>& destination_buffer)
-{ 
+{
   const uint32_t length = ros::serialization::serializationLength(msg);
   destination_buffer.resize( length );
-  //copy into your own buffer 
+  //copy into your own buffer
   ros::serialization::OStream stream(destination_buffer.data(), length);
   ros::serialization::serialize(stream, msg);
 }
@@ -41,13 +41,15 @@ class ImagePublisher
   std::shared_ptr<AtomicRosTime> time_ptr;
 
   size_t image_msg_size;
-  
   bool run_fast;
-
   void publishCorners(const ros::Time& frame_time);
 
+  uint8_t last_time_write_count;
+
 public:
-  ImagePublisher(ros::NodeHandle nh_p, CameraHWParameters params, std::shared_ptr<AtomicRosTime> t_ptr);
+  ImagePublisher(ros::NodeHandle nh_p,
+                 CameraHWParameters params,
+                 std::shared_ptr<AtomicRosTime> t_ptr);
 
   void publish();
 };

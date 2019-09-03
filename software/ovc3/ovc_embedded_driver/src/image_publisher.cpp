@@ -1,3 +1,4 @@
+#include <condition_variable>
 
 #include <sensor_msgs/Image.h>
 #include <ros/message_traits.h>
@@ -8,9 +9,19 @@
 
 using namespace ovc_embedded_driver;
 
-ImagePublisher::ImagePublisher(ros::NodeHandle nh_p, CameraHWParameters params, std::shared_ptr<AtomicRosTime> t_ptr) : nh(nh_p), i2c(params.i2c_num), time_ptr(t_ptr), run_fast(!params.is_rgb)
+ImagePublisher::ImagePublisher(ros::NodeHandle nh_p,
+                               CameraHWParameters params,
+                               std::shared_ptr<AtomicRosTime> t_ptr)
+  : nh(nh_p)
+  , i2c(params.i2c_num)
+  , time_ptr(t_ptr)
+  , run_fast(!params.is_rgb)
 {
+  // Initialise condition variable conditions
+  last_time_write_count = time_ptr->time_write_count.load();
+
   const std::string img_namespace("ovc/" + params.camera_name + "/");
+
   // Prepare the shapeshifter
   shape_shifter.morph(
                   ros::message_traits::MD5Sum<sensor_msgs::Image>::value(),
@@ -47,9 +58,10 @@ void ImagePublisher::publish()
   {
     // Wait for interrupt and fill the image message
     unsigned char* image_ptr = vdma->getImage();
-    i2c.controlAnalogGain();
 
-    image_msg.header.stamp = time_ptr->get();
+    // Wait for time to update before reading it
+    image_msg.header.stamp = time_ptr->get_wait(last_time_write_count);
+    last_time_write_count = time_ptr->time_write_count.load();
 
     // Serialize the new timestamp, set it and publish
     SerializeToByteArray(image_msg.header, image_msg_buffer);
@@ -60,6 +72,9 @@ void ImagePublisher::publish()
     // Publish features after the image so we don't affect the frame latency with feature computation
     if (run_fast)
       publishCorners(image_msg.header.stamp);
+
+    // Send i2c transaction to optimise camera exposure
+    i2c.controlAnalogGain();
   }
 }
 
