@@ -29,6 +29,11 @@ public:
   // These variables are public to save on function call overhead
   std::atomic<uint8_t> time_write_count;
 
+  void update_no_notify(const ros::Time& t) {
+    std::lock_guard<std::mutex> lock(time_ops_mutex);
+    time = t;
+  }
+
   void update(const ros::Time& t) {
     std::lock_guard<std::mutex> lock(time_ops_mutex);
     time = t;
@@ -44,9 +49,12 @@ public:
 
   ros::Time get_wait(const uint8_t last_timestamp_number)
   {
+    // You might need to put a shared lock here,
+    // but introducing additional readers might cause frames to start dropping.
+    // But it hasn't caused issues so far so...
     while (last_timestamp_number == time_write_count)
     {
-       time_condition_var.wait(time_guard);
+     time_condition_var.wait(time_guard);
     }
 
     return time;

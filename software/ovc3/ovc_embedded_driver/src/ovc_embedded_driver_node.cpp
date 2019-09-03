@@ -46,7 +46,7 @@ void update_time_ptr(ros::NodeHandle nh,
     new_imu_sample = true;
     num_sample_condition_var.notify_all();
 
-    curr_time_ptr->update(ros::Time::now());
+    curr_time_ptr->update_no_notify(ros::Time::now());
 
     // Only update time on the 7th IMU sample
     if (num_sample == 0)
@@ -137,7 +137,7 @@ int main(int argc, char **argv)
   }
 
   // INIT
-  curr_time_ptr->update(ros::Time::now());
+  curr_time_ptr->update_no_notify(ros::Time::now());
   frame_time_ptr->update(curr_time_ptr->get());
 
   spinner.start();
