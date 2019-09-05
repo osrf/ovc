@@ -6,13 +6,26 @@
 
 struct IMUReading
 {
+  float q_x, q_y, q_z, q_w;
   float a_x, a_y, a_z;
   float g_x, g_y, g_z; 
 };
 
 class SPIDriver 
 {
-  static constexpr size_t BUF_SIZE = 32;
+  static constexpr size_t BUF_SIZE = 64;
+protected:
+  int spi_fd;
+  unsigned char tx_buf[BUF_SIZE], rx_buf[BUF_SIZE];
+
+  void Transmit(size_t tx_len, size_t rx_len);
+
+public:
+  SPIDriver(int spi_num, int max_speed_hz);
+};
+
+class ICMDriver : public SPIDriver
+{
   static constexpr size_t GPIO_UIO_SIZE = 0x1000;
   static constexpr unsigned char MASK_WRITE = 0x00;
   static constexpr unsigned char MASK_READ = 0x80;
@@ -36,6 +49,7 @@ class SPIDriver
 
   static constexpr unsigned char CHIP_ID = 0xEA;
 
+  static constexpr int MAX_SPI_SPEED = 7000000;
   static constexpr float DEFAULT_ACCEL_SENS = 1./16384; // LSB / g, inverse (multiply by)
   static constexpr float DEFAULT_GYRO_SENS = 1./131; // LSB / dps
 
@@ -45,14 +59,9 @@ class SPIDriver
   static constexpr unsigned int IER = 0x0128 / sizeof(unsigned int);
   static constexpr unsigned int ISR = 0x0120 / sizeof(unsigned int);
 
-  int spi_fd;
   float accel_sens, gyro_sens;
 
   UIODriver uio;
-
-  unsigned char tx_buf[BUF_SIZE], rx_buf[BUF_SIZE];
-
-  void Transmit(size_t tx_len, size_t rx_len);
 
   void selectBank(int bank);
   void writeRegister(unsigned char addr, unsigned char val);
@@ -60,11 +69,32 @@ class SPIDriver
   unsigned char readRegister(unsigned char addr);
   void burstReadRegister(unsigned char addr, int count);
 
-
 public:
-  SPIDriver(int gpio_uio_num);
+  ICMDriver(int spi_num, int gpio_uio_num);
   int getSampleNumber();
   IMUReading readSensors();
-
 };
+
+class VNAVDriver : public SPIDriver
+{
+  static constexpr uint8_t CMD_READ = 1;
+  static constexpr uint8_t CMD_WRITE = 2;
+
+  static constexpr uint8_t STATE_REGADDR = 15;
+  static constexpr uint8_t STATE_LEN = 52;
+  static constexpr uint8_t HEADER_LEN = 4;
+
+  static constexpr int MAX_SPI_SPEED = 16000000;
+
+  void WriteRegister(uint8_t reg_addr, uint8_t* payload, size_t len);
+  void SetupRead(int reg_addr);
+
+  int gpio_fd; 
+
+public:
+  VNAVDriver(int spi_num, int gpio_num);
+  void waitNewSample();
+  bool readSensors(IMUReading& ret);
+};
+
 #endif
