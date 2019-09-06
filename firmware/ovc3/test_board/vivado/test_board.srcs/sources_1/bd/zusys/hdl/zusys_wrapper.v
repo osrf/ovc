@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Mon Sep  2 14:23:53 2019
+//Date        : Thu Sep  5 16:37:27 2019
 //Host        : luca running 64-bit Ubuntu 18.04.3 LTS
 //Command     : generate_target zusys_wrapper.bd
 //Design      : zusys_wrapper
@@ -169,7 +169,7 @@ module zusys_wrapper
   input GPIO3;
   output GPIO4;
   output GPIO5;
-  output GPIO6;
+  output [0:0]GPIO6;
   output GPIO7;
   input GPIO8;
   input GPIO9;
@@ -273,7 +273,7 @@ module zusys_wrapper
   wire GPIO3;
   wire GPIO4;
   wire GPIO5;
-  wire GPIO6;
+  wire [0:0]GPIO6;
   wire GPIO7;
   wire GPIO8;
   wire GPIO9;
