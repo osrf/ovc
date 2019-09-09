@@ -47,9 +47,8 @@ void update_time_ptr(ros::NodeHandle nh,
   {
     num_sample = spi.getSampleNumber(); // Blocking call
     new_imu_sample = true;
-    num_sample_condition_var.notify_all();
-
     curr_time_ptr->update_no_notify(ros::Time::now());
+    num_sample_condition_var.notify_all();
 
     // Only update time on the 7th IMU sample
     if (num_sample == 0)
@@ -75,13 +74,10 @@ void publish_imu(ros::NodeHandle nh,
     {
       num_sample_condition_var.wait(num_sample_guard);
     }
+    imu_msg.header.stamp = curr_time_ptr->get();
     new_imu_sample = false;
 
     IMUReading imu = spi.readSensors();
-
-    // TODO check if delay incurred by SPI transaction is indeed negligible
-
-    imu_msg.header.stamp = curr_time_ptr->get();
 
     imu_msg.angular_velocity.x = imu.g_x;
     imu_msg.angular_velocity.y = imu.g_y;
