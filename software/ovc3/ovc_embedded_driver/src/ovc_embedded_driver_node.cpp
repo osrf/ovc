@@ -6,7 +6,8 @@
 #include <ros/ros.h>
 #include <sensor_msgs/Imu.h>
 
-#include <ovc_embedded_driver/ConfigureFAST.h>
+#include <dynamic_reconfigure/server.h>
+#include <ovc_embedded_driver/Ovc3Config.h>
 #include <ovc_embedded_driver/sensor_constants.h>
 #include <ovc_embedded_driver/utilities.h>
 #include <ovc_embedded_driver/image_publisher.h>
@@ -96,6 +97,7 @@ void publish_vnav(ros::NodeHandle nh, std::shared_ptr<AtomicRosTime> time_ptr)
   VNAVDriver spi(VECTORNAV_SPI_DEVICE, VECTORNAV_FSYNC_GPIO);
   ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("vectornav", 10);
   sensor_msgs::Imu imu_msg;
+  imu_msg.header.frame_id = "ovc_vnav_link";
   while (ros::ok())
   {
     // Vectornav is not synchronised to anything, just use system time to stamp it
@@ -115,10 +117,7 @@ void publish_vnav(ros::NodeHandle nh, std::shared_ptr<AtomicRosTime> time_ptr)
     imu_msg.linear_acceleration.x = imu.a_x;
     imu_msg.linear_acceleration.y = imu.a_y;
     imu_msg.linear_acceleration.z = imu.a_z;
-    // Sample synchronised with frame trigger
     imu_pub.publish(imu_msg);
-    //if (imu.num_sample == 0)
-    //  time_ptr->update();
   }
 }
 
@@ -130,10 +129,10 @@ void configureFAST(bool enable, int thresh)
   uio.writeRegister(0, write_val);
 }
 
-bool configureFAST_cb(ConfigureFAST::Request &req, ConfigureFAST::Response &res)
+void reconfigure_callback(Ovc3Config &conf, uint32_t level)
 {
-  configureFAST(req.enable, req.threshold);
-  return true;
+  // TODO add more reconfigurability
+  configureFAST(conf.fast_enable, conf.fast_threshold);
 }
 
 int main(int argc, char **argv)
@@ -144,10 +143,11 @@ int main(int argc, char **argv)
 
   std::shared_ptr<AtomicRosTime> curr_time_ptr = std::make_shared<AtomicRosTime>();
   std::shared_ptr<AtomicRosTime> frame_time_ptr = std::make_shared<AtomicRosTime>();
-  ros::ServiceServer fast_serv = nh.advertiseService("configure_fast", configureFAST_cb);
+  dynamic_reconfigure::Server<Ovc3Config> server;
+  dynamic_reconfigure::Server<Ovc3Config>::CallbackType c;
+  c = boost::bind(&reconfigure_callback, _1, _2);
+  server.setCallback(c);
   ros::AsyncSpinner spinner(1);
-
-  configureFAST(1, 60);
 
   // Init threads
   std::unique_ptr<std::thread> threads[NUM_CAMERAS + 3]; // one each for IMU and frame_time_ptr update threads
@@ -159,7 +159,7 @@ int main(int argc, char **argv)
   // Time object update thread
   threads[NUM_CAMERAS + 1] = std::make_unique<std::thread>(update_time_ptr, nh, frame_time_ptr, curr_time_ptr);
 
-  threads[NUM_CAMERAS+2] = std::make_unique<std::thread>(publish_vnav, nh, curr_time_ptr);
+  threads[NUM_CAMERAS + 2] = std::make_unique<std::thread>(publish_vnav, nh, curr_time_ptr);
   
   // Image Publisher threads
   for (size_t i=0; i<NUM_CAMERAS; ++i)
@@ -175,8 +175,8 @@ int main(int argc, char **argv)
 
   spinner.start();
 
+  // TODO refactor thread vector
   // Wait for each thread to end
-  threads[NUM_CAMERAS]->join();
-  
-  //publish_vnav(nh, time_ptr);
+  threads[NUM_CAMERAS+1]->join();
+  return 0;
 }

@@ -160,7 +160,7 @@ void VNAVDriver::WriteRegister(uint8_t reg_addr, uint8_t* payload, size_t len)
   tx_buf[1] = reg_addr;
   tx_buf[2] = 0;
   tx_buf[3] = 0;
-  for (int i=0; i<len; ++i)
+  for (size_t i=0; i<len; ++i)
     tx_buf[4 + i] = payload[i];
   Transmit(4 + len, 0);
 }
@@ -176,6 +176,7 @@ void VNAVDriver::SetupRead(int reg_addr)
 
 void VNAVDriver::waitNewSample()
 {
+  // Poll falling edge interrupt on GPIO
   struct pollfd pfd;
   int tmp;
   pfd.fd = gpio_fd;
