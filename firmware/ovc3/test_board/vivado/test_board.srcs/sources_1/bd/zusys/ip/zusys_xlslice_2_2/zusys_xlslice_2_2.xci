@@ -6,15 +6,15 @@
   <spirit:version>1.0</spirit:version>
   <spirit:componentInstances>
     <spirit:componentInstance>
-      <spirit:instanceName>zusys_xlslice_2_0</spirit:instanceName>
+      <spirit:instanceName>zusys_xlslice_2_2</spirit:instanceName>
       <spirit:componentRef spirit:vendor="xilinx.com" spirit:library="ip" spirit:name="xlslice" spirit:version="1.0"/>
       <spirit:configurableElementValues>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DIN_FROM">5</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DIN_TO">5</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DIN_FROM">7</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DIN_TO">7</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DIN_WIDTH">14</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Component_Name">zusys_xlslice_2_0</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DIN_FROM">5</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DIN_TO">5</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Component_Name">zusys_xlslice_2_2</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DIN_FROM">7</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DIN_TO">7</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DIN_WIDTH">14</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.DOUT_WIDTH">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.ARCHITECTURE">zynquplus</spirit:configurableElementValue>

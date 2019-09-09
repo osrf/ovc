@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="37">
   <CompositeFile CompositeFileTopName="zusys" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1567759282"/>
-    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1567759282"/>
-    <Generation Name="SIMULATION" State="RESET" Timestamp="1567759282"/>
-    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1567759282"/>
+    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1568006114"/>
+    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1568006114"/>
+    <Generation Name="SIMULATION" State="RESET" Timestamp="1568006114"/>
+    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1568006114"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/zusys_zynq_ultra_ps_e_0_0/zusys_zynq_ultra_ps_e_0_0.xci" Type="IP">
         <Instance HierarchyPath="zynq_ultra_ps_e_0"/>
@@ -289,6 +289,62 @@
       </File>
       <File Name="ip/zusys_rst_ps8_0_159M_0/zusys_rst_ps8_0_159M_0.xci" Type="IP">
         <Instance HierarchyPath="rst_ps8_0_159M"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/zusys_xlslice_2_1/zusys_xlslice_2_1.xci" Type="IP">
+        <Instance HierarchyPath="xlslice_3"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/zusys_xlslice_2_2/zusys_xlslice_2_2.xci" Type="IP">
+        <Instance HierarchyPath="xlslice_4"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/zusys_xlslice_2_3/zusys_xlslice_2_3.xci" Type="IP">
+        <Instance HierarchyPath="xlslice_5"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/zusys_xlslice_5_0/zusys_xlslice_5_0.xci" Type="IP">
+        <Instance HierarchyPath="xlslice_6"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/zusys_util_ds_buf_0_0/zusys_util_ds_buf_0_0.xci" Type="IP">
+        <Instance HierarchyPath="util_ds_buf_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/zusys_xlslice_7_0/zusys_xlslice_7_0.xci" Type="IP">
+        <Instance HierarchyPath="xlslice_7"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/zusys_xlslice_7_1/zusys_xlslice_7_1.xci" Type="IP">
+        <Instance HierarchyPath="xlslice_8"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

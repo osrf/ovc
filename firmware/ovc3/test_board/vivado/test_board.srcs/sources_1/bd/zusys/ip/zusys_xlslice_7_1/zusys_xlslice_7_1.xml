@@ -2,7 +2,7 @@
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>customized_ip</spirit:library>
-  <spirit:name>zusys_xlslice_2_0</spirit:name>
+  <spirit:name>zusys_xlslice_7_1</spirit:name>
   <spirit:version>1.0</spirit:version>
   <spirit:model>
     <spirit:ports>
@@ -27,7 +27,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.DIN_FROM&apos;)) - spirit:decode(id(&apos;MODELPARAM_VALUE.DIN_TO&apos;)))">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.DIN_FROM&apos;)) - spirit:decode(id(&apos;MODELPARAM_VALUE.DIN_TO&apos;)))">3</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -48,12 +48,12 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>DIN_FROM</spirit:name>
         <spirit:displayName>Din From</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DIN_FROM">5</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DIN_FROM">13</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>DIN_TO</spirit:name>
         <spirit:displayName>Din Down To</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DIN_TO">5</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DIN_TO">10</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -61,17 +61,17 @@
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="2">zusys_xlslice_2_0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="2">zusys_xlslice_7_1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>DIN_TO</spirit:name>
       <spirit:displayName>Din Down To</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DIN_TO" spirit:order="3" spirit:minimum="0" spirit:maximum="13" spirit:rangeType="long">5</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DIN_TO" spirit:order="3" spirit:minimum="0" spirit:maximum="13" spirit:rangeType="long">10</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>DIN_FROM</spirit:name>
       <spirit:displayName>Din From</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DIN_FROM" spirit:order="4" spirit:minimum="5" spirit:maximum="13" spirit:rangeType="long">5</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DIN_FROM" spirit:order="4" spirit:minimum="10" spirit:maximum="13" spirit:rangeType="long">13</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>DIN_WIDTH</spirit:name>
@@ -81,7 +81,7 @@
     <spirit:parameter>
       <spirit:name>DOUT_WIDTH</spirit:name>
       <spirit:displayName>Dout Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DOUT_WIDTH" spirit:order="6">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DOUT_WIDTH" spirit:order="6">4</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>

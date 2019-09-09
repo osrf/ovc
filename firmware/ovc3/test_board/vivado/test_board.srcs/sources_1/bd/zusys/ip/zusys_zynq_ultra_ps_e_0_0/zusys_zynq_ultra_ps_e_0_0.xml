@@ -47986,7 +47986,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(MODELPARAM_VALUE.C_EMIO_GPIO_WIDTH)) -1)">2</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(MODELPARAM_VALUE.C_EMIO_GPIO_WIDTH)) -1)">13</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -48012,7 +48012,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(MODELPARAM_VALUE.C_EMIO_GPIO_WIDTH)) -1)">2</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(MODELPARAM_VALUE.C_EMIO_GPIO_WIDTH)) -1)">13</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -48035,7 +48035,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(MODELPARAM_VALUE.C_EMIO_GPIO_WIDTH)) -1)">2</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(MODELPARAM_VALUE.C_EMIO_GPIO_WIDTH)) -1)">13</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -62995,7 +62995,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(MODELPARAM_VALUE.C_EMIO_GPIO_WIDTH )) -1)">2</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(MODELPARAM_VALUE.C_EMIO_GPIO_WIDTH )) -1)">13</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -64175,7 +64175,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_EMIO_GPIO_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_EMIO_GPIO_WIDTH" spirit:dependency="spirit:decode(id(PARAM_VALUE.PSU__GPIO_EMIO_WIDTH))">3</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_EMIO_GPIO_WIDTH" spirit:dependency="spirit:decode(id(PARAM_VALUE.PSU__GPIO_EMIO_WIDTH))">14</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_NUM_FABRIC_RESETS</spirit:name>
@@ -66296,7 +66296,7 @@
     <spirit:parameter>
       <spirit:name>PSU__GPIO_EMIO__PERIPHERAL__IO</spirit:name>
       <spirit:displayName>GPIO0 EMIO IO</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__GPIO_EMIO__PERIPHERAL__IO" spirit:choiceRef="choice_list_2053fb33">3</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__GPIO_EMIO__PERIPHERAL__IO" spirit:choiceRef="choice_list_2053fb33">14</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__GPIO0_MIO__PERIPHERAL__ENABLE</spirit:name>
@@ -78373,7 +78373,7 @@ USB 0#USB 0#USB 0#USB 0#USB 0#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Ge
     <spirit:parameter>
       <spirit:name>PSU__GPIO_EMIO_WIDTH</spirit:name>
       <spirit:displayName>EMIO GPIO Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__GPIO_EMIO_WIDTH" spirit:choiceRef="choice_list_ae9f88f6">3</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__GPIO_EMIO_WIDTH" spirit:choiceRef="choice_list_ae9f88f6">14</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__HPM0_FPD__NUM_WRITE_THREADS</spirit:name>

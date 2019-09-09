@@ -79,7 +79,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.In2" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.NUM_PORTS&apos;)) > 2)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.In2" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.NUM_PORTS&apos;)) > 2)">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -105,7 +105,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.In3" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.NUM_PORTS&apos;)) > 3)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.In3" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.NUM_PORTS&apos;)) > 3)">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -131,7 +131,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.In4" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.NUM_PORTS&apos;)) > 4)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.In4" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.NUM_PORTS&apos;)) > 4)">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -141,7 +141,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.IN5_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.IN5_WIDTH&apos;)) - 1)">4</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -157,7 +157,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.In5" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.NUM_PORTS&apos;)) > 5)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.In5" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.NUM_PORTS&apos;)) > 5)">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -167,7 +167,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.IN6_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.IN6_WIDTH&apos;)) - 1)">3</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -183,7 +183,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.In6" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.NUM_PORTS&apos;)) > 6)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.In6" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.NUM_PORTS&apos;)) > 6)">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -843,7 +843,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.dout_width&apos;)) - 1)">1</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.dout_width&apos;)) - 1)">13</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -884,12 +884,12 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>IN5_WIDTH</spirit:name>
         <spirit:displayName>In5 Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.IN5_WIDTH">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.IN5_WIDTH">5</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>IN6_WIDTH</spirit:name>
         <spirit:displayName>In6 Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.IN6_WIDTH">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.IN6_WIDTH">4</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>IN7_WIDTH</spirit:name>
@@ -1019,12 +1019,12 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>dout_width</spirit:name>
         <spirit:displayName>Dout Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.dout_width">2</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.dout_width">14</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>NUM_PORTS</spirit:name>
         <spirit:displayName>Number of Ports</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.NUM_PORTS">2</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.NUM_PORTS">7</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1037,7 +1037,7 @@
     <spirit:parameter>
       <spirit:name>NUM_PORTS</spirit:name>
       <spirit:displayName>Number of Ports</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.NUM_PORTS" spirit:order="3" spirit:minimum="1" spirit:maximum="32" spirit:rangeType="long">2</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.NUM_PORTS" spirit:order="3" spirit:minimum="1" spirit:maximum="32" spirit:rangeType="long">7</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>IN0_WIDTH</spirit:name>
@@ -1067,12 +1067,12 @@
     <spirit:parameter>
       <spirit:name>IN5_WIDTH</spirit:name>
       <spirit:displayName>In5 Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.IN5_WIDTH" spirit:order="9" spirit:minimum="1" spirit:maximum="4096" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.IN5_WIDTH" spirit:order="9" spirit:minimum="1" spirit:maximum="4096" spirit:rangeType="long">5</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>IN6_WIDTH</spirit:name>
       <spirit:displayName>In6 Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.IN6_WIDTH" spirit:order="10" spirit:minimum="1" spirit:maximum="4096" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.IN6_WIDTH" spirit:order="10" spirit:minimum="1" spirit:maximum="4096" spirit:rangeType="long">4</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>IN7_WIDTH</spirit:name>
@@ -1202,7 +1202,7 @@
     <spirit:parameter>
       <spirit:name>dout_width</spirit:name>
       <spirit:displayName>Dout Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.dout_width" spirit:order="36">2</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.dout_width" spirit:order="36">14</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -1212,6 +1212,11 @@
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN0_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN1_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN2_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN3_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN4_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN5_WIDTH" xilinx:valueSource="user" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN6_WIDTH" xilinx:valueSource="user" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.NUM_PORTS" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>

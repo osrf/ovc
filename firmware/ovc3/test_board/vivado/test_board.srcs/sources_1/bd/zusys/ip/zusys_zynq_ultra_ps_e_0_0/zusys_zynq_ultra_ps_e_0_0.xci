@@ -1969,9 +1969,9 @@ USB 0#USB 0#USB 0#USB 0#USB 0#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Ge
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__GPIO1_MIO__PERIPHERAL__ENABLE">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__GPIO2_MIO__IO">&lt;Select></spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__GPIO2_MIO__PERIPHERAL__ENABLE">0</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__GPIO_EMIO_WIDTH">3</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__GPIO_EMIO_WIDTH">14</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__GPIO_EMIO__PERIPHERAL__ENABLE">1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__GPIO_EMIO__PERIPHERAL__IO">3</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__GPIO_EMIO__PERIPHERAL__IO">14</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__GPIO_EMIO__WIDTH">[94:0]</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__GPU_PP0__POWER__ON">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__GPU_PP1__POWER__ON">1</spirit:configurableElementValue>

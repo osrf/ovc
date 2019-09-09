@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Thu Sep  5 16:37:27 2019
+//Date        : Mon Sep  9 11:29:51 2019
 //Host        : luca running 64-bit Ubuntu 18.04.3 LTS
 //Command     : generate_target zusys_wrapper.bd
 //Design      : zusys_wrapper
@@ -10,7 +10,8 @@
 `timescale 1 ps / 1 ps
 
 module zusys_wrapper
-   (BONUS1_EXTCLK,
+   (AUX,
+    BONUS1_EXTCLK,
     BONUS1_FLASH,
     BONUS1_RESET,
     BONUS1_SCL0,
@@ -95,6 +96,7 @@ module zusys_wrapper
     IMU_MOSI,
     x0,
     x1);
+  inout [3:0]AUX;
   output BONUS1_EXTCLK;
   output BONUS1_FLASH;
   output BONUS1_RESET;
@@ -157,9 +159,9 @@ module zusys_wrapper
   input DIP_SWITCH;
   input GPIO0;
   input GPIO1;
-  output GPIO10;
+  output [0:0]GPIO10;
   input GPIO11;
-  output GPIO12;
+  output [0:0]GPIO12;
   output [0:0]GPIO13;
   output GPIO14;
   output GPIO15;
@@ -167,8 +169,8 @@ module zusys_wrapper
   output GPIO17;
   input GPIO2;
   input GPIO3;
-  output GPIO4;
-  output GPIO5;
+  output [0:0]GPIO4;
+  output [0:0]GPIO5;
   output [0:0]GPIO6;
   output GPIO7;
   input GPIO8;
@@ -181,6 +183,7 @@ module zusys_wrapper
   output [0:0]x0;
   output [0:0]x1;
 
+  wire [3:0]AUX;
   wire BONUS1_EXTCLK;
   wire BONUS1_FLASH;
   wire BONUS1_RESET;
@@ -261,9 +264,9 @@ module zusys_wrapper
   wire DIP_SWITCH;
   wire GPIO0;
   wire GPIO1;
-  wire GPIO10;
+  wire [0:0]GPIO10;
   wire GPIO11;
-  wire GPIO12;
+  wire [0:0]GPIO12;
   wire [0:0]GPIO13;
   wire GPIO14;
   wire GPIO15;
@@ -271,8 +274,8 @@ module zusys_wrapper
   wire GPIO17;
   wire GPIO2;
   wire GPIO3;
-  wire GPIO4;
-  wire GPIO5;
+  wire [0:0]GPIO4;
+  wire [0:0]GPIO5;
   wire [0:0]GPIO6;
   wire GPIO7;
   wire GPIO8;
@@ -316,7 +319,8 @@ module zusys_wrapper
         .O(CAM2_I2C_sda_i),
         .T(CAM2_I2C_sda_t));
   zusys zusys_i
-       (.BONUS1_EXTCLK(BONUS1_EXTCLK),
+       (.AUX(AUX),
+        .BONUS1_EXTCLK(BONUS1_EXTCLK),
         .BONUS1_FLASH(BONUS1_FLASH),
         .BONUS1_RESET(BONUS1_RESET),
         .BONUS1_SCL0(BONUS1_SCL0),

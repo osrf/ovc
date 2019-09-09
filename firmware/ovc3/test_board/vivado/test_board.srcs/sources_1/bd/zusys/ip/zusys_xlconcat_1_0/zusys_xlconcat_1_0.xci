@@ -36,13 +36,13 @@
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.IN31_WIDTH">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.IN3_WIDTH">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.IN4_WIDTH">1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.IN5_WIDTH">1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.IN6_WIDTH">1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.IN5_WIDTH">5</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.IN6_WIDTH">4</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.IN7_WIDTH">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.IN8_WIDTH">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.IN9_WIDTH">1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.NUM_PORTS">2</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.dout_width">2</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.NUM_PORTS">7</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.dout_width">14</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Component_Name">zusys_xlconcat_1_0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.IN0_WIDTH">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.IN10_WIDTH">1</spirit:configurableElementValue>
@@ -71,13 +71,13 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.IN31_WIDTH">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.IN3_WIDTH">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.IN4_WIDTH">1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.IN5_WIDTH">1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.IN6_WIDTH">1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.IN5_WIDTH">5</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.IN6_WIDTH">4</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.IN7_WIDTH">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.IN8_WIDTH">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.IN9_WIDTH">1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.NUM_PORTS">2</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.dout_width">2</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.NUM_PORTS">7</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.dout_width">14</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.ARCHITECTURE">zynquplus</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BASE_BOARD_PART">trenz.biz:te0820_3eg_1e:part0:2.0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BOARD_CONNECTIONS"/>
@@ -105,6 +105,11 @@
           <xilinx:configElementInfos>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN0_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN1_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN2_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN3_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN4_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN5_WIDTH" xilinx:valueSource="user" xilinx:valuePermission="bd_and_user"/>
+            <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IN6_WIDTH" xilinx:valueSource="user" xilinx:valuePermission="bd_and_user"/>
             <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.NUM_PORTS" xilinx:valueSource="user"/>
           </xilinx:configElementInfos>
         </xilinx:componentInstanceExtensions>
