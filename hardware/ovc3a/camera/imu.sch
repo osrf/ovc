@@ -1,6 +1,6 @@
 EESchema Schematic File Version 5
 LIBS:ovc3-cache
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -13,6 +13,11 @@ Comment1 ""
 Comment2 ""
 Comment3 ""
 Comment4 ""
+Comment5 ""
+Comment6 ""
+Comment7 ""
+Comment8 ""
+Comment9 ""
 $EndDescr
 $Comp
 L Sensor_motion:ICM-20948 U3
@@ -200,4 +205,6 @@ Wire Wire Line
 	3450 2750 3700 2750
 Connection ~ 4450 1150
 Connection ~ 3950 1150
+Text Notes 1000 2300 0    79   ~ 16
+ERROR in rev A:\nMOSI / MISO are reversed
 $EndSCHEMATC
