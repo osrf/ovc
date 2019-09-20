@@ -2058,11 +2058,7 @@ Wire Wire Line
 Wire Wire Line
 	10600 2300 10700 2300
 Wire Wire Line
-	10600 2100 10600 2300
-Wire Wire Line
 	7100 2300 7200 2300
-Wire Wire Line
-	7100 2300 7100 2100
 Wire Wire Line
 	8000 5600 8100 5600
 Wire Wire Line
@@ -2379,8 +2375,6 @@ Connection ~ 9500 900
 Connection ~ 10300 900 
 Connection ~ 10300 1100
 Connection ~ 9100 900 
-Connection ~ 10600 2300
-Connection ~ 7100 2300
 Connection ~ 4550 7450
 Connection ~ 4200 6950
 Connection ~ 4050 6950
@@ -2481,4 +2475,108 @@ Wire Wire Line
 Wire Wire Line
 	2300 1800 2550 1800
 Connection ~ 2550 1800
+$Comp
+L Device:R_Small R5
+U 1 1 5D846E98
+P 3150 3400
+AR Path="/5D846E98" Ref="R5"  Part="1" 
+AR Path="/5C124FC6/5D846E98" Ref="R?"  Part="1" 
+F 0 "R5" H 3209 3446 50  0000 L CNN
+F 1 "DNP" H 3209 3355 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 3150 3400 50  0001 C CNN
+F 3 "~" H 3150 3400 50  0001 C CNN
+F 4 "DNP" H 3209 3546 50  0001 C CNN "D1N"
+F 5 "DNP" H 3209 3546 50  0001 C CNN "D1PN"
+F 6 "DNP" H 3209 3546 50  0001 C CNN "MFN"
+F 7 "DNP" H 3209 3546 50  0001 C CNN "MPN"
+	1    3150 3400
+	1    0    0    -1  
+$EndComp
+Text Label 3150 3300 1    50   ~ 0
+SCL1_1V2
+Text Label 3150 3500 3    50   ~ 0
+SCL0_1V2
+$Comp
+L Device:R_Small R6
+U 1 1 5D847F23
+P 3500 3400
+AR Path="/5D847F23" Ref="R6"  Part="1" 
+AR Path="/5C124FC6/5D847F23" Ref="R?"  Part="1" 
+F 0 "R6" H 3559 3446 50  0000 L CNN
+F 1 "DNP" H 3559 3355 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 3500 3400 50  0001 C CNN
+F 3 "~" H 3500 3400 50  0001 C CNN
+F 4 "DNP" H 3559 3546 50  0001 C CNN "D1N"
+F 5 "DNP" H 3559 3546 50  0001 C CNN "D1PN"
+F 6 "DNP" H 3559 3546 50  0001 C CNN "MFN"
+F 7 "DNP" H 3559 3546 50  0001 C CNN "MPN"
+	1    3500 3400
+	1    0    0    -1  
+$EndComp
+Text Label 3500 3500 3    50   ~ 0
+SDA0_1V2
+Text Label 3500 3300 1    50   ~ 0
+SDA1_1V2
+Text Notes 3600 3150 0    50   ~ 0
+Short to only use one I2C device per camera
+$Comp
+L Device:R_Small R8
+U 1 1 5D849A3E
+P 7600 2100
+AR Path="/5D849A3E" Ref="R8"  Part="1" 
+AR Path="/5C124FC6/5D849A3E" Ref="R?"  Part="1" 
+F 0 "R8" H 7659 2146 50  0000 L CNN
+F 1 "DNP" H 7659 2055 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 7600 2100 50  0001 C CNN
+F 3 "~" H 7600 2100 50  0001 C CNN
+F 4 "DNP" H 7659 2246 50  0001 C CNN "D1N"
+F 5 "DNP" H 7659 2246 50  0001 C CNN "D1PN"
+F 6 "DNP" H 7659 2246 50  0001 C CNN "MFN"
+F 7 "DNP" H 7659 2246 50  0001 C CNN "MPN"
+	1    7600 2100
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_Small R7
+U 1 1 5D84BB96
+P 7400 2200
+AR Path="/5D84BB96" Ref="R7"  Part="1" 
+AR Path="/5C124FC6/5D84BB96" Ref="R?"  Part="1" 
+F 0 "R7" H 7459 2246 50  0000 L CNN
+F 1 "10k" H 7459 2155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 7400 2200 50  0001 C CNN
+F 3 "~" H 7400 2200 50  0001 C CNN
+F 4 "Digikey" H 7459 2346 50  0001 C CNN "D1N"
+F 5 "RHM10.0KBHCT-ND" H 7459 2346 50  0001 C CNN "D1PN"
+F 6 "Rohm Semiconductor" H 7459 2346 50  0001 C CNN "MFN"
+F 7 "TRR01MZPF1002" H 7459 2346 50  0001 C CNN "MPN"
+	1    7400 2200
+	-1   0    0    1   
+$EndComp
+Connection ~ 7400 2100
+Wire Wire Line
+	7400 2100 7500 2100
+$Comp
+L power:+1V8 #PWR0145
+U 1 1 5D84CCEA
+P 7700 2000
+F 0 "#PWR0145" H 7700 1850 50  0001 C CNN
+F 1 "+1V8" H 7715 2173 50  0000 C CNN
+F 2 "" H 7700 2000 50  0001 C CNN
+F 3 "" H 7700 2000 50  0001 C CNN
+	1    7700 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 2100 7700 2000
+Wire Wire Line
+	10600 2100 10700 2100
+Wire Wire Line
+	10700 2100 10700 2300
+Connection ~ 10700 2300
+Wire Wire Line
+	7100 2100 7400 2100
+Wire Wire Line
+	7200 2300 7400 2300
+Connection ~ 7200 2300
 $EndSCHEMATC
