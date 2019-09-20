@@ -1,4 +1,5 @@
 EESchema Schematic File Version 5
+LIBS:external_camera-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -1686,7 +1687,7 @@ Text Label 8100 6050 2    50   ~ 0
 SDA1_1V8
 Text Label 8100 6150 2    50   ~ 0
 SCL1_1V8
-Text Notes 1900 1800 0    50   ~ 0
+Text Notes 2400 1250 0    50   ~ 0
 1DIR = A->B\n2DIR = A->B
 Text Label 2950 2000 2    50   ~ 0
 TRIGGER_1V2
@@ -2458,4 +2459,26 @@ Wire Wire Line
 Connection ~ 2950 2500
 Text Notes 2400 2200 0    50   ~ 0
 unused input
+$Comp
+L Device:CP1_Small C41
+U 1 1 5D846471
+P 2300 1600
+F 0 "C41" H 2391 1646 50  0000 L CNN
+F 1 "10u" H 2391 1555 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 2300 1600 50  0001 C CNN
+F 3 "~" H 2300 1600 50  0001 C CNN
+F 4 "Digikey" H 2391 1746 50  0001 C CNN "D1N"
+F 5 "1276-6830-1-ND" H 2391 1746 50  0001 C CNN "D1PN"
+F 6 "Samsung" H 2391 1746 50  0001 C CNN "MFN"
+F 7 "CL05A106MP8NUB8" H 2391 1746 50  0001 C CNN "MPN"
+	1    2300 1600
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 1500 2550 1500
+Wire Wire Line
+	2300 1700 2300 1800
+Wire Wire Line
+	2300 1800 2550 1800
+Connection ~ 2550 1800
 $EndSCHEMATC
