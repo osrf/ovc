@@ -79,6 +79,33 @@
 &axi_vdma_2 {
     compatible = "generic-uio";
 };
+&axi_vdma_3 {
+    compatible = "generic-uio";
+};
+&axi_vdma_4 {
+    compatible = "generic-uio";
+};
+&axi_vdma_5 {
+    compatible = "generic-uio";
+};
+&axi_vdma_6 {
+    compatible = "generic-uio";
+};
+
+/*
+&axi_vdma_7 {
+    compatible = "generic-uio";
+};
+&axi_vdma_8 {
+    compatible = "generic-uio";
+};
+&axi_vdma_9 {
+    compatible = "generic-uio";
+};
+&axi_vdma_10 {
+    compatible = "generic-uio";
+};
+*/
 // UIO for custom IMU synchroniser IP
 &axi_gpio_0 {
     compatible = "generic-uio";

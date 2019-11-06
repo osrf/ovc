@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Mon Sep  9 11:29:51 2019
+//Date        : Wed Nov  6 14:11:02 2019
 //Host        : luca running 64-bit Ubuntu 18.04.3 LTS
 //Command     : generate_target zusys_wrapper.bd
 //Design      : zusys_wrapper
@@ -13,35 +13,43 @@ module zusys_wrapper
    (AUX,
     BONUS1_EXTCLK,
     BONUS1_FLASH,
+    BONUS1_I2C0_scl_io,
+    BONUS1_I2C0_sda_io,
+    BONUS1_I2C1_scl_io,
+    BONUS1_I2C1_sda_io,
+    BONUS1_MIPI0_clk_n,
+    BONUS1_MIPI0_clk_p,
+    BONUS1_MIPI0_data_n,
+    BONUS1_MIPI0_data_p,
+    BONUS1_MIPI1_clk_n,
+    BONUS1_MIPI1_clk_p,
+    BONUS1_MIPI1_data_n,
+    BONUS1_MIPI1_data_p,
     BONUS1_RESET,
-    BONUS1_SCL0,
-    BONUS1_SCL1,
-    BONUS1_SDA0,
-    BONUS1_SDA1,
     BONUS1_TRIGGER,
     BONUS2_EXTCLK,
     BONUS2_FLASH,
+    BONUS2_I2C0_scl_io,
+    BONUS2_I2C0_sda_io,
+    BONUS2_I2C1_scl_io,
+    BONUS2_I2C1_sda_io,
+    BONUS2_MIPI0_clk_n,
+    BONUS2_MIPI0_clk_p,
+    BONUS2_MIPI0_data_n,
+    BONUS2_MIPI0_data_p,
+    BONUS2_MIPI1_clk_n,
+    BONUS2_MIPI1_clk_p,
+    BONUS2_MIPI1_data_n,
+    BONUS2_MIPI1_data_p,
     BONUS2_RESET,
-    BONUS2_SCL0,
-    BONUS2_SCL1,
-    BONUS2_SDA0,
-    BONUS2_SDA1,
     BONUS2_TRIGGER,
     BONUS3_EXTCLK,
     BONUS3_FLASH,
     BONUS3_RESET,
-    BONUS3_SCL0,
-    BONUS3_SCL1,
-    BONUS3_SDA0,
-    BONUS3_SDA1,
     BONUS3_TRIGGER,
     BONUS4_EXTCLK,
     BONUS4_FLASH,
     BONUS4_RESET,
-    BONUS4_SCL0,
-    BONUS4_SCL1,
-    BONUS4_SDA0,
-    BONUS4_SDA1,
     BONUS4_TRIGGER,
     CAM0_EXTCLK,
     CAM0_I2C_scl_io,
@@ -98,36 +106,44 @@ module zusys_wrapper
     x1);
   inout [3:0]AUX;
   output BONUS1_EXTCLK;
-  output BONUS1_FLASH;
+  input BONUS1_FLASH;
+  inout BONUS1_I2C0_scl_io;
+  inout BONUS1_I2C0_sda_io;
+  inout BONUS1_I2C1_scl_io;
+  inout BONUS1_I2C1_sda_io;
+  input BONUS1_MIPI0_clk_n;
+  input BONUS1_MIPI0_clk_p;
+  input [0:0]BONUS1_MIPI0_data_n;
+  input [0:0]BONUS1_MIPI0_data_p;
+  input BONUS1_MIPI1_clk_n;
+  input BONUS1_MIPI1_clk_p;
+  input [0:0]BONUS1_MIPI1_data_n;
+  input [0:0]BONUS1_MIPI1_data_p;
   output BONUS1_RESET;
-  inout BONUS1_SCL0;
-  inout BONUS1_SCL1;
-  inout BONUS1_SDA0;
-  inout BONUS1_SDA1;
   output BONUS1_TRIGGER;
   output BONUS2_EXTCLK;
-  output BONUS2_FLASH;
+  input BONUS2_FLASH;
+  inout BONUS2_I2C0_scl_io;
+  inout BONUS2_I2C0_sda_io;
+  inout BONUS2_I2C1_scl_io;
+  inout BONUS2_I2C1_sda_io;
+  input BONUS2_MIPI0_clk_n;
+  input BONUS2_MIPI0_clk_p;
+  input [0:0]BONUS2_MIPI0_data_n;
+  input [0:0]BONUS2_MIPI0_data_p;
+  input BONUS2_MIPI1_clk_n;
+  input BONUS2_MIPI1_clk_p;
+  input [0:0]BONUS2_MIPI1_data_n;
+  input [0:0]BONUS2_MIPI1_data_p;
   output BONUS2_RESET;
-  inout BONUS2_SCL0;
-  inout BONUS2_SCL1;
-  inout BONUS2_SDA0;
-  inout BONUS2_SDA1;
   output BONUS2_TRIGGER;
   output BONUS3_EXTCLK;
-  output BONUS3_FLASH;
+  input BONUS3_FLASH;
   output BONUS3_RESET;
-  inout BONUS3_SCL0;
-  inout BONUS3_SCL1;
-  inout BONUS3_SDA0;
-  inout BONUS3_SDA1;
   output BONUS3_TRIGGER;
   output BONUS4_EXTCLK;
-  output BONUS4_FLASH;
+  input BONUS4_FLASH;
   output BONUS4_RESET;
-  inout BONUS4_SCL0;
-  inout BONUS4_SCL1;
-  inout BONUS4_SDA0;
-  inout BONUS4_SDA1;
   output BONUS4_TRIGGER;
   output CAM0_EXTCLK;
   inout CAM0_I2C_scl_io;
@@ -186,35 +202,67 @@ module zusys_wrapper
   wire [3:0]AUX;
   wire BONUS1_EXTCLK;
   wire BONUS1_FLASH;
+  wire BONUS1_I2C0_scl_i;
+  wire BONUS1_I2C0_scl_io;
+  wire BONUS1_I2C0_scl_o;
+  wire BONUS1_I2C0_scl_t;
+  wire BONUS1_I2C0_sda_i;
+  wire BONUS1_I2C0_sda_io;
+  wire BONUS1_I2C0_sda_o;
+  wire BONUS1_I2C0_sda_t;
+  wire BONUS1_I2C1_scl_i;
+  wire BONUS1_I2C1_scl_io;
+  wire BONUS1_I2C1_scl_o;
+  wire BONUS1_I2C1_scl_t;
+  wire BONUS1_I2C1_sda_i;
+  wire BONUS1_I2C1_sda_io;
+  wire BONUS1_I2C1_sda_o;
+  wire BONUS1_I2C1_sda_t;
+  wire BONUS1_MIPI0_clk_n;
+  wire BONUS1_MIPI0_clk_p;
+  wire [0:0]BONUS1_MIPI0_data_n;
+  wire [0:0]BONUS1_MIPI0_data_p;
+  wire BONUS1_MIPI1_clk_n;
+  wire BONUS1_MIPI1_clk_p;
+  wire [0:0]BONUS1_MIPI1_data_n;
+  wire [0:0]BONUS1_MIPI1_data_p;
   wire BONUS1_RESET;
-  wire BONUS1_SCL0;
-  wire BONUS1_SCL1;
-  wire BONUS1_SDA0;
-  wire BONUS1_SDA1;
   wire BONUS1_TRIGGER;
   wire BONUS2_EXTCLK;
   wire BONUS2_FLASH;
+  wire BONUS2_I2C0_scl_i;
+  wire BONUS2_I2C0_scl_io;
+  wire BONUS2_I2C0_scl_o;
+  wire BONUS2_I2C0_scl_t;
+  wire BONUS2_I2C0_sda_i;
+  wire BONUS2_I2C0_sda_io;
+  wire BONUS2_I2C0_sda_o;
+  wire BONUS2_I2C0_sda_t;
+  wire BONUS2_I2C1_scl_i;
+  wire BONUS2_I2C1_scl_io;
+  wire BONUS2_I2C1_scl_o;
+  wire BONUS2_I2C1_scl_t;
+  wire BONUS2_I2C1_sda_i;
+  wire BONUS2_I2C1_sda_io;
+  wire BONUS2_I2C1_sda_o;
+  wire BONUS2_I2C1_sda_t;
+  wire BONUS2_MIPI0_clk_n;
+  wire BONUS2_MIPI0_clk_p;
+  wire [0:0]BONUS2_MIPI0_data_n;
+  wire [0:0]BONUS2_MIPI0_data_p;
+  wire BONUS2_MIPI1_clk_n;
+  wire BONUS2_MIPI1_clk_p;
+  wire [0:0]BONUS2_MIPI1_data_n;
+  wire [0:0]BONUS2_MIPI1_data_p;
   wire BONUS2_RESET;
-  wire BONUS2_SCL0;
-  wire BONUS2_SCL1;
-  wire BONUS2_SDA0;
-  wire BONUS2_SDA1;
   wire BONUS2_TRIGGER;
   wire BONUS3_EXTCLK;
   wire BONUS3_FLASH;
   wire BONUS3_RESET;
-  wire BONUS3_SCL0;
-  wire BONUS3_SCL1;
-  wire BONUS3_SDA0;
-  wire BONUS3_SDA1;
   wire BONUS3_TRIGGER;
   wire BONUS4_EXTCLK;
   wire BONUS4_FLASH;
   wire BONUS4_RESET;
-  wire BONUS4_SCL0;
-  wire BONUS4_SCL1;
-  wire BONUS4_SDA0;
-  wire BONUS4_SDA1;
   wire BONUS4_TRIGGER;
   wire CAM0_EXTCLK;
   wire CAM0_I2C_scl_i;
@@ -288,6 +336,46 @@ module zusys_wrapper
   wire [0:0]x0;
   wire [0:0]x1;
 
+  IOBUF BONUS1_I2C0_scl_iobuf
+       (.I(BONUS1_I2C0_scl_o),
+        .IO(BONUS1_I2C0_scl_io),
+        .O(BONUS1_I2C0_scl_i),
+        .T(BONUS1_I2C0_scl_t));
+  IOBUF BONUS1_I2C0_sda_iobuf
+       (.I(BONUS1_I2C0_sda_o),
+        .IO(BONUS1_I2C0_sda_io),
+        .O(BONUS1_I2C0_sda_i),
+        .T(BONUS1_I2C0_sda_t));
+  IOBUF BONUS1_I2C1_scl_iobuf
+       (.I(BONUS1_I2C1_scl_o),
+        .IO(BONUS1_I2C1_scl_io),
+        .O(BONUS1_I2C1_scl_i),
+        .T(BONUS1_I2C1_scl_t));
+  IOBUF BONUS1_I2C1_sda_iobuf
+       (.I(BONUS1_I2C1_sda_o),
+        .IO(BONUS1_I2C1_sda_io),
+        .O(BONUS1_I2C1_sda_i),
+        .T(BONUS1_I2C1_sda_t));
+  IOBUF BONUS2_I2C0_scl_iobuf
+       (.I(BONUS2_I2C0_scl_o),
+        .IO(BONUS2_I2C0_scl_io),
+        .O(BONUS2_I2C0_scl_i),
+        .T(BONUS2_I2C0_scl_t));
+  IOBUF BONUS2_I2C0_sda_iobuf
+       (.I(BONUS2_I2C0_sda_o),
+        .IO(BONUS2_I2C0_sda_io),
+        .O(BONUS2_I2C0_sda_i),
+        .T(BONUS2_I2C0_sda_t));
+  IOBUF BONUS2_I2C1_scl_iobuf
+       (.I(BONUS2_I2C1_scl_o),
+        .IO(BONUS2_I2C1_scl_io),
+        .O(BONUS2_I2C1_scl_i),
+        .T(BONUS2_I2C1_scl_t));
+  IOBUF BONUS2_I2C1_sda_iobuf
+       (.I(BONUS2_I2C1_sda_o),
+        .IO(BONUS2_I2C1_sda_io),
+        .O(BONUS2_I2C1_sda_i),
+        .T(BONUS2_I2C1_sda_t));
   IOBUF CAM0_I2C_scl_iobuf
        (.I(CAM0_I2C_scl_o),
         .IO(CAM0_I2C_scl_io),
@@ -322,35 +410,59 @@ module zusys_wrapper
        (.AUX(AUX),
         .BONUS1_EXTCLK(BONUS1_EXTCLK),
         .BONUS1_FLASH(BONUS1_FLASH),
+        .BONUS1_I2C0_scl_i(BONUS1_I2C0_scl_i),
+        .BONUS1_I2C0_scl_o(BONUS1_I2C0_scl_o),
+        .BONUS1_I2C0_scl_t(BONUS1_I2C0_scl_t),
+        .BONUS1_I2C0_sda_i(BONUS1_I2C0_sda_i),
+        .BONUS1_I2C0_sda_o(BONUS1_I2C0_sda_o),
+        .BONUS1_I2C0_sda_t(BONUS1_I2C0_sda_t),
+        .BONUS1_I2C1_scl_i(BONUS1_I2C1_scl_i),
+        .BONUS1_I2C1_scl_o(BONUS1_I2C1_scl_o),
+        .BONUS1_I2C1_scl_t(BONUS1_I2C1_scl_t),
+        .BONUS1_I2C1_sda_i(BONUS1_I2C1_sda_i),
+        .BONUS1_I2C1_sda_o(BONUS1_I2C1_sda_o),
+        .BONUS1_I2C1_sda_t(BONUS1_I2C1_sda_t),
+        .BONUS1_MIPI0_clk_n(BONUS1_MIPI0_clk_n),
+        .BONUS1_MIPI0_clk_p(BONUS1_MIPI0_clk_p),
+        .BONUS1_MIPI0_data_n(BONUS1_MIPI0_data_n),
+        .BONUS1_MIPI0_data_p(BONUS1_MIPI0_data_p),
+        .BONUS1_MIPI1_clk_n(BONUS1_MIPI1_clk_n),
+        .BONUS1_MIPI1_clk_p(BONUS1_MIPI1_clk_p),
+        .BONUS1_MIPI1_data_n(BONUS1_MIPI1_data_n),
+        .BONUS1_MIPI1_data_p(BONUS1_MIPI1_data_p),
         .BONUS1_RESET(BONUS1_RESET),
-        .BONUS1_SCL0(BONUS1_SCL0),
-        .BONUS1_SCL1(BONUS1_SCL1),
-        .BONUS1_SDA0(BONUS1_SDA0),
-        .BONUS1_SDA1(BONUS1_SDA1),
         .BONUS1_TRIGGER(BONUS1_TRIGGER),
         .BONUS2_EXTCLK(BONUS2_EXTCLK),
         .BONUS2_FLASH(BONUS2_FLASH),
+        .BONUS2_I2C0_scl_i(BONUS2_I2C0_scl_i),
+        .BONUS2_I2C0_scl_o(BONUS2_I2C0_scl_o),
+        .BONUS2_I2C0_scl_t(BONUS2_I2C0_scl_t),
+        .BONUS2_I2C0_sda_i(BONUS2_I2C0_sda_i),
+        .BONUS2_I2C0_sda_o(BONUS2_I2C0_sda_o),
+        .BONUS2_I2C0_sda_t(BONUS2_I2C0_sda_t),
+        .BONUS2_I2C1_scl_i(BONUS2_I2C1_scl_i),
+        .BONUS2_I2C1_scl_o(BONUS2_I2C1_scl_o),
+        .BONUS2_I2C1_scl_t(BONUS2_I2C1_scl_t),
+        .BONUS2_I2C1_sda_i(BONUS2_I2C1_sda_i),
+        .BONUS2_I2C1_sda_o(BONUS2_I2C1_sda_o),
+        .BONUS2_I2C1_sda_t(BONUS2_I2C1_sda_t),
+        .BONUS2_MIPI0_clk_n(BONUS2_MIPI0_clk_n),
+        .BONUS2_MIPI0_clk_p(BONUS2_MIPI0_clk_p),
+        .BONUS2_MIPI0_data_n(BONUS2_MIPI0_data_n),
+        .BONUS2_MIPI0_data_p(BONUS2_MIPI0_data_p),
+        .BONUS2_MIPI1_clk_n(BONUS2_MIPI1_clk_n),
+        .BONUS2_MIPI1_clk_p(BONUS2_MIPI1_clk_p),
+        .BONUS2_MIPI1_data_n(BONUS2_MIPI1_data_n),
+        .BONUS2_MIPI1_data_p(BONUS2_MIPI1_data_p),
         .BONUS2_RESET(BONUS2_RESET),
-        .BONUS2_SCL0(BONUS2_SCL0),
-        .BONUS2_SCL1(BONUS2_SCL1),
-        .BONUS2_SDA0(BONUS2_SDA0),
-        .BONUS2_SDA1(BONUS2_SDA1),
         .BONUS2_TRIGGER(BONUS2_TRIGGER),
         .BONUS3_EXTCLK(BONUS3_EXTCLK),
         .BONUS3_FLASH(BONUS3_FLASH),
         .BONUS3_RESET(BONUS3_RESET),
-        .BONUS3_SCL0(BONUS3_SCL0),
-        .BONUS3_SCL1(BONUS3_SCL1),
-        .BONUS3_SDA0(BONUS3_SDA0),
-        .BONUS3_SDA1(BONUS3_SDA1),
         .BONUS3_TRIGGER(BONUS3_TRIGGER),
         .BONUS4_EXTCLK(BONUS4_EXTCLK),
         .BONUS4_FLASH(BONUS4_FLASH),
         .BONUS4_RESET(BONUS4_RESET),
-        .BONUS4_SCL0(BONUS4_SCL0),
-        .BONUS4_SCL1(BONUS4_SCL1),
-        .BONUS4_SDA0(BONUS4_SDA0),
-        .BONUS4_SDA1(BONUS4_SDA1),
         .BONUS4_TRIGGER(BONUS4_TRIGGER),
         .CAM0_EXTCLK(CAM0_EXTCLK),
         .CAM0_I2C_scl_i(CAM0_I2C_scl_i),
