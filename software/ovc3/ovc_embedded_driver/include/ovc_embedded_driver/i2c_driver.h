@@ -4,6 +4,19 @@
 
 class I2CDriver
 {
+  int i2c_fd;
+
+public:
+  int16_t readRegister(uint16_t reg_addr);
+  int burstRead(uint16_t reg_addr, size_t len, uint16_t *data);
+  int writeRegister(uint16_t reg_addr, uint16_t val);
+
+  I2CDriver(int i2c_dev, int i2c_add);
+
+};
+
+class ImagerI2C : I2CDriver
+{
   static constexpr int EXTCLK_FREQ = 20;
   static constexpr int VCO_FREQ = 400;
   static constexpr int PIXEL_RES = 10;
@@ -51,6 +64,7 @@ class I2CDriver
   static constexpr uint16_t AE_COARSE_INTEGRATION_TIME = 0x3164;
   static constexpr uint16_t AE_EG_EXPOSURE_HI = 0x3166;
   static constexpr uint16_t AE_EG_EXPOSURE_LO = 0x3168;
+
   static constexpr uint16_t CURRENT_GAINS = 0x312A;
 
   static constexpr uint16_t DATA_FORMAT_BITS = 0x31AC;
@@ -73,13 +87,8 @@ class I2CDriver
   static constexpr uint16_t MAX_ANALOG_GAIN = 3;
   static constexpr uint16_t MIN_ANALOG_GAIN = 0;
 
-  int i2c_fd;
-
   uint16_t exp_high_thresh, exp_low_thresh;
   uint16_t cur_analog_gain;
-
-  int16_t readRegister(uint16_t reg_addr);
-  void writeRegister(uint16_t reg_addr, int val);
 
   void configurePLL(int input_freq, int target_freq, int pixel_res);
   void configureGPIO();
@@ -88,14 +97,12 @@ class I2CDriver
   void setAnalogGain(uint16_t gain);
 
 public:
-  I2CDriver(int i2c_num);
-
   uint16_t getIntegrationTime();
   uint16_t getCurrentGains();
   void enableTestMode();
   void changeTestColor();
 
   void controlAnalogGain();
-
+  ImagerI2C(int i2c_dev, int alternate_lsb);
 };
 #endif

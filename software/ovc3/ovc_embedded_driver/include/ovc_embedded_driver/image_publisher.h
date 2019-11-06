@@ -34,7 +34,7 @@ class ImagePublisher
   ros::NodeHandle nh;
 
   DMAShapeShifter shape_shifter;
-  I2CDriver i2c;
+  ImagerI2C i2c;
   std::unique_ptr<VDMADriver> vdma;
 
   std::shared_ptr<AtomicRosTime> time_ptr;
@@ -58,7 +58,22 @@ public:
                  std::shared_ptr<AtomicRosTime> t_ptr);
 
   void publish();
+  void publish_loop();
 };
 
+// Class for external camera boards, in which the cameras share an i2c device
+class ExternalCameraPublisher
+{
+  ImagePublisher right_pub, left_pub;
+
+public:
+  ExternalCameraPublisher(ros::NodeHandle nh,
+                          CameraHWParameters right_params,
+                          CameraHWParameters left_params,
+                          std::shared_ptr<AtomicRosTime> t_ptr);
+
+  // TODO look into multithreaded publish, for now single
+  void publish_loop();
+};
 } // namespace
 #endif

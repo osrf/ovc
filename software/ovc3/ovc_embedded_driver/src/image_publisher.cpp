@@ -13,7 +13,7 @@ ImagePublisher::ImagePublisher(ros::NodeHandle nh_p,
                                CameraHWParameters params,
                                std::shared_ptr<AtomicRosTime> t_ptr)
   : nh(nh_p, params.camera_name)
-  , i2c(params.i2c_num)
+  , i2c(params.i2c_dev, params.i2c_lsb)
   , time_ptr(t_ptr)
   , cam_info_manager(nh, params.camera_name)
   , run_fast(!params.is_rgb)
@@ -53,38 +53,43 @@ ImagePublisher::ImagePublisher(ros::NodeHandle nh_p,
   SerializeToByteArray(image_msg, image_msg_buffer);
   image_msg_size = image_msg_buffer.size();
   // Need to make dynamically because we don't know a-priori the buffer and message size
-  vdma = std::make_unique<VDMADriver>(params.vdma_num, params.i2c_num, image_msg_buffer);
+  vdma = std::make_unique<VDMADriver>(params.vdma_dev, params.i2c_dev, image_msg_buffer);
+}
+
+void ImagePublisher::publish_loop()
+{
+  while(ros::ok())
+  {
+    publish();
+  }
 }
 
 void ImagePublisher::publish()
 {
-  while (ros::ok())
-  {
-    // Wait for interrupt and fill the image message
-    unsigned char* image_ptr = vdma->getImage();
+  // Wait for interrupt and fill the image message
+  unsigned char* image_ptr = vdma->getImage();
 
-    // Wait for time to update before reading it
-    image_msg.header.stamp = time_ptr->get_wait(last_time_write_count);
-    last_time_write_count = time_ptr->time_write_count.load();
+  // Wait for time to update before reading it
+  image_msg.header.stamp = time_ptr->get_wait(last_time_write_count);
+  last_time_write_count = time_ptr->time_write_count.load();
 
-    // Serialize the new timestamp, set it and publish
-    SerializeToByteArray(image_msg.header, image_msg_buffer);
-    vdma->setHeader(image_msg_buffer);
-    shape_shifter.assign_data(image_ptr, image_msg_size);
-    image_pub.publish(shape_shifter);
-    // Published synchronised camera_info message
-    cam_info_msg = cam_info_manager.getCameraInfo();
-    cam_info_msg.header.frame_id = "ovc_camera_link_optical";
-    cam_info_msg.header.stamp = image_msg.header.stamp;
-    cam_info_pub.publish(cam_info_msg);
+  // Serialize the new timestamp, set it and publish
+  SerializeToByteArray(image_msg.header, image_msg_buffer);
+  vdma->setHeader(image_msg_buffer);
+  shape_shifter.assign_data(image_ptr, image_msg_size);
+  image_pub.publish(shape_shifter);
+  // Published synchronised camera_info message
+  cam_info_msg = cam_info_manager.getCameraInfo();
+  cam_info_msg.header.frame_id = "ovc_camera_link_optical";
+  cam_info_msg.header.stamp = image_msg.header.stamp;
+  cam_info_pub.publish(cam_info_msg);
 
-    // Publish features after the image so we don't affect the frame latency with feature computation
-    if (run_fast)
-      publishCorners(image_msg.header.stamp);
+  // Publish features after the image so we don't affect the frame latency with feature computation
+  if (run_fast)
+    publishCorners(image_msg.header.stamp);
 
-    // Send i2c transaction to optimise camera exposure
-    i2c.controlAnalogGain();
-  }
+  // Send i2c transaction to optimise camera exposure
+  i2c.controlAnalogGain();
 }
 
 void ImagePublisher::publishCorners(const ros::Time& frame_time)
@@ -106,5 +111,22 @@ void ImagePublisher::publishCorners(const ros::Time& frame_time)
     metadata_msg.header.stamp = frame_time;
     corner_pub.publish(metadata_msg);
     metadata_msg.corners.clear();
+  }
+}
+
+ExternalCameraPublisher::ExternalCameraPublisher(ros::NodeHandle nh,
+                        CameraHWParameters right_params,
+                        CameraHWParameters left_params,
+                        std::shared_ptr<AtomicRosTime> t_ptr) :
+  right_pub(nh, right_params, t_ptr),
+  left_pub(nh, left_params, t_ptr)
+{}
+
+void ExternalCameraPublisher::publish_loop()
+{
+  while(ros::ok())
+  {
+    right_pub.publish();
+    left_pub.publish();
   }
 }

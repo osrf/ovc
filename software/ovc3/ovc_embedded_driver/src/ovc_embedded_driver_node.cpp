@@ -21,6 +21,13 @@ const int I2C_DEVICES[NUM_CAMERAS] = {0,1,2}; // Files in /dev/i2c-, must match 
 
 const std::string CAMERA_NAMES[NUM_CAMERAS] = {"right", "left", "rgb"};
 
+// External cameras
+const int EXTERNAL_DMA[2*EXTERNAL_BOARDS] = {9,10,11,12};
+const int EXTERNAL_I2C[EXTERNAL_BOARDS] = {3,5}; // TODO add second I2C for thermal imager
+const int EXTERNAL_THERMAL_I2C[EXTERNAL_BOARDS] = {4, 6};
+const std::string EXTERNAL_NAME[2*EXTERNAL_BOARDS] = {"bottom/right", "bottom/left", 
+  "top/right", "top/left"};
+
 const int IMU_SYNC_GPIO = 4; // ID of UIO device used with GPIO for syncing
 const int FAST_CONFIG_GPIO = 5; // UIO device for corner detection configuration
 
@@ -150,23 +157,33 @@ int main(int argc, char **argv)
   ros::AsyncSpinner spinner(1);
 
   // Init threads
-  std::unique_ptr<std::thread> threads[NUM_CAMERAS + 3]; // one each for IMU and frame_time_ptr update threads
+  std::vector<std::unique_ptr<std::thread>> threads; // one each for IMU and frame_time_ptr update threads
   std::unique_ptr<ImagePublisher> image_publisher[NUM_CAMERAS];
+  std::unique_ptr<ExternalCameraPublisher> external_publishers[EXTERNAL_BOARDS];
 
   // IMU thread
-  threads[NUM_CAMERAS] = std::make_unique<std::thread>(publish_imu, nh, frame_time_ptr, curr_time_ptr);
+  threads.push_back(std::make_unique<std::thread>(publish_imu, nh, frame_time_ptr, curr_time_ptr));
 
   // Time object update thread
-  threads[NUM_CAMERAS + 1] = std::make_unique<std::thread>(update_time_ptr, nh, frame_time_ptr, curr_time_ptr);
+  threads.push_back(std::make_unique<std::thread>(update_time_ptr, nh, frame_time_ptr, curr_time_ptr));
 
-  threads[NUM_CAMERAS + 2] = std::make_unique<std::thread>(publish_vnav, nh, curr_time_ptr);
+  threads.push_back(std::make_unique<std::thread>(publish_vnav, nh, curr_time_ptr));
   
   // Image Publisher threads
   for (size_t i=0; i<NUM_CAMERAS; ++i)
   {
-    CameraHWParameters params(DMA_DEVICES[i], I2C_DEVICES[i], CAMERA_NAMES[i], i == COLOR_CAMERA_ID);
+    CameraHWParameters params(DMA_DEVICES[i], I2C_DEVICES[i], 0, CAMERA_NAMES[i], i == COLOR_CAMERA_ID);
     image_publisher[i] = std::make_unique<ImagePublisher>(nh, params, frame_time_ptr);
-    threads[i] = std::make_unique<std::thread>(&ImagePublisher::publish, image_publisher[i].get());
+    threads.push_back(std::make_unique<std::thread>(&ImagePublisher::publish_loop, image_publisher[i].get()));
+  }
+  // External camera boards
+  // For now only add one external pair
+  for (size_t i=0; i<EXTERNAL_BOARDS; ++i)
+  {
+    CameraHWParameters right_params(EXTERNAL_DMA[2*i], EXTERNAL_I2C[i], 1, EXTERNAL_NAME[2*i], true);
+    CameraHWParameters left_params(EXTERNAL_DMA[2*i+1], EXTERNAL_I2C[i], 0, EXTERNAL_NAME[2*i+1], true);
+    external_publishers[i] = std::make_unique<ExternalCameraPublisher>(nh, right_params, left_params, frame_time_ptr);
+    threads.push_back(std::make_unique<std::thread>(&ExternalCameraPublisher::publish_loop, external_publishers[i].get()));
   }
 
   // INIT
@@ -177,6 +194,6 @@ int main(int argc, char **argv)
 
   // TODO refactor thread vector
   // Wait for each thread to end
-  threads[NUM_CAMERAS+1]->join();
+  threads[0]->join();
   return 0;
 }

@@ -9,24 +9,19 @@ extern "C"
   #include <linux/i2c-dev.h>
   #include <i2c/smbus.h>
 }
+
 #include <ovc_embedded_driver/i2c_driver.h>
 
-I2CDriver::I2CDriver(int i2c_num) :
-  exp_high_thresh(DEFAULT_EXP_HIGH_THRESH), exp_low_thresh(DEFAULT_EXP_LOW_THRESH),
-  cur_analog_gain(MIN_ANALOG_GAIN)
+I2CDriver::I2CDriver(int i2c_dev, int i2c_add)
 {
-  std::string i2c_filename("/dev/i2c-" + std::to_string(i2c_num));
+  std::string i2c_filename("/dev/i2c-" + std::to_string(i2c_dev));
   i2c_fd = open(i2c_filename.c_str(), O_RDWR);
   if (i2c_fd == -1)
     std::cout << "Couldn't open I2C file " << i2c_filename << std::endl;
 
   // Set the slave address for the device
-  if (ioctl(i2c_fd, I2C_SLAVE, CAMERA_ADDRESS) < 0)
+  if (ioctl(i2c_fd, I2C_SLAVE, i2c_add) < 0)
     std::cout << "Couldn't set slave address" << std::endl;
-  configurePLL(EXTCLK_FREQ, VCO_FREQ, PIXEL_RES);
-  configureGPIO();
-  configureMIPI();
-  //enableTestMode();
   std::cout << "I2C Initialization done" << std::endl;
 }
 
@@ -40,16 +35,16 @@ int16_t I2CDriver::readRegister(uint16_t reg_addr)
   return ret_val;
 }
 
-void I2CDriver::writeRegister(uint16_t reg_addr, int val)
+int I2CDriver::writeRegister(uint16_t reg_addr, uint16_t val)
 {
-  std::vector<uint8_t> payload(sizeof(reg_addr) + 1); // We need to add one byte for address
+  std::vector<uint8_t> payload(sizeof(val) + 1); // We need to add one byte for address
   payload[0] = reg_addr & 0xFF;
-  for (size_t i=1; i<=sizeof(reg_addr); ++i)
-    payload[i] = val >> (8 * (sizeof(reg_addr) - i));
-  i2c_smbus_write_i2c_block_data(i2c_fd, reg_addr >> 8, payload.size(), &payload[0]); 
+  for (size_t i=1; i<=sizeof(val); ++i)
+    payload[i] = val >> (8 * (sizeof(val) - i));
+  return i2c_smbus_write_i2c_block_data(i2c_fd, reg_addr >> 8, payload.size(), &payload[0]); 
 }
 
-void I2CDriver::configurePLL(int input_freq, int target_freq, int pixel_res)
+void ImagerI2C::configurePLL(int input_freq, int target_freq, int pixel_res)
 {
   //int pll_mult = 2 * target_freq / input_freq; 
   //std::cout << "PLL mult = " << pll_mult << std::endl;
@@ -67,7 +62,7 @@ void I2CDriver::configurePLL(int input_freq, int target_freq, int pixel_res)
   writeRegister(OP_SYS_CLK_DIV, 1);
 }
 
-void I2CDriver::configureGPIO()
+void ImagerI2C::configureGPIO()
 {
   // Enable input buffers
   int16_t reg_val = readRegister(RESET_REGISTER);
@@ -77,7 +72,7 @@ void I2CDriver::configureGPIO()
   // Enable flash output for debugging purposes
   writeRegister(LED_FLASH_CONTROL, 1 << 8);
 }
-void I2CDriver::configureMIPI()
+void ImagerI2C::configureMIPI()
 {
   // Start with image config
   writeRegister(Y_ADDR_START, 0);
@@ -115,7 +110,7 @@ void I2CDriver::configureMIPI()
   writeRegister(MIPI_TIMING_4, 8);
 }
 
-void I2CDriver::enableTestMode()
+void ImagerI2C::enableTestMode()
 {
   // Set test pattern mode, 1 = solid color 2 = bars 3 = fade to gray 256 = walking 1
   writeRegister(TEST_DATA_RED, 0x1111);
@@ -130,12 +125,12 @@ void I2CDriver::enableTestMode()
   std::cout << "SERIAL_TEST reg = " << std::hex << readRegister(SERIAL_TEST) << std::endl;
 }
 
-uint16_t I2CDriver::getIntegrationTime() 
+uint16_t ImagerI2C::getIntegrationTime() 
 {
   return readRegister(AE_COARSE_INTEGRATION_TIME);
 }
 
-void I2CDriver::changeTestColor()
+void ImagerI2C::changeTestColor()
 {
   static int color=0;
   int red = color == 0 ? 0xFFFF : 0; 
@@ -148,12 +143,12 @@ void I2CDriver::changeTestColor()
   color = (color + 1) % 2;
 }
 
-uint16_t I2CDriver::getCurrentGains()
+uint16_t ImagerI2C::getCurrentGains()
 {
   return readRegister(CURRENT_GAINS) >> 11; 
 }
 
-void I2CDriver::setAnalogGain(uint16_t gain)
+void ImagerI2C::setAnalogGain(uint16_t gain)
 {
   uint16_t reg_val = readRegister(AECTRLREG); 
   // Analog gain is bits 5 and 6
@@ -163,7 +158,7 @@ void I2CDriver::setAnalogGain(uint16_t gain)
   writeRegister(AECTRLREG, reg_val);
 }
 
-void I2CDriver::controlAnalogGain()
+void ImagerI2C::controlAnalogGain()
 {
   // Analog gain is 2^cur_analog_gain
   uint16_t int_time = getIntegrationTime();
@@ -172,3 +167,15 @@ void I2CDriver::controlAnalogGain()
   else if (int_time < exp_low_thresh && cur_analog_gain > MIN_ANALOG_GAIN)
     setAnalogGain(--cur_analog_gain);
 }
+
+ImagerI2C::ImagerI2C(int i2c_dev, int alternate_lsb) :
+  I2CDriver(i2c_dev, CAMERA_ADDRESS | (alternate_lsb << 3)),
+  exp_high_thresh(DEFAULT_EXP_HIGH_THRESH), exp_low_thresh(DEFAULT_EXP_LOW_THRESH),
+  cur_analog_gain(MIN_ANALOG_GAIN)
+{
+  configurePLL(EXTCLK_FREQ, VCO_FREQ, PIXEL_RES);
+  configureGPIO();
+  configureMIPI();
+  //enableTestMode();
+}
+
