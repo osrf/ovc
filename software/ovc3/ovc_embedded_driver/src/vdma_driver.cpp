@@ -11,7 +11,7 @@
 
 using namespace ovc_embedded_driver;
 
-VDMADriver::VDMADriver(int uio_num, int cam_num, const std::vector<uint8_t>& sample_msg) : uio(UIODriver(uio_num, UIO_SIZE))
+VDMADriver::VDMADriver(int uio_num, const std::vector<uint8_t>& sample_msg) : uio(UIODriver(uio_num, UIO_SIZE))
 {
   size_t header_size = sample_msg.size() - IMAGE_SIZE;
   // We want an aligned word for the DMA, however the header is not word aligned.
@@ -22,7 +22,7 @@ VDMADriver::VDMADriver(int uio_num, int cam_num, const std::vector<uint8_t>& sam
   for (int i=0; i<NUM_FRAMEBUFFERS; ++i)
   {
     // Start by opening (or creating) the camera dma files
-    std::string memory_filename("cam" + std::to_string(cam_num) + "_" + std::to_string(i));
+    std::string memory_filename("cam" + std::to_string(uio_num) + "_" + std::to_string(i));
     int memory_file = open((DMA_FOLDER + memory_filename).c_str(), O_RDWR | O_CREAT);
     if (memory_file < 0)
       std::cout << "File open failed" << std::endl;

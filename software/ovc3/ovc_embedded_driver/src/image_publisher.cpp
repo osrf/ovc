@@ -53,7 +53,7 @@ ImagePublisher::ImagePublisher(ros::NodeHandle nh_p,
   SerializeToByteArray(image_msg, image_msg_buffer);
   image_msg_size = image_msg_buffer.size();
   // Need to make dynamically because we don't know a-priori the buffer and message size
-  vdma = std::make_unique<VDMADriver>(params.vdma_dev, params.i2c_dev, image_msg_buffer);
+  vdma = std::make_unique<VDMADriver>(params.vdma_dev, image_msg_buffer);
 }
 
 void ImagePublisher::publish_loop()
@@ -122,11 +122,18 @@ ExternalCameraPublisher::ExternalCameraPublisher(ros::NodeHandle nh,
   left_pub(nh, left_params, t_ptr)
 {}
 
-void ExternalCameraPublisher::publish_loop()
+void ExternalCameraPublisher::publish_right()
 {
   while(ros::ok())
   {
     right_pub.publish();
+  }
+}
+
+void ExternalCameraPublisher::publish_left()
+{
+  while(ros::ok())
+  {
     left_pub.publish();
   }
 }

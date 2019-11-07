@@ -72,8 +72,8 @@ public:
                           CameraHWParameters left_params,
                           std::shared_ptr<AtomicRosTime> t_ptr);
 
-  // TODO look into multithreaded publish, for now single
-  void publish_loop();
+  void publish_right();
+  void publish_left();
 };
 } // namespace
 #endif

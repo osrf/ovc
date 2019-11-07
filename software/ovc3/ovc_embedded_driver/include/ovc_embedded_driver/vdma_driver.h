@@ -42,7 +42,7 @@ public:
 
   void setHeader(const std::vector<uint8_t>& header, int index = -1);
 
-  VDMADriver(int uio_num, int cam_num, const std::vector<uint8_t>& sample_msg);
+  VDMADriver(int uio_num, const std::vector<uint8_t>& sample_msg);
   unsigned char* getImage();
 
   std::vector<uint32_t> getCorners();

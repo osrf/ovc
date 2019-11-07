@@ -183,7 +183,8 @@ int main(int argc, char **argv)
     CameraHWParameters right_params(EXTERNAL_DMA[2*i], EXTERNAL_I2C[i], 1, EXTERNAL_NAME[2*i], true);
     CameraHWParameters left_params(EXTERNAL_DMA[2*i+1], EXTERNAL_I2C[i], 0, EXTERNAL_NAME[2*i+1], true);
     external_publishers[i] = std::make_unique<ExternalCameraPublisher>(nh, right_params, left_params, frame_time_ptr);
-    threads.push_back(std::make_unique<std::thread>(&ExternalCameraPublisher::publish_loop, external_publishers[i].get()));
+    threads.push_back(std::make_unique<std::thread>(&ExternalCameraPublisher::publish_right, external_publishers[i].get()));
+    threads.push_back(std::make_unique<std::thread>(&ExternalCameraPublisher::publish_left, external_publishers[i].get()));
   }
 
   // INIT
