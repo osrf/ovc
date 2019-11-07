@@ -76,12 +76,16 @@ ICMDriver::ICMDriver(int spi_num, int gpio_uio_num) :
   // Enable interrupts on channel 0
   uio.writeRegister(GIER, 1 << 31);
   uio.writeRegister(IER, 1);
-  //uio.writeRegister(8, 7); // 7 samples per frame
   // We need to write 3 to ISR register to toggle both (should only be 1?)
   uio.setResetRegisterMask(ISR, 3);
   // Configure interrupt on sample ready
   writeRegister(INT_ENABLE_1, 1);
   std::cout << "ICM IMU Initialization done" << std::endl;
+}
+
+void ICMDriver::setFrameDownsample(uint8_t downsample)
+{
+  uio.writeRegister(GPIO2_DATA, downsample); // 7 samples per frame
 }
 
 void ICMDriver::selectBank(int bank)

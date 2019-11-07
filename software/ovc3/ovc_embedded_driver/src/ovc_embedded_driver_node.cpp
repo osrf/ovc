@@ -138,8 +138,9 @@ void configureFAST(bool enable, int thresh)
 
 void reconfigure_callback(Ovc3Config &conf, uint32_t level)
 {
-  // TODO add more reconfigurability
   configureFAST(conf.fast_enable, conf.fast_threshold);
+  // Configure frame downsampling (frame rate will be IMU rate / frame_downsampling)
+  spi.setFrameDownsample(conf.frame_downsampling);
 }
 
 int main(int argc, char **argv)
@@ -156,10 +157,11 @@ int main(int argc, char **argv)
   server.setCallback(c);
   ros::AsyncSpinner spinner(1);
 
+  std::unique_ptr<ImagePublisher> image_publishers[NUM_CAMERAS];
+  std::unique_ptr<ExternalCameraPublisher> external_publishers[EXTERNAL_BOARDS];
+
   // Init threads
   std::vector<std::unique_ptr<std::thread>> threads; // one each for IMU and frame_time_ptr update threads
-  std::unique_ptr<ImagePublisher> image_publisher[NUM_CAMERAS];
-  std::unique_ptr<ExternalCameraPublisher> external_publishers[EXTERNAL_BOARDS];
 
   // IMU thread
   threads.push_back(std::make_unique<std::thread>(publish_imu, nh, frame_time_ptr, curr_time_ptr));
@@ -173,8 +175,8 @@ int main(int argc, char **argv)
   for (size_t i=0; i<NUM_CAMERAS; ++i)
   {
     CameraHWParameters params(DMA_DEVICES[i], I2C_DEVICES[i], 0, CAMERA_NAMES[i], i == COLOR_CAMERA_ID);
-    image_publisher[i] = std::make_unique<ImagePublisher>(nh, params, frame_time_ptr);
-    threads.push_back(std::make_unique<std::thread>(&ImagePublisher::publish_loop, image_publisher[i].get()));
+    image_publishers[i] = std::make_unique<ImagePublisher>(nh, params, frame_time_ptr);
+    threads.push_back(std::make_unique<std::thread>(&ImagePublisher::publish_loop, image_publishers[i].get()));
   }
   // External camera boards
   // For now only add one external pair

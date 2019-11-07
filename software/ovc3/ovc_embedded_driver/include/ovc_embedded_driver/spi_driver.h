@@ -55,6 +55,7 @@ class ICMDriver : public SPIDriver
 
   // AXI GPIO addresses
   static constexpr unsigned int GPIO_DATA = 0x0000 / sizeof(unsigned int);
+  static constexpr unsigned int GPIO2_DATA = 0x0008 / sizeof(unsigned int);
   static constexpr unsigned int GIER = 0x011C / sizeof(unsigned int);
   static constexpr unsigned int IER = 0x0128 / sizeof(unsigned int);
   static constexpr unsigned int ISR = 0x0120 / sizeof(unsigned int);
@@ -73,6 +74,7 @@ public:
   ICMDriver(int spi_num, int gpio_uio_num);
   int getSampleNumber();
   IMUReading readSensors();
+  void setFrameDownsample(uint8_t downsample);
 };
 
 class VNAVDriver : public SPIDriver
