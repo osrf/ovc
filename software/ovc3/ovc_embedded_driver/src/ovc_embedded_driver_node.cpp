@@ -25,8 +25,8 @@ const std::string CAMERA_NAMES[NUM_CAMERAS] = {"right", "left", "rgb"};
 const int EXTERNAL_DMA[2*EXTERNAL_BOARDS] = {9,10,11,12};
 const int EXTERNAL_I2C[EXTERNAL_BOARDS] = {3,5}; // TODO add second I2C for thermal imager
 const int EXTERNAL_THERMAL_I2C[EXTERNAL_BOARDS] = {4, 6};
-const std::string EXTERNAL_NAME[2*EXTERNAL_BOARDS] = {"bottom/right", "bottom/left", 
-  "top/right", "top/left"};
+const std::string EXTERNAL_NAME[2*EXTERNAL_BOARDS] = {"bonus_right/right", "bonus_right/left", 
+  "bonus_left/right", "bonus_left/left"};
 
 const int IMU_SYNC_GPIO = 4; // ID of UIO device used with GPIO for syncing
 const int FAST_CONFIG_GPIO = 5; // UIO device for corner detection configuration
