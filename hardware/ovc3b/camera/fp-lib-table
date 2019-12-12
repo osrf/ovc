@@ -21,4 +21,5 @@
   (lib (name "Button_Switch_SMD")(type "KiCad")(uri "/usr/share/kicad-nightly/modules/Button_Switch_SMD.pretty")(options "")(descr ""))
   (lib (name "Diode_SMD")(type "KiCad")(uri "/usr/share/kicad-nightly/modules/Diode_SMD.pretty")(options "")(descr ""))
   (lib (name "WQFN")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/WQFN.pretty")(options "")(descr ""))
+  (lib (name "TI")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/TI.pretty")(options "")(descr ""))
 )
