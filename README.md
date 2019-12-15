@@ -9,12 +9,14 @@ the art open hardware with open firmware and software. There are a few revs:
  * ovc0: three Python1300 imagers, an Artix-7 FPGA, DRAM, and USB3 via a Cypress FX3 controller.
  * ovc1: two Python1300 imagers, a Jetson TX2 (6x ARMv8, GPU, etc.) connected to a Cyclone-V GT FPGA over PCIe.
  * [ovc2](doc/ovc2a/README.md): two Python1300 imagers, a Jetson TX2 (6x ARMv8, GPU, etc.) connected to a Cyclone 10 GX FPGA over PCIe Gen 2.0 x4 (current work)
+ * ovc3: three ON Semi AR0144CS imagers, USB Type-C peripheral, Trenz TE0820 module with Xilinx Zynq UltraScale+, RAM, flash, etc.
 
 # where do I find hardware stuff
 
  * ovc1 hardware currently lives in 'hardware/ovc1' as a single KiCAD PCB.
    * schematics are provided as [PDF](https://github.com/osrf/ovc/raw/master/hardware/ovc1/ovc.pdf) or native KiCAD files
  * ovc2 hardware lives in 'hardware/ovc2'
+ * ovc3 hardware lives in 'hardware/ovc3' with version suffixes
 
 # where do I find other stuff
 
