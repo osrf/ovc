@@ -25,4 +25,5 @@
   (lib (name "Switch")(type "Legacy")(uri "/usr/share/kicad-nightly/library/Switch.lib")(options "")(descr ""))
   (lib (name "level_shifter")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/level_shifter.lib")(options "")(descr ""))
   (lib (name "power_mux")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/power_mux.lib")(options "")(descr ""))
+  (lib (name "ovc3-rescue")(type "Legacy")(uri "${KIPRJMOD}/ovc3-rescue.lib")(options "")(descr ""))
 )

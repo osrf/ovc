@@ -988,43 +988,6 @@ F 3 "" H 3900 8250 50  0001 C CNN
 	1    3900 8250
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:GND #PWR0111
-U 1 1 5CB44C25
-P 3600 7000
-F 0 "#PWR0111" H 3600 6750 50  0001 C CNN
-F 1 "GND" H 3605 6827 50  0001 C CNN
-F 2 "" H 3600 7000 50  0001 C CNN
-F 3 "" H 3600 7000 50  0001 C CNN
-	1    3600 7000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_02x04_Odd_Even J12
-U 1 1 5CB74256
-P 2900 6900
-F 0 "J12" H 2950 7217 50  0000 C CNN
-F 1 "AUX" H 2950 7126 50  0000 C CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_2x04_P1.27mm_Vertical" H 2900 6900 50  0001 C CNN
-F 3 "~" H 2900 6900 50  0001 C CNN
-F 4 "DNP" H 2950 7317 50  0001 C CNN "D1"
-F 5 "DNP" H 2950 7317 50  0001 C CNN "D1PN"
-F 6 "DNP" H 2900 6900 50  0001 C CNN "MFN"
-F 7 "DNP" H 2900 6900 50  0001 C CNN "MPN"
-	1    2900 6900
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+1V2 #PWR0165
-U 1 1 5CBAB204
-P 3600 6900
-F 0 "#PWR0165" H 3600 6750 50  0001 C CNN
-F 1 "+1V2" H 3615 7073 50  0000 C CNN
-F 2 "" H 3600 6900 50  0001 C CNN
-F 3 "" H 3600 6900 50  0001 C CNN
-	1    3600 6900
-	1    0    0    -1  
-$EndComp
 Text Notes 4050 750  0    157  ~ 31
 https://wiki.trenz-electronic.de/display/PD/TE0820+TRM
 Text GLabel 1750 2150 0    50   Input ~ 0
@@ -1293,11 +1256,11 @@ Text GLabel 6650 4100 0    50   Input ~ 0
 BONUS1_SDA0
 Text GLabel 6650 3400 0    50   Input ~ 0
 BONUS1_EXTCLK
-Text GLabel 3600 4650 2    50   Input ~ 0
+Text GLabel 6650 5000 0    50   Input ~ 0
 BONUS1_RESET
 Text GLabel 6650 3300 0    50   Input ~ 0
 BONUS1_TRIGGER
-Text GLabel 3600 4750 2    50   Input ~ 0
+Text GLabel 6650 5100 0    50   Input ~ 0
 BONUS1_FLASH
 Text GLabel 6650 4600 0    50   Input ~ 0
 BONUS1_SDA1
@@ -1355,7 +1318,7 @@ Text GLabel 8550 2500 2    50   Input ~ 0
 CAM0_nRESET_1V8
 Text GLabel 8550 2600 2    50   Input ~ 0
 CAM0_TRIG_1V8
-Text GLabel 6650 5100 0    50   Input ~ 0
+Text GLabel 5400 4650 0    50   Input ~ 0
 BONUS4_SCL0
 Text GLabel 8550 5500 2    50   Input ~ 0
 BONUS4_SDA0
@@ -1407,7 +1370,7 @@ Text GLabel 6650 5500 0    50   Input ~ 0
 BONUS4_DAT1+
 Text GLabel 6650 5600 0    50   Input ~ 0
 BONUS4_DAT1-
-Text GLabel 6650 5000 0    50   Input ~ 0
+Text GLabel 5400 4550 0    50   Input ~ 0
 BONUS4_EXTCLK
 Text GLabel 8550 4900 2    50   Input ~ 0
 BONUS3_TRIGGER
@@ -1453,21 +1416,9 @@ Text GLabel 3600 6050 2    50   Input ~ 0
 AUX2
 Text GLabel 3600 6150 2    50   Input ~ 0
 AUX3
-Text GLabel 3200 6800 2    50   Input ~ 0
-AUX0
-Text GLabel 2700 6800 0    50   Input ~ 0
-AUX1
-Text GLabel 2700 7000 0    50   Input ~ 0
-AUX3
-Text GLabel 2700 7100 0    50   Input ~ 0
+Text GLabel 3600 5450 2    50   Input ~ 0
 AUX4
-Text GLabel 1750 6050 0    50   Input ~ 0
-AUX4
-Text GLabel 1750 6150 0    50   Input ~ 0
-AUX5
-Text GLabel 2700 6900 0    50   Input ~ 0
-AUX2
-Text GLabel 3200 7100 2    50   Input ~ 0
+Text GLabel 3600 5550 2    50   Input ~ 0
 AUX5
 Wire Wire Line
 	13700 3500 14300 3500
@@ -1873,10 +1824,6 @@ Wire Wire Line
 	3400 8350 3900 8350
 Wire Wire Line
 	3900 8350 3900 8250
-Wire Wire Line
-	3200 6900 3600 6900
-Wire Wire Line
-	3200 7000 3600 7000
 Connection ~ 14300 3500
 Connection ~ 14300 3000
 Connection ~ 14300 2700
@@ -2025,4 +1972,10 @@ $EndComp
 Wire Wire Line
 	7100 8000 7500 8000
 Connection ~ 7100 8000
+Text GLabel 1750 6050 0    50   Input ~ 0
+LED2
+Text GLabel 1750 6150 0    50   Input ~ 0
+LED3
+Text Notes 1100 6600 0    118  ~ 24
+TODO: assign "AUX" pins to north bonus header
 $EndSCHEMATC
