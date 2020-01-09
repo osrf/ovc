@@ -14,4 +14,3 @@ Assembly notes:
  * FFC connector on bottom side
  * please ignore all parts with "Do Not Populate" (DNP) part numbers
  * DNP all through-hole parts, as shown in BOM
- * two non-populated module footprints: U1, U9. Do not apply solder paste.
