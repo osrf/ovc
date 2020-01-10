@@ -23,4 +23,5 @@
   (lib (name "WQFN")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/WQFN.pretty")(options "")(descr ""))
   (lib (name "TI")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/TI.pretty")(options "")(descr ""))
   (lib (name "LED_SMD")(type "KiCad")(uri "/usr/share/kicad-nightly/modules/LED_SMD.pretty")(options "")(descr ""))
+  (lib (name "Connector_PinHeader_2.54mm")(type "KiCad")(uri "/usr/share/kicad-nightly/modules/Connector_PinHeader_2.54mm.pretty")(options "")(descr ""))
 )

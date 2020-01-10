@@ -1260,8 +1260,6 @@ Text GLabel 6650 5000 0    50   Input ~ 0
 BONUS1_RESET
 Text GLabel 6650 3300 0    50   Input ~ 0
 BONUS1_TRIGGER
-Text GLabel 6650 5100 0    50   Input ~ 0
-BONUS1_FLASH
 Text GLabel 6650 4600 0    50   Input ~ 0
 BONUS1_SDA1
 Text GLabel 1750 5850 0    50   Input ~ 0
@@ -1318,13 +1316,13 @@ Text GLabel 8550 2500 2    50   Input ~ 0
 CAM0_nRESET_1V8
 Text GLabel 8550 2600 2    50   Input ~ 0
 CAM0_TRIG_1V8
-Text GLabel 5400 4650 0    50   Input ~ 0
+Text GLabel 3600 4750 2    50   Input ~ 0
 BONUS4_SCL0
-Text GLabel 8550 5500 2    50   Input ~ 0
+Text GLabel 3600 5150 2    50   Input ~ 0
 BONUS4_SDA0
-Text GLabel 8550 5900 2    50   Input ~ 0
+Text GLabel 3600 5550 2    50   Input ~ 0
 BONUS4_FLASH
-Text GLabel 8550 6200 2    50   Input ~ 0
+Text GLabel 3600 6150 2    50   Input ~ 0
 BONUS4_TRIGGER
 Text GLabel 8550 2900 2    50   Input ~ 0
 BONUS3_SCL0
@@ -1370,7 +1368,7 @@ Text GLabel 6650 5500 0    50   Input ~ 0
 BONUS4_DAT1+
 Text GLabel 6650 5600 0    50   Input ~ 0
 BONUS4_DAT1-
-Text GLabel 5400 4550 0    50   Input ~ 0
+Text GLabel 3600 4650 2    50   Input ~ 0
 BONUS4_EXTCLK
 Text GLabel 8550 4900 2    50   Input ~ 0
 BONUS3_TRIGGER
@@ -1380,7 +1378,7 @@ Text GLabel 8550 2400 2    50   Input ~ 0
 CAM0_SDA_1V8
 Text GLabel 8550 2300 2    50   Input ~ 0
 CAM0_SCL_1V8
-Text GLabel 8550 5800 2    50   Input ~ 0
+Text GLabel 3600 6050 2    50   Input ~ 0
 BONUS4_RESET
 Text GLabel 6650 4500 0    50   Input ~ 0
 BONUS1_SCL1
@@ -1388,10 +1386,8 @@ Text GLabel 11650 3600 0    50   Input ~ 0
 USB2_D+
 Text GLabel 11650 3700 0    50   Input ~ 0
 USB2_D-
-Text GLabel 8550 5600 2    50   Input ~ 0
+Text GLabel 3600 5250 2    50   Input ~ 0
 BONUS4_SCL1
-Text GLabel 6650 5700 0    50   Input ~ 0
-BONUS4_SDA1
 Text GLabel 11650 3300 0    50   Input ~ 0
 GPIO13
 Text GLabel 11650 3200 0    50   Input ~ 0
@@ -1408,18 +1404,6 @@ Text Label 2600 8450 0    50   ~ 0
 DIPSWITCH
 Text Notes 1950 7650 0    118  ~ 24
 boot-select DIP switch
-Text GLabel 3600 5150 2    50   Input ~ 0
-AUX0
-Text GLabel 3600 5250 2    50   Input ~ 0
-AUX1
-Text GLabel 3600 6050 2    50   Input ~ 0
-AUX2
-Text GLabel 3600 6150 2    50   Input ~ 0
-AUX3
-Text GLabel 3600 5450 2    50   Input ~ 0
-AUX4
-Text GLabel 3600 5550 2    50   Input ~ 0
-AUX5
 Wire Wire Line
 	13700 3500 14300 3500
 Wire Wire Line
@@ -1976,6 +1960,80 @@ Text GLabel 1750 6050 0    50   Input ~ 0
 LED2
 Text GLabel 1750 6150 0    50   Input ~ 0
 LED3
-Text Notes 1100 6600 0    118  ~ 24
-TODO: assign "AUX" pins to north bonus header
+Text GLabel 3600 5450 2    50   Input ~ 0
+BONUS4_SDA1
+Text GLabel 6650 5100 0    50   Input ~ 0
+BONUS1_FLASH
+$Comp
+L power:GND #PWR0167
+U 1 1 5E9EB5DC
+P 14600 7200
+F 0 "#PWR0167" H 14600 6950 50  0001 C CNN
+F 1 "GND" H 14605 7027 50  0001 C CNN
+F 2 "" H 14600 7200 50  0001 C CNN
+F 3 "" H 14600 7200 50  0001 C CNN
+	1    14600 7200
+	1    0    0    -1  
+$EndComp
+Text GLabel 14450 7800 2    50   Input ~ 0
+JTAG_TMS
+Text GLabel 14450 7700 2    50   Input ~ 0
+JTAG_TDI
+Text GLabel 13950 7900 0    50   Input ~ 0
+JTAG_TDO
+Text GLabel 13950 7800 0    50   Input ~ 0
+JTAG_TCK
+Text GLabel 14450 7900 2    50   Input ~ 0
+VCC_JTAG
+Wire Wire Line
+	14600 7200 14450 7200
+$Comp
+L Connector_Generic:Conn_02x08_Odd_Even J6
+U 1 1 5CD032F0
+P 14150 7500
+F 0 "J6" H 14200 8150 50  0000 C CNN
+F 1 "FRONT_PACK" H 14200 8050 50  0000 C CNN
+F 2 "Connector_PinHeader_2.00mm:PinHeader_2x08_P2.00mm_Vertical_SMD" H 14150 7500 50  0001 C CNN
+F 3 "~" H 14150 7500 50  0001 C CNN
+F 4 "Digikey" H 14200 7917 50  0001 C CNN "D1"
+F 5 "S6009-08-ND" H 14200 7917 50  0001 C CNN "D1PN"
+F 6 "NRPN082MAMS-RC" H 14200 7917 50  0001 C CNN "MFN"
+F 7 "Sullins" H 14200 7917 50  0001 C CNN "MPN"
+	1    14150 7500
+	1    0    0    -1  
+$EndComp
+Text GLabel 13700 3300 2    50   Input ~ 0
+GPIO18
+Text GLabel 13700 3400 2    50   Input ~ 0
+GPIO19
+Text GLabel 14450 7600 2    50   Input ~ 0
+ROOT_RX
+Text GLabel 14450 7500 2    50   Input ~ 0
+ROOT_TX
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E3BE12A
+P 13800 7200
+F 0 "#PWR?" H 13800 7050 50  0001 C CNN
+F 1 "+3.3V" H 13815 7373 50  0000 C CNN
+F 2 "" H 13800 7200 50  0001 C CNN
+F 3 "" H 13800 7200 50  0001 C CNN
+	1    13800 7200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+1V2 #PWR?
+U 1 1 5E3D1866
+P 13550 7300
+F 0 "#PWR?" H 13550 7150 50  0001 C CNN
+F 1 "+1V2" H 13565 7473 50  0000 C CNN
+F 2 "" H 13550 7300 50  0001 C CNN
+F 3 "" H 13550 7300 50  0001 C CNN
+	1    13550 7300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13550 7300 13950 7300
+Wire Wire Line
+	13800 7200 13950 7200
 $EndSCHEMATC

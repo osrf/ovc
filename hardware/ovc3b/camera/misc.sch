@@ -133,17 +133,6 @@ F 3 "" H 7650 3350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0167
-U 1 1 5E9EB5DC
-P 8800 4500
-F 0 "#PWR0167" H 8800 4250 50  0001 C CNN
-F 1 "GND" H 8805 4327 50  0001 C CNN
-F 2 "" H 8800 4500 50  0001 C CNN
-F 3 "" H 8800 4500 50  0001 C CNN
-	1    8800 4500
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:LED D1
 U 1 1 5EA32365
 P 5850 5650
@@ -281,21 +270,6 @@ F 3 "" H 1800 2350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x03_Odd_Even J6
-U 1 1 5CD032F0
-P 8350 4700
-F 0 "J6" H 8400 5017 50  0000 C CNN
-F 1 "JTAG" H 8400 4926 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Horizontal" H 8350 4700 50  0001 C CNN
-F 3 "~" H 8350 4700 50  0001 C CNN
-F 4 "DNP" H 8400 5117 50  0001 C CNN "D1"
-F 5 "DNP" H 8400 5117 50  0001 C CNN "D1PN"
-F 6 "DNP" H 8400 5117 50  0001 C CNN "MFN"
-F 7 "DNP" H 8400 5117 50  0001 C CNN "MPN"
-	1    8350 4700
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+1V8 #PWR0205
 U 1 1 5D179797
 P 6450 1850
@@ -418,14 +392,6 @@ Text GLabel 3300 2500 2    50   Input ~ 0
 PHY_MDI3_N
 Text GLabel 3650 950  2    50   Input ~ 0
 ETH_VCC
-Text GLabel 8650 4700 2    50   Input ~ 0
-JTAG_TMS
-Text GLabel 8150 4800 0    50   Input ~ 0
-JTAG_TDI
-Text GLabel 8150 4700 0    50   Input ~ 0
-JTAG_TDO
-Text GLabel 8150 4600 0    50   Input ~ 0
-JTAG_TCK
 Text GLabel 5000 5650 0    50   Input ~ 0
 LED0
 Text GLabel 5000 6100 0    50   Input ~ 0
@@ -456,14 +422,8 @@ Text GLabel 7200 2750 2    50   Input ~ 0
 GPIO12
 Text GLabel 6700 2850 0    50   Input ~ 0
 GPIO8
-Text GLabel 8650 4800 2    50   Input ~ 0
-VCC_JTAG
 Text Notes 650  2050 0    50   ~ 0
 not enough easily-routed\nhigh-voltage i/o for now,\nso leaving the LEDs open...
-Text GLabel 6700 3250 0    50   Input ~ 0
-ROOT_RX
-Text GLabel 6700 3350 0    50   Input ~ 0
-ROOT_TX
 Text GLabel 7200 2850 2    50   Input ~ 0
 GPIO13
 Text GLabel 7200 2950 2    50   Input ~ 0
@@ -576,10 +536,6 @@ Wire Wire Line
 	7200 2650 7650 2650
 Wire Wire Line
 	7200 3350 7650 3350
-Wire Wire Line
-	8800 4500 8650 4500
-Wire Wire Line
-	8650 4500 8650 4600
 Wire Wire Line
 	7200 1950 7350 1950
 Wire Wire Line
@@ -769,4 +725,8 @@ Wire Wire Line
 	6150 6100 6150 6450
 Connection ~ 6150 6100
 Connection ~ 6150 6450
+Text GLabel 6700 3250 0    50   Input ~ 0
+GPIO18
+Text GLabel 6700 3350 0    50   Input ~ 0
+GPIO19
 $EndSCHEMATC
