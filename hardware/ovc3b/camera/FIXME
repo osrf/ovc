@@ -1,8 +1,0 @@
-Rev.A FIXME list
-================
-* U8 part number is incorrect. It should be SN74AXC4T245PWR
-* need 30 ohm resistors on SD/MMC card bus lines
-* might need 10k pullup (?) on SD_MMC_DAT3
-* alternatively, use level-shifter IC for buffering all those lines
-* power LED is too bright
-* add diode or ideal-diode setup so that DC power + USB-C don't conflict
