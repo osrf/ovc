@@ -18,16 +18,6 @@ Comment7 ""
 Comment8 ""
 Comment9 ""
 $EndDescr
-Text Label 3450 2000 0    50   ~ 0
-IMU_MISO
-Wire Wire Line
-	4000 2300 3450 2300
-Text Label 3450 2100 0    50   ~ 0
-IMU_CS
-Text Label 3450 2300 0    50   ~ 0
-IMU_NRST
-Wire Wire Line
-	4000 2100 3450 2100
 $Comp
 L power:+3.3V #PWR07
 U 1 1 5CB4CA21
@@ -45,8 +35,6 @@ Wire Wire Line
 	3150 3200 3300 3200
 Wire Wire Line
 	3300 3200 3300 3100
-Wire Wire Line
-	3300 3100 3500 3100
 $Comp
 L Device:C_Small C16
 U 1 1 5CB4E516
@@ -60,28 +48,25 @@ F 5 "CL10B104KO8NNNC" H 3592 3346 50  0001 C CNN "MPN"
 	1    3500 3200
 	1    0    0    -1  
 $EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 5CA53199
+P 4500 2600
+F 0 "#PWR0101" H 4500 2350 50  0001 C CNN
+F 1 "GND" H 4505 2427 50  0001 C CNN
+F 2 "" H 4500 2600 50  0001 C CNN
+F 3 "" H 4500 2600 50  0001 C CNN
+	1    4500 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 2600 5100 2600
+Wire Wire Line
+	3300 3100 3500 3100
 Wire Wire Line
 	3150 3400 3500 3400
 Wire Wire Line
 	3500 3400 3500 3300
-Text Notes 3850 4000 0    50   ~ 0
-INPUT
-Text Notes 3850 3900 0    50   ~ 0
-OUTPUT
-Text Notes 3850 3600 0    50   ~ 0
-OUTPUT
-Text Notes 3850 3700 0    50   ~ 0
-OUTPUT
-Text Notes 3850 3800 0    50   ~ 0
-OUTPUT
-Text Label 3200 3700 0    50   ~ 0
-RS232_FORCEON
-Wire Wire Line
-	3150 3700 3550 3700
-Text Label 3200 3800 0    50   ~ 0
-GPIO1A
-Wire Wire Line
-	3150 3600 3750 3600
 $Comp
 L power:GND #PWR09
 U 1 1 5CB509CB
@@ -93,20 +78,61 @@ F 3 "" H 3500 3400 50  0001 C CNN
 	1    3500 3400
 	1    0    0    -1  
 $EndComp
+Text Label 3200 3700 0    50   ~ 0
+RS232_FORCEON
+Wire Wire Line
+	3150 3700 3550 3700
+Text Label 3200 3800 0    50   ~ 0
+GPIO1A
+Wire Wire Line
+	3150 3600 3750 3600
 Text Label 3200 3600 0    50   ~ 0
 RS232_DIN
+Wire Wire Line
+	3150 3800 3550 3800
 Text Label 3200 4300 0    50   ~ 0
 RS232_INVALID
 Text Label 3200 4200 0    50   ~ 0
 RS232_ROUT
-Text Label 3200 4100 0    50   ~ 0
-GPIO1D
 Wire Wire Line
 	3150 4200 3750 4200
 Wire Wire Line
 	3150 4300 3750 4300
 Wire Wire Line
 	3150 4100 3550 4100
+$Comp
+L power:GND #PWR05
+U 1 1 5CB51AA8
+P 2700 4800
+F 0 "#PWR05" H 2700 4550 50  0001 C CNN
+F 1 "GND" H 2705 4627 50  0001 C CNN
+F 2 "" H 2700 4800 50  0001 C CNN
+F 3 "" H 2700 4800 50  0001 C CNN
+	1    2700 4800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2700 4800 2800 4800
+Text Label 3200 4000 0    50   ~ 0
+GPIO1C
+Wire Wire Line
+	3150 3900 3550 3900
+Text Label 3200 3900 0    50   ~ 0
+GPIO1B
+Wire Wire Line
+	3150 4000 3550 4000
+Text Label 3450 2000 0    50   ~ 0
+IMU_MISO
+Wire Wire Line
+	4000 2300 3450 2300
+Text Label 3450 2100 0    50   ~ 0
+IMU_CS
+Text Label 3450 2300 0    50   ~ 0
+IMU_NRST
+Wire Wire Line
+	4000 2100 3450 2100
+Wire Wire Line
+	4000 2000 3450 2000
 Text Label 3450 1800 0    50   ~ 0
 IMU_SCK
 Text Label 3450 1900 0    50   ~ 0
@@ -133,14 +159,7 @@ F 3 "" H 3800 1200 50  0001 C CNN
 $EndComp
 Text Label 3450 1600 0    50   ~ 0
 IMU_SYNC_IN
-Wire Wire Line
-	1700 1850 2100 1850
-Text Label 1700 1850 0    50   ~ 0
-VCC_JTAG
-Wire Wire Line
-	1700 1750 2100 1750
-Text Label 1700 1750 0    50   ~ 0
-JTAG_TMS
+NoConn ~ 4000 1500
 Wire Wire Line
 	1700 1650 2100 1650
 Text Label 1700 1650 0    50   ~ 0
@@ -151,17 +170,82 @@ Wire Wire Line
 	1700 1550 2100 1550
 Wire Wire Line
 	1700 1450 2100 1450
+NoConn ~ 4800 800 
+NoConn ~ 4400 800 
+NoConn ~ 4700 800 
+Text Notes 4500 700  0    79   ~ 16
+VN-100
+NoConn ~ 4500 800 
+NoConn ~ 4600 800 
+NoConn ~ 4900 800 
+Wire Wire Line
+	5500 1600 6400 1600
+Wire Wire Line
+	5500 1700 6400 1700
 $Comp
-L power:+1V2 #PWR0105
-U 1 1 5E23C90D
-P 2100 1250
-F 0 "#PWR0105" H 2100 1100 50  0001 C CNN
-F 1 "+1V2" H 2115 1423 50  0000 C CNN
-F 2 "" H 2100 1250 50  0001 C CNN
-F 3 "" H 2100 1250 50  0001 C CNN
-	1    2100 1250
+L power:GND #PWR0123
+U 1 1 5D1F8E2C
+P 6400 1800
+F 0 "#PWR0123" H 6400 1550 50  0001 C CNN
+F 1 "GND" H 6405 1627 50  0001 C CNN
+F 2 "" H 6400 1800 50  0001 C CNN
+F 3 "" H 6400 1800 50  0001 C CNN
+	1    6400 1800
 	1    0    0    -1  
 $EndComp
+Text Label 5550 1900 0    50   ~ 0
+IMU_SYNC_OUT
+Wire Wire Line
+	5500 1900 6100 1900
+$Comp
+L IMU:VN-100 U1
+U 1 1 5C45B550
+P 4700 1700
+F 0 "U1" H 5350 2600 60  0000 L CNN
+F 1 "VN-100" H 5350 2500 60  0000 L CNN
+F 2 "IMU:VN-100" H 4700 1700 60  0001 C CNN
+F 3 "" H 5544 1594 60  0001 L CNN
+F 4 "DNP" H 5350 2700 50  0001 C CNN "MFN"
+F 5 "DNP" H 5350 2700 50  0001 C CNN "MPN"
+	1    4700 1700
+	1    0    0    -1  
+$EndComp
+NoConn ~ 5000 800 
+NoConn ~ 5100 800 
+NoConn ~ 5200 800 
+Text Label 5550 1700 0    50   ~ 0
+IMU_RX2
+$Comp
+L Connector_Generic:Conn_01x03 J6
+U 1 1 5D1F860C
+P 6600 1700
+F 0 "J6" H 6600 2050 50  0000 C CNN
+F 1 "IMU_UART2" H 6600 1950 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 6600 1700 50  0001 C CNN
+F 3 "" H 6600 1700 50  0001 C CNN
+F 4 "DNP" H 6600 2150 50  0001 C CNN "MFN"
+F 5 "DNP" H 6600 2150 50  0001 C CNN "MPN"
+	1    6600 1700
+	1    0    0    -1  
+$EndComp
+Text Label 5550 1400 0    50   ~ 0
+IMU_TX1
+Wire Wire Line
+	5500 1400 5900 1400
+Wire Wire Line
+	5500 1500 5900 1500
+Text Label 5550 1500 0    50   ~ 0
+IMU_RX1
+Text Label 5550 1600 0    50   ~ 0
+IMU_TX2
+Wire Wire Line
+	1700 1850 2100 1850
+Text Label 1700 1850 0    50   ~ 0
+VCC_JTAG
+Wire Wire Line
+	1700 1750 2100 1750
+Text Label 1700 1750 0    50   ~ 0
+JTAG_TMS
 Wire Wire Line
 	800  1450 1200 1450
 Text Label 800  1550 0    50   ~ 0
@@ -203,8 +287,17 @@ Wire Wire Line
 	800  1650 1200 1650
 Text Label 800  1750 0    50   ~ 0
 JTAG_TCK
-Wire Wire Line
-	1700 1150 1850 1150
+$Comp
+L power:+1V2 #PWR0105
+U 1 1 5E23C90D
+P 2100 1250
+F 0 "#PWR0105" H 2100 1100 50  0001 C CNN
+F 1 "+1V2" H 2115 1423 50  0000 C CNN
+F 2 "" H 2100 1250 50  0001 C CNN
+F 3 "" H 2100 1250 50  0001 C CNN
+	1    2100 1250
+	1    0    0    -1  
+$EndComp
 $Comp
 L Connector_Generic:Conn_02x08_Odd_Even J1
 U 1 1 5E228672
@@ -223,6 +316,8 @@ Wire Wire Line
 Text Label 1700 1350 0    50   ~ 0
 AUX5_1V2
 Wire Wire Line
+	1700 1150 1850 1150
+Wire Wire Line
 	1850 1150 1850 1050
 Wire Wire Line
 	1850 1050 1950 1050
@@ -239,30 +334,47 @@ F 3 "" H 1950 1050 50  0001 C CNN
 	1    1950 1050
 	1    0    0    -1  
 $EndComp
-Text Label 1700 4300 0    50   ~ 0
-GPIO0_1V8
+Text Label 3200 4100 0    50   ~ 0
+GPIO1D
 Text Label 1700 4200 0    50   ~ 0
 GPIO1_1V8
 Text Label 1700 4100 0    50   ~ 0
 GPIO2_1V8
+Wire Wire Line
+	1700 4100 2200 4100
+$Comp
+L voltage_translators:SN74AXCH8T245 U5
+U 1 1 5CB41596
+P 2700 3900
+F 0 "U5" H 2675 4987 60  0000 C CNN
+F 1 "SN74AXCH8T245" H 2675 4881 60  0000 C CNN
+F 2 "Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm" H 2700 3900 60  0001 C CNN
+F 3 "" H 2700 3900 60  0000 C CNN
+F 4 "Texas Instruments" H 2675 5087 50  0001 C CNN "MFN"
+F 5 "SN74AXCH8T245PWR" H 2675 5087 50  0001 C CNN "MPN"
+	1    2700 3900
+	1    0    0    -1  
+$EndComp
+Connection ~ 3300 3100
+Connection ~ 3500 3400
 Text Notes 1350 4300 0    50   ~ 0
 OUTPUT
 Text Notes 1350 4200 0    50   ~ 0
 OUTPUT
-Text Notes 600  4000 0    50   ~ 0
-always enabled\n1:4  A->B\n5:8  B->A
 Text Notes 1350 4100 0    50   ~ 0
 OUTPUT
+Text Notes 1350 3900 0    50   ~ 0
+INPUT
+Text Notes 1350 4000 0    50   ~ 0
+OUTPUT
+Text Notes 600  4000 0    50   ~ 0
+always enabled\n1:4  A->B\n5:8  B->A
 Text Notes 1350 3600 0    50   ~ 0
 INPUT
 Text Notes 1350 3700 0    50   ~ 0
 INPUT
 Text Notes 1350 3800 0    50   ~ 0
 INPUT
-Text Notes 1350 3900 0    50   ~ 0
-INPUT
-Text Notes 1350 4000 0    50   ~ 0
-OUTPUT
 $Comp
 L Device:C_Small C14
 U 1 1 5CB4AA87
@@ -302,8 +414,6 @@ F 3 "" H 1650 3400 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	2200 3400 2000 3400
-Wire Wire Line
 	1650 3400 1650 3300
 Wire Wire Line
 	1700 3600 2200 3600
@@ -311,80 +421,56 @@ Wire Wire Line
 	1700 3700 2200 3700
 Wire Wire Line
 	2200 3300 2000 3300
+Text Label 1700 3700 0    50   ~ 0
+GPIO6_1V8
+Text Label 1700 3600 0    50   ~ 0
+GPIO7_1V8
+Wire Wire Line
+	2000 3400 2000 3300
+Text Label 1700 4300 0    50   ~ 0
+GPIO0_1V8
+Wire Wire Line
+	1700 4000 2200 4000
+Wire Wire Line
+	1700 4200 2200 4200
+Wire Wire Line
+	1700 4300 2200 4300
 Text Label 1700 4000 0    50   ~ 0
 GPIO3_1V8
 Text Label 1700 3900 0    50   ~ 0
 GPIO4_1V8
 Wire Wire Line
-	1700 4000 2200 4000
-Wire Wire Line
-	1700 4100 2200 4100
-Wire Wire Line
 	1700 3900 2200 3900
-Text Label 3200 4000 0    50   ~ 0
-GPIO1C
-Wire Wire Line
-	3150 3900 3550 3900
-Wire Wire Line
-	3150 3800 3550 3800
-Text Label 3200 3900 0    50   ~ 0
-GPIO1B
-Wire Wire Line
-	3150 4000 3550 4000
-$Comp
-L power:GND #PWR05
-U 1 1 5CB51AA8
-P 2700 4800
-F 0 "#PWR05" H 2700 4550 50  0001 C CNN
-F 1 "GND" H 2705 4627 50  0001 C CNN
-F 2 "" H 2700 4800 50  0001 C CNN
-F 3 "" H 2700 4800 50  0001 C CNN
-	1    2700 4800
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2700 4800 2800 4800
-Wire Wire Line
-	1700 4200 2200 4200
-Wire Wire Line
-	1700 4300 2200 4300
-Text Label 1700 3700 0    50   ~ 0
-GPIO6_1V8
-Text Label 1700 3600 0    50   ~ 0
-GPIO7_1V8
 Text Label 1700 3800 0    50   ~ 0
 GPIO5_1V8
 Wire Wire Line
 	1700 3800 2200 3800
-$Comp
-L voltage_translators:SN74AXCH8T245 U5
-U 1 1 5CB41596
-P 2700 3900
-F 0 "U5" H 2675 4987 60  0000 C CNN
-F 1 "SN74AXCH8T245" H 2675 4881 60  0000 C CNN
-F 2 "Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm" H 2700 3900 60  0001 C CNN
-F 3 "" H 2700 3900 60  0000 C CNN
-F 4 "Texas Instruments" H 2675 5087 50  0001 C CNN "MFN"
-F 5 "SN74AXCH8T245PWR" H 2675 5087 50  0001 C CNN "MPN"
-	1    2700 3900
-	1    0    0    -1  
-$EndComp
-Connection ~ 3300 3100
-Connection ~ 3500 3400
 Wire Wire Line
-	2000 3400 2000 3300
+	2200 3400 2000 3400
 Connection ~ 2000 3300
 Connection ~ 2000 3100
 Wire Wire Line
 	2000 3300 2000 3100
 Wire Wire Line
 	2000 3100 2200 3100
+Text Notes 3850 4000 0    50   ~ 0
+INPUT
+Text Notes 3850 3900 0    50   ~ 0
+OUTPUT
+Text Notes 3850 3600 0    50   ~ 0
+OUTPUT
+Text Notes 3850 3700 0    50   ~ 0
+OUTPUT
+Text Notes 3850 3800 0    50   ~ 0
+OUTPUT
 Text Notes 3850 4100 0    50   ~ 0
 INPUT
 Text Notes 3850 4300 0    50   ~ 0
 INPUT
 Text Notes 3850 4200 0    50   ~ 0
 INPUT
+Wire Wire Line
+	8400 6250 8250 6250
 Connection ~ 8400 6250
 $Comp
 L power:GND #PWR0120
@@ -412,10 +498,6 @@ F 5 "CL10B104KO8NNNC" H 8492 6496 50  0001 C CNN "MPN"
 $EndComp
 Wire Wire Line
 	8700 6250 8400 6250
-Wire Wire Line
-	8250 6900 8250 6250
-Wire Wire Line
-	8400 6250 8250 6250
 $Comp
 L Device:R_Small FB1
 U 1 1 5D1C4DFA
@@ -429,14 +511,6 @@ F 5 "BLM18KG601SN1D" H 8750 6100 50  0001 C CNN "MPN"
 	1    8800 6250
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	8200 6900 8250 6900
-Wire Wire Line
-	8200 7100 8300 7100
-Connection ~ 8300 7100
-Wire Wire Line
-	8300 7400 8300 7100
-NoConn ~ 8200 7300
 $Comp
 L power:GND #PWR0119
 U 1 1 5D1D052D
@@ -451,9 +525,59 @@ $EndComp
 Connection ~ 7900 7600
 Wire Wire Line
 	7900 7600 8300 7600
-Connection ~ 8300 7600
 Wire Wire Line
 	7900 7500 7900 7600
+$Comp
+L power:+3.3V #PWR0128
+U 1 1 5D368AD3
+P 5475 3550
+F 0 "#PWR0128" H 5475 3400 50  0001 C CNN
+F 1 "+3.3V" H 5490 3723 50  0000 C CNN
+F 2 "" H 5475 3550 50  0001 C CNN
+F 3 "" H 5475 3550 50  0001 C CNN
+	1    5475 3550
+	1    0    0    -1  
+$EndComp
+Text Label 5475 3750 2    50   ~ 0
+IMU_RX1
+Text Label 5475 3650 2    50   ~ 0
+BONUS_INPUT
+Text Label 5475 3850 2    50   ~ 0
+IMU_MOSI
+$Comp
+L power:GND #PWR0129
+U 1 1 5D369D67
+P 5475 3950
+F 0 "#PWR0129" H 5475 3700 50  0001 C CNN
+F 1 "GND" H 5480 3777 50  0001 C CNN
+F 2 "" H 5475 3950 50  0001 C CNN
+F 3 "" H 5475 3950 50  0001 C CNN
+	1    5475 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_02x05_Odd_Even J8
+U 1 1 5D36C402
+P 5675 3750
+F 0 "J8" H 5725 4167 50  0000 C CNN
+F 1 "debug" H 5725 4076 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical" H 5675 3750 50  0001 C CNN
+F 3 "" H 5675 3750 50  0001 C CNN
+F 4 "DNP" H 5725 4267 50  0001 C CNN "MFN"
+F 5 "DNP" H 5725 4267 50  0001 C CNN "MPN"
+	1    5675 3750
+	1    0    0    -1  
+$EndComp
+Text Label 5975 3950 0    50   ~ 0
+IMU_NRST
+Text Label 5975 3850 0    50   ~ 0
+IMU_SCK
+Text Label 5975 3750 0    50   ~ 0
+IMU_TX1
+Text Label 5975 3650 0    50   ~ 0
+IMU_MISO
+Text Label 5975 3550 0    50   ~ 0
+IMU_SYNC_OUT
 $Comp
 L Device:R_Small R4
 U 1 1 5D1DAFBF
@@ -486,63 +610,18 @@ Wire Wire Line
 	12800 6250 13250 6250
 Wire Wire Line
 	13250 6250 13250 6625
-Connection ~ 12800 6250
+Wire Wire Line
+	12800 6825 12800 6925
+Wire Wire Line
+	12800 6250 12800 6625
 Text Label 11700 6900 0    50   ~ 0
 ROOT_TX
 Wire Wire Line
 	11650 6800 12100 6800
-Wire Wire Line
-	11650 6900 12100 6900
-$Comp
-L Interface_USB:FT230XS U8
-U 1 1 5D1CD697
-P 10950 7200
-F 0 "U8" H 10450 7900 50  0000 C CNN
-F 1 "FT230XS" H 10550 7800 50  0000 C CNN
-F 2 "Package_SO:SSOP-16_3.9x4.9mm_P0.635mm" H 11400 6550 50  0001 C CNN
-F 3 "" H 10950 7200 50  0001 C CNN
-F 4 "FTDI" H 10450 8000 50  0001 C CNN "MFN"
-F 5 "FT230XS-R" H 10450 8000 50  0001 C CNN "MPN"
-	1    10950 7200
-	1    0    0    -1  
-$EndComp
 Text Label 11700 6800 0    50   ~ 0
 ROOT_RX
-$Comp
-L power:GND #PWR0121
-U 1 1 5D1DFACD
-P 10850 7900
-F 0 "#PWR0121" H 10850 7650 50  0001 C CNN
-F 1 "GND" H 10855 7727 50  0001 C CNN
-F 2 "" H 10850 7900 50  0001 C CNN
-F 3 "" H 10850 7900 50  0001 C CNN
-	1    10850 7900
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	10850 7900 11050 7900
-Connection ~ 10850 7900
-$Comp
-L power:GND #PWR0122
-U 1 1 5D1EC6B1
-P 12100 7000
-F 0 "#PWR0122" H 12100 6750 50  0001 C CNN
-F 1 "GND" H 12105 6827 50  0001 C CNN
-F 2 "" H 12100 7000 50  0001 C CNN
-F 3 "" H 12100 7000 50  0001 C CNN
-	1    12100 7000
-	-1   0    0    -1  
-$EndComp
 Wire Wire Line
 	11650 7400 12800 7400
-Wire Wire Line
-	12800 7400 12800 7125
-Wire Wire Line
-	11650 7500 13250 7500
-Wire Wire Line
-	13250 7125 13250 7500
-Wire Wire Line
-	12800 6825 12800 6925
 $Comp
 L Connector_Generic:Conn_01x03 J3
 U 1 1 5CAC20C4
@@ -583,39 +662,113 @@ F 5 "RC0603FR-07270RL" H 12859 7171 50  0001 C CNN "MPN"
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	12800 6250 12800 6625
+	11050 6250 12800 6250
+Wire Wire Line
+	11650 6900 12100 6900
+$Comp
+L Interface_USB:FT230XS U8
+U 1 1 5D1CD697
+P 10950 7200
+F 0 "U8" H 10450 7900 50  0000 C CNN
+F 1 "FT230XS" H 10550 7800 50  0000 C CNN
+F 2 "Package_SO:SSOP-16_3.9x4.9mm_P0.635mm" H 11400 6550 50  0001 C CNN
+F 3 "" H 10950 7200 50  0001 C CNN
+F 4 "FTDI" H 10450 8000 50  0001 C CNN "MFN"
+F 5 "FT230XS-R" H 10450 8000 50  0001 C CNN "MPN"
+	1    10950 7200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10850 7900 11050 7900
+Connection ~ 10850 7900
+$Comp
+L power:GND #PWR0122
+U 1 1 5D1EC6B1
+P 12100 7000
+F 0 "#PWR0122" H 12100 6750 50  0001 C CNN
+F 1 "GND" H 12105 6827 50  0001 C CNN
+F 2 "" H 12100 7000 50  0001 C CNN
+F 3 "" H 12100 7000 50  0001 C CNN
+	1    12100 7000
+	-1   0    0    -1  
+$EndComp
+Text Label 11775 7500 0    50   ~ 0
+TXLED
+Text Label 11775 7400 0    50   ~ 0
+RXLED
+Connection ~ 12800 6250
+Wire Wire Line
+	12800 7400 12800 7125
+Wire Wire Line
+	11650 7500 13250 7500
+Wire Wire Line
+	13250 7125 13250 7500
+$Comp
+L power:GND #PWR0121
+U 1 1 5D1DFACD
+P 10850 7900
+F 0 "#PWR0121" H 10850 7650 50  0001 C CNN
+F 1 "GND" H 10855 7727 50  0001 C CNN
+F 2 "" H 10850 7900 50  0001 C CNN
+F 3 "" H 10850 7900 50  0001 C CNN
+	1    10850 7900
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	10250 7200 9900 7200
+Wire Wire Line
+	9800 7400 10250 7400
+Wire Wire Line
+	9800 7900 10850 7900
+Wire Wire Line
+	9800 7900 9800 7600
 Text Label 10450 6250 0    50   ~ 0
 USB_VCC
 Text Label 11100 6250 0    50   ~ 0
 USB_3V3
 Wire Wire Line
-	11050 6250 12800 6250
-Wire Wire Line
 	10850 6250 10850 6500
 Wire Wire Line
 	11050 6250 11050 6500
+Text Notes 9850 6125 0    79   ~ 16
+USB-UART for linux root console
+Wire Wire Line
+	9650 6250 10850 6250
 Text Label 9900 7200 0    50   ~ 0
 USB_DP
 Text Label 9900 7100 0    50   ~ 0
 USB_DM
 Wire Wire Line
 	10250 7100 9900 7100
-Wire Wire Line
-	10250 7200 9900 7200
 Text Label 9900 6800 0    50   ~ 0
 USB_3V3
-Text Label 11775 7500 0    50   ~ 0
-TXLED
-Text Label 11775 7400 0    50   ~ 0
-RXLED
 Wire Wire Line
-	9800 7400 10250 7400
+	9800 6800 9800 7400
 Wire Wire Line
-	9800 7900 10850 7900
-Text Notes 9850 6125 0    79   ~ 16
-USB-UART for linux root console
+	8250 6900 8250 6250
 Wire Wire Line
-	9000 7200 9600 7200
+	8200 6900 8250 6900
+Wire Wire Line
+	8200 7100 8300 7100
+Connection ~ 8300 7100
+Wire Wire Line
+	8300 7100 8800 7100
+Wire Wire Line
+	8200 7200 8600 7200
+$Comp
+L Connector:USB_B_Micro J5
+U 1 1 5D1C962D
+P 7900 7100
+F 0 "J5" H 7957 7567 50  0000 C CNN
+F 1 "USB_B_Micro" H 7957 7476 50  0000 C CNN
+F 2 "Connector_USB:USB_Micro-B_Wuerth_629105150521_CircularHoles" H 8050 7050 50  0001 C CNN
+F 3 "" H 8050 7050 50  0001 C CNN
+F 4 "Wurth" H 7957 7667 50  0001 C CNN "MFN"
+F 5 "629105150521" H 7957 7667 50  0001 C CNN "MPN"
+	1    7900 7100
+	1    0    0    -1  
+$EndComp
+Connection ~ 9300 6450
 $Comp
 L Device:R_Small R1
 U 1 1 5D1CEF79
@@ -634,25 +787,6 @@ Wire Wire Line
 Wire Wire Line
 	8600 7200 8800 7200
 Connection ~ 8600 7200
-Wire Wire Line
-	9800 6800 9800 7400
-Wire Wire Line
-	8300 7100 8800 7100
-Wire Wire Line
-	8200 7200 8600 7200
-$Comp
-L Connector:USB_B_Micro J5
-U 1 1 5D1C962D
-P 7900 7100
-F 0 "J5" H 7957 7567 50  0000 C CNN
-F 1 "USB_B_Micro" H 7957 7476 50  0000 C CNN
-F 2 "Connector_USB:USB_Micro-B_Wuerth_629105150521_CircularHoles" H 8050 7050 50  0001 C CNN
-F 3 "" H 8050 7050 50  0001 C CNN
-F 4 "Wurth" H 7957 7667 50  0001 C CNN "MFN"
-F 5 "629105150521" H 7957 7667 50  0001 C CNN "MPN"
-	1    7900 7100
-	1    0    0    -1  
-$EndComp
 $Comp
 L Device:R_Small R2
 U 1 1 5D1CF67D
@@ -666,6 +800,10 @@ F 5 "RC0603FR-0727RL" H 8850 7100 50  0001 C CNN "MPN"
 	1    8900 7200
 	0    1    1    0   
 $EndComp
+Wire Wire Line
+	8300 7400 8300 7100
+NoConn ~ 8200 7300
+Connection ~ 8300 7600
 $Comp
 L Device:C_Small C20
 U 1 1 5D1E4420
@@ -695,8 +833,9 @@ $EndComp
 Wire Wire Line
 	8300 7600 8600 7600
 Wire Wire Line
+	9000 7200 9600 7200
+Wire Wire Line
 	9000 7100 9600 7100
-Connection ~ 9300 6450
 $Comp
 L power:GND #PWR0118
 U 1 1 5D1C8AD0
@@ -710,6 +849,24 @@ F 3 "" H 9300 6450 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	9300 6450 9650 6450
+Text Label 9300 7200 0    50   ~ 0
+USB_DM
+Text Label 9300 7100 0    50   ~ 0
+USB_DP
+$Comp
+L Device:C_Small C25
+U 1 1 5D1CC396
+P 9800 7500
+F 0 "C25" H 9892 7546 50  0000 L CNN
+F 1 "100n" H 9892 7455 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9800 7500 50  0001 C CNN
+F 3 "" H 9800 7500 50  0001 C CNN
+F 4 "Samsung" H 9892 7646 50  0001 C CNN "MFN"
+F 5 "CL10B104KO8NNNC" H 9892 7646 50  0001 C CNN "MPN"
+	1    9800 7500
+	1    0    0    -1  
+$EndComp
+Connection ~ 9800 7400
 Connection ~ 9300 6250
 $Comp
 L Device:C_Small C23
@@ -737,181 +894,26 @@ F 5 "CL10B104KO8NNNC" H 9742 6496 50  0001 C CNN "MPN"
 	1    9650 6350
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	9650 6250 9300 6250
-Wire Wire Line
-	9300 6250 8900 6250
 Connection ~ 9650 6250
 Wire Wire Line
 	9800 6800 10250 6800
 Wire Wire Line
-	9650 6250 10850 6250
-Text Label 9300 7200 0    50   ~ 0
-USB_DM
-Text Label 9300 7100 0    50   ~ 0
-USB_DP
-$Comp
-L Device:C_Small C25
-U 1 1 5D1CC396
-P 9800 7500
-F 0 "C25" H 9892 7546 50  0000 L CNN
-F 1 "100n" H 9892 7455 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 9800 7500 50  0001 C CNN
-F 3 "" H 9800 7500 50  0001 C CNN
-F 4 "Samsung" H 9892 7646 50  0001 C CNN "MFN"
-F 5 "CL10B104KO8NNNC" H 9892 7646 50  0001 C CNN "MPN"
-	1    9800 7500
-	1    0    0    -1  
-$EndComp
+	9650 6250 9300 6250
 Wire Wire Line
-	9800 7900 9800 7600
-Connection ~ 9800 7400
-Wire Wire Line
-	4000 2000 3450 2000
-$Comp
-L power:GND #PWR0101
-U 1 1 5CA53199
-P 4500 2600
-F 0 "#PWR0101" H 4500 2350 50  0001 C CNN
-F 1 "GND" H 4505 2427 50  0001 C CNN
-F 2 "" H 4500 2600 50  0001 C CNN
-F 3 "" H 4500 2600 50  0001 C CNN
-	1    4500 2600
-	1    0    0    -1  
-$EndComp
-NoConn ~ 4000 1500
-NoConn ~ 4800 800 
-NoConn ~ 4400 800 
-Wire Wire Line
-	4500 2600 5100 2600
-Wire Wire Line
-	5500 1600 6400 1600
-Wire Wire Line
-	5500 1700 6400 1700
-$Comp
-L power:GND #PWR0123
-U 1 1 5D1F8E2C
-P 6400 1800
-F 0 "#PWR0123" H 6400 1550 50  0001 C CNN
-F 1 "GND" H 6405 1627 50  0001 C CNN
-F 2 "" H 6400 1800 50  0001 C CNN
-F 3 "" H 6400 1800 50  0001 C CNN
-	1    6400 1800
-	1    0    0    -1  
-$EndComp
-Text Label 5550 1900 0    50   ~ 0
-IMU_SYNC_OUT
-Text Label 5550 1700 0    50   ~ 0
-IMU_RX2
-$Comp
-L IMU:VN-100 U1
-U 1 1 5C45B550
-P 4700 1700
-F 0 "U1" H 5350 2600 60  0000 L CNN
-F 1 "VN-100" H 5350 2500 60  0000 L CNN
-F 2 "IMU:VN-100" H 4700 1700 60  0001 C CNN
-F 3 "" H 5544 1594 60  0001 L CNN
-F 4 "DNP" H 5350 2700 50  0001 C CNN "MFN"
-F 5 "DNP" H 5350 2700 50  0001 C CNN "MPN"
-	1    4700 1700
-	1    0    0    -1  
-$EndComp
-NoConn ~ 5000 800 
-NoConn ~ 5100 800 
-NoConn ~ 5200 800 
-NoConn ~ 4700 800 
-Text Notes 4500 700  0    79   ~ 16
-VN-100
-NoConn ~ 4500 800 
-NoConn ~ 4600 800 
-NoConn ~ 4900 800 
-$Comp
-L Connector_Generic:Conn_01x03 J6
-U 1 1 5D1F860C
-P 6600 1700
-F 0 "J6" H 6600 2050 50  0000 C CNN
-F 1 "IMU_UART2" H 6600 1950 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 6600 1700 50  0001 C CNN
-F 3 "" H 6600 1700 50  0001 C CNN
-F 4 "DNP" H 6600 2150 50  0001 C CNN "MFN"
-F 5 "DNP" H 6600 2150 50  0001 C CNN "MPN"
-	1    6600 1700
-	1    0    0    -1  
-$EndComp
-Text Label 5550 1400 0    50   ~ 0
-IMU_TX1
-Wire Wire Line
-	5500 1400 5900 1400
-Wire Wire Line
-	5500 1500 5900 1500
-Text Label 5550 1500 0    50   ~ 0
-IMU_RX1
-Wire Wire Line
-	5500 1900 6100 1900
-$Comp
-L power:+3.3V #PWR0128
-U 1 1 5D368AD3
-P 5475 3550
-F 0 "#PWR0128" H 5475 3400 50  0001 C CNN
-F 1 "+3.3V" H 5490 3723 50  0000 C CNN
-F 2 "" H 5475 3550 50  0001 C CNN
-F 3 "" H 5475 3550 50  0001 C CNN
-	1    5475 3550
-	1    0    0    -1  
-$EndComp
-Text Label 5475 3750 2    50   ~ 0
-IMU_RX1
-Text Label 5475 3650 2    50   ~ 0
-BONUS_INPUT
-Text Label 5475 3850 2    50   ~ 0
-IMU_MOSI
-$Comp
-L Connector_Generic:Conn_02x05_Odd_Even J8
-U 1 1 5D36C402
-P 5675 3750
-F 0 "J8" H 5725 4167 50  0000 C CNN
-F 1 "debug" H 5725 4076 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical" H 5675 3750 50  0001 C CNN
-F 3 "" H 5675 3750 50  0001 C CNN
-F 4 "DNP" H 5725 4267 50  0001 C CNN "MFN"
-F 5 "DNP" H 5725 4267 50  0001 C CNN "MPN"
-	1    5675 3750
-	1    0    0    -1  
-$EndComp
-Text Label 5975 3950 0    50   ~ 0
-IMU_NRST
-Text Label 5975 3850 0    50   ~ 0
-IMU_SCK
-$Comp
-L power:GND #PWR0129
-U 1 1 5D369D67
-P 5475 3950
-F 0 "#PWR0129" H 5475 3700 50  0001 C CNN
-F 1 "GND" H 5480 3777 50  0001 C CNN
-F 2 "" H 5475 3950 50  0001 C CNN
-F 3 "" H 5475 3950 50  0001 C CNN
-	1    5475 3950
-	1    0    0    -1  
-$EndComp
-Text Label 5975 3750 0    50   ~ 0
-IMU_TX1
-Text Label 5975 3650 0    50   ~ 0
-IMU_MISO
-Text Label 5975 3550 0    50   ~ 0
-IMU_SYNC_OUT
-Text Label 5550 1600 0    50   ~ 0
-IMU_TX2
+	9300 6250 8900 6250
 $Comp
 L Connector_Generic:Conn_02x07_Odd_Even J2
 U 1 1 5E20B581
 P 9000 2500
 F 0 "J2" H 9050 3016 50  0000 C CNN
 F 1 "Xilinx programmer" H 9050 2925 50  0000 C CNN
-F 2 "Connector_PinHeader_2.00mm:PinHeader_2x07_P2.00mm_Vertical" H 9000 2500 50  0001 C CNN
+F 2 "Connector_PinHeader_2.00mm:PinHeader_2x07_P2.00mm_Vertical_SMD" H 9000 2500 50  0001 C CNN
 F 3 "~" H 9000 2500 50  0001 C CNN
+F 4 "digikey" H 9000 2500 50  0001 C CNN "D1N"
+F 5 "WM18641-ND" H 9000 2500 50  0001 C CNN "D1PN"
+F 6 "Molex" H 9000 2500 50  0001 C CNN "MFN"
+F 7 "0878321420" H 9000 2500 50  0001 C CNN "MPN"
 	1    9000 2500
 	1    0    0    -1  
 $EndComp
-Text Notes 7750 3150 0    79   ~ 16
-TODO: 3d model for Xilinx keyed connector
 $EndSCHEMATC
