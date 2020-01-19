@@ -5,4 +5,7 @@
   (lib (name "Sensor_Motion")(type "Legacy")(uri "/usr/share/kicad-nightly/library/Sensor_Motion.lib")(options "")(descr ""))
   (lib (name "Interface_UART")(type "Legacy")(uri "/usr/share/kicad-nightly/library/Interface_UART.lib")(options "")(descr ""))
   (lib (name "MCU_ST_STM32F7")(type "Legacy")(uri "/usr/share/kicad-nightly/library/MCU_ST_STM32F7.lib")(options "")(descr ""))
+  (lib (name "Connector")(type "Legacy")(uri "/usr/share/kicad-nightly/library/Connector.lib")(options "")(descr ""))
+  (lib (name "Device")(type "Legacy")(uri "/usr/share/kicad-nightly/library/Device.lib")(options "")(descr ""))
+  (lib (name "Interface_USB")(type "Legacy")(uri "/usr/share/kicad-nightly/library/Interface_USB.lib")(options "")(descr ""))
 )
