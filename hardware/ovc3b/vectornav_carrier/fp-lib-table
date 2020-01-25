@@ -6,4 +6,5 @@
   (lib (name "Connector_USB")(type "KiCad")(uri "/usr/share/kicad-nightly/modules/Connector_USB.pretty")(options "")(descr ""))
   (lib (name "Connector_PinSocket_2.00mm")(type "KiCad")(uri "/usr/share/kicad-nightly/modules/Connector_PinSocket_2.00mm.pretty")(options "")(descr ""))
   (lib (name "Connector_PinHeader_2.00mm")(type "KiCad")(uri "/usr/share/kicad-nightly/modules/Connector_PinHeader_2.00mm.pretty")(options "")(descr ""))
+  (lib (name "Connector_PinHeader_2.54mm")(type "KiCad")(uri "/usr/share/kicad-nightly/modules/Connector_PinHeader_2.54mm.pretty")(options "")(descr ""))
 )
