@@ -42,6 +42,18 @@ U 5C124FC6
 F0 "te0820" 118
 F1 "te0820.sch" 50
 $EndSheet
+$Sheet
+S 1100 4100 1100 200 
+U 5C470144
+F0 "misc" 118
+F1 "misc.sch" 50
+$EndSheet
+$Sheet
+S 1100 4750 1100 200 
+U 5C58B8AF
+F0 "bonus_cameras" 118
+F1 "bonus_cameras.sch" 59
+$EndSheet
 $Comp
 L Graphic:Logo_Open_Hardware_Small LOGO1
 U 1 1 5C46A97F
@@ -57,16 +69,4 @@ F 7 "DNP" H 2200 6975 50  0001 C CNN "MPN"
 	1    2200 6600
 	1    0    0    -1  
 $EndComp
-$Sheet
-S 1100 4750 1100 200 
-U 5C58B8AF
-F0 "bonus_cameras" 118
-F1 "bonus_cameras.sch" 59
-$EndSheet
-$Sheet
-S 1100 4100 1100 200 
-U 5C470144
-F0 "misc" 118
-F1 "misc.sch" 50
-$EndSheet
 $EndSCHEMATC
