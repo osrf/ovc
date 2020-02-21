@@ -75,6 +75,7 @@ def write_components(output_file, components_dict, prefix):
     # now print it all out to CSV
     for item in line_items:
         ref = '"' + ','.join(item['refdes']) + '"'
+        print('printing %s...' % ref)
         qty = str(ref.count(',') + 1)
         mfn = item['mfn']
         mpn = item['mpn']
