@@ -482,6 +482,10 @@ Wire Wire Line
 Wire Wire Line
 	9250 2850 9450 2850
 Wire Wire Line
+	9300 4900 9300 5050
+Wire Wire Line
+	9300 5050 9700 5050
+Wire Wire Line
 	9450 1250 9750 1250
 Wire Wire Line
 	9450 1500 9450 1250
@@ -500,11 +504,7 @@ Wire Wire Line
 Wire Wire Line
 	9500 4050 9950 4050
 Wire Wire Line
-	9500 5050 9700 5050
-Wire Wire Line
-	9650 4650 9650 4700
-Wire Wire Line
-	9650 4700 9700 4700
+	9500 4700 9700 4700
 Wire Wire Line
 	9700 4800 9450 4800
 Wire Wire Line
@@ -643,7 +643,7 @@ Text Label 8150 4350 0    50   ~ 0
 PH
 Text Label 8700 5700 0    50   ~ 0
 PWGND
-Text Label 9500 5050 0    50   ~ 0
+Text Label 9500 4700 0    50   ~ 0
 VAUX
 Text Label 10150 6050 0    50   ~ 0
 VAUX
@@ -753,6 +753,17 @@ F 3 "" H 8800 1900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
+L power:VBUS #PWR0257
+U 1 1 5DFBCC86
+P 9300 4900
+F 0 "#PWR0257" H 9300 4750 50  0001 C CNN
+F 1 "VBUS" H 9315 5073 50  0000 C CNN
+F 2 "" H 9300 4900 50  0001 C CNN
+F 3 "" H 9300 4900 50  0001 C CNN
+	1    9300 4900
+	1    0    0    -1  
+$EndComp
+$Comp
 L power:+3V3 #PWR0208
 U 1 1 5C827BAF
 P 9450 1250
@@ -761,17 +772,6 @@ F 1 "+3V3" H 9465 1423 50  0000 C CNN
 F 2 "" H 9450 1250 50  0001 C CNN
 F 3 "" H 9450 1250 50  0001 C CNN
 	1    9450 1250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:VBUS #PWR0257
-U 1 1 5DFBCC86
-P 9650 4650
-F 0 "#PWR0257" H 9650 4500 50  0001 C CNN
-F 1 "VBUS" H 9665 4823 50  0000 C CNN
-F 2 "" H 9650 4650 50  0001 C CNN
-F 3 "" H 9650 4650 50  0001 C CNN
-	1    9650 4650
 	1    0    0    -1  
 $EndComp
 $Comp
