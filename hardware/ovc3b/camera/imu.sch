@@ -1,5 +1,5 @@
 EESchema Schematic File Version 5
-EELAYER 30 0
+EELAYER 31 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -18,8 +18,8 @@ Comment7 ""
 Comment8 ""
 Comment9 ""
 $EndDescr
-Connection ~ 3950 1150
 Connection ~ 4450 1150
+Connection ~ 3950 1150
 Wire Wire Line
 	3450 2150 3700 2150
 Wire Wire Line

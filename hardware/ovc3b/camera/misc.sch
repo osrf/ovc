@@ -1,5 +1,5 @@
 EESchema Schematic File Version 5
-EELAYER 30 0
+EELAYER 31 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -18,24 +18,24 @@ Comment7 ""
 Comment8 ""
 Comment9 ""
 $EndDescr
-Connection ~ 2300 3050
-Connection ~ 2350 3050
-Connection ~ 2400 5000
-Connection ~ 2500 3050
-Connection ~ 2600 3050
-Connection ~ 3200 1600
-Connection ~ 3300 2700
-Connection ~ 3400 950 
-Connection ~ 6150 6100
-Connection ~ 6150 6450
-Connection ~ 6150 6900
 Connection ~ 7200 2250
+Connection ~ 7650 3350
+Connection ~ 6150 6450
+Connection ~ 2600 3050
 Connection ~ 7200 2550
 Connection ~ 7650 2350
+Connection ~ 6150 6100
 Connection ~ 7650 2650
-Connection ~ 7650 3350
-NoConn ~ 1800 1700
+Connection ~ 3300 2700
+Connection ~ 2300 3050
+Connection ~ 3200 1600
+Connection ~ 2500 3050
+Connection ~ 2400 5000
+Connection ~ 6150 6900
+Connection ~ 3400 950 
+Connection ~ 2350 3050
 NoConn ~ 1800 2250
+NoConn ~ 1800 1700
 Wire Wire Line
 	1350 6750 1500 6750
 Wire Wire Line

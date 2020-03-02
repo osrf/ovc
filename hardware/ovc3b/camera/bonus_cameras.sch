@@ -1,5 +1,5 @@
 EESchema Schematic File Version 5
-EELAYER 30 0
+EELAYER 31 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -18,30 +18,30 @@ Comment7 ""
 Comment8 ""
 Comment9 ""
 $EndDescr
-Connection ~ 1550 5100
-Connection ~ 2450 2500
-Connection ~ 2450 2800
-Connection ~ 2450 3100
-Connection ~ 2450 3400
-Connection ~ 2450 3700
-Connection ~ 3750 5100
-Connection ~ 4650 2500
-Connection ~ 4650 2800
-Connection ~ 4650 3100
-Connection ~ 4650 3400
 Connection ~ 4650 3700
-Connection ~ 6000 5100
 Connection ~ 6900 2500
-Connection ~ 6900 2800
-Connection ~ 6900 3100
+Connection ~ 4650 2800
 Connection ~ 6900 3400
-Connection ~ 6900 3700
+Connection ~ 3750 5100
+Connection ~ 2450 3100
 Connection ~ 8100 5100
+Connection ~ 4650 3400
+Connection ~ 6900 3100
+Connection ~ 2450 2800
+Connection ~ 4650 3100
+Connection ~ 6900 2800
+Connection ~ 9000 3700
+Connection ~ 9000 3400
+Connection ~ 6000 5100
+Connection ~ 2450 3700
+Connection ~ 9000 3100
+Connection ~ 1550 5100
+Connection ~ 2450 3400
+Connection ~ 6900 3700
 Connection ~ 9000 2500
 Connection ~ 9000 2800
-Connection ~ 9000 3100
-Connection ~ 9000 3400
-Connection ~ 9000 3700
+Connection ~ 2450 2500
+Connection ~ 4650 2500
 Wire Wire Line
 	1550 2500 2450 2500
 Wire Wire Line
