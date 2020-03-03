@@ -1,6 +1,8 @@
 PCB fabrication notes
 ====
  * 6 layers
+ * black soldermask both sides
+ * white silkscreen both sides
  * rectangular, 138mm x 50mm
  * 1.6mm finished thickness
  * minimum via size 14mil, minimum via drill 6mil. Most are larger.
