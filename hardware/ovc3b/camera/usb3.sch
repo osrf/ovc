@@ -18,105 +18,105 @@ Comment7 ""
 Comment8 ""
 Comment9 ""
 $EndDescr
-Connection ~ 5250 3100
-Connection ~ 6550 4300
-Connection ~ 2300 1600
-Connection ~ 9000 5850
-Connection ~ 10100 1700
-Connection ~ 1900 6750
-Connection ~ 7800 4000
-Connection ~ 9650 3650
-Connection ~ 10000 4050
-Connection ~ 8550 1700
-Connection ~ 9300 850 
-Connection ~ 3050 4300
-Connection ~ 9450 4750
-Connection ~ 9450 3950
-Connection ~ 6650 4300
-Connection ~ 1900 6150
-Connection ~ 9450 5050
-Connection ~ 9450 3850
-Connection ~ 5700 4000
-Connection ~ 9300 2450
-Connection ~ 3050 4000
-Connection ~ 1350 5750
-Connection ~ 1500 4000
-Connection ~ 9450 4150
-Connection ~ 5250 3850
-Connection ~ 4200 4000
-Connection ~ 6950 4300
-Connection ~ 1500 4350
-Connection ~ 4250 6250
-Connection ~ 650  4350
-Connection ~ 8150 3750
-Connection ~ 3350 4500
-Connection ~ 10350 3650
-Connection ~ 10350 4050
-Connection ~ 10000 3650
-Connection ~ 5700 4300
-Connection ~ 9450 4050
-Connection ~ 5350 4000
-Connection ~ 9450 4950
-Connection ~ 5750 3750
-Connection ~ 1900 6050
-Connection ~ 8900 850 
-Connection ~ 9850 1500
-Connection ~ 9450 4650
-Connection ~ 9500 850 
-Connection ~ 5250 3550
-Connection ~ 9450 4450
-Connection ~ 9450 4550
-Connection ~ 5900 3650
-Connection ~ 1900 6450
-Connection ~ 7800 3650
-Connection ~ 1900 6950
-Connection ~ 4250 6550
-Connection ~ 8150 3850
-Connection ~ 8900 5850
-Connection ~ 8800 5850
-Connection ~ 4550 4000
-Connection ~ 5700 4550
-Connection ~ 8150 3650
-Connection ~ 3550 4300
-Connection ~ 3350 4000
-Connection ~ 2300 4000
 Connection ~ 2300 4300
-Connection ~ 10100 1500
-Connection ~ 7450 3650
-Connection ~ 8150 3950
-Connection ~ 2300 1400
-Connection ~ 6600 2100
-Connection ~ 8500 5850
-Connection ~ 3750 4300
+Connection ~ 5700 4000
+Connection ~ 6650 4300
+Connection ~ 7800 4000
+Connection ~ 8150 3750
+Connection ~ 5650 3350
 Connection ~ 8700 5850
-Connection ~ 8150 4050
-Connection ~ 1900 6650
-Connection ~ 9900 5700
-Connection ~ 5550 3100
-Connection ~ 9450 3750
+Connection ~ 4200 4000
+Connection ~ 4900 3100
 Connection ~ 3550 6450
-Connection ~ 1800 4000
-Connection ~ 9450 3650
+Connection ~ 10000 3650
+Connection ~ 9450 4450
+Connection ~ 9500 850 
+Connection ~ 5350 4000
+Connection ~ 5700 4300
+Connection ~ 10000 4050
+Connection ~ 8150 3950
+Connection ~ 9650 3650
+Connection ~ 3550 4300
+Connection ~ 10350 4050
+Connection ~ 9300 850 
+Connection ~ 1900 6150
+Connection ~ 8900 5850
+Connection ~ 1900 6650
+Connection ~ 1900 6450
+Connection ~ 8150 4050
+Connection ~ 1900 6750
+Connection ~ 8150 3650
+Connection ~ 10350 3650
+Connection ~ 8150 3850
+Connection ~ 4250 6550
+Connection ~ 5350 3100
+Connection ~ 5650 3100
+Connection ~ 10100 1700
+Connection ~ 9450 4650
+Connection ~ 9450 3750
+Connection ~ 4550 4000
+Connection ~ 8900 850 
 Connection ~ 9450 4850
+Connection ~ 6950 4300
+Connection ~ 1350 5750
+Connection ~ 4250 6250
+Connection ~ 9450 4150
+Connection ~ 1500 4350
+Connection ~ 2300 4000
+Connection ~ 9900 5700
+Connection ~ 5700 4550
+Connection ~ 9450 3650
+Connection ~ 7450 3650
+Connection ~ 1800 4000
+Connection ~ 10100 1500
+Connection ~ 1900 6050
+Connection ~ 6600 2100
+Connection ~ 5350 3550
+Connection ~ 1900 6950
+Connection ~ 3050 4300
+Connection ~ 8550 1700
+Connection ~ 8500 5850
+Connection ~ 3050 4000
+Connection ~ 9850 1500
+Connection ~ 9300 2450
+Connection ~ 9450 4950
+Connection ~ 9450 4750
+Connection ~ 2300 1600
+Connection ~ 9450 4050
+Connection ~ 5350 3850
+Connection ~ 3750 4300
+Connection ~ 650  4350
+Connection ~ 6550 4300
+Connection ~ 1500 4000
+Connection ~ 7800 3650
+Connection ~ 8800 5850
+Connection ~ 3350 4500
+Connection ~ 9000 5850
 Connection ~ 9450 4350
-NoConn ~ 3200 5750
-NoConn ~ 3200 6650
-NoConn ~ 8150 5250
-NoConn ~ 8150 4550
-NoConn ~ 9800 1700
-NoConn ~ 8150 4850
-NoConn ~ 8150 4950
+Connection ~ 3350 4000
+Connection ~ 9450 3950
+Connection ~ 9450 4550
+Connection ~ 9450 3850
+Connection ~ 2300 1400
+Connection ~ 9450 5050
+NoConn ~ 8150 5150
+NoConn ~ 8150 4450
 NoConn ~ 3200 5650
 NoConn ~ 3200 6050
-NoConn ~ 2000 6550
-NoConn ~ 8150 4450
-NoConn ~ 8150 5150
-NoConn ~ 8150 5050
+NoConn ~ 8150 4950
 NoConn ~ 9800 1900
-NoConn ~ 8150 4350
-NoConn ~ 8150 5350
+NoConn ~ 9800 1700
+NoConn ~ 2000 6550
 NoConn ~ 9650 4350
+NoConn ~ 3200 6650
+NoConn ~ 8150 5050
+NoConn ~ 8150 4850
+NoConn ~ 8150 4350
+NoConn ~ 8150 5250
 NoConn ~ 3200 5850
+NoConn ~ 8150 4550
+NoConn ~ 3200 5750
+NoConn ~ 8150 5350
 Wire Wire Line
 	650  4300 650  4350
 Wire Wire Line
@@ -290,6 +290,8 @@ Wire Wire Line
 Wire Wire Line
 	4200 4300 4200 4200
 Wire Wire Line
+	4250 3100 4900 3100
+Wire Wire Line
 	4250 6550 4250 6450
 Wire Wire Line
 	4550 4000 4550 5250
@@ -304,15 +306,15 @@ Wire Wire Line
 Wire Wire Line
 	4700 1000 4150 1000
 Wire Wire Line
-	4800 3100 4800 3250
-Wire Wire Line
-	4800 3100 5250 3100
-Wire Wire Line
-	4800 3850 5250 3850
-Wire Wire Line
 	4900 1000 5550 1000
 Wire Wire Line
 	4900 1300 5550 1300
+Wire Wire Line
+	4900 3100 4900 3250
+Wire Wire Line
+	4900 3100 5100 3100
+Wire Wire Line
+	4900 3850 5350 3850
 Wire Wire Line
 	4950 5900 5100 5900
 Wire Wire Line
@@ -324,17 +326,19 @@ Wire Wire Line
 Wire Wire Line
 	5200 1200 5550 1200
 Wire Wire Line
-	5250 3100 5250 3300
+	5300 3100 5350 3100
 Wire Wire Line
-	5250 3100 5550 3100
+	5350 3100 5350 3300
 Wire Wire Line
-	5250 3500 5250 3550
+	5350 3100 5650 3100
 Wire Wire Line
-	5250 3550 5250 3600
+	5350 3500 5350 3550
 Wire Wire Line
-	5250 3550 5400 3550
+	5350 3550 5350 3600
 Wire Wire Line
-	5250 3850 5250 3800
+	5350 3550 5500 3550
+Wire Wire Line
+	5350 3850 5350 3800
 Wire Wire Line
 	5350 4000 5350 4200
 Wire Wire Line
@@ -344,7 +348,9 @@ Wire Wire Line
 Wire Wire Line
 	5350 4550 5700 4550
 Wire Wire Line
-	5400 3900 5400 3550
+	5500 3850 5500 3550
+Wire Wire Line
+	5500 3850 5900 3850
 Wire Wire Line
 	5550 1600 4950 1600
 Wire Wire Line
@@ -354,7 +360,9 @@ Wire Wire Line
 Wire Wire Line
 	5550 2000 4950 2000
 Wire Wire Line
-	5550 3100 5900 3100
+	5650 3100 5850 3100
+Wire Wire Line
+	5650 3350 5650 3300
 Wire Wire Line
 	5650 5900 5400 5900
 Wire Wire Line
@@ -368,21 +376,19 @@ Wire Wire Line
 Wire Wire Line
 	5700 4300 5850 4300
 Wire Wire Line
-	5750 3650 5900 3650
+	5750 3350 5650 3350
 Wire Wire Line
-	5850 3850 5850 3900
+	5750 3750 5750 3350
 Wire Wire Line
-	5850 3900 5400 3900
+	5850 3100 5850 3650
+Wire Wire Line
+	5850 3650 5900 3650
 Wire Wire Line
 	5850 4100 5850 4300
 Wire Wire Line
 	5850 4100 5900 4100
 Wire Wire Line
-	5900 3650 5900 3100
-Wire Wire Line
 	5900 3750 5750 3750
-Wire Wire Line
-	5900 3850 5850 3850
 Wire Wire Line
 	6150 5900 5850 5900
 Wire Wire Line
@@ -605,9 +611,9 @@ Text Notes 2400 3150 0    50   ~ 0
 SBU not used
 Text Notes 3450 1250 0    50   ~ 0
 polarity swap OK
-Text Notes 4400 2900 0    50   ~ 0
+Text Notes 4000 2800 0    50   ~ 0
 TPS2121 over-voltage cutoff set to 16 V
-Text Notes 4400 3000 0    50   ~ 0
+Text Notes 4000 2900 0    50   ~ 0
 TVS1800 working voltage 18V, clamps by 24 V
 Text Notes 5250 2600 0    50   ~ 0
 USB type-C mux options:\nHD3SS3202 (passive)\nPTN36043 (active)\nTUSB1042I (active)
@@ -665,6 +671,8 @@ Text Label 4150 1200 0    50   ~ 0
 CONN_TX1-
 Text Label 4150 1300 0    50   ~ 0
 CONN_TX1+
+Text Label 4300 3100 0    50   ~ 0
+AUX_PWR
 Text Label 4950 1600 0    50   ~ 0
 CONN_RX2+
 Text Label 4950 1700 0    50   ~ 0
@@ -735,12 +743,12 @@ $EndComp
 $Comp
 L power:VBUS #PWR0108
 U 1 1 5C040898
-P 4200 4000
-F 0 "#PWR0108" H 4200 3850 50  0001 C CNN
-F 1 "VBUS" H 4215 4173 50  0000 C CNN
-F 2 "" H 4200 4000 50  0001 C CNN
-F 3 "" H 4200 4000 50  0001 C CNN
-	1    4200 4000
+P 4550 4000
+F 0 "#PWR0108" H 4550 3850 50  0001 C CNN
+F 1 "VBUS" H 4565 4173 50  0000 C CNN
+F 2 "" H 4550 4000 50  0001 C CNN
+F 3 "" H 4550 4000 50  0001 C CNN
+	1    4550 4000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -926,6 +934,19 @@ F 3 "" H 3100 4700 50  0001 C CNN
 $EndComp
 $Comp
 L power:GND #PWR?
+U 1 1 00000000
+P 4250 3200
+AR Path="/00000000" Ref="#PWR?"  Part="1" 
+AR Path="/5BFFC89B/00000000" Ref="#PWR0257"  Part="1" 
+F 0 "#PWR0257" H 4250 2950 50  0001 C CNN
+F 1 "GND" H 4255 3027 50  0001 C CNN
+F 2 "" H 4250 3200 50  0001 C CNN
+F 3 "" H 4250 3200 50  0001 C CNN
+	1    4250 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
 U 1 1 5CD76FA2
 P 4950 5900
 AR Path="/5CD76FA2" Ref="#PWR?"  Part="1" 
@@ -940,27 +961,27 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 5DFABAD4
-P 5250 3850
+P 5350 3850
 AR Path="/5DFABAD4" Ref="#PWR?"  Part="1" 
 AR Path="/5BFFC89B/5DFABAD4" Ref="#PWR0114"  Part="1" 
-F 0 "#PWR0114" H 5250 3600 50  0001 C CNN
-F 1 "GND" H 5255 3677 50  0001 C CNN
-F 2 "" H 5250 3850 50  0001 C CNN
-F 3 "" H 5250 3850 50  0001 C CNN
-	1    5250 3850
+F 0 "#PWR0114" H 5350 3600 50  0001 C CNN
+F 1 "GND" H 5355 3677 50  0001 C CNN
+F 2 "" H 5350 3850 50  0001 C CNN
+F 3 "" H 5350 3850 50  0001 C CNN
+	1    5350 3850
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 00000000
-P 5550 3300
+P 5650 3350
 AR Path="/00000000" Ref="#PWR?"  Part="1" 
 AR Path="/5BFFC89B/00000000" Ref="#PWR0258"  Part="1" 
-F 0 "#PWR0258" H 5550 3050 50  0001 C CNN
-F 1 "GND" H 5555 3127 50  0001 C CNN
-F 2 "" H 5550 3300 50  0001 C CNN
-F 3 "" H 5550 3300 50  0001 C CNN
-	1    5550 3300
+F 0 "#PWR0258" H 5650 3100 50  0001 C CNN
+F 1 "GND" H 5655 3177 50  0001 C CNN
+F 2 "" H 5650 3350 50  0001 C CNN
+F 3 "" H 5650 3350 50  0001 C CNN
+	1    5650 3350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -987,19 +1008,6 @@ F 1 "GND" H 5705 6677 50  0001 C CNN
 F 2 "" H 5700 6850 50  0001 C CNN
 F 3 "" H 5700 6850 50  0001 C CNN
 	1    5700 6850
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 00000000
-P 5750 3750
-AR Path="/00000000" Ref="#PWR?"  Part="1" 
-AR Path="/5BFFC89B/00000000" Ref="#PWR0257"  Part="1" 
-F 0 "#PWR0257" H 5750 3500 50  0001 C CNN
-F 1 "GND" H 5755 3577 50  0001 C CNN
-F 2 "" H 5750 3750 50  0001 C CNN
-F 3 "" H 5750 3750 50  0001 C CNN
-	1    5750 3750
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1287,33 +1295,33 @@ $EndComp
 $Comp
 L Device:R_Small R31
 U 1 1 00000000
-P 5250 3400
-F 0 "R31" H 5009 3446 50  0000 L CNN
-F 1 "143k" H 5009 3355 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 5250 3400 50  0001 C CNN
-F 3 "~" H 5250 3400 50  0001 C CNN
-F 4 "Digikey" H 5309 3546 50  0001 C CNN "D1"
-F 5 "Digikey" H 5309 3546 50  0001 C CNN "D1N"
-F 6 "" H 5309 3546 50  0001 C CNN "D1PN"
-F 7 "Panasonic" H 5309 3546 50  0001 C CNN "MFN"
-F 8 "" H 5309 3546 50  0001 C CNN "MPN"
-	1    5250 3400
+P 5350 3400
+F 0 "R31" H 5109 3446 50  0000 L CNN
+F 1 "143k" H 5109 3355 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 5350 3400 50  0001 C CNN
+F 3 "~" H 5350 3400 50  0001 C CNN
+F 4 "Digikey" H 5409 3546 50  0001 C CNN "D1"
+F 5 "Digikey" H 5409 3546 50  0001 C CNN "D1N"
+F 6 "" H 5409 3546 50  0001 C CNN "D1PN"
+F 7 "Panasonic" H 5409 3546 50  0001 C CNN "MFN"
+F 8 "" H 5409 3546 50  0001 C CNN "MPN"
+	1    5350 3400
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R_Small R32
 U 1 1 00000000
-P 5250 3700
-F 0 "R32" H 5009 3746 50  0000 L CNN
-F 1 "10k" H 5009 3655 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 5250 3700 50  0001 C CNN
-F 3 "~" H 5250 3700 50  0001 C CNN
-F 4 "Digikey" H 5309 3846 50  0001 C CNN "D1"
-F 5 "Digikey" H 5309 3846 50  0001 C CNN "D1N"
-F 6 "" H 5309 3846 50  0001 C CNN "D1PN"
-F 7 "Panasonic" H 5309 3846 50  0001 C CNN "MFN"
-F 8 "" H 5309 3846 50  0001 C CNN "MPN"
-	1    5250 3700
+P 5350 3700
+F 0 "R32" H 5109 3746 50  0000 L CNN
+F 1 "10k" H 5109 3655 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 5350 3700 50  0001 C CNN
+F 3 "~" H 5350 3700 50  0001 C CNN
+F 4 "Digikey" H 5409 3846 50  0001 C CNN "D1"
+F 5 "Digikey" H 5409 3846 50  0001 C CNN "D1N"
+F 6 "" H 5409 3846 50  0001 C CNN "D1PN"
+F 7 "Panasonic" H 5409 3846 50  0001 C CNN "MFN"
+F 8 "" H 5409 3846 50  0001 C CNN "MPN"
+	1    5350 3700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1413,6 +1421,21 @@ F 7 "Panasonic" H 9959 5596 50  0001 C CNN "MFN"
 F 8 "ERJ-2RKF3160X" H 9959 5596 50  0001 C CNN "MPN"
 	1    9900 5450
 	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D_Schottky_Small_ALT D9
+U 1 1 00000000
+P 5200 3100
+F 0 "D9" H 5400 3050 50  0000 C CNN
+F 1 "PMEG3030EP,115" H 5150 2950 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-128" V 5200 3100 50  0001 C CNN
+F 3 "~" V 5200 3100 50  0001 C CNN
+F 4 "PMEG3030EP,115" H 5200 3100 50  0001 C CNN "MPN"
+F 5 "Nexperia" H 5200 3100 50  0001 C CNN "MFN"
+F 6 "1727-5324-1-ND" H 5200 3100 50  0001 C CNN "D1PN"
+F 7 "Digikey" H 5200 3100 50  0001 C CNN "D1N"
+	1    5200 3100
+	-1   0    0    1   
 $EndComp
 $Comp
 L Device:CP1_Small C18
@@ -1612,18 +1635,18 @@ $EndComp
 $Comp
 L Device:C_Small C87
 U 1 1 00000000
-P 5550 3200
-F 0 "C87" H 5642 3246 50  0000 L CNN
-F 1 "100n" H 5642 3155 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 5550 3200 50  0001 C CNN
-F 3 "~" H 5550 3200 50  0001 C CNN
-F 4 "Digikey" H 5642 3346 50  0001 C CNN "D1"
-F 5 "Digikey" H 5642 3346 50  0001 C CNN "D1N"
-F 6 "490-11917-1-ND" H 5642 3346 50  0001 C CNN "D1PN"
-F 7 "Murata" H 5642 3346 50  0001 C CNN "MFN"
-F 8 "GRM155R61H104KE19D" H 5642 3346 50  0001 C CNN "MPN"
-F 9 "50 V" H 5550 3200 50  0001 C CNN "Voltage"
-	1    5550 3200
+P 5650 3200
+F 0 "C87" H 5392 3246 50  0000 L CNN
+F 1 "100n" H 5392 3155 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 5650 3200 50  0001 C CNN
+F 3 "~" H 5650 3200 50  0001 C CNN
+F 4 "Digikey" H 5742 3346 50  0001 C CNN "D1"
+F 5 "Digikey" H 5742 3346 50  0001 C CNN "D1N"
+F 6 "490-11917-1-ND" H 5742 3346 50  0001 C CNN "D1PN"
+F 7 "Murata" H 5742 3346 50  0001 C CNN "MFN"
+F 8 "GRM155R61H104KE19D" H 5742 3346 50  0001 C CNN "MPN"
+F 9 "50 V" H 5650 3200 50  0001 C CNN "Voltage"
+	1    5650 3200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1871,17 +1894,17 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x02 J8
 U 1 1 5C4E1192
-P 5550 3650
-F 0 "J8" H 5500 3850 50  0000 L CNN
-F 1 "AUX_PWR" H 5250 3750 50  0000 L CNN
-F 2 "Connector_Molex:Molex_Nano-Fit_105313-xx02_1x02_P2.50mm_Horizontal" H 5550 3650 50  0001 C CNN
-F 3 "~" H 5550 3650 50  0001 C CNN
-F 4 "Digikey" H 5630 3742 50  0001 C CNN "D1"
-F 5 "Digikey" H 5630 3742 50  0001 C CNN "D1N"
-F 6 "WM16893-ND" H 5630 3742 50  0001 C CNN "D1PN"
-F 7 "Molex" H 5630 3742 50  0001 C CNN "MFN"
-F 8 "1053131102" H 5630 3742 50  0001 C CNN "MPN"
-	1    5550 3650
+P 4050 3100
+F 0 "J8" H 4400 3100 50  0000 L CNN
+F 1 "AUX_PWR" H 4150 3000 50  0000 L CNN
+F 2 "Connector_Molex:Molex_Nano-Fit_105313-xx02_1x02_P2.50mm_Horizontal" H 4050 3100 50  0001 C CNN
+F 3 "~" H 4050 3100 50  0001 C CNN
+F 4 "Digikey" H 4130 3192 50  0001 C CNN "D1"
+F 5 "Digikey" H 4130 3192 50  0001 C CNN "D1N"
+F 6 "WM16893-ND" H 4130 3192 50  0001 C CNN "D1PN"
+F 7 "Molex" H 4130 3192 50  0001 C CNN "MFN"
+F 8 "1053131102" H 4130 3192 50  0001 C CNN "MPN"
+	1    4050 3100
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -1919,8 +1942,8 @@ $Comp
 L Device:Q_PMOS_GSD Q1
 U 1 1 5C01A331
 P 2750 4100
-F 0 "Q1" V 3093 4100 50  0000 C CNN
-F 1 "SI2369DS" V 3002 4100 50  0000 C CNN
+F 0 "Q1" V 2900 4250 50  0000 C CNN
+F 1 "SI2369DS" V 2900 3800 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 2950 4200 50  0001 C CNN
 F 3 "~" H 2750 4100 50  0001 C CNN
 F 4 "Digikey" H 3093 4200 50  0001 C CNN "D1"
@@ -1935,8 +1958,8 @@ $Comp
 L Device:Q_PMOS_GSD Q2
 U 1 1 5C034E57
 P 3750 4100
-F 0 "Q2" V 4093 4100 50  0000 C CNN
-F 1 "SI2369DS" V 4002 4100 50  0000 C CNN
+F 0 "Q2" V 3900 3850 50  0000 C CNN
+F 1 "SI2369DS" V 3900 4450 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 3950 4200 50  0001 C CNN
 F 3 "~" H 3750 4100 50  0001 C CNN
 F 4 "Digikey" H 4093 4200 50  0001 C CNN "D1"
@@ -1950,16 +1973,16 @@ $EndComp
 $Comp
 L Power_Protection:TVS1800DRV U14
 U 1 1 00000000
-P 4800 3550
-F 0 "U14" H 4300 3900 50  0000 L CNN
-F 1 "TVS1800DRV" H 4300 3800 50  0000 L CNN
-F 2 "Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm" H 5000 3200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tvs1800.pdf" H 4700 3550 50  0001 C CNN
-F 4 "Digikey" H 4800 3550 50  0001 C CNN "D1N"
-F 5 "296-52186-1-ND" H 4800 3550 50  0001 C CNN "D1PN"
-F 6 "TI" H 4800 3550 50  0001 C CNN "MFN"
-F 7 "TVS1800DRVR" H 4800 3550 50  0001 C CNN "MPN"
-	1    4800 3550
+P 4900 3550
+F 0 "U14" H 4400 3900 50  0000 L CNN
+F 1 "TVS1800DRV" H 4400 3800 50  0000 L CNN
+F 2 "Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm" H 5100 3200 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tvs1800.pdf" H 4800 3550 50  0001 C CNN
+F 4 "Digikey" H 4900 3550 50  0001 C CNN "D1N"
+F 5 "296-52186-1-ND" H 4900 3550 50  0001 C CNN "D1PN"
+F 6 "TI" H 4900 3550 50  0001 C CNN "MFN"
+F 7 "TVS1800DRVR" H 4900 3550 50  0001 C CNN "MPN"
+	1    4900 3550
 	1    0    0    -1  
 $EndComp
 $Comp

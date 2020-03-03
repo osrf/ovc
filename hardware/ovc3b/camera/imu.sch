@@ -18,8 +18,8 @@ Comment7 ""
 Comment8 ""
 Comment9 ""
 $EndDescr
-Connection ~ 4450 1150
 Connection ~ 3950 1150
+Connection ~ 4450 1150
 Wire Wire Line
 	3450 2150 3700 2150
 Wire Wire Line

@@ -1,4 +1,4 @@
-update=Mon Mar  2 10:40:53 2020
+update=Tue Mar  3 13:43:09 2020
 last_client=kicad
 [general]
 version=1
@@ -18,8 +18,6 @@ ERC_CheckBusDriverConflicts=1
 ERC_CheckBusEntryConflicts=1
 ERC_CheckBusToBusConflicts=1
 ERC_CheckBusToNetConflicts=1
-[PcbFrame]
-version=1
 [pcbnew]
 version=1
 PageLayoutDescrFile=
@@ -283,8 +281,10 @@ dPairViaGap=0.25
 version=1
 [SchematicFrame]
 version=1
+[PcbFrame]
+version=1
 [sheetnames]
-1=e02d0ca2-1758-4079-9071-2c37ccd03602:Sheete02d0ca2-1758-4079-9071-2c37ccd03602
+1=d5e82883-430c-4c45-a1a6-271e0cbb40c4:Sheetd5e82883-430c-4c45-a1a6-271e0cbb40c4
 2=00000000-0000-0000-0000-00005bffc89b:usb3
 3=00000000-0000-0000-0000-00005c58b8af:bonus_cameras
 4=00000000-0000-0000-0000-00005bfa87c9:imagers
