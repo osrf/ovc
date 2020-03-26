@@ -269,8 +269,14 @@ git clone ssh://git@github.com/osrf/osrf_hw
 git clone ssh://git@github.com/osrf/ovc
 ```
 
+Add the following line to your .bashrc file to set the KIWORKSPACE environment variable to point at your hardware folder:
+
+```
+export KIWORKSPACE=~/hw
+```
+
 Then you should be able to view the latest developments:
 ```
-cd ~/hw/ovc/hardware/ovc3a
+cd ~/hw/ovc/hardware/ovc3b
 kicad-nightly ovc3.pro
 ```
