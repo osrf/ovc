@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name "nvidia_jetson")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/nvidia_jetson.lib")(options "")(descr ""))
+  (lib (name "DCDC_Converters")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/DCDC_Converters.lib")(options "")(descr ""))
+  (lib (name "usb_controller")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/usb_controller.lib")(options "")(descr ""))
+  (lib (name "power_mux")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/power_mux.lib")(options "")(descr ""))
+)

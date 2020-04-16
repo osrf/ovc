@@ -1,0 +1,794 @@
+EESchema Schematic File Version 5
+EELAYER 33 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 5
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+Comment5 ""
+Comment6 ""
+Comment7 ""
+Comment8 ""
+Comment9 ""
+$EndDescr
+Connection ~ 3800 2300
+Connection ~ 3800 2400
+Connection ~ 3800 2500
+Connection ~ 3800 2600
+Connection ~ 3800 2700
+Connection ~ 3800 2800
+Connection ~ 3800 2900
+Connection ~ 3800 3000
+Connection ~ 3800 3100
+Connection ~ 3800 3200
+Connection ~ 3800 3300
+Connection ~ 3800 3400
+Connection ~ 3800 3500
+Connection ~ 3800 3600
+Connection ~ 3800 3700
+Connection ~ 3800 3800
+Connection ~ 3800 3900
+Connection ~ 3800 4000
+Connection ~ 3800 4100
+Connection ~ 3800 4200
+Connection ~ 3800 4300
+Connection ~ 3800 4400
+Connection ~ 3800 4500
+Connection ~ 3800 4600
+Connection ~ 3800 4700
+Connection ~ 3800 4800
+Connection ~ 3800 4900
+Connection ~ 3800 5000
+Connection ~ 3800 5100
+Connection ~ 3800 5200
+Connection ~ 3800 5300
+Connection ~ 3800 5400
+Connection ~ 3800 5500
+Connection ~ 3800 5600
+Connection ~ 2300 2600
+Connection ~ 2300 2700
+Connection ~ 2300 2800
+Connection ~ 2300 2900
+Connection ~ 2300 3000
+Connection ~ 2300 3100
+Connection ~ 2300 3200
+Connection ~ 2300 3300
+Connection ~ 2300 3400
+Connection ~ 2300 3500
+Connection ~ 2300 3600
+Connection ~ 2300 3700
+Connection ~ 2300 3800
+Connection ~ 2300 3900
+Connection ~ 2300 4000
+Connection ~ 2300 4100
+Connection ~ 2300 4200
+Connection ~ 2300 4300
+Connection ~ 2300 4400
+Connection ~ 2300 4500
+Connection ~ 2300 4600
+Connection ~ 2300 4700
+Connection ~ 2300 4800
+Connection ~ 2300 4900
+Connection ~ 2300 5000
+Connection ~ 2300 5100
+Connection ~ 2300 5200
+Connection ~ 2300 5300
+Connection ~ 2300 5400
+Connection ~ 2300 5500
+Connection ~ 2300 5600
+Connection ~ 2300 5700
+Connection ~ 3800 5700
+Connection ~ 2300 1500
+Connection ~ 2300 1600
+Connection ~ 2300 1700
+Connection ~ 2300 1800
+Connection ~ 2300 1900
+Connection ~ 2300 2000
+Connection ~ 2300 2100
+Connection ~ 2300 2200
+Connection ~ 2300 1400
+Connection ~ 1800 1400
+Connection ~ 1350 1600
+Connection ~ 1350 1400
+Connection ~ 9450 2900
+Connection ~ 9550 1400
+Connection ~ 9350 1400
+Connection ~ 9450 1400
+Connection ~ 9850 2050
+Connection ~ 9050 2350
+Connection ~ 9050 2450
+Connection ~ 9350 2900
+Connection ~ 10250 2050
+Connection ~ 7050 4800
+Connection ~ 7500 4800
+Connection ~ 7350 4800
+Connection ~ 7950 4800
+NoConn ~ 9850 2250
+Wire Wire Line
+	1350 1300 1350 1400
+Wire Wire Line
+	1350 1400 1800 1400
+Wire Wire Line
+	1350 1600 1350 1750
+Wire Wire Line
+	1350 1600 1800 1600
+Wire Wire Line
+	1800 1400 2300 1400
+Wire Wire Line
+	2300 1400 2300 1500
+Wire Wire Line
+	2300 1500 2300 1600
+Wire Wire Line
+	2300 1600 2300 1700
+Wire Wire Line
+	2300 1700 2300 1800
+Wire Wire Line
+	2300 1800 2300 1900
+Wire Wire Line
+	2300 1900 2300 2000
+Wire Wire Line
+	2300 2000 2300 2100
+Wire Wire Line
+	2300 2100 2300 2200
+Wire Wire Line
+	2300 2200 2300 2300
+Wire Wire Line
+	2300 2500 2300 2600
+Wire Wire Line
+	2300 2600 2300 2700
+Wire Wire Line
+	2300 2700 2300 2800
+Wire Wire Line
+	2300 2800 2300 2900
+Wire Wire Line
+	2300 2900 2300 3000
+Wire Wire Line
+	2300 3000 2300 3100
+Wire Wire Line
+	2300 3100 2300 3200
+Wire Wire Line
+	2300 3200 2300 3300
+Wire Wire Line
+	2300 3300 2300 3400
+Wire Wire Line
+	2300 3400 2300 3500
+Wire Wire Line
+	2300 3500 2300 3600
+Wire Wire Line
+	2300 3600 2300 3700
+Wire Wire Line
+	2300 3700 2300 3800
+Wire Wire Line
+	2300 3800 2300 3900
+Wire Wire Line
+	2300 3900 2300 4000
+Wire Wire Line
+	2300 4000 2300 4100
+Wire Wire Line
+	2300 4100 2300 4200
+Wire Wire Line
+	2300 4200 2300 4300
+Wire Wire Line
+	2300 4300 2300 4400
+Wire Wire Line
+	2300 4400 2300 4500
+Wire Wire Line
+	2300 4500 2300 4600
+Wire Wire Line
+	2300 4600 2300 4700
+Wire Wire Line
+	2300 4700 2300 4800
+Wire Wire Line
+	2300 4800 2300 4900
+Wire Wire Line
+	2300 4900 2300 5000
+Wire Wire Line
+	2300 5000 2300 5100
+Wire Wire Line
+	2300 5100 2300 5200
+Wire Wire Line
+	2300 5200 2300 5300
+Wire Wire Line
+	2300 5300 2300 5400
+Wire Wire Line
+	2300 5400 2300 5500
+Wire Wire Line
+	2300 5500 2300 5600
+Wire Wire Line
+	2300 5600 2300 5700
+Wire Wire Line
+	2300 5700 2300 6050
+Wire Wire Line
+	3800 1700 4500 1700
+Wire Wire Line
+	3800 1800 4250 1800
+Wire Wire Line
+	3800 2200 3800 2300
+Wire Wire Line
+	3800 2300 3800 2400
+Wire Wire Line
+	3800 2400 3800 2500
+Wire Wire Line
+	3800 2500 3800 2600
+Wire Wire Line
+	3800 2600 3800 2700
+Wire Wire Line
+	3800 2700 3800 2800
+Wire Wire Line
+	3800 2800 3800 2900
+Wire Wire Line
+	3800 2900 3800 3000
+Wire Wire Line
+	3800 3000 3800 3100
+Wire Wire Line
+	3800 3100 3800 3200
+Wire Wire Line
+	3800 3200 3800 3300
+Wire Wire Line
+	3800 3300 3800 3400
+Wire Wire Line
+	3800 3400 3800 3500
+Wire Wire Line
+	3800 3500 3800 3600
+Wire Wire Line
+	3800 3600 3800 3700
+Wire Wire Line
+	3800 3700 3800 3800
+Wire Wire Line
+	3800 3800 3800 3900
+Wire Wire Line
+	3800 3900 3800 4000
+Wire Wire Line
+	3800 4000 3800 4100
+Wire Wire Line
+	3800 4100 3800 4200
+Wire Wire Line
+	3800 4200 3800 4300
+Wire Wire Line
+	3800 4300 3800 4400
+Wire Wire Line
+	3800 4400 3800 4500
+Wire Wire Line
+	3800 4500 3800 4600
+Wire Wire Line
+	3800 4600 3800 4700
+Wire Wire Line
+	3800 4700 3800 4800
+Wire Wire Line
+	3800 4800 3800 4900
+Wire Wire Line
+	3800 4900 3800 5000
+Wire Wire Line
+	3800 5000 3800 5100
+Wire Wire Line
+	3800 5100 3800 5200
+Wire Wire Line
+	3800 5200 3800 5300
+Wire Wire Line
+	3800 5300 3800 5400
+Wire Wire Line
+	3800 5400 3800 5500
+Wire Wire Line
+	3800 5500 3800 5600
+Wire Wire Line
+	3800 5600 3800 5700
+Wire Wire Line
+	3800 5700 3800 6050
+Wire Wire Line
+	5450 4250 5450 4450
+Wire Wire Line
+	5825 4250 5825 4450
+Wire Wire Line
+	6200 4500 6700 4500
+Wire Wire Line
+	6400 4250 6700 4250
+Wire Wire Line
+	6400 4300 6400 4250
+Wire Wire Line
+	6525 4350 6700 4350
+Wire Wire Line
+	6525 4600 6700 4600
+Wire Wire Line
+	6550 4150 6550 4000
+Wire Wire Line
+	6700 4150 6550 4150
+Wire Wire Line
+	7350 4150 7500 4150
+Wire Wire Line
+	7350 4300 8150 4300
+Wire Wire Line
+	7350 4400 7950 4400
+Wire Wire Line
+	7350 4500 7500 4500
+Wire Wire Line
+	7350 4600 7350 4800
+Wire Wire Line
+	7350 4800 7050 4800
+Wire Wire Line
+	7500 4150 7500 4000
+Wire Wire Line
+	7500 4500 7500 4600
+Wire Wire Line
+	7500 4800 7350 4800
+Wire Wire Line
+	7500 4800 7950 4800
+Wire Wire Line
+	7950 4400 7950 4500
+Wire Wire Line
+	7950 4800 7950 4700
+Wire Wire Line
+	8150 4300 8150 4800
+Wire Wire Line
+	8150 4800 7950 4800
+Wire Wire Line
+	8550 2050 9050 2050
+Wire Wire Line
+	8850 1400 9350 1400
+Wire Wire Line
+	9050 2250 9050 2350
+Wire Wire Line
+	9050 2350 9050 2450
+Wire Wire Line
+	9050 2450 9050 2900
+Wire Wire Line
+	9050 2900 9350 2900
+Wire Wire Line
+	9350 1650 9350 1400
+Wire Wire Line
+	9350 2850 9350 2900
+Wire Wire Line
+	9350 2900 9450 2900
+Wire Wire Line
+	9450 1150 9450 1400
+Wire Wire Line
+	9450 1400 9350 1400
+Wire Wire Line
+	9550 1400 9450 1400
+Wire Wire Line
+	9550 1400 9900 1400
+Wire Wire Line
+	9550 1650 9550 1400
+Wire Wire Line
+	9550 2850 9550 2900
+Wire Wire Line
+	9550 2900 9450 2900
+Wire Wire Line
+	9850 2050 9850 2150
+Wire Wire Line
+	9850 2050 10250 2050
+Wire Wire Line
+	10250 2050 10250 1800
+Text Notes 2050 2000 2    50   ~ 0
+TODO bulk cap, 560u on official carrier
+Text Notes 8050 5500 2    50   ~ 0
+IN1 is straight from USB bus\nIN2 is regulated from VBUS\nJetson maximum VIN is 5.25V\nNominal OV is 5.21V, get low tol resistors\nAutomatic switchover to whichever voltage is valid (with IN2 being preferred)\nCurrent limit at 4.5A
+Text Notes 10700 3150 2    50   ~ 0
+Enabled by nSYS_RESET, which works as a PGOOD for the Jetson
+Text Notes 10800 3250 2    50   ~ 0
+TODO series switch for VOUT or ENABLE tied to Jetson nSYS_RESET
+Text Notes 11000 2600 2    50   ~ 0
+TODO check if we need POK
+Text Notes 11100 3800 2    50   ~ 0
+TODO check if we need RECOVERY
+Text Label 4250 1800 2    50   ~ 0
+nSYS_RESET
+Text Label 4500 1700 2    50   ~ 0
+nFORCE_RECOVERY
+Text Label 5450 4425 1    50   ~ 0
+OV1
+Text Label 5825 4425 1    50   ~ 0
+OV2
+Text Label 6525 4350 0    50   ~ 0
+OV1
+Text Label 6525 4600 0    50   ~ 0
+OV2
+Text Label 8550 2050 0    50   ~ 0
+nSYS_RESET
+Text Label 9000 3800 2    50   ~ 0
+nFORCE_RECOVERY
+$Comp
+L power:+5V #PWR?
+U 1 1 5EA26035
+P 1350 1300
+F 0 "#PWR?" H 1350 1150 50  0001 C CNN
+F 1 "+5V" H 1365 1470 50  0000 C CNN
+F 2 "" H 1350 1300 50  0001 C CNN
+F 3 "" H 1350 1300 50  0001 C CNN
+	1    1350 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VBUS #PWR?
+U 1 1 5ECF9457
+P 5450 4050
+F 0 "#PWR?" H 5450 3900 50  0001 C CNN
+F 1 "VBUS" H 5465 4220 50  0000 C CNN
+F 2 "" H 5450 4050 50  0001 C CNN
+F 3 "" H 5450 4050 50  0001 C CNN
+	1    5450 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 5ECFC38B
+P 5825 4050
+F 0 "#PWR?" H 5825 3900 50  0001 C CNN
+F 1 "VCC" H 5840 4220 50  0000 C CNN
+F 2 "" H 5825 4050 50  0001 C CNN
+F 3 "" H 5825 4050 50  0001 C CNN
+	1    5825 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 5ECB2758
+P 6200 4500
+F 0 "#PWR?" H 6200 4350 50  0001 C CNN
+F 1 "VCC" H 6215 4670 50  0000 C CNN
+F 2 "" H 6200 4500 50  0001 C CNN
+F 3 "" H 6200 4500 50  0001 C CNN
+	1    6200 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VBUS #PWR?
+U 1 1 5ECAFD45
+P 6550 4000
+F 0 "#PWR?" H 6550 3850 50  0001 C CNN
+F 1 "VBUS" H 6565 4170 50  0000 C CNN
+F 2 "" H 6550 4000 50  0001 C CNN
+F 3 "" H 6550 4000 50  0001 C CNN
+	1    6550 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5ECB2C38
+P 7500 4000
+F 0 "#PWR?" H 7500 3850 50  0001 C CNN
+F 1 "+5V" H 7515 4170 50  0000 C CNN
+F 2 "" H 7500 4000 50  0001 C CNN
+F 3 "" H 7500 4000 50  0001 C CNN
+	1    7500 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5EA6A650
+P 9450 1150
+F 0 "#PWR?" H 9450 1000 50  0001 C CNN
+F 1 "+5V" H 9465 1320 50  0000 C CNN
+F 2 "" H 9450 1150 50  0001 C CNN
+F 3 "" H 9450 1150 50  0001 C CNN
+	1    9450 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5EA79005
+P 10250 1800
+F 0 "#PWR?" H 10250 1650 50  0001 C CNN
+F 1 "+3V3" H 10265 1970 50  0000 C CNN
+F 2 "" H 10250 1800 50  0001 C CNN
+F 3 "" H 10250 1800 50  0001 C CNN
+	1    10250 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EA1ED95
+P 1350 1750
+F 0 "#PWR?" H 1350 1500 50  0001 C CNN
+F 1 "GND" H 1355 1580 50  0001 C CNN
+F 2 "" H 1350 1750 50  0001 C CNN
+F 3 "" H 1350 1750 50  0001 C CNN
+	1    1350 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0102
+U 1 1 5EA06E8A
+P 2300 6050
+F 0 "#PWR0102" H 2300 5800 50  0001 C CNN
+F 1 "GND" H 2305 5880 50  0001 C CNN
+F 2 "" H 2300 6050 50  0001 C CNN
+F 3 "" H 2300 6050 50  0001 C CNN
+	1    2300 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 5EA088C0
+P 3800 6050
+F 0 "#PWR0101" H 3800 5800 50  0001 C CNN
+F 1 "GND" H 3805 5880 50  0001 C CNN
+F 2 "" H 3800 6050 50  0001 C CNN
+F 3 "" H 3800 6050 50  0001 C CNN
+	1    3800 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5ECFA7AA
+P 5450 4650
+F 0 "#PWR?" H 5450 4400 50  0001 C CNN
+F 1 "GND" H 5455 4480 50  0001 C CNN
+F 2 "" H 5450 4650 50  0001 C CNN
+F 3 "" H 5450 4650 50  0001 C CNN
+	1    5450 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5ECFB25E
+P 5825 4650
+F 0 "#PWR?" H 5825 4400 50  0001 C CNN
+F 1 "GND" H 5830 4480 50  0001 C CNN
+F 2 "" H 5825 4650 50  0001 C CNN
+F 3 "" H 5825 4650 50  0001 C CNN
+	1    5825 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5ED2C1DB
+P 6400 4300
+F 0 "#PWR?" H 6400 4050 50  0001 C CNN
+F 1 "GND" H 6405 4130 50  0001 C CNN
+F 2 "" H 6400 4300 50  0001 C CNN
+F 3 "" H 6400 4300 50  0001 C CNN
+	1    6400 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5ECB9981
+P 7050 4800
+F 0 "#PWR?" H 7050 4550 50  0001 C CNN
+F 1 "GND" H 7055 4630 50  0001 C CNN
+F 2 "" H 7050 4800 50  0001 C CNN
+F 3 "" H 7050 4800 50  0001 C CNN
+	1    7050 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EA75FC9
+P 8850 1600
+F 0 "#PWR?" H 8850 1350 50  0001 C CNN
+F 1 "GND" H 8855 1430 50  0001 C CNN
+F 2 "" H 8850 1600 50  0001 C CNN
+F 3 "" H 8850 1600 50  0001 C CNN
+	1    8850 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EA64CE4
+P 9450 2900
+F 0 "#PWR?" H 9450 2650 50  0001 C CNN
+F 1 "GND" H 9455 2730 50  0001 C CNN
+F 2 "" H 9450 2900 50  0001 C CNN
+F 3 "" H 9450 2900 50  0001 C CNN
+	1    9450 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EA76CA1
+P 9900 1600
+F 0 "#PWR?" H 9900 1350 50  0001 C CNN
+F 1 "GND" H 9905 1430 50  0001 C CNN
+F 2 "" H 9900 1600 50  0001 C CNN
+F 3 "" H 9900 1600 50  0001 C CNN
+	1    9900 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EA80D88
+P 10250 2250
+F 0 "#PWR?" H 10250 2000 50  0001 C CNN
+F 1 "GND" H 10255 2080 50  0001 C CNN
+F 2 "" H 10250 2250 50  0001 C CNN
+F 3 "" H 10250 2250 50  0001 C CNN
+	1    10250 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5ECDF395
+P 5450 4150
+F 0 "R?" V 5255 4150 50  0000 C CNN
+F 1 "19k6" V 5346 4150 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 5450 4150 50  0001 C CNN
+F 3 "~" H 5450 4150 50  0001 C CNN
+	1    5450 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5ECDBD45
+P 5450 4550
+F 0 "R?" V 5255 4550 50  0000 C CNN
+F 1 "5k" V 5346 4550 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 5450 4550 50  0001 C CNN
+F 3 "~" H 5450 4550 50  0001 C CNN
+	1    5450 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5ECC612B
+P 5825 4150
+F 0 "R?" V 5630 4150 50  0000 C CNN
+F 1 "19k6" V 5721 4150 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 5825 4150 50  0001 C CNN
+F 3 "~" H 5825 4150 50  0001 C CNN
+	1    5825 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5EDEB28C
+P 5825 4550
+F 0 "R?" V 5630 4550 50  0000 C CNN
+F 1 "5k" V 5721 4550 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 5825 4550 50  0001 C CNN
+F 3 "~" H 5825 4550 50  0001 C CNN
+	1    5825 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5ED0E811
+P 7950 4600
+F 0 "R?" V 7755 4600 50  0000 C CNN
+F 1 "22k" V 7846 4600 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 7950 4600 50  0001 C CNN
+F 3 "~" H 7950 4600 50  0001 C CNN
+	1    7950 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5EA1D4A3
+P 1350 1500
+F 0 "C?" H 1442 1545 50  0000 L CNN
+F 1 "100u" H 1442 1455 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric" H 1350 1500 50  0001 C CNN
+F 3 "~" H 1350 1500 50  0001 C CNN
+	1    1350 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5EA1AF83
+P 1800 1500
+F 0 "C?" H 1892 1545 50  0000 L CNN
+F 1 "100u" H 1892 1455 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric" H 1800 1500 50  0001 C CNN
+F 3 "~" H 1800 1500 50  0001 C CNN
+	1    1800 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5ED19F3C
+P 7500 4700
+F 0 "C?" H 7592 4745 50  0000 L CNN
+F 1 "100n" H 7592 4655 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 7500 4700 50  0001 C CNN
+F 3 "~" H 7500 4700 50  0001 C CNN
+	1    7500 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5EA72CF8
+P 8850 1500
+F 0 "C?" H 8942 1545 50  0000 L CNN
+F 1 "1u" H 8942 1455 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 8850 1500 50  0001 C CNN
+F 3 "~" H 8850 1500 50  0001 C CNN
+	1    8850 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5EA6D5E1
+P 9900 1500
+F 0 "C?" H 9992 1545 50  0000 L CNN
+F 1 "10u" H 9992 1455 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 9900 1500 50  0001 C CNN
+F 3 "~" H 9900 1500 50  0001 C CNN
+	1    9900 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5EA7FECE
+P 10250 2150
+F 0 "C?" H 10342 2195 50  0000 L CNN
+F 1 "47u" H 10342 2105 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric" H 10250 2150 50  0001 C CNN
+F 3 "~" H 10250 2150 50  0001 C CNN
+	1    10250 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5EA9C9EE
+P 9400 3800
+F 0 "SW?" H 9400 4081 50  0000 C CNN
+F 1 "SW_Push" H 9400 3990 50  0000 C CNN
+F 2 "" H 9400 4000 50  0001 C CNN
+F 3 "~" H 9400 4000 50  0001 C CNN
+	1    9400 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5EA9E6D4
+P 9400 4250
+F 0 "SW?" H 9400 4531 50  0000 C CNN
+F 1 "SW_Push" H 9400 4440 50  0000 C CNN
+F 2 "" H 9400 4450 50  0001 C CNN
+F 3 "~" H 9400 4450 50  0001 C CNN
+	1    9400 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5EA9EDB5
+P 9400 4700
+F 0 "SW?" H 9400 4981 50  0000 C CNN
+F 1 "SW_Push" H 9400 4890 50  0000 C CNN
+F 2 "" H 9400 4900 50  0001 C CNN
+F 3 "~" H 9400 4900 50  0001 C CNN
+	1    9400 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power_mux:TPS2121 U?
+U 1 1 5ECA9A55
+P 7050 4400
+F 0 "U?" H 7025 4911 50  0000 C CNN
+F 1 "TPS2121" H 7025 4820 50  0000 C CNN
+F 2 "TI:Texas_VQFN-HR-12_2x2.5_Pitch0.5mm" H 7300 4050 50  0001 C CNN
+F 3 "" H 7300 4050 50  0001 C CNN
+	1    7050 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L DCDC_Converters:EN5322QI U?
+U 1 1 5EA586A3
+P 9450 2250
+F 0 "U?" H 9800 1676 50  0000 C CNN
+F 1 "EN5322QI" H 9800 1585 50  0000 C CNN
+F 2 "DCDC:Converter_DCDC_Intel_QFN-24_4x6mm_P0.65mm_ThermalVias" H 9600 1600 50  0001 L CNN
+F 3 "https://www.intel.sg/content/dam/www/programmable/us/en/pdfs/literature/ds/en5322qi_03454.pdf" H 9450 2250 50  0001 C CNN
+	1    9450 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L nvidia_jetson:Jetson_Nano U1
+U 1 1 5E9EAB27
+P 3100 3800
+AR Path="/5E9EA1EA/5E9EAB27" Ref="U1"  Part="1" 
+AR Path="/5EA1102D/5E9EAB27" Ref="U?"  Part="1" 
+F 0 "U1" H 3050 6564 50  0000 C CNN
+F 1 "Jetson_Nano" H 3050 6473 50  0000 C CNN
+F 2 "Connectors_OSRF:TE_2309413-1" H 3200 1500 50  0001 C CNN
+F 3 "" H 4000 2000 50  0001 C CNN
+	1    3100 3800
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

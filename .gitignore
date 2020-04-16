@@ -32,6 +32,7 @@
 
 ##################
 *.bak
+*-bak
 *.kicad_pcb-bak
 
 Module.symvers
