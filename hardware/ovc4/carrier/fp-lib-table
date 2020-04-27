@@ -2,4 +2,5 @@
   (lib (name "Connectors_OSRF")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/Connectors_OSRF.pretty")(options "")(descr ""))
   (lib (name "DCDC")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/DCDC.pretty")(options "")(descr ""))
   (lib (name "TI")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/TI.pretty")(options "")(descr ""))
+  (lib (name "USB")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/USB.pretty")(options "")(descr ""))
 )

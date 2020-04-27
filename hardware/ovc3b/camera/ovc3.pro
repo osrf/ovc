@@ -1,4 +1,4 @@
-update=Tue Mar  3 13:43:09 2020
+update=Mon Apr 27 16:03:36 2020
 last_client=kicad
 [general]
 version=1
@@ -18,6 +18,16 @@ ERC_CheckBusDriverConflicts=1
 ERC_CheckBusEntryConflicts=1
 ERC_CheckBusToBusConflicts=1
 ERC_CheckBusToNetConflicts=1
+[PcbFrame]
+version=1
+[sheetnames]
+1=f4fd86d4-6119-4cd1-9773-0269edd6542c:Sheetf4fd86d4-6119-4cd1-9773-0269edd6542c
+2=00000000-0000-0000-0000-00005bffc89b:usb3
+3=00000000-0000-0000-0000-00005c58b8af:bonus_cameras
+4=00000000-0000-0000-0000-00005bfa87c9:imagers
+5=00000000-0000-0000-0000-00005bfab517:imu
+6=00000000-0000-0000-0000-00005c470144:misc
+7=00000000-0000-0000-0000-00005c124fc6:te0820
 [pcbnew]
 version=1
 PageLayoutDescrFile=
@@ -31,14 +41,14 @@ CopperLayerCount=6
 BoardThickness=1.6
 AllowMicroVias=0
 AllowBlindVias=0
-RequireCourtyardDefinitions=0
-ProhibitOverlappingCourtyards=1
 MinTrackWidth=0.1016
 MinViaDiameter=0.3556
 MinViaDrill=0.1524
 MinMicroViaDiameter=0.2032
 MinMicroViaDrill=0.09999999999999999
 MinHoleToHole=0.25
+RequireCourtyardDefinitions=0
+ProhibitOverlappingCourtyards=1
 CopperEdgeClearance=0.01
 TrackWidth1=0.1016
 TrackWidth2=0.127
@@ -87,7 +97,7 @@ DimensionPrecision=1
 SolderMaskClearance=0.051
 SolderMaskMinWidth=0.25
 SolderPasteClearance=0
-SolderPasteRatio=-0
+SolderPasteRatio=0
 [pcbnew/Layer.F.Cu]
 Name=F.Cu
 Type=0
@@ -277,17 +287,7 @@ uViaDrill=0.1
 dPairWidth=0.1778
 dPairGap=0.2032
 dPairViaGap=0.25
-[ModEditFrame]
-version=1
 [SchematicFrame]
 version=1
-[PcbFrame]
+[ModEditFrame]
 version=1
-[sheetnames]
-1=f4fd86d4-6119-4cd1-9773-0269edd6542c:Sheetf4fd86d4-6119-4cd1-9773-0269edd6542c
-2=00000000-0000-0000-0000-00005bffc89b:usb3
-3=00000000-0000-0000-0000-00005c58b8af:bonus_cameras
-4=00000000-0000-0000-0000-00005bfa87c9:imagers
-5=00000000-0000-0000-0000-00005bfab517:imu
-6=00000000-0000-0000-0000-00005c470144:misc
-7=00000000-0000-0000-0000-00005c124fc6:te0820

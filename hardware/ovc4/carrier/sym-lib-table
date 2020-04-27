@@ -3,4 +3,6 @@
   (lib (name "DCDC_Converters")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/DCDC_Converters.lib")(options "")(descr ""))
   (lib (name "usb_controller")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/usb_controller.lib")(options "")(descr ""))
   (lib (name "power_mux")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/power_mux.lib")(options "")(descr ""))
+  (lib (name "connectors")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/connectors.lib")(options "")(descr ""))
+  (lib (name "voltage_translators")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/voltage_translators.lib")(options "")(descr ""))
 )

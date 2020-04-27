@@ -1,10 +1,6 @@
-update=Thu Apr 16 17:50:29 2020
+update=Mon Apr 27 17:31:33 2020
 last_client=kicad
 [general]
-version=1
-[ModEditFrame]
-version=1
-[LibeditFrame]
 version=1
 [pcbnew]
 version=1
@@ -238,11 +234,16 @@ uViaDrill=0.1
 dPairWidth=0.2
 dPairGap=0.25
 dPairViaGap=0.25
+[LibeditFrame]
+version=1
+[ModEditFrame]
+version=1
 [SchematicFrame]
 version=1
 [sheetnames]
-1=00000000-0000-0000-0000-00005ec0a74c:
+1=00000000-0000-0000-0000-00005eb9651f:
 2=00000000-0000-0000-0000-00005ea2a3dc:USB
 3=00000000-0000-0000-0000-00005e9ea1ea:Power
 4=00000000-0000-0000-0000-00005ea124c3:Cameras
-5=00000000-0000-0000-0000-00005ea33658:MCU
+5=00000000-0000-0000-0000-00005ea3cd8c:Interfaces
+6=00000000-0000-0000-0000-00005ea33658:MCU
