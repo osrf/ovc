@@ -5,4 +5,7 @@
   (lib (name "power_mux")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/power_mux.lib")(options "")(descr ""))
   (lib (name "connectors")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/connectors.lib")(options "")(descr ""))
   (lib (name "voltage_translators")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/voltage_translators.lib")(options "")(descr ""))
+  (lib (name "ethernet")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/ethernet.lib")(options "")(descr ""))
+  (lib (name "usb2_connector")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/usb2_connector.lib")(options "")(descr ""))
+  (lib (name "mcu_nxp")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/mcu_nxp.lib")(options "")(descr ""))
 )
