@@ -1,4 +1,4 @@
-(kicad_sch (version 20200506) (host eeschema "5.99.0-unknown-1f9723c~101~ubuntu18.04.1")
+(kicad_sch (version 20200506) (host eeschema "5.99.0-unknown-acdfeee~101~ubuntu18.04.1")
 
   (page "A4")
 
@@ -597,14 +597,14 @@
   )
 
   (junction (at 67.31 71.12))
-  (junction (at 81.28 73.66))
-  (junction (at 210.82 48.26))
-  (junction (at 193.04 36.83))
-  (junction (at 193.04 31.75))
-  (junction (at 250.19 81.28))
   (junction (at 81.28 66.04))
-  (junction (at 181.61 36.83))
+  (junction (at 81.28 73.66))
   (junction (at 181.61 31.75))
+  (junction (at 181.61 36.83))
+  (junction (at 193.04 31.75))
+  (junction (at 193.04 36.83))
+  (junction (at 210.82 48.26))
+  (junction (at 250.19 81.28))
 
   (wire (pts (xy 63.5 71.12) (xy 67.31 71.12)))
   (wire (pts (xy 63.5 73.66) (xy 81.28 73.66)))
