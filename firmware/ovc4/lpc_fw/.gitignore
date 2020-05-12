@@ -1,0 +1,8 @@
+# Build files
+
+CMakeFiles/*
+debug/*
+release/*
+
+CMakeCache.txt
+tags
