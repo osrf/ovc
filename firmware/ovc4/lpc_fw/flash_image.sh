@@ -1,4 +1,5 @@
 #!/bin/sh
+sh build_release.sh
 toolchain=~/gcc-arm-none-eabi-9-2019-q4-major/bin/
 basename=release/dev_cdc_vcom_lite_bm
 ${toolchain}arm-none-eabi-size "${basename}.elf"

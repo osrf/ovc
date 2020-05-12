@@ -784,6 +784,7 @@ void main(void)
     BOARD_BootClockPLL150M();
     BOARD_InitDebugConsole();
 
+    
     // I2C BEGIN
     /* attach 12 MHz clock to FLEXCOMM8 (I2C master) */
     CLOCK_AttachClk(kFRO12M_to_FLEXCOMM4);
@@ -819,19 +820,19 @@ void main(void)
         reVal = I2C_MasterWriteBlocking(EXAMPLE_I2C_MASTER, &deviceAddress, 1, kI2C_TransferNoStopFlag);
         if (reVal != kStatus_Success)
         {
-            return -1;
+            //return -1;
         }
 
         reVal = I2C_MasterWriteBlocking(EXAMPLE_I2C_MASTER, g_master_txBuff, I2C_DATA_LENGTH, kI2C_TransferDefaultFlag);
         if (reVal != kStatus_Success)
         {
-            return -1;
+            //return -1;
         }
 
         reVal = I2C_MasterStop(EXAMPLE_I2C_MASTER);
         if (reVal != kStatus_Success)
         {
-            return -1;
+            //return -1;
         }
     }
     // I2C END

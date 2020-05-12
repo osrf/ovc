@@ -251,6 +251,8 @@ Discarded input sections
                 0x0000000000000000       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
  .text.CLOCK_GetWdtClkFreq
                 0x0000000000000000       0x1a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
+ .text.CLOCK_GetFroHfFreq
+                0x0000000000000000       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
  .text.CLOCK_GetMclkClkFreq
                 0x0000000000000000       0x34 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
  .text.CLOCK_GetPll0OutFreq
@@ -287,6 +289,8 @@ Discarded input sections
                 0x0000000000000000       0x50 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
  .text.CLOCK_GetFreq
                 0x0000000000000000       0x70 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
+ .text.CLOCK_GetPLL1InClockRate
+                0x0000000000000000       0x30 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
  .text.CLOCK_GetPLL0OutFromSetup
                 0x0000000000000000       0xe8 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
  .text.CLOCK_SetStoredPLL0ClockRate
@@ -297,14 +301,14 @@ Discarded input sections
                 0x0000000000000000      0x2c0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
  .text.CLOCK_SetupPLL0Prec
                 0x0000000000000000       0xc8 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
+ .text.CLOCK_SetPLL1Freq
+                0x0000000000000000       0xac CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
  .text.CLOCK_SetupPLL0Mult
                 0x0000000000000000       0x7c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
+ .text.CLOCK_EnableUsbfs0DeviceClock
+                0x0000000000000000       0xf0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
  .text.CLOCK_EnableUsbfs0HostClock
                 0x0000000000000000      0x100 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
- .text.CLOCK_EnableUsbhs0PhyPllClock
-                0x0000000000000000       0xa0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
- .text.CLOCK_EnableUsbhs0DeviceClock
-                0x0000000000000000       0x30 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
  .text.CLOCK_EnableUsbhs0HostClock
                 0x0000000000000000       0x30 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
  .bss.s_FinHzCache
@@ -460,8 +464,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
  .data          0x0000000000000000        0x0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
  .bss           0x0000000000000000        0x0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
- .text.USB_DeviceSetSpeed
-                0x0000000000000000       0x6c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
  .text          0x0000000000000000        0x0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
  .data          0x0000000000000000        0x0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
  .bss           0x0000000000000000        0x0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
@@ -482,19 +484,12 @@ Discarded input sections
  .text          0x0000000000000000        0x0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
  .data          0x0000000000000000        0x0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
  .bss           0x0000000000000000        0x0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
- .text.USB_EhciPhyGetBase
-                0x0000000000000000       0x28 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
- .text.USB_EhciPhyInit
-                0x0000000000000000       0x6c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
  .text.USB_EhciLowPowerPhyInit
                 0x0000000000000000       0x62 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
  .text.USB_EhciPhyDeinit
                 0x0000000000000000       0x12 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
  .text.USB_EhcihostPhyDisconnectDetectCmd
                 0x0000000000000000       0x1a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
- .comment       0x0000000000000000       0x7a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
- .ARM.attributes
-                0x0000000000000000       0x38 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
  .text          0x0000000000000000        0x0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_assert.c.obj
  .data          0x0000000000000000        0x0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_assert.c.obj
  .bss           0x0000000000000000        0x0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_assert.c.obj
@@ -793,7 +788,7 @@ LOAD /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9
                 0x0000000000000000                __Vectors
                 0x0000000000000130                . = ALIGN (0x4)
 
-.text           0x0000000000000200     0x34a8
+.text           0x0000000000000200     0x3518
                 0x0000000000000200                . = ALIGN (0x4)
  *(.text)
  .text          0x0000000000000200       0x40 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
@@ -892,6 +887,7 @@ LOAD /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9
                 0x00000000000003a8                Reserved41_IRQHandler
                 0x00000000000003ac                Reserved42_IRQHandler
                 0x00000000000003b0                USB0_NEEDCLK_IRQHandler
+                0x00000000000003b4                USB0_IRQHandler
                 0x00000000000003b8                RTC_IRQHandler
                 0x00000000000003bc                Reserved46_IRQHandler
                 0x00000000000003c0                MAILBOX_IRQHandler
@@ -910,7 +906,6 @@ LOAD /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9
                 0x00000000000003f4                Reserved60_IRQHandler
                 0x00000000000003f8                Reserved61_IRQHandler
                 0x00000000000003fc                USB1_PHY_IRQHandler
-                0x0000000000000400                USB1_IRQHandler
                 0x0000000000000404                USB1_NEEDCLK_IRQHandler
                 0x0000000000000408                SEC_HYPERVISOR_CALL_IRQHandler
                 0x000000000000040c                SEC_GPIO_INT0_IRQ0_IRQHandler
@@ -1003,406 +998,409 @@ LOAD /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9
  .text.CLOCK_GetExtClkFreq
                 0x0000000000000d58       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
                 0x0000000000000d58                CLOCK_GetExtClkFreq
- .text.CLOCK_GetFroHfFreq
-                0x0000000000000d70       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
-                0x0000000000000d70                CLOCK_GetFroHfFreq
  .text.CLOCK_GetOsc32KFreq
-                0x0000000000000d88       0x3c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
-                0x0000000000000d88                CLOCK_GetOsc32KFreq
+                0x0000000000000d70       0x3c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
+                0x0000000000000d70                CLOCK_GetOsc32KFreq
  .text.CLOCK_GetPLL0InClockRate
-                0x0000000000000dc4       0x30 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
-                0x0000000000000dc4                CLOCK_GetPLL0InClockRate
- .text.CLOCK_GetPLL1InClockRate
-                0x0000000000000df4       0x30 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
-                0x0000000000000df4                CLOCK_GetPLL1InClockRate
+                0x0000000000000dac       0x30 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
+                0x0000000000000dac                CLOCK_GetPLL0InClockRate
  .text.CLOCK_SetPLL0Freq
-                0x0000000000000e24       0xb8 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
-                0x0000000000000e24                CLOCK_SetPLL0Freq
- .text.CLOCK_SetPLL1Freq
-                0x0000000000000edc       0xac CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
-                0x0000000000000edc                CLOCK_SetPLL1Freq
- .text.CLOCK_EnableUsbfs0DeviceClock
-                0x0000000000000f88       0xf0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
-                0x0000000000000f88                CLOCK_EnableUsbfs0DeviceClock
+                0x0000000000000ddc       0xb8 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
+                0x0000000000000ddc                CLOCK_SetPLL0Freq
+ .text.CLOCK_EnableUsbhs0PhyPllClock
+                0x0000000000000e94       0xa0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
+                0x0000000000000e94                CLOCK_EnableUsbhs0PhyPllClock
+ .text.CLOCK_EnableUsbhs0DeviceClock
+                0x0000000000000f34       0x30 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_clock.c.obj
+                0x0000000000000f34                CLOCK_EnableUsbhs0DeviceClock
  .text.SDK_DelayAtLeastUs
-                0x0000000000001078       0x20 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_common.c.obj
-                0x0000000000001078                SDK_DelayAtLeastUs
+                0x0000000000000f64       0x20 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_common.c.obj
+                0x0000000000000f64                SDK_DelayAtLeastUs
  .text.FLEXCOMM_GetInstance
-                0x0000000000001098       0x1c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
-                0x0000000000001098                FLEXCOMM_GetInstance
+                0x0000000000000f84       0x1c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+                0x0000000000000f84                FLEXCOMM_GetInstance
  .text.FLEXCOMM_Init
-                0x00000000000010b4       0x7c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
-                0x00000000000010b4                FLEXCOMM_Init
+                0x0000000000000fa0       0x7c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+                0x0000000000000fa0                FLEXCOMM_Init
  .text.FLEXCOMM0_DriverIRQHandler
-                0x0000000000001130       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
-                0x0000000000001130                FLEXCOMM0_DriverIRQHandler
+                0x000000000000101c       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+                0x000000000000101c                FLEXCOMM0_DriverIRQHandler
  .text.FLEXCOMM1_DriverIRQHandler
-                0x0000000000001148       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
-                0x0000000000001148                FLEXCOMM1_DriverIRQHandler
+                0x0000000000001034       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+                0x0000000000001034                FLEXCOMM1_DriverIRQHandler
  .text.FLEXCOMM2_DriverIRQHandler
-                0x0000000000001160       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
-                0x0000000000001160                FLEXCOMM2_DriverIRQHandler
+                0x000000000000104c       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+                0x000000000000104c                FLEXCOMM2_DriverIRQHandler
  .text.FLEXCOMM3_DriverIRQHandler
-                0x0000000000001178       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
-                0x0000000000001178                FLEXCOMM3_DriverIRQHandler
+                0x0000000000001064       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+                0x0000000000001064                FLEXCOMM3_DriverIRQHandler
  .text.FLEXCOMM4_DriverIRQHandler
-                0x0000000000001190       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
-                0x0000000000001190                FLEXCOMM4_DriverIRQHandler
+                0x000000000000107c       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+                0x000000000000107c                FLEXCOMM4_DriverIRQHandler
  .text.FLEXCOMM5_DriverIRQHandler
-                0x00000000000011a8       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
-                0x00000000000011a8                FLEXCOMM5_DriverIRQHandler
+                0x0000000000001094       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+                0x0000000000001094                FLEXCOMM5_DriverIRQHandler
  .text.FLEXCOMM6_DriverIRQHandler
-                0x00000000000011c0       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
-                0x00000000000011c0                FLEXCOMM6_DriverIRQHandler
+                0x00000000000010ac       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+                0x00000000000010ac                FLEXCOMM6_DriverIRQHandler
  .text.FLEXCOMM7_DriverIRQHandler
-                0x00000000000011d8       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
-                0x00000000000011d8                FLEXCOMM7_DriverIRQHandler
+                0x00000000000010c4       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+                0x00000000000010c4                FLEXCOMM7_DriverIRQHandler
  .text.FLEXCOMM8_DriverIRQHandler
-                0x00000000000011f0       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
-                0x00000000000011f0                FLEXCOMM8_DriverIRQHandler
+                0x00000000000010dc       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+                0x00000000000010dc                FLEXCOMM8_DriverIRQHandler
  .text.I2C_PendingStatusWait
-                0x0000000000001208       0x12 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
- *fill*         0x000000000000121a        0x2 
+                0x00000000000010f4       0x12 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
+ *fill*         0x0000000000001106        0x2 
  .text.I2C_MasterGetDefaultConfig
-                0x000000000000121c       0x20 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
-                0x000000000000121c                I2C_MasterGetDefaultConfig
+                0x0000000000001108       0x20 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
+                0x0000000000001108                I2C_MasterGetDefaultConfig
  .text.I2C_MasterSetBaudRate
-                0x000000000000123c       0x88 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
-                0x000000000000123c                I2C_MasterSetBaudRate
+                0x0000000000001128       0x88 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
+                0x0000000000001128                I2C_MasterSetBaudRate
  .text.I2C_MasterInit
-                0x00000000000012c4       0x3c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
-                0x00000000000012c4                I2C_MasterInit
+                0x00000000000011b0       0x3c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
+                0x00000000000011b0                I2C_MasterInit
  .text.I2C_MasterStart
-                0x0000000000001300       0x28 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
-                0x0000000000001300                I2C_MasterStart
+                0x00000000000011ec       0x28 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
+                0x00000000000011ec                I2C_MasterStart
  .text.I2C_MasterStop
-                0x0000000000001328       0x1a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
-                0x0000000000001328                I2C_MasterStop
+                0x0000000000001214       0x1a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
+                0x0000000000001214                I2C_MasterStop
  .text.I2C_MasterWriteBlocking
-                0x0000000000001342       0x84 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
-                0x0000000000001342                I2C_MasterWriteBlocking
+                0x000000000000122e       0x84 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_i2c.c.obj
+                0x000000000000122e                I2C_MasterWriteBlocking
  .text.RESET_SetPeripheralReset
-                0x00000000000013c6       0x1c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_reset.c.obj
-                0x00000000000013c6                RESET_SetPeripheralReset
+                0x00000000000012b2       0x1c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_reset.c.obj
+                0x00000000000012b2                RESET_SetPeripheralReset
  .text.RESET_ClearPeripheralReset
-                0x00000000000013e2       0x1e CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_reset.c.obj
-                0x00000000000013e2                RESET_ClearPeripheralReset
+                0x00000000000012ce       0x1e CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_reset.c.obj
+                0x00000000000012ce                RESET_ClearPeripheralReset
  .text.RESET_PeripheralReset
-                0x0000000000001400        0xe CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_reset.c.obj
-                0x0000000000001400                RESET_PeripheralReset
+                0x00000000000012ec        0xe CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_reset.c.obj
+                0x00000000000012ec                RESET_PeripheralReset
  .text.USART_GetDefaultConfig
-                0x000000000000140e       0x22 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_usart.c.obj
-                0x000000000000140e                USART_GetDefaultConfig
+                0x00000000000012fa       0x22 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_usart.c.obj
+                0x00000000000012fa                USART_GetDefaultConfig
  .text.USART_SetBaudRate
-                0x0000000000001430       0x92 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_usart.c.obj
-                0x0000000000001430                USART_SetBaudRate
+                0x000000000000131c       0x92 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_usart.c.obj
+                0x000000000000131c                USART_SetBaudRate
  .text.USART_Init
-                0x00000000000014c2       0xfc CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_usart.c.obj
-                0x00000000000014c2                USART_Init
+                0x00000000000013ae       0xfc CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_usart.c.obj
+                0x00000000000013ae                USART_Init
  .text.USART_WriteBlocking
-                0x00000000000015be       0x2c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_usart.c.obj
-                0x00000000000015be                USART_WriteBlocking
- *fill*         0x00000000000015ea        0x2 
+                0x00000000000014aa       0x2c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_usart.c.obj
+                0x00000000000014aa                USART_WriteBlocking
+ *fill*         0x00000000000014d6        0x2 
  .text.USB_DeviceCh9GetStatus
-                0x00000000000015ec       0x88 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
+                0x00000000000014d8       0x88 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
  .text.USB_DeviceCh9SetAddress
-                0x0000000000001674       0x54 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
+                0x0000000000001560       0x54 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
  .text.USB_DeviceCh9GetDescriptor
-                0x00000000000016c8       0x30 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
+                0x00000000000015b4       0x30 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
  .text.USB_DeviceCh9SetClearFeature
-                0x00000000000016f8       0x6a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
- *fill*         0x0000000000001762        0x2 
+                0x00000000000015e4       0x6a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
+ *fill*         0x000000000000164e        0x2 
  .text.USB_DeviceCh9SynchFrame
-                0x0000000000001764       0x44 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
+                0x0000000000001650       0x44 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
  .text.USB_DeviceCh9SetInterface
-                0x00000000000017a8       0x28 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
+                0x0000000000001694       0x28 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
  .text.USB_DeviceCh9GetInterface
-                0x00000000000017d0       0x38 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
+                0x00000000000016bc       0x38 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
  .text.USB_DeviceCh9SetConfiguration
-                0x0000000000001808       0x50 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
+                0x00000000000016f4       0x50 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
  .text.USB_DeviceCh9GetConfiguration
-                0x0000000000001858       0x34 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
+                0x0000000000001744       0x34 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
  .text.USB_DeviceControlCallbackFeedback
-                0x000000000000188c       0x68 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
+                0x0000000000001778       0x68 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
  .text.USB_DeviceControlCallback
-                0x00000000000018f4      0x118 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
-                0x00000000000018f4                USB_DeviceControlCallback
+                0x00000000000017e0      0x118 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
+                0x00000000000017e0                USB_DeviceControlCallback
  .text.USB_DeviceControlPipeInit
-                0x0000000000001a0c       0x4c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
-                0x0000000000001a0c                USB_DeviceControlPipeInit
+                0x00000000000018f8       0x4c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
+                0x00000000000018f8                USB_DeviceControlPipeInit
  .text.USB_DeviceGetDescriptor
-                0x0000000000001a58       0x74 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
-                0x0000000000001a58                USB_DeviceGetDescriptor
+                0x0000000000001944       0x74 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
+                0x0000000000001944                USB_DeviceGetDescriptor
  .text.USB_DeviceSetConfigure
-                0x0000000000001acc       0x24 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
-                0x0000000000001acc                USB_DeviceSetConfigure
+                0x00000000000019b8       0x24 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
+                0x00000000000019b8                USB_DeviceSetConfigure
  .text.USB_DeviceGetConfigure
-                0x0000000000001af0       0x10 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
-                0x0000000000001af0                USB_DeviceGetConfigure
+                0x00000000000019dc       0x10 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
+                0x00000000000019dc                USB_DeviceGetConfigure
  .text.USB_DeviceSetInterface
-                0x0000000000001b00       0x20 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
-                0x0000000000001b00                USB_DeviceSetInterface
+                0x00000000000019ec       0x20 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
+                0x00000000000019ec                USB_DeviceSetInterface
  .text.USB_DeviceGetInterface
-                0x0000000000001b20       0x10 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
-                0x0000000000001b20                USB_DeviceGetInterface
+                0x0000000000001a0c       0x10 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
+                0x0000000000001a0c                USB_DeviceGetInterface
+ .text.USB_DeviceSetSpeed
+                0x0000000000001a1c       0x6c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_descriptor.c.obj
+                0x0000000000001a1c                USB_DeviceSetSpeed
  .text.USB_DeviceCdcAcmInterruptIn
-                0x0000000000001b30       0x10 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001b30                USB_DeviceCdcAcmInterruptIn
+                0x0000000000001a88       0x10 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001a88                USB_DeviceCdcAcmInterruptIn
  .text.USB_DeviceCdcAcmBulkOut
-                0x0000000000001b40       0x3c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001b40                USB_DeviceCdcAcmBulkOut
+                0x0000000000001a98       0x3c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001a98                USB_DeviceCdcAcmBulkOut
  .text.USB_DeviceCallback
-                0x0000000000001b7c      0x108 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001b7c                USB_DeviceCallback
+                0x0000000000001ad4      0x11c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001ad4                USB_DeviceCallback
  .text.USB_DeviceCdcAcmBulkIn
-                0x0000000000001c84       0x54 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001c84                USB_DeviceCdcAcmBulkIn
- .text.USB0_IRQHandler
-                0x0000000000001cd8        0xc CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001cd8                USB0_IRQHandler
+                0x0000000000001bf0       0x54 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001bf0                USB_DeviceCdcAcmBulkIn
+ .text.USB1_IRQHandler
+                0x0000000000001c44        0xc CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001c44                USB1_IRQHandler
  .text.USB_DeviceClockInit
-                0x0000000000001ce4       0x28 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001ce4                USB_DeviceClockInit
+                0x0000000000001c50       0x3c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001c50                USB_DeviceClockInit
  .text.USB_DeviceIsrEnable
-                0x0000000000001d0c       0x14 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001d0c                USB_DeviceIsrEnable
+                0x0000000000001c8c       0x14 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001c8c                USB_DeviceIsrEnable
  .text.USB_DeviceGetSetupBuffer
-                0x0000000000001d20       0x14 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001d20                USB_DeviceGetSetupBuffer
+                0x0000000000001ca0       0x14 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001ca0                USB_DeviceGetSetupBuffer
  .text.USB_DeviceGetClassReceiveBuffer
-                0x0000000000001d34       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001d34                USB_DeviceGetClassReceiveBuffer
+                0x0000000000001cb4       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001cb4                USB_DeviceGetClassReceiveBuffer
  .text.USB_DeviceConfigureRemoteWakeup
-                0x0000000000001d4c        0x4 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001d4c                USB_DeviceConfigureRemoteWakeup
+                0x0000000000001ccc        0x4 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001ccc                USB_DeviceConfigureRemoteWakeup
  .text.USB_DeviceProcessClassRequest
-                0x0000000000001d50       0xfc CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001d50                USB_DeviceProcessClassRequest
+                0x0000000000001cd0       0xfc CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001cd0                USB_DeviceProcessClassRequest
  .text.USB_DeviceConfigureEndpointStatus
-                0x0000000000001e4c        0xa CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001e4c                USB_DeviceConfigureEndpointStatus
- *fill*         0x0000000000001e56        0x2 
- .text.APPInit  0x0000000000001e58       0x4c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001e58                APPInit
+                0x0000000000001dcc        0xa CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001dcc                USB_DeviceConfigureEndpointStatus
+ *fill*         0x0000000000001dd6        0x2 
+ .text.APPInit  0x0000000000001dd8       0x4c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001dd8                APPInit
  .text.APP_task
-                0x0000000000001ea4       0x6c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001ea4                APP_task
+                0x0000000000001e24       0x6c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001e24                APP_task
  .text.startup.main
-                0x0000000000001f10      0x150 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
-                0x0000000000001f10                main
+                0x0000000000001e90      0x124 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000001e90                main
+ .text.USB_DeviceLpc3511IpTokenUpdate
+                0x0000000000001fb4       0x5a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
  .text.USB_DeviceLpc3511IpEndpointPrime
-                0x0000000000002060       0xa2 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
+                0x000000000000200e       0xb2 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
  .text.USB_DeviceLpc3511IpGetActualBufferAndPrime
-                0x0000000000002102       0x98 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
+                0x00000000000020c0       0xa6 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
  .text.USB_DeviceLpc3511IpTransaction
-                0x000000000000219a       0x9a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
+                0x0000000000002166       0x9a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
  .text.USB_DeviceLpc3511IpDoPreviousTransactionMemcpy.isra.0
-                0x0000000000002234       0x3e CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
+                0x0000000000002200       0x3e CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
  .text.USB_DeviceLpc3511IpSend
-                0x0000000000002272       0x42 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
-                0x0000000000002272                USB_DeviceLpc3511IpSend
+                0x000000000000223e       0x42 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
+                0x000000000000223e                USB_DeviceLpc3511IpSend
  .text.USB_DeviceLpc3511IpRecv
-                0x00000000000022b4        0x4 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
-                0x00000000000022b4                USB_DeviceLpc3511IpRecv
+                0x0000000000002280        0x4 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
+                0x0000000000002280                USB_DeviceLpc3511IpRecv
  .text.USB_DeviceLpc3511IpCancel
-                0x00000000000022b8       0xf4 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
-                0x00000000000022b8                USB_DeviceLpc3511IpCancel
+                0x0000000000002284       0xf4 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
+                0x0000000000002284                USB_DeviceLpc3511IpCancel
  .text.USB_DeviceLpc3511IpEndpointDeinit
-                0x00000000000023ac       0xb6 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
- *fill*         0x0000000000002462        0x2 
+                0x0000000000002378       0xb6 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
+ *fill*         0x000000000000242e        0x2 
  .text.USB_DeviceLpc3511IpControl
-                0x0000000000002464      0x34c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
-                0x0000000000002464                USB_DeviceLpc3511IpControl
+                0x0000000000002430      0x3a0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
+                0x0000000000002430                USB_DeviceLpc3511IpControl
  .text.USB_DeviceLpc3511IpSetDefaultState
-                0x00000000000027b0       0x62 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
- *fill*         0x0000000000002812        0x2 
+                0x00000000000027d0       0x6c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
  .text.USB_DeviceLpc3511IpInit
-                0x0000000000002814       0x8c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
-                0x0000000000002814                USB_DeviceLpc3511IpInit
+                0x000000000000283c       0x90 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
+                0x000000000000283c                USB_DeviceLpc3511IpInit
  .text.USB_DeviceLpc3511IpDeinit
-                0x00000000000028a0       0x3c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
-                0x00000000000028a0                USB_DeviceLpc3511IpDeinit
+                0x00000000000028cc       0x3c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
+                0x00000000000028cc                USB_DeviceLpc3511IpDeinit
  .text.USB_DeviceLpcIp3511IsrFunction
-                0x00000000000028dc      0x35a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
-                0x00000000000028dc                USB_DeviceLpcIp3511IsrFunction
+                0x0000000000002908      0x30c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
+                0x0000000000002908                USB_DeviceLpcIp3511IsrFunction
  .text.USB_DeviceControl
-                0x0000000000002c36       0x14 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002c14       0x14 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
  .text.USB_DeviceTransfer
-                0x0000000000002c4a       0x76 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002c28       0x76 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
  .text.USB_DeviceNotificationTrigger
-                0x0000000000002cc0       0xa8 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
-                0x0000000000002cc0                USB_DeviceNotificationTrigger
+                0x0000000000002c9e       0xa8 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002c9e                USB_DeviceNotificationTrigger
  .text.USB_DeviceRun
-                0x0000000000002d68        0x8 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
-                0x0000000000002d68                USB_DeviceRun
+                0x0000000000002d46        0x8 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002d46                USB_DeviceRun
  .text.USB_DeviceDeinit
-                0x0000000000002d70       0x32 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
-                0x0000000000002d70                USB_DeviceDeinit
- *fill*         0x0000000000002da2        0x2 
+                0x0000000000002d4e       0x32 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002d4e                USB_DeviceDeinit
  .text.USB_DeviceInit
-                0x0000000000002da4       0xc0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
-                0x0000000000002da4                USB_DeviceInit
+                0x0000000000002d80       0xc0 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002d80                USB_DeviceInit
  .text.USB_DeviceSendRequest
-                0x0000000000002e64        0xc CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
-                0x0000000000002e64                USB_DeviceSendRequest
+                0x0000000000002e40        0xc CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002e40                USB_DeviceSendRequest
  .text.USB_DeviceRecvRequest
-                0x0000000000002e70        0x8 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
-                0x0000000000002e70                USB_DeviceRecvRequest
+                0x0000000000002e4c        0x8 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002e4c                USB_DeviceRecvRequest
  .text.USB_DeviceInitEndpoint
-                0x0000000000002e78       0x3e CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
-                0x0000000000002e78                USB_DeviceInitEndpoint
+                0x0000000000002e54       0x3e CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002e54                USB_DeviceInitEndpoint
  .text.USB_DeviceDeinitEndpoint
-                0x0000000000002eb6       0x3e CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
-                0x0000000000002eb6                USB_DeviceDeinitEndpoint
+                0x0000000000002e92       0x3e CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002e92                USB_DeviceDeinitEndpoint
  .text.USB_DeviceStallEndpoint
-                0x0000000000002ef4       0x20 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
-                0x0000000000002ef4                USB_DeviceStallEndpoint
+                0x0000000000002ed0       0x20 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002ed0                USB_DeviceStallEndpoint
  .text.USB_DeviceUnstallEndpoint
-                0x0000000000002f14       0x20 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
-                0x0000000000002f14                USB_DeviceUnstallEndpoint
+                0x0000000000002ef0       0x20 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002ef0                USB_DeviceUnstallEndpoint
  .text.USB_DeviceGetStatus
-                0x0000000000002f34       0x42 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
-                0x0000000000002f34                USB_DeviceGetStatus
+                0x0000000000002f10       0x42 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002f10                USB_DeviceGetStatus
  .text.USB_DeviceSetStatus
-                0x0000000000002f76       0x6c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
-                0x0000000000002f76                USB_DeviceSetStatus
- *fill*         0x0000000000002fe2        0x2 
+                0x0000000000002f52       0x6c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x0000000000002f52                USB_DeviceSetStatus
+ *fill*         0x0000000000002fbe        0x2 
+ .text.USB_EhciPhyGetBase
+                0x0000000000002fc0       0x28 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
+                0x0000000000002fc0                USB_EhciPhyGetBase
+ .text.USB_EhciPhyInit
+                0x0000000000002fe8       0x6c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
+                0x0000000000002fe8                USB_EhciPhyInit
  .text.DbgConsole_SendDataReliable
-                0x0000000000002fe4       0x2c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
-                0x0000000000002fe4                DbgConsole_SendDataReliable
+                0x0000000000003054       0x2c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
+                0x0000000000003054                DbgConsole_SendDataReliable
  .text.DbgConsole_PrintCallback
-                0x0000000000003010       0x3a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
- *fill*         0x000000000000304a        0x2 
+                0x0000000000003080       0x3a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
+ *fill*         0x00000000000030ba        0x2 
  .text.DbgConsole_Init
-                0x000000000000304c       0x6c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
-                0x000000000000304c                DbgConsole_Init
+                0x00000000000030bc       0x6c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
+                0x00000000000030bc                DbgConsole_Init
  .text.DbgConsole_Printf
-                0x00000000000030b8       0x40 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
-                0x00000000000030b8                DbgConsole_Printf
+                0x0000000000003128       0x40 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
+                0x0000000000003128                DbgConsole_Printf
  .text.StrFormatPrintf
-                0x00000000000030f8      0x218 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_str.c.obj
-                0x00000000000030f8                StrFormatPrintf
+                0x0000000000003168      0x218 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_str.c.obj
+                0x0000000000003168                StrFormatPrintf
  .text.lowpower_set_system_voltage
-                0x0000000000003310       0xa0 libs/libpower_hardabi.a(fsl_power_lib.o)
+                0x0000000000003380       0xa0 libs/libpower_hardabi.a(fsl_power_lib.o)
  .text.lowpower_set_voltage_for_process
-                0x00000000000033b0       0x84 libs/libpower_hardabi.a(fsl_power_lib.o)
+                0x0000000000003420       0x84 libs/libpower_hardabi.a(fsl_power_lib.o)
  .text.POWER_SetVoltageForFreq
-                0x0000000000003434       0x84 libs/libpower_hardabi.a(fsl_power_lib.o)
-                0x0000000000003434                POWER_SetVoltageForFreq
- .text.exit     0x00000000000034b8       0x28 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-exit.o)
-                0x00000000000034b8                exit
+                0x00000000000034a4       0x84 libs/libpower_hardabi.a(fsl_power_lib.o)
+                0x00000000000034a4                POWER_SetVoltageForFreq
+ .text.exit     0x0000000000003528       0x28 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-exit.o)
+                0x0000000000003528                exit
  .text.__libc_init_array
-                0x00000000000034e0       0x48 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-init.o)
-                0x00000000000034e0                __libc_init_array
- .text.memcpy   0x0000000000003528       0x1a /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-memcpy-stub.o)
-                0x0000000000003528                memcpy
- .text.memset   0x0000000000003542       0x10 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-memset.o)
-                0x0000000000003542                memset
- *fill*         0x0000000000003552        0x2 
- .text._exit    0x0000000000003554        0x4 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libnosys.a(_exit.o)
-                0x0000000000003554                _exit
+                0x0000000000003550       0x48 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-init.o)
+                0x0000000000003550                __libc_init_array
+ .text.memcpy   0x0000000000003598       0x1a /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-memcpy-stub.o)
+                0x0000000000003598                memcpy
+ .text.memset   0x00000000000035b2       0x10 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-memset.o)
+                0x00000000000035b2                memset
+ *fill*         0x00000000000035c2        0x2 
+ .text._exit    0x00000000000035c4        0x4 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libnosys.a(_exit.o)
+                0x00000000000035c4                _exit
  *(.rodata)
  *(.rodata*)
  .rodata.s_UsartAdapterBase
-                0x0000000000003558       0x20 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/component/uart/usart_adapter.c.obj
+                0x00000000000035c8       0x20 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/component/uart/usart_adapter.c.obj
  .rodata.s_flexcommBaseAddrs
-                0x0000000000003578       0x24 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+                0x00000000000035e8       0x24 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
  .rodata.s_flexcommClocks
-                0x000000000000359c       0x12 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
- *fill*         0x00000000000035ae        0x2 
+                0x000000000000360c       0x12 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+ *fill*         0x000000000000361e        0x2 
  .rodata.s_flexcommResets
-                0x00000000000035b0       0x24 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
+                0x0000000000003620       0x24 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_flexcomm.c.obj
  .rodata.s_UsbDeviceStandardRequest
-                0x00000000000035d4       0x34 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
+                0x0000000000003644       0x34 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/usb_device_ch9.c.obj
  .rodata.USB_DeviceProcessClassRequest.str1.1
-                0x0000000000003608       0x2e CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x0000000000003678       0x2e CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
  .rodata.APPInit.str1.1
-                0x0000000000003636       0x3b CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
- *fill*         0x0000000000003671        0x3 
+                0x00000000000036a6       0x3b CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+ *fill*         0x00000000000036e1        0x3 
  .rodata.s_UsbDeviceLpc3511IpInterface
-                0x0000000000003674       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+                0x00000000000036e4       0x18 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
  .rodata._global_impure_ptr
-                0x000000000000368c        0x4 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-impure.o)
-                0x000000000000368c                _global_impure_ptr
+                0x00000000000036fc        0x4 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-impure.o)
+                0x00000000000036fc                _global_impure_ptr
  *(.glue_7)
- .glue_7        0x0000000000003690        0x0 linker stubs
+ .glue_7        0x0000000000003700        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000000003690        0x0 linker stubs
+ .glue_7t       0x0000000000003700        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0000000000003690        0x0 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .eh_frame      0x0000000000003700        0x0 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
  *(.init)
- .init          0x0000000000003690        0x4 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crti.o
-                0x0000000000003690                _init
- .init          0x0000000000003694        0x8 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtn.o
+ .init          0x0000000000003700        0x4 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crti.o
+                0x0000000000003700                _init
+ .init          0x0000000000003704        0x8 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtn.o
  *(.fini)
- .fini          0x000000000000369c        0x4 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crti.o
-                0x000000000000369c                _fini
- .fini          0x00000000000036a0        0x8 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtn.o
-                0x00000000000036a8                . = ALIGN (0x4)
+ .fini          0x000000000000370c        0x4 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crti.o
+                0x000000000000370c                _fini
+ .fini          0x0000000000003710        0x8 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtn.o
+                0x0000000000003718                . = ALIGN (0x4)
 
-.vfp11_veneer   0x00000000000036a8        0x0
- .vfp11_veneer  0x00000000000036a8        0x0 linker stubs
+.vfp11_veneer   0x0000000000003718        0x0
+ .vfp11_veneer  0x0000000000003718        0x0 linker stubs
 
-.v4_bx          0x00000000000036a8        0x0
- .v4_bx         0x00000000000036a8        0x0 linker stubs
+.v4_bx          0x0000000000003718        0x0
+ .v4_bx         0x0000000000003718        0x0 linker stubs
 
-.iplt           0x00000000000036a8        0x0
- .iplt          0x00000000000036a8        0x0 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
+.iplt           0x0000000000003718        0x0
+ .iplt          0x0000000000003718        0x0 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x00000000000036a8        0x8
-                0x00000000000036a8                __exidx_start = .
+.ARM            0x0000000000003718        0x8
+                0x0000000000003718                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x00000000000036a8        0x8 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/crt0.o
- .ARM.exidx     0x00000000000036b0        0x0 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x0000000000003718        0x8 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/crt0.o
+ .ARM.exidx     0x0000000000003720        0x0 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/libgcc.a(_udivmoddi4.o)
                                           0x8 (size before relaxing)
-                0x00000000000036b0                __exidx_end = .
+                0x0000000000003720                __exidx_end = .
 
-.rel.dyn        0x00000000000036b0        0x0
- .rel.iplt      0x00000000000036b0        0x0 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
+.rel.dyn        0x0000000000003720        0x0
+ .rel.iplt      0x0000000000003720        0x0 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
 
-.ctors          0x00000000000036b0        0x0
-                0x00000000000036b0                __CTOR_LIST__ = .
+.ctors          0x0000000000003720        0x0
+                0x0000000000003720                __CTOR_LIST__ = .
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
  *(SORT_BY_NAME(.ctors.*))
  *(.ctors)
-                0x00000000000036b0                __CTOR_END__ = .
+                0x0000000000003720                __CTOR_END__ = .
 
-.dtors          0x00000000000036b0        0x0
-                0x00000000000036b0                __DTOR_LIST__ = .
+.dtors          0x0000000000003720        0x0
+                0x0000000000003720                __DTOR_LIST__ = .
  *crtbegin.o(.dtors)
  *crtbegin?.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
-                0x00000000000036b0                __DTOR_END__ = .
+                0x0000000000003720                __DTOR_END__ = .
 
-.preinit_array  0x00000000000036b0        0x0
-                0x00000000000036b0                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000000000003720        0x0
+                0x0000000000003720                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x00000000000036b0                PROVIDE (__preinit_array_end = .)
+                0x0000000000003720                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x00000000000036b0        0x4
-                0x00000000000036b0                PROVIDE (__init_array_start = .)
+.init_array     0x0000000000003720        0x4
+                0x0000000000003720                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x00000000000036b0        0x4 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
-                0x00000000000036b4                PROVIDE (__init_array_end = .)
+ .init_array    0x0000000000003720        0x4 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
+                0x0000000000003724                PROVIDE (__init_array_end = .)
 
-.fini_array     0x00000000000036b4        0x4
+.fini_array     0x0000000000003724        0x4
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x00000000000036b4        0x4 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .fini_array    0x0000000000003724        0x4 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x00000000000036b8                __etext = .
-                0x00000000000036b8                __DATA_ROM = .
+                0x0000000000003728                __etext = .
+                0x0000000000003728                __DATA_ROM = .
 
-.data           0x0000000020000000      0x26c load address 0x00000000000036b8
+.data           0x0000000020000000      0x26c load address 0x0000000000003728
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                __DATA_RAM = .
                 0x0000000020000000                __data_start__ = .
@@ -1459,14 +1457,14 @@ LOAD /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9
  *(.jcr*)
                 0x000000002000026c                . = ALIGN (0x4)
                 0x000000002000026c                __data_end__ = .
-                0x0000000000003924                __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
+                0x0000000000003994                __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
                 0x0000000000072000                text_end = (ORIGIN (m_text) + LENGTH (m_text))
                 0x0000000000000001                ASSERT ((__DATA_END <= text_end), region m_text overflowed with text and data)
 
-.igot.plt       0x000000002000026c        0x0 load address 0x0000000000003924
+.igot.plt       0x000000002000026c        0x0 load address 0x0000000000003994
  .igot.plt      0x000000002000026c        0x0 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
 
-.bss            0x0000000020000280      0x378 load address 0x0000000000003940
+.bss            0x0000000020000280      0x730 load address 0x00000000000039c0
                 0x0000000020000280                . = ALIGN (0x4)
                 0x0000000020000280                __START_BSS = .
                 0x0000000020000280                __bss_start__ = .
@@ -1505,43 +1503,43 @@ LOAD /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9
                 0x0000000020000380        0x2 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
  *fill*         0x0000000020000382       0x3e 
  .bss.s_currRecvBuf
-                0x00000000200003c0       0x40 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x00000000200003c0      0x200 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
  .bss.s_currSendBuf
-                0x0000000020000400       0x40 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x00000000200005c0      0x200 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
  .bss.s_recvSize
-                0x0000000020000440        0x4 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+                0x00000000200007c0        0x4 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
  .bss.s_sendSize
-                0x0000000020000444        0x4 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
- *fill*         0x0000000020000448       0x38 
+                0x00000000200007c4        0x4 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+ *fill*         0x00000000200007c8       0x38 
  .bss.s_usbCdcAcmInfo
-                0x0000000020000480       0x12 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
- *fill*         0x0000000020000492        0x2 
+                0x0000000020000800       0x12 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
+ *fill*         0x0000000020000812        0x2 
  .bss.s_UsbDeviceLpc3511IpState
-                0x0000000020000494      0x144 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
+                0x0000000020000814      0x17c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
  .bss.g_serialHandle
-                0x00000000200005d8        0x4 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
-                0x00000000200005d8                g_serialHandle
+                0x0000000020000990        0x4 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
+                0x0000000020000990                g_serialHandle
  .bss.s_debugConsoleState
-                0x00000000200005dc       0x1c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
+                0x0000000020000994       0x1c CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
  *(COMMON)
-                0x00000000200005f8                . = ALIGN (0x4)
-                0x00000000200005f8                __bss_end__ = .
-                0x00000000200005f8                __END_BSS = .
+                0x00000000200009b0                . = ALIGN (0x4)
+                0x00000000200009b0                __bss_end__ = .
+                0x00000000200009b0                __END_BSS = .
 
-.heap           0x00000000200005f8      0x400 load address 0x0000000000003cb8
-                0x00000000200005f8                . = ALIGN (0x8)
-                0x00000000200005f8                __end__ = .
-                0x00000000200005f8                PROVIDE (end = .)
-                0x00000000200005f8                __HeapBase = .
-                0x00000000200009f8                . = (. + HEAP_SIZE)
- *fill*         0x00000000200005f8      0x400 
-                0x00000000200009f8                __HeapLimit = .
-                0x00000000200009f8                __heap_limit = .
+.heap           0x00000000200009b0      0x400 load address 0x00000000000040f0
+                0x00000000200009b0                . = ALIGN (0x8)
+                0x00000000200009b0                __end__ = .
+                0x00000000200009b0                PROVIDE (end = .)
+                0x00000000200009b0                __HeapBase = .
+                0x0000000020000db0                . = (. + HEAP_SIZE)
+ *fill*         0x00000000200009b0      0x400 
+                0x0000000020000db0                __HeapLimit = .
+                0x0000000020000db0                __heap_limit = .
 
-.stack          0x00000000200009f8      0x800 load address 0x00000000000040b8
-                0x00000000200009f8                . = ALIGN (0x8)
-                0x00000000200011f8                . = (. + STACK_SIZE)
- *fill*         0x00000000200009f8      0x800 
+.stack          0x0000000020000db0      0x800 load address 0x00000000000044f0
+                0x0000000020000db0                . = ALIGN (0x8)
+                0x00000000200015b0                . = (. + STACK_SIZE)
+ *fill*         0x0000000020000db0      0x800 
 
 m_usb_bdt       0x0000000040100000        0x0
                 0x0000000040100000                . = ALIGN (0x200)
@@ -1605,33 +1603,35 @@ m_usb_global    0x0000000040100000     0x15b0
  .ARM.attributes
                 0x000000000000048e       0x38 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
  .ARM.attributes
-                0x00000000000004c6       0x38 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
+                0x00000000000004c6       0x38 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
  .ARM.attributes
-                0x00000000000004fe       0x38 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_str.c.obj
+                0x00000000000004fe       0x38 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
  .ARM.attributes
-                0x0000000000000536       0x3a libs/libpower_hardabi.a(fsl_power_lib.o)
+                0x0000000000000536       0x38 CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_str.c.obj
  .ARM.attributes
-                0x0000000000000570       0x38 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-exit.o)
+                0x000000000000056e       0x3a libs/libpower_hardabi.a(fsl_power_lib.o)
  .ARM.attributes
-                0x00000000000005a8       0x36 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-impure.o)
+                0x00000000000005a8       0x38 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-exit.o)
  .ARM.attributes
-                0x00000000000005de       0x38 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-init.o)
+                0x00000000000005e0       0x36 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x0000000000000616       0x38 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-memcpy-stub.o)
+                0x0000000000000616       0x38 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x000000000000064e       0x38 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-memset.o)
+                0x000000000000064e       0x38 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x0000000000000686       0x17 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-strlen.o)
+                0x0000000000000686       0x38 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x000000000000069d       0x22 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/libgcc.a(_aeabi_uldivmod.o)
+                0x00000000000006be       0x17 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(lib_a-strlen.o)
  .ARM.attributes
-                0x00000000000006bf       0x38 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/libgcc.a(_udivmoddi4.o)
+                0x00000000000006d5       0x22 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x00000000000006f7       0x22 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/libgcc.a(_dvmd_tls.o)
+                0x00000000000006f7       0x38 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/libgcc.a(_udivmoddi4.o)
  .ARM.attributes
-                0x0000000000000719       0x38 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libnosys.a(_exit.o)
+                0x000000000000072f       0x22 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x0000000000000751       0x22 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtn.o
+                0x0000000000000751       0x38 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libnosys.a(_exit.o)
+ .ARM.attributes
+                0x0000000000000789       0x22 /home/luca/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v8-m.main+fp/hard/crtn.o
                 0x0000000000000001                ASSERT ((__StackLimit >= __HeapLimit), region m_data overflowed with stack and heap)
 OUTPUT(release/dev_cdc_vcom_lite_bm.elf elf32-littlearm)
 
@@ -1656,6 +1656,7 @@ OUTPUT(release/dev_cdc_vcom_lite_bm.elf elf32-littlearm)
  .comment       0x0000000000000079       0x7a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/virtual_com.c.obj
  .comment       0x0000000000000079       0x7a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/lpcip3511/usb_device_lpcip3511.c.obj
  .comment       0x0000000000000079       0x7a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/device/source/usb_device_dci.c.obj
+ .comment       0x0000000000000079       0x7a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/usb/phy/usb_phy.c.obj
  .comment       0x0000000000000079       0x7a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_debug_console.c.obj
  .comment       0x0000000000000079       0x7a CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/utilities/fsl_str.c.obj
  .comment       0x0000000000000079       0x75 libs/libpower_hardabi.a(fsl_power_lib.o)
