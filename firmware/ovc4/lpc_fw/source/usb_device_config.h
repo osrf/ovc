@@ -29,10 +29,10 @@
 #define USB_DEVICE_CONFIG_EHCI (0U)
 
 /*! @brief LPC USB IP3511 FS instance count */
-#define USB_DEVICE_CONFIG_LPCIP3511FS (1U)
+#define USB_DEVICE_CONFIG_LPCIP3511FS (0U)
 
 /*! @brief LPC USB IP3511 HS instance count */
-#define USB_DEVICE_CONFIG_LPCIP3511HS (0U)
+#define USB_DEVICE_CONFIG_LPCIP3511HS (1U)
 
 /*! @brief Device instance count, the sum of KHCI and EHCI instance counts*/
 #define USB_DEVICE_CONFIG_NUM \
