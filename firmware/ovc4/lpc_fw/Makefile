@@ -582,6 +582,33 @@ drivers/fsl_usart.c.s:
 	$(MAKE) -f CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/build.make CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_usart.c.s
 .PHONY : drivers/fsl_usart.c.s
 
+source/i2c_driver.obj: source/i2c_driver.c.obj
+
+.PHONY : source/i2c_driver.obj
+
+# target to build an object file
+source/i2c_driver.c.obj:
+	$(MAKE) -f CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/build.make CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/i2c_driver.c.obj
+.PHONY : source/i2c_driver.c.obj
+
+source/i2c_driver.i: source/i2c_driver.c.i
+
+.PHONY : source/i2c_driver.i
+
+# target to preprocess a source file
+source/i2c_driver.c.i:
+	$(MAKE) -f CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/build.make CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/i2c_driver.c.i
+.PHONY : source/i2c_driver.c.i
+
+source/i2c_driver.s: source/i2c_driver.c.s
+
+.PHONY : source/i2c_driver.s
+
+# target to generate assembly for a file
+source/i2c_driver.c.s:
+	$(MAKE) -f CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/build.make CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/i2c_driver.c.s
+.PHONY : source/i2c_driver.c.s
+
 source/usb_device_cdc_acm.obj: source/usb_device_cdc_acm.c.obj
 
 .PHONY : source/usb_device_cdc_acm.obj
@@ -948,6 +975,9 @@ help:
 	@echo "... drivers/fsl_usart.obj"
 	@echo "... drivers/fsl_usart.i"
 	@echo "... drivers/fsl_usart.s"
+	@echo "... source/i2c_driver.obj"
+	@echo "... source/i2c_driver.i"
+	@echo "... source/i2c_driver.s"
 	@echo "... source/usb_device_cdc_acm.obj"
 	@echo "... source/usb_device_cdc_acm.i"
 	@echo "... source/usb_device_cdc_acm.s"
