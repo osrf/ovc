@@ -9,6 +9,8 @@
 #include "clock_config.h"
 #include "board.h"
 
+#include "ovc_hw_defs.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,7 +21,8 @@
 #include "usb_device_cdc_acm.h"
 #include "usb_device_ch9.h"
 #include "fsl_debug_console.h"
-#include "fsl_i2c.h"
+
+#include "i2c_driver.h"
 
 #include "usb_device_descriptor.h"
 #include "virtual_com.h"
@@ -51,15 +54,6 @@ void BOARD_DbgConsole_Init(void);
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-
-#define EXAMPLE_I2C_MASTER_BASE (I2C4_BASE)
-#define I2C_MASTER_CLOCK_FREQUENCY (12000000)
-#define WAIT_TIME 10U
-#define EXAMPLE_I2C_MASTER ((I2C_Type *)EXAMPLE_I2C_MASTER_BASE)
-
-#define I2C_MASTER_SLAVE_ADDR_7BIT 0x7EU
-#define I2C_BAUDRATE 100000U
-#define I2C_DATA_LENGTH 33U
 
 /*******************************************************************************
  * Variables
@@ -722,7 +716,7 @@ void APP_task(void)
             /* Copy Buffer to Send Buff */
             for (i = 0; i < s_recvSize; i++)
             {
-                s_currSendBuf[s_sendSize++] = s_currRecvBuf[i];
+                s_currSendBuf[s_sendSize++] = s_currRecvBuf[i] + 1;
             }
             s_recvSize = 0;
         }
@@ -771,6 +765,8 @@ void APP_task(void)
     }
 }
 
+CameraI2C cameras[6];
+
 #if defined(__CC_ARM) || (defined(__ARMCC_VERSION)) || defined(__GNUC__)
 int main(void)
 #else
@@ -784,57 +780,21 @@ void main(void)
     BOARD_BootClockPLL150M();
     BOARD_InitDebugConsole();
 
-    
     // I2C BEGIN
     /* attach 12 MHz clock to FLEXCOMM8 (I2C master) */
     CLOCK_AttachClk(kFRO12M_to_FLEXCOMM4);
 
     /* reset FLEXCOMM for I2C */
     RESET_PeripheralReset(kFC4_RST_SHIFT_RSTn);
-    
-    i2c_master_config_t masterConfig;
-    status_t reVal        = kStatus_Fail;
-    uint8_t deviceAddress = 0x01U;
-    uint8_t g_master_txBuff[I2C_DATA_LENGTH];
-    /*
-     * masterConfig.debugEnable = false;
-     * masterConfig.ignoreAck = false;
-     * masterConfig.pinConfig = kI2C_2PinOpenDrain;
-     * masterConfig.baudRate_Bps = 100000U;
-     * masterConfig.busIdleTimeout_ns = 0;
-     * masterConfig.pinLowTimeout_ns = 0;
-     * masterConfig.sdaGlitchFilterWidth_ns = 0;
-     * masterConfig.sclGlitchFilterWidth_ns = 0;
-     */
-    I2C_MasterGetDefaultConfig(&masterConfig);
-    masterConfig.baudRate_Bps = 400000;
+    camerai2c_init(CAM0_I2C, &cameras[0]);
+    camerai2c_configure_slave(&cameras[0], 0x12, 1);
+    uint32_t write_val = 0x56789ABC;
+    // Write first
+    camerai2c_setup_write(&cameras[0], 0x34, write_val, sizeof(write_val));
+    camerai2c_wait_for_complete();
+    camerai2c_setup_read(&cameras[0], 0x34, 4);
+    camerai2c_wait_for_complete();
 
-    /* Initialize the I2C master peripheral */
-    I2C_MasterInit(EXAMPLE_I2C_MASTER, &masterConfig, I2C_MASTER_CLOCK_FREQUENCY);
-
-    /* Send master blocking data to slave */
-    if (kStatus_Success == I2C_MasterStart(EXAMPLE_I2C_MASTER, I2C_MASTER_SLAVE_ADDR_7BIT, kI2C_Write))
-    {
-        /* subAddress = 0x01, data = g_master_txBuff - write to slave.
-          start + slaveaddress(w) + subAddress + length of data buffer + data buffer + stop*/
-        reVal = I2C_MasterWriteBlocking(EXAMPLE_I2C_MASTER, &deviceAddress, 1, kI2C_TransferNoStopFlag);
-        if (reVal != kStatus_Success)
-        {
-            //return -1;
-        }
-
-        reVal = I2C_MasterWriteBlocking(EXAMPLE_I2C_MASTER, g_master_txBuff, I2C_DATA_LENGTH, kI2C_TransferDefaultFlag);
-        if (reVal != kStatus_Success)
-        {
-            //return -1;
-        }
-
-        reVal = I2C_MasterStop(EXAMPLE_I2C_MASTER);
-        if (reVal != kStatus_Success)
-        {
-            //return -1;
-        }
-    }
     // I2C END
 
     NVIC_ClearPendingIRQ(USB0_IRQn);

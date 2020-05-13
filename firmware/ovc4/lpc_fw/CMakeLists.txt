@@ -361,6 +361,7 @@ include_directories(${ProjDirPath}/lpcxpresso55s69/usb_examples/usb_device_cdc_v
 include_directories(${ProjDirPath}/usb/example/usb_device_cdc_vcom_lite/inf)
 include_directories(${ProjDirPath}/component/osa)
 include_directories(${ProjDirPath}/usb/device/include)
+include_directories(${ProjDirPath}/include)
 include_directories(${ProjDirPath}/source)
 include_directories(${ProjDirPath}/startup)
 include_directories(${ProjDirPath}/usb/device/source/lpcip3511)
@@ -477,6 +478,8 @@ add_executable(dev_cdc_vcom_lite_bm.elf
 "${ProjDirPath}/drivers/fsl_usart.h"
 "${ProjDirPath}/libs/libpower_hardabi.a"
 "${ProjDirPath}/LPC55S69/gcc/LPC55S69_cm33_core0_flash.ld"
+"${ProjDirPath}/source/i2c_driver.c"
+"${ProjDirPath}/source/i2c_driver.h"
 "${ProjDirPath}/source/usb_device_cdc_acm.c"
 "${ProjDirPath}/source/usb_device_cdc_acm.h"
 "${ProjDirPath}/source/usb_device_ch9.c"
