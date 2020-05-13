@@ -555,6 +555,33 @@ drivers/fsl_reset.c.s:
 	$(MAKE) -f CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/build.make CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_reset.c.s
 .PHONY : drivers/fsl_reset.c.s
 
+drivers/fsl_spi.obj: drivers/fsl_spi.c.obj
+
+.PHONY : drivers/fsl_spi.obj
+
+# target to build an object file
+drivers/fsl_spi.c.obj:
+	$(MAKE) -f CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/build.make CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_spi.c.obj
+.PHONY : drivers/fsl_spi.c.obj
+
+drivers/fsl_spi.i: drivers/fsl_spi.c.i
+
+.PHONY : drivers/fsl_spi.i
+
+# target to preprocess a source file
+drivers/fsl_spi.c.i:
+	$(MAKE) -f CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/build.make CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_spi.c.i
+.PHONY : drivers/fsl_spi.c.i
+
+drivers/fsl_spi.s: drivers/fsl_spi.c.s
+
+.PHONY : drivers/fsl_spi.s
+
+# target to generate assembly for a file
+drivers/fsl_spi.c.s:
+	$(MAKE) -f CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/build.make CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/drivers/fsl_spi.c.s
+.PHONY : drivers/fsl_spi.c.s
+
 drivers/fsl_usart.obj: drivers/fsl_usart.c.obj
 
 .PHONY : drivers/fsl_usart.obj
@@ -608,6 +635,33 @@ source/i2c_driver.s: source/i2c_driver.c.s
 source/i2c_driver.c.s:
 	$(MAKE) -f CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/build.make CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/i2c_driver.c.s
 .PHONY : source/i2c_driver.c.s
+
+source/spi_driver.obj: source/spi_driver.c.obj
+
+.PHONY : source/spi_driver.obj
+
+# target to build an object file
+source/spi_driver.c.obj:
+	$(MAKE) -f CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/build.make CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/spi_driver.c.obj
+.PHONY : source/spi_driver.c.obj
+
+source/spi_driver.i: source/spi_driver.c.i
+
+.PHONY : source/spi_driver.i
+
+# target to preprocess a source file
+source/spi_driver.c.i:
+	$(MAKE) -f CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/build.make CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/spi_driver.c.i
+.PHONY : source/spi_driver.c.i
+
+source/spi_driver.s: source/spi_driver.c.s
+
+.PHONY : source/spi_driver.s
+
+# target to generate assembly for a file
+source/spi_driver.c.s:
+	$(MAKE) -f CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/build.make CMakeFiles/dev_cdc_vcom_lite_bm.elf.dir/source/spi_driver.c.s
+.PHONY : source/spi_driver.c.s
 
 source/usb_device_cdc_acm.obj: source/usb_device_cdc_acm.c.obj
 
@@ -972,12 +1026,18 @@ help:
 	@echo "... drivers/fsl_reset.obj"
 	@echo "... drivers/fsl_reset.i"
 	@echo "... drivers/fsl_reset.s"
+	@echo "... drivers/fsl_spi.obj"
+	@echo "... drivers/fsl_spi.i"
+	@echo "... drivers/fsl_spi.s"
 	@echo "... drivers/fsl_usart.obj"
 	@echo "... drivers/fsl_usart.i"
 	@echo "... drivers/fsl_usart.s"
 	@echo "... source/i2c_driver.obj"
 	@echo "... source/i2c_driver.i"
 	@echo "... source/i2c_driver.s"
+	@echo "... source/spi_driver.obj"
+	@echo "... source/spi_driver.i"
+	@echo "... source/spi_driver.s"
 	@echo "... source/usb_device_cdc_acm.obj"
 	@echo "... source/usb_device_cdc_acm.i"
 	@echo "... source/usb_device_cdc_acm.s"
