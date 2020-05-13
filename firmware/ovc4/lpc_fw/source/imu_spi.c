@@ -1,5 +1,5 @@
 #include "ovc_hw_defs.h"
-#include "spi_driver.h"
+#include "imu_spi.h"
 
 void imuspi_init(SPI_Type *base, IMUSPI* imu_spi)
 {

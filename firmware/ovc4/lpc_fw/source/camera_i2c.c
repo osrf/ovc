@@ -1,4 +1,4 @@
-#include "i2c_driver.h"
+#include "camera_i2c.h"
 
 // TODO change flag to support multiple I2Cs (i.e. counter)
 volatile int pending_i2c_transactions = 0;
