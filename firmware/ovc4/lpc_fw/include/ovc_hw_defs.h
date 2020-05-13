@@ -14,3 +14,6 @@
 #define IMU_SPI_SS_NUM 0
 #define IMU_SPI_BAUD 12000000
 #define IMU_SPI_SPOL kSPI_SpolActiveAllLow
+
+// Gpio for pin interrupt
+#define IMU_INT_GPIO_PINT kINPUTMUX_GpioPort1Pin9ToPintsel

@@ -819,6 +819,7 @@ void main(void)
     // Hardware duplex, make sure rx is equal to tx
     imuspi_transmit_data(&imu, spi_rx, sizeof(spi_rx));
 
+    imuspi_attach_interrupt(&imu);
     // SPI END
 
     NVIC_ClearPendingIRQ(USB0_IRQn);
@@ -864,6 +865,10 @@ void main(void)
     while (1)
     {
         APP_task();
+        if (imuspi_check_interrupt(&imu))
+        {
+          imuspi_full_duplex(&imu, spi_tx, spi_rx, sizeof(spi_rx)); 
+        }
 
 #if USB_DEVICE_CONFIG_USE_TASK
         USB_DeviceTaskFn(s_cdcVcom.deviceHandle);
