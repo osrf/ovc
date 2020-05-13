@@ -110,6 +110,36 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_OPENDRAIN_DI);
     /* PORT0 PIN30 (coords: 94) is configured as FC0_TXD_SCL_MISO_WS */
     IOCON_PinMuxSet(IOCON, 0U, 30U, port0_pin30_config);
+    // I2C on the analog Arduino header
+    const uint32_t port0_pin13_config = (/* Pin is configured as FC4_TXD_SCL_MISO_WS */
+                                         IOCON_PIO_FUNC5 |
+                                         /* No addition pin function */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    /* PORT1 PIN20 (coords: 4) is configured as FC4_TXD_SCL_MISO_WS */
+    IOCON_PinMuxSet(IOCON, 0U, 13U, port0_pin13_config);
+
+    const uint32_t port0_pin14_config = (/* Pin is configured as FC4_RXD_SDA_MOSI_DATA */
+                                         IOCON_PIO_FUNC6 |
+                                         /* No addition pin function */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    /* PORT1 PIN21 (coords: 30) is configured as FC4_RXD_SDA_MOSI_DATA */
+    IOCON_PinMuxSet(IOCON, 0U, 14U, port0_pin14_config);
     // Arduino I2C header
     const uint32_t port1_pin20_config = (/* Pin is configured as FC4_TXD_SCL_MISO_WS */
                                          IOCON_PIO_FUNC5 |

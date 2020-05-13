@@ -783,14 +783,19 @@ void main(void)
     // I2C BEGIN
     /* attach 12 MHz clock to FLEXCOMM8 (I2C master) */
     CLOCK_AttachClk(kFRO12M_to_FLEXCOMM4);
+    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM1);
 
     /* reset FLEXCOMM for I2C */
     RESET_PeripheralReset(kFC4_RST_SHIFT_RSTn);
+    RESET_PeripheralReset(kFC1_RST_SHIFT_RSTn);
     camerai2c_init(CAM0_I2C, &cameras[0]);
+    camerai2c_init(CAM1_I2C, &cameras[1]);
     camerai2c_configure_slave(&cameras[0], 0x12, 1);
+    camerai2c_configure_slave(&cameras[1], 0x12, 1);
     uint32_t write_val = 0x56789ABC;
     // Write first
     camerai2c_setup_read(&cameras[0], 0x34, 4);
+    camerai2c_setup_read(&cameras[1], 0x34, 4);
     camerai2c_wait_for_complete();
     // TODO more user friendly API without dangerous casts
     camerai2c_get_read_data(&cameras[0], (uint8_t *)&write_val);
