@@ -22,8 +22,8 @@
 #include "usb_device_ch9.h"
 #include "fsl_debug_console.h"
 
-#include "i2c_driver.h"
-#include "spi_driver.h"
+#include "camera_i2c.h"
+#include "imu_spi.h"
 
 #include "usb_device_descriptor.h"
 #include "virtual_com.h"
