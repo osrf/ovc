@@ -23,6 +23,7 @@
 #include "fsl_debug_console.h"
 
 #include "i2c_driver.h"
+#include "spi_driver.h"
 
 #include "usb_device_descriptor.h"
 #include "virtual_com.h"
@@ -766,6 +767,7 @@ void APP_task(void)
 }
 
 CameraI2C cameras[6];
+IMUSPI imu;
 
 #if defined(__CC_ARM) || (defined(__ARMCC_VERSION)) || defined(__GNUC__)
 int main(void)
@@ -804,6 +806,20 @@ void main(void)
     camerai2c_wait_for_complete();
 
     // I2C END
+    // SPI BEGIN
+    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM3);
+    RESET_PeripheralReset(kFC3_RST_SHIFT_RSTn);
+
+    imuspi_init(IMU_SPI, &imu);
+
+    uint8_t spi_tx[4] = {0x12, 0x34, 0x56, 0x78};
+    uint8_t spi_rx[4] = {0xEE, 0xEE, 0xEE, 0xEE};
+
+    imuspi_full_duplex(&imu, spi_tx, spi_rx, sizeof(spi_rx)); 
+    // Hardware duplex, make sure rx is equal to tx
+    imuspi_transmit_data(&imu, spi_rx, sizeof(spi_rx));
+
+    // SPI END
 
     NVIC_ClearPendingIRQ(USB0_IRQn);
     NVIC_ClearPendingIRQ(USB0_NEEDCLK_IRQn);
