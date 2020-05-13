@@ -41,6 +41,7 @@ void BOARD_InitBootPins(void);
 #define IOCON_PIO_MODE_INACT 0x00u    /*!<@brief No addition pin function */
 #define IOCON_PIO_OPENDRAIN_DI 0x00u  /*!<@brief Open drain is disabled */
 #define IOCON_PIO_SLEW_STANDARD 0x00u /*!<@brief Standard mode, output slew rate control is enabled */
+#define IOCON_PIO_ASW_EN 0x400u       /*!<@brief Analog switch is closed (enabled) */
 
 /*!
  * @brief Configures pin routing and optionally pin electrical features.

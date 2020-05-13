@@ -170,6 +170,7 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_OPENDRAIN_DI);
     /* PORT1 PIN21 (coords: 30) is configured as FC4_RXD_SDA_MOSI_DATA */
     IOCON_PinMuxSet(IOCON, 1U, 21U, port1_pin21_config);
+
     // SPI on PMOD header on flexcomm 3 TODO fix comments
     const uint32_t port0_pin2_config = ( /* MISO */
                                          1 |
@@ -183,8 +184,8 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_DIGITAL_EN |
                                          /* Open drain is disabled */
                                          IOCON_PIO_OPENDRAIN_DI);
-    /* PORT1 PIN20 (coords: 4) is configured as FC4_TXD_SCL_MISO_WS */
     IOCON_PinMuxSet(IOCON, 0U, 2U, port0_pin2_config);
+
     const uint32_t port0_pin3_config = (/* MOSI */
                                          1 |
                                          /* No addition pin function */
@@ -197,8 +198,8 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_DIGITAL_EN |
                                          /* Open drain is disabled */
                                          IOCON_PIO_OPENDRAIN_DI);
-    /* PORT1 PIN20 (coords: 4) is configured as FC4_TXD_SCL_MISO_WS */
     IOCON_PinMuxSet(IOCON, 0U, 3U, port0_pin3_config);
+
     const uint32_t port0_pin4_config = (/* SPI SS */
                                          8 |
                                          /* No addition pin function */
@@ -211,8 +212,8 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_DIGITAL_EN |
                                          /* Open drain is disabled */
                                          IOCON_PIO_OPENDRAIN_DI);
-    /* PORT1 PIN20 (coords: 4) is configured as FC4_TXD_SCL_MISO_WS */
     IOCON_PinMuxSet(IOCON, 0U, 4U, port0_pin4_config);
+
     const uint32_t port0_pin6_config = (/* SPI Clock */
                                          1 |
                                          /* No addition pin function */
@@ -225,9 +226,24 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_DIGITAL_EN |
                                          /* Open drain is disabled */
                                          IOCON_PIO_OPENDRAIN_DI);
-    /* PORT1 PIN20 (coords: 4) is configured as FC4_TXD_SCL_MISO_WS */
     IOCON_PinMuxSet(IOCON, 0U, 6U, port0_pin6_config);
 
+    // GPIO interrupt on push button
+    const uint32_t port1_pin9_config = (/* PIO */
+                                         0 |
+                                         /* No addition pin function */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI |
+                                         /* Analog switch is closed (enabled) */
+                                         IOCON_PIO_ASW_EN);
+    IOCON_PinMuxSet(IOCON, 1U, 9U, port1_pin9_config);
 }
 /***********************************************************************************************************************
  * EOF
