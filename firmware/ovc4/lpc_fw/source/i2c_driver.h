@@ -27,6 +27,8 @@ bool camerai2c_setup_read(CameraI2C* cam_i2c, uint32_t reg_addr, uint8_t read_le
 
 bool camerai2c_setup_write(CameraI2C* cam_i2c, uint32_t reg_addr, uint32_t write_val, uint8_t write_len);
 
+void camerai2c_get_read_data(CameraI2C* cam_i2c, uint8_t* buf);
+
 void camerai2c_wait_for_complete();
 
 
