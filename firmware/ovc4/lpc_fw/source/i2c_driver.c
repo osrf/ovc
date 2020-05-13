@@ -81,6 +81,13 @@ bool camerai2c_setup_write(CameraI2C* cam_i2c, uint32_t reg_addr, uint32_t write
   return false;
 }
 
+void camerai2c_get_read_data(CameraI2C* cam_i2c, uint8_t* buf)
+{
+  memcpy(buf, cam_i2c->rx_buf_, cam_i2c->last_read_len_);
+  // Reset the read buffer
+  cam_i2c->last_read_len_ = 0;
+}
+
 void camerai2c_wait_for_complete()
 {
   // TODO timeout?
