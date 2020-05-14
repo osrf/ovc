@@ -26,7 +26,6 @@
 #include "usb_packetdef.h"
 
 #include "usb_device_descriptor.h"
-#include "virtual_com.h"
 
 #if ((defined FSL_FEATURE_SOC_USBPHY_COUNT) && (FSL_FEATURE_SOC_USBPHY_COUNT > 0U))
 #include "usb_phy.h"
@@ -52,15 +51,13 @@ void BOARD_DbgConsole_Init(void);
  * Variables
  ******************************************************************************/
 /* Data structure of virtual com device */
-usb_cdc_vcom_struct_t s_cdcVcom;
+usb_device_handle usb_handle; /* USB device handle. */
 
 usb_tx_packet_t tx_packet;
+usb_rx_packet_t rx_packet;
 
 /* Data buffer for receiving and sending*/
-USB_DMA_NONINIT_DATA_ALIGN(USB_DATA_ALIGN_SIZE) static uint8_t s_currRecvBuf[DATA_BUFF_SIZE];
 USB_DMA_NONINIT_DATA_ALIGN(USB_DATA_ALIGN_SIZE) static uint8_t s_SetupOutBuffer[8];
-volatile static uint32_t s_recvSize    = 0;
-static uint32_t s_usbBulkMaxPacketSize = HS_BULK_OUT_PACKET_SIZE;
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -70,7 +67,7 @@ static uint32_t s_usbBulkMaxPacketSize = HS_BULK_OUT_PACKET_SIZE;
  ******************************************************************************/
 void USB1_IRQHandler(void)
 {
-    USB_DeviceLpcIp3511IsrFunction(s_cdcVcom.deviceHandle);
+    USB_DeviceLpcIp3511IsrFunction(usb_handle);
 }
 
 void USB_DeviceClockInit(void)
@@ -78,7 +75,7 @@ void USB_DeviceClockInit(void)
     /* enable USB IP clock */
     CLOCK_EnableUsbhs0PhyPllClock(kCLOCK_UsbPhySrcExt, BOARD_XTAL0_CLK_HZ);
     CLOCK_EnableUsbhs0DeviceClock(kCLOCK_UsbSrcUnused, 0U);
-    USB_EhciPhyInit(CONTROLLER_ID, BOARD_XTAL0_CLK_HZ, NULL);
+    USB_EhciPhyInit(USB_CONTROLLER_ID, BOARD_XTAL0_CLK_HZ, NULL);
     for (int i = 0; i < FSL_FEATURE_USBHSD_USB_RAM; i++)
     {
         ((uint8_t *)FSL_FEATURE_USBHSD_USB_RAM_BASE_ADDRESS)[i] = 0x00U;
@@ -89,7 +86,7 @@ void USB_DeviceIsrEnable(void)
 {
     uint8_t irqNumber;
     uint8_t usbDeviceIP3511Irq[] = USBHSD_IRQS;
-    irqNumber                    = usbDeviceIP3511Irq[CONTROLLER_ID - kUSB_ControllerLpcIp3511Hs0];
+    irqNumber                    = usbDeviceIP3511Irq[USB_CONTROLLER_ID - kUSB_ControllerLpcIp3511Hs0];
     /* Install isr, set priority, and enable IRQ. */
     NVIC_SetPriority((IRQn_Type)irqNumber, USB_DEVICE_INTERRUPT_PRIORITY);
     EnableIRQ((IRQn_Type)irqNumber);
@@ -111,7 +108,7 @@ usb_status_t USB_DeviceCdcAcmBulkIn(usb_device_handle handle,
 {
     usb_status_t error = kStatus_USB_Error;
 
-    if ((message->length != 0) && (!(message->length % s_usbBulkMaxPacketSize)))
+    if ((message->length != 0) && (!(message->length % HS_BULK_OUT_PACKET_SIZE)))
     {
         /* If the last packet is the size of endpoint, then send also zero-ended packet,
          ** meaning that we want to inform the host that we do not have any additional
@@ -123,7 +120,7 @@ usb_status_t USB_DeviceCdcAcmBulkIn(usb_device_handle handle,
     {
         /* User: add your own code for send complete event */
         /* Schedule buffer for next receive event */
-        USB_DeviceRecvRequest(handle, USB_BULK_OUT_ENDPOINT, s_currRecvBuf, s_usbBulkMaxPacketSize);
+        USB_DeviceRecvRequest(handle, USB_BULK_OUT_ENDPOINT, rx_packet.data, HS_BULK_OUT_PACKET_SIZE);
     }
     return error;
 }
@@ -145,12 +142,10 @@ usb_status_t USB_DeviceCdcAcmBulkOut(usb_device_handle handle,
 {
     usb_status_t error = kStatus_USB_Error;
 
-    s_recvSize = message->length;
-
-    if (!s_recvSize)
+    if (!message->length)
     {
         /* Schedule buffer for next receive event */
-        USB_DeviceRecvRequest(handle, USB_BULK_OUT_ENDPOINT, s_currRecvBuf, s_usbBulkMaxPacketSize);
+        USB_DeviceRecvRequest(handle, USB_BULK_OUT_ENDPOINT, rx_packet.data, HS_BULK_OUT_PACKET_SIZE);
     }
     return error;
 }
@@ -237,7 +232,7 @@ usb_status_t USB_DeviceCallback(usb_device_handle handle, uint32_t event, void *
     {
         case kUSB_DeviceEventBusReset:
         {
-            USB_DeviceControlPipeInit(s_cdcVcom.deviceHandle);
+            USB_DeviceControlPipeInit(usb_handle);
         }
         break;
         case kUSB_DeviceEventSetConfiguration:
@@ -258,7 +253,7 @@ usb_status_t USB_DeviceCallback(usb_device_handle handle, uint32_t event, void *
                     USB_BULK_IN_ENDPOINT | (USB_IN << USB_DESCRIPTOR_ENDPOINT_ADDRESS_DIRECTION_SHIFT);
                 epInitStruct.maxPacketSize = HS_BULK_IN_PACKET_SIZE;
 
-                USB_DeviceInitEndpoint(s_cdcVcom.deviceHandle, &epInitStruct, &epCallback);
+                USB_DeviceInitEndpoint(usb_handle, &epInitStruct, &epCallback);
 
                 epCallback.callbackFn    = USB_DeviceCdcAcmBulkOut;
                 epCallback.callbackParam = handle;
@@ -270,11 +265,10 @@ usb_status_t USB_DeviceCallback(usb_device_handle handle, uint32_t event, void *
                     USB_BULK_OUT_ENDPOINT | (USB_OUT << USB_DESCRIPTOR_ENDPOINT_ADDRESS_DIRECTION_SHIFT);
                 epInitStruct.maxPacketSize = HS_BULK_OUT_PACKET_SIZE;
 
-                USB_DeviceInitEndpoint(s_cdcVcom.deviceHandle, &epInitStruct, &epCallback);
+                USB_DeviceInitEndpoint(usb_handle, &epInitStruct, &epCallback);
 
-                s_usbBulkMaxPacketSize = HS_BULK_OUT_PACKET_SIZE;
                 /* Schedule buffer for receive */
-                USB_DeviceRecvRequest(handle, USB_BULK_OUT_ENDPOINT, s_currRecvBuf, s_usbBulkMaxPacketSize);
+                USB_DeviceRecvRequest(handle, USB_BULK_OUT_ENDPOINT, rx_packet.data, HS_BULK_OUT_PACKET_SIZE);
             }
             else
             {
@@ -323,21 +317,17 @@ void APPInit(void)
 {
     USB_DeviceClockInit();
 
-    s_cdcVcom.deviceHandle = NULL;
+    usb_handle = NULL;
 
-    if (kStatus_USB_Success != USB_DeviceInit(CONTROLLER_ID, USB_DeviceCallback, &s_cdcVcom.deviceHandle))
+    if (kStatus_USB_Success != USB_DeviceInit(USB_CONTROLLER_ID, USB_DeviceCallback, &usb_handle))
     {
-        usb_echo("USB device vcom failed\r\n");
+        usb_echo("USB device setup failed\r\n");
         return;
-    }
-    else
-    {
-        usb_echo("USB device CDC virtual com demo\r\n");
     }
 
     USB_DeviceIsrEnable();
 
-    USB_DeviceRun(s_cdcVcom.deviceHandle);
+    USB_DeviceRun(usb_handle);
 }
 
 /*!
@@ -351,7 +341,7 @@ void APP_task(void)
 {
     // Send IMU packet
     tx_packet.header.status++;
-    USB_DeviceSendRequest(s_cdcVcom.deviceHandle, USB_BULK_IN_ENDPOINT, tx_packet.data, sizeof(tx_packet));
+    USB_DeviceSendRequest(usb_handle, USB_BULK_IN_ENDPOINT, tx_packet.data, sizeof(tx_packet));
     return;
 }
 
