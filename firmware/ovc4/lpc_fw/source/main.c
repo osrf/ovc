@@ -24,6 +24,7 @@
 
 #include "camera_i2c.h"
 #include "imu_spi.h"
+#include "usb_packetdef.h"
 
 #include "usb_device_descriptor.h"
 #include "virtual_com.h"
@@ -53,6 +54,8 @@ void BOARD_DbgConsole_Init(void);
  ******************************************************************************/
 /* Data structure of virtual com device */
 usb_cdc_vcom_struct_t s_cdcVcom;
+
+usb_tx_packet_t tx_packet;
 
 /* Line coding of cdc device */
 USB_DMA_INIT_DATA_ALIGN(USB_DATA_ALIGN_SIZE)
@@ -640,6 +643,10 @@ void APPInit(void)
 void APP_task(void)
 {
     usb_status_t error = kStatus_USB_Error;
+    // Send IMU packet
+    tx_packet.header.status++;
+    USB_DeviceSendRequest(s_cdcVcom.deviceHandle, USB_CDC_VCOM_BULK_IN_ENDPOINT, tx_packet.data, sizeof(tx_packet));
+    return;
     if ((1 == s_cdcVcom.attach) && (1 == s_cdcVcom.startTransactions))
     {
         /* User Code */
@@ -750,13 +757,14 @@ int main(void)
 #endif
 
     APPInit();
+    tx_packet.header.status = 0;
 
     while (1)
     {
-        APP_task();
         if (imuspi_check_interrupt(&imu))
         {
           imuspi_full_duplex(&imu, spi_tx, spi_rx, sizeof(spi_rx)); 
+          APP_task();
         }
 
 #if USB_DEVICE_CONFIG_USE_TASK
