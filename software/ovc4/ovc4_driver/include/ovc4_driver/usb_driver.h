@@ -18,4 +18,6 @@ public:
 
   void pollData();
 
+  void sendPacket();
+
 };
