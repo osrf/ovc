@@ -3,8 +3,8 @@
 
 class USBDriver
 {
-  const int EP_IN = 0x82;
-  const int EP_OUT = 0x03;
+  const int EP_IN = 0x81;
+  const int EP_OUT = 0x01;
 
   const int RX_TIMEOUT = 1000; // 1 second
 

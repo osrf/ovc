@@ -1,20 +1,8 @@
 #ifndef USB_PACKETDEF_INC
 #define USB_PACKETDEF_INC
 
-#define NUM_JOINTS 5
-
-#define REGOP_NUM 8
-#define NUM_TRAJ_POINTS 15
-
-#define NUM_EAC 260 // Seems to be 257 on tested boards
-
 #define USB_VID 0x1fc9
 #define USB_PID 0x0094
-
-// Mask for register_updated bitfield
-#define SENSORS_UPDATED_MASK 1
-#define ENCODER_UPDATED_MASK (1 << 1)
-#define SETPOINT_UPDATED_MASK (1 << 2)
 
 // Packet definitions for controller board -> host PC
 

@@ -11,26 +11,8 @@
 /*******************************************************************************
 * Definitions
 ******************************************************************************/
-#if defined(USB_DEVICE_CONFIG_EHCI) && (USB_DEVICE_CONFIG_EHCI > 0)
-#define CONTROLLER_ID kUSB_ControllerEhci0
-#define DATA_BUFF_SIZE HS_CDC_VCOM_BULK_OUT_PACKET_SIZE
-
-#endif
-#if defined(USB_DEVICE_CONFIG_KHCI) && (USB_DEVICE_CONFIG_KHCI > 0)
-#define CONTROLLER_ID kUSB_ControllerKhci0
-#define DATA_BUFF_SIZE FS_CDC_VCOM_BULK_OUT_PACKET_SIZE
-
-#endif
-#if defined(USB_DEVICE_CONFIG_LPCIP3511FS) && (USB_DEVICE_CONFIG_LPCIP3511FS > 0U)
-#define CONTROLLER_ID kUSB_ControllerLpcIp3511Fs0
-#define DATA_BUFF_SIZE FS_CDC_VCOM_BULK_OUT_PACKET_SIZE
-
-#endif
-
-#if defined(USB_DEVICE_CONFIG_LPCIP3511HS) && (USB_DEVICE_CONFIG_LPCIP3511HS > 0U)
 #define CONTROLLER_ID kUSB_ControllerLpcIp3511Hs0
-#define DATA_BUFF_SIZE HS_CDC_VCOM_BULK_OUT_PACKET_SIZE
-#endif
+#define DATA_BUFF_SIZE HS_BULK_OUT_PACKET_SIZE
 
 #define USB_DEVICE_INTERRUPT_PRIORITY (3U)
 /* Currently configured line coding */
@@ -64,15 +46,4 @@ typedef struct _usb_cdc_vcom_struct
     uint8_t hasSentState; /*!< 1: The device has primed the state in interrupt pipe, 0: Not primed the state. */
 } usb_cdc_vcom_struct_t;
 
-/* Define the information relates to abstract control model */
-typedef struct _usb_cdc_acm_info
-{
-    uint8_t serialStateBuf[NOTIF_PACKET_SIZE + UART_BITMAP_SIZE]; /* Serial state buffer of the CDC device to notify the
-                                                                     serial state to host. */
-    bool dtePresent;          /* A flag to indicate whether DTE is present.         */
-    uint16_t breakDuration;   /* Length of time in milliseconds of the break signal */
-    uint8_t dteStatus;        /* Status of data terminal equipment                  */
-    uint8_t currentInterface; /* Current interface index.                           */
-    uint16_t uartState;       /* UART state of the CDC device.                      */
-} usb_cdc_acm_info_t;
 #endif /* _USB_CDC_VCOM_H_ */
