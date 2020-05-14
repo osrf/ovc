@@ -11,6 +11,7 @@ int main(int argc, char **argv)
   USBDriver usb;
   // Send calibration read command
   ros::Rate loop_rate(1000);
+  usb.sendPacket();
   while (ros::ok())
   {
     // Poll at 1kHz

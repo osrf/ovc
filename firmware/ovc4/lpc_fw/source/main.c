@@ -55,6 +55,7 @@ usb_device_handle usb_handle; /* USB device handle. */
 
 usb_tx_packet_t tx_packet;
 usb_rx_packet_t rx_packet;
+volatile bool packet_received = false;
 
 /* Data buffer for receiving and sending*/
 USB_DMA_NONINIT_DATA_ALIGN(USB_DATA_ALIGN_SIZE) static uint8_t s_SetupOutBuffer[8];
@@ -140,6 +141,7 @@ usb_status_t USB_DeviceCdcAcmBulkOut(usb_device_handle handle,
                                      usb_device_endpoint_callback_message_struct_t *message,
                                      void *callbackParam)
 {
+    packet_received = true;
     usb_status_t error = kStatus_USB_Error;
 
     if (!message->length)
@@ -425,6 +427,11 @@ int main(void)
         {
           imuspi_full_duplex(&imu, spi_tx, spi_rx, sizeof(spi_rx)); 
           APP_task();
+        }
+        if (packet_received)
+        {
+          tx_packet.header.status = rx_packet.header.status;
+          packet_received = false;
         }
     }
 }

@@ -44,3 +44,15 @@ void USBDriver::pollData()
     ROS_INFO("Received %d packets", rx_pkts);
   }
 }
+
+void USBDriver::sendPacket()
+{
+  usb_rx_packet_t tx_packet;
+  tx_packet.header.status = 1337;
+  int num_bytes;
+  int ret_val = libusb_bulk_transfer(dev_handle, EP_OUT, tx_packet.data, sizeof(tx_packet), &num_bytes, RX_TIMEOUT);
+  if (ret_val != 0)
+  {
+    ROS_INFO("Send packet failed");
+  }
+}
