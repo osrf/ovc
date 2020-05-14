@@ -484,7 +484,6 @@ add_executable(dev_cdc_vcom_lite_bm.elf
 "${ProjDirPath}/LPC55S69/gcc/LPC55S69_cm33_core0_flash.ld"
 "${ProjDirPath}/source/camera_i2c.c"
 "${ProjDirPath}/source/imu_spi.c"
-"${ProjDirPath}/source/usb_device_cdc_acm.c"
 "${ProjDirPath}/source/usb_device_ch9.c"
 "${ProjDirPath}/source/usb_device_descriptor.c"
 "${ProjDirPath}/source/main.c"
