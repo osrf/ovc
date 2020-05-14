@@ -17,3 +17,8 @@
 
 // Gpio for pin interrupt
 #define IMU_INT_GPIO_PINT kINPUTMUX_GpioPort1Pin9ToPintsel
+
+// USB
+#define USB_CONTROLLER_ID kUSB_ControllerLpcIp3511Hs0
+
+#define USB_DEVICE_INTERRUPT_PRIORITY (3U)
