@@ -15,7 +15,7 @@
 * Variables
 ******************************************************************************/
 uint8_t g_currentConfigure = 0;
-uint8_t g_interface[USB_CDC_VCOM_INTERFACE_COUNT];
+uint8_t g_interface[USB_INTERFACE_COUNT];
 
 /* Define device descriptor */
 USB_DMA_INIT_DATA_ALIGN(USB_DATA_ALIGN_SIZE)
@@ -65,9 +65,9 @@ uint8_t g_UsbDeviceConfigurationDescriptor[] = {
                        USB_DESCRIPTOR_LENGTH_ENDPOINT + USB_DESCRIPTOR_LENGTH_INTERFACE +
                        USB_DESCRIPTOR_LENGTH_ENDPOINT + USB_DESCRIPTOR_LENGTH_ENDPOINT),
     /* Number of interfaces supported by this configuration */
-    USB_CDC_VCOM_INTERFACE_COUNT,
+    USB_INTERFACE_COUNT,
     /* Value to use as an argument to the SetConfiguration() request to select this configuration */
-    USB_CDC_VCOM_CONFIGURE_INDEX,
+    USB_CONFIGURE_INDEX,
     /* Index of string descriptor describing this configuration */
     0,
     /* Configuration characteristics D7: Reserved (set to one) D6: Self-powered D5: Remote Wakeup D4...0: Reserved
@@ -80,7 +80,7 @@ uint8_t g_UsbDeviceConfigurationDescriptor[] = {
     USB_DEVICE_MAX_POWER,
 
     /* Data Interface Descriptor */
-    USB_DESCRIPTOR_LENGTH_INTERFACE, USB_DESCRIPTOR_TYPE_INTERFACE, USB_CDC_VCOM_DATA_INTERFACE_INDEX, 0x00,
+    USB_DESCRIPTOR_LENGTH_INTERFACE, USB_DESCRIPTOR_TYPE_INTERFACE, USB_DATA_INTERFACE_INDEX, 0x00,
     USB_ENDPOINT_COUNT, USB_CLASS, USB_SUBCLASS, USB_PROTOCOL,
     0x00, /* Interface Description String Index*/
 
@@ -101,49 +101,39 @@ uint8_t g_UsbDeviceString0[] = {2U + 2U, USB_DESCRIPTOR_TYPE_STRING, 0x09, 0x04}
 
 USB_DMA_INIT_DATA_ALIGN(USB_DATA_ALIGN_SIZE)
 uint8_t g_UsbDeviceString1[] = {
-    2U + 2U * 18U, USB_DESCRIPTOR_TYPE_STRING,
-    'N',           0x00U,
-    'X',           0x00U,
-    'P',           0x00U,
+    2U + 2U * 13U, USB_DESCRIPTOR_TYPE_STRING,
+    'O',           0x00U,
+    'p',           0x00U,
+    'e',           0x00U,
+    'n',           0x00U,
     ' ',           0x00U,
-    'S',           0x00U,
-    'E',           0x00U,
-    'M',           0x00U,
-    'I',           0x00U,
-    'C',           0x00U,
-    'O',           0x00U,
-    'N',           0x00U,
-    'D',           0x00U,
-    'U',           0x00U,
-    'C',           0x00U,
-    'T',           0x00U,
-    'O',           0x00U,
     'R',           0x00U,
-    'S',           0x00U,
+    'o',           0x00U,
+    'b',           0x00U,
+    'o',           0x00U,
+    't',           0x00U,
+    'i',           0x00U,
+    'c',           0x00U,
+    's',           0x00U,
 };
 
 USB_DMA_INIT_DATA_ALIGN(USB_DATA_ALIGN_SIZE)
-uint8_t g_UsbDeviceString2[] = {2U + 2U * 20U, USB_DESCRIPTOR_TYPE_STRING,
-                                'M',           0,
-                                'C',           0,
-                                'U',           0,
-                                ' ',           0,
-                                'V',           0,
-                                'I',           0,
-                                'R',           0,
-                                'T',           0,
-                                'U',           0,
-                                'A',           0,
-                                'L',           0,
-                                ' ',           0,
-                                'C',           0,
+uint8_t g_UsbDeviceString2[] = {2U + 2U * 15U, USB_DESCRIPTOR_TYPE_STRING,
                                 'O',           0,
-                                'M',           0,
+                                'v',           0,
+                                'c',           0,
+                                '4',           0,
                                 ' ',           0,
-                                'D',           0,
-                                'E',           0,
-                                'M',           0,
-                                'O',           0};
+                                'C',           0,
+                                'o',           0,
+                                'n',           0,
+                                't',           0,
+                                'r',           0,
+                                'o',           0,
+                                'l',           0,
+                                'l',           0,
+                                'e',           0,
+                                'r',           0};
 
 uint8_t *g_UsbDeviceStringDescriptorArray[USB_DEVICE_STRING_COUNT] = {g_UsbDeviceString0, g_UsbDeviceString1,
                                                                       g_UsbDeviceString2};
@@ -308,55 +298,5 @@ usb_status_t USB_DeviceSetInterface(usb_device_handle handle, uint8_t interface,
 usb_status_t USB_DeviceGetInterface(usb_device_handle handle, uint8_t interface, uint8_t *alternateSetting)
 {
     *alternateSetting = g_interface[interface];
-    return kStatus_USB_Success;
-}
-
-/*!
- * @brief USB device set speed function.
- *
- * This function sets the speed of the USB device.
- *
- * Due to the difference of HS and FS descriptors, the device descriptors and configurations need to be updated to match
- * current speed.
- * As the default, the device descriptors and configurations are configured by using FS parameters for both EHCI and
- * KHCI.
- * When the EHCI is enabled, the application needs to call this function to update device by using current speed.
- * The updated information includes endpoint max packet size, endpoint interval, etc.
- *
- * @param handle The USB device handle.
- * @param speed Speed type. USB_SPEED_HIGH/USB_SPEED_FULL/USB_SPEED_LOW.
- *
- * @return A USB error code or kStatus_USB_Success.
- */
-usb_status_t USB_DeviceSetSpeed(usb_device_handle handle, uint8_t speed)
-{
-    usb_descriptor_union_t *ptr1;
-    usb_descriptor_union_t *ptr2;
-
-    ptr1 = (usb_descriptor_union_t *)(&g_UsbDeviceConfigurationDescriptor[0]);
-    ptr2 = (usb_descriptor_union_t *)(&g_UsbDeviceConfigurationDescriptor[USB_DESCRIPTOR_LENGTH_CONFIGURATION_ALL - 1]);
-
-    while (ptr1 < ptr2)
-    {
-        if (ptr1->common.bDescriptorType == USB_DESCRIPTOR_TYPE_ENDPOINT)
-        {
-            if ((USB_BULK_IN_ENDPOINT == (ptr1->endpoint.bEndpointAddress & 0x0FU)) && 
-                     ((ptr1->endpoint.bEndpointAddress & USB_DESCRIPTOR_ENDPOINT_ADDRESS_DIRECTION_MASK) ==
-                     USB_DESCRIPTOR_ENDPOINT_ADDRESS_DIRECTION_IN))
-            {
-              // Only support USB HS
-              USB_SHORT_TO_LITTLE_ENDIAN_ADDRESS(HS_BULK_IN_PACKET_SIZE, ptr1->endpoint.wMaxPacketSize);
-            }
-            else if ((USB_BULK_OUT_ENDPOINT == (ptr1->endpoint.bEndpointAddress & 0x0FU)) &&
-                     ((ptr1->endpoint.bEndpointAddress & USB_DESCRIPTOR_ENDPOINT_ADDRESS_DIRECTION_MASK) ==
-                     USB_DESCRIPTOR_ENDPOINT_ADDRESS_DIRECTION_OUT)
-                     )
-            {
-              // Only support USB HS
-              USB_SHORT_TO_LITTLE_ENDIAN_ADDRESS(HS_BULK_OUT_PACKET_SIZE, ptr1->endpoint.wMaxPacketSize);
-            }
-        }
-        ptr1 = (usb_descriptor_union_t *)((uint8_t *)ptr1 + ptr1->common.bLength);
-    }
     return kStatus_USB_Success;
 }

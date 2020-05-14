@@ -58,10 +58,8 @@ usb_tx_packet_t tx_packet;
 
 /* Data buffer for receiving and sending*/
 USB_DMA_NONINIT_DATA_ALIGN(USB_DATA_ALIGN_SIZE) static uint8_t s_currRecvBuf[DATA_BUFF_SIZE];
-USB_DMA_NONINIT_DATA_ALIGN(USB_DATA_ALIGN_SIZE) static uint8_t s_currSendBuf[DATA_BUFF_SIZE];
 USB_DMA_NONINIT_DATA_ALIGN(USB_DATA_ALIGN_SIZE) static uint8_t s_SetupOutBuffer[8];
 volatile static uint32_t s_recvSize    = 0;
-volatile static uint32_t s_sendSize    = 0;
 static uint32_t s_usbBulkMaxPacketSize = HS_BULK_OUT_PACKET_SIZE;
 /*******************************************************************************
  * Prototypes
@@ -96,11 +94,6 @@ void USB_DeviceIsrEnable(void)
     NVIC_SetPriority((IRQn_Type)irqNumber, USB_DEVICE_INTERRUPT_PRIORITY);
     EnableIRQ((IRQn_Type)irqNumber);
 }
-
-void USB_DeviceTaskFn(void *deviceHandle)
-{
-    USB_DeviceLpcIp3511TaskFunction(deviceHandle);
-}
 /*!
  * @brief Bulk in pipe callback function.
  *
@@ -126,17 +119,11 @@ usb_status_t USB_DeviceCdcAcmBulkIn(usb_device_handle handle,
          */
         USB_DeviceSendRequest(handle, USB_BULK_IN_ENDPOINT, NULL, 0);
     }
-    else if ((1 == s_cdcVcom.attach) && (1 == s_cdcVcom.startTransactions))
+    else if ((message->buffer != NULL) || ((message->buffer == NULL) && (message->length == 0)))
     {
-        if ((message->buffer != NULL) || ((message->buffer == NULL) && (message->length == 0)))
-        {
-            /* User: add your own code for send complete event */
-            /* Schedule buffer for next receive event */
-            USB_DeviceRecvRequest(handle, USB_BULK_OUT_ENDPOINT, s_currRecvBuf, s_usbBulkMaxPacketSize);
-        }
-    }
-    else
-    {
+        /* User: add your own code for send complete event */
+        /* Schedule buffer for next receive event */
+        USB_DeviceRecvRequest(handle, USB_BULK_OUT_ENDPOINT, s_currRecvBuf, s_usbBulkMaxPacketSize);
     }
     return error;
 }
@@ -158,15 +145,12 @@ usb_status_t USB_DeviceCdcAcmBulkOut(usb_device_handle handle,
 {
     usb_status_t error = kStatus_USB_Error;
 
-    if ((1 == s_cdcVcom.attach) && (1 == s_cdcVcom.startTransactions))
-    {
-        s_recvSize = message->length;
+    s_recvSize = message->length;
 
-        if (!s_recvSize)
-        {
-            /* Schedule buffer for next receive event */
-            USB_DeviceRecvRequest(handle, USB_BULK_OUT_ENDPOINT, s_currRecvBuf, s_usbBulkMaxPacketSize);
-        }
+    if (!s_recvSize)
+    {
+        /* Schedule buffer for next receive event */
+        USB_DeviceRecvRequest(handle, USB_BULK_OUT_ENDPOINT, s_currRecvBuf, s_usbBulkMaxPacketSize);
     }
     return error;
 }
@@ -254,29 +238,14 @@ usb_status_t USB_DeviceCallback(usb_device_handle handle, uint32_t event, void *
         case kUSB_DeviceEventBusReset:
         {
             USB_DeviceControlPipeInit(s_cdcVcom.deviceHandle);
-            s_cdcVcom.attach               = 0;
-            s_cdcVcom.currentConfiguration = 0U;
-            /* Get USB speed to configure the device, including max packet size and interval of the endpoints. */
-            if (kStatus_USB_Success ==
-                USB_DeviceGetStatus(s_cdcVcom.deviceHandle, kUSB_DeviceStatusSpeed, &s_cdcVcom.speed))
-            {
-                USB_DeviceSetSpeed(handle, s_cdcVcom.speed);
-            }
         }
         break;
         case kUSB_DeviceEventSetConfiguration:
-            if (0U == (*temp8))
-            {
-                s_cdcVcom.attach               = 0;
-                s_cdcVcom.currentConfiguration = 0U;
-            }
-            else if (USB_CDC_VCOM_CONFIGURE_INDEX == (*temp8))
+        {
+            if (USB_CONFIGURE_INDEX == (*temp8))
             {
                 usb_device_endpoint_init_struct_t epInitStruct;
                 usb_device_endpoint_callback_struct_t epCallback;
-
-                s_cdcVcom.attach               = 1;
-                s_cdcVcom.currentConfiguration = *temp8;
 
                 /* Initiailize endpoints for bulk pipe */
                 epCallback.callbackFn    = USB_DeviceCdcAcmBulkIn;
@@ -312,6 +281,7 @@ usb_status_t USB_DeviceCallback(usb_device_handle handle, uint32_t event, void *
                 error = kStatus_USB_InvalidRequest;
             }
             break;
+        }
         default:
             break;
     }
@@ -353,8 +323,6 @@ void APPInit(void)
 {
     USB_DeviceClockInit();
 
-    s_cdcVcom.speed        = USB_SPEED_HIGH;
-    s_cdcVcom.attach       = 0;
     s_cdcVcom.deviceHandle = NULL;
 
     if (kStatus_USB_Success != USB_DeviceInit(CONTROLLER_ID, USB_DeviceCallback, &s_cdcVcom.deviceHandle))
@@ -381,39 +349,10 @@ void APPInit(void)
  */
 void APP_task(void)
 {
-    usb_status_t error = kStatus_USB_Error;
     // Send IMU packet
     tx_packet.header.status++;
     USB_DeviceSendRequest(s_cdcVcom.deviceHandle, USB_BULK_IN_ENDPOINT, tx_packet.data, sizeof(tx_packet));
     return;
-    if ((1 == s_cdcVcom.attach) && (1 == s_cdcVcom.startTransactions))
-    {
-        /* User Code */
-        if ((0 != s_recvSize) && (0xFFFFFFFFU != s_recvSize))
-        {
-            int32_t i;
-
-            /* Copy Buffer to Send Buff */
-            for (i = 0; i < s_recvSize; i++)
-            {
-                s_currSendBuf[s_sendSize++] = s_currRecvBuf[i] + 1;
-            }
-            s_recvSize = 0;
-        }
-
-        if (s_sendSize)
-        {
-            uint32_t size = s_sendSize;
-            s_sendSize    = 0;
-
-            error = USB_DeviceSendRequest(s_cdcVcom.deviceHandle, USB_BULK_IN_ENDPOINT, s_currSendBuf, size);
-
-            if (error != kStatus_USB_Success)
-            {
-                /* Failure to send Data Handling code here */
-            }
-        }
-    }
 }
 
 CameraI2C cameras[6];
@@ -497,9 +436,5 @@ int main(void)
           imuspi_full_duplex(&imu, spi_tx, spi_rx, sizeof(spi_rx)); 
           APP_task();
         }
-
-#if USB_DEVICE_CONFIG_USE_TASK
-        USB_DeviceTaskFn(s_cdcVcom.deviceHandle);
-#endif
     }
 }
