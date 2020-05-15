@@ -342,7 +342,7 @@ void APPInit(void)
 void usb_send_packet(void)
 {
     // Send IMU packet
-    tx_packet.header.status++;
+    tx_packet.status++;
     USB_DeviceSendRequest(usb_handle, USB_BULK_IN_ENDPOINT, tx_packet.data, sizeof(tx_packet));
     return;
 }
@@ -419,7 +419,7 @@ int main(void)
     CLOCK_DisableClock(kCLOCK_Usbh1);
 
     APPInit();
-    tx_packet.header.status = 0;
+    tx_packet.status = 0;
 
     while (1)
     {
@@ -427,12 +427,12 @@ int main(void)
         {
           imuspi_full_duplex(&imu, spi_tx, spi_rx, sizeof(spi_rx)); 
           // TODO fill packet with imu data here
-          tx_packet.header.packet_type = TX_PACKET_TYPE_IMU;
+          tx_packet.packet_type = TX_PACKET_TYPE_IMU;
           usb_send_packet();
         }
         if (packet_received)
         {
-          switch (rx_packet.header.packet_type)
+          switch (rx_packet.packet_type)
           {
             case RX_PACKET_TYPE_I2C_PROBE:
             {
@@ -448,7 +448,7 @@ int main(void)
               break;
             }
           }
-          tx_packet.header.status = rx_packet.header.status;
+          tx_packet.status = rx_packet.status;
           packet_received = false;
         }
     }

@@ -41,7 +41,7 @@ usb_tx_packet_t USBDriver::pollData()
   int ret_val = libusb_bulk_transfer(dev_handle, EP_IN, rx_packet.data, sizeof(rx_packet), &num_bytes, RX_TIMEOUT);
   if (ret_val == 0)
   {
-    ROS_INFO("Type is %d, Status is %d", rx_packet.header.packet_type, rx_packet.header.status);
+    ROS_INFO("Type is %d, Status is %d", rx_packet.packet_type, rx_packet.status);
     ++rx_pkts;
     ROS_INFO("Received %d packets", rx_pkts);
   }
@@ -61,7 +61,7 @@ usb_rx_packet_t USBDriver::initRegopPacket()
 {
   usb_rx_packet_t regops_pkt;
   for (int i=0; i<NUM_REGOPS; ++i)
-    regops_pkt.pkt.i2c.regops[i].status = REGOP_INVALID; 
+    regops_pkt.i2c.regops[i].status = REGOP_INVALID;
   return regops_pkt;
 }
 
@@ -69,11 +69,11 @@ void USBDriver::probeImagers()
 {
   // TODO iterate through imager configurations
   auto probe_pkt = initRegopPacket();
-  probe_pkt.header.status = 1337;
-  probe_pkt.header.packet_type = RX_PACKET_TYPE_I2C_PROBE;
+  probe_pkt.status = 1337;
+  probe_pkt.packet_type = RX_PACKET_TYPE_I2C_PROBE;
   for (int i=0; i<NUM_CAMERAS; ++i)
   {
-    auto& regop = probe_pkt.pkt.i2c.regops[i * REGOPS_PER_CAM];
+    auto& regop = probe_pkt.i2c.regops[i * REGOPS_PER_CAM];
     regop.addr = 0xAB;
     regop.status = REGOP_READ;
     regop.i32 = 0x12345678;
@@ -87,12 +87,12 @@ void USBDriver::probeImagers()
     for (int regop_id = 0; regop_id < REGOPS_PER_CAM; ++regop_id)
     {
       int regop_addr = cam_id * REGOPS_PER_CAM + regop_id;
-      switch (res_pkt.pkt.i2c.regops[regop_addr].status)
+      switch (res_pkt.i2c.regops[regop_addr].status)
       {
         case REGOP_OK:
         {
           ROS_INFO_STREAM("Camera " << cam_id << " responded to probe with result " << std::hex <<
-              res_pkt.pkt.i2c.regops[regop_addr].i32);
+              res_pkt.i2c.regops[regop_addr].i32);
           break;
         }
         case REGOP_NAK:

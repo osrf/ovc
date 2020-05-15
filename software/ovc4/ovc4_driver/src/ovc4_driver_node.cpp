@@ -5,7 +5,6 @@
 
 int main(int argc, char **argv)
 {
-  ROS_INFO("Hello world");
   ros::init(argc, argv, "ovc4_driver_node");
   ros::NodeHandle nh;
   USBDriver usb;
