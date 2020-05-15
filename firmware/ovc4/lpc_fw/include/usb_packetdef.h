@@ -45,6 +45,7 @@ typedef enum
   REGOP_INVALID = 0xFFFF
 } regop_status_t;
 
+// TODO allow different slave address?
 typedef struct __attribute__((__packed__)) {
   regop_status_t status;
   int16_t addr;
@@ -72,47 +73,33 @@ typedef struct __attribute__((__packed__))
   float gyro_z;
 } usb_tx_imu_t;
 
-typedef struct __attribute__((__packed__))
-{
-  uint16_t status;
-  tx_packet_type_t packet_type;
-} usb_tx_header_t;
-
-typedef union
-{
-  usb_tx_imu_t imu;
-  usb_txrx_i2c_t i2c;
-} usb_tx_payload_t;
-
 typedef union usb_tx_packet_t
 {
   struct
   {
-    usb_tx_header_t header;
-    usb_tx_payload_t pkt;
+    uint16_t status;
+    tx_packet_type_t packet_type;
+    union
+    {
+      usb_tx_imu_t imu;
+      usb_txrx_i2c_t i2c;
+    };
   };
   uint8_t data[1]; // We don't need to code magic numbers for size, ref  https://electronics.stackexchange.com/questions/296348/union-member-and-size-of-char-array-in-c
 } usb_tx_packet_t;
 
 // Packet definitions for host PC -> controller board
 
-typedef struct __attribute__((__packed__))
-{
-  uint16_t status;
-  rx_packet_type_t packet_type;
-} usb_rx_header_t;
-
-typedef union __attribute__((__packed__))
-{
-  usb_txrx_i2c_t i2c;
-} usb_rx_payload_t;
-
 typedef union __attribute__((__packed__))
 {
   struct __attribute__((__packed__))
   {
-    usb_rx_header_t header;
-    usb_rx_payload_t pkt;
+    uint16_t status;
+    rx_packet_type_t packet_type;
+    union
+    {
+      usb_txrx_i2c_t i2c;
+    };
   };
   uint8_t data[1];
 } usb_rx_packet_t;
