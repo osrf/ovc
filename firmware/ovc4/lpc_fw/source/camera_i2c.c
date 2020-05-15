@@ -41,7 +41,7 @@ void camerai2c_configure_slave(CameraI2C* cam_i2c, uint8_t slave_addr, uint8_t r
 
 }
 
-void camerai2c_probe_sensors(CameraI2C* cam_i2cs, usb_rx_packet_t* rx_packet, usb_tx_packet_t* tx_packet)
+void camerai2c_regops_sequential(CameraI2C* cam_i2cs, usb_rx_packet_t* rx_packet, usb_tx_packet_t* tx_packet)
 {
   tx_packet->packet_type = TX_PACKET_TYPE_I2C_RESULT;
   memcpy(&tx_packet->i2c, &rx_packet->i2c, sizeof(rx_packet->i2c));
@@ -51,14 +51,14 @@ void camerai2c_probe_sensors(CameraI2C* cam_i2cs, usb_rx_packet_t* rx_packet, us
   {
     cam_i2cs[cam_id].xfer_.slaveAddress = rx_packet->i2c[cam_id].slave_address;
     cam_i2cs[cam_id].xfer_.subaddressSize = rx_packet->i2c[cam_id].subaddress_size;
+    cam_i2cs[cam_id].register_size_ = rx_packet->i2c[cam_id].register_size;
     for (int regop_id = 0; regop_id < REGOPS_PER_CAM; ++regop_id)
     {
       regop_status_t regop_type = rx_packet->i2c[cam_id].regops[regop_id].status;
       //i2c_direction_t i2c_dir;
       if (regop_type == REGOP_READ)
       {
-        // TODO remove hardcoded 4 bytes read
-        if (camerai2c_read(cam_i2cs + cam_id, rx_packet->i2c[cam_id].regops[regop_id].addr, 4))
+        if (camerai2c_read(cam_i2cs + cam_id, rx_packet->i2c[cam_id].regops[regop_id].addr, cam_i2cs[cam_id].register_size_))
         {
           // Read was successful
           tx_packet->i2c[cam_id].regops[regop_id].status = REGOP_OK;
@@ -69,10 +69,22 @@ void camerai2c_probe_sensors(CameraI2C* cam_i2cs, usb_rx_packet_t* rx_packet, us
           tx_packet->i2c[cam_id].regops[regop_id].status = REGOP_NAK;
         }
       }
+      else if (regop_type == REGOP_WRITE)
+      {
+        // Always write 4 bytes, will be truncated if registers are smaller
+        if (camerai2c_write(cam_i2cs + cam_id, rx_packet->i2c[cam_id].regops[regop_id].addr,
+              rx_packet->i2c[cam_id].regops[regop_id].i32, cam_i2cs[cam_id].register_size_))
+        {
+          tx_packet->i2c[cam_id].regops[regop_id].status = REGOP_OK;
+        }
+        else
+        {
+          tx_packet->i2c[cam_id].regops[regop_id].status = REGOP_NAK;
+        }
+      }
       else
       {
-        // TODO handle more cases, refactor into separate function
-        continue;
+        // Ignore other operations
       }
     }
   }

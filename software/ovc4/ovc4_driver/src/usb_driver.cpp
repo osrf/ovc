@@ -71,13 +71,14 @@ void USBDriver::probeImagers()
   // TODO iterate through imager configurations
   auto probe_pkt = initRegopPacket();
   probe_pkt.status = 1337;
-  probe_pkt.packet_type = RX_PACKET_TYPE_I2C_PROBE;
+  probe_pkt.packet_type = RX_PACKET_TYPE_I2C_SEQUENTIAL;
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
   {
     auto& regop = probe_pkt.i2c[cam_id].regops[0];
     // I2C address
     probe_pkt.i2c[cam_id].slave_address = 0x12 + cam_id;
     probe_pkt.i2c[cam_id].subaddress_size = 2;
+    probe_pkt.i2c[cam_id].register_size = 4;
     // Register address
     regop.addr = 0xABCD;
     regop.status = REGOP_READ;
