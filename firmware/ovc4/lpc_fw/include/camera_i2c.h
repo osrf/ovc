@@ -1,8 +1,10 @@
 #ifndef I2C_DRIVER_H
 #define I2C_DRIVER_H 1
 
-#include "ovc_hw_defs.h"
 #include "fsl_i2c.h"
+
+#include "ovc_hw_defs.h"
+#include "usb_packetdef.h"
 
 typedef struct CameraI2C
 {
@@ -10,9 +12,6 @@ typedef struct CameraI2C
   I2C_Type *base_;
 
   i2c_master_transfer_t xfer_;
-
-  uint8_t slave_addr_; 
-  uint8_t reg_addr_size_; // Size in bytes of the register address
 
   uint8_t last_read_len_;
 
@@ -24,6 +23,10 @@ typedef struct CameraI2C
 void camerai2c_init(I2C_Type *base, CameraI2C* cam_i2c);
 
 void camerai2c_configure_slave(CameraI2C* cam_i2c, uint8_t slave_addr, uint8_t reg_addr_size);
+
+// High level function, series of blocking reads (probing / configuring)
+// For this function the CameraI2C* parameter is actually an array of camera_i2c structures
+void camerai2c_probe_sensors(CameraI2C* cam_i2cs, usb_rx_packet_t* rx_packet, usb_tx_packet_t* tx_packet);
 
 // Setup non blocking (interrupt based) transaction
 bool camerai2c_read_nonblocking(CameraI2C* cam_i2c, uint32_t reg_addr, uint8_t read_len);

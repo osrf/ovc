@@ -339,7 +339,7 @@ void APPInit(void)
  *
  * @return None.
  */
-void APP_task(void)
+void usb_send_packet(void)
 {
     // Send IMU packet
     tx_packet.header.status++;
@@ -347,7 +347,7 @@ void APP_task(void)
     return;
 }
 
-CameraI2C cameras[6];
+CameraI2C cameras[NUM_CAMERAS];
 IMUSPI imu;
 
 int main(void)
@@ -375,11 +375,11 @@ int main(void)
     // Write first
     camerai2c_read(&cameras[0], 0x34, 4);
     camerai2c_read(&cameras[1], 0x34, 4);
-    camerai2c_wait_for_complete();
+    //camerai2c_wait_for_complete();
     // TODO more user friendly API without dangerous casts
     camerai2c_get_read_data(&cameras[0], (uint8_t *)&write_val);
     ++write_val;
-    camerai2c_write_nonblocking(&cameras[0], 0x34, write_val, sizeof(write_val));
+    camerai2c_write(&cameras[0], 0x34, write_val, sizeof(write_val));
     camerai2c_wait_for_complete();
 
     // I2C END
@@ -426,10 +426,28 @@ int main(void)
         if (imuspi_check_interrupt(&imu))
         {
           imuspi_full_duplex(&imu, spi_tx, spi_rx, sizeof(spi_rx)); 
-          APP_task();
+          // TODO fill packet with imu data here
+          tx_packet.header.packet_type = TX_PACKET_TYPE_IMU;
+          usb_send_packet();
         }
         if (packet_received)
         {
+          switch (rx_packet.header.packet_type)
+          {
+            case RX_PACKET_TYPE_I2C_PROBE:
+            {
+              // Series of blocking I2C calls
+              camerai2c_probe_sensors(cameras, &rx_packet, &tx_packet);
+              usb_send_packet();
+              break;
+            }
+            case RX_PACKET_TYPE_I2C_SYNC:
+            {
+              // Series of non blocking I2C calls
+
+              break;
+            }
+          }
           tx_packet.header.status = rx_packet.header.status;
           packet_received = false;
         }

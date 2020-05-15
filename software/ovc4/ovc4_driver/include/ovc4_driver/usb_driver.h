@@ -10,14 +10,16 @@ class USBDriver
 
   libusb_device_handle *dev_handle;
 
-  usb_tx_packet_t rx_packet;
+  
+  void sendPacket(usb_rx_packet_t& packet);
+
+  usb_rx_packet_t initRegopPacket();
 
 public:
 
   USBDriver();
 
-  void pollData();
+  usb_tx_packet_t pollData();
 
-  void sendPacket();
-
+  void probeImagers();
 };
