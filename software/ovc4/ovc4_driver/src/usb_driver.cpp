@@ -60,8 +60,9 @@ void USBDriver::sendPacket(usb_rx_packet_t& packet)
 usb_rx_packet_t USBDriver::initRegopPacket()
 {
   usb_rx_packet_t regops_pkt;
-  for (int i=0; i<NUM_REGOPS; ++i)
-    regops_pkt.i2c.regops[i].status = REGOP_INVALID;
+  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+    for (int regop_id = 0; regop_id < REGOPS_PER_CAM; ++regop_id)
+      regops_pkt.i2c[cam_id].regops[regop_id].status = REGOP_INVALID;
   return regops_pkt;
 }
 
@@ -71,12 +72,15 @@ void USBDriver::probeImagers()
   auto probe_pkt = initRegopPacket();
   probe_pkt.status = 1337;
   probe_pkt.packet_type = RX_PACKET_TYPE_I2C_PROBE;
-  for (int i=0; i<NUM_CAMERAS; ++i)
+  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
   {
-    auto& regop = probe_pkt.i2c.regops[i * REGOPS_PER_CAM];
-    regop.addr = 0xAB;
+    auto& regop = probe_pkt.i2c[cam_id].regops[0];
+    // I2C address
+    probe_pkt.i2c[cam_id].slave_address = 0x12 + cam_id;
+    probe_pkt.i2c[cam_id].subaddress_size = 2;
+    // Register address
+    regop.addr = 0xABCD;
     regop.status = REGOP_READ;
-    regop.i32 = 0x12345678;
   }
   sendPacket(probe_pkt);
   // Get result
@@ -86,13 +90,12 @@ void USBDriver::probeImagers()
   {
     for (int regop_id = 0; regop_id < REGOPS_PER_CAM; ++regop_id)
     {
-      int regop_addr = cam_id * REGOPS_PER_CAM + regop_id;
-      switch (res_pkt.i2c.regops[regop_addr].status)
+      switch (res_pkt.i2c[cam_id].regops[regop_id].status)
       {
         case REGOP_OK:
         {
           ROS_INFO_STREAM("Camera " << cam_id << " responded to probe with result " << std::hex <<
-              res_pkt.i2c.regops[regop_addr].i32);
+              res_pkt.i2c[cam_id].regops[regop_id].i32);
           break;
         }
         case REGOP_NAK:

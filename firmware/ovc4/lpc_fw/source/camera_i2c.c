@@ -30,14 +30,15 @@ void camerai2c_init(I2C_Type *base, CameraI2C* cam_i2c)
   I2C_MasterInit(base, &master_config, I2C_CLOCK_FREQUENCY);
 
   I2C_MasterTransferCreateHandle(base, &cam_i2c->master_handle_, i2c_master_callback, NULL);
+  cam_i2c->xfer_.flags = kI2C_TransferDefaultFlag;
 }
 
+// DEPRECATED, removed in future
 void camerai2c_configure_slave(CameraI2C* cam_i2c, uint8_t slave_addr, uint8_t reg_addr_size)
 {
   cam_i2c->xfer_.slaveAddress = slave_addr;
   cam_i2c->xfer_.subaddressSize = reg_addr_size;
 
-  cam_i2c->xfer_.flags = kI2C_TransferDefaultFlag;
 }
 
 void camerai2c_probe_sensors(CameraI2C* cam_i2cs, usb_rx_packet_t* rx_packet, usb_tx_packet_t* tx_packet)
@@ -48,23 +49,24 @@ void camerai2c_probe_sensors(CameraI2C* cam_i2cs, usb_rx_packet_t* rx_packet, us
   // TODO remove, for now only two I2Cs are configured
   for (int cam_id = 0; cam_id < 2; ++cam_id)
   {
+    cam_i2cs[cam_id].xfer_.slaveAddress = rx_packet->i2c[cam_id].slave_address;
+    cam_i2cs[cam_id].xfer_.subaddressSize = rx_packet->i2c[cam_id].subaddress_size;
     for (int regop_id = 0; regop_id < REGOPS_PER_CAM; ++regop_id)
     {
-      int regop_addr = cam_id * REGOPS_PER_CAM + regop_id;
-      regop_status_t regop_type = rx_packet->i2c.regops[regop_addr].status;
+      regop_status_t regop_type = rx_packet->i2c[cam_id].regops[regop_id].status;
       //i2c_direction_t i2c_dir;
       if (regop_type == REGOP_READ)
       {
         // TODO remove hardcoded 4 bytes read
-        if (camerai2c_read(cam_i2cs + cam_id, rx_packet->i2c.regops[regop_addr].addr, 4))
+        if (camerai2c_read(cam_i2cs + cam_id, rx_packet->i2c[cam_id].regops[regop_id].addr, 4))
         {
           // Read was successful
-          tx_packet->i2c.regops[regop_addr].status = REGOP_OK;
-          camerai2c_get_read_data(cam_i2cs + cam_id, (uint8_t *)&tx_packet->i2c.regops[regop_addr].i32);
+          tx_packet->i2c[cam_id].regops[regop_id].status = REGOP_OK;
+          camerai2c_get_read_data(cam_i2cs + cam_id, (uint8_t *)&tx_packet->i2c[cam_id].regops[regop_id].i32);
         }
         else
         {
-          tx_packet->i2c.regops[regop_addr].status = REGOP_NAK;
+          tx_packet->i2c[cam_id].regops[regop_id].status = REGOP_NAK;
         }
       }
       else
