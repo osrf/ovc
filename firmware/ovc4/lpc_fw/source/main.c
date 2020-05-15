@@ -373,13 +373,13 @@ int main(void)
     camerai2c_configure_slave(&cameras[1], 0x12, 1);
     uint32_t write_val = 0x56789ABC;
     // Write first
-    camerai2c_setup_read(&cameras[0], 0x34, 4);
-    camerai2c_setup_read(&cameras[1], 0x34, 4);
+    camerai2c_read(&cameras[0], 0x34, 4);
+    camerai2c_read(&cameras[1], 0x34, 4);
     camerai2c_wait_for_complete();
     // TODO more user friendly API without dangerous casts
     camerai2c_get_read_data(&cameras[0], (uint8_t *)&write_val);
     ++write_val;
-    camerai2c_setup_write(&cameras[0], 0x34, write_val, sizeof(write_val));
+    camerai2c_write_nonblocking(&cameras[0], 0x34, write_val, sizeof(write_val));
     camerai2c_wait_for_complete();
 
     // I2C END
