@@ -27,8 +27,8 @@ typedef enum
 #endif
 {
   RX_PACKET_TYPE_CMD_RESET = 1,
-  RX_PACKET_TYPE_I2C_PROBE = 2, // Probing sensors is not time sensitive and should be robust to failed transactions
-  RX_PACKET_TYPE_I2C_SYNC = 3,  // Synchronous transactios (for exposure), should not fail and happen synchronously
+  RX_PACKET_TYPE_I2C_SEQUENTIAL = 2, // Sequential I2C operations (i.e. probing / initialising sensors, not time sensitive)
+  RX_PACKET_TYPE_I2C_SYNC = 3,  // Synchronous transactios (for exposure), should not fail (NAK) and happen synchronously
   RX_PACKET_TYPE_FORCE_16BIT = 0xFFFF
 } rx_packet_type_t; 
 
@@ -61,7 +61,8 @@ typedef struct __attribute__((__packed__)) {
 typedef struct __attribute__((__packed__))
 {
   int16_t slave_address; // I2C address of the camera
-  int16_t subaddress_size; // Size (in bytes) of the register address, 2 most of the times
+  int8_t subaddress_size; // Size (in bytes) of the register address, 2 most of the times
+  int8_t register_size; // Size of each register (determines the length of read / write functions)
   reg_op_t regops[REGOPS_PER_CAM];
 } usb_txrx_i2c_t;
 

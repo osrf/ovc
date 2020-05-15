@@ -369,18 +369,6 @@ int main(void)
     RESET_PeripheralReset(kFC1_RST_SHIFT_RSTn);
     camerai2c_init(CAM0_I2C, &cameras[0]);
     camerai2c_init(CAM1_I2C, &cameras[1]);
-    //camerai2c_configure_slave(&cameras[0], 0x12, 2);
-    //camerai2c_configure_slave(&cameras[1], 0x12, 2);
-    uint32_t write_val = 0x56789ABC;
-    // Write first
-    //camerai2c_read(&cameras[0], 0x1234, 4);
-    //camerai2c_read(&cameras[1], 0x1234, 4);
-    //camerai2c_wait_for_complete();
-    // TODO more user friendly API without dangerous casts
-    //camerai2c_get_read_data(&cameras[0], (uint8_t *)&write_val);
-    //++write_val;
-    //camerai2c_write(&cameras[0], 0x34, write_val, sizeof(write_val));
-    //camerai2c_wait_for_complete();
 
     // I2C END
     // SPI BEGIN
@@ -434,10 +422,11 @@ int main(void)
         {
           switch (rx_packet.packet_type)
           {
-            case RX_PACKET_TYPE_I2C_PROBE:
+            case RX_PACKET_TYPE_I2C_SEQUENTIAL:
             {
               // Series of blocking I2C calls
-              camerai2c_probe_sensors(cameras, &rx_packet, &tx_packet);
+              camerai2c_regops_sequential(cameras, &rx_packet, &tx_packet);
+              // Send result
               usb_send_packet();
               break;
             }
