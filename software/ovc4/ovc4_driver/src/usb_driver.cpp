@@ -31,28 +31,81 @@ USBDriver::USBDriver()
     ROS_ERROR("Failed to claim interface");
 }
 
-void USBDriver::pollData()
+usb_tx_packet_t USBDriver::pollData()
 {
+  // Bit misleading naming, tx (from MCU) rx (from host machine)
+  usb_tx_packet_t rx_packet;
   int num_bytes;
   static int rx_pkts = 0;
   
   int ret_val = libusb_bulk_transfer(dev_handle, EP_IN, rx_packet.data, sizeof(rx_packet), &num_bytes, RX_TIMEOUT);
   if (ret_val == 0)
   {
-    ROS_INFO("Status is %d", rx_packet.header.status);
+    ROS_INFO("Type is %d, Status is %d", rx_packet.header.packet_type, rx_packet.header.status);
     ++rx_pkts;
     ROS_INFO("Received %d packets", rx_pkts);
   }
+  return rx_packet;
 }
 
-void USBDriver::sendPacket()
+// libusb function uses a non const pointer so we cannot pass const reference
+void USBDriver::sendPacket(usb_rx_packet_t& packet)
 {
-  usb_rx_packet_t tx_packet;
-  tx_packet.header.status = 1337;
   int num_bytes;
-  int ret_val = libusb_bulk_transfer(dev_handle, EP_OUT, tx_packet.data, sizeof(tx_packet), &num_bytes, RX_TIMEOUT);
+  int ret_val = libusb_bulk_transfer(dev_handle, EP_OUT, packet.data, sizeof(packet), &num_bytes, RX_TIMEOUT);
   if (ret_val != 0)
-  {
     ROS_INFO("Send packet failed");
+}
+
+usb_rx_packet_t USBDriver::initRegopPacket()
+{
+  usb_rx_packet_t regops_pkt;
+  for (int i=0; i<NUM_REGOPS; ++i)
+    regops_pkt.pkt.i2c.regops[i].status = REGOP_INVALID; 
+  return regops_pkt;
+}
+
+void USBDriver::probeImagers()
+{
+  // TODO iterate through imager configurations
+  auto probe_pkt = initRegopPacket();
+  probe_pkt.header.status = 1337;
+  probe_pkt.header.packet_type = RX_PACKET_TYPE_I2C_PROBE;
+  for (int i=0; i<NUM_CAMERAS; ++i)
+  {
+    auto& regop = probe_pkt.pkt.i2c.regops[i * REGOPS_PER_CAM];
+    regop.addr = 0xAB;
+    regop.status = REGOP_READ;
+    regop.i32 = 0x12345678;
+  }
+  sendPacket(probe_pkt);
+  // Get result
+  // TODO handle timeouts
+  auto res_pkt = pollData();
+  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+  {
+    for (int regop_id = 0; regop_id < REGOPS_PER_CAM; ++regop_id)
+    {
+      int regop_addr = cam_id * REGOPS_PER_CAM + regop_id;
+      switch (res_pkt.pkt.i2c.regops[regop_addr].status)
+      {
+        case REGOP_OK:
+        {
+          ROS_INFO_STREAM("Camera " << cam_id << " responded to probe with result " << std::hex <<
+              res_pkt.pkt.i2c.regops[regop_addr].i32);
+          break;
+        }
+        case REGOP_NAK:
+        {
+          ROS_INFO_STREAM("Camera " << cam_id << " NAK probe");
+          break;
+        }
+        case REGOP_READ:
+        {
+          ROS_ERROR("Unhandled read");
+        }
+        // Don't care about other cases
+      }
+    }
   }
 }
