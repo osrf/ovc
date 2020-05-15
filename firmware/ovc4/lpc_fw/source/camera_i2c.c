@@ -96,7 +96,13 @@ bool camerai2c_write_nonblocking(CameraI2C* cam_i2c, uint32_t reg_addr, uint32_t
 bool camerai2c_read(CameraI2C* cam_i2c, uint32_t reg_addr, uint8_t read_len)
 {
   camerai2c_setup_read_(cam_i2c, reg_addr, read_len);
-  return camerai2c_transfer_blocking_(cam_i2c);
+  if (camerai2c_transfer_blocking_(cam_i2c))
+  {
+    cam_i2c->last_read_len_ = read_len;
+    return true;
+  }
+  cam_i2c->last_read_len_ = 0;
+  return false;
 }
 
 bool camerai2c_write(CameraI2C* cam_i2c, uint32_t reg_addr, uint32_t write_val, uint8_t write_len)
