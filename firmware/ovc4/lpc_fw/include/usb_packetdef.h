@@ -17,7 +17,7 @@ typedef enum
 #endif
 {
   TX_PACKET_TYPE_IMU = 1, // Packet with IMU data
-  TX_PACKET_TYPE_I2C_RESULT = 2, // Result of regops received through an I2C_PROBE packet
+  TX_PACKET_TYPE_I2C_RESULT = 2, // Result of regops received through an I2C_PROBE / SYNC packet
   TX_PACKET_TYPE_FORCE_16BIT = 0xFFFF 
 } tx_packet_type_t;
 
@@ -60,7 +60,9 @@ typedef struct __attribute__((__packed__)) {
 
 typedef struct __attribute__((__packed__))
 {
-  reg_op_t regops[NUM_REGOPS];
+  int16_t slave_address; // I2C address of the camera
+  int16_t subaddress_size; // Size (in bytes) of the register address, 2 most of the times
+  reg_op_t regops[REGOPS_PER_CAM];
 } usb_txrx_i2c_t;
 
 typedef struct __attribute__((__packed__))
@@ -82,7 +84,7 @@ typedef union usb_tx_packet_t
     union
     {
       usb_tx_imu_t imu;
-      usb_txrx_i2c_t i2c;
+      usb_txrx_i2c_t i2c[NUM_CAMERAS];
     };
   };
   uint8_t data[1]; // We don't need to code magic numbers for size, ref  https://electronics.stackexchange.com/questions/296348/union-member-and-size-of-char-array-in-c
@@ -98,7 +100,7 @@ typedef union __attribute__((__packed__))
     rx_packet_type_t packet_type;
     union
     {
-      usb_txrx_i2c_t i2c;
+      usb_txrx_i2c_t i2c[NUM_CAMERAS];
     };
   };
   uint8_t data[1];
