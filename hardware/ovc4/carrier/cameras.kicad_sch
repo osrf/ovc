@@ -1,6 +1,8 @@
-(kicad_sch (version 20200506) (host eeschema "5.99.0-unknown-acdfeee~101~ubuntu18.04.1")
+(kicad_sch (version 20200512) (host eeschema "5.99.0-unknown-0658d29~101~ubuntu18.04.1")
 
-  (page "A4")
+  (page 3 6)
+
+  (paper "A4")
 
   (lib_symbols
     (symbol "connectors:PICAM"
@@ -420,16 +422,16 @@
   (junction (at 226.06 124.46))
   (junction (at 226.06 132.08))
 
-  (no_connect (at 39.37 153.67))
   (no_connect (at 39.37 130.81))
-  (no_connect (at 39.37 148.59))
   (no_connect (at 39.37 128.27))
-  (no_connect (at 39.37 156.21))
+  (no_connect (at 39.37 153.67))
   (no_connect (at 39.37 138.43))
+  (no_connect (at 39.37 146.05))
+  (no_connect (at 39.37 156.21))
+  (no_connect (at 39.37 148.59))
+  (no_connect (at 39.37 125.73))
   (no_connect (at 39.37 140.97))
   (no_connect (at 39.37 133.35))
-  (no_connect (at 39.37 146.05))
-  (no_connect (at 39.37 125.73))
 
   (wire (pts (xy 116.84 50.8) (xy 116.84 58.42)))
   (wire (pts (xy 116.84 50.8) (xy 139.7 50.8)))
