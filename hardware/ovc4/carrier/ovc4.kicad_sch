@@ -1,4 +1,4 @@
-(kicad_sch (version 20200512) (host eeschema "5.99.0-unknown-4efed4b~101~ubuntu18.04.1")
+(kicad_sch (version 20200512) (host eeschema "5.99.0-unknown-c8476d6~101~ubuntu18.04.1")
 
   (page 1 6)
 
@@ -475,9 +475,7 @@
     (path "/d644af85-b31f-484e-b872-de8eaf71989f/154764b9-87f4-4fab-af38-ecd82f31220c" (reference "#PWR0130") (unit 1))
     (path "/d644af85-b31f-484e-b872-de8eaf71989f/ea1121af-327f-45f4-9c11-7c3f164329cf" (reference "#PWR0131") (unit 1))
     (path "/d644af85-b31f-484e-b872-de8eaf71989f/c9510316-77b1-461b-9335-188986824668" (reference "#PWR0132") (unit 1))
-    (path "/d644af85-b31f-484e-b872-de8eaf71989f/f91ab871-7c0a-4d5c-ab2f-6f4646ff6949" (reference "#PWR0133") (unit 1))
     (path "/d644af85-b31f-484e-b872-de8eaf71989f/ef45d51e-5f46-4458-9307-ae9289185e5a" (reference "#PWR0134") (unit 1))
-    (path "/d644af85-b31f-484e-b872-de8eaf71989f/9f55ca8f-f07e-44be-82ad-5af974c2bf73" (reference "#PWR0135") (unit 1))
     (path "/d644af85-b31f-484e-b872-de8eaf71989f/d0096317-1de0-4786-968e-a92385ae9310" (reference "#PWR0136") (unit 1))
     (path "/d644af85-b31f-484e-b872-de8eaf71989f/ac1a35a6-4c36-4566-8834-91233fbb5998" (reference "#PWR0137") (unit 1))
     (path "/d644af85-b31f-484e-b872-de8eaf71989f/0abd2213-a8c5-4595-ae77-d074c0e10fef" (reference "#PWR0138") (unit 1))
@@ -554,6 +552,8 @@
     (path "/d644af85-b31f-484e-b872-de8eaf71989f/8f69e4bc-8d36-4555-ab9a-1e8c24311bad" (reference "R26") (unit 1))
     (path "/d644af85-b31f-484e-b872-de8eaf71989f/23c403de-5773-4e0e-9d22-a532644ae261" (reference "R30") (unit 1))
     (path "/d644af85-b31f-484e-b872-de8eaf71989f/04660d7c-f1b7-4d76-995a-3f3c7da692be" (reference "R31") (unit 1))
+    (path "/d644af85-b31f-484e-b872-de8eaf71989f/c0ff0483-2d7b-4d5f-81e9-7ec79587aac1" (reference "R35") (unit 1))
+    (path "/d644af85-b31f-484e-b872-de8eaf71989f/f08c8c4f-1ef5-41d7-ae77-10c2033d95cd" (reference "R36") (unit 1))
     (path "/d644af85-b31f-484e-b872-de8eaf71989f/97d4eb46-4f24-4e02-87b9-30db11cb9a13" (reference "SW1") (unit 1))
     (path "/d644af85-b31f-484e-b872-de8eaf71989f/5e079e62-b745-4a26-8ef2-f9bbb48da4aa" (reference "SW2") (unit 1))
     (path "/d644af85-b31f-484e-b872-de8eaf71989f/b99890e7-6607-4ba9-b6eb-6b63634d41ac" (reference "SW2") (unit 2))

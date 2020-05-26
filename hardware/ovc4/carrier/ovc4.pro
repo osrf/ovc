@@ -1,4 +1,4 @@
-update=Fri May 22 15:28:10 2020
+update=Tue May 26 09:28:13 2020
 last_client=kicad
 [general]
 version=1
@@ -10,13 +10,6 @@ version=1
 version=1
 [SchematicFrame]
 version=1
-[sheetnames]
-1=1a010d3c-dff7-4896-a57e-098a72b011f0:
-2=d644af85-b31f-484e-b872-de8eaf71989f:Power
-3=e41a7a89-a793-42af-8988-b7aa4f763dd6:Cameras
-4=a91bd963-42e8-4108-90c3-f2faca0a929b:USB
-5=f69d7b23-d408-451c-b085-92b98580ca14:MCU
-6=d0742964-f221-44fd-86a1-447640f67856:Interfaces
 [pcbnew]
 version=1
 PageLayoutDescrFile=
@@ -326,3 +319,10 @@ uViaDrill=0.1
 dPairWidth=0.1778
 dPairGap=0.2032
 dPairViaGap=0.25
+[sheetnames]
+1=6d3f14c6-e350-47bb-9dd4-f2a3e7410e86:
+2=d644af85-b31f-484e-b872-de8eaf71989f:Power
+3=e41a7a89-a793-42af-8988-b7aa4f763dd6:Cameras
+4=a91bd963-42e8-4108-90c3-f2faca0a929b:USB
+5=f69d7b23-d408-451c-b085-92b98580ca14:MCU
+6=d0742964-f221-44fd-86a1-447640f67856:Interfaces

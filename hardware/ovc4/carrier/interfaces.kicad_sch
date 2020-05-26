@@ -1,6 +1,6 @@
-(kicad_sch (version 20200512) (host eeschema "5.99.0-unknown-4efed4b~101~ubuntu18.04.1")
+(kicad_sch (version 20200512) (host eeschema "5.99.0-unknown-c8476d6~101~ubuntu18.04.1")
 
-  (page 6 6)
+  (page 1 6)
 
   (paper "A4")
 
@@ -571,6 +571,7 @@
   (junction (at 193.04 31.75))
   (junction (at 193.04 36.83))
   (junction (at 210.82 48.26))
+  (junction (at 247.65 53.34))
   (junction (at 250.19 81.28))
 
   (wire (pts (xy 118.11 31.75) (xy 129.54 31.75)))
@@ -588,8 +589,9 @@
   (wire (pts (xy 214.63 68.58) (xy 214.63 69.85)))
   (wire (pts (xy 214.63 69.85) (xy 215.9 69.85)))
   (wire (pts (xy 215.9 48.26) (xy 215.9 55.88)))
-  (wire (pts (xy 247.65 43.18) (xy 247.65 55.88)))
+  (wire (pts (xy 247.65 43.18) (xy 247.65 53.34)))
   (wire (pts (xy 247.65 43.18) (xy 255.27 43.18)))
+  (wire (pts (xy 247.65 53.34) (xy 247.65 55.88)))
   (wire (pts (xy 247.65 78.74) (xy 250.19 78.74)))
   (wire (pts (xy 247.65 81.28) (xy 250.19 81.28)))
   (wire (pts (xy 250.19 78.74) (xy 250.19 81.28)))
