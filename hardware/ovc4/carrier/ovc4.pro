@@ -1,15 +1,22 @@
-update=Tue May 26 09:28:13 2020
+update=Tue May 26 19:02:58 2020
 last_client=kicad
 [general]
 version=1
 [LibeditFrame]
 version=1
-[ModEditFrame]
-version=1
 [PcbFrame]
 version=1
 [SchematicFrame]
 version=1
+[ModEditFrame]
+version=1
+[sheetnames]
+1=78aff417-e83a-4a26-8932-db46ab5e3c6a:
+2=d644af85-b31f-484e-b872-de8eaf71989f:Power
+3=e41a7a89-a793-42af-8988-b7aa4f763dd6:Cameras
+4=a91bd963-42e8-4108-90c3-f2faca0a929b:USB
+5=f69d7b23-d408-451c-b085-92b98580ca14:MCU
+6=d0742964-f221-44fd-86a1-447640f67856:Interfaces
 [pcbnew]
 version=1
 PageLayoutDescrFile=
@@ -19,7 +26,7 @@ LastIDFExportPath=
 LastVRMLExportPath=
 LastSpecctraDSNExportPath=
 LastGenCADExportPath=
-CopperLayerCount=4
+CopperLayerCount=6
 BoardThickness=1.6
 AllowMicroVias=0
 AllowBlindVias=0
@@ -156,11 +163,11 @@ Enabled=1
 [pcbnew/Layer.In3.Cu]
 Name=In3.Cu
 Type=0
-Enabled=0
+Enabled=1
 [pcbnew/Layer.In4.Cu]
 Name=In4.Cu
 Type=0
-Enabled=0
+Enabled=1
 [pcbnew/Layer.In5.Cu]
 Name=In5.Cu
 Type=0
@@ -319,10 +326,3 @@ uViaDrill=0.1
 dPairWidth=0.1778
 dPairGap=0.2032
 dPairViaGap=0.25
-[sheetnames]
-1=6d3f14c6-e350-47bb-9dd4-f2a3e7410e86:
-2=d644af85-b31f-484e-b872-de8eaf71989f:Power
-3=e41a7a89-a793-42af-8988-b7aa4f763dd6:Cameras
-4=a91bd963-42e8-4108-90c3-f2faca0a929b:USB
-5=f69d7b23-d408-451c-b085-92b98580ca14:MCU
-6=d0742964-f221-44fd-86a1-447640f67856:Interfaces
