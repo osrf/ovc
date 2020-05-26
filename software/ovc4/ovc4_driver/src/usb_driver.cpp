@@ -41,9 +41,12 @@ usb_tx_packet_t USBDriver::pollData()
   int ret_val = libusb_bulk_transfer(dev_handle, EP_IN, rx_packet.data, sizeof(rx_packet), &num_bytes, RX_TIMEOUT);
   if (ret_val == 0)
   {
+    /*
     ROS_INFO("Type is %d, Status is %d", rx_packet.packet_type, rx_packet.status);
     ++rx_pkts;
+    ROS_INFO("Accelerometer data = (%.2f,%.2f,%.2f)", rx_packet.imu.acc_x, rx_packet.imu.acc_y, rx_packet.imu.acc_z);
     ROS_INFO("Received %d packets", rx_pkts);
+    */
   }
   return rx_packet;
 }

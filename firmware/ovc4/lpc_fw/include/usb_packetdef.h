@@ -68,6 +68,7 @@ typedef struct __attribute__((__packed__))
 
 typedef struct __attribute__((__packed__))
 {
+  float temperature;
   float acc_x;
   float acc_y;
   float acc_z;

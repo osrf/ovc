@@ -3,7 +3,7 @@ project(ovc4_driver)
 
 add_compile_options(-std=c++11)
 
-find_package(catkin REQUIRED roscpp)
+find_package(catkin REQUIRED roscpp sensor_msgs)
 
 find_package(PkgConfig)
 pkg_search_module(LIBUSB REQUIRED libusb-1.0)

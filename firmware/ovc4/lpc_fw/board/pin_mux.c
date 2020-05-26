@@ -244,6 +244,22 @@ void BOARD_InitPins(void)
                                          /* Analog switch is closed (enabled) */
                                          IOCON_PIO_ASW_EN);
     IOCON_PinMuxSet(IOCON, 1U, 9U, port1_pin9_config);
+    // interrupt on IMU FSYNC 
+    const uint32_t port1_pin28_config = (/* PIO */
+                                         0 |
+                                         /* No addition pin function */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI |
+                                         /* Analog switch is closed (enabled) */
+                                         IOCON_PIO_ASW_EN);
+    IOCON_PinMuxSet(IOCON, 1U, 28U, port1_pin28_config);
 }
 /***********************************************************************************************************************
  * EOF
