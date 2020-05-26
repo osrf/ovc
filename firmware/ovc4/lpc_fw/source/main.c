@@ -348,10 +348,11 @@ void usb_send_packet(void)
 }
 
 CameraI2C cameras[NUM_CAMERAS];
-IMUSPI imu;
+ICMIMU imu;
 
 int main(void)
 {
+    POWER_SetBodVbatLevel(kPOWER_BodVbatLevel1650mv, kPOWER_BodHystLevel50mv, false);
     /* attach 12 MHz clock to FLEXCOMM0 (debug console) */
     CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
 
@@ -375,16 +376,16 @@ int main(void)
     CLOCK_AttachClk(kFRO12M_to_FLEXCOMM3);
     RESET_PeripheralReset(kFC3_RST_SHIFT_RSTn);
 
-    imuspi_init(IMU_SPI, &imu);
+    icm42688_init(IMU_SPI, &imu);
 
-    uint8_t spi_tx[4] = {0x12, 0x34, 0x56, 0x78};
-    uint8_t spi_rx[4] = {0xEE, 0xEE, 0xEE, 0xEE};
+    //uint8_t spi_tx[4] = {0x12, 0x34, 0x56, 0x78};
+    //uint8_t spi_rx[4] = {0xEE, 0xEE, 0xEE, 0xEE};
 
-    imuspi_full_duplex(&imu, spi_tx, spi_rx, sizeof(spi_rx)); 
+    //imuspi_full_duplex(&imu, spi_tx, spi_rx, sizeof(spi_rx)); 
     // Hardware duplex, make sure rx is equal to tx
-    imuspi_transmit_data(&imu, spi_rx, sizeof(spi_rx));
+    //imuspi_transmit_data(&imu, spi_rx, sizeof(spi_rx));
 
-    imuspi_attach_interrupt(&imu);
+    imuspi_attach_interrupt(&imu.spi);
     // SPI END
 
     NVIC_ClearPendingIRQ(USB1_IRQn);
@@ -411,9 +412,10 @@ int main(void)
 
     while (1)
     {
-        if (imuspi_check_interrupt(&imu))
+        if (imuspi_check_interrupt(&imu.spi))
         {
-          imuspi_full_duplex(&imu, spi_tx, spi_rx, sizeof(spi_rx)); 
+          icm42688_read_sensor_data(&imu, &tx_packet);
+          //imuspi_full_duplex(&imu, spi_tx, spi_rx, sizeof(spi_rx)); 
           // TODO fill packet with imu data here
           tx_packet.packet_type = TX_PACKET_TYPE_IMU;
           usb_send_packet();

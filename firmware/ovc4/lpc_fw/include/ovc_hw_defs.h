@@ -16,7 +16,7 @@
 #define IMU_SPI_SPOL kSPI_SpolActiveAllLow
 
 // Gpio for pin interrupt
-#define IMU_INT_GPIO_PINT kINPUTMUX_GpioPort1Pin9ToPintsel
+#define IMU_INT_GPIO_PINT kINPUTMUX_GpioPort1Pin28ToPintsel
 
 // USB
 #define USB_CONTROLLER_ID kUSB_ControllerLpcIp3511Hs0
