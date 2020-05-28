@@ -6,4 +6,5 @@
   (lib (name "Ethernet")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/Ethernet.pretty")(options "")(descr ""))
   (lib (name "Package_QFP")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/Package_QFP.pretty")(options "")(descr ""))
   (lib (name "Switches")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/Switches.pretty")(options "")(descr ""))
+  (lib (name "Batteries_OSRF")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/Batteries_OSRF.pretty")(options "")(descr ""))
 )
