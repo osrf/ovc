@@ -1,8 +1,6 @@
-update=Thu May 28 19:32:15 2020
+update=Tue Jun  2 16:17:22 2020
 last_client=kicad
 [general]
-version=1
-[LibeditFrame]
 version=1
 [PcbFrame]
 version=1
@@ -30,10 +28,12 @@ ERC_CheckBusToBusConflicts=1
 ERC_CheckBusToNetConflicts=1
 [ModEditFrame]
 version=1
+[LibeditFrame]
+version=1
 [SchematicFrame]
 version=1
 [sheetnames]
-1=debc3476-7cd2-4b36-b434-f1137a510b46:
+1=7144e1cc-6b66-4215-8f67-3e878d9da170:
 2=d644af85-b31f-484e-b872-de8eaf71989f:Power
 3=e41a7a89-a793-42af-8988-b7aa4f763dd6:Cameras
 4=a91bd963-42e8-4108-90c3-f2faca0a929b:USB
@@ -86,6 +86,7 @@ Hole_too_close_to_pad=error
 Hole_too_close_to_track=error
 Drilled_holes_too_close_together=error
 Track_width_too_small=error
+Track_width_too_large=error
 Via_size_too_small=error
 Via_annulus_too_small=error
 Via_drill_too_small=error
@@ -104,9 +105,14 @@ NetClass_Via_Drill_too_small=error
 NetClass_uVia_Dia_too_small=error
 NetClass_uVia_Drill_too_small=error
 Via_inside_keepout_area=error
+Micro_via_inside_keepout_area=error
+Buried_via_inside_keepout_area=error
 Track_inside_keepout_area=error
 Pad_inside_keepout_area=error
 Footprint_inside_keepout_area=error
+Hole_inside_keepout_area=error
+Text_inside_keepout_area=error
+Graphic_inside_keepout_area=error
 Courtyards_overlap=error
 Footprint_has_no_courtyard_defined=ignore
 Footprint_has_malformed_courtyard=error
