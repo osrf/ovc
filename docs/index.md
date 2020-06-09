@@ -24,7 +24,7 @@ quadrotor platform. This manuscript can be found on
 ![OVC](./assets/images/ovc3-palm.jpg)
 
 ## OVC4
-![OVC](./assets/images/ovc4-perspective.jpg)
+![OVC](./assets/images/ovc4-perspective.png)
 
 ## [Software Resources](./software.html)
 
