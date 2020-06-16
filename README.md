@@ -10,6 +10,7 @@ the art open hardware with open firmware and software. There are a few revs:
  * ovc1: two Python1300 imagers, a Jetson TX2 (6x ARMv8, GPU, etc.) connected to a Cyclone-V GT FPGA over PCIe.
  * [ovc2](doc/ovc2a/README.md): two Python1300 imagers, a Jetson TX2 (6x ARMv8, GPU, etc.) connected to a Cyclone 10 GX FPGA over PCIe Gen 2.0 x4
  * ovc3: three ON Semi AR0144CS imagers, USB Type-C peripheral, Trenz TE0820 module with Xilinx Zynq UltraScale+, RAM, flash, etc (current work). Up to four optional external camera boards, each of which add a pair of AR0144CS imagers.
+ * ovc4: A Jetson Xavier NX / Nano carrier board with an NXP MCU, USB Type-C peripheral and six Picam compatible connectors.
 
 # where do I find hardware stuff
 
