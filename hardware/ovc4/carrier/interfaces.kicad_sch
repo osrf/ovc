@@ -1,4 +1,4 @@
-(kicad_sch (version 20200608) (host eeschema "5.99.0-unknown-9d78aa6~101~ubuntu18.04.1")
+(kicad_sch (version 20200608) (host eeschema "5.99.0-unknown-ad69e44~101~ubuntu18.04.1")
 
   (page 6 6)
 
@@ -2178,7 +2178,7 @@
     (effects (font (size 1.27 1.27)) (justify left))
   )
 
-  (symbol (lib_id "power:+1V8") (at 83.82 148.59 0) (unit 1)
+  (symbol (lib_id "power:+1V8") (at 83.82 148.59 0)
     (in_bom yes) (on_board yes)
     (uuid "41861527-024d-44cf-a4e5-01f9040f7bd3")
     (property "Reference" "#PWR0259" (id 0) (at 83.82 152.4 0)
@@ -2193,7 +2193,7 @@
     )
   )
 
-  (symbol (lib_id "power:+5V") (at 96.52 135.89 0) (unit 1)
+  (symbol (lib_id "power:+5V") (at 96.52 135.89 0)
     (in_bom yes) (on_board yes)
     (uuid "e0fb991b-601c-498a-b31c-3df535d8cf0d")
     (property "Reference" "#PWR0258" (id 0) (at 96.52 139.7 0)
@@ -2208,7 +2208,7 @@
     )
   )
 
-  (symbol (lib_id "power:+5V") (at 130.81 95.25 0) (unit 1)
+  (symbol (lib_id "power:+5V") (at 130.81 95.25 0)
     (in_bom yes) (on_board yes)
     (uuid "fea8a8cf-c4f7-4eea-9689-bae34e9a6300")
     (property "Reference" "#PWR0247" (id 0) (at 130.81 99.06 0)
@@ -2223,7 +2223,7 @@
     )
   )
 
-  (symbol (lib_id "power:+5V") (at 134.62 111.76 0) (unit 1)
+  (symbol (lib_id "power:+5V") (at 134.62 111.76 0)
     (in_bom yes) (on_board yes)
     (uuid "8a2a9b38-c9b8-4b96-b63e-782b563d356a")
     (property "Reference" "#PWR0255" (id 0) (at 134.62 115.57 0)
@@ -2238,7 +2238,7 @@
     )
   )
 
-  (symbol (lib_id "power:+1V8") (at 139.7 111.76 0) (unit 1)
+  (symbol (lib_id "power:+1V8") (at 139.7 111.76 0)
     (in_bom yes) (on_board yes)
     (uuid "5d76c7a2-ebab-4c9c-98f0-68444ec63d3e")
     (property "Reference" "#PWR0252" (id 0) (at 139.7 115.57 0)
@@ -2253,7 +2253,7 @@
     )
   )
 
-  (symbol (lib_id "power:+5V") (at 167.64 95.25 0) (unit 1)
+  (symbol (lib_id "power:+5V") (at 167.64 95.25 0)
     (in_bom yes) (on_board yes)
     (uuid "69f409fd-b294-438d-8703-726fc9aeb82d")
     (property "Reference" "#PWR0261" (id 0) (at 167.64 99.06 0)
@@ -2268,7 +2268,7 @@
     )
   )
 
-  (symbol (lib_id "power:VBUS") (at 173.99 31.75 0) (unit 1)
+  (symbol (lib_id "power:VBUS") (at 173.99 31.75 0)
     (in_bom yes) (on_board yes)
     (uuid "bbec8840-ad6b-4bea-954e-360c68fb6ccb")
     (property "Reference" "#PWR0129" (id 0) (at 173.99 35.56 0)
@@ -2283,7 +2283,7 @@
     )
   )
 
-  (symbol (lib_id "power:+3V3") (at 210.82 48.26 0) (unit 1)
+  (symbol (lib_id "power:+3V3") (at 210.82 48.26 0)
     (in_bom yes) (on_board yes)
     (uuid "3949980a-2a37-4799-9a01-faa5ce8456b9")
     (property "Reference" "#PWR0161" (id 0) (at 210.82 52.07 0)
@@ -2298,7 +2298,7 @@
     )
   )
 
-  (symbol (lib_id "power:+3V3") (at 214.63 68.58 0) (unit 1)
+  (symbol (lib_id "power:+3V3") (at 214.63 68.58 0)
     (in_bom yes) (on_board yes)
     (uuid "adcd9656-9e13-435e-9d0a-2d477aae9dd0")
     (property "Reference" "#PWR0145" (id 0) (at 214.63 72.39 0)
@@ -2313,7 +2313,7 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 127 132.08 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 127 132.08 0)
     (in_bom yes) (on_board yes)
     (uuid "4d82731f-735a-45ab-b2db-3f34db99b676")
     (property "Reference" "#PWR0249" (id 0) (at 127 138.43 0)
@@ -2330,7 +2330,7 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 128.27 116.84 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 128.27 116.84 0)
     (in_bom yes) (on_board yes)
     (uuid "a2325498-b574-44ff-9c0f-7593e5c03776")
     (property "Reference" "#PWR0257" (id 0) (at 128.27 123.19 0)
@@ -2347,7 +2347,7 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 137.16 95.25 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 137.16 95.25 0)
     (in_bom yes) (on_board yes)
     (uuid "795fd966-ae1c-4fe9-99e0-7d9d515e9937")
     (property "Reference" "#PWR0246" (id 0) (at 137.16 101.6 0)
@@ -2364,7 +2364,7 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 137.16 137.16 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 137.16 137.16 0)
     (in_bom yes) (on_board yes)
     (uuid "6e066d2d-d7a5-45f3-83ec-6fccd2cd431e")
     (property "Reference" "#PWR0248" (id 0) (at 137.16 143.51 0)
@@ -2381,7 +2381,7 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 146.05 116.84 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 146.05 116.84 0)
     (in_bom yes) (on_board yes)
     (uuid "d87974f7-8f4e-4e08-8702-5f8db1b7374a")
     (property "Reference" "#PWR0256" (id 0) (at 146.05 123.19 0)
@@ -2398,7 +2398,7 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 147.32 133.35 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 147.32 133.35 0)
     (in_bom yes) (on_board yes)
     (uuid "e8066897-4218-4152-b5e3-19df3a58c4aa")
     (property "Reference" "#PWR0251" (id 0) (at 147.32 139.7 0)
@@ -2415,7 +2415,7 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 173.99 95.25 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 173.99 95.25 0)
     (in_bom yes) (on_board yes)
     (uuid "bc699f96-abbc-4604-86b4-caf9fd66b684")
     (property "Reference" "#PWR0260" (id 0) (at 173.99 101.6 0)
@@ -2432,7 +2432,7 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 181.61 36.83 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 181.61 36.83 0)
     (in_bom yes) (on_board yes)
     (uuid "2f4e4131-c32b-4a90-82de-09c6e0408c7c")
     (property "Reference" "#PWR0182" (id 0) (at 181.61 43.18 0)
@@ -2449,7 +2449,7 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 210.82 53.34 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 210.82 53.34 0)
     (in_bom yes) (on_board yes)
     (uuid "d4df74b1-a06d-4342-be30-ff3e7642d475")
     (property "Reference" "#PWR0203" (id 0) (at 210.82 59.69 0)
@@ -2466,7 +2466,7 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 227.33 116.84 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 227.33 116.84 0)
     (in_bom yes) (on_board yes)
     (uuid "3935b939-208e-4072-87e7-8607a9072ae9")
     (property "Reference" "#PWR0236" (id 0) (at 227.33 123.19 0)
@@ -2483,7 +2483,7 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 250.19 82.55 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 250.19 82.55 0)
     (in_bom yes) (on_board yes)
     (uuid "71cc7c7e-3a71-405b-85a6-8f9581927f3a")
     (property "Reference" "#PWR0153" (id 0) (at 250.19 88.9 0)
@@ -2500,7 +2500,7 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 255.27 48.26 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 255.27 48.26 0)
     (in_bom yes) (on_board yes)
     (uuid "5fdcea62-620e-41b5-880c-ebb2a03b9655")
     (property "Reference" "#PWR0159" (id 0) (at 255.27 54.61 0)
@@ -2517,7 +2517,7 @@
     )
   )
 
-  (symbol (lib_id "Device:R_Small") (at 83.82 158.75 0) (unit 1)
+  (symbol (lib_id "Device:R_Small") (at 83.82 158.75 0)
     (in_bom yes) (on_board yes)
     (uuid "b4a9962f-7357-4b1c-88b0-ea46bd62dd22")
     (property "Reference" "R37" (id 0) (at 78.867 158.75 90))
@@ -2542,7 +2542,7 @@
     )
   )
 
-  (symbol (lib_name "Device:R_Small_3") (lib_id "Device:R_Small") (at 96.52 138.43 0) (unit 1)
+  (symbol (lib_name "Device:R_Small_3") (lib_id "Device:R_Small") (at 96.52 138.43 0)
     (in_bom yes) (on_board yes)
     (uuid "282b16e3-ac67-416b-b691-458f89141dee")
     (property "Reference" "R38" (id 0) (at 91.567 138.43 90))
@@ -2567,7 +2567,7 @@
     )
   )
 
-  (symbol (lib_id "Device:R_Small") (at 147.32 130.81 180) (unit 1)
+  (symbol (lib_id "Device:R_Small") (at 147.32 130.81 180)
     (in_bom yes) (on_board yes)
     (uuid "0188df40-34a8-478e-aefd-e468b7ad1d7b")
     (property "Reference" "R39" (id 0) (at 152.273 130.81 90))
@@ -2592,7 +2592,7 @@
     )
   )
 
-  (symbol (lib_id "Device:R_Small") (at 193.04 34.29 0) (unit 1)
+  (symbol (lib_id "Device:R_Small") (at 193.04 34.29 0)
     (in_bom yes) (on_board yes)
     (uuid "c96e31e5-1ea4-4ceb-96ea-2eed215ef3e4")
     (property "Reference" "R34" (id 0) (at 194.5386 33.1216 0)
@@ -2624,7 +2624,7 @@
     )
   )
 
-  (symbol (lib_name "Device:R_Small_1") (lib_id "Device:R_Small") (at 210.82 58.42 270) (unit 1)
+  (symbol (lib_name "Device:R_Small_1") (lib_id "Device:R_Small") (at 210.82 58.42 270)
     (in_bom yes) (on_board yes)
     (uuid "cee4b6be-2216-416b-b949-d9404a9032e9")
     (property "Reference" "R32" (id 0) (at 211.9884 59.9186 0)
@@ -2653,7 +2653,7 @@
     )
   )
 
-  (symbol (lib_name "Device:R_Small_2") (lib_id "Device:R_Small") (at 210.82 72.39 270) (unit 1)
+  (symbol (lib_name "Device:R_Small_2") (lib_id "Device:R_Small") (at 210.82 72.39 270)
     (in_bom yes) (on_board yes)
     (uuid "8ec3fcb2-bec4-40e2-bda5-fe1ee9b077c2")
     (property "Reference" "R33" (id 0) (at 211.9884 73.8886 0)
@@ -2682,7 +2682,7 @@
     )
   )
 
-  (symbol (lib_id "Device:C_Small") (at 128.27 114.3 0) (unit 1)
+  (symbol (lib_id "Device:C_Small") (at 128.27 114.3 0)
     (in_bom yes) (on_board yes)
     (uuid "0ceee516-2a2b-438a-a964-33958ec4c854")
     (property "Reference" "C72" (id 0) (at 130.607 113.157 0)
@@ -2714,7 +2714,7 @@
     )
   )
 
-  (symbol (lib_id "Device:C_Small") (at 146.05 114.3 0) (unit 1)
+  (symbol (lib_id "Device:C_Small") (at 146.05 114.3 0)
     (in_bom yes) (on_board yes)
     (uuid "d7fb2be2-aa45-49d2-b968-f9ad8b7b80be")
     (property "Reference" "C73" (id 0) (at 148.3868 113.157 0)
@@ -2746,7 +2746,7 @@
     )
   )
 
-  (symbol (lib_id "Device:C_Small") (at 181.61 34.29 0) (unit 1)
+  (symbol (lib_id "Device:C_Small") (at 181.61 34.29 0)
     (in_bom yes) (on_board yes)
     (uuid "6a6db744-3f59-4d15-83c9-cbcd73e6a0c7")
     (property "Reference" "C37" (id 0) (at 183.9468 33.147 0)
@@ -2778,7 +2778,7 @@
     )
   )
 
-  (symbol (lib_id "Device:C_Small") (at 210.82 50.8 180) (unit 1)
+  (symbol (lib_id "Device:C_Small") (at 210.82 50.8 180)
     (in_bom yes) (on_board yes)
     (uuid "ab3e914d-b82d-4187-aefb-49c9f2f43345")
     (property "Reference" "C59" (id 0) (at 208.4832 51.943 0)
@@ -2810,7 +2810,7 @@
     )
   )
 
-  (symbol (lib_id "Device:C_Small") (at 255.27 45.72 0) (unit 1)
+  (symbol (lib_id "Device:C_Small") (at 255.27 45.72 0)
     (in_bom yes) (on_board yes)
     (uuid "6e204e97-15aa-40bb-a3ed-3820d2be061b")
     (property "Reference" "C65" (id 0) (at 257.6068 44.577 0)
@@ -2842,7 +2842,7 @@
     )
   )
 
-  (symbol (lib_id "Connector_Generic:Conn_01x03") (at 232.41 114.3 0) (unit 1)
+  (symbol (lib_id "Connector_Generic:Conn_01x03") (at 232.41 114.3 0)
     (in_bom yes) (on_board yes)
     (uuid "df015c21-d75a-47ac-84e3-077fda23c6ee")
     (property "Reference" "J1" (id 0) (at 234.442 113.201 0)
@@ -2871,7 +2871,7 @@
     )
   )
 
-  (symbol (lib_id "Connector_Generic:Conn_01x04") (at 144.78 97.79 0) (unit 1)
+  (symbol (lib_id "Connector_Generic:Conn_01x04") (at 144.78 97.79 0)
     (in_bom yes) (on_board yes)
     (uuid "8318f856-4d10-47d5-85df-858e17243c52")
     (property "Reference" "J11" (id 0) (at 146.8121 97.9614 0)
@@ -2900,7 +2900,7 @@
     )
   )
 
-  (symbol (lib_name "Connector_Generic:Conn_01x04_1") (lib_id "Connector_Generic:Conn_01x04") (at 181.61 97.79 0) (unit 1)
+  (symbol (lib_name "Connector_Generic:Conn_01x04_1") (lib_id "Connector_Generic:Conn_01x04") (at 181.61 97.79 0)
     (in_bom yes) (on_board yes)
     (uuid "ce8cc7e3-5959-486f-b3f5-57c637adb02f")
     (property "Reference" "J12" (id 0) (at 183.6421 97.9614 0)
@@ -2929,7 +2929,7 @@
     )
   )
 
-  (symbol (lib_id "Device:Q_NMOS_GSD") (at 93.98 153.67 0) (unit 1)
+  (symbol (lib_id "Device:Q_NMOS_GSD") (at 93.98 153.67 0)
     (in_bom yes) (on_board yes)
     (uuid "63195b33-855d-4b7d-a892-299dd499c32e")
     (property "Reference" "Q4" (id 0) (at 99.187 152.527 0)
@@ -2958,7 +2958,7 @@
     )
   )
 
-  (symbol (lib_id "Device:Q_NMOS_GSD") (at 209.55 31.75 0) (unit 1)
+  (symbol (lib_id "Device:Q_NMOS_GSD") (at 209.55 31.75 0)
     (in_bom yes) (on_board yes)
     (uuid "74f0b244-73e4-404e-a367-aae23836b815")
     (property "Reference" "Q3" (id 0) (at 214.757 30.607 0)
@@ -2987,7 +2987,7 @@
     )
   )
 
-  (symbol (lib_id "Logic_LevelTranslator:SN74LVC1T45DBV") (at 137.16 127 0) (unit 1)
+  (symbol (lib_id "Logic_LevelTranslator:SN74LVC1T45DBV") (at 137.16 127 0)
     (in_bom yes) (on_board yes)
     (uuid "6e413c5b-647b-4032-bdf8-b4ab4c0777fd")
     (property "Reference" "U12" (id 0) (at 141.986 137.281 0)
@@ -3016,7 +3016,7 @@
     )
   )
 
-  (symbol (lib_id "nvidia_jetson:Jetson_Nano") (at 105.41 50.8 0) (unit 7)
+  (symbol (lib_id "nvidia_jetson:Jetson_Nano") (at 105.41 50.8 0)
     (in_bom yes) (on_board yes)
     (uuid "3739410a-d2c4-4d17-843a-632f119d8a22")
     (property "Reference" "U1" (id 0) (at 106.68 22.5044 0))
@@ -3041,7 +3041,7 @@
     )
   )
 
-  (symbol (lib_id "ethernet:ARJ11C-MBSAS-A-BA-7MU2") (at 237.49 73.66 0) (unit 1)
+  (symbol (lib_id "ethernet:ARJ11C-MBSAS-A-BA-7MU2") (at 237.49 73.66 0)
     (in_bom yes) (on_board yes)
     (uuid "39c02081-c4ae-4122-95e3-2652a918a0cf")
     (property "Reference" "U21" (id 0) (at 231.775 85.471 0)
@@ -3070,7 +3070,7 @@
     )
   )
 
-  (symbol (lib_id "nvidia_jetson:Jetson_Nano") (at 50.8 85.09 0) (unit 6)
+  (symbol (lib_id "nvidia_jetson:Jetson_Nano") (at 50.8 85.09 0)
     (in_bom yes) (on_board yes)
     (uuid "073a2319-10f2-4d26-b9db-ae1de5e14bb7")
     (property "Reference" "U1" (id 0) (at 53.4924 19.9644 0))
