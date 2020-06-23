@@ -1,6 +1,6 @@
 (kicad_sch (version 20200608) (host eeschema "5.99.0-unknown-ad69e44~101~ubuntu18.04.1")
 
-  (page 5 6)
+  (page 7 6)
 
   (paper "A4")
 
@@ -1062,12 +1062,15 @@
       (property "Datasheet" "" (id 3) (at 27.94 -66.04 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "ki_fp_filters" "QFP-100-1EP_3.21x3.21mm_14x14_Pitch0.5mm" (id 4) (at 0 0 0)
+      (property "ki_description" "Dual core ARM Cortex M33 MCU" (id 4) (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_fp_filters" "QFP-100-1EP_3.21x3.21mm_14x14_Pitch0.5mm" (id 5) (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
       (symbol "LPC55S66JBD100_1_0_1"
         (rectangle (start -24.13 62.23) (end 25.4 -62.23)
-          (stroke (width 0)) (fill (type background))
+          (stroke (width 0.1524)) (fill (type background))
         )
       )
       (symbol "LPC55S66JBD100_1_1_1"
@@ -1729,10 +1732,10 @@
   (junction (at 238.76 77.47))
   (junction (at 248.92 29.21))
 
-  (no_connect (at 251.46 64.77))
-  (no_connect (at 251.46 67.31))
   (no_connect (at 251.46 69.85))
   (no_connect (at 251.46 72.39))
+  (no_connect (at 251.46 67.31))
+  (no_connect (at 251.46 64.77))
 
   (wire (pts (xy 30.48 95.25) (xy 34.29 95.25))
     (stroke (width 0) (type solid) (color 0 0 0 0))
@@ -3920,8 +3923,8 @@
   (symbol (lib_name "mcu_nxp:LPC55S66JBD100_1") (lib_id "mcu_nxp:LPC55S66JBD100") (at 106.68 120.65 0)
     (in_bom yes) (on_board yes)
     (uuid "882fa565-d674-4402-ad08-9309b68cfaaf")
-    (property "Reference" "U20" (id 0) (at 132.715 186.3154 0))
-    (property "Value" "LPC55S69JBD100" (id 1) (at 132.715 188.6141 0))
+    (property "Reference" "U" (id 0) (at 132.715 186.3154 0))
+    (property "Value" "LPC55S66JBD100" (id 1) (at 132.715 188.6141 0))
     (property "Footprint" "Package_QFP:QFP-100-1EP_3.21x3.21mm_14x14_Pitch0.5mm" (id 2) (at 134.62 186.69 0)
       (effects (font (size 1.27 1.27)) hide)
     )
