@@ -1,5 +1,5 @@
 #include <ros/ros.h>
-#include <ovc4_driver/usb_driver.h>
+#include <ovc4_driver/usb_driver.hpp>
 #include <ovc4_driver/usb_packetdef.h>
 
 USBDriver::USBDriver()
@@ -77,14 +77,7 @@ void USBDriver::probeImagers()
   probe_pkt.packet_type = RX_PACKET_TYPE_I2C_SEQUENTIAL;
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
   {
-    auto& regop = probe_pkt.i2c[cam_id].regops[0];
-    // I2C address
-    probe_pkt.i2c[cam_id].slave_address = 0x12 + cam_id;
-    probe_pkt.i2c[cam_id].subaddress_size = 2;
-    probe_pkt.i2c[cam_id].register_size = 4;
-    // Register address
-    regop.addr = 0xABCD;
-    regop.status = REGOP_READ;
+    PiCameraV2::fillProbeRegOps(probe_pkt.i2c[cam_id]);
   }
   sendPacket(probe_pkt);
   // Get result
@@ -92,6 +85,12 @@ void USBDriver::probeImagers()
   auto res_pkt = pollData();
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
   {
+    // Check if it is a Picam
+    if (PiCameraV2::checkProbeRegOps(res_pkt.i2c[cam_id]))
+    {
+      ROS_INFO_STREAM("Picamera detected for camera " << cam_id);
+      cameras[cam_id] = std::make_shared<PiCameraV2>();
+    }
     for (int regop_id = 0; regop_id < REGOPS_PER_CAM; ++regop_id)
     {
       switch (res_pkt.i2c[cam_id].regops[regop_id].status)

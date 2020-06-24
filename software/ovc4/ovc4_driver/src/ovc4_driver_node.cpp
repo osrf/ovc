@@ -1,5 +1,5 @@
 #include <ros/ros.h>
-#include <ovc4_driver/usb_driver.h>
+#include <ovc4_driver/usb_driver.hpp>
 
 #include <sensor_msgs/Imu.h>
 
@@ -12,7 +12,7 @@ int main(int argc, char **argv)
   // Imu publisher
   ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("imu", 10);
   USBDriver usb;
-  // Send calibration read command
+  // Probe imagers then publish IMU data
   ros::Rate loop_rate(10000);
   usb.probeImagers();
   while (ros::ok())

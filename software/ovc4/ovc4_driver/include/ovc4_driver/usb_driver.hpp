@@ -1,5 +1,6 @@
 #include <libusb.h>
 #include <ovc4_driver/usb_packetdef.h>
+#include <ovc4_driver/cameras.hpp>
 
 class USBDriver
 {
@@ -9,6 +10,8 @@ class USBDriver
   const int RX_TIMEOUT = 1000; // 1 second
 
   libusb_device_handle *dev_handle;
+
+  std::array<std::shared_ptr<Camera>, NUM_CAMERAS> cameras;
 
   
   void sendPacket(usb_rx_packet_t& packet);

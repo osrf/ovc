@@ -17,6 +17,7 @@ include_directories(
 ## Declare a C++ library
 add_library(${PROJECT_NAME}
   src/usb_driver.cpp
+  src/cameras.cpp
 )
 
 add_executable(${PROJECT_NAME}_node src/ovc4_driver_node.cpp)

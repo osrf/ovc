@@ -1,6 +1,8 @@
 #ifndef USB_PACKETDEF_INC
 #define USB_PACKETDEF_INC
 
+#include <cstdint>
+
 #define USB_VID 0x1fc9
 #define USB_PID 0x0094
 
@@ -56,14 +58,14 @@ typedef struct __attribute__((__packed__)) {
     uint16_t u16;
     uint8_t u8;
   };
-} reg_op_t;
+} regop_t;
 
 typedef struct __attribute__((__packed__))
 {
   int16_t slave_address; // I2C address of the camera
   int8_t subaddress_size; // Size (in bytes) of the register address, 2 most of the times
   int8_t register_size; // Size of each register (determines the length of read / write functions)
-  reg_op_t regops[REGOPS_PER_CAM];
+  regop_t regops[REGOPS_PER_CAM];
 } usb_txrx_i2c_t;
 
 typedef struct __attribute__((__packed__))
