@@ -1,6 +1,6 @@
 #include <libusb.h>
 #include <ovc4_driver/usb_packetdef.h>
-#include <ovc4_driver/cameras.hpp>
+#include <ovc4_driver/camera.hpp>
 
 class USBDriver
 {

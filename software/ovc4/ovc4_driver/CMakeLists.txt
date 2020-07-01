@@ -17,7 +17,13 @@ include_directories(
 ## Declare a C++ library
 add_library(${PROJECT_NAME}
   src/usb_driver.cpp
-  src/cameras.cpp
+)
+
+# Add all the cameras
+file(GLOB_RECURSE cameras_srcs "src/cameras/*.cpp")
+
+add_library(ovc4_cameras
+  ${cameras_srcs}
 )
 
 add_executable(${PROJECT_NAME}_node src/ovc4_driver_node.cpp)
@@ -25,5 +31,6 @@ add_executable(${PROJECT_NAME}_node src/ovc4_driver_node.cpp)
 target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
   ovc4_driver
+  ovc4_cameras
   ${LIBUSB_LIBRARIES}
 )

@@ -77,7 +77,7 @@ void USBDriver::probeImagers()
   probe_pkt.packet_type = RX_PACKET_TYPE_I2C_SEQUENTIAL;
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
   {
-    PiCameraV2::fillProbeRegOps(probe_pkt.i2c[cam_id]);
+    PiCameraV2::fillProbePkt(probe_pkt.i2c[cam_id]);
   }
   sendPacket(probe_pkt);
   // Get result
@@ -86,7 +86,7 @@ void USBDriver::probeImagers()
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
   {
     // Check if it is a Picam
-    if (PiCameraV2::checkProbeRegOps(res_pkt.i2c[cam_id]))
+    if (PiCameraV2::checkProbePkt(res_pkt.i2c[cam_id]))
     {
       ROS_INFO_STREAM("Picamera detected for camera " << cam_id);
       cameras[cam_id] = std::make_shared<PiCameraV2>();
