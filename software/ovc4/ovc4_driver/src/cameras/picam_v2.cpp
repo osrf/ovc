@@ -1,4 +1,5 @@
 #include <ovc4_driver/cameras/picam_v2.hpp>
+#include <iostream>
 
 
 void PiCameraV2::fillProbePkt(usb_txrx_i2c_t& i2c_pkt)
@@ -20,9 +21,9 @@ bool PiCameraV2::checkProbePkt(usb_txrx_i2c_t& i2c_pkt)
   for (int i = 0; i < 2; ++i)
   {
     // NAK reply
-    if (i2c_pkt.regops[i].status != REGOP_NAK)
+    if (i2c_pkt.regops[i].status != REGOP_OK)
       return false;
-    probed_id |= (i2c_pkt.regops[i].u8 << (i * 8));
+    probed_id |= (i2c_pkt.regops[i].u16 << (i * 8));
   }
   if (probed_id != CHIP_ID)
     return false;
