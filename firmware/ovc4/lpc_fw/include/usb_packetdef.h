@@ -60,6 +60,25 @@ typedef struct __attribute__((__packed__)) {
   };
 } regop_t;
 
+// Utility functions for regops
+inline regop_t writeRegOp(int16_t addr, int32_t data)
+{
+  regop_t regop;
+  regop.status = REGOP_WRITE;
+  regop.addr = addr;
+  // Assume 32 bits, will zero pad if the data is smaller
+  regop.i32 = data;
+  return regop;
+}
+
+inline regop_t readRegOp(int16_t addr)
+{
+  regop_t regop;
+  regop.status = REGOP_READ;
+  regop.addr = addr;
+  return regop;
+}
+
 typedef struct __attribute__((__packed__))
 {
   int16_t slave_address; // I2C address of the camera
