@@ -31,20 +31,18 @@
 class PiCameraV2 : public Camera
 {
 private:
-  static constexpr uint8_t SLAVE_ADDR = 0x10;
-  static constexpr uint8_t SUBADDR_SIZE = 0x2; // in bytes
-  static constexpr uint8_t REG_SIZE = 0x1; // in bytes
-
   static constexpr uint16_t CHIP_ID_MSB_REGADDR = 0x0000;
   static constexpr uint16_t CHIP_ID_LSB_REGADDR = 0x0001;
 
   static constexpr uint16_t CHIP_ID = 0x0219;
 
+  const regop_t enable_streaming_regop = writeRegOp(0x0100, 0x01);
+
+  const regop_t reset_regop = writeRegOp(0x0103, 0x01);
+
   // Common initialization operations
   const std::vector<regop_t> common_ops =
   {
-    /* software reset */
-    writeRegOp(0x0103, 0x01),
     /* sensor config */
     writeRegOp(0x0114, 0x01), /* D-Phy, 2-lane */
     writeRegOp(0x0128, 0x00),
@@ -76,8 +74,6 @@ private:
   { 
     {"3263x2464_21fps",
       {
-        writeRegOp(0x1234, 0xDE),
-        writeRegOp(0x4567, 0xAB),
         writeRegOp(0x0157, 0x00), /* ANALOG_GAIN_GLOBAL[7:0] */
         writeRegOp(0x015A, 0x09), /* COARSE_INTEG_TIME[15:8] */
         writeRegOp(0x015B, 0xbd), /* COARSE_INTEG_TIME[7:0] */
@@ -122,22 +118,114 @@ private:
         writeRegOp(0x030C, 0x00),
         writeRegOp(0x030D, 0x72)
       }
+    },
+    {"1920x1080_30fps",
+      {
+        writeRegOp(0x0157, 0x00), /* ANALOG_GAIN_GLOBAL[7:0] */
+        writeRegOp(0x015A, 0x06), /* COARSE_INTEG_TIME[15:8] */
+        writeRegOp(0x015B, 0xde), /* COARSE_INTEG_TIME[7:0] */
+        writeRegOp(0x0160, 0x06), /* FRM_LENGTH[15:8] */
+        writeRegOp(0x0161, 0xE2), /* FRM_LENGTH[7:0] */
+        writeRegOp(0x0162, 0x0D), /* LINE_LENGTH[15:8] */
+        writeRegOp(0x0163, 0x78), /* LINE_LENGTH[7:0] */
+        writeRegOp(0x0164, 0x02),
+        writeRegOp(0x0165, 0xA8),
+        writeRegOp(0x0166, 0x0A),
+        writeRegOp(0x0167, 0x27),
+        writeRegOp(0x0168, 0x02),
+        writeRegOp(0x0169, 0xB4),
+        writeRegOp(0x016A, 0x06),
+        writeRegOp(0x016B, 0xEB),
+        writeRegOp(0x016C, 0x07),
+        writeRegOp(0x016D, 0x80),
+        writeRegOp(0x016E, 0x04),
+        writeRegOp(0x016F, 0x38),
+        writeRegOp(0x0170, 0x01),
+        writeRegOp(0x0171, 0x01),
+        writeRegOp(0x0174, 0x00),
+        writeRegOp(0x0175, 0x00),
+        writeRegOp(0x018C, 0x0A),
+        writeRegOp(0x018D, 0x0A),
+        /* clocks dividers */
+        writeRegOp(0x0301, 0x05),
+        writeRegOp(0x0303, 0x01),
+        writeRegOp(0x0304, 0x03),
+        writeRegOp(0x0305, 0x03),
+        writeRegOp(0x0306, 0x00),
+        writeRegOp(0x0307, 0x39),
+        writeRegOp(0x0309, 0x0A),
+        writeRegOp(0x030B, 0x01),
+        writeRegOp(0x030C, 0x00),
+        writeRegOp(0x030D, 0x72),
+      }
+    },
+    {"1280x720_120fps",
+      {
+        writeRegOp(0x0157, 0x00), /* ANALOG_GAIN_GLOBAL[7:0] */
+        writeRegOp(0x015A, 0x01), /* COARSE_INTEG_TIME[15:8] */
+        writeRegOp(0x015B, 0x85), /* COARSE_INTEG_TIME[7:0] */
+        /* format settings */
+        writeRegOp(0x0160, 0x01), /* FRM_LENGTH[15:8] */
+        writeRegOp(0x0161, 0x89), /* FRM_LENGTH[7:0] */
+        writeRegOp(0x0162, 0x0D), /* LINE_LENGTH[15:8] */
+        writeRegOp(0x0163, 0xE8), /* LINE_LENGTH[7:0] */
+        writeRegOp(0x0164, 0x01),
+        writeRegOp(0x0165, 0x68),
+        writeRegOp(0x0166, 0x0B),
+        writeRegOp(0x0167, 0x67),
+        writeRegOp(0x0168, 0x02),
+        writeRegOp(0x0169, 0x00),
+        writeRegOp(0x016A, 0x07),
+        writeRegOp(0x016B, 0x9F),
+        writeRegOp(0x016C, 0x05),
+        writeRegOp(0x016D, 0x00),
+        writeRegOp(0x016E, 0x02),
+        writeRegOp(0x016F, 0xD0),
+        writeRegOp(0x0170, 0x01),
+        writeRegOp(0x0171, 0x01),
+        writeRegOp(0x0174, 0x03),
+        writeRegOp(0x0175, 0x03),
+        writeRegOp(0x018C, 0x0A),
+        writeRegOp(0x018D, 0x0A),
+        /* clocks dividers */
+        writeRegOp(0x0301, 0x05),
+        writeRegOp(0x0303, 0x01),
+        writeRegOp(0x0304, 0x03),
+        writeRegOp(0x0305, 0x03),
+        writeRegOp(0x0306, 0x00),
+        writeRegOp(0x0307, 0x35),
+        writeRegOp(0x0309, 0x0A),
+        writeRegOp(0x030B, 0x01),
+        writeRegOp(0x030C, 0x00),
+        writeRegOp(0x030D, 0x66)
+      }
     }
   };
 
-  std::vector<regop_t>::const_iterator common_it;
   std::vector<regop_t>::const_iterator config_it;
+  std::vector<regop_t> config_vec;
 
-  camera_init_ret_t camera_init_common(usb_txrx_i2c_t& i2c_pkt);
+  bool config_ok = false;
 
-  camera_init_ret_t camera_init_config(usb_txrx_i2c_t& i2c_pkt, const std::string& config_name);
+  camera_init_ret_t camera_init_config(usb_txrx_i2c_t& i2c_pkt);
 
 public:
+  // Used in external function
+  static constexpr uint8_t SLAVE_ADDR = 0x10;
+  static constexpr uint8_t SUBADDR_SIZE = 0x2; // in bytes
+  static constexpr uint8_t REGISTER_SIZE = 0x1; // in bytes
+
   static void fillProbePkt(usb_txrx_i2c_t& probe_pkt);
 
   static bool checkProbePkt(usb_txrx_i2c_t& probe_pkt);
 
   virtual camera_init_ret_t initialise(const std::string& config_name, usb_txrx_i2c_t& i2c_pkt) override;
+
+  bool set_config(const std::string& config_name);
+
+  virtual void enable_streaming(usb_txrx_i2c_t& i2c_pkt) override;
+
+  virtual void reset(usb_txrx_i2c_t& i2c_pkt) override;
 
 };
 #endif

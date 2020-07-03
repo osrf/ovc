@@ -12,11 +12,12 @@ class USBDriver
   libusb_device_handle *dev_handle;
 
   std::array<std::shared_ptr<Camera>, NUM_CAMERAS> cameras;
-
   
   void sendPacket(usb_rx_packet_t& packet);
 
   usb_rx_packet_t initRegopPacket();
+
+  void initCamera(int cam_id, const std::string& config_name);
 
 public:
 
