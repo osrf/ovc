@@ -48,6 +48,10 @@ usb_tx_packet_t USBDriver::pollData()
     ROS_INFO("Received %d packets", rx_pkts);
     */
   }
+  else
+  {
+    ROS_INFO("Polling failed");
+  }
   return rx_packet;
 }
 
@@ -62,11 +66,42 @@ void USBDriver::sendPacket(usb_rx_packet_t& packet)
 
 usb_rx_packet_t USBDriver::initRegopPacket()
 {
-  usb_rx_packet_t regops_pkt;
+  usb_rx_packet_t regops_pkt = {};
+  regops_pkt.packet_type = RX_PACKET_TYPE_I2C_SEQUENTIAL;
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
     for (int regop_id = 0; regop_id < REGOPS_PER_CAM; ++regop_id)
       regops_pkt.i2c[cam_id].regops[regop_id].status = REGOP_INVALID;
   return regops_pkt;
+}
+
+void USBDriver::initCamera(int cam_id, const std::string& config_name)
+{
+  // TODO check all the result packets
+  static int packet_num = 0;
+  bool done = false;
+  // Start with a reset
+  auto reset_pkt = initRegopPacket();
+  cameras[cam_id]->reset(reset_pkt.i2c[cam_id]);
+  sendPacket(reset_pkt);
+  auto reset_res_pkt = pollData();
+  usleep(5000);
+  // All the configuration packets
+  do
+  {
+    ROS_INFO_STREAM("Sending config packet n. " << packet_num++);
+    auto config_pkt = initRegopPacket();
+    auto res = cameras[cam_id]->initialise(config_name, config_pkt.i2c[cam_id]);
+    sendPacket(config_pkt);
+    auto res_pkt = pollData();
+    done = (res == camera_init_ret_t::DONE);
+  }
+  while (!done);
+  // And enable streaming
+  usleep(5000);
+  auto config_pkt = initRegopPacket();
+  cameras[cam_id]->enable_streaming(config_pkt.i2c[cam_id]);
+  sendPacket(config_pkt);
+  auto res_pkt = pollData();
 }
 
 void USBDriver::probeImagers()
@@ -74,7 +109,6 @@ void USBDriver::probeImagers()
   // TODO iterate through imager configurations
   auto probe_pkt = initRegopPacket();
   probe_pkt.status = 1337;
-  probe_pkt.packet_type = RX_PACKET_TYPE_I2C_SEQUENTIAL;
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
   {
     PiCameraV2::fillProbePkt(probe_pkt.i2c[cam_id]);
@@ -90,6 +124,8 @@ void USBDriver::probeImagers()
     {
       ROS_INFO_STREAM("Picamera detected for camera " << cam_id);
       cameras[cam_id] = std::make_shared<PiCameraV2>();
+      // Init picam here
+      initCamera(cam_id, "1920x1080_30fps");
     }
     for (int regop_id = 0; regop_id < REGOPS_PER_CAM; ++regop_id)
     {
@@ -108,7 +144,8 @@ void USBDriver::probeImagers()
         }
         case REGOP_READ:
         {
-          ROS_ERROR("Unhandled read");
+          ROS_WARN("Unhandled read");
+          break;
         }
         // Don't care about other cases
       }

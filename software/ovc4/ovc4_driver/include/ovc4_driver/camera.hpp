@@ -14,6 +14,9 @@ class Camera
 public:
   virtual camera_init_ret_t initialise(const std::string& config_name, usb_txrx_i2c_t& i2c_pkt) = 0;
 
+  virtual void enable_streaming(usb_txrx_i2c_t& i2c_pkt) = 0;
+
+  virtual void reset(usb_txrx_i2c_t& i2c_pkt) = 0;
 
 
 };
