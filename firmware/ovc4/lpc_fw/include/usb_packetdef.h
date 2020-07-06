@@ -1,7 +1,9 @@
 #ifndef USB_PACKETDEF_INC
 #define USB_PACKETDEF_INC
 
+#ifdef __cplusplus
 #include <cstdint>
+#endif
 
 #define USB_VID 0x1fc9
 #define USB_PID 0x0094
