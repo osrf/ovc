@@ -1,5 +1,6 @@
 #ifndef CAMERA_INC
 #define CAMERA_INC
+#include <string>
 #include <ovc4_driver/usb_packetdef.h>
 
 enum class camera_init_ret_t
