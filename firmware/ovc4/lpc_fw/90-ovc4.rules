@@ -1,1 +1,4 @@
+# USB NXP MCU
 SUBSYSTEM=="usb", ATTRS{idVendor}=="1fc9", ATTRS{idProduct}=="0094", MODE="0666"                                                        
+# UIO devices for exposure control
+SUBSYSTEM=="uio", ATTR{name}=="ovc4cam_control", MODE="0666"
