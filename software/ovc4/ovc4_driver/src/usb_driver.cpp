@@ -99,7 +99,7 @@ void USBDriver::initCamera(int cam_id, const std::string& config_name)
   // And enable streaming
   usleep(5000);
   auto config_pkt = initRegopPacket();
-  cameras[cam_id]->enable_streaming(config_pkt.i2c[cam_id]);
+  cameras[cam_id]->enableStreaming(config_pkt.i2c[cam_id]);
   sendPacket(config_pkt);
   auto res_pkt = pollData();
 }
@@ -124,6 +124,7 @@ void USBDriver::probeImagers()
     {
       ROS_INFO_STREAM("Picamera detected for camera " << cam_id);
       cameras[cam_id] = std::make_shared<PiCameraV2>();
+      cameras[cam_id]->setUioFile(0);
       // Init picam here
       initCamera(cam_id, "1920x1080_30fps");
     }
@@ -151,4 +152,14 @@ void USBDriver::probeImagers()
       }
     }
   }
+}
+
+void USBDriver::updateExposure()
+{
+  auto exp_pkt = initRegopPacket();
+  // TODO implement sync in firmware
+  //exp_pkt.packet_type = RX_PACKET_TYPE_I2C_SYNC;
+  cameras[0]->updateExposure(exp_pkt.i2c[0]);
+  sendPacket(exp_pkt);
+  auto res_pkt = pollData();
 }

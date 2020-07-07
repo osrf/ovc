@@ -13,11 +13,12 @@ int main(int argc, char **argv)
   ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("imu", 10);
   USBDriver usb;
   // Probe imagers then publish IMU data
-  ros::Rate loop_rate(10000);
+  ros::Rate loop_rate(30);
   usb.probeImagers();
   while (ros::ok())
   {
     // Poll at 1kHz
+    /*
     auto rx_data = usb.pollData();
     sensor_msgs::Imu imu_msg;
     imu_msg.header.stamp = ros::Time::now();
@@ -29,6 +30,9 @@ int main(int argc, char **argv)
     imu_msg.angular_velocity.z = rx_data.imu.gyro_z;
     imu_pub.publish(imu_msg);
     //ROS_INFO("Temperature = %.2f", rx_data.imu.temperature);
+    */
     loop_rate.sleep();
+    // Hacky, for testing
+    usb.updateExposure();
   }
 }
