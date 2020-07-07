@@ -27,4 +27,7 @@ public:
   usb_tx_packet_t pollData();
 
   void probeImagers();
+
+  // TEMPORARY put into sensor manager
+  void updateExposure();
 };

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(ovc4_driver)
 
-add_compile_options(-std=c++11)
+add_compile_options(-std=c++14)
 
 find_package(catkin REQUIRED roscpp sensor_msgs)
 
@@ -17,6 +17,7 @@ include_directories(
 ## Declare a C++ library
 add_library(${PROJECT_NAME}
   src/usb_driver.cpp
+  src/uio_driver.cpp
 )
 
 # Add all the cameras

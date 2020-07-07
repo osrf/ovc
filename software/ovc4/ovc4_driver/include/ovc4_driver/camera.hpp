@@ -1,7 +1,10 @@
 #ifndef CAMERA_INC
 #define CAMERA_INC
 #include <string>
+#include <memory>
+
 #include <ovc4_driver/usb_packetdef.h>
+#include <ovc4_driver/uio_driver.hpp>
 
 enum class camera_init_ret_t
 {
@@ -12,13 +15,23 @@ enum class camera_init_ret_t
 
 class Camera
 {
+protected:
+  std::unique_ptr<UIODriver> uio;
 public:
   virtual camera_init_ret_t initialise(const std::string& config_name, usb_txrx_i2c_t& i2c_pkt) = 0;
 
-  virtual void enable_streaming(usb_txrx_i2c_t& i2c_pkt) = 0;
+  virtual void enableStreaming(usb_txrx_i2c_t& i2c_pkt) = 0;
 
   virtual void reset(usb_txrx_i2c_t& i2c_pkt) = 0;
 
+  // Get exposure from UIO and send it to I2C
+  // TODO return the exposure, and create a SensorManager to manage the cameras
+  virtual void updateExposure(usb_txrx_i2c_t& i2c_pkt) = 0;
+
+  void setUioFile(int num)
+  {
+    uio = std::make_unique<UIODriver>(num);
+  }
 
 };
 
