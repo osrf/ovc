@@ -1,4 +1,5 @@
 #include <memory>
+#include <optional>
 #include <libusb.h>
 #include <ovc4_driver/usb_packetdef.h>
 #include <ovc4_driver/camera.hpp>
@@ -12,22 +13,15 @@ class USBDriver
 
   libusb_device_handle *dev_handle;
 
-  std::array<std::shared_ptr<Camera>, NUM_CAMERAS> cameras;
-  
-  void sendPacket(usb_rx_packet_t& packet);
+public:
+  USBDriver();
 
   usb_rx_packet_t initRegopPacket();
 
-  void initCamera(int cam_id, const std::string& config_name);
+  bool sendPacket(usb_rx_packet_t& packet);
 
-public:
+  std::optional<usb_tx_packet_t> pollData();
 
-  USBDriver();
-
-  usb_tx_packet_t pollData();
-
-  void probeImagers();
-
-  // TEMPORARY put into sensor manager
-  void updateExposure();
+  // Used for I2C transactions, the result can be checked for NAKs
+  std::optional<usb_tx_packet_t> sendAndPoll(usb_rx_packet_t& packet);
 };

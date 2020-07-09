@@ -3,6 +3,9 @@
 #include <string>
 #include <memory>
 
+#include <Argus/Argus.h>
+#include <EGLStream/EGLStream.h>
+
 #include <ovc4_driver/usb_packetdef.h>
 #include <ovc4_driver/uio_driver.hpp>
 
@@ -13,11 +16,44 @@ enum class camera_init_ret_t
   CONFIG_NOT_FOUND
 };
 
+enum class sensor_type_t
+{
+  PiCameraV2
+};
+
+// TODO move to separate shared header if we want to serialize manually
+struct OVCImage
+{
+  const void* buf;
+  uint64_t buf_size;
+  uint32_t height;
+  uint32_t width;
+  uint64_t timestamp; // In nanoseconds
+  uint64_t frame_id;
+  uint32_t stride;
+};
+
 class Camera
 {
+private:
+  // We need to close it on destruction
+  Argus::UniqueObj<Argus::CaptureSession> capture_session;
+
+  Argus::UniqueObj<EGLStream::FrameConsumer> consumer;
+
+  Argus::UniqueObj<Argus::OutputStream> output_stream;
+
+  Argus::UniqueObj<Argus::Request> request;
+
+  std::vector<Argus::SensorMode*> sensor_modes;
+
 protected:
   std::unique_ptr<UIODriver> uio;
 public:
+  virtual ~Camera();
+
+  virtual sensor_type_t getType() const = 0;
+
   virtual camera_init_ret_t initialise(const std::string& config_name, usb_txrx_i2c_t& i2c_pkt) = 0;
 
   virtual void enableStreaming(usb_txrx_i2c_t& i2c_pkt) = 0;
@@ -33,6 +69,12 @@ public:
     uio = std::make_unique<UIODriver>(num);
   }
 
+  void initArgus(Argus::UniqueObj<Argus::CaptureSession> capture_session,
+      Argus::CameraDevice* camera_device, int sensor_mode);
+
+  OVCImage getFrame();
+
+  // TODO consider getter and setter for sensor_mode
 };
 
 

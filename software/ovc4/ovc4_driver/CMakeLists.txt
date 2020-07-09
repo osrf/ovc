@@ -1,23 +1,38 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(ovc4_driver)
 
-add_compile_options(-std=c++14)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 
 find_package(catkin REQUIRED roscpp sensor_msgs)
 
 find_package(PkgConfig)
 pkg_search_module(LIBUSB REQUIRED libusb-1.0)
 
+find_package(ignition-msgs1 REQUIRED)
+find_package(ignition-transport4 REQUIRED)
+
+find_package(Argus REQUIRED)
+
 include_directories(
  include
  ${catkin_INCLUDE_DIRS}
+ ${ARGUS_INCLUDE_DIRS}
  ${LIBUSB_INCLUDE_DIRS}
+ ${ignition-msgs1_INCLUDE_DIRS}
+ ${ignition-transport4_INCLUDE_DIRS}
 )
 
-## Declare a C++ library
-add_library(${PROJECT_NAME}
+add_library(ovc4_driver
+  src/camera.cpp
   src/usb_driver.cpp
   src/uio_driver.cpp
+  src/sensor_manager.cpp
+)
+
+target_link_libraries(ovc4_driver
+  ${ARGUS_LIBRARIES}
+  ${LIBUSB_LIBRARIES}
 )
 
 # Add all the cameras
@@ -27,11 +42,15 @@ add_library(ovc4_cameras
   ${cameras_srcs}
 )
 
-add_executable(${PROJECT_NAME}_node src/ovc4_driver_node.cpp)
+add_executable(ovc4_driver_node src/ovc4_driver_node.cpp)
 
-target_link_libraries(${PROJECT_NAME}_node
+target_compile_features(ovc4_driver_node PUBLIC cxx_std_17)
+target_compile_features(ovc4_driver PRIVATE cxx_std_17)
+
+target_link_libraries(ovc4_driver_node
   ${catkin_LIBRARIES}
   ovc4_driver
   ovc4_cameras
-  ${LIBUSB_LIBRARIES}
+  ${ignition-msgs1_LIBRARIES}
+  ${ignition-transport4_LIBRARIES}
 )
