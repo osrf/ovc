@@ -1,5 +1,5 @@
 #include <ros/ros.h>
-#include <ovc4_driver/usb_driver.hpp>
+#include <ovc4_driver/sensor_manager.hpp>
 
 #include <sensor_msgs/Imu.h>
 
@@ -11,10 +11,9 @@ int main(int argc, char **argv)
   ros::NodeHandle nh;
   // Imu publisher
   ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("imu", 10);
-  USBDriver usb;
+  std::unique_ptr<SensorManager> sm = SensorManager::make();
   // Probe imagers then publish IMU data
-  ros::Rate loop_rate(30);
-  usb.probeImagers();
+  //ros::Rate loop_rate(30);
   while (ros::ok())
   {
     // Poll at 1kHz
@@ -31,8 +30,9 @@ int main(int argc, char **argv)
     imu_pub.publish(imu_msg);
     //ROS_INFO("Temperature = %.2f", rx_data.imu.temperature);
     */
-    loop_rate.sleep();
+    //loop_rate.sleep();
     // Hacky, for testing
-    usb.updateExposure();
+    sm->getFrames();
+    sm->updateExposure();
   }
 }

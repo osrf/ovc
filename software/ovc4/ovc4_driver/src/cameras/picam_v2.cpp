@@ -54,6 +54,11 @@ bool PiCameraV2::checkProbePkt(usb_txrx_i2c_t& i2c_pkt)
   return true;
 }
 
+sensor_type_t PiCameraV2::getType() const
+{
+  return sensor_type_t::PiCameraV2;
+}
+
 camera_init_ret_t PiCameraV2::camera_init_config(usb_txrx_i2c_t& i2c_pkt)
 {
   int num_op = 0;

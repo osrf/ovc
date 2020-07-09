@@ -237,6 +237,8 @@ public:
 
   static bool checkProbePkt(usb_txrx_i2c_t& probe_pkt);
 
+  virtual sensor_type_t getType() const override;
+
   virtual camera_init_ret_t initialise(const std::string& config_name, usb_txrx_i2c_t& i2c_pkt) override;
 
   bool set_config(const std::string& config_name);
