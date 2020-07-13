@@ -5,6 +5,7 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 
 find_package(catkin REQUIRED roscpp sensor_msgs)
+find_package(OpenCV REQUIRED)
 
 find_package(PkgConfig)
 pkg_search_module(LIBUSB REQUIRED libusb-1.0)
@@ -16,6 +17,7 @@ find_package(Argus REQUIRED)
 
 include_directories(
  include
+ ${OpenCV_INCLUDE_DIRS}
  ${catkin_INCLUDE_DIRS}
  ${ARGUS_INCLUDE_DIRS}
  ${LIBUSB_INCLUDE_DIRS}
@@ -49,6 +51,7 @@ target_compile_features(ovc4_driver PRIVATE cxx_std_17)
 
 target_link_libraries(ovc4_driver_node
   ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
   ovc4_driver
   ovc4_cameras
   ${ignition-msgs1_LIBRARIES}

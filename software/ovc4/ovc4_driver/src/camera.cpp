@@ -1,5 +1,6 @@
 #include <Argus/Argus.h>
 #include <EGLStream/EGLStream.h>
+#include <EGLStream/NV/ImageNativeBuffer.h>
 
 #include <iostream>
 #include <ovc4_driver/camera.hpp>
@@ -28,16 +29,14 @@ void Camera::initArgus(Argus::UniqueObj<Argus::CaptureSession> session,
   auto sensor_mode_interface = Argus::interface_cast<Argus::ISensorMode>(
       sensor_modes[sensor_mode]);
 
-  // TODO check if EGL is ok
   Argus::UniqueObj<Argus::OutputStreamSettings> output_stream_settings(
       capture_session_interface->createOutputStreamSettings(Argus::STREAM_TYPE_EGL));
 
   auto egl_stream_settings(Argus::interface_cast<Argus::IEGLOutputStreamSettings>(
       output_stream_settings));
 
-  // TODO is this ok?
-  //egl_stream_settings->setPixelFormat(Argus::PIXEL_FMT_YCbCr_420_888);
-  egl_stream_settings->setPixelFormat(Argus::PIXEL_FMT_RAW16);
+  egl_stream_settings->setPixelFormat(Argus::PIXEL_FMT_YCbCr_420_888);
+  //egl_stream_settings->setPixelFormat(Argus::PIXEL_FMT_RAW16);
   egl_stream_settings->setResolution(sensor_mode_interface->getResolution());
   egl_stream_settings->setMetadataEnable(true);
 
@@ -47,7 +46,7 @@ void Camera::initArgus(Argus::UniqueObj<Argus::CaptureSession> session,
 
   // TODO check intent
   request.reset(capture_session_interface->createRequest(
-        Argus::CAPTURE_INTENT_VIDEO_RECORD));
+        Argus::CAPTURE_INTENT_PREVIEW));
 
   auto request_interface(Argus::interface_cast<Argus::IRequest>(request));
   Argus::Status status = request_interface->enableOutputStream(output_stream.get());
@@ -59,6 +58,13 @@ void Camera::initArgus(Argus::UniqueObj<Argus::CaptureSession> session,
   source_settings_interface->setSensorMode(sensor_modes[0]);
 
   uint32_t request_id = capture_session_interface->repeat(request.get());
+
+  // Initialise the return image
+  auto image_res = sensor_mode_interface->getResolution();
+  ret_img.buf = std::vector<uint8_t>(image_res.width() * image_res.height() * 4);
+  ret_img.height = image_res.height();
+  ret_img.width = image_res.width();
+  ret_img.stride = 4 * image_res.width();
 }
 
 OVCImage Camera::getFrame()
@@ -74,23 +80,22 @@ OVCImage Camera::getFrame()
   auto image = frame_interface->getImage();
 
   auto image_interface(Argus::interface_cast<EGLStream::IImage>(image));
+    
   auto image2d_interface(Argus::interface_cast<EGLStream::IImage2D>(image));
   auto img_size = image2d_interface->getSize();
-  // Get buffer count
-  std::cout << "Image ID is " << frame_interface->getNumber() << " ts = " << frame_interface->getTime() << std::endl;
-  std::cout << "Image buffer count = " << image_interface->getBufferCount() << std::endl;
-  std::cout << "Image buffer size = " << image_interface->getBufferSize() << std::endl;
-  std::cout << "Image size = " << img_size.width() << "," << img_size.height() << std::endl;
-  OVCImage img = {
-    .buf = image_interface->mapBuffer(0, &status),
-    .buf_size = image_interface->getBufferSize(0),
-    .height = img_size.height(),
-    .width = img_size.width(),
-    .timestamp = frame_interface->getTime(),
-    .frame_id = frame_interface->getNumber(),
-    .stride = image2d_interface->getStride()
-  };
+  // This is potentially a bottleneck, copying to GPU
+  auto native_buffer_interface = Argus::interface_cast<EGLStream::NV::IImageNativeBuffer>(image);
+  int fd = native_buffer_interface->createNvBuffer(image2d_interface->getSize(),
+      NvBufferColorFormat_ABGR32, NvBufferLayout_Pitch);
+  // TODO Check if we can avoid one of the two copies
+  void *pdata = NULL;
+  NvBufferMemMap(fd, 0, NvBufferMem_Read, &pdata);
+  NvBufferMemSyncForCpu(fd, 0, &pdata);
 
-  return img;
-  //return {image_interface->mapBuffer(0, &status), image_interface->getBufferSize(0)};
+  // Fill ret_img
+  ret_img.timestamp = frame_interface->getTime(),
+  ret_img.frame_id = frame_interface->getNumber(),
+  memcpy(&ret_img.buf[0], (uint8_t *)pdata, ret_img.buf.size());
+
+  return ret_img;
 }
