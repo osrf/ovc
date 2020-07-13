@@ -24,8 +24,7 @@ enum class sensor_type_t
 // TODO move to separate shared header if we want to serialize manually
 struct OVCImage
 {
-  const void* buf;
-  uint64_t buf_size;
+  std::vector<uint8_t> buf;
   uint32_t height;
   uint32_t width;
   uint64_t timestamp; // In nanoseconds
@@ -46,6 +45,8 @@ private:
   Argus::UniqueObj<Argus::Request> request;
 
   std::vector<Argus::SensorMode*> sensor_modes;
+
+  OVCImage ret_img;
 
 protected:
   std::unique_ptr<UIODriver> uio;

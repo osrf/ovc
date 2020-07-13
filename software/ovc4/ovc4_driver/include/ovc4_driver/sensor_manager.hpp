@@ -28,5 +28,5 @@ public:
 
   void updateExposure();
 
-  void getFrames();
+  OVCImage getFrames();
 };

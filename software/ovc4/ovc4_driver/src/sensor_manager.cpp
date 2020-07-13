@@ -116,12 +116,13 @@ void SensorManager::updateExposure()
   auto res_pkt = usb->pollData();
 }
 
-void SensorManager::getFrames()
+OVCImage SensorManager::getFrames()
 {
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
   {
     if (cameras[cam_id] == nullptr)
       continue;
-    cameras[cam_id]->getFrame();
+    return cameras[cam_id]->getFrame();
   }
+  return {};
 }

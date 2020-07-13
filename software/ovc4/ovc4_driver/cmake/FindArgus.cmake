@@ -47,7 +47,7 @@ else()
 set(ARGUS_LIBRARIES ${ARGUS_LIBRARY_MULTIPROCESS})
 endif()
 
-set(ARGUS_INCLUDE_DIRS ${ARGUS_INCLUDE_DIR})
+set(ARGUS_INCLUDE_DIRS ${ARGUS_INCLUDE_DIR}, "${ARGUS_INCLUDE_DIR}/../../include")
 
 include(FindPackageHandleStandardArgs)
 # handle the QUIETLY and REQUIRED arguments and set ARGUS_FOUND to TRUE
