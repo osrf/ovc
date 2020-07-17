@@ -1,6 +1,6 @@
-(kicad_sch (version 20200608) (host eeschema "5.99.0-unknown-ad69e44~101~ubuntu18.04.1")
+(kicad_sch (version 20200714) (host eeschema "5.99.0-unknown-6296b4e~102~ubuntu18.04.1")
 
-  (page 7 6)
+  (page 1 6)
 
   (paper "A4")
 
@@ -134,7 +134,7 @@
   )
 
 
-  (symbol (lib_id "Mechanical:MountingHole") (at 33.02 144.78 0)
+  (symbol (lib_id "Mechanical:MountingHole") (at 33.02 144.78 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid "ba0874af-5f00-46f8-a157-42210d9125ae")
     (property "Reference" "H1" (id 0) (at 35.5601 143.6306 0)
@@ -151,7 +151,7 @@
     )
   )
 
-  (symbol (lib_id "Mechanical:MountingHole") (at 33.02 151.13 0)
+  (symbol (lib_id "Mechanical:MountingHole") (at 33.02 151.13 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid "2baf620b-197f-44c2-ab5a-f4b243abd4b2")
     (property "Reference" "H2" (id 0) (at 35.5601 149.9806 0)
@@ -168,7 +168,7 @@
     )
   )
 
-  (symbol (lib_id "Mechanical:MountingHole") (at 33.02 157.48 0)
+  (symbol (lib_id "Mechanical:MountingHole") (at 33.02 157.48 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid "55bbb003-9e18-49d4-84af-3e939aa4ea26")
     (property "Reference" "H3" (id 0) (at 35.5601 156.3306 0)
@@ -185,7 +185,7 @@
     )
   )
 
-  (symbol (lib_id "Mechanical:MountingHole") (at 33.02 163.83 0)
+  (symbol (lib_id "Mechanical:MountingHole") (at 33.02 163.83 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid "dc40888e-d75a-4f56-90ca-4ceff2d74df5")
     (property "Reference" "H4" (id 0) (at 35.5601 162.6806 0)
@@ -202,7 +202,7 @@
     )
   )
 
-  (symbol (lib_id "Graphic:Logo_Open_Hardware_Large") (at 96.52 153.67 0)
+  (symbol (lib_id "Graphic:Logo_Open_Hardware_Large") (at 96.52 153.67 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid "d4cb0d30-d933-48fc-af0a-7084b746ce1d")
     (property "Reference" "LOGO1" (id 0) (at 96.52 140.97 0)
