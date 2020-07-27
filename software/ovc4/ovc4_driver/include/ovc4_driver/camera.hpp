@@ -18,7 +18,8 @@ enum class camera_init_ret_t
 
 enum class sensor_type_t
 {
-  PiCameraV2
+  PiCameraV2,
+  PiCameraHQ
 };
 
 // TODO move to separate shared header if we want to serialize manually
