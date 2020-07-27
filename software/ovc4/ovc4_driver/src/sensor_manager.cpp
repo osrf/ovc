@@ -49,6 +49,21 @@ void SensorManager::probeImagers()
       cameras[cam_id] = std::make_unique<PiCameraV2>();
     }
   }
+  // TODO remove duplicated code
+  probe_pkt = usb->initRegopPacket();
+  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+  {
+    PiCameraHQ::fillProbePkt(probe_pkt.i2c[cam_id]);
+  }
+  // TODO handle timeouts
+  res_pkt = usb->sendAndPoll(probe_pkt);
+  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+  {
+    if (PiCameraHQ::checkProbePkt(res_pkt->i2c[cam_id]))
+    {
+      cameras[cam_id] = std::make_unique<PiCameraHQ>();
+    }
+  }
 }
 
 bool SensorManager::initCameras()
@@ -63,8 +78,15 @@ bool SensorManager::initCameras()
     {
       case sensor_type_t::PiCameraV2:
       {
-        std::cout << "Picamera detected for camera " << cam_id << std::endl;
+        std::cout << "Picamera v2 detected for camera " << cam_id << std::endl;
         initCamera(cam_id, "1920x1080_30fps");
+        break;
+      }
+      case sensor_type_t::PiCameraHQ:
+      {
+        std::cout << "Picamera HQ detected for camera " << cam_id << std::endl;
+        initCamera(cam_id, "1920x1080_60fps");
+        //initCamera(cam_id, "4032x3040_30fps");
         break;
       }
       default:
