@@ -55,7 +55,7 @@ usb_device_handle usb_handle; /* USB device handle. */
 
 usb_tx_packet_t tx_packet;
 usb_rx_packet_t rx_packet;
-volatile bool packet_received = false;
+volatile int packet_received = 0;
 
 /* Data buffer for receiving and sending*/
 USB_DMA_NONINIT_DATA_ALIGN(USB_DATA_ALIGN_SIZE) static uint8_t s_SetupOutBuffer[8];
@@ -141,8 +141,8 @@ usb_status_t USB_DeviceCdcAcmBulkOut(usb_device_handle handle,
                                      usb_device_endpoint_callback_message_struct_t *message,
                                      void *callbackParam)
 {
-    packet_received = true;
-    usb_status_t error = kStatus_USB_Error;
+    packet_received++;
+    usb_status_t error = kStatus_USB_Success;
 
     if (!message->length)
     {
@@ -356,6 +356,8 @@ int main(void)
     /* attach 12 MHz clock to FLEXCOMM0 (debug console) */
     CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
 
+    GPIO_PortInit(GPIO, 1);
+
     BOARD_InitPins();
     BOARD_BootClockPLL150M();
     BOARD_InitDebugConsole();
@@ -364,12 +366,21 @@ int main(void)
     /* attach 12 MHz clock to FLEXCOMM8 (I2C master) */
     CLOCK_AttachClk(kFRO12M_to_FLEXCOMM4);
     CLOCK_AttachClk(kFRO12M_to_FLEXCOMM1);
+    // Actual OVC4 Cam1
+    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM5);
+    
 
     /* reset FLEXCOMM for I2C */
     RESET_PeripheralReset(kFC4_RST_SHIFT_RSTn);
     RESET_PeripheralReset(kFC1_RST_SHIFT_RSTn);
+
+    RESET_PeripheralReset(kFC5_RST_SHIFT_RSTn);
     camerai2c_init(CAM0_I2C, &cameras[0]);
     camerai2c_init(CAM1_I2C, &cameras[1]);
+    // TODO move this init to cameras
+    // Port 1 pin 1
+    GPIO_PortSet(GPIO, 1, 1 << 1);
+      
 
     // I2C END
     // SPI BEGIN
@@ -412,6 +423,7 @@ int main(void)
 
     while (1)
     {
+      /*
         if (imuspi_check_interrupt(&imu.spi))
         {
           icm42688_read_sensor_data(&imu, &tx_packet);
@@ -420,7 +432,8 @@ int main(void)
           tx_packet.packet_type = TX_PACKET_TYPE_IMU;
           usb_send_packet();
         }
-        if (packet_received)
+        */
+        if (packet_received > 0)
         {
           switch (rx_packet.packet_type)
           {
@@ -440,7 +453,7 @@ int main(void)
             }
           }
           tx_packet.status = rx_packet.status;
-          packet_received = false;
+          --packet_received;
         }
     }
 }
