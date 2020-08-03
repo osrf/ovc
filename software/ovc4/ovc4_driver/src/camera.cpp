@@ -24,7 +24,8 @@ void Camera::initArgus(Argus::UniqueObj<Argus::CaptureSession> session,
   auto device_properties = Argus::interface_cast<Argus::ICameraProperties>(
       camera_device);
 
-  device_properties->getBasicSensorModes(&sensor_modes);
+  device_properties->getAllSensorModes(&sensor_modes);
+  std::cout << "Found " << sensor_modes.size() << " modes" << std::endl;
 
   auto sensor_mode_interface = Argus::interface_cast<Argus::ISensorMode>(
       sensor_modes[sensor_mode]);
@@ -85,12 +86,21 @@ OVCImage Camera::getFrame()
   auto img_size = image2d_interface->getSize();
   // This is potentially a bottleneck, copying to GPU
   auto native_buffer_interface = Argus::interface_cast<EGLStream::NV::IImageNativeBuffer>(image);
-  int fd = native_buffer_interface->createNvBuffer(image2d_interface->getSize(),
-      NvBufferColorFormat_ABGR32, NvBufferLayout_Pitch);
+  // Only create buffer if it was not allocated previously
+  if (nvbuffer_fd == -1)
+  {
+    nvbuffer_fd = native_buffer_interface->createNvBuffer(image2d_interface->getSize(),
+        NvBufferColorFormat_ABGR32, NvBufferLayout_Pitch);
+  }
+  else
+  {
+    // TODO we can rotate here
+    native_buffer_interface->copyToNvBuffer(nvbuffer_fd);
+  }
   // TODO Check if we can avoid one of the two copies
   void *pdata = NULL;
-  NvBufferMemMap(fd, 0, NvBufferMem_Read, &pdata);
-  NvBufferMemSyncForCpu(fd, 0, &pdata);
+  NvBufferMemMap(nvbuffer_fd, 0, NvBufferMem_Read, &pdata);
+  NvBufferMemSyncForCpu(nvbuffer_fd, 0, &pdata);
 
   // Fill ret_img
   ret_img.timestamp = frame_interface->getTime(),
