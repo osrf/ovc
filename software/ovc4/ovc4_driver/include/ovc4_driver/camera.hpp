@@ -47,6 +47,8 @@ private:
 
   std::vector<Argus::SensorMode*> sensor_modes;
 
+  int nvbuffer_fd = -1;
+
   OVCImage ret_img;
 
 protected:
