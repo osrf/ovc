@@ -357,10 +357,23 @@ int main(void)
     CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
 
     GPIO_PortInit(GPIO, 1);
+    //GPIO_PortInit(GPIO, 0);
 
     BOARD_InitPins();
     BOARD_BootClockPLL150M();
     BOARD_InitDebugConsole();
+    //GPIO BEGIN
+    
+    // TODO move this init to cameras
+    // Port 1 pin 1
+    // Enable cam1
+    gpio_pin_config_t enable_cam_config = {
+      .pinDirection = kGPIO_DigitalOutput,
+      .outputLogic = 1
+    };
+    GPIO_PinInit(GPIO, 1, 3, &enable_cam_config);
+    GPIO_PinInit(GPIO, 1, 1, &enable_cam_config);
+    // GPIO END
 
     // I2C BEGIN
     /* attach 12 MHz clock to FLEXCOMM8 (I2C master) */
@@ -377,9 +390,9 @@ int main(void)
     RESET_PeripheralReset(kFC5_RST_SHIFT_RSTn);
     camerai2c_init(CAM0_I2C, &cameras[0]);
     camerai2c_init(CAM1_I2C, &cameras[1]);
-    // TODO move this init to cameras
-    // Port 1 pin 1
-    GPIO_PortSet(GPIO, 1, 1 << 1);
+    //GPIO_PortSet(GPIO, 1, 1 << 1);
+    // Enable cam0
+    //GPIO_PortSet(GPIO, 1, 1 << 3);
       
 
     // I2C END
