@@ -4,7 +4,7 @@
 #define CAM_I2C_BUF_SIZE 16
 #define DEFAULT_CAM_I2C_FREQUENCY 400000
 
-#define CAM0_I2C ((I2C_Type *)(I2C4_BASE))
+#define CAM0_I2C ((I2C_Type *)(I2C1_BASE))
 #define CAM1_I2C ((I2C_Type *)(I2C5_BASE))
 
 

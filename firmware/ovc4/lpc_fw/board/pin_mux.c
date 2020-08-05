@@ -138,6 +138,22 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_DIGITAL_EN |
                                          /* Open drain is disabled */
                                          IOCON_PIO_OPENDRAIN_DI);
+
+    // CAM0 enable, GPIO
+    const uint32_t port1_pin3_config = (/* GPIO */
+                                         0 |
+                                         /* Pullup */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 3U, port1_pin3_config);
+
     /* PORT1 PIN21 (coords: 30) is configured as FC4_RXD_SDA_MOSI_DATA */
     IOCON_PinMuxSet(IOCON, 0U, 14U, port0_pin14_config);
     // Arduino I2C header
@@ -259,7 +275,8 @@ void BOARD_InitPins(void)
     const uint32_t port1_pin1_config = (/* GPIO */
                                          0 |
                                          /* Pullup */
-                                         0x20 |
+                                         IOCON_PIO_MODE_INACT |
+                                         //0x20 |
                                          /* Standard mode, output slew rate control is enabled */
                                          IOCON_PIO_SLEW_STANDARD |
                                          /* Input function is not inverted */
