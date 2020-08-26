@@ -2,6 +2,8 @@
 #include <EGLStream/EGLStream.h>
 #include <EGLStream/NV/ImageNativeBuffer.h>
 
+#include <opencv2/opencv.hpp>
+
 #include <iostream>
 #include <ovc4_driver/camera.hpp>
 
@@ -36,9 +38,11 @@ void Camera::initArgus(Argus::UniqueObj<Argus::CaptureSession> session,
   auto egl_stream_settings(Argus::interface_cast<Argus::IEGLOutputStreamSettings>(
       output_stream_settings));
 
+  auto image_res = sensor_mode_interface->getResolution();
+
   egl_stream_settings->setPixelFormat(Argus::PIXEL_FMT_YCbCr_420_888);
   //egl_stream_settings->setPixelFormat(Argus::PIXEL_FMT_RAW16);
-  egl_stream_settings->setResolution(sensor_mode_interface->getResolution());
+  egl_stream_settings->setResolution(image_res);
   egl_stream_settings->setMetadataEnable(true);
 
   output_stream.reset(
@@ -61,14 +65,61 @@ void Camera::initArgus(Argus::UniqueObj<Argus::CaptureSession> session,
   uint32_t request_id = capture_session_interface->repeat(request.get());
 
   // Initialise the return image
-  auto image_res = sensor_mode_interface->getResolution();
   ret_img.buf = std::vector<uint8_t>(image_res.width() * image_res.height() * 4);
   ret_img.height = image_res.height();
   ret_img.width = image_res.width();
   ret_img.stride = 4 * image_res.width();
 }
 
-OVCImage Camera::getFrame()
+static std::string gstreamer_pipeline(int8_t cam_id, int8_t s_mode, int display_width,
+                               int display_height, int8_t framerate,
+                               int8_t flip_method, std::string outputFormat) {
+  // Disable digital gain
+  return "nvarguscamerasrc sensor_id=" + std::to_string(cam_id) +
+         " sensor_mode=" + std::to_string(s_mode) +
+         " ispdigitalgainrange=\"1 1\" awblock=1 wbmode=0" + 
+         " ! video/x-raw(memory:NVMM), format=(string)NV12, "
+         "framerate=(fraction)" +
+         std::to_string(framerate) + "/1 ! nvvidconv flip-method=" +
+         std::to_string(flip_method) + " ! video/x-raw, width=(int)" +
+         std::to_string(display_width) + ", height=(int)" +
+         std::to_string(display_height) +
+         ", format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)" +
+         outputFormat + " ! appsink";
+}
+
+
+void Camera::initGstreamer()
+{
+  // TODO don't hardcode resolution
+  std::string pipeline = gstreamer_pipeline(0, 0, 2592, 1944, 30, 0, std::string("BGR"));
+
+  video_cap = std::make_unique<cv::VideoCapture>(pipeline, cv::CAP_GSTREAMER);
+  if (!video_cap->isOpened())
+  {
+    std::cout << "Error opening video capture" << std::endl;
+  }
+  std::cout << "Gstreamer init done" << std::endl;
+  ret_img.buf = std::vector<uint8_t>(2592 * 1944 * 3);
+  ret_img.height = 1944;
+  ret_img.width = 2592;
+  ret_img.stride = 3 * 2592;
+  
+}
+
+OVCImage Camera::getGstreamerFrame()
+{
+  cv::Mat img;
+  std::cout << "Waiting for frame" << std::endl;
+  int capture_return = video_cap->read(img);
+  if (!capture_return)
+    std::cout << "Capture failed" << std::endl;
+
+  memcpy(&ret_img.buf[0], img.data, ret_img.buf.size());
+  return ret_img;
+}
+
+OVCImage Camera::getArgusFrame()
 {
   Argus::Status status;
   // TODO use status to report errors

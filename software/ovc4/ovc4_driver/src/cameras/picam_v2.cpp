@@ -126,7 +126,6 @@ void PiCameraV2::updateExposure(usb_txrx_i2c_t& i2c_pkt)
     coarse_time = MIN_COARSE_EXPOSURE;
   else if (coarse_time > max_coarse_time)
     coarse_time = max_coarse_time;
-  // Convert to registers
 
   int64_t gain_raw = uio->getGain();
   // Translate gain
