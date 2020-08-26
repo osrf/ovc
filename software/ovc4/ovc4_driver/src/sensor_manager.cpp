@@ -16,6 +16,10 @@ std::unique_ptr<SensorManager> SensorManager::make()
   // Probe imagers
   sm->probeImagers();
   sm->initCameras();
+
+  //return sm;
+  sm->cameras[0]->initGstreamer();
+  return sm;
   // Create argus objects
   sm->camera_provider.reset(Argus::CameraProvider::create());
   auto camera_provider_interface = Argus::interface_cast<Argus::ICameraProvider>
@@ -64,6 +68,23 @@ void SensorManager::probeImagers()
       cameras[cam_id] = std::make_unique<PiCameraHQ>();
     }
   }
+#if PROPRIETARY_SENSORS 1
+  // TODO remove duplicated code
+  probe_pkt = usb->initRegopPacket();
+  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+  {
+    AR0521::fillProbePkt(probe_pkt.i2c[cam_id]);
+  }
+  // TODO handle timeouts
+  res_pkt = usb->sendAndPoll(probe_pkt);
+  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+  {
+    if (AR0521::checkProbePkt(res_pkt->i2c[cam_id]))
+    {
+      cameras[cam_id] = std::make_unique<AR0521>();
+    }
+  }
+#endif
 }
 
 bool SensorManager::initCameras()
@@ -87,6 +108,12 @@ bool SensorManager::initCameras()
         std::cout << "Picamera HQ detected for camera " << cam_id << std::endl;
         initCamera(cam_id, "1920x1080_60fps");
         //initCamera(cam_id, "4032x3040_30fps");
+        break;
+      }
+      case sensor_type_t::AR0521:
+      {
+        std::cout << "AR0521 sensor detected for camera " << cam_id << std::endl;
+        initCamera(cam_id, "2592x1944_30fps");
         break;
       }
       default:
@@ -121,6 +148,28 @@ void SensorManager::initCamera(int cam_id, const std::string& config_name)
   config_pkt = usb->initRegopPacket();
   cameras[cam_id]->enableStreaming(config_pkt.i2c[cam_id]);
   usb->sendAndPoll(config_pkt);
+  // Now do a reg dump
+  return;
+  if (cam_id != 1)
+    return;
+  done = false;
+  do
+  {
+    config_pkt = usb->initRegopPacket();
+    auto res = cameras[cam_id]->registerDump(config_pkt.i2c[cam_id]);
+    auto res_pkt = usb->sendAndPoll(config_pkt);
+    done = (res == camera_init_ret_t::DONE);
+    // Print output
+    for (int i=0; i<REGOPS_PER_CAM; ++i)
+    {
+      if (res_pkt->i2c[cam_id].regops[i].status != REGOP_OK)
+        continue;
+      std::cout << "0x" << std::hex << std::setfill('0') << std::setw(4) << res_pkt->i2c[cam_id].regops[i].addr <<
+        "," << "0x" << std::setfill('0') << std::setw(4) << std::hex << res_pkt->i2c[cam_id].regops[i].u16 << std::endl;
+    }
+  }
+  while (!done);
+
 }
 
 void SensorManager::updateExposure()
@@ -144,7 +193,20 @@ OVCImage SensorManager::getFrames()
   {
     if (cameras[cam_id] == nullptr)
       continue;
-    return cameras[cam_id]->getFrame();
+    return cameras[cam_id]->getGstreamerFrame();
   }
   return {};
+}
+
+SensorManager::~SensorManager()
+{
+  std::cout << "Resetting sensors" << std::endl;
+  auto config_pkt = usb->initRegopPacket();
+  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+  {
+    if (cameras[cam_id] == nullptr)
+      continue;
+    cameras[cam_id]->reset(config_pkt.i2c[cam_id]);
+  }
+  usb->sendAndPoll(config_pkt);
 }

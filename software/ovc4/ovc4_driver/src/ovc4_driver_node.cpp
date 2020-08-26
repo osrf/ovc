@@ -17,7 +17,7 @@ int main(int argc, char **argv)
   ros::Publisher image_pub = nh.advertise<sensor_msgs::Image>("image", 3);
   std::unique_ptr<SensorManager> sm = SensorManager::make();
   // Probe imagers then publish IMU data
-  //ros::Rate loop_rate(30);
+  ros::Rate loop_rate(30);
   while (ros::ok())
   {
     // Poll at 1kHz
@@ -38,12 +38,14 @@ int main(int argc, char **argv)
     //loop_rate.sleep();
     // Hacky, for testing
     
+    //continue;
     auto frame = sm->getFrames();
     image_msg.header.stamp = ros::Time::now();
     image_msg.height = frame.height;
     image_msg.width = frame.width;
     image_msg.step = frame.stride;
-    image_msg.encoding = "rgba8";
+    //image_msg.encoding = "rgba8"; // For argus cameras
+    image_msg.encoding = "bgr8";
     image_msg.data = std::move(frame.buf);
     image_pub.publish(image_msg);
     

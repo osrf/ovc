@@ -3,11 +3,15 @@
 #include <string>
 #include <memory>
 
+#include <opencv2/opencv.hpp>
+
 #include <Argus/Argus.h>
 #include <EGLStream/EGLStream.h>
 
 #include <ovc4_driver/usb_packetdef.h>
 #include <ovc4_driver/uio_driver.hpp>
+
+#define PROPRIETARY_SENSORS 1
 
 enum class camera_init_ret_t
 {
@@ -19,7 +23,8 @@ enum class camera_init_ret_t
 enum class sensor_type_t
 {
   PiCameraV2,
-  PiCameraHQ
+  PiCameraHQ,
+  AR0521
 };
 
 // TODO move to separate shared header if we want to serialize manually
@@ -49,6 +54,8 @@ private:
 
   int nvbuffer_fd = -1;
 
+  std::unique_ptr<cv::VideoCapture> video_cap;
+
   OVCImage ret_img;
 
 protected:
@@ -68,6 +75,8 @@ public:
   // TODO return the exposure, and create a SensorManager to manage the cameras
   virtual void updateExposure(usb_txrx_i2c_t& i2c_pkt) = 0;
 
+  virtual camera_init_ret_t registerDump(usb_txrx_i2c_t& i2c_pkt) {}
+
   void setUioFile(int num)
   {
     uio = std::make_unique<UIODriver>(num);
@@ -76,7 +85,10 @@ public:
   void initArgus(Argus::UniqueObj<Argus::CaptureSession> capture_session,
       Argus::CameraDevice* camera_device, int sensor_mode);
 
-  OVCImage getFrame();
+  void initGstreamer();
+
+  OVCImage getArgusFrame();
+  OVCImage getGstreamerFrame();
 
   // TODO consider getter and setter for sensor_mode
 };
@@ -84,6 +96,10 @@ public:
 
 // Append all the camera headers here
 #include <ovc4_driver/cameras/picam_v2.hpp>
+#include <ovc4_driver/cameras/picam_hq.hpp>
+#if PROPRIETARY_SENSORS 1
+#include <ovc4_driver/cameras/ar0521.hpp>
 
+#endif
 
 #endif

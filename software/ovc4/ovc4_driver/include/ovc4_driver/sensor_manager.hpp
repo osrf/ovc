@@ -22,6 +22,8 @@ private:
 public:
   static std::unique_ptr<SensorManager> make();
 
+  ~SensorManager();
+
   void probeImagers();
 
   bool initCameras();
