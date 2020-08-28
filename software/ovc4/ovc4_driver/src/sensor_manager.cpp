@@ -70,7 +70,7 @@ void SensorManager::probeImagers()
       cameras[cam_id] = std::make_unique<PiCameraHQ>();
     }
   }
-#if PROPRIETARY_SENSORS 1
+#if PROPRIETARY_SENSORS
   // TODO remove duplicated code
   probe_pkt = usb->initRegopPacket();
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
