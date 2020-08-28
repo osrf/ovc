@@ -40,6 +40,7 @@ void SensorManager::probeImagers()
 {
   // Enable all the imagers first
   usb->setImagersEnable(true);
+  sleep(1);
   // TODO iterate through imager types
   auto probe_pkt = usb->initRegopPacket();
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)

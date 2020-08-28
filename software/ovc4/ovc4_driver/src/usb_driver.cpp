@@ -69,6 +69,18 @@ usb_rx_packet_t USBDriver::initRegopPacket()
 void USBDriver::setImagersEnable(bool enable)
 {
   // TODO implement
+  usb_rx_packet_t enable_pkt = {};
+  enable_pkt.packet_type = RX_PACKET_TYPE_GPIO_CFG;
+  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+  {
+    for (int gpio_id = 0; gpio_id < REGOPS_PER_CAM; ++gpio_id)
+    {
+      enable_pkt.gpio[cam_id][gpio_id].function = CAMGPIO_ENABLE;
+      enable_pkt.gpio[cam_id][gpio_id].enabled = enable;
+    }
+  }
+  sendAndPoll(enable_pkt);
+
 }
 
 std::optional<usb_tx_packet_t> USBDriver::sendAndPoll(usb_rx_packet_t& packet)
