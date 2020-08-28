@@ -97,7 +97,7 @@ public:
 // Append all the camera headers here
 #include <ovc4_driver/cameras/picam_v2.hpp>
 #include <ovc4_driver/cameras/picam_hq.hpp>
-#if PROPRIETARY_SENSORS 1
+#if PROPRIETARY_SENSORS
 #include <ovc4_driver/cameras/ar0521.hpp>
 
 #endif
