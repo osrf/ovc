@@ -478,6 +478,8 @@ int main(void)
             case RX_PACKET_TYPE_GPIO_CFG:
             {
               cameragpio_process_packet(camera_gpios, &rx_packet);
+              // Send dummy packet
+              usb_send_packet();
 
               break;
             }
