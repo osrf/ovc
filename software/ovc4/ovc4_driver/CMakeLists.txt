@@ -35,6 +35,7 @@ add_library(ovc4_driver
 target_link_libraries(ovc4_driver
   ${ARGUS_LIBRARIES}
   ${LIBUSB_LIBRARIES}
+  ${OpenCV_LIBRARIES}
 )
 
 # Add all the cameras
