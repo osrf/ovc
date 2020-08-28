@@ -66,6 +66,11 @@ usb_rx_packet_t USBDriver::initRegopPacket()
   return regops_pkt;
 }
 
+void USBDriver::setImagersEnable(bool enable)
+{
+  // TODO implement
+}
+
 std::optional<usb_tx_packet_t> USBDriver::sendAndPoll(usb_rx_packet_t& packet)
 {
   sendPacket(packet);

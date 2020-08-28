@@ -1,3 +1,5 @@
+#ifndef OVC_HW_DEFS_H
+#define OVC_HW_DEFS_H
 // In dev board I2C is connected to internal 12MHz oscillator
 #define I2C_CLOCK_FREQUENCY (12000000)
 
@@ -6,6 +8,12 @@
 
 #define CAM0_I2C ((I2C_Type *)(I2C1_BASE))
 #define CAM1_I2C ((I2C_Type *)(I2C5_BASE))
+
+
+// GPIOs, ordering is CAM0 enable, CAM0 trigger, CAM1 enable etc.
+// All camera GPIOs are on port 1
+const uint8_t CAMGPIO_PORT = 1;
+const uint8_t CAMGPIO_GPIOS[][2] = {{3, 2}, {1, 19}, {28, 18}, {13, 4}, {11, 31}, {24, 20}};
 
 
 // SPI IMUs
@@ -22,3 +30,5 @@
 #define USB_CONTROLLER_ID kUSB_ControllerLpcIp3511Hs0
 
 #define USB_DEVICE_INTERRUPT_PRIORITY (3U)
+
+#endif

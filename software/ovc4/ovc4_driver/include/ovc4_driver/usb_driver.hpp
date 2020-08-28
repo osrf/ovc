@@ -18,6 +18,8 @@ public:
 
   usb_rx_packet_t initRegopPacket();
 
+  void setImagersEnable(bool enable);
+
   bool sendPacket(usb_rx_packet_t& packet);
 
   std::optional<usb_tx_packet_t> pollData();
