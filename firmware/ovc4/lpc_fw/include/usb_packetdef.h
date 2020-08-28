@@ -12,6 +12,7 @@
 #define NUM_REGOPS 60
 #define NUM_CAMERAS 6
 #define REGOPS_PER_CAM (NUM_REGOPS / NUM_CAMERAS)
+#define GPIO_PER_CAM 2
 
 // Packet definitions for controller board -> host PC
 
@@ -33,6 +34,7 @@ typedef enum
   RX_PACKET_TYPE_CMD_RESET = 1,
   RX_PACKET_TYPE_I2C_SEQUENTIAL = 2, // Sequential I2C operations (i.e. probing / initialising sensors, not time sensitive)
   RX_PACKET_TYPE_I2C_SYNC = 3,  // Synchronous transactios (for exposure), should not fail (NAK) and happen synchronously
+  RX_PACKET_TYPE_GPIO_CFG = 4, // Confifuration of GPIO pins (i.e. trigger, enable)
   RX_PACKET_TYPE_FORCE_16BIT = 0xFFFF
 } rx_packet_type_t; 
 
@@ -48,6 +50,18 @@ typedef enum
   REGOP_WRITE = 4,
   REGOP_INVALID = 0xFFFF
 } regop_status_t;
+
+typedef enum
+#ifdef __cplusplus
+: uint16_t
+#endif
+{
+  CAMGPIO_UNUSED = 0,
+  CAMGPIO_ENABLE = 1,
+  CAMGPIO_TRIGGER = 2,
+  CAMGPIO_EXTCLK = 3, // Unimplemented for now
+  CAMGPIO_FORCE_16BIT = 0xFFFF
+} cam_gpio_t;
 
 // TODO allow different slave address?
 typedef struct __attribute__((__packed__)) {
@@ -100,6 +114,18 @@ typedef struct __attribute__((__packed__))
   float gyro_z;
 } usb_tx_imu_t;
 
+typedef struct __attribute__((__packed__))
+{
+  cam_gpio_t function;
+  union
+  {
+    uint8_t enabled;
+    float trigger_frequency;
+    uint32_t extclk_frequency;
+  };
+  // For an enable line its value, for a trigger frequency in Hz, for a extclk frequency in kHz
+} usb_rx_gpiocfg_t;
+
 typedef union usb_tx_packet_t
 {
   struct
@@ -126,6 +152,7 @@ typedef union __attribute__((__packed__))
     union
     {
       usb_txrx_i2c_t i2c[NUM_CAMERAS];
+      usb_rx_gpiocfg_t gpio[NUM_CAMERAS][GPIO_PER_CAM];
     };
   };
   uint8_t data[1];

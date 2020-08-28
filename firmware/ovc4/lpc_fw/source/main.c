@@ -22,6 +22,7 @@
 #include "fsl_debug_console.h"
 
 #include "camera_i2c.h"
+#include "camera_gpio.h"
 #include "imu_spi.h"
 #include "usb_packetdef.h"
 
@@ -348,6 +349,7 @@ void usb_send_packet(void)
 }
 
 CameraI2C cameras[NUM_CAMERAS];
+CameraGPIO camera_gpios[NUM_CAMERAS][GPIO_PER_CAM];
 ICMIMU imu;
 
 int main(void)
@@ -367,12 +369,21 @@ int main(void)
     // TODO move this init to cameras
     // Port 1 pin 1
     // Enable cam1
+    /*
     gpio_pin_config_t enable_cam_config = {
       .pinDirection = kGPIO_DigitalOutput,
       .outputLogic = 1
     };
     GPIO_PinInit(GPIO, 1, 3, &enable_cam_config);
     GPIO_PinInit(GPIO, 1, 1, &enable_cam_config);
+    */
+    for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+    {
+      for (int gpio_id = 0; gpio_id < GPIO_PER_CAM; ++gpio_id)
+      {
+        cameragpio_init(GPIO, &camera_gpios[cam_id][gpio_id], CAMGPIO_PORT, CAMGPIO_GPIOS[cam_id][gpio_id]);
+      }
+    }
     // GPIO END
 
     // I2C BEGIN
@@ -461,6 +472,12 @@ int main(void)
             case RX_PACKET_TYPE_I2C_SYNC:
             {
               // Series of non blocking I2C calls
+
+              break;
+            }
+            case RX_PACKET_TYPE_GPIO_CFG:
+            {
+              cameragpio_process_packet(camera_gpios, &rx_packet);
 
               break;
             }

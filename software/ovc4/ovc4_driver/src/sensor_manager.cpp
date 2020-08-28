@@ -38,6 +38,8 @@ std::unique_ptr<SensorManager> SensorManager::make()
 
 void SensorManager::probeImagers()
 {
+  // Enable all the imagers first
+  usb->setImagersEnable(true);
   // TODO iterate through imager types
   auto probe_pkt = usb->initRegopPacket();
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
@@ -209,4 +211,6 @@ SensorManager::~SensorManager()
     cameras[cam_id]->reset(config_pkt.i2c[cam_id]);
   }
   usb->sendAndPoll(config_pkt);
+  // Not shutdown all the imagers
+  usb->setImagersEnable(false);
 }
