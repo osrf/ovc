@@ -159,6 +159,13 @@ bool camerai2c_read(CameraI2C* cam_i2c, uint32_t reg_addr, uint8_t read_len)
 bool camerai2c_write(CameraI2C* cam_i2c, uint32_t reg_addr, uint32_t write_val, uint8_t write_len)
 {
   // Fix endianness
+  uint8_t* buf = (uint8_t*)&write_val;
+  for (int i = 0; i < write_len / 2; ++i)
+  {
+    uint8_t tmp = buf[i];
+    buf[i] = buf[write_len-i-1];
+    buf[write_len-i-1] = tmp;
+  }
   camerai2c_setup_write_(cam_i2c, reg_addr, write_val, write_len);
   return camerai2c_transfer_blocking_(cam_i2c);
 }
