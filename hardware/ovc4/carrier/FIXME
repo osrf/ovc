@@ -1,0 +1,2 @@
+* NX_MCU_BOOT needs to move from pin 7 of the MCU to pin 88
+* nSYS_RESET needs to be cut
