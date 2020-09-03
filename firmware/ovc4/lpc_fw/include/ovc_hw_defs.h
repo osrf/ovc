@@ -6,12 +6,7 @@
 #define CAM_I2C_BUF_SIZE 16
 #define DEFAULT_CAM_I2C_FREQUENCY 400000
 
-#define CAM0_I2C ((I2C_Type *)(I2C1_BASE))
-#define CAM1_I2C ((I2C_Type *)(I2C5_BASE))
-#define CAM2_I2C ((I2C_Type *)(I2C3_BASE))
-#define CAM3_I2C ((I2C_Type *)(I2C7_BASE))
-#define CAM4_I2C ((I2C_Type *)(I2C2_BASE))
-#define CAM5_I2C ((I2C_Type *)(I2C4_BASE))
+const uint64_t CAM_I2C_BASE[6] = {I2C1_BASE, I2C5_BASE, I2C3_BASE, I2C7_BASE, I2C2_BASE, I2C4_BASE};
 
 
 // GPIOs, ordering is CAM0 enable, CAM0 trigger, CAM1 enable etc.
