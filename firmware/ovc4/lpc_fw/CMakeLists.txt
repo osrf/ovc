@@ -461,6 +461,8 @@ add_executable(dev_cdc_vcom_lite_bm.elf
 "${ProjDirPath}/device/system_LPC55S69_cm33_core0.h"
 "${ProjDirPath}/drivers/fsl_clock.c"
 "${ProjDirPath}/drivers/fsl_clock.h"
+"${ProjDirPath}/drivers/fsl_ctimer.c"
+"${ProjDirPath}/drivers/fsl_ctimer.h"
 "${ProjDirPath}/drivers/fsl_common.c"
 "${ProjDirPath}/drivers/fsl_common.h"
 "${ProjDirPath}/drivers/fsl_flexcomm.c"

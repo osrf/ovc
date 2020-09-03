@@ -123,6 +123,8 @@ typedef struct __attribute__((__packed__))
     float trigger_frequency;
     uint32_t extclk_frequency;
   };
+  uint8_t trigger_polarity; // 1 = active high, 0 = active low
+  uint8_t trigger_duty_cycle; // Integer percentage 0-100
   // For an enable line its value, for a trigger frequency in Hz, for a extclk frequency in kHz
 } usb_rx_gpiocfg_t;
 

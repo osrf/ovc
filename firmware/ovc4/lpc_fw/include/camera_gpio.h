@@ -2,6 +2,7 @@
 #define GPIO_DRIVER_H 1
 
 #include "fsl_gpio.h"
+#include "fsl_ctimer.h"
 
 #include "usb_packetdef.h"
 

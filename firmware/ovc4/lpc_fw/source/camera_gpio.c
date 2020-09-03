@@ -1,5 +1,11 @@
 #include "camera_gpio.h"
 
+// There is a single global timer to synchronize all the cameras
+#define CTIMER CTIMER2
+#define CTIMER_MAT_OUT kCTIMER_Match_1
+#define CTIMER_CLK_FREQ CLOCK_GetCTimerClkFreq(2)
+
+static uint32_t trigger_mask[2] = {0, 0}; // Mask used to set / clear pins, Port 0 is unused
 
 void cameragpio_init(GPIO_Type* base, CameraGPIO* gpio, uint8_t port_num, uint8_t gpio_num)
 {
@@ -33,29 +39,75 @@ void cameragpio_reset_gpio(CameraGPIO* gpio)
 
 }
 
+static void trigger_timer_callback(uint32_t flags)
+{
+  // Toggle pins here
+  // TODO duty cycle
+  GPIO_PortToggle(GPIO, 0, trigger_mask[0]);
+  GPIO_PortToggle(GPIO, 1, trigger_mask[1]);
+}
+
+static ctimer_callback_t ctimer_callback_table[] = {
+  NULL, trigger_timer_callback, NULL, NULL, NULL, NULL, NULL, NULL};
+
+static void cameragpio_set_timer(float freq)
+{
+  // TODO parametrize duty cycle, 50% for now
+  ctimer_config_t config;
+  ctimer_match_config_t match_config;
+  CTIMER_GetDefaultConfig(&config);
+  CTIMER_Init(CTIMER, &config);
+
+  match_config.enableCounterReset = true;
+  match_config.enableCounterStop = false;
+  match_config.matchValue = CTIMER_CLK_FREQ / (2 * freq);
+  match_config.outControl = kCTIMER_Output_NoAction;
+  match_config.outPinInitState = false;
+  match_config.enableInterrupt = true;
+  CTIMER_RegisterCallBack(CTIMER, &ctimer_callback_table[0], kCTIMER_SingleCallback);
+  CTIMER_SetupMatch(CTIMER, CTIMER_MAT_OUT, &match_config);
+  CTIMER_StartTimer(CTIMER);
+}
+
+static void cameragpio_set_trigger_mask(CameraGPIO* gpio)
+{
+  trigger_mask[gpio->port_num_] |= (1 << gpio->gpio_num_);
+}
+
+static void cameragpio_reset_trigger_mask(CameraGPIO* gpio)
+{
+  trigger_mask[gpio->port_num_] &= ~(1 << gpio->gpio_num_);
+}
+
 void cameragpio_config_gpio(CameraGPIO* gpio, usb_rx_gpiocfg_t* cfg)
 {
   switch (cfg->function)
   {
     case CAMGPIO_UNUSED:
     {
+      cameragpio_reset_trigger_mask(gpio);
       // Noop
       break;
     }
     case CAMGPIO_ENABLE:
     {
+      cameragpio_reset_trigger_mask(gpio);
       cameragpio_set_output(gpio, cfg->enabled);
       break;
     }
     case CAMGPIO_TRIGGER:
     {
       // TODO implement
+      // Update the mask
+      cameragpio_set_trigger_mask(gpio);
+      cameragpio_set_timer(cfg->trigger_frequency);
 
       break;
     }
     case CAMGPIO_EXTCLK:
     {
       // Unimplemented
+      cameragpio_reset_trigger_mask(gpio);
       break;
     }
     default:
