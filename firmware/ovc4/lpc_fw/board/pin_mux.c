@@ -110,8 +110,8 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_OPENDRAIN_DI);
     /* PORT0 PIN30 (coords: 94) is configured as FC0_TXD_SCL_MISO_WS */
     IOCON_PinMuxSet(IOCON, 0U, 30U, port0_pin30_config);
-    // I2C on the analog Arduino header TODO fix comments
-    const uint32_t port0_pin13_config = (/* Pin is configured as FC4_TXD_SCL_MISO_WS */
+    // CAM0 I2C, Flexcomm 1
+    const uint32_t port0_pin13_config = (// I2C Clock
                                          IOCON_PIO_FUNC5 |
                                          /* No addition pin function */
                                          IOCON_PIO_MODE_INACT |
@@ -123,10 +123,9 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_DIGITAL_EN |
                                          /* Open drain is disabled */
                                          IOCON_PIO_OPENDRAIN_DI);
-    /* PORT1 PIN20 (coords: 4) is configured as FC4_TXD_SCL_MISO_WS */
     IOCON_PinMuxSet(IOCON, 0U, 13U, port0_pin13_config);
 
-    const uint32_t port0_pin14_config = (/* Pin is configured as FC4_RXD_SDA_MOSI_DATA */
+    const uint32_t port0_pin14_config = (// I2C Data
                                          IOCON_PIO_FUNC6 |
                                          /* No addition pin function */
                                          IOCON_PIO_MODE_INACT |
@@ -138,6 +137,7 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_DIGITAL_EN |
                                          /* Open drain is disabled */
                                          IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 0U, 14U, port0_pin14_config);
 
     // CAM0 enable, GPIO
     const uint32_t port1_pin3_config = (/* GPIO */
@@ -154,12 +154,10 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_OPENDRAIN_DI);
     IOCON_PinMuxSet(IOCON, 1U, 3U, port1_pin3_config);
 
-    /* PORT1 PIN21 (coords: 30) is configured as FC4_RXD_SDA_MOSI_DATA */
-    IOCON_PinMuxSet(IOCON, 0U, 14U, port0_pin14_config);
-    // Arduino I2C header
-    const uint32_t port1_pin20_config = (/* Pin is configured as FC4_TXD_SCL_MISO_WS */
-                                         IOCON_PIO_FUNC5 |
-                                         /* No addition pin function */
+    // CAM0 trigger, GPIO
+    const uint32_t port1_pin2_config = (/* GPIO */
+                                         0 |
+                                         /* Pullup */
                                          IOCON_PIO_MODE_INACT |
                                          /* Standard mode, output slew rate control is enabled */
                                          IOCON_PIO_SLEW_STANDARD |
@@ -169,80 +167,7 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_DIGITAL_EN |
                                          /* Open drain is disabled */
                                          IOCON_PIO_OPENDRAIN_DI);
-    /* PORT1 PIN20 (coords: 4) is configured as FC4_TXD_SCL_MISO_WS */
-    IOCON_PinMuxSet(IOCON, 1U, 20U, port1_pin20_config);
-
-    const uint32_t port1_pin21_config = (/* Pin is configured as FC4_RXD_SDA_MOSI_DATA */
-                                         IOCON_PIO_FUNC5 |
-                                         /* No addition pin function */
-                                         IOCON_PIO_MODE_INACT |
-                                         /* Standard mode, output slew rate control is enabled */
-                                         IOCON_PIO_SLEW_STANDARD |
-                                         /* Input function is not inverted */
-                                         IOCON_PIO_INV_DI |
-                                         /* Enables digital function */
-                                         IOCON_PIO_DIGITAL_EN |
-                                         /* Open drain is disabled */
-                                         IOCON_PIO_OPENDRAIN_DI);
-    /* PORT1 PIN21 (coords: 30) is configured as FC4_RXD_SDA_MOSI_DATA */
-    IOCON_PinMuxSet(IOCON, 1U, 21U, port1_pin21_config);
-
-    // SPI on PMOD header on flexcomm 3 TODO fix comments
-    const uint32_t port0_pin2_config = ( /* MISO */
-                                         1 |
-                                         /* No addition pin function */
-                                         IOCON_PIO_MODE_INACT |
-                                         /* Standard mode, output slew rate control is enabled */
-                                         IOCON_PIO_SLEW_STANDARD |
-                                         /* Input function is not inverted */
-                                         IOCON_PIO_INV_DI |
-                                         /* Enables digital function */
-                                         IOCON_PIO_DIGITAL_EN |
-                                         /* Open drain is disabled */
-                                         IOCON_PIO_OPENDRAIN_DI);
-    IOCON_PinMuxSet(IOCON, 0U, 2U, port0_pin2_config);
-
-    const uint32_t port0_pin3_config = (/* MOSI */
-                                         1 |
-                                         /* No addition pin function */
-                                         IOCON_PIO_MODE_INACT |
-                                         /* Standard mode, output slew rate control is enabled */
-                                         IOCON_PIO_SLEW_STANDARD |
-                                         /* Input function is not inverted */
-                                         IOCON_PIO_INV_DI |
-                                         /* Enables digital function */
-                                         IOCON_PIO_DIGITAL_EN |
-                                         /* Open drain is disabled */
-                                         IOCON_PIO_OPENDRAIN_DI);
-    IOCON_PinMuxSet(IOCON, 0U, 3U, port0_pin3_config);
-
-    const uint32_t port0_pin4_config = (/* SPI SS */
-                                         8 |
-                                         /* No addition pin function */
-                                         IOCON_PIO_MODE_INACT |
-                                         /* Standard mode, output slew rate control is enabled */
-                                         IOCON_PIO_SLEW_STANDARD |
-                                         /* Input function is not inverted */
-                                         IOCON_PIO_INV_DI |
-                                         /* Enables digital function */
-                                         IOCON_PIO_DIGITAL_EN |
-                                         /* Open drain is disabled */
-                                         IOCON_PIO_OPENDRAIN_DI);
-    IOCON_PinMuxSet(IOCON, 0U, 4U, port0_pin4_config);
-
-    const uint32_t port0_pin6_config = (/* SPI Clock */
-                                         1 |
-                                         /* No addition pin function */
-                                         IOCON_PIO_MODE_INACT |
-                                         /* Standard mode, output slew rate control is enabled */
-                                         IOCON_PIO_SLEW_STANDARD |
-                                         /* Input function is not inverted */
-                                         IOCON_PIO_INV_DI |
-                                         /* Enables digital function */
-                                         IOCON_PIO_DIGITAL_EN |
-                                         /* Open drain is disabled */
-                                         IOCON_PIO_OPENDRAIN_DI);
-    IOCON_PinMuxSet(IOCON, 0U, 6U, port0_pin6_config);
+    IOCON_PinMuxSet(IOCON, 1U, 2U, port1_pin2_config);
 
     // CAM1 I2C, Flexcomm 5
     const uint32_t port0_pin9_config = (/* I2C Clock */
@@ -287,9 +212,24 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_OPENDRAIN_DI);
     IOCON_PinMuxSet(IOCON, 1U, 1U, port1_pin1_config);
 
-    // GPIO interrupt on push button
-    const uint32_t port1_pin9_config = (/* PIO */
+    // CAM1 trigger, GPIO
+    const uint32_t port1_pin19_config = (/* GPIO */
                                          0 |
+                                         /* Pullup */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 19U, port1_pin19_config);
+
+    // CAM2 I2C, Flexcomm 3
+    const uint32_t port0_pin2_config = (/* I2C Clock */
+                                         1 |
                                          /* No addition pin function */
                                          IOCON_PIO_MODE_INACT |
                                          /* Standard mode, output slew rate control is enabled */
@@ -299,13 +239,10 @@ void BOARD_InitPins(void)
                                          /* Enables digital function */
                                          IOCON_PIO_DIGITAL_EN |
                                          /* Open drain is disabled */
-                                         IOCON_PIO_OPENDRAIN_DI |
-                                         /* Analog switch is closed (enabled) */
-                                         IOCON_PIO_ASW_EN);
-    IOCON_PinMuxSet(IOCON, 1U, 9U, port1_pin9_config);
-    // interrupt on IMU FSYNC 
-    const uint32_t port1_pin28_config = (/* PIO */
-                                         0 |
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 0U, 2U, port0_pin2_config);
+    const uint32_t port0_pin3_config = (/* I2C Data */
+                                         1 |
                                          /* No addition pin function */
                                          IOCON_PIO_MODE_INACT |
                                          /* Standard mode, output slew rate control is enabled */
@@ -315,10 +252,246 @@ void BOARD_InitPins(void)
                                          /* Enables digital function */
                                          IOCON_PIO_DIGITAL_EN |
                                          /* Open drain is disabled */
-                                         IOCON_PIO_OPENDRAIN_DI |
-                                         /* Analog switch is closed (enabled) */
-                                         IOCON_PIO_ASW_EN);
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 0U, 3U, port0_pin3_config);
+    // CAM2 enable, GPIO
+    const uint32_t port1_pin28_config = (/* GPIO */
+                                         0 |
+                                         /* Pullup */
+                                         IOCON_PIO_MODE_INACT |
+                                         //0x20 |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
     IOCON_PinMuxSet(IOCON, 1U, 28U, port1_pin28_config);
+
+    // CAM2 trigger, GPIO
+    const uint32_t port1_pin18_config = (/* GPIO */
+                                         0 |
+                                         /* Pullup */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 18U, port1_pin18_config);
+
+    // CAM3 I2C, Flexcomm 7
+    const uint32_t port1_pin30_config = (/* I2C Clock */
+                                         1 |
+                                         /* No addition pin function */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 30U, port1_pin30_config);
+    const uint32_t port1_pin29_config = (/* I2C Data */
+                                         1 |
+                                         /* No addition pin function */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 29U, port1_pin29_config);
+    // CAM3 enable, GPIO
+    const uint32_t port1_pin13_config = (/* GPIO */
+                                         0 |
+                                         /* Pullup */
+                                         IOCON_PIO_MODE_INACT |
+                                         //0x20 |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 13U, port1_pin13_config);
+
+    // CAM3 trigger, GPIO
+    const uint32_t port1_pin4_config = (/* GPIO */
+                                         0 |
+                                         /* Pullup */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 4U, port1_pin4_config);
+
+    // CAM4 I2C, Flexcomm 2
+    const uint32_t port1_pin25_config = (/* I2C Clock */
+                                         1 |
+                                         /* No addition pin function */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 25U, port1_pin25_config);
+    const uint32_t port1_pin26_config = (/* I2C Data */
+                                         1 |
+                                         /* No addition pin function */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 26U, port1_pin26_config);
+    // CAM4 enable, GPIO
+    const uint32_t port1_pin11_config = (/* GPIO */
+                                         0 |
+                                         /* Pullup */
+                                         IOCON_PIO_MODE_INACT |
+                                         //0x20 |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 11U, port1_pin11_config);
+
+    // CAM4 trigger, GPIO
+    const uint32_t port1_pin31_config = (/* GPIO */
+                                         0 |
+                                         /* Pullup */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 31U, port1_pin31_config);
+
+    // CAM5 I2C, Flexcomm 4
+    const uint32_t port0_pin16_config = (/* I2C Clock */
+                                         1 |
+                                         /* No addition pin function */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 0U, 16U, port0_pin16_config);
+    const uint32_t port1_pin9_config = (/* I2C Data */
+                                         5 |
+                                         /* No addition pin function */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 9U, port1_pin9_config);
+    // CAM5 enable, GPIO
+    const uint32_t port1_pin24_config = (/* GPIO */
+                                         0 |
+                                         /* Pullup */
+                                         IOCON_PIO_MODE_INACT |
+                                         //0x20 |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 24U, port1_pin24_config);
+
+    // CAM5 trigger, GPIO
+    const uint32_t port1_pin20_config = (/* GPIO */
+                                         0 |
+                                         /* Pullup */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 20U, port1_pin20_config);
+
+
+    // GPIO interrupt on push button
+    const uint32_t port0_pin0_config = (/* PIO */
+                                         0 |
+                                         /* No addition pin function */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI |
+                                         /* Analog switch is closed (enabled) */
+                                         IOCON_PIO_ASW_EN);
+    IOCON_PinMuxSet(IOCON, 0U, 0U, port0_pin0_config);
+    // interrupt on IMU FSYNC 
+    const uint32_t port0_pin26_config = (/* PIO */
+                                         0 |
+                                         /* No addition pin function */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI |
+                                         /* Analog switch is closed (enabled) */
+                                         IOCON_PIO_ASW_EN);
+    IOCON_PinMuxSet(IOCON, 0U, 26U, port0_pin26_config);
 }
 /***********************************************************************************************************************
  * EOF
