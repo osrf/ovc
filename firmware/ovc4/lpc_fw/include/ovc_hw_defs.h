@@ -8,6 +8,10 @@
 
 #define CAM0_I2C ((I2C_Type *)(I2C1_BASE))
 #define CAM1_I2C ((I2C_Type *)(I2C5_BASE))
+#define CAM2_I2C ((I2C_Type *)(I2C3_BASE))
+#define CAM3_I2C ((I2C_Type *)(I2C7_BASE))
+#define CAM4_I2C ((I2C_Type *)(I2C2_BASE))
+#define CAM5_I2C ((I2C_Type *)(I2C4_BASE))
 
 
 // GPIOs, ordering is CAM0 enable, CAM0 trigger, CAM1 enable etc.
