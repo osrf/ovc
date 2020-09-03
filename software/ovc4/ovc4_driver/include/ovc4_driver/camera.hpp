@@ -5,6 +5,8 @@
 
 #include <opencv2/opencv.hpp>
 
+#include <cv_bridge/cv_bridge.h>
+
 #include <Argus/Argus.h>
 #include <EGLStream/EGLStream.h>
 
@@ -28,14 +30,11 @@ enum class sensor_type_t
 };
 
 // TODO move to separate shared header if we want to serialize manually
-struct OVCImage
+class OVCImage : public cv_bridge::CvImage
 {
-  std::vector<uint8_t> buf;
-  uint32_t height;
-  uint32_t width;
+public:
   uint64_t timestamp; // In nanoseconds
   uint64_t frame_id;
-  uint32_t stride;
 };
 
 class Camera
@@ -56,7 +55,7 @@ private:
 
   std::unique_ptr<cv::VideoCapture> video_cap;
 
-  OVCImage ret_img;
+  std::shared_ptr<OVCImage> ret_img;
 
 protected:
   std::unique_ptr<UIODriver> uio;
@@ -85,10 +84,10 @@ public:
   void initArgus(Argus::UniqueObj<Argus::CaptureSession> capture_session,
       Argus::CameraDevice* camera_device, int sensor_mode);
 
-  void initGstreamer();
+  void initGstreamer(int sensor_id, int sensor_mode, int width, int height, int fps);
 
-  OVCImage getArgusFrame();
-  OVCImage getGstreamerFrame();
+  std::shared_ptr<OVCImage> getArgusFrame();
+  std::shared_ptr<OVCImage> getGstreamerFrame();
 
   // TODO consider getter and setter for sensor_mode
 };

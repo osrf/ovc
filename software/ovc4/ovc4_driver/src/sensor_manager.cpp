@@ -17,8 +17,6 @@ std::unique_ptr<SensorManager> SensorManager::make()
   sm->probeImagers();
   sm->initCameras();
 
-  //return sm;
-  sm->cameras[0]->initGstreamer();
   return sm;
   // Create argus objects
   sm->camera_provider.reset(Argus::CameraProvider::create());
@@ -28,10 +26,13 @@ std::unique_ptr<SensorManager> SensorManager::make()
   camera_provider_interface->getCameraDevices(&sm->camera_devices);
   std::cout << "Found " << sm->camera_devices.size() << " devices" << std::endl;
 
-  Argus::UniqueObj<Argus::CaptureSession> capture_session(
+  Argus::UniqueObj<Argus::CaptureSession> capture_session1(
       camera_provider_interface->createCaptureSession(sm->camera_devices[0]));
+  Argus::UniqueObj<Argus::CaptureSession> capture_session2(
+      camera_provider_interface->createCaptureSession(sm->camera_devices[1]));
 
-  sm->cameras[0]->initArgus(std::move(capture_session), sm->camera_devices[0], 0);
+  sm->cameras[0]->initArgus(std::move(capture_session1), sm->camera_devices[0], 0);
+  sm->cameras[1]->initArgus(std::move(capture_session2), sm->camera_devices[1], 0);
 
   return sm;
 }
@@ -92,31 +93,28 @@ void SensorManager::probeImagers()
 
 bool SensorManager::initCameras()
 {
-  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+  for (auto& camera : cameras)
   {
-    if (cameras[cam_id] == nullptr)
-      continue;
-    auto sensor_type = cameras[cam_id]->getType();
-    cameras[cam_id]->setUioFile(cam_id);
-    switch (sensor_type)
+    camera.second->setUioFile(camera.first);
+    switch (camera.second->getType())
     {
       case sensor_type_t::PiCameraV2:
       {
-        std::cout << "Picamera v2 detected for camera " << cam_id << std::endl;
-        initCamera(cam_id, "1920x1080_30fps");
+        std::cout << "Picamera v2 detected for camera " << camera.first << std::endl;
+        initCamera(camera.first, 0, 1920, 1080, 30);
         break;
       }
       case sensor_type_t::PiCameraHQ:
       {
-        std::cout << "Picamera HQ detected for camera " << cam_id << std::endl;
-        initCamera(cam_id, "1920x1080_60fps");
-        //initCamera(cam_id, "4032x3040_30fps");
+        std::cout << "Picamera HQ detected for camera " << camera.first << std::endl;
+        initCamera(camera.first, 1, 1920, 1080, 60);
         break;
       }
       case sensor_type_t::AR0521:
       {
-        std::cout << "AR0521 sensor detected for camera " << cam_id << std::endl;
-        initCamera(cam_id, "2592x1944_30fps");
+        std::cout << "AR0521 sensor detected for camera " << camera.first << std::endl;
+        // TODO find a way to make multiple sensors work
+        initCamera(camera.first, 0, 2592, 1944, 15);
         break;
       }
       default:
@@ -128,8 +126,10 @@ bool SensorManager::initCameras()
   return true;
 }
 
-void SensorManager::initCamera(int cam_id, const std::string& config_name)
+void SensorManager::initCamera(int cam_id, int sensor_mode, int width, int height, int fps)
 {
+  std::string config_name = std::to_string(width) + "x" + std::to_string(height) +
+    "_" + std::to_string(fps) + "fps";
   // TODO check all the result packets
   bool done = false;
   // Start with a reset
@@ -151,66 +151,42 @@ void SensorManager::initCamera(int cam_id, const std::string& config_name)
   config_pkt = usb->initRegopPacket();
   cameras[cam_id]->enableStreaming(config_pkt.i2c[cam_id]);
   usb->sendAndPoll(config_pkt);
-  // Now do a reg dump
-  return;
-  if (cam_id != 1)
-    return;
-  done = false;
-  do
-  {
-    config_pkt = usb->initRegopPacket();
-    auto res = cameras[cam_id]->registerDump(config_pkt.i2c[cam_id]);
-    auto res_pkt = usb->sendAndPoll(config_pkt);
-    done = (res == camera_init_ret_t::DONE);
-    // Print output
-    for (int i=0; i<REGOPS_PER_CAM; ++i)
-    {
-      if (res_pkt->i2c[cam_id].regops[i].status != REGOP_OK)
-        continue;
-      std::cout << "0x" << std::hex << std::setfill('0') << std::setw(4) << res_pkt->i2c[cam_id].regops[i].addr <<
-        "," << "0x" << std::setfill('0') << std::setw(4) << std::hex << res_pkt->i2c[cam_id].regops[i].u16 << std::endl;
-    }
-  }
-  while (!done);
-
+  // Now initialise the camera capture
+  cameras[cam_id]->initGstreamer(cam_id, sensor_mode, width, height, fps);
 }
 
-void SensorManager::updateExposure()
+void SensorManager::updateExposure() const
 {
   auto exp_pkt = usb->initRegopPacket();
   // TODO implement sync in firmware
   //exp_pkt.packet_type = RX_PACKET_TYPE_I2C_SYNC;
-  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+  for (const auto& camera : cameras)
   {
-    if (cameras[cam_id] == nullptr)
-      continue;
-    cameras[cam_id]->updateExposure(exp_pkt.i2c[0]);
+    camera.second->updateExposure(exp_pkt.i2c[camera.first]);
   }
   usb->sendPacket(exp_pkt);
   auto res_pkt = usb->pollData();
 }
 
-OVCImage SensorManager::getFrames()
+std::shared_ptr<OVCImage> SensorManager::getFrame(int cam_id) const
 {
-  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
-  {
-    if (cameras[cam_id] == nullptr)
-      continue;
-    return cameras[cam_id]->getGstreamerFrame();
-  }
-  return {};
+  return cameras.at(cam_id)->getGstreamerFrame();
+}
+
+std::vector<int> SensorManager::getProbedCameraIds() const
+{
+  std::vector<int> camera_ids;
+  for (const auto& camera : cameras)
+    camera_ids.push_back(camera.first);
+  return camera_ids;
 }
 
 SensorManager::~SensorManager()
 {
   std::cout << "Resetting sensors" << std::endl;
   auto config_pkt = usb->initRegopPacket();
-  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
-  {
-    if (cameras[cam_id] == nullptr)
-      continue;
-    cameras[cam_id]->reset(config_pkt.i2c[cam_id]);
-  }
+  for (const auto& camera : cameras)
+    camera.second->reset(config_pkt.i2c[camera.first]);
   usb->sendAndPoll(config_pkt);
   // Not shutdown all the imagers
   usb->setImagersEnable(false);

@@ -4,7 +4,9 @@ project(ovc4_driver)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 
-find_package(catkin REQUIRED roscpp sensor_msgs)
+#set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
+
+find_package(catkin REQUIRED roscpp sensor_msgs image_transport cv_bridge)
 find_package(OpenCV REQUIRED)
 
 find_package(PkgConfig)
