@@ -359,54 +359,37 @@ int main(void)
     CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
 
     GPIO_PortInit(GPIO, 1);
-    //GPIO_PortInit(GPIO, 0);
+    GPIO_PortInit(GPIO, 0);
 
     BOARD_InitPins();
     BOARD_BootClockPLL150M();
     BOARD_InitDebugConsole();
-    //GPIO BEGIN
     
-    // TODO move this init to cameras
-    // Port 1 pin 1
-    // Enable cam1
-    /*
-    gpio_pin_config_t enable_cam_config = {
-      .pinDirection = kGPIO_DigitalOutput,
-      .outputLogic = 1
-    };
-    GPIO_PinInit(GPIO, 1, 3, &enable_cam_config);
-    GPIO_PinInit(GPIO, 1, 1, &enable_cam_config);
-    */
+    /* clocks to all the camera flexcomms */
+    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM1);
+    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM5);
+    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM3);
+    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM7);
+    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM2);
+    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM4);
+
+    /* reset FLEXCOMM for I2C */
+    RESET_PeripheralReset(kFC1_RST_SHIFT_RSTn);
+    RESET_PeripheralReset(kFC5_RST_SHIFT_RSTn);
+    RESET_PeripheralReset(kFC3_RST_SHIFT_RSTn);
+    RESET_PeripheralReset(kFC7_RST_SHIFT_RSTn);
+    RESET_PeripheralReset(kFC2_RST_SHIFT_RSTn);
+    RESET_PeripheralReset(kFC4_RST_SHIFT_RSTn);
+
     for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
     {
+      camerai2c_init((I2C_Type *)(CAM_I2C_BASE[cam_id]), &cameras[cam_id]);
       for (int gpio_id = 0; gpio_id < GPIO_PER_CAM; ++gpio_id)
       {
         cameragpio_init(GPIO, &camera_gpios[cam_id][gpio_id], CAMGPIO_PORT, CAMGPIO_GPIOS[cam_id][gpio_id]);
       }
     }
-    // GPIO END
 
-    // I2C BEGIN
-    /* attach 12 MHz clock to FLEXCOMM8 (I2C master) */
-    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM4);
-    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM1);
-    // Actual OVC4 Cam1
-    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM5);
-    
-
-    /* reset FLEXCOMM for I2C */
-    RESET_PeripheralReset(kFC4_RST_SHIFT_RSTn);
-    RESET_PeripheralReset(kFC1_RST_SHIFT_RSTn);
-
-    RESET_PeripheralReset(kFC5_RST_SHIFT_RSTn);
-    camerai2c_init(CAM0_I2C, &cameras[0]);
-    camerai2c_init(CAM1_I2C, &cameras[1]);
-    //GPIO_PortSet(GPIO, 1, 1 << 1);
-    // Enable cam0
-    //GPIO_PortSet(GPIO, 1, 1 << 3);
-      
-
-    // I2C END
     // SPI BEGIN
     CLOCK_AttachClk(kFRO12M_to_FLEXCOMM3);
     RESET_PeripheralReset(kFC3_RST_SHIFT_RSTn);
