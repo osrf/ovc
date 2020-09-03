@@ -1,4 +1,5 @@
 #include <memory>
+#include <map>
 
 #include <Argus/Argus.h>
 
@@ -15,9 +16,9 @@ private:
   Argus::UniqueObj<Argus::CameraProvider> camera_provider;
   std::vector<Argus::CameraDevice*> camera_devices;
 
-  std::array<std::unique_ptr<Camera>, NUM_CAMERAS> cameras;
+  std::map<int, std::unique_ptr<Camera>> cameras;
 
-  void initCamera(int cam_id, const std::string& config_name);
+  void initCamera(int cam_id, int sensor_mode, int width, int height, int fps);
   
 public:
   static std::unique_ptr<SensorManager> make();
@@ -28,7 +29,9 @@ public:
 
   bool initCameras();
 
-  void updateExposure();
+  void updateExposure() const;
 
-  OVCImage getFrames();
+  std::vector<int> getProbedCameraIds() const;
+
+  std::shared_ptr<OVCImage> getFrame(int cam_id) const;
 };
