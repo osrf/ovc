@@ -47,12 +47,12 @@ static void trigger_timer_callback(uint32_t flags)
   GPIO_PortToggle(GPIO, 1, trigger_mask[1]);
 }
 
-static ctimer_callback_t ctimer_callback_table[] = {
-  NULL, trigger_timer_callback, NULL, NULL, NULL, NULL, NULL, NULL};
+static ctimer_callback_t trigger_timer_cb_ptr = trigger_timer_callback;
 
 static void cameragpio_set_timer(float freq)
 {
   // TODO parametrize duty cycle, 50% for now
+  CLOCK_AttachClk(kFRO_HF_to_CTIMER2);
   ctimer_config_t config;
   ctimer_match_config_t match_config;
   CTIMER_GetDefaultConfig(&config);
@@ -64,7 +64,7 @@ static void cameragpio_set_timer(float freq)
   match_config.outControl = kCTIMER_Output_NoAction;
   match_config.outPinInitState = false;
   match_config.enableInterrupt = true;
-  CTIMER_RegisterCallBack(CTIMER, &ctimer_callback_table[0], kCTIMER_SingleCallback);
+  CTIMER_RegisterCallBack(CTIMER, &trigger_timer_cb_ptr, kCTIMER_SingleCallback);
   CTIMER_SetupMatch(CTIMER, CTIMER_MAT_OUT, &match_config);
   CTIMER_StartTimer(CTIMER);
 }
@@ -83,12 +83,6 @@ void cameragpio_config_gpio(CameraGPIO* gpio, usb_rx_gpiocfg_t* cfg)
 {
   switch (cfg->function)
   {
-    case CAMGPIO_UNUSED:
-    {
-      cameragpio_reset_trigger_mask(gpio);
-      // Noop
-      break;
-    }
     case CAMGPIO_ENABLE:
     {
       cameragpio_reset_trigger_mask(gpio);
@@ -99,6 +93,7 @@ void cameragpio_config_gpio(CameraGPIO* gpio, usb_rx_gpiocfg_t* cfg)
     {
       // TODO implement
       // Update the mask
+      cameragpio_set_output(gpio, !cfg->trigger_polarity);
       cameragpio_set_trigger_mask(gpio);
       cameragpio_set_timer(cfg->trigger_frequency);
 

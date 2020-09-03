@@ -56,7 +56,6 @@ typedef enum
 : uint16_t
 #endif
 {
-  CAMGPIO_UNUSED = 0,
   CAMGPIO_ENABLE = 1,
   CAMGPIO_TRIGGER = 2,
   CAMGPIO_EXTCLK = 3, // Unimplemented for now
