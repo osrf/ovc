@@ -73,11 +73,9 @@ void USBDriver::setImagersEnable(bool enable)
   enable_pkt.packet_type = RX_PACKET_TYPE_GPIO_CFG;
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
   {
-    for (int gpio_id = 0; gpio_id < REGOPS_PER_CAM; ++gpio_id)
-    {
-      enable_pkt.gpio[cam_id][gpio_id].function = CAMGPIO_ENABLE;
-      enable_pkt.gpio[cam_id][gpio_id].enabled = enable;
-    }
+    // GPIO 0 is enable
+    enable_pkt.gpio[cam_id][0].function = CAMGPIO_ENABLE;
+    enable_pkt.gpio[cam_id][0].enabled = enable;
   }
   sendAndPoll(enable_pkt);
 

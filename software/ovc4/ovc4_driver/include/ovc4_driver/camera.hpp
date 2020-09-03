@@ -74,6 +74,8 @@ public:
   // TODO return the exposure, and create a SensorManager to manage the cameras
   virtual void updateExposure(usb_txrx_i2c_t& i2c_pkt) = 0;
 
+  virtual void setGPIO(usb_rx_gpiocfg_t &gpio_cfg) {}
+
   virtual camera_init_ret_t registerDump(usb_txrx_i2c_t& i2c_pkt) {}
 
   void setUioFile(int num)
