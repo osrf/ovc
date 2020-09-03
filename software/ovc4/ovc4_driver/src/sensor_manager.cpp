@@ -146,6 +146,12 @@ void SensorManager::initCamera(int cam_id, int sensor_mode, int width, int heigh
     done = (res == camera_init_ret_t::DONE);
   }
   while (!done);
+  // Set the extra GPIO function
+  usb_rx_packet_t gpio_cfg = {0};
+  gpio_cfg.packet_type = RX_PACKET_TYPE_GPIO_CFG;
+  // GPIO 0 is enable, GPIO 1 is free for use
+  cameras[cam_id]->setGPIO(gpio_cfg.gpio[cam_id][1]);
+  usb->sendAndPoll(gpio_cfg);
   // And enable streaming
   usleep(5000);
   config_pkt = usb->initRegopPacket();
