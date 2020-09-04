@@ -5,6 +5,9 @@
 #define CTIMER_MAT_OUT kCTIMER_Match_1
 #define CTIMER_CLK_FREQ CLOCK_GetCTimerClkFreq(2)
 
+#define FRAME_TRIGGER_PORT 1
+#define FRAME_TRIGGER_GPIO 6
+
 static uint32_t trigger_mask[2] = {0, 0}; // Mask used to set / clear pins, Port 0 is unused
 
 void cameragpio_init(GPIO_Type* base, CameraGPIO* gpio, uint8_t port_num, uint8_t gpio_num)
@@ -33,6 +36,16 @@ void cameragpio_process_packet(CameraGPIO gpio_arr[][GPIO_PER_CAM], usb_rx_packe
   }
 }
 
+static void cameragpio_set_frame_trigger()
+{
+  gpio_pin_config_t gpio_config = {
+    .pinDirection = kGPIO_DigitalOutput,
+    .outputLogic = 0
+  };
+  GPIO_PinInit(GPIO, FRAME_TRIGGER_PORT, FRAME_TRIGGER_GPIO, &gpio_config);
+  trigger_mask[FRAME_TRIGGER_PORT] |= (1 << FRAME_TRIGGER_GPIO);
+}
+
 void cameragpio_reset_gpio(CameraGPIO* gpio)
 {
   // TODO if a timer interrupt was attached (i.e. Trigger output) detach it
@@ -51,6 +64,8 @@ static ctimer_callback_t trigger_timer_cb_ptr = trigger_timer_callback;
 
 static void cameragpio_set_timer(float freq)
 {
+  // Set frame trigger output as well
+  cameragpio_set_frame_trigger();
   // TODO parametrize duty cycle, 50% for now
   CLOCK_AttachClk(kFRO_HF_to_CTIMER2);
   ctimer_config_t config;
