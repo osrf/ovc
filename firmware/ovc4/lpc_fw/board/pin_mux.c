@@ -459,7 +459,6 @@ void BOARD_InitPins(void)
                                          IOCON_PIO_OPENDRAIN_DI);
     IOCON_PinMuxSet(IOCON, 1U, 20U, port1_pin20_config);
 
-
     // GPIO interrupt on push button
     const uint32_t port0_pin0_config = (/* PIO */
                                          0 |
@@ -492,6 +491,21 @@ void BOARD_InitPins(void)
                                          /* Analog switch is closed (enabled) */
                                          IOCON_PIO_ASW_EN);
     IOCON_PinMuxSet(IOCON, 0U, 26U, port0_pin26_config);
+
+    // GPIO for Frame Trigger
+    const uint32_t port1_pin6_config = (/* GPIO */
+                                         0 |
+                                         /* Pullup */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 6U, port1_pin6_config);
 }
 /***********************************************************************************************************************
  * EOF
