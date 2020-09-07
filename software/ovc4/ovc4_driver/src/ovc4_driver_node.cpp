@@ -28,8 +28,9 @@ void publish(int cam_id, image_transport::ImageTransport it, std::shared_ptr<Sen
   while (ros::ok())
   {
     auto frame = sm->getFrame(cam_id);
-    frame->header.stamp = frame_time_ptr->get_wait(last_time_write_count);
-    last_time_write_count = frame_time_ptr->time_write_count.load();
+    // TODO this should be a get_wait to be safe, but it seems to introduce a lot of latency?
+    frame->header.stamp = frame_time_ptr->get();
+    //last_time_write_count = frame_time_ptr->time_write_count.load();
     image_pub.publish(frame->toImageMsg());
 
     // Main camera sets exposure for all the others
