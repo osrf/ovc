@@ -161,14 +161,16 @@ void SensorManager::initCamera(int cam_id, int sensor_mode, int width, int heigh
   cameras[cam_id]->initGstreamer(cam_id, sensor_mode, width, height, fps);
 }
 
-void SensorManager::updateExposure() const
+void SensorManager::updateExposure(int main_camera_id) const
 {
   auto exp_pkt = usb->initRegopPacket();
   // TODO implement sync in firmware
   //exp_pkt.packet_type = RX_PACKET_TYPE_I2C_SYNC;
+  // The main camera sets the exposure, all the other cameras have the same
+  cameras.at(main_camera_id)->updateExposure(exp_pkt.i2c[main_camera_id]);
   for (const auto& camera : cameras)
   {
-    camera.second->updateExposure(exp_pkt.i2c[camera.first]);
+    exp_pkt.i2c[camera.first] = exp_pkt.i2c[main_camera_id];
   }
   usb->sendPacket(exp_pkt);
   auto res_pkt = usb->pollData();

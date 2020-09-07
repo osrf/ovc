@@ -29,7 +29,7 @@ public:
 
   bool initCameras();
 
-  void updateExposure() const;
+  void updateExposure(int main_camera_id) const;
 
   std::vector<int> getProbedCameraIds() const;
 

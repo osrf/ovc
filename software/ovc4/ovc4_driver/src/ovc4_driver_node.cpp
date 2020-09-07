@@ -18,6 +18,8 @@ static constexpr int FRAME_TRIGGER_GPIO = 417;
 // TODO change names to be more explicative depending on setup
 static constexpr char* CAMERA_NAMES[NUM_CAMERAS] = {"image_0", "image_1", "image_2", "image_3", "image_4", "image_5"};
 
+static constexpr int MAIN_CAMERA_ID = 2; // Cam2 is the left camera, used for setting exposure
+
 void publish(int cam_id, image_transport::ImageTransport it, std::shared_ptr<SensorManager> sm,
     std::shared_ptr<AtomicRosTime> frame_time_ptr)
 {
@@ -30,9 +32,9 @@ void publish(int cam_id, image_transport::ImageTransport it, std::shared_ptr<Sen
     last_time_write_count = frame_time_ptr->time_write_count.load();
     image_pub.publish(frame->toImageMsg());
 
-    // TODO use exposure from cam0 for all sensors
-    if (cam_id == 0)
-      sm->updateExposure();
+    // Main camera sets exposure for all the others
+    if (cam_id == MAIN_CAMERA_ID)
+      sm->updateExposure(MAIN_CAMERA_ID);
   }
 }
 
