@@ -88,6 +88,40 @@ void camerai2c_regops_sequential(CameraI2C* cam_i2cs, usb_rx_packet_t* rx_packet
   }
 }
 
+// Sync operations don't return anything on the USB bus, only writes are implemented
+void camerai2c_regops_sync(CameraI2C* cam_i2cs, usb_rx_packet_t* rx_packet)
+{
+  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+  {
+    cam_i2cs[cam_id].xfer_.slaveAddress = rx_packet->i2c[cam_id].slave_address;
+    cam_i2cs[cam_id].xfer_.subaddressSize = rx_packet->i2c[cam_id].subaddress_size;
+    cam_i2cs[cam_id].register_size_ = rx_packet->i2c[cam_id].register_size;
+  }
+  // Parallelise over cameras
+  for (int regop_id = 0; regop_id < REGOPS_PER_CAM; ++regop_id)
+  {
+    for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+    {
+      regop_status_t regop_type = rx_packet->i2c[cam_id].regops[regop_id].status;
+      //i2c_direction_t i2c_dir;
+      if (regop_type == REGOP_READ)
+      {
+        // Not implemented
+      }
+      else if (regop_type == REGOP_WRITE)
+      {
+        camerai2c_write_nonblocking(cam_i2cs + cam_id, rx_packet->i2c[cam_id].regops[regop_id].addr,
+              rx_packet->i2c[cam_id].regops[regop_id].i32, cam_i2cs[cam_id].register_size_);
+      }
+      else
+      {
+        // Ignore other operations
+      }
+    }
+    camerai2c_wait_for_complete();
+  }
+}
+
 // NOTE if transaction fails (i.e. nack) the module might hang, TODO fix
 bool camerai2c_transfer_nonblocking_(CameraI2C* cam_i2c)
 {
@@ -138,6 +172,13 @@ void camerai2c_setup_write_(CameraI2C* cam_i2c, uint32_t reg_addr, uint32_t writ
 
 bool camerai2c_write_nonblocking(CameraI2C* cam_i2c, uint32_t reg_addr, uint32_t write_val, uint8_t write_len)
 {
+  uint8_t* buf = (uint8_t*)&write_val;
+  for (int i = 0; i < write_len / 2; ++i)
+  {
+    uint8_t tmp = buf[i];
+    buf[i] = buf[write_len-i-1];
+    buf[write_len-i-1] = tmp;
+  }
   camerai2c_setup_write_(cam_i2c, reg_addr, write_val, write_len);
   return camerai2c_transfer_nonblocking_(cam_i2c);
 }

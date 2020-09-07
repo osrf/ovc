@@ -29,6 +29,9 @@ void camerai2c_configure_slave(CameraI2C* cam_i2c, uint8_t slave_addr, uint8_t r
 // For this function the CameraI2C* parameter is actually an array of camera_i2c structures
 void camerai2c_regops_sequential(CameraI2C* cam_i2cs, usb_rx_packet_t* rx_packet, usb_tx_packet_t* tx_packet);
 
+// High level function for non blocking operations. Only supports writes for now
+void camerai2c_regops_sync(CameraI2C* cam_i2cs, usb_rx_packet_t* rx_packet);
+
 // Setup non blocking (interrupt based) transaction
 bool camerai2c_read_nonblocking(CameraI2C* cam_i2c, uint32_t reg_addr, uint8_t read_len);
 
