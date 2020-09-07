@@ -45,9 +45,7 @@ void camerai2c_regops_sequential(CameraI2C* cam_i2cs, usb_rx_packet_t* rx_packet
 {
   tx_packet->packet_type = TX_PACKET_TYPE_I2C_RESULT;
   memcpy(&tx_packet->i2c, &rx_packet->i2c, sizeof(rx_packet->i2c));
-  //for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
-  // TODO remove, for now only two I2Cs are configured
-  for (int cam_id = 0; cam_id < 2; ++cam_id)
+  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
   {
     cam_i2cs[cam_id].xfer_.slaveAddress = rx_packet->i2c[cam_id].slave_address;
     cam_i2cs[cam_id].xfer_.subaddressSize = rx_packet->i2c[cam_id].subaddress_size;
