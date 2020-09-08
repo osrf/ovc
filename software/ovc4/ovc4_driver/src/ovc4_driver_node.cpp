@@ -18,7 +18,7 @@ static constexpr int FRAME_TRIGGER_GPIO = 417;
 // TODO change names to be more explicative depending on setup
 static constexpr char* CAMERA_NAMES[NUM_CAMERAS] = {"image_0", "image_1", "image_2", "image_3", "image_4", "image_5"};
 
-static constexpr int MAIN_CAMERA_ID = 2; // Cam2 is the left camera, used for setting exposure
+static constexpr int MAIN_CAMERA_ID = 4; // Cam2 is the left camera, used for setting exposure
 
 void publish(int cam_id, image_transport::ImageTransport it, std::shared_ptr<SensorManager> sm,
     std::shared_ptr<AtomicRosTime> frame_time_ptr)
@@ -28,9 +28,7 @@ void publish(int cam_id, image_transport::ImageTransport it, std::shared_ptr<Sen
   while (ros::ok())
   {
     auto frame = sm->getFrame(cam_id);
-    // TODO this should be a get_wait to be safe, but it seems to introduce a lot of latency?
-    frame->header.stamp = frame_time_ptr->get();
-    //last_time_write_count = frame_time_ptr->time_write_count.load();
+    frame->header.stamp = frame_time_ptr->get_wait(last_time_write_count);
     image_pub.publish(frame->toImageMsg());
 
     // Main camera sets exposure for all the others

@@ -81,7 +81,7 @@ static std::string gstreamerPipeline(int8_t cam_id, int8_t s_mode, int width,
          ", height=(int)" + std::to_string(height) + ", format=(string)NV12, "
          "framerate=(fraction)" +
          std::to_string(framerate) + "/1 ! nvvidconv flip-method=" +
-         std::to_string(flip_method) + " ! video/x-raw, format=(string)I420 ! appsink";
+         std::to_string(flip_method) + " ! video/x-raw, format=(string)I420 ! appsink max-buffers=2 drop=True";
 }
 
 void Camera::initGstreamer(int sensor_id, int sensor_mode, int width, int height, int fps)
