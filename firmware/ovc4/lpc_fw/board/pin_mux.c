@@ -506,6 +506,36 @@ void BOARD_InitPins(void)
                                          /* Open drain is disabled */
                                          IOCON_PIO_OPENDRAIN_DI);
     IOCON_PinMuxSet(IOCON, 1U, 6U, port1_pin6_config);
+    
+    // GPIO for nShutdown_Request
+    const uint32_t port0_pin15_config = (/* GPIO */
+                                         0 |
+                                         /* Pullup */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 0U, 15U, port0_pin15_config);
+
+    // GPIO for nPW_EN
+    const uint32_t port1_pin21_config = (/* GPIO */
+                                         0 |
+                                         /* Pullup */
+                                         IOCON_PIO_MODE_INACT |
+                                         /* Standard mode, output slew rate control is enabled */
+                                         IOCON_PIO_SLEW_STANDARD |
+                                         /* Input function is not inverted */
+                                         IOCON_PIO_INV_DI |
+                                         /* Enables digital function */
+                                         IOCON_PIO_DIGITAL_EN |
+                                         /* Open drain is disabled */
+                                         IOCON_PIO_OPENDRAIN_DI);
+    IOCON_PinMuxSet(IOCON, 1U, 21U, port1_pin21_config);
 }
 /***********************************************************************************************************************
  * EOF

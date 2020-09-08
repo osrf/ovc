@@ -390,6 +390,19 @@ int main(void)
       }
     }
 
+    // nSHUTDOWN_REQ input
+    gpio_pin_config_t shutdown_req_gpio_config = {
+      .pinDirection = kGPIO_DigitalInput,
+    };
+    GPIO_PinInit(GPIO, nSHUTDOWN_REQ_PORT, nSHUTDOWN_REQ_GPIO, &shutdown_req_gpio_config);
+
+    // nPW_EN output
+    gpio_pin_config_t pw_en_gpio_config = {
+      .pinDirection = kGPIO_DigitalOutput,
+      .outputLogic = 0
+    };
+    GPIO_PinInit(GPIO, nPW_EN_PORT, nPW_EN_GPIO, &pw_en_gpio_config);
+
     // SPI BEGIN
     //CLOCK_AttachClk(kFRO12M_to_FLEXCOMM3);
     //RESET_PeripheralReset(kFC3_RST_SHIFT_RSTn);
@@ -440,36 +453,42 @@ int main(void)
           usb_send_packet();
         }
         */
-        if (packet_received > 0)
+      // Service shutdown request
+      if (GPIO_PinRead(GPIO, nSHUTDOWN_REQ_PORT, nSHUTDOWN_REQ_GPIO) == false)
+      {
+        // Pull up nPW_EN
+        GPIO_PinWrite(GPIO, nPW_EN_PORT, nPW_EN_GPIO, true);
+      }
+      if (packet_received > 0)
+      {
+        switch (rx_packet.packet_type)
         {
-          switch (rx_packet.packet_type)
+          case RX_PACKET_TYPE_I2C_SEQUENTIAL:
           {
-            case RX_PACKET_TYPE_I2C_SEQUENTIAL:
-            {
-              // Series of blocking I2C calls
-              camerai2c_regops_sequential(cameras, &rx_packet, &tx_packet);
-              // Send result
-              usb_send_packet();
-              break;
-            }
-            case RX_PACKET_TYPE_I2C_SYNC:
-            {
-              // Series of non blocking I2C calls
-              camerai2c_regops_sync(cameras, &rx_packet);
-              usb_send_packet();
-              break;
-            }
-            case RX_PACKET_TYPE_GPIO_CFG:
-            {
-              cameragpio_process_packet(camera_gpios, &rx_packet);
-              // Send dummy packet
-              usb_send_packet();
-
-              break;
-            }
+            // Series of blocking I2C calls
+            camerai2c_regops_sequential(cameras, &rx_packet, &tx_packet);
+            // Send result
+            usb_send_packet();
+            break;
           }
-          tx_packet.status = rx_packet.status;
-          --packet_received;
+          case RX_PACKET_TYPE_I2C_SYNC:
+          {
+            // Series of non blocking I2C calls
+            camerai2c_regops_sync(cameras, &rx_packet);
+            usb_send_packet();
+            break;
+          }
+          case RX_PACKET_TYPE_GPIO_CFG:
+          {
+            cameragpio_process_packet(camera_gpios, &rx_packet);
+            // Send dummy packet
+            usb_send_packet();
+
+            break;
+          }
         }
+        tx_packet.status = rx_packet.status;
+        --packet_received;
+      }
     }
 }

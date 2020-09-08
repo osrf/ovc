@@ -25,6 +25,12 @@ const uint8_t CAMGPIO_GPIOS[][2] = {{3, 2}, {1, 19}, {28, 18}, {13, 4}, {11, 31}
 // Gpio for pin interrupt
 #define IMU_INT_GPIO_PINT kINPUTMUX_GpioPort1Pin28ToPintsel
 
+// GPIO for power management
+#define nSHUTDOWN_REQ_PORT 0
+#define nSHUTDOWN_REQ_GPIO 15
+#define nPW_EN_PORT 1
+#define nPW_EN_GPIO 21
+
 // USB
 #define USB_CONTROLLER_ID kUSB_ControllerLpcIp3511Hs0
 
