@@ -45,7 +45,7 @@ public:
     return time;
   }
 
-  ros::Time get_wait(const uint8_t last_timestamp_number)
+  ros::Time get_wait(uint8_t &last_timestamp_number)
   {
     // You might need to put a shared lock here,
     // but introducing additional readers might cause frames to start dropping.
@@ -54,6 +54,7 @@ public:
     {
      time_condition_var.wait(time_guard);
     }
+    last_timestamp_number = time_write_count;
 
     return time;
   }
