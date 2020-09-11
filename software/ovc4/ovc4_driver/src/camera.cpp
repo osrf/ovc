@@ -76,7 +76,7 @@ static std::string gstreamerPipeline(int8_t cam_id, int8_t s_mode, int width,
                                int8_t flip_method) {
   // Disable digital gain
   return "nvarguscamerasrc sensor_id=" + std::to_string(cam_id) +
-         " sensor_mode=" + std::to_string(s_mode) +
+         " sensor_mode=" + std::to_string(s_mode) + " wbmode=0 awblock=1" +
          " ! video/x-raw(memory:NVMM), width=(int)" + std::to_string(width) +
          ", height=(int)" + std::to_string(height) + ", format=(string)NV12, "
          "framerate=(fraction)" +
