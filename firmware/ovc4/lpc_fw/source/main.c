@@ -474,8 +474,9 @@ int main(void)
           case RX_PACKET_TYPE_I2C_SYNC:
           {
             // Series of non blocking I2C calls
-            camerai2c_regops_sync(cameras, &rx_packet);
+            // Send dummy answer as soon as possible to reduce host latency
             usb_send_packet();
+            camerai2c_regops_sync(cameras, &rx_packet);
             break;
           }
           case RX_PACKET_TYPE_GPIO_CFG:
