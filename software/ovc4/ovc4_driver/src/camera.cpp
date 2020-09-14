@@ -4,8 +4,34 @@
 
 #include <opencv2/opencv.hpp>
 
+#include <boost/align/aligned_allocator.hpp>
+
+#include <malloc.h>
+#include <linux/ioctl.h>
+#include <linux/types.h>
+#include <linux/v4l2-common.h>
+#include <linux/v4l2-controls.h>
+#include <linux/videodev2.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+
 #include <iostream>
 #include <ovc4_driver/camera.hpp>
+
+constexpr int IMAGE_ALIGNMENT_SIZE = 16;
+
+template <typename T>
+using aligned_vector = std::vector<T, boost::alignment::aligned_allocator<T, IMAGE_ALIGNMENT_SIZE>>;
+
+template <class T>
+void wrapArrayInVector( T *sourceArray, size_t arraySize, std::vector<T, std::allocator<T> > &targetVector ) {
+  typename std::_Vector_base<T, std::allocator<T> >::_Vector_impl *vectorPtr =
+    (typename std::_Vector_base<T, std::allocator<T> >::_Vector_impl *)((void *) &targetVector);
+  vectorPtr->_M_start = sourceArray;
+  vectorPtr->_M_finish = vectorPtr->_M_end_of_storage = vectorPtr->_M_start + arraySize;
+}
 
 Camera::~Camera()
 {
@@ -108,6 +134,146 @@ std::shared_ptr<OVCImage> Camera::getGstreamerFrame()
     std::cout << "Capture failed" << std::endl;
 
   return ret_img;
+}
+
+void Camera::initV4L(int sensor_id, int width, int height)
+{
+  // Aligned memory allocation, then assign to CV Mat
+  unsigned int page_size = getpagesize();
+  size_t buffer_size = (width * height * 2 + page_size - 1) & ~(page_size - 1);
+  unsigned char* img_buf = (unsigned char*)memalign(page_size, buffer_size);
+
+  //ret_img = std::make_shared<OVCImage>();
+  //ret_img->image = cv::Mat(height, width, CV_16UC1, img_buf);
+  //ret_img->encoding = "bayer_grbg16";
+
+  std::string v4l_filename = "/dev/video" + std::to_string(sensor_id);
+  v4l_fd = open(v4l_filename.c_str(), O_RDWR);
+  if(v4l_fd < 0){
+    perror("Failed to open device, OPEN");
+    return;
+  }
+
+
+  // 2. Ask the device if it can capture frames
+  v4l2_capability capability;
+  if(ioctl(v4l_fd, VIDIOC_QUERYCAP, &capability) < 0){
+      // something went wrong... exit
+      perror("Failed to get device capabilities, VIDIOC_QUERYCAP");
+      return;
+  }
+
+
+  // 3. Set Image format
+  v4l2_format imageFormat;
+  imageFormat.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+  imageFormat.fmt.pix.width = width;
+  imageFormat.fmt.pix.height = height;
+  imageFormat.fmt.pix.bytesperline = 2 * width;
+  imageFormat.fmt.pix.pixelformat = V4L2_PIX_FMT_SGRBG16;
+  imageFormat.fmt.pix.field = V4L2_FIELD_NONE;
+  // tell the device you are using this format
+  if(ioctl(v4l_fd, VIDIOC_S_FMT, &imageFormat) < 0){
+      perror("Device could not set format, VIDIOC_S_FMT");
+      return;
+  }
+
+
+  // 4. Request Buffers from the device
+  v4l2_requestbuffers requestBuffer = {0};
+  requestBuffer.count = 1; // one request buffer
+  requestBuffer.type = V4L2_BUF_TYPE_VIDEO_CAPTURE; // request a buffer wich we an use for capturing frames
+  requestBuffer.memory = V4L2_MEMORY_USERPTR;
+
+  if(ioctl(v4l_fd, VIDIOC_REQBUFS, &requestBuffer) < 0){
+      perror("Could not request buffer from device, VIDIOC_REQBUFS");
+      return;
+  }
+
+
+  // 5. Quety the buffer to get raw data ie. ask for the you requested buffer
+  // and allocate memory for it
+  /*
+  v4l2_buffer queryBuffer = {0};
+  queryBuffer.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+  queryBuffer.memory = V4L2_MEMORY_USERPTR;
+  queryBuffer.m.userptr = (size_t)ret_img->image.data;
+  queryBuffer.length = 1944*2592*2;
+  queryBuffer.index = 0;
+  if(ioctl(v4l_fd, VIDIOC_QUERYBUF, &queryBuffer) < 0){
+      perror("Device did not return the buffer information, VIDIOC_QUERYBUF");
+      return;
+  }
+  // use a pointer to point to the newly created buffer
+  // mmap() will map the memory address of the device to
+  // an address in memory
+  std::cout << "Query buffer length is " << queryBuffer.length << std::endl;
+  //v4l_buffer = (char*)mmap(NULL, queryBuffer.length, PROT_READ | PROT_WRITE, MAP_SHARED,
+  //                    v4l_fd, queryBuffer.m.offset);
+  //memset(v4l_buffer, 0, queryBuffer.length);
+  */
+
+
+  // 6. Get a frame
+  // Create a new buffer type so the device knows whichbuffer we are talking about
+  //static unsigned char test[1944*2592*2];
+  wrapArrayInVector(img_buf, 1944*2592*2, img_msg.data);
+  //img_msg.data = std::move(aligned_vector<unsigned char>(1944*2592*2));
+
+  img_msg.height = height;
+  img_msg.width = width;
+  img_msg.step = 2 * width;
+  img_msg.encoding = "bayer_grbg16";
+  memset(&bufferinfo, 0, sizeof(bufferinfo));
+  bufferinfo.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+  bufferinfo.memory = V4L2_MEMORY_USERPTR;
+  //bufferinfo.m.userptr = (uint64_t)ret_img->image.data;
+  bufferinfo.m.userptr = (uint64_t)img_msg.data.data();
+  bufferinfo.length = 1944*2592*2;
+
+  // Activate streaming
+  int type = bufferinfo.type;
+  if(ioctl(v4l_fd, VIDIOC_STREAMON, &type) < 0){
+      perror("Could not start streaming, VIDIOC_STREAMON");
+      return;
+  }
+
+  if(ioctl(v4l_fd, VIDIOC_QBUF, &bufferinfo) < 0){
+      perror("Could not queue buffer, VIDIOC_QBUF");
+  }
+
+  std::cout << "V4L initialized correctly" << std::endl;
+}
+
+sensor_msgs::Image& Camera::getV4LFrame()
+{
+  // Queue the buffer
+
+  // Dequeue the buffer
+  if(ioctl(v4l_fd, VIDIOC_DQBUF, &bufferinfo) < 0){
+      perror("Could not dequeue the buffer, VIDIOC_DQBUF");
+  }
+
+  if(ioctl(v4l_fd, VIDIOC_QBUF, &bufferinfo) < 0){
+      perror("Could not queue buffer, VIDIOC_QBUF");
+  }
+  // Frames get written after dequeuing the buffer
+
+  // Copy
+  //memcpy(ret_img->image.data, v4l_buffer, 1944*2592*2);
+  //memcpy(&img_msg.data[0], v4l_buffer, 1944*2592*2);
+
+  // Write the data out to file
+  /*
+  ofstream outFile;
+  outFile.open("output.raw", ios::binary| ios::app);
+  outFile.write(buffer, (double)bufferinfo.bytesused);
+
+  // Close the file
+  outFile.close();
+  */
+  return img_msg;
+
 }
 
 std::shared_ptr<OVCImage> Camera::getArgusFrame()

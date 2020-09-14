@@ -158,6 +158,8 @@ void SensorManager::initCamera(int cam_id, int sensor_mode, int width, int heigh
   cameras[cam_id]->enableStreaming(config_pkt.i2c[cam_id]);
   usb->sendAndPoll(config_pkt);
   // Now initialise the camera capture
+  cameras[cam_id]->initV4L(cam_id, width, height);
+  return;
   cameras[cam_id]->initGstreamer(cam_id, sensor_mode, width, height, fps);
 }
 
@@ -181,6 +183,11 @@ std::shared_ptr<OVCImage> SensorManager::getFrame(int cam_id) const
   return cameras.at(cam_id)->getGstreamerFrame();
 }
 
+sensor_msgs::Image& SensorManager::getRawFrame(int cam_id) const
+{
+  return cameras.at(cam_id)->getV4LFrame();
+}
+
 std::vector<int> SensorManager::getProbedCameraIds() const
 {
   std::vector<int> camera_ids;
@@ -191,6 +198,7 @@ std::vector<int> SensorManager::getProbedCameraIds() const
 
 SensorManager::~SensorManager()
 {
+  return;
   std::cout << "Resetting sensors" << std::endl;
   auto config_pkt = usb->initRegopPacket();
   for (const auto& camera : cameras)

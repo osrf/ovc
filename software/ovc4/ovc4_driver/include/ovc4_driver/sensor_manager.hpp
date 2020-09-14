@@ -34,4 +34,6 @@ public:
   std::vector<int> getProbedCameraIds() const;
 
   std::shared_ptr<OVCImage> getFrame(int cam_id) const;
+
+  sensor_msgs::Image& getRawFrame(int cam_id) const;
 };

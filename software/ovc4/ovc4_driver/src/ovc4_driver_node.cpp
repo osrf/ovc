@@ -27,13 +27,18 @@ void publish(int cam_id, image_transport::ImageTransport it, std::shared_ptr<Sen
   auto last_time_write_count = frame_time_ptr->time_write_count.load();
   while (ros::ok())
   {
-    auto frame = sm->getFrame(cam_id);
-    frame->header.stamp = frame_time_ptr->get_wait(last_time_write_count);
-    image_pub.publish(frame->toImageMsg());
+    //auto frame = sm->getFrame(cam_id);
+    auto img_msg = sm->getRawFrame(cam_id);
+    img_msg.header.stamp = frame_time_ptr->get_wait(last_time_write_count);
+    //frame->header.stamp = frame_time_ptr->get_wait(last_time_write_count);
+    image_pub.publish(img_msg);
+    //image_pub.publish(frame->toImageMsg());
 
     // Main camera sets exposure for all the others
+    /*
     if (cam_id == MAIN_CAMERA_ID)
       sm->updateExposure(MAIN_CAMERA_ID);
+    */
   }
 }
 

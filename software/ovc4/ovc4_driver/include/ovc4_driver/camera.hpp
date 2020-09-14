@@ -10,6 +10,10 @@
 #include <Argus/Argus.h>
 #include <EGLStream/EGLStream.h>
 
+#include <linux/v4l2-common.h>
+#include <linux/v4l2-controls.h>
+#include <linux/videodev2.h>
+
 #include <ovc4_driver/usb_packetdef.h>
 #include <ovc4_driver/uio_driver.hpp>
 
@@ -56,6 +60,11 @@ private:
   std::unique_ptr<cv::VideoCapture> video_cap;
 
   std::shared_ptr<OVCImage> ret_img;
+  sensor_msgs::Image img_msg;
+
+  int v4l_fd = 0;
+  v4l2_buffer bufferinfo;
+  char* v4l_buffer;
 
 protected:
   std::unique_ptr<UIODriver> uio;
@@ -88,8 +97,12 @@ public:
 
   void initGstreamer(int sensor_id, int sensor_mode, int width, int height, int fps);
 
+  void initV4L(int sensor_id, int width, int height);
+
   std::shared_ptr<OVCImage> getArgusFrame();
   std::shared_ptr<OVCImage> getGstreamerFrame();
+  // Raw data
+  sensor_msgs::Image& getV4LFrame();
 
   // TODO consider getter and setter for sensor_mode
 };
