@@ -5,6 +5,7 @@
 #include <ros/ros.h>
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
+#include <ovc4_driver/ethernet_driver.hpp>
 #include <ovc4_driver/sensor_manager.hpp>
 #include <ovc4_driver/atomic_ros_time.hpp>
 
@@ -30,6 +31,24 @@ void publish(int cam_id, image_transport::ImageTransport it, std::shared_ptr<Sen
     auto frame = sm->getFrame(cam_id);
     frame->header.stamp = frame_time_ptr->get_wait(last_time_write_count);
     image_pub.publish(frame->toImageMsg());
+
+    // Main camera sets exposure for all the others
+    if (cam_id == MAIN_CAMERA_ID)
+      sm->updateExposure(MAIN_CAMERA_ID);
+  }
+}
+
+void publish_socket(int cam_id, std::shared_ptr<SensorManager> sm, std::shared_ptr<AtomicRosTime> frame_time_ptr)
+{
+  auto last_time_write_count = frame_time_ptr->time_write_count.load();
+  EthernetPublisher pub(cam_id, CAMERA_NAMES[cam_id]);
+  while (ros::ok())
+  {
+    auto frame = sm->getFrame(cam_id);
+
+    auto cur_time = frame_time_ptr->get_wait(last_time_write_count);
+    pub.publish(frame, cur_time);
+    std::cout << "Published frame" << std::endl;
 
     // Main camera sets exposure for all the others
     if (cam_id == MAIN_CAMERA_ID)
@@ -79,7 +98,8 @@ int main(int argc, char **argv)
   for (const auto& cam_id : sm->getProbedCameraIds())
   {
     std::cout << "Creating thread for camera " << cam_id << std::endl;
-    threads.push_back(std::make_unique<std::thread>(publish, cam_id, it, sm, frame_time_ptr));
+    threads.push_back(std::make_unique<std::thread>(publish_socket, cam_id, sm, frame_time_ptr));
+    //threads.push_back(std::make_unique<std::thread>(publish, cam_id, it, sm, frame_time_ptr));
   }
   threads[0]->join();
   while (ros::ok())

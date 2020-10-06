@@ -29,6 +29,7 @@ include_directories(
 
 add_library(ovc4_driver
   src/camera.cpp
+  src/ethernet_driver.cpp
   src/usb_driver.cpp
   src/uio_driver.cpp
   src/sensor_manager.cpp
