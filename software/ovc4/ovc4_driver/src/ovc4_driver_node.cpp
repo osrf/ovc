@@ -38,21 +38,24 @@ void publish(int cam_id, image_transport::ImageTransport it, std::shared_ptr<Sen
   }
 }
 
-void publish_socket(int cam_id, std::shared_ptr<SensorManager> sm, std::shared_ptr<AtomicRosTime> frame_time_ptr)
+void publish_socket(std::shared_ptr<SensorManager> sm, std::shared_ptr<AtomicRosTime> frame_time_ptr)
 {
+  auto camera_ids = sm->getProbedCameraIds();
   auto last_time_write_count = frame_time_ptr->time_write_count.load();
-  EthernetPublisher pub(cam_id, CAMERA_NAMES[cam_id]);
+  EthernetPublisher pub;
   while (ros::ok())
   {
-    auto frame = sm->getFrame(cam_id);
+    auto frame = sm->getFrame(camera_ids[0]);
+    auto frame2 = sm->getFrame(camera_ids[1]);
 
     auto cur_time = frame_time_ptr->get_wait(last_time_write_count);
-    pub.publish(frame, cur_time);
+    pub.publish(frame, cur_time, CAMERA_NAMES[camera_ids[0]]);
+    pub.publish(frame2, cur_time, CAMERA_NAMES[camera_ids[1]]);
+    pub.increaseId();
     std::cout << "Published frame" << std::endl;
 
     // Main camera sets exposure for all the others
-    if (cam_id == MAIN_CAMERA_ID)
-      sm->updateExposure(MAIN_CAMERA_ID);
+    sm->updateExposure(MAIN_CAMERA_ID);
   }
 }
 
@@ -95,6 +98,7 @@ int main(int argc, char **argv)
   std::shared_ptr<SensorManager> sm = SensorManager::make();
   std::vector<std::unique_ptr<std::thread>> threads;
   threads.push_back(std::make_unique<std::thread>(get_timestamp, frame_time_ptr));
+  /*
   for (const auto& cam_id : sm->getProbedCameraIds())
   {
     std::cout << "Creating thread for camera " << cam_id << std::endl;
@@ -102,6 +106,8 @@ int main(int argc, char **argv)
     //threads.push_back(std::make_unique<std::thread>(publish, cam_id, it, sm, frame_time_ptr));
   }
   threads[0]->join();
+  */
+  publish_socket(sm, frame_time_ptr);
   while (ros::ok())
   {
     // Poll at 1kHz

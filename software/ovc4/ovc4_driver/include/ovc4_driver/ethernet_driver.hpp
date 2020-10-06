@@ -21,9 +21,11 @@ private:
   ether_tx_packet_t pkt = {0};
 
 public:
-  EthernetPublisher(int cam_id, const std::string& camera_name);
+  EthernetPublisher();
 
-  void publish(std::shared_ptr<OVCImage> imgptr, const ros::Time& now);
+  void publish(std::shared_ptr<OVCImage> imgptr, const ros::Time& now, const std::string& camera_name);
+
+  void increaseId();
 
 };
 

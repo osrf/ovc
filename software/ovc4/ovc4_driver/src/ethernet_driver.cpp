@@ -6,13 +6,13 @@
 #include <string.h>
 #include <iostream>
 
-EthernetPublisher::EthernetPublisher(int cam_id, const std::string& camera_name)
+EthernetPublisher::EthernetPublisher()
 {
   // TODO different ports for different imagers?
   sock = socket(AF_INET, SOCK_STREAM, 0);
 
   sock_in.sin_family = AF_INET;
-  sock_in.sin_port = htons(BASE_PORT + cam_id);
+  sock_in.sin_port = htons(BASE_PORT);
 
   inet_aton(SERVER_IP, &sock_in.sin_addr);
 
@@ -24,16 +24,16 @@ EthernetPublisher::EthernetPublisher(int cam_id, const std::string& camera_name)
   pkt.frame.width = 2592;
   pkt.frame.step = 2592;
   strncpy(pkt.frame.sensor_name, "ar0521", sizeof("ar0521"));
-  strncpy(pkt.frame.camera_name, camera_name.c_str(), camera_name.size());
   strncpy(pkt.frame.data_type, "yuv420", sizeof("yuv420"));
 
   pkt.frame.frame_id = 0;
 }
 
-void EthernetPublisher::publish(std::shared_ptr<OVCImage> imgptr, const ros::Time& now)
+void EthernetPublisher::publish(std::shared_ptr<OVCImage> imgptr, const ros::Time& now, const std::string& camera_name)
 {
   pkt.frame.t_sec = now.sec;
   pkt.frame.t_nsec = now.nsec;
+  strncpy(pkt.frame.camera_name, camera_name.c_str(), camera_name.size());
   int frame_size = pkt.frame.height * pkt.frame.step;
   int cur_off = 0;
   char payload[32768];
@@ -53,8 +53,12 @@ void EthernetPublisher::publish(std::shared_ptr<OVCImage> imgptr, const ros::Tim
     // Now the extra bytes
     write(sock, &imgptr->image.data[cur_off], frame_size - cur_off);
     //std::cout << "Publishing packet n. " << i << std::endl;
-    pkt.frame.frame_id++;
     //usleep(30000);
   }
     
+}
+
+void EthernetPublisher::increaseId()
+{
+  pkt.frame.frame_id++;
 }
