@@ -1,0 +1,3 @@
+[submodule "firmware/ovc5/sandbox/nfmac10g"]
+	path = firmware/ovc5/sandbox/nfmac10g
+	url = https://github.com/codebot/nfmac10g
