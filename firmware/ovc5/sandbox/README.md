@@ -19,4 +19,5 @@ https://github.com/codebot/nfmac10g
 
 ```
 git submodule init
+git submodule update
 ```
