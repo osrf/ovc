@@ -12,10 +12,14 @@ I found it necessary to install this on my machine. YMMV:
 sudo apt install libtinfo5
 ```
 
+Now let's install `nMigen` to make our lives more joyous:
+```
+pip3 install --user 'git+https://github.com/nmigen/nmigen.git#egg=nmigen[builtin-yosys]'
+```
+
 # Goal
 
-Use the open-source 10G MAC from the NetFPGA project. Forked here for now:
-https://github.com/codebot/nfmac10g
+Use nMigen to create a minimal MAC that blasts 10G UDP broadcast packets out a SFP+ interface.
 
 ```
 git submodule init
