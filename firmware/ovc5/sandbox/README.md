@@ -12,6 +12,12 @@ I found it necessary to install this on my machine. YMMV:
 sudo apt install libtinfo5
 ```
 
+Install cable drivers (substitute your Xilinx location as needed)
+```
+cd $HOME/xilinx/Vivado/2020.1/data/xicom/cable_drivers/lin64/install_script/install_drivers
+sudo cp *.rules /etc/udev/rules.d
+```
+
 Now let's install `nMigen` to make our lives more joyous:
 ```
 pip3 install --user 'git+https://github.com/nmigen/nmigen.git#egg=nmigen[builtin-yosys]'
