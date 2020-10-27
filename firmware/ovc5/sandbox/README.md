@@ -23,6 +23,11 @@ Now let's install `nMigen` to make our lives more joyous:
 pip3 install --user 'git+https://github.com/nmigen/nmigen.git#egg=nmigen[builtin-yosys]'
 ```
 
+And some analysis stuff:
+```
+sudo apt install iverilog gtkwave
+```
+
 # Goal
 
 Use nMigen to create a minimal MAC that blasts 10G UDP broadcast packets out a SFP+ interface.
