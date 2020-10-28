@@ -93,3 +93,65 @@ sudo cp boot.scr /mnt/boot/
 sudo cp image.ub /mnt/boot/
 sudo umount /mnt/boot
 ```
+
+### Create root filesystem
+Let's create a debian userland:
+```
+sudo mount /dev/sdX2 /mnt/zynqroot
+sudo apt install qemu-user-static debootstrap debian-archive-keyring schroot
+sudo apt-key add /usr/share/keyrings/debian-archive-keyring.gpg
+sudo qemu-debootstrap --arch=arm64 --keyring /usr/share/keyrings/debian-archive-keyring.gpg --variant=buildd buster /mnt/zynqroot http://ftp.debian.org/debian
+```
+
+Now we need to go inside the userland and configure some stuff.
+We'll use `schroot` following along from [this doc](http://logan.tw/posts/2017/01/21/introduction-to-qemu-debootstrap/)
+```
+echo "[arm64-debian]
+description=Debian Buster (arm64)
+directory=/mnt/zynqroot
+root-users=$(whoami)
+users=$(whoami)
+type=directory" | sudo tee /etc/schroot/chroot.d/arm64-debian
+```
+IMPORTANT!!! You have to go into `/etc/schroot/default/nssdatabases` and comment out the following lines, in order to be able to set root password, create user, etc., inside the chroot:
+```
+#passwd
+#shadow
+#group
+```
+
+Now, let's enter the debian userland we're creating and install some stuff:
+```
+schroot -c arm64-debian -u root
+echo zynq > /etc/hostname
+passwd  # now enter a root password
+apt install vim locales openssh-server ifupdown net-tools iputils-ping avahi-autoipd avahi-daemon haveged i2c-tools rsyslog
+dpkg-reconfigure locales  # this is interactive; en_US.UTF-8 was number 158 for me
+#systemctl enable serial-getty@ttyPS0.service
+# append ttyPS0 to /etc/securetty
+# append this to /etc/network/interfaces:
+#   auto lo eth0
+#   allow-hotplug eth0
+#   iface lo inet loopback
+#   iface eth0 inet dhcp
+```
+
+Allow root login via password by editing this file:
+```
+vim /etc/ssh/sshd_config
+```
+Change the line `PermitRootLogin` so that it looks like:
+```
+PermitRootLogin yes
+```
+Also, must uncomment `PermitRootLogin yes`
+
+Now exit `schroot`:
+```
+exit
+```
+
+Unmount the rootfs:
+```
+sudo umount /mnt/zynqroot
+```
