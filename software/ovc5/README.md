@@ -127,7 +127,6 @@ echo zynq > /etc/hostname
 passwd  # now enter a root password
 apt install vim locales openssh-server ifupdown net-tools iputils-ping avahi-autoipd avahi-daemon haveged i2c-tools rsyslog
 dpkg-reconfigure locales  # this is interactive; en_US.UTF-8 was number 158 for me
-#systemctl enable serial-getty@ttyPS0.service
 # append ttyPS0 to /etc/securetty
 # append this to /etc/network/interfaces:
 #   auto lo eth0
@@ -144,7 +143,10 @@ Change the line `PermitRootLogin` so that it looks like:
 ```
 PermitRootLogin yes
 ```
-Also, must uncomment `PermitRootLogin yes`
+Also, must uncomment `PasswordAuthentication yes`
+```
+PasswordAuthentication yes
+```
 
 Now exit `schroot`:
 ```
