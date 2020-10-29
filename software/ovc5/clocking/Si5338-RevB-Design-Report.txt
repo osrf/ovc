@@ -1,0 +1,55 @@
+Overview
+========
+Part:               Si5338
+Project File:
+Created By:         ClockBuilder Pro v2.45 [2020-07-16]
+Timestamp:          2020-10-29 15:34:49 GMT+08:00
+
+Design Rule Check
+=================
+Errors:
+- No errors
+
+Warnings:
+- No warnings
+
+Design
+======
+Universal Hardware Input Pins:
+   P3: CLKIN
+   P4: I2C_LSB
+
+Inputs:
+    IN3: 100 MHz Single-Ended
+
+Outputs:
+   CLK0: Unused
+   CLK1: Unused
+   CLK2: Unused
+   CLK3: 156.25 MHz LVDS 3.3 V 
+
+Frequency Plan
+==============
+Fpfd = 25 MHz
+Fvco = 2.5 GHz
+
+P dividers:
+   P0  = 4
+   P1  = Unused
+M = 100
+N dividers:
+   N0:
+      Unused
+   N1:
+      Unused
+   N2:
+      Unused
+   N3:
+      Value: 16
+      CLK3: 156.25 MHz [ 156 + 1/4 MHz ], Error: 0 ppm
+
+R dividers:
+   R0 = Unused
+   R1 = Unused
+   R2 = Unused
+   R3 = 1

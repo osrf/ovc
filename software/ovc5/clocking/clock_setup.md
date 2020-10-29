@@ -10,4 +10,4 @@ We need to generate a 156.25 Mhz differential clock on the Si5338B `CLK3 A/B` pi
 The Si5338B `I2C_LSB` pin is LOW on the ST1 board.
 
 The chip is complex and generating a register set is most easily done with their GUI, [ClockBuilder Pro](https://www.silabs.com/products/development-tools/software/clockbuilder-pro-software) but unfortunately SiLabs has chosen (bizarrely) not to make a Linux version of this program, at least at time of writing in October 2020.
-I made a noble attempt to get it working under `wine` with various combinations of Windows architecture (32/64 bit) and emulated Windows versions, but it would crash whenever you tried to actually open up a wizard and set inputs/outputs, etc., and I gave up. Great sadness.
+I made a noble attempt to get it working under `wine` with various combinations of Windows architecture (32/64 bit) and emulated Windows versions, but it would crash whenever you tried to actually open up a wizard and set inputs/outputs, etc., and I gave up. Great sadness. Fortunately a kind colleague with a Windows machine loaded up ClockBuilder Pro and generated the registers.
