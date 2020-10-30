@@ -171,7 +171,7 @@ Let's create a user account on the device (substitute your desired username for 
 ssh root@zynq.local
 apt install sudo
 adduser USERNAME
-usermod -aG adm,sudo,plugdev USERNAME
+usermod -aG adm,sudo,plugdev,i2c USERNAME
 exit
 ssh-copy-id USERNAME@zynq.local
 ```
