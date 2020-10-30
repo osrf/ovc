@@ -4,7 +4,7 @@ The first quest is to set up a microSD card to boot the Zynq chip.
 Because the Zynq has a complex many-tiered boot process that starts with on-chip ROM, the microSD card must be set up very carefully to match what the first-stage ROM loader needs to see when it boots.
 The following sections will walk through all of these steps exactly.
 
-### Set up microSD card partitions
+## Set up microSD card partitions
 
 This guide follows along a [Xilinx guide](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841655/Prepare+Boot+Medium) which has more details.
 
@@ -67,7 +67,7 @@ Device     Boot  Start      End  Sectors  Size Id Type
 
 If all looks well, type `w` to write the partition table and exit `fdisk`
 
-### Set up microSD card partitions
+## Set up microSD card filesystems
 
 As before, you'll need to substitute the exact device name on your system in place of `/dev/sdX` in the following terminal snippets.
 
@@ -81,7 +81,7 @@ Next, an `ext4` filesystem named `root` in the second partition:
 sudo mkfs.ext4 -L root /dev/sdX2
 ```
 
-### Populate the boot partition
+## Populate the boot partition
 Mount the boot partition and copy in the magic `boot.bin` file, which contains the first stage (FSBL) and second stage (u-boot) bootloader images and various helper files.
 Then we'll install the u-boot script `boot.scr` and finally the actual kernel image `image.ub`
 Adjust paths/filenames as needed for your setup:
@@ -94,7 +94,7 @@ sudo cp image.ub /mnt/boot/
 sudo umount /mnt/boot
 ```
 
-### Create root filesystem
+## Create root filesystem
 Let's create a debian userland:
 ```
 sudo mount /dev/sdX2 /mnt/zynqroot
@@ -156,4 +156,32 @@ exit
 Unmount the rootfs:
 ```
 sudo umount /mnt/zynqroot
+```
+
+You should now be able to put the microSD card in the ST1 board and it should boot to a working userland.
+
+TODO: fix a few minor things at some point:
+* `/etc/debian_chroot` should probably be removed from the filesystem
+* `/etc/hosts` should have an entry for the hostname (zynq)
+
+## Installing OVC5 software
+
+Let's create a user account on the device (substitute your desired username for USERNAME):
+```
+ssh root@zynq.local
+apt install sudo
+adduser USERNAME
+usermod -aG adm,sudo,plugdev USERNAME
+exit
+ssh-copy-id USERNAME@zynq.local
+```
+
+Now we can shell into our new user account, create some keys, and install things:
+```
+ssh USERNAME@zynq.local
+apt install python3-smbus git
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+# log in to GitHub and add this key to your account, if you like convenience
+git clone ssh://git@github.com/osrf/ovc
 ```
