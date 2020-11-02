@@ -11,3 +11,9 @@ The Si5338B `I2C_LSB` pin is LOW on the ST1 board.
 
 The chip is complex and generating a register set is most easily done with their GUI, [ClockBuilder Pro](https://www.silabs.com/products/development-tools/software/clockbuilder-pro-software) but unfortunately SiLabs has chosen (bizarrely) not to make a Linux version of this program, at least at time of writing in October 2020.
 I made a noble attempt to get it working under `wine` with various combinations of Windows architecture (32/64 bit) and emulated Windows versions, but it would crash whenever you tried to actually open up a wizard and set inputs/outputs, etc., and I gave up. Great sadness. Fortunately a kind colleague with a Windows machine loaded up ClockBuilder Pro and generated the registers.
+
+### instantiating the PCS/PMA subsystem
+Unfortunately the clock routes for this output of the clock generator on the ST1 are fully buried underneath the XU9 module, so it seems that we have to instantiate the PCS/PMA subsystem on the Zynq in order to route it back out another pin.
+The SFP+ interface goes to FPGA transceiver pads K6/K5 and J3/J4, which is labeled as "Quad 224" in the pinout PDF. Our clock in L7/L8 also goes to this quad.
+The 10G/25G block IP configuration tool wants the quad defined in XY, not quad number.
+If I'm parsing Figure 1-8 correctly in UG1075 (page 48), it appears that Quad 224 is Quad X0Y1, with channels X0Y4-X0Y7, so TX3/RX3 in that quad is X0Y7.
