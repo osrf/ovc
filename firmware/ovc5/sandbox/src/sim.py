@@ -32,5 +32,5 @@ dut = E10G_TX()
 sim = Simulator(dut)
 sim.add_clock(1e-6)
 sim.add_sync_process(test)
-with sim.write_vcd("test.vcd"):
+with sim.write_vcd("e10g_tx.vcd"):
     sim.run()

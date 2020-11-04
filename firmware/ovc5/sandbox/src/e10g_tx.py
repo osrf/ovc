@@ -6,11 +6,14 @@ class E10G_TX(Elaboratable):
     def __init__(self):
         self.xgmii_d = Signal(64)
         self.xgmii_c = Signal(8)
+        # for now, assume dmac/smac are in network byte order already
         self.dmac = Signal(48)
         self.smac = Signal(48)
         self.ethertype = Signal(16)
-        self.tx_d = Signal(64)
         self.tx_en = Signal()
+        self.tx_d = Signal(64)
+        self.tx_d_d1 = Signal(64)
+        self.tx_d_d2 = Signal(64)
 
     def elaborate(self, platform):
         m = Module()
@@ -21,34 +24,43 @@ class E10G_TX(Elaboratable):
         #ethertype = 0x0800
 
         counter = Signal(8)
-        m.d.sync += counter.eq(counter + 1)
+        m.d.sync += [
+            counter.eq(counter + 1),
+            self.tx_d_d1.eq(self.tx_d),
+            self.tx_d_d2.eq(self.tx_d_d1)
+        ]
         #m.d.comb += self.led.eq(self.counter[2])
 
         with m.FSM():
             with m.State('IDLE'):
-                # todo: simplify this, move dmac/smac/type up to a UDP TX block
-                with m.If(self.tx_en):
-                    m.next = 'DMAC'
-                    m.d.sync += [
-                        self.xgmii_d.eq(0xd5555555555555fb),
-                        self.xgmii_c.eq(0x01)
-                    ]
-                with m.Else():
+                with m.If(~self.tx_en):  # keep sending IDLE
                     m.next = 'IDLE'
                     m.d.sync += [
                         self.xgmii_d.eq(0x0707070707070707),
                         self.xgmii_c.eq(0xff)
                     ]
+                with m.Else():  # tx_en is asserted; let's start a packet!
+                    m.next = 'DMAC'
+                    m.d.sync += [
+                        self.xgmii_d.eq(0xd5555555555555fb),
+                        self.xgmii_c.eq(0x01)
+                    ]
             with m.State('DMAC'):
                 m.next = 'SMAC'
                 m.d.sync += [
-                    self.xgmii_d.eq(0x3210ffffffffffff), # todo: concat dmac+smac[11:0]
+                    self.xgmii_d.eq(
+                        self.dmac |
+                        ((self.smac & 0xffff) << 48)),
                     self.xgmii_c.eq(0x00)
                 ]
             with m.State('SMAC'):
                 m.next = 'PAYLOAD'
+                payload_start = 0x4242
                 m.d.sync += [
-                    self.xgmii_d.eq(0x77770008ba987654), # todo: concat smac[47:12], ethertype, and first 16 bits payload
+                    self.xgmii_d.eq(
+                        ((self.smac >> 16) & 0xffffffff) |
+                        (self.ethertype << 32) |
+                        (payload_start << 48)),
                     self.xgmii_c.eq(0x00),
                     counter.eq(0)
                 ]
@@ -58,6 +70,7 @@ class E10G_TX(Elaboratable):
                     self.xgmii_d.eq(0x7777777777777777), # todo: payload until it's empty
                     self.xgmii_c.eq(0x00)
                 ]
+            # todo: pad as necessary so that the frame is >= 64 bytes
             with m.State('TERMINATE'):
                 m.next = 'IDLE'
                 m.d.sync += [
