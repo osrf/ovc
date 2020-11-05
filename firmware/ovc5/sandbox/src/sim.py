@@ -13,9 +13,18 @@ def wait_led(state):
 
 
 def send_packet():
+    tx_count = 0x0004000300020001
+    yield dut.tx_d.eq(tx_count)
     yield dut.tx_en.eq(1)
     yield
+
+    for i in range(2):
+        yield dut.tx_d.eq(dut.tx_d + 0x0004000400040004)
+        yield
+
     yield dut.tx_en.eq(0)
+    yield
+
     for i in range(100):
         yield
 
