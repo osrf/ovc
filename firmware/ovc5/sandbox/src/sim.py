@@ -30,8 +30,8 @@ def send_packet():
 
 
 def test():
-    yield dut.smac.eq(0x0123456789ab)
     yield dut.dmac.eq(0xfedcba987654)
+    yield dut.smac.eq(0x0123456789ab)
     yield dut.ethertype.eq(0x0800)
     for i in range(4):
         yield from send_packet()

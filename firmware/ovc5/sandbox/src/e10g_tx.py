@@ -51,7 +51,17 @@ class E10G_TX(Elaboratable):
             with m.State('DMAC'):
                 m.next = 'SMAC'
                 m.d.sync += [
-                    self.xgmii_d.eq(Cat(self.dmac, self.smac[0:16])),
+                    self.xgmii_d.eq(
+                        Cat(
+                            self.dmac[40:48],
+                            self.dmac[32:40],
+                            self.dmac[24:32],
+                            self.dmac[16:24],
+                            self.dmac[ 8:16],
+                            self.dmac[ 0: 8],
+                            self.smac[40:48],
+                            self.smac[32:40])
+                        ),
                     self.xgmii_c.eq(0x00)
                 ]
             with m.State('SMAC'):
@@ -59,9 +69,14 @@ class E10G_TX(Elaboratable):
                 payload_start = tx_d_shift[64:80]
                 m.d.sync += [
                     self.xgmii_d.eq(
-                        ((self.smac >> 16) & 0xffffffff) |
-                        (self.ethertype << 32) |
-                        (payload_start << 48)),
+                        Cat(
+                            self.smac[24:32],
+                            self.smac[16:24],
+                            self.smac[ 8:16],
+                            self.smac[ 0: 8],
+                            self.ethertype[0:16],
+                            payload_start[0:16])
+                        ),
                     self.xgmii_c.eq(0x00),
                     counter.eq(0)
                 ]
