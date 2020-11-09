@@ -213,8 +213,7 @@ def zero_pad(d, max_len):
 if __name__ == '__main__':
 
     from nmigen.sim import *
-    dut = FCS()
-    fcs = dut
+    fcs = FCS()
     sim = Simulator(fcs)
     sim.add_clock(10e-9)
 
@@ -251,3 +250,7 @@ if __name__ == '__main__':
     sim.add_sync_process(test)
     with sim.write_vcd("fcs.vcd"):
         sim.run()
+
+    #from nmigen.back import verilog
+    #with open('fcs.v', 'w') as f:
+    #    f.write(verilog.convert(fcs, ports=[], strip_internal_attrs=True))
