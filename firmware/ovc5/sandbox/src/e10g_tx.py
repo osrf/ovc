@@ -1,4 +1,5 @@
 from nmigen import *
+from xgmii_fcs_inserter import XGMII_FCS_Inserter
 
 
 class E10G_TX(Elaboratable):
@@ -12,98 +13,91 @@ class E10G_TX(Elaboratable):
         self.ethertype = Signal(16)
         self.tx_en = Signal()
         self.tx_d = Signal(64)
+        self.fcs_inserter = XGMII_FCS_Inserter()
 
     def elaborate(self, platform):
         m = Module()
-        I = 0x07
-        S = 0xfb
-        T = 0xfd
-        E = 0xfe
-        #ethertype = 0x0800
+        m.submodules.fcs_inserter = self.fcs_inserter
 
-        tx_d_shift = Signal(192)  # 3 clock's worth
+        tx_d_shift = Signal(128)  # 2 clock's worth
         tx_en_d1 = Signal()
-        tx_en_d2 = Signal()
 
         counter = Signal(8)
         m.d.sync += [
             counter.eq(counter + 1),
             tx_en_d1.eq(self.tx_en),
-            tx_en_d2.eq(tx_en_d1),
-            tx_d_shift.eq(Cat(tx_d_shift[64:192], self.tx_d))
+            tx_d_shift.eq(Cat(tx_d_shift[64:128], self.tx_d))
         ]
-        #m.d.comb += self.led.eq(self.counter[2])
+
+        d = Signal(64)  # this is what we'll send to XGMII_FCS_Inserter
+        d_valid = Signal(8)
+        m.d.comb += [
+            self.fcs_inserter.d_in.eq(d),
+            self.fcs_inserter.d_valid.eq(d_valid),
+            self.xgmii_d.eq(self.fcs_inserter.d_out),
+            self.xgmii_c.eq(self.fcs_inserter.c_out)
+        ]
 
         with m.FSM():
             with m.State('IDLE'):
                 with m.If(~self.tx_en):  # keep sending IDLE
                     m.next = 'IDLE'
                     m.d.sync += [
-                        self.xgmii_d.eq(0x07070707_07070707),
-                        self.xgmii_c.eq(0xff)
+                        d.eq(0),
+                        d_valid.eq(0)
                     ]
-                with m.Else():  # tx_en is asserted; let's start a packet!
-                    m.next = 'DMAC'
+                with m.Else():
+                    m.next = 'HEADER'
                     m.d.sync += [
-                        self.xgmii_d.eq(0xd5555555_555555fb),
-                        self.xgmii_c.eq(0x01)
+                        d.eq(
+                            Cat(
+                                self.dmac[40:48],
+                                self.dmac[32:40],
+                                self.dmac[24:32],
+                                self.dmac[16:24],
+                                self.dmac[ 8:16],
+                                self.dmac[ 0: 8],
+                                self.smac[40:48],
+                                self.smac[32:40])
+                            ),
+                        d_valid.eq(0xff)
                     ]
-            with m.State('DMAC'):
-                m.next = 'SMAC'
-                m.d.sync += [
-                    self.xgmii_d.eq(
-                        Cat(
-                            self.dmac[40:48],
-                            self.dmac[32:40],
-                            self.dmac[24:32],
-                            self.dmac[16:24],
-                            self.dmac[ 8:16],
-                            self.dmac[ 0: 8],
-                            self.smac[40:48],
-                            self.smac[32:40])
-                        ),
-                    self.xgmii_c.eq(0x00)
-                ]
-            with m.State('SMAC'):
+            with m.State('HEADER'):
                 m.next = 'PAYLOAD'
                 payload_start = tx_d_shift[64:80]
                 m.d.sync += [
-                    self.xgmii_d.eq(
+                    d.eq(
                         Cat(
                             self.smac[24:32],
                             self.smac[16:24],
                             self.smac[ 8:16],
                             self.smac[ 0: 8],
-                            self.ethertype[0:16],
+                            self.ethertype[8:16],
+                            self.ethertype[0:8],
                             payload_start[0:16])
                         ),
-                    self.xgmii_c.eq(0x00),
+                    d_valid.eq(0xff),
                     counter.eq(0)
                 ]
             with m.State('PAYLOAD'):
-                with m.If(tx_en_d2):  # more payload still on the way
+                with m.If(tx_en_d1):  # more payload still on the way
                     m.next = 'PAYLOAD'
                     m.d.sync += [
-                        self.xgmii_d.eq(Cat(tx_d_shift[16:64], tx_d_shift[64:80])),
-                        self.xgmii_c.eq(0x00)
+                        d.eq(Cat(tx_d_shift[16:64], tx_d_shift[64:80])),
+                        d_valid.eq(0xff)
                     ]
                 with m.Else():
-                    fcs = C(0x99999999)
-                    m.next = 'FCS'
+                    m.next = 'IFG'
                     m.d.sync += [
-                        self.xgmii_d.eq(Cat(tx_d_shift[16:64], fcs[0:16])),
-                        self.xgmii_c.eq(0x00)
+                        d.eq(Cat(tx_d_shift[16:64], 0xbbbb)),
+                        d_valid.eq(0x3f)
                     ]
             # todo: pad as necessary so that the frame is >= 64 bytes
-            with m.State('FCS'):
-                m.next = 'TERMINATE'
-                m.d.sync += [
-                ]
-            with m.State('TERMINATE'):
+            with m.State('IFG'):
                 m.next = 'IDLE'
                 m.d.sync += [
-                    self.xgmii_d.eq(0x07070707_070707fd),
-                    self.xgmii_c.eq(0xff),
+                    d.eq(0),
+                    d_valid.eq(0),
                     counter.eq(0)
                 ]
 
