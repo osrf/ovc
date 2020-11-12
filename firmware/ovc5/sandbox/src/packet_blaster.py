@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from nmigen import *
-from e10g_tx import E10G_TX
+from udp_tx import UDP_TX
 
 
 class PacketBlaster(Elaboratable):
@@ -8,35 +8,36 @@ class PacketBlaster(Elaboratable):
     just blasts packets once in a while
     '''
 
-    def __init__(self):
-        self.e10g_tx = E10G_TX()
+    def __init__(self, blast_interval = 0x20):
+        self.udp_tx = UDP_TX()
         self.xgmii_d = Signal(64)
         self.xgmii_c = Signal(8)
+        self.blast_interval = blast_interval
 
     def elaborate(self, platform):
         m = Module()
-        m.submodules.e10g_tx = self.e10g_tx
+        m.submodules.udp_tx = self.udp_tx
 
-        m.d.comb += [
-            self.e10g_tx.dmac.eq(0xffffff_ffffff),
-            self.e10g_tx.smac.eq(0x010203_040506),
-            self.e10g_tx.ethertype.eq(0x0800),
-            self.xgmii_d.eq(self.e10g_tx.xgmii_d),
-            self.xgmii_c.eq(self.e10g_tx.xgmii_c)
-        ]
-
-        counter = Signal(24)
+        counter = Signal(26)
         tx_d = Signal(64)
+        tx_en = Signal()
         m.d.sync += [
             counter.eq(counter + 1)
         ]
 
+        m.d.comb += [
+            self.udp_tx.tx_d.eq(tx_d),
+            self.udp_tx.tx_en.eq(tx_en),
+            self.xgmii_d.eq(self.udp_tx.xgmii_d),
+            self.xgmii_c.eq(self.udp_tx.xgmii_c)
+        ]
+
         with m.FSM():
             with m.State('IDLE'):
-                with m.If(counter == 0x0000_0000_020):
+                with m.If(counter == self.blast_interval):
                     m.d.sync += [
                         counter.eq(0),
-                        self.e10g_tx.tx_en.eq(True),
+                        tx_en.eq(True),
                         tx_d.eq(0x0004000300020001)
                     ]
                     m.next = 'TX'
@@ -47,12 +48,13 @@ class PacketBlaster(Elaboratable):
                 ]
                 with m.If(counter == 7):
                     m.d.sync += [
-                        self.e10g_tx.tx_en.eq(False),
+                        tx_en.eq(False),
                         tx_d.eq(0),
                         counter.eq(0)
                     ]
                     m.next = 'IDLE'
         return m
+
 
 if __name__ == '__main__':
     from nmigen.sim import *

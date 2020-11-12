@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 from nmigen.back import verilog
-from e10g_tx import *
+from packet_blaster import PacketBlaster
 
 
-top = E10G_TX()
-with open('top.v', 'w') as f:
-    f.write(verilog.convert(top, ports=[]))
+pb = PacketBlaster(0x100_0000)
+with open('packet_blaster.v', 'w') as f:
+    f.write(verilog.convert(pb, ports=[pb.xgmii_d, pb.xgmii_c], strip_internal_attrs=True))

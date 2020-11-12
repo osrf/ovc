@@ -88,6 +88,14 @@ module design_1_wrapper
   reg reset_100;
   always @(posedge clk100)
     reset_100 <= ~bd_nreset;
+    
+  wire [63:0] xgmii_txd;
+  wire [7:0] xgmii_txc;
+  packet_blaster packet_blaster_inst(
+    .clk(enet_10g_tx_clk),
+    .rst(reset_100),
+    .xgmii_c(xgmii_txc),
+    .xgmii_d(xgmii_txd));
   
   xxv_ethernet_0 xxv_ethernet_0_i(
     .gt_refclk_p(gt_refclk_p),
@@ -103,8 +111,8 @@ module design_1_wrapper
     .tx_mii_clk_0(enet_10g_tx_clk),
     .rx_reset_0(reset_100),
     .tx_reset_0(reset_100),
-    .tx_mii_d_0(64'h07070707_07070707),
-    .tx_mii_c_0(8'hff),
+    .tx_mii_d_0(xgmii_txd),
+    .tx_mii_c_0(xgmii_txc),
     .rx_core_clk_0(enet_10g_tx_clk),
     .rx_clk_out_0(),
     .gt_loopback_in_0(3'h0),
