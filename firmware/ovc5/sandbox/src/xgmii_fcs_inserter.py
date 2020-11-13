@@ -39,9 +39,6 @@ class XGMII_FCS_Inserter(Elaboratable):
         fcs_clear = Signal()
         m.d.sync += fcs_clear.eq(False)
 
-        fcs_valid = Signal(8)
-        m.d.sync += fcs_valid.eq(0xff)
-
         m.submodules.fcs = self.fcs
         m.d.comb += [
             self.fcs.data.eq(self.d_in),
@@ -85,11 +82,23 @@ class XGMII_FCS_Inserter(Elaboratable):
                         self.d_out.eq(d_in_d3),
                         self.c_out.eq(0x00)
                     ]
-                with m.Else():
+                with m.Elif(d_valid_d3 == 0x3f):
                     m.next = 'FCS'
                     m.d.sync += [
                         self.d_out.eq(Cat(d_in_d3[0:48], self.fcs.crc[0:16])),
                         self.c_out.eq(0x00)
+                    ]
+                with m.Else():  # the only other case handled here is 0x03
+                    m.next = 'IDLE'
+                    m.d.sync += [
+                        self.d_out.eq(
+                            Cat(
+                                d_in_d3[0:16],
+                                self.fcs.crc,
+                                0x07fd  # terminate, back to idle pattern
+                            )
+                        ),
+                        self.c_out.eq(0x30)
                     ]
 
             with m.State('FCS'):

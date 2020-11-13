@@ -11,7 +11,7 @@ class E10G_TX(Elaboratable):
         self.dmac = Signal(48)
         self.smac = Signal(48)
         self.ethertype = Signal(16)
-        self.tx_en = Signal()
+        self.tx_en = Signal(8)  # one bit per byte
         self.tx_d = Signal(64)
         self.fcs_inserter = XGMII_FCS_Inserter()
 
@@ -20,7 +20,7 @@ class E10G_TX(Elaboratable):
         m.submodules.fcs_inserter = self.fcs_inserter
 
         tx_d_shift = Signal(128)  # 2 clock's worth
-        tx_en_d1 = Signal()
+        tx_en_d1 = Signal(8)
 
         counter = Signal(8)
         m.d.sync += [
@@ -40,7 +40,7 @@ class E10G_TX(Elaboratable):
 
         with m.FSM():
             with m.State('IDLE'):
-                with m.If(~self.tx_en):  # keep sending IDLE
+                with m.If(self.tx_en == 0):  # keep sending IDLE
                     m.next = 'IDLE'
                     m.d.sync += [
                         d.eq(0),
@@ -80,18 +80,32 @@ class E10G_TX(Elaboratable):
                     counter.eq(0)
                 ]
             with m.State('PAYLOAD'):
-                with m.If(tx_en_d1):  # more payload still on the way
+                with m.If(tx_en_d1 == 0xff):  # payload still streaming
                     m.next = 'PAYLOAD'
+                    m.d.sync += [
+                        d.eq(Cat(tx_d_shift[16:64], tx_d_shift[64:80])),
+                        d_valid.eq(tx_en_d1)
+                    ]
+                with m.Elif(tx_en_d1 == 0x0f):
+                    m.next = 'TERM_0F'
                     m.d.sync += [
                         d.eq(Cat(tx_d_shift[16:64], tx_d_shift[64:80])),
                         d_valid.eq(0xff)
                     ]
-                with m.Else():
+                with m.Elif(tx_en_d1 == 0x00):
                     m.next = 'IFG'
                     m.d.sync += [
                         d.eq(Cat(tx_d_shift[16:64], 0xbbbb)),
                         d_valid.eq(0x3f)
                     ]
+            with m.State('TERM_0F'):
+                # need to flush the last 16 bytes
+                m.next = 'IFG'
+                m.d.sync += [
+                    d.eq(Cat(tx_d_shift[16:48], 0xbbbbbbbb)),
+                    d_valid.eq(0x03)
+                ]
+
             # todo: pad as necessary so that the frame is >= 64 bytes
             with m.State('IFG'):
                 m.next = 'IDLE'

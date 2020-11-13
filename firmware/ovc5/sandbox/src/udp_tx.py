@@ -22,10 +22,19 @@ class UDP_TX(Elaboratable):
         self.tx_en = Signal()
 
         # dfifo holds the data stream
-        self.dfifo = fifo.AsyncFIFOBuffered(width=64, depth=2048, r_domain="sync", w_domain="write")
+        self.dfifo = fifo.AsyncFIFOBuffered(
+            width=64,
+            depth=2048,
+            r_domain="sync",
+            w_domain="write"
+        )
 
         # sfifo holds the packet size of each packet in the dfifo
-        self.sfifo = fifo.AsyncFIFOBuffered(width=16, depth=16, r_domain="sync", w_domain="write")
+        self.sfifo = fifo.AsyncFIFOBuffered(
+            width=16,
+            depth=16,
+            r_domain="sync",
+            w_domain="write")
 
 
     def elaborate(self, platform):
@@ -41,13 +50,19 @@ class UDP_TX(Elaboratable):
             sfifo_w_en.eq(False)
         ]
 
-        eth_tx_en = Signal()
+        eth_tx_en = Signal(8)
         eth_tx_d = Signal(64)
-        m.d.sync += eth_tx_en.eq(False)
+        m.d.sync += eth_tx_en.eq(0)
+
+        ethertype = C(0x0800)
+        dest_ip = C(0x420000e0, unsigned(32))  # multicast addr: 224.0.0.66
+        src_ip = C(0x4200a8c0, unsigned(32))  # source IP: 192.168.0.66
+        dest_port = C(0x3412, unsigned(16))
+        src_port = C(0x3412, unsigned(16))
         m.d.comb += [
             self.e10g_tx.dmac.eq(0xffffff_ffffff),
             self.e10g_tx.smac.eq(0x010203_040506),
-            self.e10g_tx.ethertype.eq(0x0800),
+            self.e10g_tx.ethertype.eq(ethertype),
             self.e10g_tx.tx_d.eq(eth_tx_d),
             self.e10g_tx.tx_en.eq(eth_tx_en),
             self.xgmii_d.eq(self.e10g_tx.xgmii_d),
@@ -83,58 +98,158 @@ class UDP_TX(Elaboratable):
         ifg_cnt = Signal(8)
         m.d.sync += self.sfifo.r_en.eq(False)
         m.d.sync += self.dfifo.r_en.eq(False)
+        total_length = Signal(16)
+        udp_length = Signal(16)
+        header_csum_20 = Signal(20)
+        header_csum_16 = Signal(16)
+        header_0 = Signal(64)
+        header_1 = Signal(64)
+        header_2 = Signal(64)
+        header_3 = Signal(64)
+
+        # because the IP+UDP header is 7 32-bit words (not 8),
+        # we have to split all the dfifo reads across ethernet writes :(
+        prev_dfifo_rdata = Signal(64)
+        m.d.sync += prev_dfifo_rdata.eq(self.dfifo.r_data)
+
         with m.FSM(domain='sync'):
 
             with m.State('IDLE'):
-                eth_tx_en.eq(False)
                 with m.If(self.sfifo.r_rdy):
-                    m.next = 'HEADER_0'
-                    m.d.sync += rcnt.eq(0)
+                    m.next = 'GEN_HEADER'
+                    m.d.sync += [
+                        total_length.eq(20 + 8 + self.sfifo.r_data * 8),
+                        udp_length.eq(8 + self.sfifo.r_data * 8)
+                    ]
 
-            with m.State('HEADER_0'):  # ipver, length, id, frag
+            with m.State('GEN_HEADER'):
+                    m.next = 'HEADER_CSUM'
+                    m.d.sync += [
+                        header_0.eq(
+                            Cat(
+                                Const(0x0045, unsigned(16)),  # ipver
+                                total_length[8:16],
+                                total_length[0:8],
+                                Const(0x00400000, unsigned(32))  # id, flags
+                            )
+                        ),
+                        header_1.eq(
+                            Cat(
+                                Const(0x01, unsigned(8)),  # ttl
+                                Const(0x11, unsigned(8)),  # proto: UDP
+                                Const(0x00, unsigned(16)),  # csum goes here
+                                src_ip
+                            )
+                        ),
+                        header_2.eq(
+                            Cat(
+                                dest_ip,
+                                src_port,
+                                dest_port
+                            )
+                        ),
+                        header_3.eq(
+                            Cat(
+                                udp_length[8:16],
+                                udp_length[0:8],
+                                C(0x00, unsigned(16)),  # optional udp csum
+                                0x00000000   # first 32b of data goes here
+                            )
+                        )
+                    ]
+
+            with m.State('HEADER_CSUM'):
+                    m.next = 'HEADER_0'
+                    m.d.sync += [
+                        rcnt.eq(0),
+                        header_csum_20.eq(  # big-endian 16-bit checksum :(
+                            Cat(header_0[8:16], header_0[0:8]) +
+                            Cat(header_0[24:32], header_0[16:24]) +
+                            Cat(header_0[40:48], header_0[32:40]) +
+                            Cat(header_0[56:64], header_0[48:56]) +
+                            Cat(header_1[8:16], header_1[0:8]) +
+                            Cat(header_1[24:32], header_1[16:24]) +
+                            Cat(header_1[40:48], header_1[32:40]) +
+                            Cat(header_1[56:64], header_1[48:56]) +
+                            Cat(header_2[8:16], header_2[0:8]) +
+                            Cat(header_2[24:32], header_2[16:24]))
+                    ]
+
+            with m.State('HEADER_0'):
                 m.next = 'HEADER_1'
                 m.d.sync += [
-                    eth_tx_d.eq(0xaaaaaaaa_aaaaaaaa),  # todo: not this :)
-                    eth_tx_en.eq(True),
+                    eth_tx_d.eq(header_0),
+                    header_csum_16.eq(
+                        header_csum_20[0:16] +
+                        header_csum_20[16:20]
+                    ),
+                    eth_tx_en.eq(0xff),
                 ]
 
             with m.State('HEADER_1'):  # TTL, protocol, header csum, source IP
                 m.next = 'HEADER_2'
                 m.d.sync += [
-                    eth_tx_d.eq(0xbbbbbbbb_bbbbbbbb),  # todo: not this :)
-                    eth_tx_en.eq(True),
+                    eth_tx_d.eq(
+                        Cat(
+                            header_1[0:16],
+                            ~header_csum_16[8:16],
+                            ~header_csum_16[0:8],
+                            header_1[32:64]
+                        )
+                    ),
+                    eth_tx_en.eq(0xff),
                 ]
 
-            with m.State('HEADER_2'):  # dest IP, source port, dest port
+            with m.State('HEADER_2'):
                 m.next = 'HEADER_3'
                 m.d.sync += [
-                    eth_tx_d.eq(0xcccccccc_cccccccc),  # todo: not this :)
-                    eth_tx_en.eq(True),
+                    eth_tx_d.eq(header_2),
+                    eth_tx_en.eq(0xff),
                     self.dfifo.r_en.eq(True)
                 ]
 
-            with m.State('HEADER_3'):  # UDP length, UDP checksum, first 1/2 data
+            with m.State('HEADER_3'):  # UDP length, UDP csum, first 32b data
                 m.next = 'READ'
                 m.d.sync += [
-                    eth_tx_d.eq(0xdddddddd_cccccccc),  # todo: not this :)
-                    eth_tx_en.eq(True),
+                    eth_tx_d.eq(
+                        Cat(
+                            header_3[0:32],
+                            prev_dfifo_rdata[0:32]
+                        )
+                    ),
+                    eth_tx_en.eq(0xff),
                     self.dfifo.r_en.eq(True)
                 ]
 
             with m.State('READ'):
                 m.d.sync += [
                     rcnt.eq(rcnt + 1),
-                    eth_tx_d.eq(self.dfifo.r_data),
-                    eth_tx_en.eq(True)
+                    eth_tx_en.eq(0xff),
+                    eth_tx_d.eq(
+                        Cat(
+                            prev_dfifo_rdata[32:64],
+                            self.dfifo.r_data[0:32]
+                        )
+                    )
                 ]
                 with m.If(rcnt + 2 >= self.sfifo.r_data):
-                    m.next = 'IFG'
-                    m.d.sync += [
-                        self.sfifo.r_en.eq(True),
-                        ifg_cnt.eq(0)
-                    ]
+                    m.next = 'TERM'
+                    m.d.sync += self.sfifo.r_en.eq(True)
                 with m.Else():
                     m.d.sync += self.dfifo.r_en.eq(True)
+
+            with m.State('TERM'):
+                m.next = 'IFG'
+                m.d.sync += [
+                    ifg_cnt.eq(0),
+                    eth_tx_en.eq(0x0f),  # important! only low 32 bits valid
+                    eth_tx_d.eq(
+                        Cat(
+                            prev_dfifo_rdata[32:64],
+                            C(0, unsigned(32))
+                        )
+                    )
+                ]
 
             with m.State('IFG'):
                 # in addition to enforcing an inter-frame gap, this state

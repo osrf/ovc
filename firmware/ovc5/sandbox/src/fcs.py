@@ -24,6 +24,9 @@ class FCS(Elaboratable):
         c64 = Signal(32, reset=0xffff_ffff)
         c48 = Signal(32, reset=0xffff_ffff)  # the 6-byte (48-bit) version
 
+        # todo: need the 2-byte (16-bit) version
+        c16 = C(0xffffffff, unsigned(32))
+
         # pipeline the valid signal so we can later choose the right FCS
         valid_d1 = Signal(8)
         valid_d2 = Signal(8)
@@ -33,15 +36,18 @@ class FCS(Elaboratable):
         ]
 
         with m.If(valid_d2 == 0xff):
-            m.d.sync += [self.crc.eq(~c64[::-1])]
+            m.d.sync += self.crc.eq(~c64[::-1])
         with m.Elif(valid_d2 == 0x3f):
-            m.d.sync += [self.crc.eq(~c48[::-1])]
+            m.d.sync += self.crc.eq(~c48[::-1])
+        with m.Elif(valid_d2 == 0x03):
+            m.d.sync += self.crc.eq(~c16[::-1])
         with m.Else():
-            m.d.sync += [self.crc.eq(self.crc)]
+            m.d.sync += self.crc.eq(self.crc)
 
         # register the data in this module to help timing
         d64 = Signal(64)
         d48 = Signal(48)
+        d16 = Signal(16)
 
         # flip the inbound bits around, because reasons
         # could be smarter and index the 48-bit case differently to re-use
@@ -49,7 +55,8 @@ class FCS(Elaboratable):
         # P&R more congested, so who knows what's better.
         m.d.sync += [
             d64.eq(self.data[::-1]),
-            d48.eq(self.data[47:0:-1])
+            d48.eq(self.data[47:0:-1]),
+            d16.eq(self.data[15:0:-1])
         ]
 
         with m.If(self.clear):
@@ -73,10 +80,6 @@ class FCS(Elaboratable):
             ]
         with m.Elif(valid_d1 == 0x00):
             pass
-            #m.d.sync += [
-            #    self.crc64.eq(~c64[::-1]),
-            #    self.crc48.eq(~c48[::-1]),
-            #]
         with m.Else():
             m.d.sync += [
                 # 6-byte (48-bit) excitement
