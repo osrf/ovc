@@ -14,18 +14,17 @@ class FCS(Elaboratable):
         self.valid = Signal(8)  # indicates which bytes are valid
 
         # these ports are just for testing
-        self.crc64 = Signal(32)
+        self.crc16 = Signal(32)
         self.crc48 = Signal(32)
+        self.crc64 = Signal(32)
 
     def elaborate(self, platform):
         m = Module()
 
-        # internal signal with the reversed inverted CRC
-        c64 = Signal(32, reset=0xffff_ffff)
+        # internal signals with the reversed inverted CRC for various widths
+        c16 = Signal(32, reset=0xffff_ffff)  # 2-byte (16-bit) version
         c48 = Signal(32, reset=0xffff_ffff)  # the 6-byte (48-bit) version
-
-        # todo: need the 2-byte (16-bit) version
-        c16 = C(0xffffffff, unsigned(32))
+        c64 = Signal(32, reset=0xffff_ffff)
 
         # pipeline the valid signal so we can later choose the right FCS
         valid_d1 = Signal(8)
@@ -45,44 +44,85 @@ class FCS(Elaboratable):
             m.d.sync += self.crc.eq(self.crc)
 
         # register the data in this module to help timing
-        d64 = Signal(64)
-        d48 = Signal(48)
         d16 = Signal(16)
+        d48 = Signal(48)
+        d64 = Signal(64)
 
         # flip the inbound bits around, because reasons
         # could be smarter and index the 48-bit case differently to re-use
         # the "full" 64-bit data register, but that might end up making the
         # P&R more congested, so who knows what's better.
         m.d.sync += [
-            d64.eq(self.data[::-1]),
+            d16.eq(self.data[15:0:-1]),
             d48.eq(self.data[47:0:-1]),
-            d16.eq(self.data[15:0:-1])
+            d64.eq(self.data[::-1]),
         ]
 
         with m.If(self.clear):
             m.d.sync += [
-                self.crc64.eq(self.crc64.reset),
+                self.crc16.eq(self.crc16.reset),
                 self.crc48.eq(self.crc48.reset),
+                self.crc64.eq(self.crc64.reset),
             ]
         with m.Elif(valid_d2 == 0x00):
             pass
         with m.Else():
             m.d.sync += [
                 # flip bits back around and invert, because reasons
-                self.crc64.eq(~c64[::-1]),
+                self.crc16.eq(~c16[::-1]),
                 self.crc48.eq(~c48[::-1]),
+                self.crc64.eq(~c64[::-1]),
             ]
 
         with m.If(self.clear):
             m.d.sync += [
+                c16.eq(c16.reset),
+                c48.eq(c48.reset),
                 c64.eq(c64.reset),
-                c48.eq(c48.reset)
             ]
         with m.Elif(valid_d1 == 0x00):
             pass
         with m.Else():
             m.d.sync += [
-                # 6-byte (48-bit) excitement
+                # 16-bit expression is fairly tame as far as CRC's go
+                c16.eq(
+                    Cat(
+                        c64[16] ^ c64[22] ^ c64[25] ^ c64[26] ^ c64[28] ^ d16[0] ^ d16[6] ^ d16[9] ^ d16[10] ^ d16[12],
+                        c64[16] ^ c64[17] ^ c64[22] ^ c64[23] ^ c64[25] ^ c64[27] ^ c64[28] ^ c64[29] ^ d16[0] ^ d16[1] ^ d16[6] ^ d16[7] ^ d16[9] ^ d16[11] ^ d16[12] ^ d16[13],
+                        c64[16] ^ c64[17] ^ c64[18] ^ c64[22] ^ c64[23] ^ c64[24] ^ c64[25] ^ c64[29] ^ c64[30] ^ d16[0] ^ d16[1] ^ d16[2] ^ d16[6] ^ d16[7] ^ d16[8] ^ d16[9] ^ d16[13] ^ d16[14],
+                        c64[17] ^ c64[18] ^ c64[19] ^ c64[23] ^ c64[24] ^ c64[25] ^ c64[26] ^ c64[30] ^ c64[31] ^ d16[1] ^ d16[2] ^ d16[3] ^ d16[7] ^ d16[8] ^ d16[9] ^ d16[10] ^ d16[14] ^ d16[15],
+                        c64[16] ^ c64[18] ^ c64[19] ^ c64[20] ^ c64[22] ^ c64[24] ^ c64[27] ^ c64[28] ^ c64[31] ^ d16[0] ^ d16[2] ^ d16[3] ^ d16[4] ^ d16[6] ^ d16[8] ^ d16[11] ^ d16[12] ^ d16[15],
+                        c64[16] ^ c64[17] ^ c64[19] ^ c64[20] ^ c64[21] ^ c64[22] ^ c64[23] ^ c64[26] ^ c64[29] ^ d16[0] ^ d16[1] ^ d16[3] ^ d16[4] ^ d16[5] ^ d16[6] ^ d16[7] ^ d16[10] ^ d16[13],
+                        c64[17] ^ c64[18] ^ c64[20] ^ c64[21] ^ c64[22] ^ c64[23] ^ c64[24] ^ c64[27] ^ c64[30] ^ d16[1] ^ d16[2] ^ d16[4] ^ d16[5] ^ d16[6] ^ d16[7] ^ d16[8] ^ d16[11] ^ d16[14],
+                        c64[16] ^ c64[18] ^ c64[19] ^ c64[21] ^ c64[23] ^ c64[24] ^ c64[26] ^ c64[31] ^ d16[0] ^ d16[2] ^ d16[3] ^ d16[5] ^ d16[7] ^ d16[8] ^ d16[10] ^ d16[15],
+                        c64[16] ^ c64[17] ^ c64[19] ^ c64[20] ^ c64[24] ^ c64[26] ^ c64[27] ^ c64[28] ^ d16[0] ^ d16[1] ^ d16[3] ^ d16[4] ^ d16[8] ^ d16[10] ^ d16[11] ^ d16[12],
+                        c64[17] ^ c64[18] ^ c64[20] ^ c64[21] ^ c64[25] ^ c64[27] ^ c64[28] ^ c64[29] ^ d16[1] ^ d16[2] ^ d16[4] ^ d16[5] ^ d16[9] ^ d16[11] ^ d16[12] ^ d16[13],
+                        c64[16] ^ c64[18] ^ c64[19] ^ c64[21] ^ c64[25] ^ c64[29] ^ c64[30] ^ d16[0] ^ d16[2] ^ d16[3] ^ d16[5] ^ d16[9] ^ d16[13] ^ d16[14],
+                        c64[16] ^ c64[17] ^ c64[19] ^ c64[20] ^ c64[25] ^ c64[28] ^ c64[30] ^ c64[31] ^ d16[0] ^ d16[1] ^ d16[3] ^ d16[4] ^ d16[9] ^ d16[12] ^ d16[14] ^ d16[15],
+                        c64[16] ^ c64[17] ^ c64[18] ^ c64[20] ^ c64[21] ^ c64[22] ^ c64[25] ^ c64[28] ^ c64[29] ^ c64[31] ^ d16[0] ^ d16[1] ^ d16[2] ^ d16[4] ^ d16[5] ^ d16[6] ^ d16[9] ^ d16[12] ^ d16[13] ^ d16[15],
+                        c64[17] ^ c64[18] ^ c64[19] ^ c64[21] ^ c64[22] ^ c64[23] ^ c64[26] ^ c64[29] ^ c64[30] ^ d16[1] ^ d16[2] ^ d16[3] ^ d16[5] ^ d16[6] ^ d16[7] ^ d16[10] ^ d16[13] ^ d16[14],
+                        c64[18] ^ c64[19] ^ c64[20] ^ c64[22] ^ c64[23] ^ c64[24] ^ c64[27] ^ c64[30] ^ c64[31] ^ d16[2] ^ d16[3] ^ d16[4] ^ d16[6] ^ d16[7] ^ d16[8] ^ d16[11] ^ d16[14] ^ d16[15],
+                        c64[19] ^ c64[20] ^ c64[21] ^ c64[23] ^ c64[24] ^ c64[25] ^ c64[28] ^ c64[31] ^ d16[3] ^ d16[4] ^ d16[5] ^ d16[7] ^ d16[8] ^ d16[9] ^ d16[12] ^ d16[15],
+                        c64[0] ^ c64[16] ^ c64[20] ^ c64[21] ^ c64[24] ^ c64[28] ^ c64[29] ^ d16[0] ^ d16[4] ^ d16[5] ^ d16[8] ^ d16[12] ^ d16[13],
+                        c64[1] ^ c64[17] ^ c64[21] ^ c64[22] ^ c64[25] ^ c64[29] ^ c64[30] ^ d16[1] ^ d16[5] ^ d16[6] ^ d16[9] ^ d16[13] ^ d16[14],
+                        c64[2] ^ c64[18] ^ c64[22] ^ c64[23] ^ c64[26] ^ c64[30] ^ c64[31] ^ d16[2] ^ d16[6] ^ d16[7] ^ d16[10] ^ d16[14] ^ d16[15],
+                        c64[3] ^ c64[19] ^ c64[23] ^ c64[24] ^ c64[27] ^ c64[31] ^ d16[3] ^ d16[7] ^ d16[8] ^ d16[11] ^ d16[15],
+                        c64[4] ^ c64[20] ^ c64[24] ^ c64[25] ^ c64[28] ^ d16[4] ^ d16[8] ^ d16[9] ^ d16[12],
+                        c64[5] ^ c64[21] ^ c64[25] ^ c64[26] ^ c64[29] ^ d16[5] ^ d16[9] ^ d16[10] ^ d16[13],
+                        c64[6] ^ c64[16] ^ c64[25] ^ c64[27] ^ c64[28] ^ c64[30] ^ d16[0] ^ d16[9] ^ d16[11] ^ d16[12] ^ d16[14],
+                        c64[7] ^ c64[16] ^ c64[17] ^ c64[22] ^ c64[25] ^ c64[29] ^ c64[31] ^ d16[0] ^ d16[1] ^ d16[6] ^ d16[9] ^ d16[13] ^ d16[15],
+                        c64[8] ^ c64[17] ^ c64[18] ^ c64[23] ^ c64[26] ^ c64[30] ^ d16[1] ^ d16[2] ^ d16[7] ^ d16[10] ^ d16[14],
+                        c64[9] ^ c64[18] ^ c64[19] ^ c64[24] ^ c64[27] ^ c64[31] ^ d16[2] ^ d16[3] ^ d16[8] ^ d16[11] ^ d16[15],
+                        c64[10] ^ c64[16] ^ c64[19] ^ c64[20] ^ c64[22] ^ c64[26] ^ d16[0] ^ d16[3] ^ d16[4] ^ d16[6] ^ d16[10],
+                        c64[11] ^ c64[17] ^ c64[20] ^ c64[21] ^ c64[23] ^ c64[27] ^ d16[1] ^ d16[4] ^ d16[5] ^ d16[7] ^ d16[11],
+                        c64[12] ^ c64[18] ^ c64[21] ^ c64[22] ^ c64[24] ^ c64[28] ^ d16[2] ^ d16[5] ^ d16[6] ^ d16[8] ^ d16[12],
+                        c64[13] ^ c64[19] ^ c64[22] ^ c64[23] ^ c64[25] ^ c64[29] ^ d16[3] ^ d16[6] ^ d16[7] ^ d16[9] ^ d16[13],
+                        c64[14] ^ c64[20] ^ c64[23] ^ c64[24] ^ c64[26] ^ c64[30] ^ d16[4] ^ d16[7] ^ d16[8] ^ d16[10] ^ d16[14],
+                        c64[15] ^ c64[21] ^ c64[24] ^ c64[25] ^ c64[27] ^ c64[31] ^ d16[5] ^ d16[8] ^ d16[9] ^ d16[11] ^ d16[15]
+                    )
+                ),
+
+                # 48-bit excitement
                 c48.eq(
                     Cat(
                         c64[0] ^ c64[8] ^ c64[9] ^ c64[10] ^ c64[12] ^ c64[13] ^ c64[14] ^ c64[15] ^ c64[16] ^ c64[18] ^ c64[21] ^ c64[28] ^ c64[29] ^ c64[31] ^ d48[0] ^ d48[6] ^ d48[9] ^ d48[10] ^ d48[12] ^ d48[16] ^ d48[24] ^ d48[25] ^ d48[26] ^ d48[28] ^ d48[29] ^ d48[30] ^ d48[31] ^ d48[32] ^ d48[34] ^ d48[37] ^ d48[44] ^ d48[45] ^ d48[47],

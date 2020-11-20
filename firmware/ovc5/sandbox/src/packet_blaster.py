@@ -21,7 +21,7 @@ class PacketBlaster(Elaboratable):
         counter = Signal(26)
         tx_d = Signal(64)
         tx_en = Signal()
-        m.d.sync += [
+        m.d.write += [
             counter.eq(counter + 1)
         ]
 
@@ -32,10 +32,10 @@ class PacketBlaster(Elaboratable):
             self.xgmii_c.eq(self.udp_tx.xgmii_c)
         ]
 
-        with m.FSM():
+        with m.FSM(domain='write'):
             with m.State('IDLE'):
                 with m.If(counter == self.blast_interval):
-                    m.d.sync += [
+                    m.d.write += [
                         counter.eq(0),
                         tx_en.eq(True),
                         tx_d.eq(0x0004000300020001)
@@ -43,11 +43,11 @@ class PacketBlaster(Elaboratable):
                     m.next = 'TX'
 
             with m.State('TX'):
-                m.d.sync += [
+                m.d.write += [
                     tx_d.eq(tx_d + 0x0004000400040004)
                 ]
                 with m.If(counter == 7):
-                    m.d.sync += [
+                    m.d.write += [
                         tx_en.eq(False),
                         tx_d.eq(0),
                         counter.eq(0)
@@ -60,10 +60,11 @@ if __name__ == '__main__':
     from nmigen.sim import *
     blaster = PacketBlaster()
     sim = Simulator(blaster)
-    sim.add_clock(1 / (156.25e6))
+    sim.add_clock(1 / 156.25e6)
+    sim.add_clock(1 / 50e6, domain='write')
     def test():
         for i in range(100):
             yield
-    sim.add_sync_process(test)
+    sim.add_sync_process(test, domain='write')
     with sim.write_vcd('packet_blaster.vcd'):
         sim.run()
