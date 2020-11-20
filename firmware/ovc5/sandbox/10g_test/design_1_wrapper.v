@@ -91,9 +91,11 @@ module design_1_wrapper
     
   wire [63:0] xgmii_txd;
   wire [7:0] xgmii_txc;
-  packet_blaster packet_blaster_inst(
+  top top_inst(
     .clk(enet_10g_tx_clk),
-    .rst(reset_100),
+    .rst(reset_100),  // todo: create 156M reset
+    .write_rst(reset_100),
+    .write_clk(clk100),
     .xgmii_c(xgmii_txc),
     .xgmii_d(xgmii_txd));
   
