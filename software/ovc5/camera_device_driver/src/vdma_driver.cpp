@@ -5,32 +5,37 @@
 #include <string.h>
 #include <fstream>
 #include <iostream>
+#include <cmath>
 
 #include <ovc5_driver/vdma_driver.h>
 
+int VDMADriver::framebuffer_id = 0;
+
 VDMADriver::VDMADriver(int uio_num) : uio(UIODriver(uio_num, UIO_SIZE))
 {
-  // We want an aligned word for the DMA, however the header is not word aligned.
-  // TODO will still be offset by 1 word if header is actually the correct size, fix.
-  configureVDMA();
+  // Start by resetting the DMA
+  uio.writeRegister(VDMACR, uio.readRegister(VDMACR) | (1 << 2));
+  while(uio.readRegister(VDMACR) & (1 << 2));
+  std::cout << "VDMA Reset" << std::endl;
   memory_file = open("/dev/mem", O_RDWR);
   for (int i=0; i<NUM_FRAMEBUFFERS; ++i)
   {
 
     memory_mmap[i] = (unsigned char*) mmap(NULL, FRAME_OFFSET, PROT_READ | PROT_WRITE, MAP_SHARED, memory_file,
-        FRAME_BASEADDR + i * FRAME_OFFSET);
+        FRAME_BASEADDR + framebuffer_id * FRAME_OFFSET);
 
     if (memory_mmap[i] == MAP_FAILED)
       std::cout << "mmap failed" << std::endl;
     // Make sure Linux allocates the page (2 MB size)
-    sendFramebuffer(i, FRAME_BASEADDR + i * FRAME_OFFSET);
+    sendFramebuffer(i, FRAME_BASEADDR + framebuffer_id * FRAME_OFFSET);
+    ++framebuffer_id;
   }
-  startVDMA();
 }
 
 void VDMADriver::sendFramebuffer(int fb_num, uint32_t address)
 {
   // We need to add the offset to make sure we don't overwrite the header
+  std::cout << "Sending framebuffer " << std::hex << address << std::endl;
   uio.writeRegister(START_ADDR_0 + fb_num, address);
 }
 
@@ -41,27 +46,27 @@ void VDMADriver::setHeader(const std::vector<uint8_t>& header, int index)
   //memcpy((void *)(memory_mmap[index] + misalignment_offset), &header[0], header.size());
 }
 
-void VDMADriver::configureVDMA()
+void VDMADriver::configureVDMA(int res_x, int res_y, int bit_depth)
 {
   // Start by resetting and waiting a bit
-  uio.writeRegister(VDMACR, uio.readRegister(VDMACR) | (1 << 2));
-  while(uio.readRegister(VDMACR) & (1 << 2));
-  std::cout << "VDMA Reset" << std::endl;
+  int bytes_per_pixel = std::ceil(bit_depth / 8.0);
+  std::cout << std::dec << "Configuring vdma with res_x = " << res_x << " res_y = " << res_y << " byte depth " << bytes_per_pixel << std::endl;
   // Run DMA
   uio.writeRegister(VDMACR, uio.readRegister(VDMACR) | 1);
   // Enable frame interrupt
   uio.writeRegister(VDMACR, uio.readRegister(VDMACR) | (1 << 12));
   // Write stride
-  uio.writeRegister(FRMDLY_STRIDE_REG, uio.readRegister(FRMDLY_STRIDE_REG) | RES_X);
+  uio.writeRegister(FRMDLY_STRIDE_REG, uio.readRegister(FRMDLY_STRIDE_REG) | res_x * bytes_per_pixel);
   // Horizontal size
-  uio.writeRegister(HSIZE_REG, RES_X);
+  uio.writeRegister(HSIZE_REG, res_x * bytes_per_pixel);
   // Set the mask we will use to reset the ISR
   uio.setResetRegisterMask(VDMASR, uio.readRegister(VDMASR) | (1 << 12));
+  startVDMA(res_y);
 }
 
-void VDMADriver::startVDMA()
+void VDMADriver::startVDMA(int res_y)
 {
-  uio.writeRegister(VSIZE_REG, RES_Y);
+  uio.writeRegister(VSIZE_REG, res_y);
 }
 
 void VDMADriver::updateLastFramebuffer()

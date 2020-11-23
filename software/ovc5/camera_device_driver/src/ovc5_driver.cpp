@@ -1,16 +1,25 @@
 #include <memory>
+#include <array>
 #include <iostream>
 #include <unistd.h>
 
 #include <ovc5_driver/camera.hpp>
 #include <ovc5_driver/vdma_driver.h>
 #include <ovc5_driver/ethernet_driver.hpp>
+#include <ovc5_driver/sensor_manager.hpp>
 
-static constexpr int I2C_DEV = 3;
-static constexpr int VDMA_DEV = 5;
+#define NUM_CAMERAS 2
+static constexpr std::array<int, NUM_CAMERAS> I2C_DEVS = {2, 3};
+static constexpr std::array<int, NUM_CAMERAS> VDMA_DEVS = {4, 5};
 
 int main(int argc, char **argv)
 {
+  SensorManager sm(I2C_DEVS, VDMA_DEVS);
+  while (true)
+  {
+    sm.publishFrames();
+  }
+  /*
   std::unique_ptr<I2CDriver> i2c = std::make_unique<I2CDriver>(I2C_DEV);
   std::unique_ptr<I2CCamera> camera;
   if (PiCameraV2::probe(i2c.get()))
@@ -39,6 +48,7 @@ int main(int argc, char **argv)
 
     }
   }
+  */
 
   return 0;
 }

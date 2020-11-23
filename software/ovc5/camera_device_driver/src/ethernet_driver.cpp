@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <iostream>
+#include <cmath>
 
 #include <ovc5_driver/ethernet_driver.hpp>
 
@@ -19,22 +20,22 @@ EthernetPublisher::EthernetPublisher()
     std::cout << "Failed connecting to server" << std::endl;
 
   // TODO all those from parameters
-  pkt.frame.height = 1080;
-  pkt.frame.width = 1920;
-  pkt.frame.step = 1920 * 2;
   strncpy(pkt.frame.sensor_name, "picamv2", sizeof("picamv2"));
   strncpy(pkt.frame.data_type, "rggb16", sizeof("rggb16"));
 
   pkt.frame.frame_id = 0;
 }
 
-void EthernetPublisher::publish(unsigned char* imgdata)
+void EthernetPublisher::publish(unsigned char* imgdata, const camera_params_t& params)
 {
   /*
   pkt.frame.t_sec = now.sec;
   pkt.frame.t_nsec = now.nsec;
   strncpy(pkt.frame.camera_name, camera_name.c_str(), camera_name.size());
   */
+  pkt.frame.height = params.res_y;
+  pkt.frame.width = params.res_x;
+  pkt.frame.step = params.res_x * std::ceil(params.bit_depth / 8.0);
   int frame_size = pkt.frame.height * pkt.frame.step;
   int cur_off = 0;
   char payload[32768];

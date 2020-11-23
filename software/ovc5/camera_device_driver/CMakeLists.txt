@@ -12,8 +12,7 @@ add_library(ovc5_library
   src/uio_driver.cpp
   src/ethernet_driver.cpp
   src/vdma_driver.cpp
-#  src/camera.cpp
-#  src/uio_driver.cpp
+  src/sensor_manager.cpp
 )
 
 target_link_libraries(ovc5_library
@@ -38,4 +37,4 @@ target_link_libraries(ovc5_driver
   ovc5_cameras
 )
 
-#target_compile_features(ovc5_driver PRIVATE cxx_std_17)
+target_compile_features(ovc5_library PRIVATE cxx_std_17)

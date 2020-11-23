@@ -23,7 +23,7 @@ public:
   EthernetPublisher();
 
   // TODO proper timestamping and packet header
-  void publish(unsigned char* imgdata);
+  void publish(unsigned char* imgdata, const camera_params_t& params);
 
   void increaseId();
 

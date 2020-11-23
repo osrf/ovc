@@ -32,6 +32,8 @@
 class PiCameraV2 : public I2CCamera
 {
 private:
+  const std::string DEFAULT_CAMERA_CONFIG = "1920x1080_30fps";
+
   static constexpr uint16_t CHIP_ID_MSB_REGADDR = 0x0000;
   static constexpr uint16_t CHIP_ID_LSB_REGADDR = 0x0001;
 
@@ -85,6 +87,34 @@ private:
     writeRegOp(0x4793, 0x10),
     writeRegOp(0x4797, 0x0E),
     writeRegOp(0x479B, 0x0E)
+  };
+
+  const std::unordered_map<std::string, camera_params_t> camera_params =
+  {
+    {"3263x2564_21fps",
+      {
+        .res_x = 3263,
+        .res_y = 2564,
+        .fps = 21,
+        .bit_depth = 10,
+      }
+    },
+    {"1920x1080_30fps",
+      {
+        .res_x = 1920,
+        .res_y = 1080,
+        .fps = 30,
+        .bit_depth = 10,
+      }
+    },
+    {"1280x720_120fps",
+      {
+        .res_x = 1280,
+        .res_y = 720,
+        .fps = 120,
+        .bit_depth = 10,
+      }
+    },
   };
 
   const std::unordered_map<std::string, std::vector<regop_t>> modes = 
@@ -237,13 +267,13 @@ public:
   static constexpr uint8_t SUBADDR_SIZE = 0x2; // in bytes
   static constexpr uint8_t REGISTER_SIZE = 0x1; // in bytes
 
-  static bool probe(I2CDriver *i2c);
+  static bool probe(I2CDriver& i2c);
 
-  PiCameraV2(std::unique_ptr<I2CDriver> i2c);
+  PiCameraV2(I2CDriver& i2c, int vdma_dev);
 
   //virtual sensor_type_t getType() const override;
 
-  virtual bool initialise(const std::string& config_name) override;
+  virtual bool initialise(std::string config_name) override;
 
   virtual void enableStreaming() override;
 
