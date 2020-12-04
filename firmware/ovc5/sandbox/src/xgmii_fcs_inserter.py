@@ -54,7 +54,7 @@ class XGMII_FCS_Inserter(Elaboratable):
                     m.next = 'IDLE'
                     m.d.sync += fcs_clear.eq(True)
                 with m.Else():
-                    m.next = 'FCS_PIPELINE_DELAY'  #PREAMBLE'
+                    m.next = 'FCS_PIPELINE_DELAY'
                     m.d.sync += fcs_clear.eq(False)
                 m.d.sync += [
                     self.d_out.eq(0x07070707_07070707),
