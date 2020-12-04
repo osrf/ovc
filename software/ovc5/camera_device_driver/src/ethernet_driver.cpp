@@ -41,25 +41,13 @@ void EthernetPublisher::publish(unsigned char* imgdata, const camera_params_t& p
   char payload[32768];
   int num_packets = frame_size / TCP_PACKET_SIZE;
   // Send
-  //for (int i = 0; i < INT32_MAX; ++i)
+  cur_off = 0;
+  // First send the header
+  write(sock, pkt.data, sizeof(pkt));
+  while (cur_off < frame_size)
   {
-    cur_off = 0;
-    // First send the header
-    write(sock, pkt.data, sizeof(pkt));
-    for (int i = 0; i < num_packets; ++i)
-    {
-      //write(sock, &imgptr->image.data[cur_off], TCP_PACKET_SIZE);
-      write(sock, imgdata + cur_off, TCP_PACKET_SIZE);
-      cur_off += TCP_PACKET_SIZE;
-      //usleep(10000);
-    }
-    // Now the extra bytes
-    write(sock, imgdata + cur_off, frame_size - cur_off);
-    //write(sock, &imgptr->image.data[cur_off], frame_size - cur_off);
-    //std::cout << "Publishing packet n. " << i << std::endl;
-    //usleep(30000);
+    cur_off += write(sock, imgdata + cur_off, frame_size - cur_off);
   }
-    
 }
 
 void EthernetPublisher::increaseId()
