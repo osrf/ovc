@@ -98,7 +98,7 @@ class XGMII_FCS_Inserter(Elaboratable):
                                 0x07fd  # terminate, back to idle pattern
                             )
                         ),
-                        self.c_out.eq(0x30)
+                        self.c_out.eq(0xc0)
                     ]
 
             with m.State('FCS'):
