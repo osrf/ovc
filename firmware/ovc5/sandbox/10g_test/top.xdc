@@ -45,3 +45,10 @@ set_clock_groups -asynchronous -group [get_clocks clk100_p] -group [get_clocks e
 # AE2  (bank 66) = C140 = IO1_D13_N = IO1 connector pin 18 (row 9)
 #set_property PACKAGE_PIN Y1 [get_ports clk156_out_pin]
 #set_property IOSTANDARD LVCMOS12 [get_ports clk156_out_pin]
+
+set_property PACKAGE_PIN K15 [get_ports IIC_1_0_scl_io]
+set_property PACKAGE_PIN K14 [get_ports IIC_1_0_sda_io]
+set_property PACKAGE_PIN AE2 [get_ports {reset[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports IIC_1_0_scl_io]
+set_property IOSTANDARD LVCMOS33 [get_ports IIC_1_0_sda_io]
+set_property IOSTANDARD LVCMOS18 [get_ports {reset[0]}]

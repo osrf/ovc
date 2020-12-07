@@ -185,3 +185,14 @@ cat ~/.ssh/id_rsa.pub
 # log in to GitHub and add this key to your account, if you like convenience
 git clone ssh://git@github.com/osrf/ovc
 ```
+
+## Petalinux magic
+
+```
+# change system block diagram as needed
+# run synthesis
+# open schematic as needed and map schematic pins to physical pins
+# copy hardware description into petalinux project directory
+petalinux-config --get-hw-description
+petalinux-build -c kernel
+```
