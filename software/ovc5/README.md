@@ -192,7 +192,13 @@ git clone ssh://git@github.com/osrf/ovc
 # change system block diagram as needed
 # run synthesis
 # open schematic as needed and map schematic pins to physical pins
+# File->Export->Hardware... then choose "Pre-Synthesis" (the default)
 # copy hardware description into petalinux project directory
+# otherwise, if you actually have a template: petalinux-create -t project -n awesome --template TEMPLATE.bsp
 petalinux-config --get-hw-description
-petalinux-build -c kernel
+petalinux-build
 ```
+
+#### fix for u-boot failures due to old template
+
+Just for now... we have to edit the u-boot emmc.patch to allow the patch to succeed for drivers/mmc/sdhci.c  as a temporary workaround, just copy the expected line in the patch file into the source line in sdhci.c, which will allow the patch to succeed (with a warning).
