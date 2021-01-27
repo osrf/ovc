@@ -269,7 +269,7 @@ public:
 
   static bool probe(I2CDriver& i2c);
 
-  PiCameraV2(I2CDriver& i2c, int vdma_dev);
+  PiCameraV2(I2CDriver& i2c, int vdma_dev, int cam_id);
 
   //virtual sensor_type_t getType() const override;
 

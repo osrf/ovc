@@ -6,7 +6,7 @@
 #include <ovc5_driver/i2c_driver.h>
 #include <ovc5_driver/vdma_driver.h>
 
-#define PROPRIETARY_SENSORS 0
+#define PROPRIETARY_SENSORS 1
 
 enum class sensor_type_t
 {
@@ -38,8 +38,8 @@ protected:
   }
 
 public:
-  I2CCamera(I2CDriver& i2c_dev, int vdma_dev) :
-    i2c(std::move(i2c_dev)), vdma(vdma_dev)
+  I2CCamera(I2CDriver& i2c_dev, int vdma_dev, int cam_id) :
+    i2c(std::move(i2c_dev)), vdma(vdma_dev, cam_id)
   {}
 
   //virtual sensor_type_t getType() const = 0;
@@ -80,7 +80,8 @@ public:
 #include <ovc5_driver/cameras/picam_v2.hpp>
 //#include <ovc4_driver/cameras/picam_hq.hpp>
 #if PROPRIETARY_SENSORS
-#include <ovc5_driver/cameras/ar0521.hpp>
+//#include <ovc5_driver/cameras/ar0521.hpp>
+#include <ovc5_driver/cameras/imx490.hpp>
 
 #endif
 

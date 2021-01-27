@@ -9,27 +9,46 @@
 
 #include <ovc5_driver/vdma_driver.h>
 
-int VDMADriver::framebuffer_id = 0;
-
-VDMADriver::VDMADriver(int uio_num) : uio(UIODriver(uio_num, UIO_SIZE))
+VDMADriver::VDMADriver(int uio_num, int cam_id) : uio(UIODriver(uio_num, UIO_SIZE))
 {
   // Start by resetting the DMA
   uio.writeRegister(VDMACR, uio.readRegister(VDMACR) | (1 << 2));
   while(uio.readRegister(VDMACR) & (1 << 2));
   std::cout << "VDMA Reset" << std::endl;
-  memory_file = open("/dev/mem", O_RDWR);
   for (int i=0; i<NUM_FRAMEBUFFERS; ++i)
   {
-
-    memory_mmap[i] = (unsigned char*) mmap(NULL, FRAME_OFFSET, PROT_READ | PROT_WRITE, MAP_SHARED, memory_file,
-        FRAME_BASEADDR + framebuffer_id * FRAME_OFFSET);
+    std::string camera_name = "cam" + std::to_string(cam_id) + "_" + std::to_string(i);
+    std::string buffer_filename = "/dev/" + camera_name;
+    auto fb_data = readFramebuffer(camera_name);
+    std::cout << "Opening file " << buffer_filename << " with size " << std::hex << fb_data.second << std::endl;
+    int memory_file = open(buffer_filename.c_str(), O_RDWR);
+    std::string sync_filename = "/sys/class/u-dma-buf/" + camera_name + "/sync_for_cpu";
+    sync_fd[i] = open(sync_filename.c_str(), O_WRONLY);
+    if (memory_file < 0)
+      std::cout << "fopen failed" << std::endl;
+    memory_mmap[i] = (unsigned char*) mmap(NULL, fb_data.second, PROT_READ | PROT_WRITE, MAP_SHARED, memory_file, 0);
 
     if (memory_mmap[i] == MAP_FAILED)
       std::cout << "mmap failed" << std::endl;
-    // Make sure Linux allocates the page (2 MB size)
-    sendFramebuffer(i, FRAME_BASEADDR + framebuffer_id * FRAME_OFFSET);
-    ++framebuffer_id;
+    sendFramebuffer(i, fb_data.first);
   }
+}
+
+// Gets the framebuffer addr from the matching /sys file
+// returns a {address, size} pair for the mmap
+std::pair<size_t, size_t> VDMADriver::readFramebuffer(const std::string& buffer_name)
+{
+  std::pair<size_t, size_t> ret;
+  std::string sys_folder = "/sys/class/u-dma-buf/" + buffer_name + "/";
+  std::string addr_filename = sys_folder + "phys_addr";
+  std::string size_filename = sys_folder + "size";
+  std::fstream addr_file;
+  std::fstream size_file;
+  addr_file.open(addr_filename, std::fstream::in);
+  size_file.open(size_filename, std::fstream::in);
+  addr_file >> std::hex >> ret.first;
+  size_file >> ret.second;
+  return ret;
 }
 
 void VDMADriver::sendFramebuffer(int fb_num, uint32_t address)
@@ -83,6 +102,8 @@ unsigned char* VDMADriver::getImage()
   // Wait until a new frame is generated
   uio.waitInterrupt();
   updateLastFramebuffer();
+  // Flush the cache
+  write(sync_fd[last_fb], "1", 1);
 
   return memory_mmap[last_fb];
 }

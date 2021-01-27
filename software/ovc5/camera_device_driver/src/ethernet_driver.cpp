@@ -38,10 +38,6 @@ void EthernetPublisher::publish(unsigned char* imgdata, const camera_params_t& p
   pkt.frame.step = params.res_x * std::ceil(params.bit_depth / 8.0);
   int frame_size = pkt.frame.height * pkt.frame.step;
   int cur_off = 0;
-  char payload[32768];
-  int num_packets = frame_size / TCP_PACKET_SIZE;
-  // Send
-  cur_off = 0;
   // First send the header
   write(sock, pkt.data, sizeof(pkt));
   while (cur_off < frame_size)

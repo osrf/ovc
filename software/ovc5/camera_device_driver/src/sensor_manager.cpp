@@ -12,7 +12,11 @@ SensorManager::SensorManager(const std::array<int, NUM_CAMERAS>& i2c_devs,
   {
     I2CDriver i2c(i2c_devs[cam_id]);
     if (PiCameraV2::probe(i2c))
-      cameras.insert({cam_id, std::make_unique<PiCameraV2>(i2c, vdma_devs[cam_id])});
+      cameras.insert({cam_id, std::make_unique<PiCameraV2>(i2c, vdma_devs[cam_id], cam_id)});
+#if PROPRIETARY_SENSORS
+    if (IMX490::probe(i2c))
+      cameras.insert({cam_id, std::make_unique<IMX490>(i2c, vdma_devs[cam_id], cam_id)});
+#endif
   }
   initCameras();
 }
@@ -50,6 +54,11 @@ void SensorManager::publishFrames()
   {
     pub.publish(frame_ptr, cameras[cam_id]->getCameraParams());
   }
+}
+
+int SensorManager::getNumCameras() const
+{
+  return cameras.size();
 }
 
 // Factory function
@@ -199,15 +208,11 @@ std::vector<int> SensorManager::getProbedCameraIds() const
     camera_ids.push_back(camera.first);
   return camera_ids;
 }
+*/
 
 SensorManager::~SensorManager()
 {
   std::cout << "Resetting sensors" << std::endl;
-  auto config_pkt = usb->initRegopPacket();
   for (const auto& camera : cameras)
-    camera.second->reset(config_pkt.i2c[camera.first]);
-  usb->sendAndPoll(config_pkt);
-  // Not shutdown all the imagers
-  usb->setImagersEnable(false);
+    camera.second->reset();
 }
-*/

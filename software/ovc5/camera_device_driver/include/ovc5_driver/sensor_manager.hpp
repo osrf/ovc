@@ -26,9 +26,11 @@ public:
 
   void publishFrames();
 
-  /*
+  int getNumCameras() const;
+
   ~SensorManager();
 
+  /*
   void probeImagers();
 
 

@@ -7,8 +7,6 @@
 
 class VDMADriver
 {
-  // framebuffers from different cameras should not overlap
-  static int framebuffer_id;
   // Register addresses
   const int VDMACR = 0x30 / sizeof(int);
   const int VDMASR = 0x34 / sizeof(int);
@@ -17,19 +15,18 @@ class VDMADriver
   const int FRMDLY_STRIDE_REG = 0xA8 / sizeof(int);
   const int PARK_PTR_REG = 0x28 / sizeof(int);
   const int START_ADDR_0 = 0xAC / sizeof(int);
-  const size_t FRAME_BASEADDR = 0x70000000;
-  const size_t FRAME_OFFSET = 0x2000000;
 
   static constexpr int NUM_FRAMEBUFFERS = 4;
 
   const size_t UIO_SIZE = 0x1000;
   // UIO is for AXI4 lite configuration, memory is to access DDR and images
   UIODriver uio;
-  int memory_file;
 
   unsigned char *memory_mmap[NUM_FRAMEBUFFERS];
+  int sync_fd[NUM_FRAMEBUFFERS];
   
   void startVDMA(int res_y);
+  std::pair<size_t, size_t> readFramebuffer(const std::string& buffer_name);
   void sendFramebuffer(int fb_num, uint32_t address);
 
   void updateLastFramebuffer();
@@ -42,7 +39,7 @@ public:
 
   void configureVDMA(int res_x, int res_y, int bit_depth);
 
-  VDMADriver(int uio_num);
+  VDMADriver(int uio_num, int cam_id);
   unsigned char* getImage();
 };
 #endif

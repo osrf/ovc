@@ -2,6 +2,7 @@
 #include <array>
 #include <iostream>
 #include <unistd.h>
+#include <signal.h>
 
 #include <ovc5_driver/camera.hpp>
 #include <ovc5_driver/vdma_driver.h>
@@ -10,13 +11,33 @@
 
 #define NUM_CAMERAS 2
 static constexpr std::array<int, NUM_CAMERAS> I2C_DEVS = {2, 3};
-static constexpr std::array<int, NUM_CAMERAS> VDMA_DEVS = {4, 5};
+static constexpr std::array<int, NUM_CAMERAS> VDMA_DEVS = {2, 1};
+
+volatile sig_atomic_t stop;
+
+void inthandler(int signum) {
+  std::cout << "Stopping" << std::endl;
+  stop = 1;
+}
 
 int main(int argc, char **argv)
 {
+  //signal(SIGINT, inthandler);
   SensorManager sm(I2C_DEVS, VDMA_DEVS);
-  while (true)
+  if (argc > 1)
   {
+    std::cout << "Resetting" << std::endl;
+    return 0;
+  }
+  if (sm.getNumCameras() == 0)
+  {
+    std::cout << "No cameras detected" << std::endl;
+    return 0;
+  }
+  while (!stop)
+  {
+    std::cout << "Waiting for frames" << std::endl;
+    //sm.getFrames();
     sm.publishFrames();
   }
   /*
