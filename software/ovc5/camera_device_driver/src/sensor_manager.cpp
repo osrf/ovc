@@ -12,10 +12,21 @@ SensorManager::SensorManager(const std::array<int, NUM_CAMERAS>& i2c_devs,
   {
     I2CDriver i2c(i2c_devs[cam_id]);
     if (PiCameraV2::probe(i2c))
+    {
       cameras.insert({cam_id, std::make_unique<PiCameraV2>(i2c, vdma_devs[cam_id], cam_id)});
+      continue;
+    }
 #if PROPRIETARY_SENSORS
     if (IMX490::probe(i2c))
+    {
       cameras.insert({cam_id, std::make_unique<IMX490>(i2c, vdma_devs[cam_id], cam_id)});
+      continue;
+    }
+    if (AR0521::probe(i2c))
+    {
+      cameras.insert({cam_id, std::make_unique<AR0521>(i2c, vdma_devs[cam_id], cam_id)});
+      continue;
+    }
 #endif
   }
   initCameras();
