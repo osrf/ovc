@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 
-#include <ovc5_driver/uio_driver.h>
+#include <ovc5_driver/uio_driver.hpp>
 
 UIODriver::UIODriver(int uio_num, size_t map_size)
 {

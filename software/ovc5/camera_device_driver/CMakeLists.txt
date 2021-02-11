@@ -13,6 +13,7 @@ add_library(ovc5_library
   src/ethernet_driver.cpp
   src/vdma_driver.cpp
   src/sensor_manager.cpp
+  src/timer_driver.cpp
 )
 
 target_link_libraries(ovc5_library

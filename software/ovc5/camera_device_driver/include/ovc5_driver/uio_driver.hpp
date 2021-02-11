@@ -1,39 +1,24 @@
+#ifndef UIO_DRIVER_H
+#define UIO_DRIVER_H
 
-typedef uint32_t u32;
-typedef int64_t s64;
-
-// TODO make this a common include with kernel module
-struct uio_map {
-  u32 sensor_id;
-  u32 test_val;
-  s64 gain;
-  s64 exposure;
-  s64 frame_length;
-  s64 exposure_short; // For HDR
-
-};
+#include <stddef.h>
 
 class UIODriver
 {
+  const int IRQ_RST = 1;
   int uio_file;
+  unsigned int *uio_mmap;
 
-  uio_map *uio_mmap;
+  unsigned int reset_register, reset_mask;
 
 public:
-  UIODriver(int num);
+  UIODriver(int uio_num, size_t map_size);
 
-  uint32_t getSensorId() const;
+  void setResetRegisterMask(unsigned int reg_addr, unsigned int mask);
 
-  int64_t getGain() const;
+  unsigned int readRegister(int reg_addr) const;
+  void writeRegister(int reg_addr, int value);
 
-  int64_t getExposure() const;
-
-  int64_t getFrameLength() const;
-
-  int64_t getExposureShort() const;
+  void waitInterrupt();
 };
-
-class UIOProber
-{
-
-};
+#endif

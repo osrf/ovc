@@ -4,14 +4,14 @@
 #include <unistd.h>
 #include <signal.h>
 
-#include <ovc5_driver/camera.hpp>
-#include <ovc5_driver/vdma_driver.h>
-#include <ovc5_driver/ethernet_driver.hpp>
 #include <ovc5_driver/sensor_manager.hpp>
+#include <ovc5_driver/timer_driver.hpp>
 
 #define NUM_CAMERAS 2
 static constexpr std::array<int, NUM_CAMERAS> I2C_DEVS = {2, 3};
 static constexpr std::array<int, NUM_CAMERAS> VDMA_DEVS = {2, 1};
+
+static constexpr int TIMER_DEV = 0;
 
 volatile sig_atomic_t stop;
 
@@ -24,6 +24,11 @@ int main(int argc, char **argv)
 {
   //signal(SIGINT, inthandler);
   SensorManager sm(I2C_DEVS, VDMA_DEVS);
+  TimerDriver timer(TIMER_DEV);
+
+  // Hz, high time
+  timer.start(30.0, 0.001);
+
   if (argc > 1)
   {
     std::cout << "Resetting" << std::endl;

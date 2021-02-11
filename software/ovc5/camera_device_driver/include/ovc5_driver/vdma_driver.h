@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include <ovc5_driver/uio_driver.h>
+#include <ovc5_driver/uio_driver.hpp>
 
 class VDMADriver
 {
