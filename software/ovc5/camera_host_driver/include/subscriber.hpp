@@ -28,7 +28,7 @@ class Subscriber
 private:
   static constexpr int BASE_PORT = 12345;
   static constexpr size_t TCP_RECEIVE_SIZE = 8192;
-  static constexpr int NUM_IMAGERS = 1;
+  static constexpr int NUM_IMAGERS = 2;
 
   ReceiveState state_ = ReceiveState::WAIT_HEADER;
 

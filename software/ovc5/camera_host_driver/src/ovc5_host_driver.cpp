@@ -29,20 +29,21 @@ int main(int argc, char **argv)
   while (1)
   {
     auto frames = sub.getFrames();
-    dumpFrame(frames[0].image);
     std::cout << "Got a pair of frames" << std::endl;
+    //dumpFrame(frames[0].image);
     //frames[0].image.convertTo(frames[0].image, CV_16UC1, 64, 0.0); //Shift left 4 bits
     //cv::Mat frame1, frame2;
-    cv::Mat frame1;
+    cv::Mat frame1, frame2;
     cv::cvtColor(frames[0].image, frame1, cv::COLOR_BayerBG2BGR);
+    cv::cvtColor(frames[1].image, frame2, cv::COLOR_BayerBG2BGR);
     //dumpFrame(frame1);
     //cv::cvtColor(frames[0].image, frame1, cv::COLOR_YUV2BGR_I420);
     //cv::cvtColor(frames[1].image, frame2, cv::COLOR_YUV2BGR_I420);
     cv::imshow("Right", frame1);
     //cv::imwrite("frame.png", frame1);
     cv::waitKey(1);
-    //cv::imshow("Left", frame2);
-    //cv::waitKey(1);
+    cv::imshow("Left", frame2);
+    cv::waitKey(1);
   }
   thread.join();
   return 0;
