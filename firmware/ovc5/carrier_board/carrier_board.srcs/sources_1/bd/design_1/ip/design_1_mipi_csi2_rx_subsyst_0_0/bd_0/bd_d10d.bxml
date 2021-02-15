@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root MajorVersion="0" MinorVersion="39">
+  <CompositeFile CompositeFileTopName="bd_d10d" CanBeSetAsTop="false" CanDisplayChildGraph="true">
+    <Description>Composite Fileset</Description>
+    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1613374132"/>
+    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1613374132"/>
+    <Generation Name="SIMULATION" State="RESET" Timestamp="1613374132"/>
+    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1613374132"/>
+    <FileCollection Name="SOURCES" Type="SOURCES">
+      <File Name="ip/ip_0/bd_d10d_r_sync_0.xci" Type="IP">
+        <Instance HierarchyPath="r_sync"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/ip_1/bd_d10d_rx_0.xci" Type="IP">
+        <Instance HierarchyPath="rx"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/ip_2/bd_d10d_phy_0.xci" Type="IP">
+        <Instance HierarchyPath="phy"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/ip_3/bd_d10d_vfb_0_0.xci" Type="IP">
+        <Instance HierarchyPath="vfb_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+    </FileCollection>
+  </CompositeFile>
+</Root>

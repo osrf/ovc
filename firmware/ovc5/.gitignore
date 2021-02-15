@@ -1,0 +1,4 @@
+# For Vivado exclude all and only add necessary files
+carrier_board/*
+!carrier_board/carrier_board.srcs
+!carrier_board/carrier_board.xpr
