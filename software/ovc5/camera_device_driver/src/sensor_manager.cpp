@@ -1,7 +1,7 @@
 #include <iostream>
 #include <unistd.h>
 
-#include <ovc5_driver/camera.hpp>
+#include <ovc5_driver/camera_modules.hpp>
 #include <ovc5_driver/i2c_driver.h>
 #include <ovc5_driver/sensor_manager.hpp>
 

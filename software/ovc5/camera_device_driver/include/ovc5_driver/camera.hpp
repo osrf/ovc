@@ -6,8 +6,6 @@
 #include <ovc5_driver/i2c_driver.h>
 #include <ovc5_driver/vdma_driver.h>
 
-#define PROPRIETARY_SENSORS 1
-
 enum class sensor_type_t
 {
   PiCameraV2,
@@ -76,13 +74,5 @@ public:
 };
 
 
-// Append all the camera headers here
-#include <ovc5_driver/cameras/picam_v2.hpp>
-//#include <ovc4_driver/cameras/picam_hq.hpp>
-#if PROPRIETARY_SENSORS
-#include <ovc5_driver/cameras/ar0521.hpp>
-#include <ovc5_driver/cameras/imx490.hpp>
-
-#endif
 
 #endif
