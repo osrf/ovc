@@ -28,16 +28,18 @@ protected:
   I2CDriver i2c;
   VDMADriver vdma;
   camera_params_t camera_params;
+  bool main_camera;
 
   void initVDMA(const camera_params_t& params)
   {
     camera_params = params;
-    vdma.configureVDMA(params.res_x, params.res_y, params.bit_depth);
+    vdma.configureVDMA(params.res_x, params.res_y, params.bit_depth, main_camera);
   }
 
 public:
-  I2CCamera(I2CDriver& i2c_dev, int vdma_dev, int cam_id) :
-    i2c(std::move(i2c_dev)), vdma(vdma_dev, cam_id)
+  I2CCamera(I2CDriver& i2c_dev, int vdma_dev, int cam_id, bool main_cam) :
+    i2c(std::move(i2c_dev)), vdma(vdma_dev, cam_id),
+    main_camera(main_cam)
   {}
 
   //virtual sensor_type_t getType() const = 0;
@@ -49,28 +51,30 @@ public:
 
   virtual void reset() = 0;
 
-  unsigned char* getFrame()
+  // A frame offset of -1 will return the frame just written, 0 is the one currently being written
+  unsigned char* getFrame(int frame_offset = -1)
   {
-    return vdma.getImage();
+    return vdma.getImage(frame_offset);
+  }
+
+  unsigned char* getFrameNoInterrupt(int frame_offset = 0)
+  {
+    return vdma.getImageNoInterrupt(frame_offset);
+  }
+
+  void flushCache()
+  {
+    vdma.flushCache();
   }
 
   camera_params_t getCameraParams() const
   {
     return camera_params;
   }
-  /*
 
-  // Get exposure from UIO and send it to I2C
-  // TODO return the exposure, and create a SensorManager to manage the cameras
-  virtual void updateExposure(usb_txrx_i2c_t& i2c_pkt) = 0;
-
-  void initArgus(Argus::UniqueObj<Argus::CaptureSession> capture_session,
-      Argus::CameraDevice* camera_device, int sensor_mode);
-
-  void initGstreamer(int sensor_id, int sensor_mode, int width, int height, int fps);
-
-  // TODO consider getter and setter for sensor_mode
-  */
+  // Triggering main / secondary device settings
+  virtual void setMain() {};
+  virtual void setSecondary() {};
 };
 
 

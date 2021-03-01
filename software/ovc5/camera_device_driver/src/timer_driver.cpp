@@ -4,12 +4,12 @@
 #include <ovc5_driver/timer_driver.hpp>
 
 
-TimerDriver::TimerDriver(int uio_num)
+Timer::Timer(int uio_num)
 : uio(uio_num, MAP_SIZE)
 {
 }
 
-void TimerDriver::reset()
+void Timer::reset()
 {
   uio.writeRegister(TCSR0, 0x00);
   uio.writeRegister(TCSR1, 0x00);
@@ -17,7 +17,7 @@ void TimerDriver::reset()
 
 // We operate with two timers to commute between high and low in PWM mode
 // TODO implement invert_polarity
-void TimerDriver::start(double freq, double high_time, bool /*invert_polarity*/)
+void Timer::PWM(double freq, double high_time, bool /*invert_polarity*/)
 {
   reset();
   // Period set through timer0, high time set through timer1
@@ -42,4 +42,32 @@ void TimerDriver::start(double freq, double high_time, bool /*invert_polarity*/)
   uio.writeRegister(TCSR1, ctrl_val);
   ctrl_val |= (1 << 10); // Enable all, starts timer
   uio.writeRegister(TCSR1, ctrl_val);
+}
+
+// Generates an interrupt every n lines of images received from the MIPI interface
+void Timer::interruptAtLine(int n)
+{
+  reset();
+  // Target is n
+  uio.writeRegister(TLR0, n);
+  // Load the value
+  uint32_t ctrl_val = 1 << 5;
+  uio.writeRegister(TCSR0, ctrl_val);
+  ctrl_val = 0;
+  uio.writeRegister(TCSR0, ctrl_val);
+
+  ctrl_val |= (1 << 1); // Count down
+  ctrl_val |= (1 << 6); // Interrupt enable
+  uio.writeRegister(TCSR0, ctrl_val);
+  ctrl_val |= (1 << 7); // Enable
+
+  // Set interrupt clearing mask, & all 1s (write 1 to reset interrupt)
+  uio.setResetRegisterMask(TCSR0, 0);
+  // Configure and start
+  uio.writeRegister(TCSR0, ctrl_val);
+}
+
+void Timer::waitInterrupt()
+{
+  uio.waitInterrupt();
 }

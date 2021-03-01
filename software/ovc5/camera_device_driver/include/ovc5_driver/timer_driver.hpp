@@ -3,11 +3,11 @@
 
 #include <ovc5_driver/uio_driver.hpp>
 
-class TimerDriver
+class Timer
 {
 private:
   // NOTE this is hardware dependent, 200 MHz
-  static constexpr double CLOCK_FREQ = 5e7;
+  static constexpr double CLOCK_FREQ = 10e7;
 
   static constexpr size_t MAP_SIZE = 0x10000;
 
@@ -25,10 +25,13 @@ private:
   void reset();
 
 public:
-  TimerDriver(int uio_num);
+  Timer(int uio_num);
 
-  void start(double freq, double high_time, bool invert_polarity = false);
+  void PWM(double freq, double high_time, bool invert_polarity = false);
 
+  void interruptAtLine(int n);
+
+  void waitInterrupt();
 };
 
 
