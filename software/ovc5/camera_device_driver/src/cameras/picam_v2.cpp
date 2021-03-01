@@ -17,8 +17,8 @@ bool PiCameraV2::probe(I2CDriver& i2c)
   return true;
 }
 
-PiCameraV2::PiCameraV2(I2CDriver& i2c, int vdma_dev, int cam_id) :
-  I2CCamera(i2c, vdma_dev, cam_id)
+PiCameraV2::PiCameraV2(I2CDriver& i2c, int vdma_dev, int cam_id, bool main_camera) :
+  I2CCamera(i2c, vdma_dev, cam_id, main_camera)
 {
 
 }

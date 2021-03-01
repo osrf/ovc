@@ -6,13 +6,13 @@
 #include <ovc5_driver/camera.hpp>
 #include <ovc5_driver/ethernet_packetdef.h>
 
+// Publisher for sequential images
 class EthernetPublisher
 {
 private:
   static constexpr char* SERVER_IP = "10.0.1.2";
-  //static constexpr char* SERVER_IP = "127.0.0.1";
-  static constexpr int BASE_PORT = 12345;
-  static constexpr size_t TCP_PACKET_SIZE = 32768;
+
+  int base_port;
 
   struct sockaddr_in sock_in = {0};
   int sock;
@@ -20,13 +20,25 @@ private:
   ether_tx_packet_t pkt = {0};
 
 public:
-  EthernetPublisher();
+  EthernetPublisher(int port = 12345);
 
   // TODO proper timestamping and packet header
   void publish(unsigned char* imgdata, const camera_params_t& params);
 
   void increaseId();
 
+};
+
+// Publishes two frames in parallel on different ports
+class StereoEthernetPublisher
+{
+private:
+  // TODO parametrize num cameras
+  EthernetPublisher pubs[2];
+
+
+public:
+  StereoEthernetPublisher();
 };
 
 
