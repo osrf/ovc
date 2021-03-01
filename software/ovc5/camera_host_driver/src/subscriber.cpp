@@ -44,7 +44,6 @@ void Subscriber::receiveThread()
   // TODO proper while condition
   int cur_off = 0;
   int frame_size = 0;
-  int exp_status = 0;
   int camera_id = 0;
   std::unique_lock<std::mutex> frames_lock(frames_mutex, std::defer_lock);
   ether_tx_packet_t recv_pkt;
@@ -94,6 +93,9 @@ void Subscriber::receiveThread()
       if (frames_received % NUM_IMAGERS == 0)
       {
         // All frames received, notify userspace
+#if LATENCY_TEST
+        tester.frameReceived();
+#endif
         frames_ready_var.notify_all();
       }
       camera_id = (camera_id + 1) % NUM_IMAGERS;

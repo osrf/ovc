@@ -7,6 +7,9 @@
 #include <condition_variable>
 #include <mutex>
 
+#define LATENCY_TEST 1
+
+#include <latency_tester.hpp>
 
 enum class ReceiveState
 {
@@ -27,16 +30,17 @@ class Subscriber
 {
 private:
   static constexpr int BASE_PORT = 12345;
-  static constexpr size_t TCP_RECEIVE_SIZE = 8192;
   static constexpr int NUM_IMAGERS = 2;
 
   ReceiveState state_ = ReceiveState::WAIT_HEADER;
 
+#if LATENCY_TEST
+  LatencyTester tester;
+#endif
+
   struct sockaddr_in si_self = {0}, si_other = {0};
   int sock;
   int recv_sock;
-
-  OVCImage ret_img;
 
   std::array<OVCImage, NUM_IMAGERS> ret_imgs;
 
