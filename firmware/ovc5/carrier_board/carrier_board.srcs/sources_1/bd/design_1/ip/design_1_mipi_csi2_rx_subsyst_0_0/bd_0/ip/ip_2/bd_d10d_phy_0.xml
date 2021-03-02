@@ -1526,7 +1526,7 @@
           <spirit:name>FREQ_HZ</spirit:name>
           <spirit:displayName>rxbyteclkhs frequency</spirit:displayName>
           <spirit:description>rxbyteclkhs frequency for D-PHY IP core (line_rate/8)</spirit:description>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.RXBYTECLKHS.FREQ_HZ" spirit:minimum="10000000" spirit:maximum="500000000" spirit:rangeType="long">156250000.0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.RXBYTECLKHS.FREQ_HZ" spirit:minimum="10000000" spirit:maximum="500000000" spirit:rangeType="long">137500000.0</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
@@ -7364,11 +7364,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Feb 10 08:38:18 UTC 2021</spirit:value>
+            <spirit:value>Wed Feb 17 07:38:39 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:40eb88af</spirit:value>
+            <spirit:value>9:5601cb1d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -18662,7 +18662,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_HS_LINE_RATE</spirit:name>
         <spirit:displayName>C Hs Line Rate</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HS_LINE_RATE">1250</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HS_LINE_RATE">1100</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_LPX_PERIOD</spirit:name>
@@ -18751,20 +18751,20 @@
       <spirit:modelParameter spirit:dataType="float">
         <spirit:name>C_TXPLL_CLKIN_PERIOD</spirit:name>
         <spirit:displayName>XiPhy line rate</spirit:displayName>
-        <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_TXPLL_CLKIN_PERIOD">6.400</spirit:value>
+        <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_TXPLL_CLKIN_PERIOD">7.273</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="float">
         <spirit:name>C_DIV4_CLK_PERIOD</spirit:name>
         <spirit:displayName>byteclkhs frequency in ns</spirit:displayName>
-        <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_DIV4_CLK_PERIOD">6.400</spirit:value>
+        <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_DIV4_CLK_PERIOD">7.273</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_PLL_DIVCLK_DIVIDE</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_PLL_DIVCLK_DIVIDE">2</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_PLL_DIVCLK_DIVIDE">1</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_PLL_DIVCLK_MULT</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_PLL_DIVCLK_MULT">16</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_PLL_DIVCLK_MULT">8</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="STRING">
         <spirit:name>C_PLL_CLKOUTPHY_MODE</spirit:name>
@@ -18821,7 +18821,7 @@
       <spirit:modelParameter spirit:dataType="float">
         <spirit:name>C_DDR_CLK_PERIOD</spirit:name>
         <spirit:displayName>DDR Clock Rate for 7-series</spirit:displayName>
-        <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_DDR_CLK_PERIOD">1.600</spirit:value>
+        <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_DDR_CLK_PERIOD">1.818</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_IDLY_TAP</spirit:name>
@@ -18854,7 +18854,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_HS_SETTLE_NS</spirit:name>
         <spirit:displayName>HS_SETTLE Timing Parameter in ns</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HS_SETTLE_NS">143</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HS_SETTLE_NS">144</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_EN_HS_OBUFTDS</spirit:name>
@@ -19156,7 +19156,7 @@
     <spirit:parameter>
       <spirit:name>C_HS_LINE_RATE</spirit:name>
       <spirit:displayName>Line Rate (Mbps)</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HS_LINE_RATE" spirit:order="19" spirit:minimum="80" spirit:maximum="2500" spirit:rangeType="long">1250</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HS_LINE_RATE" spirit:order="19" spirit:minimum="80" spirit:maximum="2500" spirit:rangeType="long">1100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_EN_7S_LINERATE_CHECK</spirit:name>
@@ -20234,7 +20234,7 @@
     <spirit:parameter>
       <spirit:name>C_HS_SETTLE_NS</spirit:name>
       <spirit:displayName>HS_SETTLE Parameter (ns)</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HS_SETTLE_NS" spirit:order="136" spirit:minimum="87" spirit:maximum="320" spirit:rangeType="long">143</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HS_SETTLE_NS" spirit:order="136" spirit:minimum="87" spirit:maximum="320" spirit:rangeType="long">144</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_EN_HS_OBUFTDS</spirit:name>

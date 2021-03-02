@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Wed Feb 10 16:42:06 2021
+//Date        : Mon Mar  1 16:31:23 2021
 //Host        : luca-focal running 64-bit Ubuntu 20.04.2 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -10,9 +10,12 @@
 `timescale 1 ps / 1 ps
 
 module design_1_wrapper
-   (I2C_MIPI_SEL,
+   (FRAME_END_0,
+    FRAME_START_0,
+    I2C_MIPI_SEL,
     TRIG0,
     TRIG1,
+    TRIG_PROBE,
     iic_rtl_0_scl_io,
     iic_rtl_0_sda_io,
     mipi_phy_if_0_clk_n,
@@ -23,9 +26,12 @@ module design_1_wrapper
     mipi_phy_if_1_clk_p,
     mipi_phy_if_1_data_n,
     mipi_phy_if_1_data_p);
+  output [0:0]FRAME_END_0;
+  output [0:0]FRAME_START_0;
   output [0:0]I2C_MIPI_SEL;
-  output [0:0]TRIG0;
+  input TRIG0;
   output [0:0]TRIG1;
+  output [0:0]TRIG_PROBE;
   inout iic_rtl_0_scl_io;
   inout iic_rtl_0_sda_io;
   input mipi_phy_if_0_clk_n;
@@ -37,9 +43,12 @@ module design_1_wrapper
   input [1:0]mipi_phy_if_1_data_n;
   input [1:0]mipi_phy_if_1_data_p;
 
+  wire [0:0]FRAME_END_0;
+  wire [0:0]FRAME_START_0;
   wire [0:0]I2C_MIPI_SEL;
-  wire [0:0]TRIG0;
+  wire TRIG0;
   wire [0:0]TRIG1;
+  wire [0:0]TRIG_PROBE;
   wire iic_rtl_0_scl_i;
   wire iic_rtl_0_scl_io;
   wire iic_rtl_0_scl_o;
@@ -58,9 +67,12 @@ module design_1_wrapper
   wire [1:0]mipi_phy_if_1_data_p;
 
   design_1 design_1_i
-       (.I2C_MIPI_SEL(I2C_MIPI_SEL),
+       (.FRAME_END_0(FRAME_END_0),
+        .FRAME_START_0(FRAME_START_0),
+        .I2C_MIPI_SEL(I2C_MIPI_SEL),
         .TRIG0(TRIG0),
         .TRIG1(TRIG1),
+        .TRIG_PROBE(TRIG_PROBE),
         .iic_rtl_0_scl_i(iic_rtl_0_scl_i),
         .iic_rtl_0_scl_o(iic_rtl_0_scl_o),
         .iic_rtl_0_scl_t(iic_rtl_0_scl_t),

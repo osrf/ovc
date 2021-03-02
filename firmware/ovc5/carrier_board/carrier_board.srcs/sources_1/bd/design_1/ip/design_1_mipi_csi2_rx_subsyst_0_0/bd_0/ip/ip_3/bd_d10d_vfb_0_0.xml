@@ -143,7 +143,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXIS.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXIS.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -161,7 +161,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXIS.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXIS.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -246,7 +246,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>TDATA_NUM_BYTES</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_VFB.TDATA_NUM_BYTES">2</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_VFB.TDATA_NUM_BYTES">6</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -318,7 +318,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_VFB.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_VFB.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -336,7 +336,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_VFB.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_VFB.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -422,7 +422,7 @@
           <spirit:name>FREQ_HZ</spirit:name>
           <spirit:displayName>CSI clock frequency</spirit:displayName>
           <spirit:description>CSI clock frequency</spirit:description>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.S_AXIS_SIGNAL_CLOCK.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.S_AXIS_SIGNAL_CLOCK.FREQ_HZ">99999001</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
@@ -444,7 +444,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXIS_SIGNAL_CLOCK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXIS_SIGNAL_CLOCK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -517,7 +517,7 @@
           <spirit:name>FREQ_HZ</spirit:name>
           <spirit:displayName>Video clock frequency</spirit:displayName>
           <spirit:description>Video clock frequency</spirit:description>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_VFB_SIGNAL_CLOCK.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_VFB_SIGNAL_CLOCK.FREQ_HZ">99999001</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
@@ -539,7 +539,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_VFB_SIGNAL_CLOCK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_VFB_SIGNAL_CLOCK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -573,17 +573,10 @@
         <spirit:name>xilinx_elaboratesubcores</spirit:name>
         <spirit:displayName>Elaborate Sub-Cores</spirit:displayName>
         <spirit:envIdentifier>:vivado.xilinx.com:elaborate.subcores</spirit:envIdentifier>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_elaboratesubcores_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Feb 10 08:38:18 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:0c69f4a9</spirit:value>
+            <spirit:value>9:a3a3f207</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -810,7 +803,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.VFB_OP_DWIDTH&apos;)) - 1)">15</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.VFB_OP_DWIDTH&apos;)) - 1)">47</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -948,7 +941,7 @@
     <spirit:modelParameters>
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
         <spirit:name>C_HS_LINE_RATE</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HS_LINE_RATE">1250</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HS_LINE_RATE">1100</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>VFB_TU_WIDTH</spirit:name>
@@ -1028,11 +1021,11 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>VFB_DCONV_OWIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.VFB_DCONV_OWIDTH">16</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.VFB_DCONV_OWIDTH">64</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>VFB_OP_DWIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.VFB_OP_DWIDTH">16</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.VFB_OP_DWIDTH">48</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>VFB_OP_SBWIDTH</spirit:name>
@@ -1040,11 +1033,11 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>VFB_OP_PIXELS</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.VFB_OP_PIXELS">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.VFB_OP_PIXELS">4</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>VFB_BYPASS_WC</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.VFB_BYPASS_WC">0</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.VFB_BYPASS_WC">1</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1139,25 +1132,12 @@
       <spirit:enumeration>4</spirit:enumeration>
     </spirit:choice>
   </spirit:choices>
-  <spirit:fileSets>
-    <spirit:fileSet>
-      <spirit:name>xilinx_elaboratesubcores_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>ip_0/bd_d10d_vfb_0_0_axis_converter.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>ip_0/bd_d10d_vfb_0_0_axis_converter.xml</spirit:name>
-        <spirit:userFileType>xml</spirit:userFileType>
-      </spirit:file>
-    </spirit:fileSet>
-  </spirit:fileSets>
   <spirit:description>Video format bridge converts CSI2 format to UG934 format</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>C_HS_LINE_RATE</spirit:name>
       <spirit:displayName>Line Rate (Mbps)</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HS_LINE_RATE" spirit:order="2" spirit:minimum="80" spirit:maximum="3500" spirit:rangeType="long">1250</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HS_LINE_RATE" spirit:order="2" spirit:minimum="80" spirit:maximum="3500" spirit:rangeType="long">1100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>VFB_TU_WIDTH</spirit:name>
@@ -1244,12 +1224,12 @@
     <spirit:parameter>
       <spirit:name>VFB_DCONV_OWIDTH</spirit:name>
       <spirit:displayName>Output Width of DWidth convertor</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.VFB_DCONV_OWIDTH" spirit:order="18">16</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.VFB_DCONV_OWIDTH" spirit:order="18">64</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>VFB_OP_DWIDTH</spirit:name>
       <spirit:displayName>Output Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.VFB_OP_DWIDTH" spirit:order="19">16</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.VFB_OP_DWIDTH" spirit:order="19">48</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>VFB_OP_SBWIDTH</spirit:name>
@@ -1259,12 +1239,12 @@
     <spirit:parameter>
       <spirit:name>VFB_OP_PIXELS</spirit:name>
       <spirit:displayName>Output Pixels per beat</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.VFB_OP_PIXELS" spirit:choiceRef="choice_list_e6469819" spirit:order="21">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.VFB_OP_PIXELS" spirit:choiceRef="choice_list_e6469819" spirit:order="21">4</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>VFB_BYPASS_WC</spirit:name>
       <spirit:displayName>Bypass width converter</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.VFB_BYPASS_WC" spirit:order="22">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.VFB_BYPASS_WC" spirit:order="22">1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>

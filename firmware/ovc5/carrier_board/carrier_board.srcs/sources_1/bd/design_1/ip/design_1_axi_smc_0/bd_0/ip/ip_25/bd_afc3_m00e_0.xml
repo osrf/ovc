@@ -338,7 +338,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -545,7 +545,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -972,7 +972,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXI.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXI.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -1179,7 +1179,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXI.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXI.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -1254,7 +1254,7 @@
           <spirit:name>FREQ_HZ</spirit:name>
           <spirit:displayName>aclk frequency</spirit:displayName>
           <spirit:description>aclk frequency</spirit:description>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK.FREQ_HZ" spirit:minimum="1" spirit:maximum="1000000000" spirit:rangeType="long">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK.FREQ_HZ" spirit:minimum="1" spirit:maximum="1000000000" spirit:rangeType="long">99999001</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
@@ -1276,7 +1276,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -3326,7 +3326,7 @@
       <spirit:modelParameter spirit:dataType="bitString">
         <spirit:name>C_SSC_ROUTE_ARRAY</spirit:name>
         <spirit:displayName>C_SSC_ROUTE_ARRAY</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SSC_ROUTE_ARRAY" spirit:bitStringLength="32">0b00000000001000000100000000000000</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SSC_ROUTE_ARRAY" spirit:bitStringLength="32">0b00000000000000100100000000000000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="long">
         <spirit:name>C_RDATA_WIDTH</spirit:name>
@@ -3668,7 +3668,7 @@
     <spirit:parameter>
       <spirit:name>SSC008_ROUTE</spirit:name>
       <spirit:displayName>SSC008_ROUTE</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.SSC008_ROUTE" spirit:bitStringLength="2">0b00</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.SSC008_ROUTE" spirit:bitStringLength="2">0b10</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>SSC009_ROUTE</spirit:name>
@@ -3678,7 +3678,7 @@
     <spirit:parameter>
       <spirit:name>SSC010_ROUTE</spirit:name>
       <spirit:displayName>SSC010_ROUTE</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.SSC010_ROUTE" spirit:bitStringLength="2">0b10</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.SSC010_ROUTE" spirit:bitStringLength="2">0b00</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>SSC011_ROUTE</spirit:name>
@@ -4956,7 +4956,6 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXI.WUSER_BITS_PER_BYTE" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXI.WUSER_WIDTH" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RST.POLARITY" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RST.TYPE" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.ADDR_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.ARUSER_WIDTH" xilinx:valueSource="auto_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.AWUSER_WIDTH" xilinx:valueSource="auto_prop" xilinx:valuePermission="bd"/>

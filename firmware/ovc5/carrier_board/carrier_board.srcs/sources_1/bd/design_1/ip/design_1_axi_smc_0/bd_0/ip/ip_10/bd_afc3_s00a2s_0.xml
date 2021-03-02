@@ -618,7 +618,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -825,7 +825,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -902,7 +902,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.ACLK.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.ACLK.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -929,7 +929,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.ACLK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.ACLK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>

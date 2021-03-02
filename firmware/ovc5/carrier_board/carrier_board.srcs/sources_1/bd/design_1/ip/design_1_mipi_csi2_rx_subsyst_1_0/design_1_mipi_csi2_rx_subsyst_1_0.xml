@@ -104,7 +104,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.RXBYTECLKHS.FREQ_HZ">156250000.0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.RXBYTECLKHS.FREQ_HZ">137500000.0</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -302,7 +302,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.VIDEO_ACLK.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.VIDEO_ACLK.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -329,7 +329,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.VIDEO_ACLK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.VIDEO_ACLK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -499,7 +499,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>TDATA_NUM_BYTES</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.VIDEO_OUT.TDATA_NUM_BYTES">2</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.VIDEO_OUT.TDATA_NUM_BYTES">6</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -571,7 +571,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.VIDEO_OUT.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.VIDEO_OUT.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -589,7 +589,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.VIDEO_OUT.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.VIDEO_OUT.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -629,11 +629,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Feb 10 08:40:08 UTC 2021</spirit:value>
+            <spirit:value>Mon Feb 22 02:44:15 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:f1a789ce</spirit:value>
+            <spirit:value>9:1d913105</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -647,11 +647,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Feb 10 08:40:08 UTC 2021</spirit:value>
+            <spirit:value>Mon Feb 22 02:44:15 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:5331d2bf</spirit:value>
+            <spirit:value>9:1ed1b61a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -885,7 +885,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:left spirit:format="long">47</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1345,7 +1345,7 @@
     <spirit:parameter>
       <spirit:name>C_CSI_EN_CRC</spirit:name>
       <spirit:displayName>Enable CRC</spirit:displayName>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.C_CSI_EN_CRC" spirit:order="25">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.C_CSI_EN_CRC" spirit:order="25">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_CSI_EN_ACTIVELANES</spirit:name>
@@ -1456,7 +1456,7 @@
     <spirit:parameter>
       <spirit:name>CMN_NUM_PIXELS</spirit:name>
       <spirit:displayName>Pixels Per Clock</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CMN_NUM_PIXELS" spirit:choiceRef="choice_list_e6469819" spirit:order="46">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CMN_NUM_PIXELS" spirit:choiceRef="choice_list_e6469819" spirit:order="46">4</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>CMN_INC_IIC</spirit:name>
@@ -1488,12 +1488,12 @@
     <spirit:parameter>
       <spirit:name>C_HS_LINE_RATE</spirit:name>
       <spirit:displayName>Line Rate (Mbps)</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HS_LINE_RATE" spirit:order="51" spirit:minimum="80" spirit:maximum="3500" spirit:rangeType="long">1250</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HS_LINE_RATE" spirit:order="51" spirit:minimum="80" spirit:maximum="3500" spirit:rangeType="long">1100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>DPY_LINE_RATE</spirit:name>
       <spirit:displayName>Line Rate (Mbps)</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DPY_LINE_RATE" spirit:order="52" spirit:minimum="80" spirit:maximum="2500" spirit:rangeType="long">1250</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DPY_LINE_RATE" spirit:order="52" spirit:minimum="80" spirit:maximum="2500" spirit:rangeType="long">1100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>DPY_EN_REG_IF</spirit:name>
@@ -1800,7 +1800,7 @@
     <spirit:parameter>
       <spirit:name>C_HS_SETTLE_NS</spirit:name>
       <spirit:displayName>HS_SETTLE Parameter (ns)</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HS_SETTLE_NS" spirit:order="91" spirit:minimum="87" spirit:maximum="320" spirit:rangeType="long">143</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HS_SETTLE_NS" spirit:order="91" spirit:minimum="87" spirit:maximum="320" spirit:rangeType="long">144</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_EN_TIMEOUT_REGS</spirit:name>
@@ -1933,12 +1933,14 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.VIDEO_OUT.TUSER_WIDTH" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CLK_LANE_IO_LOC" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CLK_LANE_IO_LOC_NAME" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CMN_INC_VFB" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CMN_NUM_LANES" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CMN_NUM_PIXELS" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CMN_PXL_FORMAT" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CSI_BUF_DEPTH" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CSI_CONTROLLER_REG_IF" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_CLK_LANE_IO_POSITION" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_CSI_EN_CRC" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_DATA_LANE0_IO_POSITION" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_DATA_LANE1_IO_POSITION" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_DPHY_LANES" xilinx:valueSource="user"/>

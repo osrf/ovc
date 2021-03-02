@@ -995,7 +995,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXIS.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXIS.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -1013,7 +1013,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXIS.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXIS.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -1254,7 +1254,7 @@
           <spirit:name>FREQ_HZ</spirit:name>
           <spirit:displayName>video clock frequency</spirit:displayName>
           <spirit:description>video clock frequency</spirit:description>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_AXIS_ENI_SIGNAL_CLOCK.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_AXIS_ENI_SIGNAL_CLOCK.FREQ_HZ">99999001</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
@@ -1276,7 +1276,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXIS_ENI_SIGNAL_CLOCK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXIS_ENI_SIGNAL_CLOCK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -1393,7 +1393,7 @@
           <spirit:name>FREQ_HZ</spirit:name>
           <spirit:displayName>Core clock frequency</spirit:displayName>
           <spirit:description>Core clock frequency</spirit:description>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_AXIS_SIGNAL_CLOCK.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_AXIS_SIGNAL_CLOCK.FREQ_HZ">99999001</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
@@ -1415,7 +1415,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXIS_SIGNAL_CLOCK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXIS_SIGNAL_CLOCK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -1559,7 +1559,7 @@
           <spirit:name>FREQ_HZ</spirit:name>
           <spirit:displayName>rxbyteclkhs frequency</spirit:displayName>
           <spirit:description>rxbyteclkhs frequency for D-PHY IP core (line_rate/8)</spirit:description>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.DL0_RXBYTECLKHS.FREQ_HZ" spirit:minimum="10000000" spirit:maximum="187500000" spirit:rangeType="long">156250000.0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.DL0_RXBYTECLKHS.FREQ_HZ" spirit:minimum="10000000" spirit:maximum="187500000" spirit:rangeType="long">137500000.0</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
@@ -1644,7 +1644,7 @@
           <spirit:name>FREQ_HZ</spirit:name>
           <spirit:displayName>rxbyteclkhs frequency</spirit:displayName>
           <spirit:description>rxbyteclkhs frequency for D-PHY IP core (line_rate/8)</spirit:description>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.DL1_RXBYTECLKHS.FREQ_HZ" spirit:minimum="10000000" spirit:maximum="187500000" spirit:rangeType="long">156250000.0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.DL1_RXBYTECLKHS.FREQ_HZ" spirit:minimum="10000000" spirit:maximum="187500000" spirit:rangeType="long">137500000.0</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
@@ -4154,7 +4154,7 @@
     <spirit:modelParameters>
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
         <spirit:name>C_HS_LINE_RATE</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HS_LINE_RATE">1250</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HS_LINE_RATE">1100</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>C_RCVE_DESKEW_SEQ</spirit:name>
@@ -4184,7 +4184,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_CSI_OPT2_CRC</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_CSI_OPT2_CRC">0</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_CSI_OPT2_CRC">1</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_CSI_OPT3_FIXEDLANES</spirit:name>
@@ -4451,7 +4451,7 @@
     <spirit:parameter>
       <spirit:name>C_HS_LINE_RATE</spirit:name>
       <spirit:displayName>Line Rate (Mbps)</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HS_LINE_RATE" spirit:order="5" spirit:minimum="80" spirit:maximum="3500" spirit:rangeType="long">1250</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HS_LINE_RATE" spirit:order="5" spirit:minimum="80" spirit:maximum="3500" spirit:rangeType="long">1100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>HP_IO_BANK_SELECTION</spirit:name>
@@ -4476,7 +4476,7 @@
     <spirit:parameter>
       <spirit:name>C_CSI_OPT2_CRC</spirit:name>
       <spirit:displayName>Remove CRC Logic</spirit:displayName>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.C_CSI_OPT2_CRC" spirit:order="10">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.C_CSI_OPT2_CRC" spirit:order="10">true</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_CSI_OPT3_FIXEDLANES</spirit:name>

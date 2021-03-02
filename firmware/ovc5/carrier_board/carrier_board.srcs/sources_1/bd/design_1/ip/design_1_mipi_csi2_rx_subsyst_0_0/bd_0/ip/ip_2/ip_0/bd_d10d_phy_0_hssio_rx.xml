@@ -11246,7 +11246,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d067d7fa</spirit:value>
+            <spirit:value>9:1cb49a08</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -45445,7 +45445,7 @@ RX sig_type DIFF data_strb Data data_strb_org Data sig_name data_rxn0 loc AH11}<
     <spirit:parameter>
       <spirit:name>MIPI_RX_DATA_SPEED</spirit:name>
       <spirit:displayName>Interface Speed</spirit:displayName>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.MIPI_RX_DATA_SPEED" spirit:order="20" spirit:minimum="80.00" spirit:maximum="2650.00">1250</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.MIPI_RX_DATA_SPEED" spirit:order="20" spirit:minimum="80.00" spirit:maximum="2650.00">1100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PLL0_INPUT_CLK_FREQ</spirit:name>

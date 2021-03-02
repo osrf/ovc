@@ -1561,7 +1561,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXI_HPM0_LPD.FREQ_HZ">49999500</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXI_HPM0_LPD.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -3422,7 +3422,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC0_FPD.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC0_FPD.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -3611,7 +3611,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC0_FPD.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC0_FPD.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4006,7 +4006,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>DATA_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.DATA_WIDTH">1</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.DATA_WIDTH">128</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4015,7 +4015,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>PROTOCOL</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.PROTOCOL">AXI4LITE</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.PROTOCOL">AXI4</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4033,7 +4033,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>ID_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.ID_WIDTH">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.ID_WIDTH">6</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4042,7 +4042,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>ADDR_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.ADDR_WIDTH">1</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.ADDR_WIDTH">49</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4051,7 +4051,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>AWUSER_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.AWUSER_WIDTH">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.AWUSER_WIDTH">1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4060,7 +4060,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>ARUSER_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.ARUSER_WIDTH">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.ARUSER_WIDTH">1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4105,7 +4105,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>HAS_BURST</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_BURST">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_BURST">1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4114,7 +4114,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>HAS_LOCK</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_LOCK">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_LOCK">1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4123,7 +4123,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>HAS_PROT</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_PROT">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_PROT">1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4132,7 +4132,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>HAS_CACHE</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_CACHE">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_CACHE">1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4141,7 +4141,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>HAS_QOS</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_QOS">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_QOS">1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4159,7 +4159,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>HAS_WSTRB</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_WSTRB">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_WSTRB">1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4168,7 +4168,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>HAS_BRESP</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_BRESP">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_BRESP">1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4177,7 +4177,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>HAS_RRESP</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_RRESP">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_RRESP">1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4186,7 +4186,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>SUPPORTS_NARROW_BURST</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.SUPPORTS_NARROW_BURST">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.SUPPORTS_NARROW_BURST">1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -4195,7 +4195,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>MAX_BURST_LENGTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.MAX_BURST_LENGTH">1</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.MAX_BURST_LENGTH">256</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -7472,7 +7472,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXI_HPM0_LPD_ACLK.FREQ_HZ">49999500</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.M_AXI_HPM0_LPD_ACLK.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -7721,7 +7721,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC0_FPD_ACLK.FREQ_HZ">199998001</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC0_FPD_ACLK.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -7748,7 +7748,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC0_FPD_ACLK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk0</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_HPC0_FPD_ACLK.CLK_DOMAIN">design_1_zynq_ultra_ps_e_0_1_pl_clk1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -13417,7 +13417,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>SENSITIVITY</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.PL_PS_IRQ0.SENSITIVITY">LEVEL_HIGH:LEVEL_HIGH</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.PL_PS_IRQ0.SENSITIVITY">LEVEL_HIGH:LEVEL_HIGH:LEVEL_HIGH</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -13426,7 +13426,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>PortWidth</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.PL_PS_IRQ0.PortWidth">2</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.PL_PS_IRQ0.PortWidth">3</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -14110,7 +14110,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.PL_CLK1.FREQ_HZ">49999500</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.PL_CLK1.FREQ_HZ">99999001</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -52457,7 +52457,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(PARAM_VALUE.PSU__NUM_F2P0__INTR__INPUTS))-1)">1</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(PARAM_VALUE.PSU__NUM_F2P0__INTR__INPUTS))-1)">2</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -64593,7 +64593,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_NUM_F2P_0_INTR_INPUTS</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_NUM_F2P_0_INTR_INPUTS" spirit:dependency="spirit:decode(id(PARAM_VALUE.PSU__NUM_F2P0__INTR__INPUTS))">2</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="dependent" spirit:id="MODELPARAM_VALUE.C_NUM_F2P_0_INTR_INPUTS" spirit:dependency="spirit:decode(id(PARAM_VALUE.PSU__NUM_F2P0__INTR__INPUTS))">3</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_NUM_F2P_1_INTR_INPUTS</spirit:name>
@@ -65114,6 +65114,10 @@
       <spirit:enumeration>MIO 76 .. 77</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
+      <spirit:name>choice_list_4860fff5</spirit:name>
+      <spirit:enumeration>GT Lane3</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
       <spirit:name>choice_list_4ac300af</spirit:name>
       <spirit:enumeration>APLL</spirit:enumeration>
       <spirit:enumeration>VPLL</spirit:enumeration>
@@ -65144,15 +65148,16 @@
       <spirit:enumeration>SysOsc</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
-      <spirit:name>choice_list_53dd55b0</spirit:name>
+      <spirit:name>choice_list_50c6f77c</spirit:name>
       <spirit:enumeration>&lt;Select></spirit:enumeration>
-      <spirit:enumeration>MIO 33</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
-      <spirit:name>choice_list_55d0eb97</spirit:name>
       <spirit:enumeration>EMIO</spirit:enumeration>
       <spirit:enumeration>GT Lane3</spirit:enumeration>
       <spirit:enumeration>MIO 64 .. 75</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choice_list_53dd55b0</spirit:name>
+      <spirit:enumeration>&lt;Select></spirit:enumeration>
+      <spirit:enumeration>MIO 33</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
       <spirit:name>choice_list_55dc447c</spirit:name>
@@ -65168,6 +65173,10 @@
       <spirit:name>choice_list_57f1020c</spirit:name>
       <spirit:enumeration>&lt;Select></spirit:enumeration>
       <spirit:enumeration>MIO 45</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choice_list_595495a9</spirit:name>
+      <spirit:enumeration>MIO 64 .. 75</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
       <spirit:name>choice_list_5a297fc4</spirit:name>
@@ -65521,11 +65530,6 @@
       <spirit:enumeration>MIO 28</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
-      <spirit:name>choice_list_9a396946</spirit:name>
-      <spirit:enumeration>&lt;Select></spirit:enumeration>
-      <spirit:enumeration>MIO 64 .. 75</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
       <spirit:name>choice_list_9bb03d3e</spirit:name>
       <spirit:enumeration>&lt;Select></spirit:enumeration>
       <spirit:enumeration>1 Vector</spirit:enumeration>
@@ -65744,13 +65748,6 @@
       <spirit:enumeration>Audio device</spirit:enumeration>
       <spirit:enumeration>Video device</spirit:enumeration>
       <spirit:enumeration>Other multimedia device</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
-      <spirit:name>choice_list_b6899757</spirit:name>
-      <spirit:enumeration>&lt;Select></spirit:enumeration>
-      <spirit:enumeration>26</spirit:enumeration>
-      <spirit:enumeration>52</spirit:enumeration>
-      <spirit:enumeration>100</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
       <spirit:name>choice_list_b6d2a295</spirit:name>
@@ -66733,27 +66730,55 @@
     <spirit:parameter>
       <spirit:name>PSU__ENET3__PERIPHERAL__ENABLE</spirit:name>
       <spirit:displayName>GEM 3</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__ENET3__PERIPHERAL__ENABLE" spirit:choiceRef="choice_list_8af5a703">1</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__ENET3__PERIPHERAL__ENABLE" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__ENET3__FIFO__ENABLE</spirit:name>
       <spirit:displayName>GEM 3</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__ENET3__FIFO__ENABLE" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__ENET3__FIFO__ENABLE">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__ENET3__PTP__ENABLE</spirit:name>
       <spirit:displayName>GEM 3</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__ENET3__PTP__ENABLE" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__ENET3__PTP__ENABLE">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__ENET3__PERIPHERAL__IO</spirit:name>
       <spirit:displayName>ENET3 IO</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__ENET3__PERIPHERAL__IO" spirit:choiceRef="choice_list_55d0eb97">MIO 64 .. 75</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__ENET3__PERIPHERAL__IO" spirit:choiceRef="choice_list_50c6f77c">&lt;Select></spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__ENET3__PERIPHERAL__IO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__ENET3__GRP_MDIO__ENABLE</spirit:name>
       <spirit:displayName>MDIO 3</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__ENET3__GRP_MDIO__ENABLE" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__ENET3__GRP_MDIO__ENABLE">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__ENET3__GRP_MDIO__IO</spirit:name>
@@ -67053,26 +67078,12 @@
     <spirit:parameter>
       <spirit:name>PSU__USB1__REF_CLK_SEL</spirit:name>
       <spirit:displayName>USB1 REF CLK SEL</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB1__REF_CLK_SEL" spirit:choiceRef="choice_list_d1ac4c0e">&lt;Select></spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__USB1__REF_CLK_SEL">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB1__REF_CLK_SEL" spirit:choiceRef="choice_list_61a3096c">Ref Clk2</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__USB1__REF_CLK_FREQ</spirit:name>
       <spirit:displayName>USB1 REF CLK FREQ</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB1__REF_CLK_FREQ" spirit:choiceRef="choice_list_b6899757">&lt;Select></spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__USB1__REF_CLK_FREQ">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB1__REF_CLK_FREQ" spirit:choiceRef="choice_list_72e3e15b">100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__GEM0__REF_CLK_SEL</spirit:name>
@@ -68306,7 +68317,7 @@
     <spirit:parameter>
       <spirit:name>PSU__PROTECTION__MASTERS</spirit:name>
       <spirit:displayName>PSU__PROTECTION__MASTERS</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__PROTECTION__MASTERS">USB1:NonSecure;0|USB0:NonSecure;1|S_AXI_LPD:NA;0|S_AXI_HPC1_FPD:NA;0|S_AXI_HPC0_FPD:NA;1|S_AXI_HP3_FPD:NA;0|S_AXI_HP2_FPD:NA;0|S_AXI_HP1_FPD:NA;0|S_AXI_HP0_FPD:NA;0|S_AXI_ACP:NA;0|S_AXI_ACE:NA;0|SD1:NonSecure;1|SD0:NonSecure;1|SATA1:NonSecure;0|SATA0:NonSecure;0|RPU1:Secure;1|RPU0:Secure;1|QSPI:NonSecure;1|PMU:NA;1|PCIe:NonSecure;0|NAND:NonSecure;0|LDMA:NonSecure;1|GPU:NonSecure;1|GEM3:NonSecure;1|GEM2:NonSecure;0|GEM1:NonSecure;0|GEM0:NonSecure;1|FDMA:NonSecure;1|DP:NonSecure;0|DAP:NA;1|Coresig
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__PROTECTION__MASTERS">USB1:NonSecure;1|USB0:NonSecure;1|S_AXI_LPD:NA;0|S_AXI_HPC1_FPD:NA;0|S_AXI_HPC0_FPD:NA;1|S_AXI_HP3_FPD:NA;0|S_AXI_HP2_FPD:NA;0|S_AXI_HP1_FPD:NA;0|S_AXI_HP0_FPD:NA;0|S_AXI_ACP:NA;0|S_AXI_ACE:NA;0|SD1:NonSecure;1|SD0:NonSecure;1|SATA1:NonSecure;0|SATA0:NonSecure;0|RPU1:Secure;1|RPU0:Secure;1|QSPI:NonSecure;1|PMU:NA;1|PCIe:NonSecure;0|NAND:NonSecure;0|LDMA:NonSecure;1|GPU:NonSecure;1|GEM3:NonSecure;0|GEM2:NonSecure;0|GEM1:NonSecure;0|GEM0:NonSecure;1|FDMA:NonSecure;1|DP:NonSecure;0|DAP:NA;1|Coresig
 ht:NA;1|CSU:NA;1|APU:NA;1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
@@ -68346,11 +68357,11 @@ ht:NA;1|CSU:NA;1|APU:NA;1</spirit:value>
     <spirit:parameter>
       <spirit:name>PSU__PROTECTION__SLAVES</spirit:name>
       <spirit:displayName>PSU__PROTECTION__SLAVES</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__PROTECTION__SLAVES">LPD;USB3_1_XHCI;FE300000;FE3FFFFF;0|LPD;USB3_1;FF9E0000;FF9EFFFF;0|LPD;USB3_0_XHCI;FE200000;FE2FFFFF;1|LPD;USB3_0;FF9D0000;FF9DFFFF;1|LPD;UART1;FF010000;FF01FFFF;0|LPD;UART0;FF000000;FF00FFFF;1|LPD;TTC3;FF140000;FF14FFFF;0|LPD;TTC2;FF130000;FF13FFFF;0|LPD;TTC1;FF120000;FF12FFFF;0|LPD;TTC0;FF110000;FF11FFFF;1|FPD;SWDT1;FD4D0000;FD4DFFFF;0|LPD;SWDT0;FF150000;FF15FFFF;0|LPD;SPI1;FF050000;FF05FFFF;0|LPD;SPI0;FF040000;FF04FFFF;0|FPD;SMMU_REG;FD5F0000;FD5FFFFF;1|FPD;SMMU;FD800000;FDFFFFFF;1|FPD;SIOU;F
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__PROTECTION__SLAVES">LPD;USB3_1_XHCI;FE300000;FE3FFFFF;1|LPD;USB3_1;FF9E0000;FF9EFFFF;1|LPD;USB3_0_XHCI;FE200000;FE2FFFFF;1|LPD;USB3_0;FF9D0000;FF9DFFFF;1|LPD;UART1;FF010000;FF01FFFF;0|LPD;UART0;FF000000;FF00FFFF;1|LPD;TTC3;FF140000;FF14FFFF;0|LPD;TTC2;FF130000;FF13FFFF;0|LPD;TTC1;FF120000;FF12FFFF;0|LPD;TTC0;FF110000;FF11FFFF;1|FPD;SWDT1;FD4D0000;FD4DFFFF;0|LPD;SWDT0;FF150000;FF15FFFF;0|LPD;SPI1;FF050000;FF05FFFF;0|LPD;SPI0;FF040000;FF04FFFF;0|FPD;SMMU_REG;FD5F0000;FD5FFFFF;1|FPD;SMMU;FD800000;FDFFFFFF;1|FPD;SIOU;F
 D3D0000;FD3DFFFF;1|FPD;SERDES;FD400000;FD47FFFF;1|LPD;SD1;FF170000;FF17FFFF;1|LPD;SD0;FF160000;FF16FFFF;1|FPD;SATA;FD0C0000;FD0CFFFF;0|LPD;RTC;FFA60000;FFA6FFFF;1|LPD;RSA_CORE;FFCE0000;FFCEFFFF;1|LPD;RPU;FF9A0000;FF9AFFFF;1|LPD;R5_TCM_RAM_GLOBAL;FFE00000;FFE3FFFF;1|LPD;R5_1_Instruction_Cache;FFEC0000;FFECFFFF;1|LPD;R5_1_Data_Cache;FFED0000;FFEDFFFF;1|LPD;R5_1_BTCM_GLOBAL;FFEB0000;FFEBFFFF;1|LPD;R5_1_ATCM_GLOBAL;FFE90000;FFE9FFFF;1|LPD;R5_0_Instruction_Cache;FFE40000;FFE4FFFF;1|LPD;R5_0_Data_Cach
 e;FFE50000;FFE5FFFF;1|LPD;R5_0_BTCM_GLOBAL;FFE20000;FFE2FFFF;1|LPD;R5_0_ATCM_GLOBAL;FFE00000;FFE0FFFF;1|LPD;QSPI_Linear_Address;C0000000;DFFFFFFF;1|LPD;QSPI;FF0F0000;FF0FFFFF;1|LPD;PMU_RAM;FFDC0000;FFDDFFFF;1|LPD;PMU_GLOBAL;FFD80000;FFDBFFFF;1|FPD;PCIE_MAIN;FD0E0000;FD0EFFFF;0|FPD;PCIE_LOW;E0000000;EFFFFFFF;0|FPD;PCIE_HIGH2;8000000000;BFFFFFFFFF;0|FPD;PCIE_HIGH1;600000000;7FFFFFFFF;0|FPD;PCIE_DMA;FD0F0000;FD0FFFFF;0|FPD;PCIE_ATTRIB;FD480000;FD48FFFF;0|LPD;OCM_XMPU_CFG;FFA70000;FFA7FFFF;1|LPD;OCM
 _SLCR;FF960000;FF96FFFF;1|OCM;OCM;FFFC0000;FFFFFFFF;1|LPD;NAND;FF100000;FF10FFFF;0|LPD;MBISTJTAG;FFCF0000;FFCFFFFF;1|LPD;LPD_XPPU_SINK;FF9C0000;FF9CFFFF;1|LPD;LPD_XPPU;FF980000;FF98FFFF;1|LPD;LPD_SLCR_SECURE;FF4B0000;FF4DFFFF;1|LPD;LPD_SLCR;FF410000;FF4AFFFF;1|LPD;LPD_GPV;FE100000;FE1FFFFF;1|LPD;LPD_DMA_7;FFAF0000;FFAFFFFF;1|LPD;LPD_DMA_6;FFAE0000;FFAEFFFF;1|LPD;LPD_DMA_5;FFAD0000;FFADFFFF;1|LPD;LPD_DMA_4;FFAC0000;FFACFFFF;1|LPD;LPD_DMA_3;FFAB0000;FFABFFFF;1|LPD;LPD_DMA_2;FFAA0000;FFAAFFFF;1|LPD
-;LPD_DMA_1;FFA90000;FFA9FFFF;1|LPD;LPD_DMA_0;FFA80000;FFA8FFFF;1|LPD;IPI_CTRL;FF380000;FF3FFFFF;1|LPD;IOU_SLCR;FF180000;FF23FFFF;1|LPD;IOU_SECURE_SLCR;FF240000;FF24FFFF;1|LPD;IOU_SCNTRS;FF260000;FF26FFFF;1|LPD;IOU_SCNTR;FF250000;FF25FFFF;1|LPD;IOU_GPV;FE000000;FE0FFFFF;1|LPD;I2C1;FF030000;FF03FFFF;1|LPD;I2C0;FF020000;FF02FFFF;1|FPD;GPU;FD4B0000;FD4BFFFF;0|LPD;GPIO;FF0A0000;FF0AFFFF;1|LPD;GEM3;FF0E0000;FF0EFFFF;1|LPD;GEM2;FF0D0000;FF0DFFFF;0|LPD;GEM1;FF0C0000;FF0CFFFF;0|LPD;GEM0;FF0B0000;FF0BFFFF
+;LPD_DMA_1;FFA90000;FFA9FFFF;1|LPD;LPD_DMA_0;FFA80000;FFA8FFFF;1|LPD;IPI_CTRL;FF380000;FF3FFFFF;1|LPD;IOU_SLCR;FF180000;FF23FFFF;1|LPD;IOU_SECURE_SLCR;FF240000;FF24FFFF;1|LPD;IOU_SCNTRS;FF260000;FF26FFFF;1|LPD;IOU_SCNTR;FF250000;FF25FFFF;1|LPD;IOU_GPV;FE000000;FE0FFFFF;1|LPD;I2C1;FF030000;FF03FFFF;1|LPD;I2C0;FF020000;FF02FFFF;1|FPD;GPU;FD4B0000;FD4BFFFF;0|LPD;GPIO;FF0A0000;FF0AFFFF;1|LPD;GEM3;FF0E0000;FF0EFFFF;0|LPD;GEM2;FF0D0000;FF0DFFFF;0|LPD;GEM1;FF0C0000;FF0CFFFF;0|LPD;GEM0;FF0B0000;FF0BFFFF
 ;1|FPD;FPD_XMPU_SINK;FD4F0000;FD4FFFFF;1|FPD;FPD_XMPU_CFG;FD5D0000;FD5DFFFF;1|FPD;FPD_SLCR_SECURE;FD690000;FD6CFFFF;1|FPD;FPD_SLCR;FD610000;FD68FFFF;1|FPD;FPD_DMA_CH7;FD570000;FD57FFFF;1|FPD;FPD_DMA_CH6;FD560000;FD56FFFF;1|FPD;FPD_DMA_CH5;FD550000;FD55FFFF;1|FPD;FPD_DMA_CH4;FD540000;FD54FFFF;1|FPD;FPD_DMA_CH3;FD530000;FD53FFFF;1|FPD;FPD_DMA_CH2;FD520000;FD52FFFF;1|FPD;FPD_DMA_CH1;FD510000;FD51FFFF;1|FPD;FPD_DMA_CH0;FD500000;FD50FFFF;1|LPD;EFUSE;FFCC0000;FFCCFFFF;1|FPD;Display Port;FD4A0000;FD4AF
 FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DDR_XMPU4_CFG;FD040000;FD04FFFF;1|FPD;DDR_XMPU3_CFG;FD030000;FD03FFFF;1|FPD;DDR_XMPU2_CFG;FD020000;FD02FFFF;1|FPD;DDR_XMPU1_CFG;FD010000;FD01FFFF;1|FPD;DDR_XMPU0_CFG;FD000000;FD00FFFF;1|FPD;DDR_QOS_CTRL;FD090000;FD09FFFF;1|FPD;DDR_PHY;FD080000;FD08FFFF;1|DDR;DDR_LOW;0;7FFFFFFF;1|DDR;DDR_HIGH;800000000;800000000;0|FPD;DDDR_CTRL;FD070000;FD070FFF;1|LPD;Coresight;FE800000;FEFFFFFF;1|LPD;CSU_DMA;FFC80000;FFC9FFFF;1|LPD;CSU
 ;FFCA0000;FFCAFFFF;1|LPD;CRL_APB;FF5E0000;FF85FFFF;1|FPD;CRF_APB;FD1A0000;FD2DFFFF;1|FPD;CCI_REG;FD5E0000;FD5EFFFF;1|LPD;CAN1;FF070000;FF07FFFF;0|LPD;CAN0;FF060000;FF06FFFF;0|FPD;APU;FD5C0000;FD5CFFFF;1|LPD;APM_INTC_IOU;FFA20000;FFA2FFFF;1|LPD;APM_FPD_LPD;FFA30000;FFA3FFFF;1|FPD;APM_5;FD490000;FD49FFFF;1|FPD;APM_0;FD0B0000;FD0BFFFF;1|LPD;APM2;FFA10000;FFA1FFFF;1|LPD;APM1;FFA00000;FFA0FFFF;1|LPD;AMS;FFA50000;FFA5FFFF;1|FPD;AFI_5;FD3B0000;FD3BFFFF;1|FPD;AFI_4;FD3A0000;FD3AFFFF;1|FPD;AFI_3;FD390000
@@ -68411,14 +68422,14 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_TREE_PERIPHERALS</spirit:name>
       <spirit:displayName>PSU MIO TREE PERIPHERALS</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_TREE_PERIPHERALS" spirit:choiceRef="choice_list_44945da6">Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Feedback Clk#GPIO0 MIO#GPIO0 MIO#GPIO0 MIO#I2C 0#I2C 0#GPIO0 MIO#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#GPIO0 MIO#GPIO0 MIO#GPIO0 MIO#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#UART 0#UART 0#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#SD 1#SD 1#SD 1#SD 1#SD 1#SD 1#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#Gem 3#Gem 3#Gem 3
-#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#Gem 3#MDIO 0#MDIO 0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_TREE_PERIPHERALS" spirit:choiceRef="choice_list_44945da6">Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Quad SPI Flash#Feedback Clk#GPIO0 MIO#GPIO0 MIO#GPIO0 MIO#I2C 0#I2C 0#GPIO0 MIO#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#GPIO0 MIO#GPIO0 MIO#GPIO0 MIO#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#Gem 0#UART 0#UART 0#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#GPIO1 MIO#SD 1#SD 1#SD 1#SD 1#SD 1#SD 1#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 0#USB 1#USB 1#USB 1
+#USB 1#USB 1#USB 1#USB 1#USB 1#USB 1#USB 1#USB 1#USB 1#MDIO 0#MDIO 0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_TREE_SIGNALS</spirit:name>
       <spirit:displayName>PSU MIO TREE SIGNALS</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_TREE_SIGNALS" spirit:choiceRef="choice_list_44945da6">sclk_out#miso_mo1#mo2#mo3#mosi_mi0#n_ss_out#clk_for_lpbk#gpio0[7]#gpio0[8]#gpio0[9]#scl_out#sda_out#gpio0[12]#sdio0_data_out[0]#sdio0_data_out[1]#sdio0_data_out[2]#sdio0_data_out[3]#sdio0_data_out[4]#sdio0_data_out[5]#sdio0_data_out[6]#sdio0_data_out[7]#sdio0_cmd_out#sdio0_clk_out#gpio0[23]#gpio0[24]#gpio0[25]#rgmii_tx_clk#rgmii_txd[0]#rgmii_txd[1]#rgmii_txd[2]#rgmii_txd[3]#rgmii_tx_ctl#rgmii_rx_clk#rgmii_rxd[0]#rgmii_rxd[1]#rgmii_rxd[2]#rgmii_rxd[3]#rgmii_rx_ctl#rxd#txd#gpio1[40]#gpio1[41]#gpio
-1[42]#gpio1[43]#gpio1[44]#gpio1[45]#sdio1_data_out[0]#sdio1_data_out[1]#sdio1_data_out[2]#sdio1_data_out[3]#sdio1_cmd_out#sdio1_clk_out#ulpi_clk_in#ulpi_dir#ulpi_tx_data[2]#ulpi_nxt#ulpi_tx_data[0]#ulpi_tx_data[1]#ulpi_stp#ulpi_tx_data[3]#ulpi_tx_data[4]#ulpi_tx_data[5]#ulpi_tx_data[6]#ulpi_tx_data[7]#rgmii_tx_clk#rgmii_txd[0]#rgmii_txd[1]#rgmii_txd[2]#rgmii_txd[3]#rgmii_tx_ctl#rgmii_rx_clk#rgmii_rxd[0]#rgmii_rxd[1]#rgmii_rxd[2]#rgmii_rxd[3]#rgmii_rx_ctl#gem0_mdc#gem0_mdio_out</spirit:value>
+1[42]#gpio1[43]#gpio1[44]#gpio1[45]#sdio1_data_out[0]#sdio1_data_out[1]#sdio1_data_out[2]#sdio1_data_out[3]#sdio1_cmd_out#sdio1_clk_out#ulpi_clk_in#ulpi_dir#ulpi_tx_data[2]#ulpi_nxt#ulpi_tx_data[0]#ulpi_tx_data[1]#ulpi_stp#ulpi_tx_data[3]#ulpi_tx_data[4]#ulpi_tx_data[5]#ulpi_tx_data[6]#ulpi_tx_data[7]#ulpi_clk_in#ulpi_dir#ulpi_tx_data[2]#ulpi_nxt#ulpi_tx_data[0]#ulpi_tx_data[1]#ulpi_stp#ulpi_tx_data[3]#ulpi_tx_data[4]#ulpi_tx_data[5]#ulpi_tx_data[6]#ulpi_tx_data[7]#gem0_mdc#gem0_mdio_out</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_PERIPHERAL_BOARD_PRESET</spirit:name>
@@ -70894,19 +70905,12 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU__USB1__PERIPHERAL__ENABLE</spirit:name>
       <spirit:displayName>USB 1</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB1__PERIPHERAL__ENABLE" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB1__PERIPHERAL__ENABLE" spirit:choiceRef="choice_list_8af5a703">1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__USB1__PERIPHERAL__IO</spirit:name>
       <spirit:displayName>USB1 IO</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB1__PERIPHERAL__IO" spirit:choiceRef="choice_list_9a396946">&lt;Select></spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__USB1__PERIPHERAL__IO">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB1__PERIPHERAL__IO" spirit:choiceRef="choice_list_595495a9">MIO 64 .. 75</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__USB1__RESET__ENABLE</spirit:name>
@@ -70945,26 +70949,12 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU__USB3_1__PERIPHERAL__ENABLE</spirit:name>
       <spirit:displayName>USB 3.0</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB3_1__PERIPHERAL__ENABLE" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__USB3_1__PERIPHERAL__ENABLE">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB3_1__PERIPHERAL__ENABLE" spirit:choiceRef="choice_list_8af5a703">1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__USB3_1__PERIPHERAL__IO</spirit:name>
       <spirit:displayName>USB1 IO</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB3_1__PERIPHERAL__IO" spirit:choiceRef="choice_list_af0b273a">&lt;Select></spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__USB3_1__PERIPHERAL__IO">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB3_1__PERIPHERAL__IO" spirit:choiceRef="choice_list_4860fff5">GT Lane3</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__USB3_0__EMIO__ENABLE</spirit:name>
@@ -70980,25 +70970,11 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
       <spirit:name>PSU__USB3_1__EMIO__ENABLE</spirit:name>
       <spirit:displayName>Enable V Bus Port</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB3_1__EMIO__ENABLE" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__USB3_1__EMIO__ENABLE">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__USB2_1__EMIO__ENABLE</spirit:name>
       <spirit:displayName>Enable Hub Port</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB2_1__EMIO__ENABLE" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__USB2_1__EMIO__ENABLE">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__USE__USB3_0_HUB</spirit:name>
@@ -74487,12 +74463,19 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_64_PULLUPDOWN</spirit:name>
       <spirit:displayName>PSU MIO 64 PULLUPDOWN</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_64_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">disable</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_64_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">pullup</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_64_DRIVE_STRENGTH</spirit:name>
       <spirit:displayName>PSU MIO 64 DRIVE0</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_64_DRIVE_STRENGTH" spirit:choiceRef="choice_list_dd25daf4">12</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_64_DRIVE_STRENGTH">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_64_POLARITY</spirit:name>
@@ -74509,24 +74492,24 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_64_INPUT_TYPE</spirit:name>
       <spirit:displayName>PSU MIO 64 INPUT TYPE</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_64_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">cmos</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_64_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">schmitt</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>PSU_MIO_64_SLEW</spirit:name>
+      <spirit:displayName>PSU MIO 64 SLEW</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_64_SLEW" spirit:choiceRef="choice_list_86458347">fast</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_64_INPUT_TYPE">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_64_SLEW">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PSU_MIO_64_SLEW</spirit:name>
-      <spirit:displayName>PSU MIO 64 SLEW</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_64_SLEW" spirit:choiceRef="choice_list_86458347">slow</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
       <spirit:name>PSU_MIO_64_DIRECTION</spirit:name>
       <spirit:displayName>PSU MIO 64 DIRECTION</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_64_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">out</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_64_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">in</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -74538,12 +74521,19 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_65_PULLUPDOWN</spirit:name>
       <spirit:displayName>PSU MIO 65 PULLUPDOWN</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_65_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">disable</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_65_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">pullup</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_65_DRIVE_STRENGTH</spirit:name>
       <spirit:displayName>PSU MIO 65 DRIVE0</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_65_DRIVE_STRENGTH" spirit:choiceRef="choice_list_dd25daf4">12</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_65_DRIVE_STRENGTH">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_65_POLARITY</spirit:name>
@@ -74560,24 +74550,24 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_65_INPUT_TYPE</spirit:name>
       <spirit:displayName>PSU MIO 65 INPUT TYPE</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_65_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">cmos</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_65_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">schmitt</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>PSU_MIO_65_SLEW</spirit:name>
+      <spirit:displayName>PSU MIO 65 SLEW</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_65_SLEW" spirit:choiceRef="choice_list_86458347">fast</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_65_INPUT_TYPE">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_65_SLEW">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PSU_MIO_65_SLEW</spirit:name>
-      <spirit:displayName>PSU MIO 65 SLEW</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_65_SLEW" spirit:choiceRef="choice_list_86458347">slow</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
       <spirit:name>PSU_MIO_65_DIRECTION</spirit:name>
       <spirit:displayName>PSU MIO 65 DIRECTION</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_65_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">out</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_65_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">in</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -74589,7 +74579,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_66_PULLUPDOWN</spirit:name>
       <spirit:displayName>PSU MIO 66 PULLUPDOWN</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_66_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">disable</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_66_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">pullup</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_66_DRIVE_STRENGTH</spirit:name>
@@ -74611,14 +74601,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_66_INPUT_TYPE</spirit:name>
       <spirit:displayName>PSU MIO 66 INPUT TYPE</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_66_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">cmos</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_66_INPUT_TYPE">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_66_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">schmitt</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_66_SLEW</spirit:name>
@@ -74628,7 +74611,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_66_DIRECTION</spirit:name>
       <spirit:displayName>PSU MIO 66 DIRECTION</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_66_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">out</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_66_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">inout</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -74640,12 +74623,19 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_67_PULLUPDOWN</spirit:name>
       <spirit:displayName>PSU MIO 67 PULLUPDOWN</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_67_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">disable</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_67_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">pullup</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_67_DRIVE_STRENGTH</spirit:name>
       <spirit:displayName>PSU MIO 67 DRIVE0</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_67_DRIVE_STRENGTH" spirit:choiceRef="choice_list_dd25daf4">12</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_67_DRIVE_STRENGTH">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_67_POLARITY</spirit:name>
@@ -74662,24 +74652,24 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_67_INPUT_TYPE</spirit:name>
       <spirit:displayName>PSU MIO 67 INPUT TYPE</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_67_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">cmos</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_67_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">schmitt</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>PSU_MIO_67_SLEW</spirit:name>
+      <spirit:displayName>PSU MIO 67 SLEW</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_67_SLEW" spirit:choiceRef="choice_list_86458347">fast</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_67_INPUT_TYPE">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_67_SLEW">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PSU_MIO_67_SLEW</spirit:name>
-      <spirit:displayName>PSU MIO 67 SLEW</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_67_SLEW" spirit:choiceRef="choice_list_86458347">slow</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
       <spirit:name>PSU_MIO_67_DIRECTION</spirit:name>
       <spirit:displayName>PSU MIO 67 DIRECTION</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_67_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">out</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_67_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">in</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -74691,7 +74681,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_68_PULLUPDOWN</spirit:name>
       <spirit:displayName>PSU MIO 68 PULLUPDOWN</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_68_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">disable</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_68_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">pullup</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_68_DRIVE_STRENGTH</spirit:name>
@@ -74713,14 +74703,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_68_INPUT_TYPE</spirit:name>
       <spirit:displayName>PSU MIO 68 INPUT TYPE</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_68_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">cmos</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_68_INPUT_TYPE">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_68_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">schmitt</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_68_SLEW</spirit:name>
@@ -74730,7 +74713,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_68_DIRECTION</spirit:name>
       <spirit:displayName>PSU MIO 68 DIRECTION</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_68_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">out</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_68_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">inout</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -74742,7 +74725,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_69_PULLUPDOWN</spirit:name>
       <spirit:displayName>PSU MIO 69 PULLUPDOWN</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_69_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">disable</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_69_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">pullup</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_69_DRIVE_STRENGTH</spirit:name>
@@ -74764,14 +74747,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_69_INPUT_TYPE</spirit:name>
       <spirit:displayName>PSU MIO 69 INPUT TYPE</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_69_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">cmos</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_69_INPUT_TYPE">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_69_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">schmitt</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_69_SLEW</spirit:name>
@@ -74781,7 +74757,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_69_DIRECTION</spirit:name>
       <spirit:displayName>PSU MIO 69 DIRECTION</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_69_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">out</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_69_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">inout</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -74793,19 +74769,12 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_70_PULLUPDOWN</spirit:name>
       <spirit:displayName>PSU MIO 70 PULLUPDOWN</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_70_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">disable</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_70_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">pullup</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_70_DRIVE_STRENGTH</spirit:name>
       <spirit:displayName>PSU MIO 70 DRIVE0</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_70_DRIVE_STRENGTH" spirit:choiceRef="choice_list_dd25daf4">12</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_70_DRIVE_STRENGTH">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_70_POLARITY</spirit:name>
@@ -74822,24 +74791,24 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_70_INPUT_TYPE</spirit:name>
       <spirit:displayName>PSU MIO 70 INPUT TYPE</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_70_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">schmitt</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>PSU_MIO_70_SLEW</spirit:name>
-      <spirit:displayName>PSU MIO 70 SLEW</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_70_SLEW" spirit:choiceRef="choice_list_86458347">fast</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_70_INPUT_TYPE" spirit:choiceRef="choice_list_c1d99ced">cmos</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_70_SLEW">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_70_INPUT_TYPE">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
+      <spirit:name>PSU_MIO_70_SLEW</spirit:name>
+      <spirit:displayName>PSU MIO 70 SLEW</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_70_SLEW" spirit:choiceRef="choice_list_86458347">slow</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
       <spirit:name>PSU_MIO_70_DIRECTION</spirit:name>
       <spirit:displayName>PSU MIO 70 DIRECTION</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_70_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">in</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_70_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">out</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -74851,19 +74820,12 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_71_PULLUPDOWN</spirit:name>
       <spirit:displayName>PSU MIO 71 PULLUPDOWN</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_71_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">disable</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_71_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">pullup</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_71_DRIVE_STRENGTH</spirit:name>
       <spirit:displayName>PSU MIO 71 DRIVE0</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_71_DRIVE_STRENGTH" spirit:choiceRef="choice_list_dd25daf4">12</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_71_DRIVE_STRENGTH">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_71_POLARITY</spirit:name>
@@ -74885,19 +74847,12 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_71_SLEW</spirit:name>
       <spirit:displayName>PSU MIO 71 SLEW</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_71_SLEW" spirit:choiceRef="choice_list_86458347">fast</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_71_SLEW">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_71_SLEW" spirit:choiceRef="choice_list_86458347">slow</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_71_DIRECTION</spirit:name>
       <spirit:displayName>PSU MIO 71 DIRECTION</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_71_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">in</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_71_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">inout</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -74909,19 +74864,12 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_72_PULLUPDOWN</spirit:name>
       <spirit:displayName>PSU MIO 72 PULLUPDOWN</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_72_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">disable</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_72_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">pullup</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_72_DRIVE_STRENGTH</spirit:name>
       <spirit:displayName>PSU MIO 72 DRIVE0</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_72_DRIVE_STRENGTH" spirit:choiceRef="choice_list_dd25daf4">12</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_72_DRIVE_STRENGTH">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_72_POLARITY</spirit:name>
@@ -74943,19 +74891,12 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_72_SLEW</spirit:name>
       <spirit:displayName>PSU MIO 72 SLEW</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_72_SLEW" spirit:choiceRef="choice_list_86458347">fast</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_72_SLEW">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_72_SLEW" spirit:choiceRef="choice_list_86458347">slow</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_72_DIRECTION</spirit:name>
       <spirit:displayName>PSU MIO 72 DIRECTION</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_72_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">in</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_72_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">inout</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -74967,19 +74908,12 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_73_PULLUPDOWN</spirit:name>
       <spirit:displayName>PSU MIO 73 PULLUPDOWN</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_73_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">disable</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_73_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">pullup</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_73_DRIVE_STRENGTH</spirit:name>
       <spirit:displayName>PSU MIO 73 DRIVE0</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_73_DRIVE_STRENGTH" spirit:choiceRef="choice_list_dd25daf4">12</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_73_DRIVE_STRENGTH">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_73_POLARITY</spirit:name>
@@ -75001,19 +74935,12 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_73_SLEW</spirit:name>
       <spirit:displayName>PSU MIO 73 SLEW</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_73_SLEW" spirit:choiceRef="choice_list_86458347">fast</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_73_SLEW">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_73_SLEW" spirit:choiceRef="choice_list_86458347">slow</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_73_DIRECTION</spirit:name>
       <spirit:displayName>PSU MIO 73 DIRECTION</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_73_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">in</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_73_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">inout</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -75025,19 +74952,12 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_74_PULLUPDOWN</spirit:name>
       <spirit:displayName>PSU MIO 74 PULLUPDOWN</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_74_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">disable</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_74_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">pullup</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_74_DRIVE_STRENGTH</spirit:name>
       <spirit:displayName>PSU MIO 74 DRIVE0</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_74_DRIVE_STRENGTH" spirit:choiceRef="choice_list_dd25daf4">12</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_74_DRIVE_STRENGTH">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_74_POLARITY</spirit:name>
@@ -75059,19 +74979,12 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_74_SLEW</spirit:name>
       <spirit:displayName>PSU MIO 74 SLEW</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_74_SLEW" spirit:choiceRef="choice_list_86458347">fast</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_74_SLEW">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_74_SLEW" spirit:choiceRef="choice_list_86458347">slow</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_74_DIRECTION</spirit:name>
       <spirit:displayName>PSU MIO 74 DIRECTION</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_74_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">in</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_74_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">inout</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -75083,19 +74996,12 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_75_PULLUPDOWN</spirit:name>
       <spirit:displayName>PSU MIO 75 PULLUPDOWN</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_75_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">disable</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_75_PULLUPDOWN" spirit:choiceRef="choice_list_fc7696ee">pullup</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_75_DRIVE_STRENGTH</spirit:name>
       <spirit:displayName>PSU MIO 75 DRIVE0</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_75_DRIVE_STRENGTH" spirit:choiceRef="choice_list_dd25daf4">12</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_75_DRIVE_STRENGTH">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_75_POLARITY</spirit:name>
@@ -75117,19 +75023,12 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU_MIO_75_SLEW</spirit:name>
       <spirit:displayName>PSU MIO 75 SLEW</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_75_SLEW" spirit:choiceRef="choice_list_86458347">fast</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU_MIO_75_SLEW">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_75_SLEW" spirit:choiceRef="choice_list_86458347">slow</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU_MIO_75_DIRECTION</spirit:name>
       <spirit:displayName>PSU MIO 75 DIRECTION</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_75_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">in</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU_MIO_75_DIRECTION" spirit:choiceRef="choice_list_95a9da0c">inout</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -75777,7 +75676,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU__CRL_APB__PL1_REF_CTRL__DIVISOR0</spirit:name>
       <spirit:displayName>PL1 DIV0</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__PL1_REF_CTRL__DIVISOR0" spirit:choiceRef="choice_list_efecb9ff">20</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__PL1_REF_CTRL__DIVISOR0" spirit:choiceRef="choice_list_efecb9ff">10</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -77317,7 +77216,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU__CRL_APB__PL1_REF_CTRL__ACT_FREQMHZ</spirit:name>
       <spirit:displayName>ACT PL1</spirit:displayName>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__PL1_REF_CTRL__ACT_FREQMHZ" spirit:minimum="-2" spirit:maximum="-1">49.999500</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__PL1_REF_CTRL__ACT_FREQMHZ" spirit:minimum="-2" spirit:maximum="-1">99.999001</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__CRL_APB__PL2_REF_CTRL__ACT_FREQMHZ</spirit:name>
@@ -77392,7 +77291,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU__CRL_APB__USB1_BUS_REF_CTRL__ACT_FREQMHZ</spirit:name>
       <spirit:displayName>ACT USB1</spirit:displayName>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__USB1_BUS_REF_CTRL__ACT_FREQMHZ" spirit:minimum="-2" spirit:maximum="-1">250</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__USB1_BUS_REF_CTRL__ACT_FREQMHZ" spirit:minimum="-2" spirit:maximum="-1">249.997498</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__CRL_APB__QSPI_REF_CTRL__ACT_FREQMHZ</spirit:name>
@@ -77636,7 +77535,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU__CRL_APB__PL1_REF_CTRL__FREQMHZ</spirit:name>
       <spirit:displayName>PL1</spirit:displayName>
-      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__PL1_REF_CTRL__FREQMHZ" spirit:minimum="0.000000" spirit:maximum="1600.000000">50</spirit:value>
+      <spirit:value spirit:format="float" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__CRL_APB__PL1_REF_CTRL__FREQMHZ" spirit:minimum="0.000000" spirit:maximum="1600.000000">100</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__CRL_APB__PL2_REF_CTRL__FREQMHZ</spirit:name>
@@ -78843,7 +78742,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.PSU__IRQ_P2F_ENT3__INT" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PSU__ENET3__PERIPHERAL__ENABLE)) = 1)">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.PSU__IRQ_P2F_ENT3__INT" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PSU__ENET3__PERIPHERAL__ENABLE)) = 1)">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
@@ -78855,7 +78754,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.PSU__IRQ_P2F_ENT3_WAKEUP__INT" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PSU__ENET3__PERIPHERAL__ENABLE)) = 1)">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.PSU__IRQ_P2F_ENT3_WAKEUP__INT" xilinx:dependency="(spirit:decode(id(PARAM_VALUE.PSU__ENET3__PERIPHERAL__ENABLE)) = 1)">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
@@ -79061,7 +78960,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU__NUM_F2P0__INTR__INPUTS</spirit:name>
       <spirit:displayName>PL-PS number of intrupts</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__NUM_F2P0__INTR__INPUTS" spirit:minimum="0" spirit:maximum="8" spirit:rangeType="long">2</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__NUM_F2P0__INTR__INPUTS" spirit:minimum="0" spirit:maximum="8" spirit:rangeType="long">3</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -79362,6 +79261,13 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
       <spirit:name>PSU__GEM3_ROUTE_THROUGH_FPD</spirit:name>
       <spirit:displayName>PSU GEM3 SMMU OPTION</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__GEM3_ROUTE_THROUGH_FPD" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__GEM3_ROUTE_THROUGH_FPD">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__RPU_COHERENCY</spirit:name>
@@ -79401,13 +79307,6 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
       <spirit:name>PSU__USB1_COHERENCY</spirit:name>
       <spirit:displayName>PSU USB1 COHERENCY</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__USB1_COHERENCY" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
-      <spirit:vendorExtensions>
-        <xilinx:parameterInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__USB1_COHERENCY">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:parameterInfo>
-      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__LPDMA0_COHERENCY</spirit:name>
@@ -79509,6 +79408,13 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
       <spirit:name>PSU__ENET3__TSU__ENABLE</spirit:name>
       <spirit:displayName>GEM 3 TSU Enable</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__ENET3__TSU__ENABLE" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__ENET3__TSU__ENABLE">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__TSU__BUFG_PORT_PAIR</spirit:name>
@@ -79553,6 +79459,13 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
       <spirit:name>PSU__GEM3_COHERENCY</spirit:name>
       <spirit:displayName>PSU GEM3 COHERENCY</spirit:displayName>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__GEM3_COHERENCY" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
+      <spirit:vendorExtensions>
+        <xilinx:parameterInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:id="PARAM_ENABLEMENT.PSU__GEM3_COHERENCY">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:parameterInfo>
+      </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PSU__AFI0_COHERENCY</spirit:name>
@@ -79615,7 +79528,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU__M_AXI_GP2__FREQMHZ</spirit:name>
       <spirit:displayName>M AXI GP2 FREQMHZ</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__M_AXI_GP2__FREQMHZ">49.9995</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__M_AXI_GP2__FREQMHZ">99.999001</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -79627,7 +79540,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
     <spirit:parameter>
       <spirit:name>PSU__S_AXI_GP0__FREQMHZ</spirit:name>
       <spirit:displayName>S AXI GP0 FREQMHZ</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__S_AXI_GP0__FREQMHZ">199.998001</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.PSU__S_AXI_GP0__FREQMHZ">99.999001</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -79914,6 +79827,42 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC0_FPD_ACLK.FREQ_HZ" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC0_FPD_ACLK.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC0_FPD_ACLK.PHASE" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.ADDR_WIDTH" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.ARUSER_WIDTH" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.AWUSER_WIDTH" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.BUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.CLK_DOMAIN" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.DATA_WIDTH" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.FREQ_HZ" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_BRESP" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_BURST" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_CACHE" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_LOCK" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_PROT" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_QOS" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_REGION" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_RRESP" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.HAS_WSTRB" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.ID_WIDTH" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.MAX_BURST_LENGTH" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.NUM_READ_OUTSTANDING" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.NUM_READ_THREADS" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.NUM_WRITE_OUTSTANDING" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.NUM_WRITE_THREADS" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.PHASE" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.PROTOCOL" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.READ_WRITE_MODE" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.RUSER_BITS_PER_BYTE" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.RUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.SUPPORTS_NARROW_BURST" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.WUSER_BITS_PER_BYTE" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD.WUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD_ACLK.ASSOCIATED_BUSIF" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD_ACLK.ASSOCIATED_RESET" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD_ACLK.CLK_DOMAIN" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD_ACLK.FREQ_HZ" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD_ACLK.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_HPC1_FPD_ACLK.PHASE" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CAN0_BOARD_INTERFACE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CAN1_BOARD_INTERFACE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.CSU_BOARD_INTERFACE" xilinx:valueSource="user"/>
@@ -81353,6 +81302,9 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB0__RESET__ENABLE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB1_COHERENCY" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB1__PERIPHERAL__ENABLE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB1__PERIPHERAL__IO" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB1__REF_CLK_FREQ" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB1__REF_CLK_SEL" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB1__RESET__ENABLE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB2_0__EMIO__ENABLE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB2_1__EMIO__ENABLE" xilinx:valueSource="user"/>
@@ -81361,6 +81313,7 @@ FFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD050000;FD05FFFF;1|FPD;DD
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB3_0__PERIPHERAL__IO" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB3_1__EMIO__ENABLE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB3_1__PERIPHERAL__ENABLE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB3_1__PERIPHERAL__IO" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB__RESET__MODE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USB__RESET__POLARITY" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PSU__USE_DIFF_RW_CLK_GP0" xilinx:valueSource="user"/>

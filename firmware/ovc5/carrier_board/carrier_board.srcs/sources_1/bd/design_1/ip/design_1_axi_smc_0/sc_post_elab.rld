@@ -49,7 +49,7 @@
 /config/ip/num_si/value=2
 /config/ip/num_mi/value=1
 /config/ip/num_clks/value=1
-/config/aclk/csk/value=design_1_zynq_ultra_ps_e_0_1_pl_clk0:199:0.000
+/config/aclk/csk/value=design_1_zynq_ultra_ps_e_0_1_pl_clk1:99:0.000
 /clocking/S00_Entry/ASSOCIATED_CLK/value=aclk;range=aclk;editable=0
 /clocking/S01_Entry/ASSOCIATED_CLK/value=aclk;range=aclk;editable=0
 /clocking/M00_Exit/ASSOCIATED_CLK/value=aclk;range=aclk;editable=0

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x1A00C48D04250C65",
+      "boundary_crc": "0xFF8348C3DD7A91FF",
       "design_src": "SBD",
       "device": "xczu4cg-fbvb900-1-e",
       "name": "bd_115c",
@@ -27,11 +27,11 @@
         "vlnv": "xilinx.com:interface:axis_rtl:1.0",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "design_1_zynq_ultra_ps_e_0_1_pl_clk0",
+            "value": "design_1_zynq_ultra_ps_e_0_1_pl_clk1",
             "value_src": "default_prop"
           },
           "FREQ_HZ": {
-            "value": "199998001",
+            "value": "99999001",
             "value_src": "user_prop"
           },
           "HAS_TKEEP": {
@@ -63,7 +63,7 @@
             "value_src": "default"
           },
           "TDATA_NUM_BYTES": {
-            "value": "2",
+            "value": "6",
             "value_src": "auto"
           },
           "TDEST_WIDTH": {
@@ -117,7 +117,7 @@
             "value_src": "default"
           },
           "FREQ_HZ": {
-            "value": "156250000.0",
+            "value": "137500000.0",
             "value_src": "ip"
           },
           "FREQ_TOLERANCE_HZ": {
@@ -188,11 +188,11 @@
             "value": "video_aresetn"
           },
           "CLK_DOMAIN": {
-            "value": "design_1_zynq_ultra_ps_e_0_1_pl_clk0",
+            "value": "design_1_zynq_ultra_ps_e_0_1_pl_clk1",
             "value_src": "default_prop"
           },
           "FREQ_HZ": {
-            "value": "199998001",
+            "value": "99999001",
             "value_src": "user_prop"
           },
           "FREQ_TOLERANCE_HZ": {
@@ -304,7 +304,7 @@
             "value": "false"
           },
           "C_CSI_OPT2_CRC": {
-            "value": "false"
+            "value": "true"
           },
           "C_CSI_OPT3_FIXEDLANES": {
             "value": "true"
@@ -319,7 +319,7 @@
             "value": "false"
           },
           "C_HS_LINE_RATE": {
-            "value": "1250"
+            "value": "1100"
           },
           "C_IS_7SERIES": {
             "value": "false"
@@ -382,10 +382,10 @@
             "value": "true"
           },
           "C_HS_LINE_RATE": {
-            "value": "1250"
+            "value": "1100"
           },
           "C_HS_SETTLE_NS": {
-            "value": "143"
+            "value": "144"
           },
           "C_HS_TIMEOUT": {
             "value": "65541"
@@ -433,7 +433,7 @@
             "value": "64"
           },
           "C_HS_LINE_RATE": {
-            "value": "1250"
+            "value": "1100"
           },
           "VFB_DATA_TYPE": {
             "value": "RAW12"
@@ -448,7 +448,7 @@
             "value": "0"
           },
           "VFB_OP_PIXELS": {
-            "value": "1"
+            "value": "4"
           },
           "VFB_TU_WIDTH": {
             "value": "1"
@@ -460,16 +460,16 @@
       }
     },
     "interface_nets": {
-      "phy_rx_mipi_ppi_if": {
-        "interface_ports": [
-          "phy/rx_mipi_ppi_if",
-          "rx/rx_mipi_ppi_if"
-        ]
-      },
       "rx_m_axis": {
         "interface_ports": [
           "rx/m_axis",
           "vfb_0/s_axis"
+        ]
+      },
+      "vfb_0_m_vfb": {
+        "interface_ports": [
+          "video_out",
+          "vfb_0/m_vfb"
         ]
       },
       "mipi_phy_if_1": {
@@ -478,10 +478,10 @@
           "phy/rx_mipi_phy_if"
         ]
       },
-      "vfb_0_m_vfb": {
+      "phy_rx_mipi_ppi_if": {
         "interface_ports": [
-          "video_out",
-          "vfb_0/m_vfb"
+          "phy/rx_mipi_ppi_if",
+          "rx/rx_mipi_ppi_if"
         ]
       }
     },

@@ -2,21 +2,13 @@
 <Root MajorVersion="0" MinorVersion="39">
   <CompositeFile CompositeFileTopName="design_1" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1613374131"/>
-    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1613374131"/>
-    <Generation Name="SIMULATION" State="RESET" Timestamp="1613374131"/>
-    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1613374131"/>
+    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1614649641"/>
+    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1614649641"/>
+    <Generation Name="SIMULATION" State="RESET" Timestamp="1614649641"/>
+    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1614649641"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/design_1_zynq_ultra_ps_e_0_1/design_1_zynq_ultra_ps_e_0_1.xci" Type="IP">
         <Instance HierarchyPath="zynq_ultra_ps_e_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip/design_1_rst_ps8_0_99M_1/design_1_rst_ps8_0_99M_1.xci" Type="IP">
-        <Instance HierarchyPath="rst_ps8_0_200M"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -55,24 +47,8 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/design_1_axis_subset_converter_0_0/design_1_axis_subset_converter_0_0.xci" Type="IP">
-        <Instance HierarchyPath="axis_subset_converter_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip/design_1_axis_subset_converter_0_1/design_1_axis_subset_converter_0_1.xci" Type="IP">
-        <Instance HierarchyPath="axis_subset_converter_1"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
       <File Name="ip/design_1_axi_vdma_0_1/design_1_axi_vdma_0_1.xci" Type="IP">
-        <Instance HierarchyPath="axi_vdma_1"/>
+        <Instance HierarchyPath="axi_vdma_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -88,7 +64,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/design_1_axi_vdma_1_0/design_1_axi_vdma_1_0.xci" Type="IP">
-        <Instance HierarchyPath="axi_vdma_2"/>
+        <Instance HierarchyPath="axi_vdma_1"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -96,7 +72,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/design_1_mipi_csi2_rx_subsyst_0_0/design_1_mipi_csi2_rx_subsyst_0_0.xci" Type="IP">
-        <Instance HierarchyPath="mipi_csi2_rx_subsyst_0"/>
+        <Instance HierarchyPath="mipi_csi2_rx_subsyst_1"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -104,7 +80,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/design_1_mipi_csi2_rx_subsyst_1_0/design_1_mipi_csi2_rx_subsyst_1_0.xci" Type="IP">
-        <Instance HierarchyPath="mipi_csi2_rx_subsyst_1"/>
+        <Instance HierarchyPath="mipi_csi2_rx_subsyst_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -128,7 +104,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/design_1_rst_ps8_0_49M_1/design_1_rst_ps8_0_49M_1.xci" Type="IP">
-        <Instance HierarchyPath="rst_ps8_0_50M"/>
+        <Instance HierarchyPath="rst_ps8_0_100M"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -136,7 +112,95 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/design_1_axi_timer_0_0/design_1_axi_timer_0_0.xci" Type="IP">
-        <Instance HierarchyPath="axi_timer_0"/>
+        <Instance HierarchyPath="trigger_timer_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_axi_timer_1_0/design_1_axi_timer_1_0.xci" Type="IP">
+        <Instance HierarchyPath="main_line_counter_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0.xci" Type="IP">
+        <Instance HierarchyPath="line_end_inverter"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_c_counter_binary_0_0/design_1_c_counter_binary_0_0.xci" Type="IP">
+        <Instance HierarchyPath="fs_ms_counter_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_util_vector_logic_1_0/design_1_util_vector_logic_1_0.xci" Type="IP">
+        <Instance HierarchyPath="util_vector_logic_1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_util_vector_logic_2_0/design_1_util_vector_logic_2_0.xci" Type="IP">
+        <Instance HierarchyPath="fs_inverter"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_ms_counter_0_0/design_1_ms_counter_0_0.xci" Type="IP">
+        <Instance HierarchyPath="fe_ms_counter_1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_util_vector_logic_2_1/design_1_util_vector_logic_2_1.xci" Type="IP">
+        <Instance HierarchyPath="fe_inverter"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_util_vector_logic_1_1/design_1_util_vector_logic_1_1.xci" Type="IP">
+        <Instance HierarchyPath="util_vector_logic_4"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_fs_ms_counter_0_0/design_1_fs_ms_counter_0_0.xci" Type="IP">
+        <Instance HierarchyPath="trigger_ms_counter_1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_util_vector_logic_1_2/design_1_util_vector_logic_1_2.xci" Type="IP">
+        <Instance HierarchyPath="util_vector_logic_2"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/design_1_util_vector_logic_0_1/design_1_util_vector_logic_0_1.xci" Type="IP">
+        <Instance HierarchyPath="trigger_probe_inverter"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

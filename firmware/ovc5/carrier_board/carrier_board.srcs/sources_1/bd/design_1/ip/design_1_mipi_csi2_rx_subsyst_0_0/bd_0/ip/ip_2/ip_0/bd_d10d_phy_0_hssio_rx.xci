@@ -952,7 +952,7 @@ RX sig_type DIFF data_strb Data data_strb_org Data sig_name data_rxn0 loc AH11}<
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.GROUP_SIG_TYPE3">NONE</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.HSSIO_VALIDATE">high_speed_selectio_wiz_v3_6</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.INIT_VAL">1</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.MIPI_RX_DATA_SPEED">1250</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.MIPI_RX_DATA_SPEED">1100</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.OUTPUT_IMPEDANCE">RDRV_NONE_NONE</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.OVERRIDE_DELAY_VALUES">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PLL0_CLK_SOURCE">BUFG_TO_PLL</spirit:configurableElementValue>
