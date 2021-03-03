@@ -1,0 +1,81 @@
+(kicad_sch (version 20210126) (generator eeschema)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (sheet (at 25.4 76.2) (size 25.4 10.16)
+    (stroke (width 0.001) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid 92d08bfd-5b09-42ab-ba86-582fd462a51f)
+    (property "Sheet name" "Cameras" (id 0) (at 25.4 75.5641 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "cameras.kicad_sch" (id 1) (at 25.4 86.8689 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+  )
+
+  (sheet (at 25.4 40.64) (size 25.4 10.16)
+    (stroke (width 0.001) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid f2479ac7-05bb-4709-bcc4-cc20f2c95b97)
+    (property "Sheet name" "Enclustra module" (id 0) (at 25.4 40.0041 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "enclustra_module.kicad_sch" (id 1) (at 25.4 51.3089 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+  )
+
+  (sheet (at 25.4 58.42) (size 25.4 10.16)
+    (stroke (width 0.001) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid 97cd8b0a-5a57-42f6-a995-6609484d34c3)
+    (property "Sheet name" "USB" (id 0) (at 25.4 57.7841 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "usb.kicad_sch" (id 1) (at 25.4 69.0889 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/" (page "2"))
+    (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/" (page "3"))
+    (path "/92d08bfd-5b09-42ab-ba86-582fd462a51f/" (page "4"))
+  )
+
+  (symbol_instances
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/da4cf55b-1742-4c5e-9dd8-298ad1417ba8"
+      (reference "J1") (unit 1) (value "USB_C_Receptacle") (footprint "USB:USB_C_Receptacle_Wurth_632723300011")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/2c5c4df9-c8be-41c6-b850-01c279891cf2"
+      (reference "U2") (unit 1) (value "CYUSB43x7") (footprint "USB:BGA-192_14x14_12.0x12.0mm")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/7f91a74b-aff7-4c22-b751-d2f51fcecf67"
+      (reference "U2") (unit 2) (value "CYUSB43x7") (footprint "USB:BGA-192_14x14_12.0x12.0mm")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/7e6bc854-bde5-481c-9d3d-49741ea1fe1f"
+      (reference "U2") (unit 3) (value "CYUSB43x7") (footprint "USB:BGA-192_14x14_12.0x12.0mm")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/70ad256b-4888-479c-97ae-9c8867642bb8"
+      (reference "U5") (unit 1) (value "USB3_A_Dual_Stacked") (footprint "Connectors_OSRF:USB3_A_Dual_Stacked")
+    )
+    (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/2891cee4-4fd2-4003-b1f3-0e5e5a44e8d2"
+      (reference "U1") (unit 1) (value "Mercury_XU5_4CG-4EV-5EV") (footprint "Enclustra:Mercury_XU5")
+    )
+    (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/9d4e8530-801f-46ea-b39d-766efd6122c0"
+      (reference "U1") (unit 2) (value "Mercury_XU5_4CG-4EV-5EV") (footprint "Enclustra:Mercury_XU5")
+    )
+    (path "/92d08bfd-5b09-42ab-ba86-582fd462a51f/10922c98-060d-49b2-9a7c-fd552b82c4f1"
+      (reference "U3") (unit 1) (value "PICAM_Expandable") (footprint "Connectors_OSRF:AMPHENOL_SFW15R+SFW21R")
+    )
+    (path "/92d08bfd-5b09-42ab-ba86-582fd462a51f/851a1b16-6e6a-4b59-a9a4-d7bd4de9d1a7"
+      (reference "U4") (unit 1) (value "PICAM_Expandable") (footprint "Connectors_OSRF:AMPHENOL_SFW15R+SFW21R")
+    )
+  )
+)
