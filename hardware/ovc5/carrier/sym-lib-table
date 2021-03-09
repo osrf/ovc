@@ -1,5 +1,10 @@
 (sym_lib_table
-  (lib (name "usb_controller")(type "KiCad")(uri "/home/luca/hw/osrf_hw/kicad_libraries/usb_controller.kicad_sym")(options "")(descr ""))
+  (lib (name "usb_controller")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/usb_controller.kicad_sym")(options "")(descr ""))
   (lib (name "enclustra")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/enclustra.kicad_sym")(options "")(descr ""))
-  (lib (name "Connectors_OSRF")(type "KiCad")(uri "/home/luca/hw/osrf_hw/kicad_libraries/connectors.kicad_sym")(options "")(descr ""))
+  (lib (name "Connectors_OSRF")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/connectors.kicad_sym")(options "")(descr ""))
+  (lib (name "power_mux")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/power_mux.lib")(options "")(descr ""))
+  (lib (name "DCDC_Converters")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/DCDC_Converters.kicad_sym")(options "")(descr ""))
+  (lib (name "memory_eeprom")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/memory_eeprom.kicad_sym")(options "")(descr ""))
+  (lib (name "ethernet")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/ethernet.lib")(options "")(descr ""))
+  (lib (name "level_shifter")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/level_shifter.lib")(options "")(descr ""))
 )
