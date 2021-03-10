@@ -1654,7 +1654,7 @@
     (property "Value" "10p" (id 1) (at 227.33 41.91 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (id 2) (at 224.79 40.64 0)
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (id 2) (at 224.79 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 224.79 40.64 0)
