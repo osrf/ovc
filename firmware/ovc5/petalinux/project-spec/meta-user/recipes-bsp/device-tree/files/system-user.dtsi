@@ -1,0 +1,234 @@
+/include/ "system-conf.dtsi"
+/ {
+	model = "Enclustra ME-XU9-4CG-1E-D11E SOM";
+
+  reserved-memory {
+    #address-cells = <2>;
+    #size-cells = <2>;
+    ranges;
+
+    reserved: framebuffer@0x70000000 {
+       no-map;
+       reg = <0x0 0x70000000 0x0 0x10000000>;
+    };
+  };
+
+  reserved-driver@0 {
+    compatible = "xlnx,reserved-memory";
+    memory-region = <&reserved>;
+  };
+
+  // Video pipeline
+  /*
+  axi_video_cap {
+      compatible = "xlnx,video";
+      dmas = <&axi_vdma_2 1>;
+      dma-names = "port0";
+    
+      ports {
+          #address-cells = <1>;
+          #size-cells = <0>;
+    
+          port@0 {
+              reg = <0>;
+              direction = "input";
+              vcap0_in0: endpoint {
+                  remote-endpoint = <&mipi_csi2_rx_subsyst_0>;
+              };
+          };
+      };
+  };
+  */
+
+
+  // I2C mux
+  i2cmux {
+    compatible = "i2c-mux-gpio";
+    #address-cells = <1>;
+    #size-cells = <0>;
+    mux-gpios = <&gpio 78 0>; // pin in index 0
+    i2c-parent = <&i2c1>;
+
+    // Cam 0
+    i2c@0 {
+      #address-cells = <1>;
+      #size-cells = <0>;
+			//compatible = "cdns,i2c-r1p14\0cdns,i2c-r1p10";
+			//status = "okay";
+      reg = <0>;
+    };
+
+    // Cam 1
+    i2c@1 {
+      #address-cells = <1>;
+      #size-cells = <0>;
+			//compatible = "cdns,i2c-r1p14\0cdns,i2c-r1p10";
+			//status = "okay";
+      reg = <1>;
+    };
+  };
+  udmabuf@0 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam0_0";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@1 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam0_1";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@2 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam0_2";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@3 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam0_3";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@4 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam1_0";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@5 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam1_1";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@6 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam1_2";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@7 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam1_3";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+/*
+  amba {
+
+    timer@ff120000 {
+      status = "okay";
+      compatible = "generic-uio";  
+      /delete-property/power-domains;
+    };
+
+  };
+*/
+
+};
+#include "zynqmp_enclustra_common.dtsi"
+#include "zynqmp_enclustra_mercury_st1.dtsi"
+#include "zynqmp_enclustra_mercury_xu9.dtsi"
+
+/*
+&mipi_csi2_rx_subsyst_0
+{
+  mipi_csi_portsmipi_csi2_rx_subsyst_0: ports {
+    #address-cells = <1>;
+    #size-cells = <0>;
+    mipi_csi_port0mipi_csi2_rx_subsyst_0: port@0 {
+      mipi_csirx_outmipi_csi2_rx_subsyst_0: endpoint {
+        // Fix the label being wrong in pl.dtsi
+        remote-endpoint = <&axi_vdma_2>;
+      };
+    };
+  };
+};
+*/
+
+/*
+&v_proc_ss_o
+{
+  csc_portsv_proc_ss_0: ports {
+    #address-cells = <1>;
+    #size-cells = <0>;
+    csc_port1v_proc_ss_0: port@1 {
+      reg = <1>;
+      xlnx,video-format = <3>;
+      xlnx,video-width = <12>;
+      csc_outv_proc_ss_0: endpoint {
+        remote-endpoint = <&axi_vdma_2>;
+      };
+    };
+  };
+};
+
+&v_proc_ss_1
+{
+  csc_portsv_proc_ss_1: ports {
+    #address-cells = <1>;
+    #size-cells = <0>;
+    csc_port1v_proc_ss_1: port@1 {
+      reg = <1>;
+      xlnx,video-format = <3>;
+      xlnx,video-width = <12>;
+      csc_outv_proc_ss_1: endpoint {
+        remote-endpoint = <&axi_vdma_1>;
+      };
+    };
+  };
+};
+*/
+
+/*
+&v_frmbuf_wr_0
+{
+  reset-gpios = <&gpio 79 1>; // pin in index 1
+};
+*/
+
+/*
+&axi_vdma_3 {
+  compatible = "generic-uio";  
+};
+*/
+
+&axi_vdma_0 {
+  compatible = "generic-uio";  
+};
+
+&axi_vdma_1 {
+  compatible = "generic-uio";  
+};
+
+&trigger_timer_0 {
+  compatible = "generic-uio";  
+};
+
+&main_line_counter_0 {
+  compatible = "generic-uio";  
+};
+
+/*
+&mipi_csi2_rx_subsyst_0 {
+  compatible = "generic-uio";  
+};
+*/

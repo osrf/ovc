@@ -1,0 +1,21 @@
+From 44237121df933e2ff0f5d455ace05aaa1329997c Mon Sep 17 00:00:00 2001
+From: OpenEmbedded <oe.patch@oe>
+Date: Tue, 9 Feb 2021 08:58:29 +0000
+
+---
+ drivers/net/phy/micrel_ksz90x1.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/phy/micrel_ksz90x1.c b/drivers/net/phy/micrel_ksz90x1.c
+index 355a7d8e97..c0c87b86f1 100644
+--- a/drivers/net/phy/micrel_ksz90x1.c
++++ b/drivers/net/phy/micrel_ksz90x1.c
+@@ -127,7 +127,7 @@ static int ksz90x1_of_config_group(struct phy_device *phydev,
+ 		} else {
+ 			changed = 1;	/* Value was changed in OF */
+ 			/* Calculate the register value and fix corner cases */
+-			if (val[i] > ps_to_regval * 0xf) {
++			if (val[i] > ps_to_regval * ((1 << ofcfg->grp[i].size) - 1 )) {
+ 				max = (1 << ofcfg->grp[i].size) - 1;
+ 				regval |= max << offset;
+ 			} else {

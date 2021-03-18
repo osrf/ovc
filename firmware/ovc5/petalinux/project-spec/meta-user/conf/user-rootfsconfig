@@ -1,0 +1,10 @@
+#Note: Mention Each package in individual line
+#These packages will get added into rootfs menu entry
+
+CONFIG_gpio-demo
+CONFIG_peekpoke
+CONFIG_iperf3
+CONFIG_memtester
+CONFIG_phytool
+CONFIG_kernel-devsrc
+CONFIG_udmabuf

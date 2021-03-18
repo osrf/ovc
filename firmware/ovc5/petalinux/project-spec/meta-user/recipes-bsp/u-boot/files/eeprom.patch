@@ -1,0 +1,338 @@
+From 0f87e1d219c84b85c9fe565b7a4aa214a7b67710 Mon Sep 17 00:00:00 2001
+From: OpenEmbedded <oe.patch@oe>
+Date: Tue, 9 Feb 2021 08:58:30 +0000
+
+---
+ board/xilinx/common/enclustra.c | 95 ++++++++++++++++++++++++++++++++
+ board/xilinx/zynqmp/Makefile    |  2 +
+ common/board_r.c                |  6 +++
+ drivers/misc/Kconfig            |  3 ++
+ drivers/misc/Makefile           |  1 +
+ drivers/misc/atsha204a-i2c.c    |  6 +--
+ drivers/misc/eeprom-mac.c       | 96 +++++++++++++++++++++++++++++++++
+ include/enclustra/eeprom-mac.h  |  8 +++
+ include/init.h                  |  2 +
+ 9 files changed, 216 insertions(+), 3 deletions(-)
+ create mode 100644 board/xilinx/common/enclustra.c
+ create mode 100644 drivers/misc/eeprom-mac.c
+ create mode 100644 include/enclustra/eeprom-mac.h
+
+diff --git a/board/xilinx/common/enclustra.c b/board/xilinx/common/enclustra.c
+new file mode 100644
+index 0000000000..fa05f770f8
+--- /dev/null
++++ b/board/xilinx/common/enclustra.c
+@@ -0,0 +1,95 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * (C) Copyright 2020 Enclustra GmbH
++ */
++
++#include <common.h>
++#include <env.h>
++#include <enclustra/eeprom-mac.h>
++
++#define ENCLUSTRA_MAC               0xF7B020
++
++/* Default MAC address */
++#define ENCLUSTRA_ETHADDR_DEFAULT "00:0A:35:01:02:03"
++#define ENCLUSTRA_ETH1ADDR_DEFAULT "00:0A:35:01:02:04"
++
++static struct eeprom_mem eeproms[] = {
++	{ .mac_reader = atsha204_get_mac },
++	{ .mac_reader = ds28_get_mac }
++};
++
++int enclustra_common(void)
++{
++	int i;
++	u8 hwaddr[6] = {0, 0, 0, 0, 0, 0};
++	u32 hwaddr_h;
++	char hwaddr_str[18];
++	bool hwaddr_set = false;
++	
++#if defined(CONFIG_ENCLUSTRA_EEPROM_MAC)
++
++	if (!env_get("ethaddr")) {
++		for (i = 0; i < ARRAY_SIZE(eeproms); i++) {
++			if (eeproms[i].mac_reader(hwaddr))
++				continue;
++
++			/* Workaround for incorrect MAC address caused by
++			 * flashing to EEPROM addresses like 20:B0:F0:XX:XX:XX
++			 * instead of 20:B0:F7:XX:XX:XX
++			 */
++			hwaddr[2] = (hwaddr[2] == 0xF0) ? 0xF7 : hwaddr[2];
++
++			/* Check if the value is a valid mac registered for
++			 * Enclustra  GmbH
++			 */
++			hwaddr_h = hwaddr[0] | hwaddr[1] << 8 | hwaddr[2] << 16;
++			if ((hwaddr_h & 0xFFFFFF) != ENCLUSTRA_MAC)
++				continue;
++
++			/* Format the address using a string */
++			sprintf(hwaddr_str,
++				"%02X:%02X:%02X:%02X:%02X:%02X",
++				hwaddr[0],
++				hwaddr[1],
++				hwaddr[2],
++				hwaddr[3],
++				hwaddr[4],
++				hwaddr[5]);
++
++			/* Set the actual env variable */
++			env_set("ethaddr", hwaddr_str);
++			
++#if !defined(ENCLUSTRA_MARS_ZX) || !defined(ENCLUSTRA_MARS_ZX2) || !defined(ENCLUSTRA_MERCURY_ZX)
++			/* increment MAC addr */
++			hwaddr_h = (hwaddr[3] << 16) | (hwaddr[4] << 8) | hwaddr[5];
++			hwaddr_h = (hwaddr_h + 1) & 0xFFFFFF;
++			hwaddr[3] = (hwaddr_h >> 16) & 0xFF;
++			hwaddr[4] = (hwaddr_h >> 8) & 0xFF;
++			hwaddr[5] = hwaddr_h & 0xFF;
++
++			/* Format the address using a string */
++			sprintf(hwaddr_str,
++				"%02X:%02X:%02X:%02X:%02X:%02X",
++				hwaddr[0],
++				hwaddr[1],
++				hwaddr[2],
++				hwaddr[3],
++				hwaddr[4],
++				hwaddr[5]);
++
++			/* Set the actual env variable */
++			env_set("eth1addr", hwaddr_str);
++#endif
++			hwaddr_set = true;
++			break;
++		}
++
++		if (!hwaddr_set) {
++			env_set("ethaddr", ENCLUSTRA_ETHADDR_DEFAULT);
++			env_set("eth1addr", ENCLUSTRA_ETH1ADDR_DEFAULT);
++		}
++	}
++	return 0;
++#endif
++}
++
+diff --git a/board/xilinx/zynqmp/Makefile b/board/xilinx/zynqmp/Makefile
+index e535fa46ab..64f305c0eb 100644
+--- a/board/xilinx/zynqmp/Makefile
++++ b/board/xilinx/zynqmp/Makefile
+@@ -5,6 +5,8 @@
+ 
+ obj-y	:= zynqmp.o
+ obj-y	+= ../common/board.o
++obj-y	+= ../common/enclustra.o
++obj-$(CONFIG_ENCLUSTRA_QSPI_FLASHMAP)   += zynqmp_enclustra.o
+ 
+ ifneq ($(CONFIG_XILINX_PS_INIT_FILE),"")
+ PS_INIT_FILE := $(shell cd $(srctree); readlink -f $(CONFIG_XILINX_PS_INIT_FILE))
+diff --git a/common/board_r.c b/common/board_r.c
+index 5464172259..44596ea585 100644
+--- a/common/board_r.c
++++ b/common/board_r.c
+@@ -805,6 +805,12 @@ static init_fnc_t init_sequence_r[] = {
+ #ifdef CONFIG_BOARD_LATE_INIT
+ 	board_late_init,
+ #endif
++#if defined(CONFIG_ZYNQ_QSPI) || defined(CONFIG_ENCLUSTRA_QSPI_FLASHMAP)
++	enclustra_board,
++#endif
++#ifdef CONFIG_ENCLUSTRA_EEPROM_MAC
++	enclustra_common,
++#endif
+ #if defined(CONFIG_SCSI) && !defined(CONFIG_DM_SCSI)
+ 	INIT_FUNC_WATCHDOG_RESET
+ 	initr_scsi,
+diff --git a/drivers/misc/Kconfig b/drivers/misc/Kconfig
+index 82bb093c56..d5d275fac2 100644
+--- a/drivers/misc/Kconfig
++++ b/drivers/misc/Kconfig
+@@ -313,6 +313,9 @@ config QFW
+ 	  Hidden option to enable QEMU fw_cfg interface. This will be selected by
+ 	  either CONFIG_CMD_QFW or CONFIG_GENERATE_ACPI_TABLE.
+ 
++config ENCLUSTRA_EEPROM_MAC
++	bool "Enable support for reading MAC address from EEPROM"
++
+ config I2C_EEPROM
+ 	bool "Enable driver for generic I2C-attached EEPROMs"
+ 	depends on MISC
+diff --git a/drivers/misc/Makefile b/drivers/misc/Makefile
+index 55976d6be5..e001e9df3f 100644
+--- a/drivers/misc/Makefile
++++ b/drivers/misc/Makefile
+@@ -30,6 +30,7 @@ obj-$(CONFIG_ALTERA_SYSID) += altera_sysid.o
+ obj-$(CONFIG_ATSHA204A) += atsha204a-i2c.o
+ obj-$(CONFIG_CBMEM_CONSOLE) += cbmem_console.o
+ obj-$(CONFIG_DS4510)  += ds4510.o
++obj-$(CONFIG_ENCLUSTRA_EEPROM_MAC) += eeprom-mac.o
+ obj-$(CONFIG_FSL_DEVICE_DISABLE) += fsl_devdis.o
+ obj-$(CONFIG_FSL_IFC) += fsl_ifc.o
+ obj-$(CONFIG_FSL_IIM) += fsl_iim.o
+diff --git a/drivers/misc/atsha204a-i2c.c b/drivers/misc/atsha204a-i2c.c
+index 116c0661e7..5f717f5107 100644
+--- a/drivers/misc/atsha204a-i2c.c
++++ b/drivers/misc/atsha204a-i2c.c
+@@ -237,10 +237,10 @@ int atsha204a_wakeup(struct udevice *dev)
+ 		}
+ 
+ 		debug("success\n");
+-		break;
++		return 0;
+ 	}
+ 
+-	return 0;
++	return -ETIMEDOUT;
+ }
+ 
+ int atsha204a_idle(struct udevice *dev)
+@@ -277,6 +277,7 @@ static int atsha204a_transaction(struct udevice *dev, struct atsha204a_req *req,
+ 	}
+ 
+ 	do {
++		udelay(ATSHA204A_EXECTIME);
+ 		res = atsha204a_recv_resp(dev, resp);
+ 		if (!res || res == -EMSGSIZE || res == -EBADMSG)
+ 			break;
+@@ -284,7 +285,6 @@ static int atsha204a_transaction(struct udevice *dev, struct atsha204a_req *req,
+ 		debug("ATSHA204A transaction polling for response "
+ 		      "(timeout = %d)\n", timeout);
+ 
+-		udelay(ATSHA204A_EXECTIME);
+ 		timeout -= ATSHA204A_EXECTIME;
+ 	} while (timeout > 0);
+ 
+diff --git a/drivers/misc/eeprom-mac.c b/drivers/misc/eeprom-mac.c
+new file mode 100644
+index 0000000000..ccf811794e
+--- /dev/null
++++ b/drivers/misc/eeprom-mac.c
+@@ -0,0 +1,96 @@
++#include <common.h>
++#include <linux/compat.h>
++#include <dm.h>
++#include <i2c.h>
++#include <enclustra/eeprom-mac.h>
++#include <atsha204a-i2c.h>
++
++static int i2c_get_device(uint chip_addr, int alen, struct udevice **devp)
++{
++	struct dm_i2c_chip *chip;
++	int ret;
++
++	ret = i2c_get_chip_for_busnum(CONFIG_SYS_I2C_EEPROM_BUS, chip_addr,
++				      alen, devp);
++	if (ret)
++		return ret;
++
++	chip = dev_get_parent_platdata(*devp);
++	if (chip->offset_len != alen) {
++		printf("I2C chip %x: requested alen %d does not match chip "
++		       "offset_len %d\n", chip_addr, alen, chip->offset_len);
++		return -EADDRNOTAVAIL;
++	}
++
++	return 0;
++}
++
++static struct udevice *get_atsha204a_dev(void)
++{
++	static struct udevice *dev;
++
++	if (uclass_get_device_by_name(UCLASS_MISC, "atsha204a@64", &dev)) {
++		debug("Cannot find ATSHA204A on I2C bus!\n");
++		dev = NULL;
++	}
++
++	return dev;
++}
++
++int ds28_get_mac(u8 *buffer)
++{
++	int ret;
++	struct udevice *dev;
++
++	ret = i2c_get_device(DS28_I2C_ADDR, 1, &dev);
++	if (ret != 0)
++		return ret;
++
++	return dm_i2c_read(dev,
++		   0x10,
++		   buffer,
++		   6);
++}
++EXPORT_SYMBOL_GPL(ds28_get_mac);
++
++int atsha204_get_mac(u8 *buffer)
++{
++	int ret;
++	u8 data[4];
++	u8 i;
++	struct udevice *dev = get_atsha204a_dev();
++
++	if (!dev)
++		return -ENODEV;
++
++#ifdef CONFIG_ATSHA204A
++	ret = atsha204a_wakeup(dev);
++
++	if (ret)
++		return ret;
++
++	ret = atsha204a_read(dev, ATSHA204A_ZONE_OTP, false,
++			     4, data);
++
++	if (ret) {
++		return ret;
++	} else {
++		for (i = 0; i < 4; i++)
++			buffer[i] = data[i];
++	}
++
++	ret = atsha204a_read(dev, ATSHA204A_ZONE_OTP, false,
++			     5, data);
++	if (ret) {
++		return ret;
++	} else {
++		buffer[4] = data[0];
++		buffer[5] = data[1];
++	}
++
++	atsha204a_sleep(dev);
++#endif
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(atsha204_get_mac);
+diff --git a/include/enclustra/eeprom-mac.h b/include/enclustra/eeprom-mac.h
+new file mode 100644
+index 0000000000..37fec23378
+--- /dev/null
++++ b/include/enclustra/eeprom-mac.h
+@@ -0,0 +1,8 @@
++#define DS28_I2C_ADDR 0x5C
++
++struct eeprom_mem {
++    int (*mac_reader)(u8 *buffer);
++};
++
++int ds28_get_mac(u8 *buffer);
++int atsha204_get_mac(u8 *buffer);
+diff --git a/include/init.h b/include/init.h
+index 8b65b2afe4..d71ca9f9c5 100644
+--- a/include/init.h
++++ b/include/init.h
+@@ -202,6 +202,8 @@ int board_early_init_f(void);
+ /* manipulate the U-Boot fdt before its relocation */
+ int board_fix_fdt(void *rw_fdt_blob);
+ int board_late_init(void);
++int enclustra_board(void);
++int enclustra_common(void);
+ int board_postclk_init(void); /* after clocks/timebase, before env/serial */
+ int board_early_init_r(void);
+ 

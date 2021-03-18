@@ -1,0 +1,62 @@
+/ {
+	aliases {
+		ethernet0 = &gem0;
+		ethernet1 = &gem3;
+		i2c0 = &i2c0;
+		serial0 = &uart0;
+		spi0 = &qspi;
+		timer1 = "/amba/timer@ff120000";
+	};
+};
+
+&gem0 {
+	status = "okay";
+	local-mac-address = [00 0a 35 00 02 90];
+	phy-mode = "rgmii-id";
+	phy-handle = <&phy0>;
+	phy0: phy@3 {
+		reg = <3>;
+
+		txc-skew-ps = <1800>;
+		txen-skew-ps = <420>;
+
+		txd0-skew-ps = <420>;
+		txd1-skew-ps = <420>;
+		txd2-skew-ps = <420>;
+		txd3-skew-ps = <420>;
+
+		rxc-skew-ps = <900>;
+		rxdv-skew-ps = <420>;
+
+		rxd0-skew-ps = <420>;
+		rxd1-skew-ps = <420>;
+		rxd2-skew-ps = <420>;
+		rxd3-skew-ps = <420>;		
+	};
+	phy1: phy@7 {
+		reg = <7>;
+
+		txc-skew-ps = <1800>;
+		txen-skew-ps = <420>;
+
+		txd0-skew-ps = <420>;
+		txd1-skew-ps = <420>;
+		txd2-skew-ps = <420>;
+		txd3-skew-ps = <420>;
+
+		rxc-skew-ps = <900>;
+		rxdv-skew-ps = <420>;
+
+		rxd0-skew-ps = <420>;
+		rxd1-skew-ps = <420>;
+		rxd2-skew-ps = <420>;
+		rxd3-skew-ps = <420>;		
+	};
+};
+
+&gem3 {
+	status = "disabled";
+	local-mac-address = [00 0a 35 00 02 91];
+	phy-handle = <&phy1>;
+	phy-mode = "rgmii-id";
+};
