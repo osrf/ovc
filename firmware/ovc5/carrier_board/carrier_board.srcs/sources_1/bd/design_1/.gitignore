@@ -2,6 +2,7 @@ sim/
 synth/
 ipshared/
 hw_handoff/
+ip/
 
 *.bda
 *.xdc
