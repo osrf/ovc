@@ -1,0 +1,7 @@
+sim/
+synth/
+ipshared/
+hw_handoff/
+
+*.bda
+*.xdc
