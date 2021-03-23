@@ -752,6 +752,15 @@
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/adfc2ccf-248d-4d25-8325-323e9c3c2c5e"
       (reference "#PWR0336") (unit 1) (value "GND") (footprint "")
     )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/dec0f725-44f1-4e72-b378-9bfeacf67f31"
+      (reference "#PWR0375") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/ecd65d56-21c0-46a0-b8bb-7ac89dc6e548"
+      (reference "#PWR0376") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/8fe03255-656b-4b8f-9584-14df8a18cb32"
+      (reference "#PWR0379") (unit 1) (value "GND") (footprint "")
+    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/894641eb-fde2-46f9-aa3a-36aa94c69920"
       (reference "C1") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0402_1005Metric")
     )
@@ -1030,6 +1039,9 @@
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/8e769a1c-9951-412e-8a19-fd34b726de44"
       (reference "R44") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0402_1005Metric")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/8c516f18-6ae3-46dc-878e-480e0adb6e8c"
+      (reference "R56") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/2c5c4df9-c8be-41c6-b850-01c279891cf2"
       (reference "U2") (unit 1) (value "CYUSB43x7") (footprint "USB:BGA-192_14x14_12.0x12.0mm")
@@ -1342,6 +1354,12 @@
     )
     (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/5f1ea719-8662-46c9-9118-c9417e754072"
       (reference "#PWR0374") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/5d0a312f-b63b-4a6b-9cca-ccd539c8c56e"
+      (reference "#PWR0377") (unit 1) (value "+1V8") (footprint "")
+    )
+    (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/3834c121-bba1-4744-a3a5-2d0d132f97f3"
+      (reference "#PWR0378") (unit 1) (value "+1V8") (footprint "")
     )
     (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/d0c0003f-af77-416f-a319-4cf99879befb"
       (reference "C72") (unit 1) (value "22u") (footprint "Capacitor_SMD:C_0603_1608Metric")
@@ -1713,7 +1731,7 @@
       (reference "R3") (unit 1) (value "348k") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
     (path "/ba427d65-2361-4ee1-a2dd-d0cbbc094b63/34407673-2802-4d67-8632-9d1a31f24ac1"
-      (reference "R4") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0402_1005Metric")
+      (reference "R4") (unit 1) (value "47k") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
     (path "/ba427d65-2361-4ee1-a2dd-d0cbbc094b63/4b6a07b3-fd40-4e7b-bdb7-e4714285aeed"
       (reference "R23") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0402_1005Metric")
