@@ -767,6 +767,9 @@
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/2992da8c-15fe-4313-be22-cdd01010884c"
       (reference "#PWR0381") (unit 1) (value "GND") (footprint "")
     )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/0b0d4135-0f34-45de-b114-86ad1fcb2632"
+      (reference "#PWR0382") (unit 1) (value "GND") (footprint "")
+    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/894641eb-fde2-46f9-aa3a-36aa94c69920"
       (reference "C1") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0402_1005Metric")
     )
@@ -948,13 +951,13 @@
       (reference "C68") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0402_1005Metric")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/7bcb9c82-b1c2-41ec-a316-4b9aa0791e77"
-      (reference "C69") (unit 1) (value "100u") (footprint "Capacitor_SMD:C_1206_3216Metric")
+      (reference "C69") (unit 1) (value "150u") (footprint "Capacitor_SMD:C_Elec_6.3x7.7")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/a73b2c87-d046-4e6c-b184-067a11a7d1d1"
       (reference "C70") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0402_1005Metric")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/f15fc34e-995a-42ed-af9f-9cf4ca202f4f"
-      (reference "C71") (unit 1) (value "100u") (footprint "Capacitor_SMD:C_1206_3216Metric")
+      (reference "C71") (unit 1) (value "150u") (footprint "Capacitor_SMD:C_Elec_6.3x7.7")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/3a8fcb24-2303-434d-b676-2c7dcee3200a"
       (reference "C74") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0402_1005Metric")
@@ -980,6 +983,15 @@
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/8449e23d-8fa4-4949-a309-de6fb84d365d"
       (reference "C82") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0402_1005Metric")
     )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/98170ac9-f622-4a9e-94ab-64fc6f5b6e05"
+      (reference "C101") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0402_1005Metric")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/40e1bb87-2289-49a5-b13f-65a29f9aa782"
+      (reference "C102") (unit 1) (value "2n2") (footprint "Capacitor_SMD:C_0402_1005Metric")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/115ce4ce-7ad0-4397-b4bf-2607f71e1abd"
+      (reference "C103") (unit 1) (value "2n2") (footprint "Capacitor_SMD:C_0402_1005Metric")
+    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/3bdf572e-b2f9-4bca-9831-e32daca9c59f"
       (reference "D3") (unit 1) (value "D_TVS_Dual_AAC") (footprint "USB:TPD2EUSB30x")
     )
@@ -988,6 +1000,12 @@
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/27a91668-41ba-42bc-92c3-903a92ce0a9b"
       (reference "D5") (unit 1) (value "D_TVS_Dual_AAC") (footprint "USB:TPD2EUSB30x")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/bf54ccc1-6cd7-4556-9778-ed8706abb312"
+      (reference "FB1") (unit 1) (value "MH2029-100Y") (footprint "Inductor_SMD:L_0805_2012Metric")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/04b95c4d-5447-4913-8963-d26cb100c1b2"
+      (reference "FB2") (unit 1) (value "MH2029-100Y") (footprint "Inductor_SMD:L_0805_2012Metric")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/da4cf55b-1742-4c5e-9dd8-298ad1417ba8"
       (reference "J1") (unit 1) (value "USB_C_Receptacle") (footprint "USB:USB_C_Receptacle_Wurth_632723300011")
@@ -1051,6 +1069,12 @@
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/05e99db8-6582-4b55-b2d1-a6ad83905ba2"
       (reference "R57") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0402_1005Metric")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/0386337f-69c2-413c-8edb-712a223a50ec"
+      (reference "R58") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0402_1005Metric")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/db75654c-ed06-4954-9863-16a48c5baec9"
+      (reference "R59") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/2c5c4df9-c8be-41c6-b850-01c279891cf2"
       (reference "U2") (unit 1) (value "CYUSB43x7") (footprint "USB:BGA-192_14x14_12.0x12.0mm")
