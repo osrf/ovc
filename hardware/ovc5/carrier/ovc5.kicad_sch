@@ -770,6 +770,9 @@
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/0b0d4135-0f34-45de-b114-86ad1fcb2632"
       (reference "#PWR0382") (unit 1) (value "GND") (footprint "")
     )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/ba48b795-5ed2-4ba5-a145-321da7cbff4b"
+      (reference "#PWR0383") (unit 1) (value "+3V3") (footprint "")
+    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/894641eb-fde2-46f9-aa3a-36aa94c69920"
       (reference "C1") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0402_1005Metric")
     )
@@ -1075,6 +1078,9 @@
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/db75654c-ed06-4954-9863-16a48c5baec9"
       (reference "R59") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0402_1005Metric")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/4a285d74-6ddd-4fe4-8c75-d04eadf2d378"
+      (reference "R60") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/2c5c4df9-c8be-41c6-b850-01c279891cf2"
       (reference "U2") (unit 1) (value "CYUSB43x7") (footprint "USB:BGA-192_14x14_12.0x12.0mm")
@@ -1412,6 +1418,12 @@
     (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/94b65298-e904-404a-844d-c80f347d8ea0"
       (reference "C89") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0402_1005Metric")
     )
+    (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/4c992c40-1f54-4a75-a08d-e93c75888a80"
+      (reference "CONN1") (unit 1) (value "Conn_Dummy") (footprint "")
+    )
+    (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/ae1bb910-9848-44cd-959b-7ec2fc868748"
+      (reference "CONN2") (unit 1) (value "Conn_Dummy") (footprint "")
+    )
     (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/e6ecd438-4d41-4569-8efa-530ee692cbbf"
       (reference "D6") (unit 1) (value "LED_Small") (footprint "LED_SMD:LED_0402_1005Metric")
     )
@@ -1441,12 +1453,6 @@
     )
     (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/9d4e8530-801f-46ea-b39d-766efd6122c0"
       (reference "U1") (unit 2) (value "Mercury_XU5_4CG-4EV-5EV") (footprint "Enclustra:Mercury_XU5")
-    )
-    (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/4c992c40-1f54-4a75-a08d-e93c75888a80"
-      (reference "U19") (unit 1) (value "Conn_Dummy") (footprint "")
-    )
-    (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/ae1bb910-9848-44cd-959b-7ec2fc868748"
-      (reference "U20") (unit 1) (value "Conn_Dummy") (footprint "")
     )
     (path "/92d08bfd-5b09-42ab-ba86-582fd462a51f/cd724f66-9d86-4adc-a1c8-5758596f999d"
       (reference "#PWR0271") (unit 1) (value "GND") (footprint "")
