@@ -1,0 +1,11 @@
+(fp_lib_table
+  (lib (name "Hirose")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/Hirose.pretty")(options "")(descr ""))
+  (lib (name "Enclustra")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/Enclustra.pretty")(options "")(descr ""))
+  (lib (name "USB")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/USB.pretty")(options "")(descr ""))
+  (lib (name "Connectors_OSRF")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/Connectors_OSRF.pretty")(options "")(descr ""))
+  (lib (name "TI")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/TI.pretty")(options "")(descr ""))
+  (lib (name "DCDC")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/DCDC.pretty")(options "")(descr ""))
+  (lib (name "Ethernet")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/Ethernet.pretty")(options "")(descr ""))
+  (lib (name "WQFN")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/WQFN.pretty")(options "")(descr ""))
+  (lib (name "Batteries_OSRF")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_modules/Batteries_OSRF.pretty")(options "")(descr ""))
+)
