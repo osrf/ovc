@@ -255,7 +255,7 @@ Installation instructions are here: http://kicad-pcb.org/download/ubuntu/
 Short version:
 
 ```
-sudo add-apt-repository --yes ppa:js-reynaud/kicad-dev-nightly
+sudo add-apt-repository --yes ppa:kicad/kicad-dev-nightly
 sudo apt update
 sudo apt install kicad-nightly
 ```
