@@ -152,7 +152,7 @@ fi
 target_device=$1
 vitis_project_dir=$2
 
-#format_sd
-#copy_bin
-#install_debian
+format_sd
+copy_bin
+install_debian
 setup_ssh
