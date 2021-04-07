@@ -11,7 +11,7 @@ the art open hardware with open firmware and software. There are a few revs:
  * [ovc2](doc/ovc2a/README.md): two Python1300 imagers, a Jetson TX2 (6x ARMv8, GPU, etc.) connected to a Cyclone 10 GX FPGA over PCIe Gen 2.0 x4
  * ovc3: three ON Semi AR0144CS imagers, USB Type-C peripheral, Trenz TE0820 module with Xilinx Zynq UltraScale+, RAM, flash, etc. Up to four optional external camera boards, each of which add a pair of AR0144CS imagers.
  * ovc4: A Jetson Xavier NX carrier board with an NXP MCU, USB Type-C interface and six Picam compatible connectors.
- * ovc5 (current work): based on Enclustra XU9 (Zynq UltraScale+ module) with up to six external MIPI camera boards. Both Zynq USB SuperSpeed (5 Gbps) transceivers connect to an onboard USB-SS+ (10 Gbps) hub controller IC, which multiplexes them upstream via a USB type-C connector. Also has three Qwiic/STEMMA connectors and some random FPGA GPIO for low-speed expansion.
+ * ovc5 (current work): based on Zynq UltraScale+ modules from Enclustra, with up to six external MIPI camera boards. Both Zynq USB SuperSpeed (5 Gbps) transceivers connect to an onboard USB-SS+ (10 Gbps) hub controller IC, which multiplexes them upstream via a USB type-C connector. Also has three Qwiic/STEMMA connectors and some random FPGA GPIO for low-speed expansion.
 
 # Where do I find stuff
 
