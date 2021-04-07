@@ -1,26 +1,84 @@
 #!/bin/bash
 
-MOUNT_DIR=zynqroot
+set -e  # Exit immediately if a command exits with a non-zero status.
+
+# Mounting Vars
+MOUNT_DIR=/mnt/zynq
+BOOT_DIR=$MOUNT_DIR/boot
+ROOT_DIR=$MOUNT_DIR/root
+
+# System Definition Vars
 TEMP_PWD=temppwd
+HOSTNAME=zynq
+
+FIRMWARE_DIR=$(realpath $PWD/..)/firmware
+# Path to the xsa file exported from Vivado.
+VIVADO_PROJECT=$FIRMWARE_DIR/carrier_board
+XSA_PATH=$VIVADO_PROJECT/design_1_wrapper.xsa
+PETALINUX_DIR=$FIRMWARE_DIR/petalinux
+BOOT_FILES_DIR=$PETALINUX_DIR/images/linux
 
 help () {
   cat << EOF
 This script is meant to set up and SD card to load Debian Buster and the latest
 OVC 5 software/firmware into the eMMC on the OVC 5 hardware.
 
-Dependencies:
-  apt: schroot qemu-user-static debootstrap
-  keyring: ubuntu-archive-keyring.gpg
+THIS WILL INSTALL DEPENDENCIES FROM APT AS IT GOES. MAKE SURE TO REVIEW SCRIPT.
 
-usage: ./install_sd.sh <device_path> <vitis_project_path>
+NOTE: Before running this you will need to generate the bitstream in vivado and
+  export the xsa file. To do this follow the steps below:
 
-  device_path: path to device to install to. This is likely /dev/sdX where X is a
+  1. Open Vivado
+  2. Top Bar: File > Project > Open
+    - $VIVADO_PROJECT/carrier_board.xpr
+  3. Flow Navigator: Program and Debug > Generate Bitstream
+    - Click through the menu without changing defaults. 
+    - This will take a while to complete.
+  4. Top Bar: File > Export > Export Hardware...
+    - 'Output': Include Bitstream
+    - 'Files' should match:
+        $XSA_PATH
+
+usage: ./install_sd.sh <device>
+
+  device: /dev/ device to install to. This is likely \"sdX\" where X is a
     letter. Check with gparted or dmesg to make sure the wrong device is not
     selected (this will re-format the drive so it's preferable to get the right
     device!). Make sure to unmount the drive before running.
-  vitis_project_path: path to Vitis system project. This should be a fully built
-    project off of an xsa export from Vivado. This will be used to grab BOOT.BIN.
 EOF
+}
+
+build_boot_image () {
+  
+  if ! command -v petalinux-boot &> /dev/null
+  then
+    cat << EOF
+Could not find petalinux-boot.
+
+Is petalinux installed? If not, follow these steps:
+  1. Download:
+    https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html
+  2. Install (adjust for version changes):
+    ./petalinux-v2020.2-final-installer.run -d petalinux_sdk/ -p "arm aarch64"
+  3. Source:
+    source petalinux_sdk/settings.sh
+
+If installed, make sure petalinux/settings.sh is sourced.
+
+EOF
+    exit
+  fi
+
+  cp $XSA_PATH $PETALINUX_DIR/system.xsa
+  cd $PETALINUX_DIR
+  petalinux-config --get-hw-description --silentconfig
+  petalinux-build
+  petalinux-package \
+    --boot \
+    --force \
+    --fsbl $BOOT_FILES_DIR/zynq_fsbl.elf \
+    --fpga \
+    --u-boot
 }
 
 format_sd () {
@@ -67,22 +125,36 @@ EOF
   sudo mkfs.ext4 -L root ${target_device}2
 }
 
-copy_bin () {
+umount_drive () {
+  # Unmount boot partition.
+  sudo umount $BOOT_DIR
+  sudo rmdir $BOOT_DIR
+
+  # Unmount root partition.
+  sudo umount $ROOT_DIR
+  sudo rmdir $ROOT_DIR
+
+  # Remove mount directory.
+  sudo rmdir $MOUNT_DIR
+}
+
+mount_drive () {
   # Mount boot partition.
-  sudo mkdir -p /mnt/$MOUNT_DIR
-  sudo mount ${target_device}1 /mnt/$MOUNT_DIR
+  sudo mkdir -p $BOOT_DIR
+  sudo mount ${target_device}1 $BOOT_DIR
 
-  sudo cp $vitis_project_dir/Debug/sd_card/BOOT.BIN /mnt/$MOUNT_DIR
+  # Mount root partition.
+  sudo mkdir -p $ROOT_DIR
+  sudo mount ${target_device}2 $ROOT_DIR
+}
 
-  sudo umount /mnt/$MOUNT_DIR
-  sudo rmdir /mnt/$MOUNT_DIR
+copy_bin () {
+  sudo cp $BOOT_FILES_DIR/BOOT.BIN $BOOT_DIR/boot.bin
+  sudo cp $BOOT_FILES_DIR/image.ub $BOOT_DIR
+  sudo cp $BOOT_FILES_DIR/boot.scr $BOOT_DIR
 }
 
 install_debian () {
-  # Mount root partition.
-  sudo mkdir -p /mnt/$MOUNT_DIR
-  sudo mount ${target_device}2 /mnt/$MOUNT_DIR
-
   sudo apt install qemu-user-static debootstrap debian-archive-keyring schroot
   sudo apt-key add /usr/share/keyrings/debian-archive-keyring.gpg
   # Sets up debian buster arm port on the sd card
@@ -90,26 +162,19 @@ install_debian () {
     --arch=arm64 \
     --keyring /usr/share/keyrings/debian-archive-keyring.gpg \
     --variant=buildd buster \
-    /mnt/$MOUNT_DIR http://ftp.debian.org/debian
-
-  sudo umount /mnt/$MOUNT_DIR
-  sudo rmdir /mnt/$MOUNT_DIR
+    $ROOT_DIR http://ftp.debian.org/debian
 }
 
-setup_ssh () {
-  # Mount root partition.
-  sudo mkdir -p /mnt/$MOUNT_DIR
-  sudo mount ${target_device}2 /mnt/$MOUNT_DIR
-
+setup_userland () {
   echo "[arm64-debian]
 description=Debian Buster (arm64)
-directory=/mnt/$MOUNT_DIR
+directory=$ROOT_DIR
 root-users=root
 users=root
 type=directory" | sudo tee /etc/schroot/chroot.d/arm64-debian
 
-  # Change the nssdatabases file to allow userland to be set up correctly.
-  for attribute in passwd shadow group
+  # Change the nssdatabases file to prevent copying of local userland.
+  for attribute in passwd shadow group services protocols networks hosts
   do
     sudo sed -e "/$attribute/ s/^#*/#/" -i /etc/schroot/default/nssdatabases
   done
@@ -121,6 +186,8 @@ iface lo inet loopback
 iface eth0 inet dhcp"
 
   echo "
+sed -e \"s/$(hostname)/zynq/\" -i /etc/hosts
+hostname zynq
 echo zynq > /etc/hostname
 passwd
 $TEMP_PWD
@@ -139,20 +206,53 @@ Execute and run through (likely using \"158. en_US.UTF-8 UTF-8\"):
 "
 
   sudo schroot -c arm64-debian -u root
-
-  sudo umount /mnt/$MOUNT_DIR
-  sudo rmdir /mnt/$MOUNT_DIR
 }
 
-if [ -z $1 ] || [ -z $2 ] || [ $1 == "-h" ]; then
+if [ -z $1 ] || [ $1 == "-h" ]; then
   help
   exit
 fi
 
-target_device=$1
-vitis_project_dir=$2
+target_device=/dev/$1
 
+if [ -b "$target_device" ]; then
+  echo "Found device \"$target_device\" at $(find /dev/disk/by-id/ -lname "*$1")"
+else
+  echo "It appears that the specified sd card \"$target_device\" is not connected."
+  exit
+fi
+
+echo "
+Using Petalinux to build the sd-card boot image.
+"
+build_boot_image
+
+echo "
+Formating the SD with Boot/Root partitions.
+"
 format_sd
+
+echo "
+Mount the newly made partitions.
+"
+mount_drive
+
+echo "
+Copy in the boot files.
+"
 copy_bin
+
+echo "
+Install debian buster arm64 to root.
+"
 install_debian
-setup_ssh
+
+echo "
+Install/configure userland and set up SSH.
+"
+setup_userland
+
+echo "
+Unmount the SD card.
+"
+umount_drive
