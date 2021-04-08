@@ -8,7 +8,7 @@ BOOT_DIR=$MOUNT_DIR/boot
 ROOT_DIR=$MOUNT_DIR/root
 
 # System Definition Vars
-TEMP_PWD=temppwd
+TEMP_PASSWORD=temppwd
 HOSTNAME=zynq
 
 FIRMWARE_DIR=$(realpath $PWD/..)/firmware
@@ -17,6 +17,8 @@ VIVADO_PROJECT=$FIRMWARE_DIR/carrier_board
 XSA_PATH=$VIVADO_PROJECT/design_1_wrapper.xsa
 PETALINUX_DIR=$FIRMWARE_DIR/petalinux
 BOOT_FILES_DIR=$PETALINUX_DIR/images/linux
+
+TMP_MOUNT_DIR=/tmp/petalinux_mnt
 
 help () {
   cat << EOF
@@ -165,6 +167,14 @@ install_debian () {
     $ROOT_DIR http://ftp.debian.org/debian
 }
 
+copy_petalinux_fs () {
+  # Get rootfs from petalinux
+  mkdir -p $TMP_MOUNT_DIR
+  gunzip -c $BOOT_FILES_DIR/rootfs.cpio.gz | sh -c 'cd /tmp/petalinux_mnt && cpio -i'
+  sudo cp $TMP_MOUNT_DIR/lib/modules $ROOT_DIR/lib -r
+  rm $TMP_MOUNT_DIR -rf
+}
+
 setup_userland () {
   echo "[arm64-debian]
 description=Debian Buster (arm64)
@@ -187,11 +197,10 @@ iface eth0 inet dhcp"
 
   echo "
 sed -e \"s/$(hostname)/zynq/\" -i /etc/hosts
-hostname zynq
 echo zynq > /etc/hostname
 passwd
-$TEMP_PWD
-$TEMP_PWD
+$TEMP_PASSWORD
+$TEMP_PASSWORD
 apt update
 apt install -y vim locales openssh-server ifupdown net-tools iputils-ping avahi-autoipd avahi-daemon haveged i2c-tools rsyslog
 apt install -y git cmake libi2c-dev isc-dhcp-server
@@ -247,6 +256,11 @@ echo "
 Install debian buster arm64 to root.
 "
 install_debian
+
+echo "
+Copy over needed files from petalinux rootfs.
+"
+copy_petalinux_fs
 
 echo "
 Install/configure userland and set up SSH.
