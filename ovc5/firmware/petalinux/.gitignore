@@ -11,3 +11,5 @@ pre-built/linux/
 *.xsa
 /components/plnx_workspace
 /components/yocto
+project-spec/
+.Xil/
