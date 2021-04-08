@@ -194,6 +194,7 @@ $TEMP_PWD
 $TEMP_PWD
 apt update
 apt install -y vim locales openssh-server ifupdown net-tools iputils-ping avahi-autoipd avahi-daemon haveged i2c-tools rsyslog
+apt install -y git cmake libi2c-dev isc-dhcp-server
 grep -qxF 'ttyPS0' /etc/securetty || echo 'ttyPS0' >> /etc/securetty
 grep -qxF '$interfaces_text' /etc/network/interfaces || echo '$interfaces_text' >> /etc/network/interfaces
 egrep -v '^\s*#' /etc/ssh/sshd_config | grep -qxF 'PermitRootLogin yes' || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
