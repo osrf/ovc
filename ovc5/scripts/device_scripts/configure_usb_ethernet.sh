@@ -31,16 +31,17 @@ create_gadget () {
   echo fe300000.dwc3 > UDC # ls /sys/class/udc to see available UDCs
 }
 
+# TODO: This isn't currently working so this will have to be manually copied.
 add_subnet () {
 subnet_text="
 subnet 10.0.1.0 netmask 255.255.255.0 {
   interface usb0;
   range 10.0.1.2 10.0.1.200;
-  #option routers 10.0.1.1;
+  option routers 10.0.1.1;
   option interface-mtu 13500;
 }"
 
-  grep -qxF "$subnet_text" /etc/dhcp/dhcpd.conf || echo "$subnet_text" >> /etc/dhcp/dhcpd.conf
+  grep -qxF "$subnet_text" /etc/dhcp/dhcpd.conf || echo $subnet_text >> /etc/dhcp/dhcpd.conf
 }
 
 if [ -z $USB_GADGETS/g1 ]; then
