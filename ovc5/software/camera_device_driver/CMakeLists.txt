@@ -29,6 +29,7 @@ add_library(ovc5_cameras
 
 target_link_libraries(ovc5_cameras
   ovc5_library
+  yaml-cpp
 )
 
 add_executable(ovc5_driver src/ovc5_driver.cpp)
