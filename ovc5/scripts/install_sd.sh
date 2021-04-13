@@ -222,6 +222,12 @@ sed -i 's/#OPTIONS=\"\"/OPTIONS=\"-4 -s\"/g' /etc/default/isc-dhcp-server
 " | sudo schroot -c arm64-debian -u root
 
   echo "
+
+--------------------------------------
+------------- Manual Step ------------
+--- A chroot session will now open ---
+--------------------------------------
+
 Execute and run through (likely using \"158. en_US.UTF-8 UTF-8\"):
   dpkg-reconfigure locales
 "
