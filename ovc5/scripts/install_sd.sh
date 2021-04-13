@@ -195,10 +195,9 @@ allow-hotplug eth0
 iface lo inet loopback
 iface eth0 inet dhcp"
 
-subnet_text="
-subnet 10.0.1.0 netmask 255.255.255.0 {
+subnet_text="subnet 10.0.1.0 netmask 255.255.255.0 {
   interface usb0;
-  range 10.0.1.2 10.0.1.200;
+  range 10.0.1.2 10.0.1.2;
   option routers 10.0.1.1;
   option interface-mtu 13500;
 }"
