@@ -2,6 +2,8 @@
 
 set -e  # Exit immediately if a command exits with a non-zero status.
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
 # Mounting Vars
 MOUNT_DIR=/mnt/zynq
 BOOT_DIR=$MOUNT_DIR/boot
@@ -11,7 +13,7 @@ ROOT_DIR=$MOUNT_DIR/root
 TEMP_PASSWORD=temppwd
 HOSTNAME=zynq
 
-FIRMWARE_DIR=$(realpath $PWD/..)/firmware
+FIRMWARE_DIR=$(realpath $DIR/..)/firmware
 # Path to the xsa file exported from Vivado.
 VIVADO_PROJECT=$FIRMWARE_DIR/carrier_board
 XSA_PATH=$VIVADO_PROJECT/design_1_wrapper.xsa
@@ -71,6 +73,8 @@ EOF
     exit
   fi
 
+  save_dir=$pwd
+
   cp $XSA_PATH $PETALINUX_DIR/system.xsa
   cd $PETALINUX_DIR
   petalinux-config --get-hw-description --silentconfig
@@ -81,6 +85,8 @@ EOF
     --fsbl $BOOT_FILES_DIR/zynq_fsbl.elf \
     --fpga \
     --u-boot
+
+  cd $save_dir
 }
 
 format_sd () {
@@ -234,7 +240,7 @@ Execute and run through (likely using \"158. en_US.UTF-8 UTF-8\"):
   sudo schroot -c arm64-debian -u root
 
   # Copy in all scripts that the device will use.
-  sudo cp $PWD/device_scripts/* $ROOT_DIR/root/
+  sudo cp $DIR/device_scripts/* $ROOT_DIR/root/
 }
 
 if [ -z $1 ] || [ $1 == "-h" ]; then
