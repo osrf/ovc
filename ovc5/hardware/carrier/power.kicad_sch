@@ -1,4 +1,6 @@
-(kicad_sch (version 20210126) (generator eeschema)
+(kicad_sch (version 20210406) (generator eeschema)
+
+  (uuid 51e6fa9d-7b69-4d9b-8915-3e85f0a70771)
 
   (paper "A4")
 
@@ -1062,6 +1064,11 @@
   (text "Set to 5.17V for MUX series loss" (at 128.27 73.66 180)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid ab99b6ff-db73-4842-9e53-8e646fff50da)
+  )
+  (text "NOTE! Layout leaves 11 NC to make it compatible with TPSM5601R5H"
+    (at 143.51 114.3 0)
+    (effects (font (size 1.27 1.27)) (justify right bottom))
+    (uuid 75e135fa-b33d-4988-bc21-eafad9eb6571)
   )
   (text "Delay for CYUSB4347" (at 193.04 20.32 180)
     (effects (font (size 1.27 1.27)) (justify right bottom))

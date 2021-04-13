@@ -7,4 +7,5 @@
   (lib (name "memory_eeprom")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/memory_eeprom.kicad_sym")(options "")(descr ""))
   (lib (name "ethernet")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/ethernet.lib")(options "")(descr ""))
   (lib (name "level_shifter")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/level_shifter.lib")(options "")(descr ""))
+  (lib (name "voltage_translators")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/voltage_translators.lib")(options "")(descr ""))
 )
