@@ -235,7 +235,7 @@ Execute and run through (likely using \"158. en_US.UTF-8 UTF-8\"):
   sudo schroot -c arm64-debian -u root
 
   # Copy in all scripts that the device will use.
-  cp $PWD/device_scritps/* $ROOT_DIR/root/
+  sudo cp $PWD/device_scripts/* $ROOT_DIR/root/
 }
 
 if [ -z $1 ] || [ $1 == "-h" ]; then
