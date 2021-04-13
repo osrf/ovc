@@ -82,7 +82,7 @@ EOF
   petalinux-package \
     --boot \
     --force \
-    --fsbl $BOOT_FILES_DIR/zynq_fsbl.elf \
+    --fsbl $BOOT_FILES_DIR/zynqmp_fsbl.elf \
     --fpga \
     --u-boot
 
