@@ -3,29 +3,48 @@
 #include <iostream>
 #include <unistd.h>
 #include <signal.h>
+#include <yaml-cpp/yaml.h>
 
 #include <ovc5_driver/sensor_manager.hpp>
 #include <ovc5_driver/timer_driver.hpp>
 
-#define NUM_CAMERAS 2
-static constexpr std::array<int, NUM_CAMERAS> I2C_DEVS = {2, 3};
-static constexpr std::array<int, NUM_CAMERAS> VDMA_DEVS = {2, 1};
-
-static constexpr int TRIGGER_TIMER_DEV = 0;
-static constexpr int LINE_COUNT_TIMER_DEV = 3;
-
-volatile sig_atomic_t stop;
+volatile sig_atomic_t stop = 0;
 
 void inthandler(int signum) {
   std::cout << "Stopping" << std::endl;
   stop = 1;
 }
 
+struct config_t {
+  std::array<int, NUM_CAMERAS> i2c_devs;
+  std::array<int, NUM_CAMERAS> vdma_devs;
+  int trigger_timer_dev;
+  int line_count_timer_dev;
+};
+
+template <typename T>
+inline void store_to(T & value, YAML::Node node) { value = node.as<T>(); }
+
+void load_config(config_t & config) {
+  YAML::Node config_node = YAML::LoadFile("config.yaml");
+
+  store_to(config.i2c_devs, config_node["i2c_devs"]);
+  store_to(config.vdma_devs, config_node["vdma_devs"]);
+  store_to(config.trigger_timer_dev, config_node["trigger_timer_dev"]);
+  store_to(config.line_count_timer_dev, config_node["line_count_timer_dev"]);
+}
+
 int main(int argc, char **argv)
 {
   signal(SIGINT, inthandler);
-  SensorManager sm(I2C_DEVS, VDMA_DEVS, LINE_COUNT_TIMER_DEV);
-  Timer trigger_timer(TRIGGER_TIMER_DEV);
+
+  // Read in config variables
+  config_t config;
+  load_config(config);
+
+  SensorManager sm(
+      config.i2c_devs, config.vdma_devs, config.line_count_timer_dev);
+  Timer trigger_timer(config.trigger_timer_dev);
 
   // Hz, high time
   //trigger_timer.PWM(15.0, 0.0001);
