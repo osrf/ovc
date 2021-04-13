@@ -11,5 +11,7 @@ pre-built/linux/
 *.xsa
 /components/plnx_workspace
 /components/yocto
-project-spec/
 .Xil/
+
+# This will get pulled in from the vivado export.
+project-spec/hw-description/design_1_wrapper.bit
