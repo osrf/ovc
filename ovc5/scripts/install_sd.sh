@@ -195,6 +195,14 @@ allow-hotplug eth0
 iface lo inet loopback
 iface eth0 inet dhcp"
 
+subnet_text="
+subnet 10.0.1.0 netmask 255.255.255.0 {
+  interface usb0;
+  range 10.0.1.2 10.0.1.200;
+  option routers 10.0.1.1;
+  option interface-mtu 13500;
+}"
+
   echo "
 sed -e \"s/$(hostname)/zynq/\" -i /etc/hosts
 echo zynq > /etc/hostname
@@ -206,8 +214,11 @@ apt install -y vim locales openssh-server ifupdown net-tools iputils-ping avahi-
 apt install -y git cmake libi2c-dev isc-dhcp-server libyaml-cpp-dev
 grep -qxF 'ttyPS0' /etc/securetty || echo 'ttyPS0' >> /etc/securetty
 grep -qxF '$interfaces_text' /etc/network/interfaces || echo '$interfaces_text' >> /etc/network/interfaces
+grep -qxF '$subnet_text' /etc/dhcp/dhcpd.conf || echo '$subnet_text' >> /etc/dhcp/dhcpd.conf
 egrep -v '^\s*#' /etc/ssh/sshd_config | grep -qxF 'PermitRootLogin yes' || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 egrep -v '^\s*#' /etc/ssh/sshd_config | grep -qxF 'PasswordAuthentication yes' || echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
+sed -i 's/INTERFACESv4=\"\"/INTERFACESv4=\"usb0\"/g' /etc/default/isc-dhcp-server
+sed -i 's/#OPTIONS=\"\"/OPTIONS=\"-4 -s\"/g' /etc/default/isc-dhcp-server
 " | sudo schroot -c arm64-debian -u root
 
   echo "
@@ -216,6 +227,9 @@ Execute and run through (likely using \"158. en_US.UTF-8 UTF-8\"):
 "
 
   sudo schroot -c arm64-debian -u root
+
+  # Copy in all scripts that the device will use.
+  cp $PWD/device_scritps/* $ROOT_DIR/root/
 }
 
 if [ -z $1 ] || [ $1 == "-h" ]; then
