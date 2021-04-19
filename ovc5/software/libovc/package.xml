@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>libovc</name>
+  <version>0.0.1</version>
+  <description>The libovc package that is ROS free.</description>
+
+  <maintainer email="greg@openrobotics.org">Greg Balke</maintainer>
+
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <!-- Commonly used license strings: -->
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+  <license>TODO</license>
+
+  <buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+  <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+
+</package>
