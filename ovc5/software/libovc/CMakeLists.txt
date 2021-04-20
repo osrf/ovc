@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 project(libovc VERSION 0.0.1 LANGUAGES CXX)
 
-## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++11)
+## Compile as C++11
+add_compile_options(-std=c++11 -Wall -Wextra -Wpedantic -O3)
 
 ## System dependencies are found with CMake's conventions
 find_package(OpenCV REQUIRED)
@@ -38,19 +38,6 @@ install(DIRECTORY include/${PROJECT_NAME}
   FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp" PATTERN "*.hxx"
   PATTERN ".svn" EXCLUDE
 )
-
-## Add cmake target dependencies of the executable
-## same as for the library above
-#add_dependencies(
-#  ${PROJECT_NAME}
-#  ${${PROJECT_NAME}_EXPORTED_TARGETS}
-#)
-
-## Specify libraries to link a library or executable target against
-#target_link_libraries(${PROJECT_NAME}
-#  ${PROJECT_NAME}
-#  ${OpenCV_LIBRARIES}
-#)
 
 install(
   FILES package.xml

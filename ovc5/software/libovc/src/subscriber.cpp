@@ -6,6 +6,8 @@
 namespace libovc {
 
 Subscriber::Subscriber() : frames_ready_guard(frames_ready_mutex) {
+  stop_ = false;
+
   sock = socket(AF_INET, SOCK_STREAM, 0);
 
   si_self.sin_family = AF_INET;
@@ -13,8 +15,6 @@ Subscriber::Subscriber() : frames_ready_guard(frames_ready_mutex) {
   si_self.sin_addr.s_addr = htonl(INADDR_ANY);
 
   bind(sock, (struct sockaddr *)&si_self, sizeof(si_self));
-
-  stop_ = false;
 }
 
 Subscriber::~Subscriber() {
@@ -40,7 +40,6 @@ void Subscriber::receiveThread() {
   unsigned int si_size = sizeof(si_other);
   listen(sock, 1);
   recv_sock = accept(sock, (struct sockaddr *)&si_other, &si_size);
-  std::cout << "Listening" << std::endl;
   // TODO proper while condition
   int cur_off = 0;
   int frame_size = 0;
