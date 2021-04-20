@@ -5,6 +5,8 @@
 
 #include <libovc/ovc.hpp>
 
+#define SCREEN_WIDTH 2560
+
 static void dumpFrame(const cv::Mat& frame)
 {
   static bool ran = false;
@@ -31,9 +33,11 @@ int main(int argc, char **argv)
   while (1)
   {
     auto frames = ovc.getFrames();
-    std::cout << "Got a pair of frames" << std::endl;
-    cv::imshow("Right", frames[0].image);
-    cv::imshow("Left", frames[1].image);
+    cv::Mat frame;
+    cv::hconcat(frames[1].image, frames[2].image, frame);
+    float scale = (float)SCREEN_WIDTH / frame.size().width;
+    cv::resize(frame, frame, cv::Size(), scale, scale);
+    cv::imshow("ovc", frame);
     cv::waitKey(1);
   }
   return 0;
