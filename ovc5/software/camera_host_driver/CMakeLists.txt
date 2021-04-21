@@ -22,4 +22,4 @@ target_link_libraries(${PROJECT_NAME}_node
   ${PROJECT_NAME}
   ${OpenCV_LIBS}
   ${libovc_LIBRARIES}
-  )
+)

@@ -3,8 +3,9 @@
 
 #include <arpa/inet.h>
 
-#include <ovc5_driver/camera.hpp>
-#include <ovc5_driver/ethernet_packetdef.h>
+#include <libovc/ethernet_packetdef.hpp>
+
+#include "ovc5_driver/camera.hpp"
 
 // Publisher for sequential images
 class EthernetPublisher

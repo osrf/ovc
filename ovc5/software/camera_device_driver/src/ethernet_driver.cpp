@@ -4,7 +4,7 @@
 #include <iostream>
 #include <cmath>
 
-#include <ovc5_driver/ethernet_driver.hpp>
+#include "ovc5_driver/ethernet_driver.hpp"
 
 EthernetPublisher::EthernetPublisher(int port) :
   base_port(port)
