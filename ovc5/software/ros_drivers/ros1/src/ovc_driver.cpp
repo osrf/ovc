@@ -11,6 +11,7 @@
 #include <ovc_driver/ParamsConfig.h>
 
 void callback(ovc_driver::ParamsConfig &config, uint32_t level) {
+  (void)level;
   ROS_INFO("Reconfigure Request {exposure: %f}", config.exposure);
 }
 
@@ -31,7 +32,7 @@ int main(int argc, char **argv) {
 
   // Create the camera publishers.
   std::array<ros::Publisher, libovc::Subscriber::NUM_IMAGERS> cam_pubs;
-  for (int i = 0; i < cam_pubs.size(); i++) {
+  for (size_t i = 0; i < cam_pubs.size(); i++) {
     std::string name = std::string("cam") + std::to_string(i);
     cam_pubs[i] = n.advertise<sensor_msgs::Image>(name, 1000);
   }
@@ -53,7 +54,7 @@ int main(int argc, char **argv) {
 
     auto frames = ovc.getFrames();
     std::array<sensor_msgs::Image, libovc::Subscriber::NUM_IMAGERS> imgs;
-    for (int i = 0; i < frames.size(); i++) {
+    for (size_t i = 0; i < frames.size(); i++) {
       // Populate header.
       imgs[i].header.frame_id = frames[i].frame_id;
       imgs[i].header.stamp.sec = frames[i].t_sec;
@@ -65,7 +66,7 @@ int main(int argc, char **argv) {
       cv_image.toImageMsg(imgs[i]);
     }
 
-    for (int i = 0; i < cam_pubs.size(); i++) {
+    for (size_t i = 0; i < cam_pubs.size(); i++) {
       cam_pubs[i].publish(imgs[i]);
     }
 
