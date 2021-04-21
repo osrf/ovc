@@ -29,7 +29,7 @@ public:
   void send(unsigned char *imgdata, const camera_params_t &params);
 
   // Returns the packet type received.
-  ether_rx_packet_t recv();
+  ether_rx_packet_t *recv();
 
   void increaseId();
 };

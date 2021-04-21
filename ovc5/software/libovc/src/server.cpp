@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <iostream>
 
 #include "libovc/ethernet_packetdef.hpp"
 #include "libovc/server.hpp"
@@ -105,7 +106,7 @@ void Server::updateConfig(ether_rx_config_t config) {
   send_pkt.config = config;
   size_t io_size = write(recv_sock, send_pkt.data, sizeof(send_pkt));
   if (io_size != sizeof(send_pkt)) {
-    throw std::runtime_error("Failed to write full config packet");
+    std::cout << "libovc: Failed to write full config packet" << std::endl;
   }
 }
 

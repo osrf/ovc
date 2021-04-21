@@ -88,9 +88,12 @@ void SensorManager::sendFrames() {
 
 void SensorManager::recvCommand() {
   auto pkt = client.recv();
-  if (RX_PACKET_TYPE_CMD_CONFIG == pkt.packet_type) {
+  if (nullptr == pkt) {
+    return;
+  }
+  if (RX_PACKET_TYPE_CMD_CONFIG == pkt->packet_type) {
     std::cout << "Received config packet with {exposure: "
-              << pkt.config.exposure << "}" << std::endl;
+              << pkt->config.exposure << "}" << std::endl;
   }
 }
 
