@@ -49,7 +49,7 @@ typedef union ether_tx_packet_t {
 
 // Packet definitions for host PC -> controller board
 typedef enum : uint32_t {
-  RX_PACKET_TYPE_CMD_CONFIG = 1, // TODO implement userspace commands
+  RX_PACKET_TYPE_CMD_CONFIG = 1,
 } ether_rx_packet_type_t;
 
 typedef struct __attribute__((__packed__)) {

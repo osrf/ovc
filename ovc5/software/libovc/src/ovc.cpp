@@ -1,7 +1,8 @@
 #include <thread>
 
 #include "libovc/ovc.hpp"
-#include "libovc/subscriber.hpp"
+#include "libovc/server.hpp"
+#include "libovc/ethernet_packetdef.hpp"
 
 namespace libovc {
 static cv::Mat unpackTo16(const cv::Mat &frame) {
@@ -25,17 +26,17 @@ static cv::Mat unpackTo16(const cv::Mat &frame) {
 }
 
 OVC::OVC() {
-  // Start the subscriber thread (collects images).
-  thread_ = std::thread(&Subscriber::receiveThread, &subscriber_);
+  // Start the server thread (collects images).
+  thread_ = std::thread(&Server::receiveThread, &server_);
 }
 
 OVC::~OVC() {
-  subscriber_.stop();
+  server_.stop();
   thread_.join();
 }
 
-std::array<OVCImage, Subscriber::NUM_IMAGERS> OVC::getFrames() {
-  frames_ = subscriber_.getFrames();
+std::array<OVCImage, Server::NUM_IMAGERS> OVC::getFrames() {
+  frames_ = server_.getFrames();
 
   for (size_t i = 0; i < frames_.size(); i++) {
     cv::Mat shifted = unpackTo16(frames_[i].image);
@@ -44,4 +45,11 @@ std::array<OVCImage, Subscriber::NUM_IMAGERS> OVC::getFrames() {
 
   return frames_;
 }
+
+void OVC::updateConfig(double exposure) {
+  ether_rx_config_t config;
+  config.exposure = exposure;
+  server_.updateConfig(config);
+}
+
 } // namespace libovc

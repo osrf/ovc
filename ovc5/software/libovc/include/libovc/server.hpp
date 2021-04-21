@@ -1,5 +1,5 @@
-#ifndef __SUBSCRIBER_HPP
-#define __SUBSCRIBER_HPP
+#ifndef __SERVER_HPP
+#define __SERVER_HPP
 
 #include <arpa/inet.h>
 #include <sys/socket.h>
@@ -9,6 +9,8 @@
 #include <atomic>
 #include <condition_variable>
 #include <mutex>
+
+#include "libovc/ethernet_packetdef.hpp"
 
 namespace libovc {
 
@@ -25,7 +27,7 @@ typedef struct OVCImage {
   cv::Mat image;
 } OVCImage;
 
-class Subscriber {
+class Server {
 public:
   static constexpr int NUM_IMAGERS = 2;
 
@@ -49,16 +51,18 @@ private:
   std::unique_lock<std::mutex> frames_ready_guard;
 
 public:
-  Subscriber();
-  ~Subscriber();
+  Server();
+  ~Server();
 
   void receiveThread();
 
   void stop();
 
   std::array<OVCImage, NUM_IMAGERS> getFrames();
+
+  void updateConfig(ether_rx_config_t config);
 };
 
 } // namespace libovc
 
-#endif // SUBSCRIBER_HPP
+#endif // SERVER_HPP

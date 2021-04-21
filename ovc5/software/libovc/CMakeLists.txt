@@ -21,7 +21,7 @@ include_directories(
 add_library(
   ${PROJECT_NAME}
   SHARED src/ovc.cpp
-  src/subscriber.cpp
+  src/server.cpp
 )
 
 list(APPEND PACKAGE_LIBRARIES

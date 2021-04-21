@@ -1,11 +1,11 @@
 #include <unistd.h>
 
 #include "libovc/ethernet_packetdef.hpp"
-#include "libovc/subscriber.hpp"
+#include "libovc/server.hpp"
 
 namespace libovc {
 
-Subscriber::Subscriber() : frames_ready_guard(frames_ready_mutex) {
+Server::Server() : frames_ready_guard(frames_ready_mutex) {
   stop_ = false;
 
   sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -17,14 +17,14 @@ Subscriber::Subscriber() : frames_ready_guard(frames_ready_mutex) {
   bind(sock, (struct sockaddr *)&si_self, sizeof(si_self));
 }
 
-Subscriber::~Subscriber() {
+Server::~Server() {
   close(sock);
   close(recv_sock);
 }
 
 // TODO atomic to signal from receive thread and mutexes to avoid corrupted
 // frames
-std::array<OVCImage, Subscriber::NUM_IMAGERS> Subscriber::getFrames() {
+std::array<OVCImage, Server::NUM_IMAGERS> Server::getFrames() {
   while (frames_received / NUM_IMAGERS == 0) {
     frames_ready_var.wait(frames_ready_guard);
   }
@@ -34,9 +34,9 @@ std::array<OVCImage, Subscriber::NUM_IMAGERS> Subscriber::getFrames() {
   return ret_imgs;
 }
 
-void Subscriber::stop() { stop_ = true; }
+void Server::stop() { stop_ = true; }
 
-void Subscriber::receiveThread() {
+void Server::receiveThread() {
   unsigned int si_size = sizeof(si_other);
   listen(sock, 1);
   recv_sock = accept(sock, (struct sockaddr *)&si_other, &si_size);
@@ -95,6 +95,17 @@ void Subscriber::receiveThread() {
       }
       camera_id = (camera_id + 1) % NUM_IMAGERS;
     }
+  }
+}
+
+void Server::updateConfig(ether_rx_config_t config) {
+  ether_rx_packet_t send_pkt;
+  send_pkt.status = 0;
+  send_pkt.packet_type = RX_PACKET_TYPE_CMD_CONFIG;
+  send_pkt.config = config;
+  size_t io_size = write(recv_sock, send_pkt.data, sizeof(send_pkt));
+  if (io_size != sizeof(send_pkt)) {
+    throw std::runtime_error("Failed to write full config packet");
   }
 }
 

@@ -1,23 +1,24 @@
 #ifndef __OVC_HPP
 #define __OVC_HPP
 
-#include "subscriber.hpp"
+#include "server.hpp"
 
 namespace libovc {
 
 class OVC {
 private:
-  std::array<OVCImage, Subscriber::NUM_IMAGERS> frames_;
-  Subscriber subscriber_;
+  std::array<OVCImage, Server::NUM_IMAGERS> frames_;
+  Server server_;
   std::thread thread_;
 
 public:
   OVC();
   ~OVC();
 
-  std::array<OVCImage, Subscriber::NUM_IMAGERS> getFrames();
+  std::array<OVCImage, Server::NUM_IMAGERS> getFrames();
+  void updateConfig(double exposure);
 
-  int getNumImagers() { return Subscriber::NUM_IMAGERS; }
+  int getNumImagers() { return Server::NUM_IMAGERS; }
 };
 
 } // namespace libovc
