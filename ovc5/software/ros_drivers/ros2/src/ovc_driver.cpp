@@ -45,7 +45,7 @@ private:
       imgs[i].header.stamp.sec = frames[i].t_sec;
 
       cv_bridge::CvImage cv_image(
-          imgs[i].header, sensor_msgs::image_encodings::RGB16, frames[i].image);
+          imgs[i].header, sensor_msgs::image_encodings::BGR16, frames[i].image);
 
       cv_image.toImageMsg(imgs[i]);
     }

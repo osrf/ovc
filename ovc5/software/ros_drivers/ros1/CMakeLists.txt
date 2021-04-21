@@ -77,6 +77,8 @@ if (catkin_FOUND)
     ${PROJECT_NAME}_node
     ${${PROJECT_NAME}_EXPORTED_TARGETS}
     ${catkin_EXPORTED_TARGETS}
+    ${OpenCV_LIBRARIES}
+    ${libovc_LIBRARIES}
   )
 
   ## Specify libraries to link a library or executable target against

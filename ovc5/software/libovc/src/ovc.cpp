@@ -39,7 +39,7 @@ std::array<OVCImage, Subscriber::NUM_IMAGERS> OVC::getFrames() {
 
   for (int i = 0; i < frames_.size(); i++) {
     cv::Mat shifted = unpackTo16(frames_[i].image);
-    cv::cvtColor(shifted, frames_[i].image, cv::COLOR_BayerRG2RGB);
+    cv::cvtColor(shifted, frames_[i].image, cv::COLOR_BayerBG2BGR);
   }
 
   return frames_;
