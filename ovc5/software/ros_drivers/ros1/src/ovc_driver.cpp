@@ -5,15 +5,12 @@
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/image_encodings.h>
 
-#include <iostream>
 #include <libovc/ovc.hpp>
 
 int main(int argc, char **argv) {
   // Initialize ros systems.
   ros::init(argc, argv, "ovc");
   ros::NodeHandle n;
-
-  std::cout << "Initializing" << std::endl << std::flush;
 
   ROS_INFO("Initialize libovc.");
   libovc::OVC ovc;
