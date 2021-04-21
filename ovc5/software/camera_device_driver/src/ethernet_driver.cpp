@@ -21,8 +21,8 @@ EthernetClient::EthernetClient(int port) :
     std::cout << "Failed connecting to server" << std::endl;
 
   // TODO all those from parameters
-  strncpy(tx_pkt.frame.sensor_name, "picamv2", sizeof("picamv2"));
-  strncpy(tx_pkt.frame.data_type, "rggb16", sizeof("rggb16"));
+  strncpy(tx_pkt.frame.sensor_name, cam_name, sizeof(*cam_name));
+  strncpy(tx_pkt.frame.data_type, cam_data_type, sizeof(*cam_data_type));
 
   tx_pkt.frame.frame_id = 0;
 }
@@ -39,8 +39,12 @@ void EthernetClient::send(unsigned char* imgdata, const camera_params_t& params)
   tx_pkt.frame.step = std::round(params.res_x * (params.bit_depth / 8.0));
   int frame_size = tx_pkt.frame.height * tx_pkt.frame.step;
   int cur_off = 0;
+  
   // First send the header
-  write(sock, tx_pkt.data, sizeof(tx_pkt));
+  size_t io_size = write(sock, tx_pkt.data, sizeof(tx_pkt));
+  if (io_size != sizeof(tx_pkt)){
+    std::cout << "TX packet header failed to send" << std::endl;
+  }
   while (cur_off < frame_size)
   {
     cur_off += write(sock, imgdata + cur_off, frame_size - cur_off);
@@ -48,7 +52,11 @@ void EthernetClient::send(unsigned char* imgdata, const camera_params_t& params)
 }
 
 ether_rx_packet_type_t EthernetClient::recv() {
-  read(sock, rx_pkt.data, sizeof(rx_pkt));
+  size_t io_size = read(sock, rx_pkt.data, sizeof(rx_pkt));
+  // Do not warn if empty.
+  if (io_size != sizeof(rx_pkt) && io_size != 0) {
+    std::cout << "RX packet header not received in full" << std::endl;
+  }
   return rx_pkt.packet_type;
 }
 

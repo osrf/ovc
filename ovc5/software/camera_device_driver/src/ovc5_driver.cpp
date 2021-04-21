@@ -1,8 +1,8 @@
-#include <memory>
 #include <array>
 #include <iostream>
-#include <unistd.h>
+#include <memory>
 #include <signal.h>
+#include <unistd.h>
 #include <yaml-cpp/yaml.h>
 
 #include <ovc5_driver/sensor_manager.hpp>
@@ -22,10 +22,11 @@ struct config_t {
   int line_count_timer_dev;
 };
 
-template <typename T>
-inline void store_to(T & value, YAML::Node node) { value = node.as<T>(); }
+template <typename T> inline void store_to(T &value, YAML::Node node) {
+  value = node.as<T>();
+}
 
-void load_config(config_t & config) {
+void load_config(config_t &config) {
   YAML::Node config_node = YAML::LoadFile("config.yaml");
 
   store_to(config.i2c_devs, config_node["i2c_devs"]);
@@ -34,36 +35,32 @@ void load_config(config_t & config) {
   store_to(config.line_count_timer_dev, config_node["line_count_timer_dev"]);
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
   signal(SIGINT, inthandler);
 
   // Read in config variables
   config_t config;
   load_config(config);
 
-  SensorManager sm(
-      config.i2c_devs, config.vdma_devs, config.line_count_timer_dev);
+  SensorManager sm(config.i2c_devs, config.vdma_devs,
+                   config.line_count_timer_dev);
   Timer trigger_timer(config.trigger_timer_dev);
 
   // Hz, high time
-  //trigger_timer.PWM(15.0, 0.0001);
-  //trigger_timer.PWM(20.0, 0.001);
+  // trigger_timer.PWM(15.0, 0.0001);
+  // trigger_timer.PWM(20.0, 0.001);
 
-  if (argc > 1)
-  {
+  if (argc > 1) {
     std::cout << "Resetting" << std::endl;
     return 0;
   }
-  if (sm.getNumCameras() == 0)
-  {
+  if (sm.getNumCameras() == 0) {
     std::cout << "No cameras detected" << std::endl;
     return 0;
   }
-  while (!stop)
-  {
+  while (!stop) {
     std::cout << "Waiting for frames" << std::endl;
-    //sm.getFramesStereo();
+    // sm.getFramesStereo();
     sm.sendFrames();
   }
   return 0;

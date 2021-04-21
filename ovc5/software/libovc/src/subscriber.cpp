@@ -41,8 +41,8 @@ void Subscriber::receiveThread() {
   listen(sock, 1);
   recv_sock = accept(sock, (struct sockaddr *)&si_other, &si_size);
   // TODO proper while condition
-  int cur_off = 0;
-  int frame_size = 0;
+  size_t cur_off = 0;
+  size_t frame_size = 0;
   int camera_id = 0;
   std::unique_lock<std::mutex> frames_lock(frames_mutex, std::defer_lock);
   ether_tx_packet_t recv_pkt;

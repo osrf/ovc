@@ -1,5 +1,5 @@
-#include <thread>
 #include <iostream>
+#include <thread>
 
 #include <opencv2/opencv.hpp>
 
@@ -7,6 +7,7 @@
 
 #define SCREEN_WIDTH 2560
 
+/*
 static void dumpFrame(const cv::Mat& frame)
 {
   static bool ran = false;
@@ -25,13 +26,15 @@ static void dumpFrame(const cv::Mat& frame)
   }
   ran = true;
 }
+*/
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
+  (void)argc;
+  (void)argv;
+
   libovc::OVC ovc;
 
-  while (1)
-  {
+  while (1) {
     auto frames = ovc.getFrames();
     cv::Mat frame;
     cv::hconcat(frames[1].image, frames[2].image, frame);
