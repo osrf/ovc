@@ -86,6 +86,14 @@ void SensorManager::sendFrames() {
   }
 }
 
+void SensorManager::recvCommand() {
+  auto pkt = client.recv();
+  if (RX_PACKET_TYPE_CMD_CONFIG == pkt.packet_type) {
+    std::cout << "Received config packet with {exposure: "
+              << pkt.config.exposure << "}" << std::endl;
+  }
+}
+
 int SensorManager::getNumCameras() const { return cameras.size(); }
 
 SensorManager::~SensorManager() {

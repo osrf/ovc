@@ -31,6 +31,8 @@ public:
 
   void sendFrames();
 
+  void recvCommand();
+
   int getNumCameras() const;
 
   ~SensorManager();

@@ -51,13 +51,13 @@ void EthernetClient::send(unsigned char* imgdata, const camera_params_t& params)
   }
 }
 
-ether_rx_packet_type_t EthernetClient::recv() {
+ether_rx_packet_t EthernetClient::recv() {
   size_t io_size = read(sock, rx_pkt.data, sizeof(rx_pkt));
   // Do not warn if empty.
   if (io_size != sizeof(rx_pkt) && io_size != 0) {
     std::cout << "RX packet header not received in full" << std::endl;
   }
-  return rx_pkt.packet_type;
+  return rx_pkt;
 }
 
 void EthernetClient::increaseId()
