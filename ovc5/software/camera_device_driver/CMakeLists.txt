@@ -4,11 +4,8 @@ project(ovc5_driver)
 #set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
 set(CMAKE_CXX_FLAGS "-Wall -O3")
 
-find_package(libovc REQUIRED)
-
 include_directories(
   include
-  ${libovc_INCLUDE_DIRS}
 )
 
 add_library(ovc5_library
@@ -41,7 +38,6 @@ add_executable(ovc5_driver src/ovc5_driver.cpp)
 target_link_libraries(ovc5_driver
   ovc5_library
   ovc5_cameras
-  ${libovc_LIBRARIES}
 )
 
 target_compile_features(ovc5_library PRIVATE cxx_std_17)
