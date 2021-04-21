@@ -7,10 +7,24 @@
 
 #include <libovc/ovc.hpp>
 
+#include <dynamic_reconfigure/server.h>
+#include <ovc_driver/ParamsConfig.h>
+
+void callback(ovc_driver::ParamsConfig &config, uint32_t level) {
+  ROS_INFO("Reconfigure Request {exposure: %f}", config.exposure);
+}
+
 int main(int argc, char **argv) {
   // Initialize ros systems.
-  ros::init(argc, argv, "ovc");
+  ros::init(argc, argv, "ovc_driver");
   ros::NodeHandle n;
+
+  // Establish dynamic reconfigure callback.
+  dynamic_reconfigure::Server<ovc_driver::ParamsConfig> server;
+  dynamic_reconfigure::Server<ovc_driver::ParamsConfig>::CallbackType f;
+
+  f = boost::bind(&callback, _1, _2);
+  server.setCallback(f);
 
   ROS_INFO("Initialize libovc.");
   libovc::OVC ovc;
@@ -26,6 +40,7 @@ int main(int argc, char **argv) {
   int frame_count = 0;
   ROS_INFO("Begin Loop.");
   while (ros::ok()) {
+    ros::spinOnce();
 
     auto cur_time = ros::Time::now();
     auto diff = (cur_time - begin).toSec();
