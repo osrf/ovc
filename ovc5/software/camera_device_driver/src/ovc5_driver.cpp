@@ -64,7 +64,7 @@ int main(int argc, char **argv)
   {
     std::cout << "Waiting for frames" << std::endl;
     //sm.getFramesStereo();
-    sm.publishFrames();
+    sm.sendFrames();
   }
   return 0;
 }

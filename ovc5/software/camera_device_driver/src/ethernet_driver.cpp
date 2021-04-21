@@ -6,7 +6,7 @@
 
 #include "ovc5_driver/ethernet_driver.hpp"
 
-EthernetPublisher::EthernetPublisher(int port) :
+EthernetClient::EthernetClient(int port) :
   base_port(port)
 {
   // TODO different ports for different imagers?
@@ -27,7 +27,7 @@ EthernetPublisher::EthernetPublisher(int port) :
   pkt.frame.frame_id = 0;
 }
 
-void EthernetPublisher::publish(unsigned char* imgdata, const camera_params_t& params)
+void EthernetClient::send(unsigned char* imgdata, const camera_params_t& params)
 {
   /*
   pkt.frame.t_sec = now.sec;
@@ -47,13 +47,13 @@ void EthernetPublisher::publish(unsigned char* imgdata, const camera_params_t& p
   }
 }
 
-void EthernetPublisher::increaseId()
+void EthernetClient::increaseId()
 {
   pkt.frame.frame_id++;
 }
 
-StereoEthernetPublisher::StereoEthernetPublisher() :
-  pubs{12345, 12346}
+StereoEthernetClient::StereoEthernetClient() :
+  clients{12345, 12346}
 {
 
 }

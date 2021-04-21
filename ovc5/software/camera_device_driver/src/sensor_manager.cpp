@@ -83,13 +83,13 @@ std::map<int, unsigned char*> SensorManager::getFrames()
   return frame_map;
 }
 
-void SensorManager::publishFrames()
+void SensorManager::sendFrames()
 {
   auto frames = getFrames();
   for (const auto& [cam_id, frame_ptr] : frames)
   {
     cameras[cam_id]->flushCache();
-    pub.publish(frame_ptr, cameras[cam_id]->getCameraParams());
+    client.send(frame_ptr, cameras[cam_id]->getCameraParams());
   }
 }
 

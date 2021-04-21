@@ -8,7 +8,7 @@
 #include "ovc5_driver/camera.hpp"
 
 // Publisher for sequential images
-class EthernetPublisher
+class EthernetClient
 {
 private:
   static constexpr char* SERVER_IP = "10.0.1.2";
@@ -21,25 +21,25 @@ private:
   ether_tx_packet_t pkt = {0};
 
 public:
-  EthernetPublisher(int port = 12345);
+  EthernetClient(int port = 12345);
 
   // TODO proper timestamping and packet header
-  void publish(unsigned char* imgdata, const camera_params_t& params);
+  void send(unsigned char* imgdata, const camera_params_t& params);
 
   void increaseId();
 
 };
 
 // Publishes two frames in parallel on different ports
-class StereoEthernetPublisher
+class StereoEthernetClient
 {
 private:
   // TODO parametrize num cameras
-  EthernetPublisher pubs[2];
+  EthernetClient clients[2];
 
 
 public:
-  StereoEthernetPublisher();
+  StereoEthernetClient();
 };
 
 
