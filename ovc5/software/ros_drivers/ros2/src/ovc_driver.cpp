@@ -1,5 +1,5 @@
-#include <thread>
 #include <memory>
+#include <thread>
 
 #include <cv_bridge/cv_bridge.h>
 #include <rclcpp/rclcpp.hpp>
@@ -11,9 +11,15 @@ using namespace std::chrono_literals;
 
 class OVCPublisher : public rclcpp::Node {
 public:
-  OVCPublisher() : Node("ovc_publisher"), count_(0) {
+  OVCPublisher() : Node("ovc_publisher") {
+    // Set all default values.
+    exposure_ = 0.5;
+    frame_count = 0;
+
     RCLCPP_INFO(this->get_logger(), "Initialize libovc.");
     ovc_ = std::make_shared<libovc::OVC>();
+
+    this->declare_parameter<double>("exposure", exposure_);
     // Create the camera publishers.
     for (size_t i = 0; i < publishers_.size(); i++) {
       std::string name = std::string("cam") + std::to_string(i);
@@ -37,8 +43,8 @@ private:
       begin_ = cur_time;
     }
 
-    auto frames = ovc_-> getFrames();
-    std::array<sensor_msgs::msg::Image, libovc::Subscriber::NUM_IMAGERS> imgs;
+    auto frames = ovc_->getFrames();
+    std::array<sensor_msgs::msg::Image, libovc::Server::NUM_IMAGERS> imgs;
     for (size_t i = 0; i < frames.size(); i++) {
       // Populate header.
       imgs[i].header.frame_id = frames[i].frame_id;
@@ -54,18 +60,33 @@ private:
       publishers_[i]->publish(imgs[i]);
     }
 
+    updateParams();
+
     // Increment the frame counter.
     frame_count++;
+  }
+
+  void updateParams() {
+    double new_exposure;
+    this->get_parameter("exposure", new_exposure);
+    if (new_exposure != exposure_) {
+      RCLCPP_INFO(this->get_logger(), "Recevied param update {exposure: %f}",
+                  new_exposure);
+      exposure_ = new_exposure;
+      ovc_->updateConfig(exposure_);
+    }
   }
 
   std::shared_ptr<libovc::OVC> ovc_;
   rclcpp::TimerBase::SharedPtr timer_;
   std::array<rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr,
-             libovc::Subscriber::NUM_IMAGERS>
+             libovc::Server::NUM_IMAGERS>
       publishers_;
-  size_t count_;
-  int frame_count = 0;
+  int frame_count;
   rclcpp::Time begin_;
+
+  // Camera Params.
+  double exposure_;
 };
 
 int main(int argc, char **argv) {
