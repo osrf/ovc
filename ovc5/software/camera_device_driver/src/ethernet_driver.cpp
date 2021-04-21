@@ -48,7 +48,7 @@ void EthernetClient::send(unsigned char* imgdata, const camera_params_t& params)
 }
 
 ether_rx_packet_type_t EthernetClient::recv() {
-  recv(sock, rx_pkt.data, sizeof(rx_pkt));
+  read(sock, rx_pkt.data, sizeof(rx_pkt));
   return rx_pkt.packet_type;
 }
 
