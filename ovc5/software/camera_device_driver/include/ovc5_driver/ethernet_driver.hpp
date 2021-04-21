@@ -15,16 +15,20 @@ private:
 
   int base_port;
 
-  struct sockaddr_in sock_in = {0};
+  struct sockaddr_in sock_in = {sizeof(sockaddr_in)};
   int sock;
 
-  ether_tx_packet_t pkt = {0};
+  ether_tx_packet_t tx_pkt = {sizeof(ether_tx_packet_t)};
+  ether_rx_packet_t rx_pkt = {sizeof(ether_rx_packet_t)};
 
 public:
   EthernetClient(int port = 12345);
 
   // TODO proper timestamping and packet header
   void send(unsigned char* imgdata, const camera_params_t& params);
+
+  // Returns the packet type received.
+  ether_rx_packet_type_t recv();
 
   void increaseId();
 
