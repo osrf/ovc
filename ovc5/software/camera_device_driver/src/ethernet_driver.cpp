@@ -1,13 +1,12 @@
+#include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
-#include <string.h>
-#include <iostream>
-#include <cmath>
 
+#include <cmath>
+#include <iostream>
 #include <ovc5_driver/ethernet_driver.hpp>
 
-EthernetPublisher::EthernetPublisher(int port) :
-  base_port(port)
+EthernetPublisher::EthernetPublisher(int port) : base_port(port)
 {
   // TODO different ports for different imagers?
   sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -17,7 +16,7 @@ EthernetPublisher::EthernetPublisher(int port) :
 
   inet_aton(SERVER_IP, &sock_in.sin_addr);
 
-  if (connect(sock, (struct sockaddr *) &sock_in, sizeof(sock_in)) < 0)
+  if (connect(sock, (struct sockaddr*)&sock_in, sizeof(sock_in)) < 0)
     std::cout << "Failed connecting to server" << std::endl;
 
   // TODO all those from parameters
@@ -27,7 +26,8 @@ EthernetPublisher::EthernetPublisher(int port) :
   pkt.frame.frame_id = 0;
 }
 
-void EthernetPublisher::publish(unsigned char* imgdata, const camera_params_t& params)
+void EthernetPublisher::publish(unsigned char* imgdata,
+                                const camera_params_t& params)
 {
   /*
   pkt.frame.t_sec = now.sec;
@@ -47,13 +47,6 @@ void EthernetPublisher::publish(unsigned char* imgdata, const camera_params_t& p
   }
 }
 
-void EthernetPublisher::increaseId()
-{
-  pkt.frame.frame_id++;
-}
+void EthernetPublisher::increaseId() { pkt.frame.frame_id++; }
 
-StereoEthernetPublisher::StereoEthernetPublisher() :
-  pubs{12345, 12346}
-{
-
-}
+StereoEthernetPublisher::StereoEthernetPublisher() : pubs{12345, 12346} {}

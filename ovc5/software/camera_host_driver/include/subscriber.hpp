@@ -1,11 +1,10 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 
-#include <opencv2/opencv.hpp>
-
 #include <atomic>
 #include <condition_variable>
 #include <mutex>
+#include <opencv2/opencv.hpp>
 
 #define LATENCY_TEST 1
 
@@ -50,7 +49,6 @@ private:
   std::mutex frames_mutex;
   std::unique_lock<std::mutex> frames_ready_guard;
 
-
 public:
   Subscriber();
   ~Subscriber();
@@ -58,5 +56,4 @@ public:
   void receiveThread();
 
   std::array<OVCImage, NUM_IMAGERS> getFrames();
-
 };

@@ -1,4 +1,4 @@
-#ifndef I2C_DRIVER_H 
+#ifndef I2C_DRIVER_H
 #define I2C_DRIVER_H
 #include <string>
 
@@ -6,7 +6,8 @@ typedef struct regop_t
 {
   // Assume all writes
   int16_t addr;
-  union {
+  union
+  {
     float f32;
     int32_t i32;
     uint32_t u32;
@@ -33,12 +34,11 @@ class I2CDriver
 
 public:
   int32_t readRegister(uint16_t reg_addr);
-  int burstRead(uint16_t reg_addr, size_t len, uint16_t *data);
+  int burstRead(uint16_t reg_addr, size_t len, uint16_t* data);
   int writeRegister(const regop_t& regop);
 
   I2CDriver(int i2c_dev);
 
   void assignDevice(int i2c_addr, int register_size);
-
 };
 #endif

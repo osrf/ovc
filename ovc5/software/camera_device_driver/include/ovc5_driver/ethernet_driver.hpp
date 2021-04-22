@@ -2,9 +2,9 @@
 #define ETHERNET_DRIVER_INC
 
 #include <arpa/inet.h>
+#include <ovc5_driver/ethernet_packetdef.h>
 
 #include <ovc5_driver/camera.hpp>
-#include <ovc5_driver/ethernet_packetdef.h>
 
 // Publisher for sequential images
 class EthernetPublisher
@@ -26,7 +26,6 @@ public:
   void publish(unsigned char* imgdata, const camera_params_t& params);
 
   void increaseId();
-
 };
 
 // Publishes two frames in parallel on different ports
@@ -36,13 +35,8 @@ private:
   // TODO parametrize num cameras
   EthernetPublisher pubs[2];
 
-
 public:
   StereoEthernetPublisher();
 };
-
-
-
-
 
 #endif

@@ -1,6 +1,6 @@
-#include <iostream>
-#include <unistd.h> // usleep
+#include <unistd.h>  // usleep
 
+#include <iostream>
 #include <ovc5_driver/cameras/picam_v2.hpp>
 
 bool PiCameraV2::probe(I2CDriver& i2c)
@@ -17,24 +17,25 @@ bool PiCameraV2::probe(I2CDriver& i2c)
   return true;
 }
 
-PiCameraV2::PiCameraV2(I2CDriver& i2c, int vdma_dev, int cam_id, bool main_camera) :
-  I2CCamera(i2c, vdma_dev, cam_id, main_camera)
+PiCameraV2::PiCameraV2(I2CDriver& i2c, int vdma_dev, int cam_id,
+                       bool main_camera)
+    : I2CCamera(i2c, vdma_dev, cam_id, main_camera)
 {
-
 }
 
 bool PiCameraV2::initialise(std::string config_name)
 {
   // Shouldn't be necessary if probe() was just called, repeat to be safe
   i2c.assignDevice(SLAVE_ADDR, REGISTER_SIZE);
-  config_name = config_name == "__default__" ? DEFAULT_CAMERA_CONFIG : config_name;
+  config_name =
+      config_name == "__default__" ? DEFAULT_CAMERA_CONFIG : config_name;
   auto config = modes.find(config_name);
-  if (config == modes.end())
-    return false;
+  if (config == modes.end()) return false;
   reset();
   std::vector<regop_t> config_vec = common_ops;
   // Append specific configuration to common parameters
-  config_vec.insert(config_vec.end(), config->second.begin(), config->second.end());
+  config_vec.insert(config_vec.end(), config->second.begin(),
+                    config->second.end());
   // Now send the configuration
   for (const auto& conf : config_vec)
   {

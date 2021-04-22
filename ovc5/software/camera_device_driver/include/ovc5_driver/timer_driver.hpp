@@ -34,13 +34,4 @@ public:
   void waitInterrupt();
 };
 
-
-
-
-
-
-
-
-
 #endif
-
