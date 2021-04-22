@@ -4,30 +4,32 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 
-#include <opencv2/opencv.hpp>
-
 #include <atomic>
 #include <condition_variable>
 #include <mutex>
+#include <opencv2/opencv.hpp>
 
 #include "libovc/ethernet_packetdef.hpp"
 
-namespace libovc {
-
-enum class ReceiveState {
+namespace libovc
+{
+enum class ReceiveState
+{
   WAIT_HEADER,
   WAIT_PAYLOAD,
 };
 
 // TODO sensor name / mode?
-typedef struct OVCImage {
+typedef struct OVCImage
+{
   uint64_t t_sec;
   uint64_t t_nsec;
   uint64_t frame_id;
   cv::Mat image;
 } OVCImage;
 
-class Server {
+class Server
+{
 public:
   static constexpr int NUM_IMAGERS = 2;
 
@@ -63,6 +65,6 @@ public:
   void updateConfig(ether_rx_config_t config);
 };
 
-} // namespace libovc
+}  // namespace libovc
 
-#endif // SERVER_HPP
+#endif  // SERVER_HPP

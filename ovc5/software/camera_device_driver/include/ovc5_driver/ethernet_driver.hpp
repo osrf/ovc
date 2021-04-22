@@ -3,11 +3,13 @@
 
 #include <arpa/inet.h>
 
-#include "ovc5_driver/camera.hpp"
 #include <ovc5_driver/ethernet_packetdef.hpp>
 
+#include "ovc5_driver/camera.hpp"
+
 // Publisher for sequential images
-class EthernetClient {
+class EthernetClient
+{
 private:
   const char *SERVER_IP = "10.0.1.2";
 
@@ -35,7 +37,8 @@ public:
 };
 
 // Publishes two frames in parallel on different ports
-class StereoEthernetClient {
+class StereoEthernetClient
+{
 private:
   // TODO parametrize num cameras
   EthernetClient clients[2];

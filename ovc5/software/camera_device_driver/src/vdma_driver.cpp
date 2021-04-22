@@ -123,7 +123,8 @@ void VDMADriver::flushCache()
 {
   // Flush the cache
   size_t io_size = write(sync_fd[last_fb], "1", 1);
-  if (io_size != 1) {
+  if (io_size != 1)
+  {
     std::cout << "Failed to flush cache" << std::endl;
   }
 }

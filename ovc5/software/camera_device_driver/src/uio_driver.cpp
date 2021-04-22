@@ -41,11 +41,13 @@ void UIODriver::waitInterrupt()
   // Reset UIO and blocking read
   size_t io_size;
   io_size = write(uio_file, (char *)&IRQ_RST, sizeof(IRQ_RST));
-  if (io_size != sizeof(IRQ_RST)) {
+  if (io_size != sizeof(IRQ_RST))
+  {
     std::cout << "Failed to write irq_rst" << std::endl;
   }
   io_size = read(uio_file, &dummy, sizeof(dummy));
-  if (io_size != sizeof(dummy)) {
+  if (io_size != sizeof(dummy))
+  {
     std::cout << "Failed to read dummy value" << std::endl;
   }
 }

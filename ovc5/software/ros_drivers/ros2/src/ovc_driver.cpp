@@ -1,17 +1,18 @@
-#include <memory>
-#include <thread>
-
 #include <cv_bridge/cv_bridge.h>
-#include <rclcpp/rclcpp.hpp>
-#include <sensor_msgs/msg/image.hpp>
 
 #include <libovc/ovc.hpp>
+#include <memory>
+#include <rclcpp/rclcpp.hpp>
+#include <sensor_msgs/msg/image.hpp>
+#include <thread>
 
 using namespace std::chrono_literals;
 
-class OVCPublisher : public rclcpp::Node {
+class OVCPublisher : public rclcpp::Node
+{
 public:
-  OVCPublisher() : Node("ovc_publisher") {
+  OVCPublisher() : Node("ovc_publisher")
+  {
     // Set all default values.
     exposure_ = 0.5;
     frame_count = 0;
@@ -21,7 +22,8 @@ public:
 
     this->declare_parameter<double>("exposure", exposure_);
     // Create the camera publishers.
-    for (size_t i = 0; i < publishers_.size(); i++) {
+    for (size_t i = 0; i < publishers_.size(); i++)
+    {
       std::string name = std::string("cam") + std::to_string(i);
       publishers_[i] =
           this->create_publisher<sensor_msgs::msg::Image>(name, 1000);
@@ -32,10 +34,12 @@ public:
   }
 
 private:
-  void timer_callback() {
+  void timer_callback()
+  {
     auto cur_time = this->now();
     auto diff = (cur_time - begin_).seconds();
-    if (diff >= 5.0f) {
+    if (diff >= 5.0f)
+    {
       RCLCPP_INFO(this->get_logger(),
                   "Averaged %f FPS over the last %f seconds",
                   (double)(frame_count) / diff, diff);
@@ -45,7 +49,8 @@ private:
 
     auto frames = ovc_->getFrames();
     std::array<sensor_msgs::msg::Image, libovc::Server::NUM_IMAGERS> imgs;
-    for (size_t i = 0; i < frames.size(); i++) {
+    for (size_t i = 0; i < frames.size(); i++)
+    {
       // Populate header.
       imgs[i].header.frame_id = frames[i].frame_id;
       imgs[i].header.stamp.sec = frames[i].t_sec;
@@ -56,7 +61,8 @@ private:
       cv_image.toImageMsg(imgs[i]);
     }
 
-    for (size_t i = 0; i < publishers_.size(); i++) {
+    for (size_t i = 0; i < publishers_.size(); i++)
+    {
       publishers_[i]->publish(imgs[i]);
     }
 
@@ -66,10 +72,12 @@ private:
     frame_count++;
   }
 
-  void updateParams() {
+  void updateParams()
+  {
     double new_exposure;
     this->get_parameter("exposure", new_exposure);
-    if (new_exposure != exposure_) {
+    if (new_exposure != exposure_)
+    {
       RCLCPP_INFO(this->get_logger(), "Recevied param update {exposure: %f}",
                   new_exposure);
       exposure_ = new_exposure;
@@ -89,7 +97,8 @@ private:
   double exposure_;
 };
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
   // Initialize ros systems.
   rclcpp::init(argc, argv);
   auto node = rclcpp::Node::make_shared("ovc_node");

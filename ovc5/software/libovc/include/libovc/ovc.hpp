@@ -1,11 +1,14 @@
 #ifndef __OVC_HPP
 #define __OVC_HPP
 
+#include <thread>
+
 #include "server.hpp"
 
-namespace libovc {
-
-class OVC {
+namespace libovc
+{
+class OVC
+{
 private:
   std::array<OVCImage, Server::NUM_IMAGERS> frames_;
   Server server_;
@@ -21,6 +24,6 @@ public:
   int getNumImagers() { return Server::NUM_IMAGERS; }
 };
 
-} // namespace libovc
+}  // namespace libovc
 
-#endif // OVC_HPP
+#endif  // OVC_HPP
