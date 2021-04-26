@@ -4,3 +4,4 @@ BasedOnStyle: Google
 Language: Cpp
 BreakBeforeBraces: Allman
 AccessModifierOffset: -2
+BinPackArguments: false

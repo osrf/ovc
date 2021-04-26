@@ -11,9 +11,9 @@ extern "C"
 #include <linux/i2c.h>
 }
 
-#include "ovc5_driver/i2c_driver.h"
-
 #include <cassert>
+
+#include "ovc5_driver/i2c_driver.h"
 
 I2CDriver::I2CDriver(int i2c_dev)
 {
@@ -54,6 +54,6 @@ int I2CDriver::writeRegister(const regop_t& regop)
   payload[0] = regop.addr & 0xFF;
   for (size_t i = 1; i <= reg_size; ++i)
     payload[i] = regop.i32 >> (8 * (reg_size - i));
-  return i2c_smbus_write_i2c_block_data(i2c_fd, regop.addr >> 8, payload.size(),
-                                        &payload[0]);
+  return i2c_smbus_write_i2c_block_data(
+      i2c_fd, regop.addr >> 8, payload.size(), &payload[0]);
 }

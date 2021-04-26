@@ -33,8 +33,8 @@ protected:
   void initVDMA(const camera_params_t& params)
   {
     camera_params = params;
-    vdma.configureVDMA(params.res_x, params.res_y, params.bit_depth,
-                       main_camera);
+    vdma.configureVDMA(
+        params.res_x, params.res_y, params.bit_depth, main_camera);
   }
 
 public:

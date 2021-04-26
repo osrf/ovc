@@ -49,8 +49,8 @@ int main(int argc, char **argv)
   config_t config;
   load_config(config);
 
-  SensorManager sm(config.i2c_devs, config.vdma_devs,
-                   config.line_count_timer_dev);
+  SensorManager sm(
+      config.i2c_devs, config.vdma_devs, config.line_count_timer_dev);
   Timer trigger_timer(config.trigger_timer_dev);
 
   // Hz, high time

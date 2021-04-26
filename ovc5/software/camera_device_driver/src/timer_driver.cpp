@@ -1,7 +1,8 @@
+#include "ovc5_driver/timer_driver.hpp"
+
 #include <unistd.h>
 
 #include <iostream>
-#include "ovc5_driver/timer_driver.hpp"
 
 Timer::Timer(int uio_num) : uio(uio_num, MAP_SIZE) {}
 

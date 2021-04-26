@@ -1,7 +1,8 @@
+#include "ovc5_driver/cameras/picam_v2.hpp"
+
 #include <unistd.h>  // usleep
 
 #include <iostream>
-#include "ovc5_driver/cameras/picam_v2.hpp"
 
 bool PiCameraV2::probe(I2CDriver& i2c)
 {
@@ -34,8 +35,8 @@ bool PiCameraV2::initialise(std::string config_name)
   reset();
   std::vector<regop_t> config_vec = common_ops;
   // Append specific configuration to common parameters
-  config_vec.insert(config_vec.end(), config->second.begin(),
-                    config->second.end());
+  config_vec.insert(
+      config_vec.end(), config->second.begin(), config->second.end());
   // Now send the configuration
   for (const auto& conf : config_vec)
   {

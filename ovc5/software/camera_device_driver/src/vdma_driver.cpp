@@ -31,8 +31,8 @@ VDMADriver::VDMADriver(int uio_num, int cam_id)
         "/sys/class/u-dma-buf/" + camera_name + "/sync_for_cpu";
     sync_fd[i] = open(sync_filename.c_str(), O_WRONLY);
     if (memory_file < 0) std::cout << "fopen failed" << std::endl;
-    memory_mmap[i] = (unsigned char*)mmap(NULL, fb_data.second, PROT_READ,
-                                          MAP_SHARED, memory_file, 0);
+    memory_mmap[i] = (unsigned char*)mmap(
+        NULL, fb_data.second, PROT_READ, MAP_SHARED, memory_file, 0);
 
     if (memory_mmap[i] == MAP_FAILED) std::cout << "mmap failed" << std::endl;
     sendFramebuffer(i, fb_data.first);

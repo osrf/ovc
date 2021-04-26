@@ -63,8 +63,10 @@ void Subscriber::receiveThread()
       {
         while (cur_off < sizeof(recv_pkt))
         {
-          int recv_len = recv(recv_sock, &recv_pkt.data[cur_off],
-                              sizeof(recv_pkt) - cur_off, MSG_WAITALL);
+          int recv_len = recv(recv_sock,
+                              &recv_pkt.data[cur_off],
+                              sizeof(recv_pkt) - cur_off,
+                              MSG_WAITALL);
           cur_off += recv_len;
         }
       }
@@ -76,7 +78,8 @@ void Subscriber::receiveThread()
       //  recv_pkt.frame.width << std::endl;
       // Allocate CV mat
       ret_imgs[camera_id].image.create(
-          recv_pkt.frame.height, recv_pkt.frame.width,
+          recv_pkt.frame.height,
+          recv_pkt.frame.width,
           CV_16UC1);  // TODO flexible data type, for now only yuv420
       std::cout << "Frame has " << recv_pkt.frame.height << " rows and "
                 << recv_pkt.frame.width << " columns and "
@@ -89,8 +92,10 @@ void Subscriber::receiveThread()
       frames_lock.lock();
       while (cur_off < frame_size)
       {
-        int recv_len = recv(recv_sock, &ret_imgs[camera_id].image.data[cur_off],
-                            frame_size - cur_off, MSG_WAITALL);
+        int recv_len = recv(recv_sock,
+                            &ret_imgs[camera_id].image.data[cur_off],
+                            frame_size - cur_off,
+                            MSG_WAITALL);
         cur_off += recv_len;
       }
       frames_lock.unlock();
