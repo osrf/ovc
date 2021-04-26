@@ -1,5 +1,5 @@
 name: clang-format Check
-on: [push, PR]
+on: [push, pr]
 jobs:
   formatting-check:
     name: Formatting Check
