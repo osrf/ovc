@@ -1,5 +1,6 @@
+#include "ovc5_driver/vdma_driver.h"
+
 #include <fcntl.h>
-#include <ovc5_driver/vdma_driver.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/mman.h>

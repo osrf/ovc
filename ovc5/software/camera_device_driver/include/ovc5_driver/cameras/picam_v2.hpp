@@ -24,9 +24,10 @@
 #ifndef CAMERAS__PICAM_V2_INC
 #define CAMERAS__PICAM_V2_INC
 #include <memory>
-#include <ovc5_driver/camera.hpp>
 #include <unordered_map>
 #include <vector>
+
+#include "ovc5_driver/camera.hpp"
 
 // Picamera V2 with IMX 219 imager
 class PiCameraV2 : public I2CCamera

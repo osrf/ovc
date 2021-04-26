@@ -8,7 +8,7 @@
 
 #define LATENCY_TEST 1
 
-#include <latency_tester.hpp>
+#include "latency_tester.hpp"
 
 enum class ReceiveState
 {

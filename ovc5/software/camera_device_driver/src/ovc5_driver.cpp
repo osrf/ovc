@@ -5,8 +5,9 @@
 #include <array>
 #include <iostream>
 #include <memory>
-#include <ovc5_driver/sensor_manager.hpp>
-#include <ovc5_driver/timer_driver.hpp>
+
+#include "ovc5_driver/sensor_manager.hpp"
+#include "ovc5_driver/timer_driver.hpp"
 
 volatile sig_atomic_t stop = 0;
 

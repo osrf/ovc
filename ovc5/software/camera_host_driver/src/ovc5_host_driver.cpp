@@ -1,6 +1,7 @@
 #include <iostream>
-#include <subscriber.hpp>
 #include <thread>
+
+#include "subscriber.hpp"
 
 static void dumpFrame(const cv::Mat& frame)
 {

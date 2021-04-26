@@ -1,9 +1,11 @@
-#include <ovc5_driver/i2c_driver.h>
+#include "ovc5_driver/sensor_manager.hpp"
+
 #include <unistd.h>
 
 #include <iostream>
-#include <ovc5_driver/camera_modules.hpp>
-#include <ovc5_driver/sensor_manager.hpp>
+
+#include "ovc5_driver/camera_modules.hpp"
+#include "ovc5_driver/i2c_driver.h"
 
 SensorManager::SensorManager(const std::array<int, NUM_CAMERAS>& i2c_devs,
                              const std::array<int, NUM_CAMERAS>& vdma_devs,

@@ -1,7 +1,7 @@
 #ifndef TIMER_DRIVER_HPP
 #define TIMER_DRIVER_HPP
 
-#include <ovc5_driver/uio_driver.hpp>
+#include "ovc5_driver/uio_driver.hpp"
 
 class Timer
 {

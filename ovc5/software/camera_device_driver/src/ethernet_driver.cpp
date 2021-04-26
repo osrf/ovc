@@ -1,10 +1,11 @@
+#include "ovc5_driver/ethernet_driver.hpp"
+
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
 
 #include <cmath>
 #include <iostream>
-#include <ovc5_driver/ethernet_driver.hpp>
 
 EthernetPublisher::EthernetPublisher(int port) : base_port(port)
 {

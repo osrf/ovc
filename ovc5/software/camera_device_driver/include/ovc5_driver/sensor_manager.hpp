@@ -1,8 +1,9 @@
 #include <map>
 #include <memory>
-#include <ovc5_driver/camera.hpp>
-#include <ovc5_driver/ethernet_driver.hpp>
-#include <ovc5_driver/timer_driver.hpp>
+
+#include "ovc5_driver/camera.hpp"
+#include "ovc5_driver/ethernet_driver.hpp"
+#include "ovc5_driver/timer_driver.hpp"
 
 #define NUM_CAMERAS 2
 

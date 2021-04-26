@@ -1,7 +1,8 @@
-#include <ethernet_packetdef.h>
+#include "subscriber.hpp"
+
 #include <unistd.h>
 
-#include <subscriber.hpp>
+#include "ethernet_packetdef.h"
 
 Subscriber::Subscriber() : frames_ready_guard(frames_ready_mutex)
 {

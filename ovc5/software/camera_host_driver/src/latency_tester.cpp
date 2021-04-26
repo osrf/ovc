@@ -1,7 +1,7 @@
+#include "latency_tester.hpp"
+
 #include <fcntl.h>
 #include <unistd.h>
-
-#include <latency_tester.hpp>
 
 LatencyTester::LatencyTester(const std::string& file)
 {

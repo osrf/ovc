@@ -2,9 +2,9 @@
 #define ETHERNET_DRIVER_INC
 
 #include <arpa/inet.h>
-#include <ovc5_driver/ethernet_packetdef.h>
 
-#include <ovc5_driver/camera.hpp>
+#include "ovc5_driver/camera.hpp"
+#include "ovc5_driver/ethernet_packetdef.h"
 
 // Publisher for sequential images
 class EthernetPublisher

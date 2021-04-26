@@ -1,10 +1,10 @@
 #ifndef CAMERA_INC
 #define CAMERA_INC
-#include <ovc5_driver/i2c_driver.h>
-#include <ovc5_driver/vdma_driver.h>
-
 #include <memory>
 #include <string>
+
+#include "ovc5_driver/i2c_driver.h"
+#include "ovc5_driver/vdma_driver.h"
 
 enum class sensor_type_t
 {

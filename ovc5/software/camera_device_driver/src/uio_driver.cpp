@@ -1,9 +1,10 @@
+#include "ovc5_driver/uio_driver.hpp"
+
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <unistd.h>
 
 #include <iostream>
-#include <ovc5_driver/uio_driver.hpp>
 #include <string>
 
 UIODriver::UIODriver(int uio_num, size_t map_size)
