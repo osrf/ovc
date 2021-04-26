@@ -1,7 +1,7 @@
 #include <unistd.h>  // usleep
 
 #include <iostream>
-#include <ovc5_driver/cameras/picam_v2.hpp>
+#include "ovc5_driver/cameras/picam_v2.hpp"
 
 bool PiCameraV2::probe(I2CDriver& i2c)
 {

@@ -54,9 +54,9 @@ typedef union ether_tx_packet_t
       ether_tx_frame_t frame;
     };
   };
-  uint8_t data
-      [1];  // We don't need to code magic numbers for size, ref
-            // https://electronics.stackexchange.com/questions/296348/union-member-and-size-of-char-array-in-c
+  // We don't need to code magic numbers for size, ref
+  // https://electronics.stackexchange.com/questions/296348/union-member-and-size-of-char-array-in-c
+  uint8_t data[1];
 } ether_tx_packet_t;
 
 // Packet definitions for host PC -> controller board

@@ -11,7 +11,7 @@ extern "C"
 #include <linux/i2c.h>
 }
 
-#include <ovc5_driver/i2c_driver.h>
+#include "ovc5_driver/i2c_driver.h"
 
 #include <cassert>
 
@@ -49,8 +49,8 @@ int32_t I2CDriver::readRegister(uint16_t reg_addr)
 int I2CDriver::writeRegister(const regop_t& regop)
 {
   assert(initialized());
-  std::vector<uint8_t> payload(reg_size +
-                               1);  // We need to add one byte for address
+  // We need to add one byte for address
+  std::vector<uint8_t> payload(reg_size + 1);
   payload[0] = regop.addr & 0xFF;
   for (size_t i = 1; i <= reg_size; ++i)
     payload[i] = regop.i32 >> (8 * (reg_size - i));
