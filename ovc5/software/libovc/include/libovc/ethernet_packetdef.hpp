@@ -1,20 +1,14 @@
-#ifndef ETHERNET_PACKETDEF_INC
-#define ETHERNET_PACKETDEF_INC
+#ifndef __ETHERNET_PACKETDEF_HPP
+#define __ETHERNET_PACKETDEF_HPP
 
 #include <cstdint>
 
 // Packet definitions for OVC -> host PC
-
 typedef enum : uint32_t
 {
   TX_PACKET_TYPE_FRAME = 1,
   TX_PACKET_TYPE_IMU = 2,  // Packet with IMU data
 } ether_tx_packet_type_t;
-
-typedef enum : uint32_t
-{
-  RX_PACKET_TYPE_CMD_CONFIG = 1,  // TODO implement userspace commands
-} ether_rx_packet_type_t;
 
 typedef struct __attribute__((__packed__))
 {
@@ -60,6 +54,15 @@ typedef union ether_tx_packet_t
 } ether_tx_packet_t;
 
 // Packet definitions for host PC -> controller board
+typedef enum : uint32_t
+{
+  RX_PACKET_TYPE_CMD_CONFIG = 1,
+} ether_rx_packet_type_t;
+
+typedef struct __attribute__((__packed__))
+{
+  double exposure;
+} ether_rx_config_t;
 
 typedef union __attribute__((__packed__))
 {
@@ -69,10 +72,10 @@ typedef union __attribute__((__packed__))
     ether_rx_packet_type_t packet_type;
     union
     {
-      // TODO add user commands
+      ether_rx_config_t config;
     };
   };
   uint8_t data[1];
 } ether_rx_packet_t;
 
-#endif
+#endif  // ETHERNET_PACKETDEF_HPP

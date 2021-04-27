@@ -1,11 +1,17 @@
-#include "subscriber.hpp"
+#include "libovc/server.hpp"
 
 #include <unistd.h>
 
-#include "ethernet_packetdef.h"
+#include <iostream>
 
-Subscriber::Subscriber() : frames_ready_guard(frames_ready_mutex)
+#include "libovc/ethernet_packetdef.hpp"
+
+namespace libovc
 {
+Server::Server() : frames_ready_guard(frames_ready_mutex)
+{
+  stop_ = false;
+
   sock = socket(AF_INET, SOCK_STREAM, 0);
 
   si_self.sin_family = AF_INET;
@@ -15,7 +21,7 @@ Subscriber::Subscriber() : frames_ready_guard(frames_ready_mutex)
   bind(sock, (struct sockaddr *)&si_self, sizeof(si_self));
 }
 
-Subscriber::~Subscriber()
+Server::~Server()
 {
   close(sock);
   close(recv_sock);
@@ -23,7 +29,7 @@ Subscriber::~Subscriber()
 
 // TODO atomic to signal from receive thread and mutexes to avoid corrupted
 // frames
-std::array<OVCImage, Subscriber::NUM_IMAGERS> Subscriber::getFrames()
+std::array<OVCImage, Server::NUM_IMAGERS> Server::getFrames()
 {
   while (frames_received / NUM_IMAGERS == 0)
   {
@@ -35,19 +41,20 @@ std::array<OVCImage, Subscriber::NUM_IMAGERS> Subscriber::getFrames()
   return ret_imgs;
 }
 
-void Subscriber::receiveThread()
+void Server::stop() { stop_ = true; }
+
+void Server::receiveThread()
 {
   unsigned int si_size = sizeof(si_other);
   listen(sock, 1);
   recv_sock = accept(sock, (struct sockaddr *)&si_other, &si_size);
-  std::cout << "Listening" << std::endl;
   // TODO proper while condition
-  int cur_off = 0;
-  int frame_size = 0;
+  size_t cur_off = 0;
+  size_t frame_size = 0;
   int camera_id = 0;
   std::unique_lock<std::mutex> frames_lock(frames_mutex, std::defer_lock);
   ether_tx_packet_t recv_pkt;
-  while (1)
+  while (!stop_)
   {
     std::string camera_name;
     if (state_ == ReceiveState::WAIT_HEADER)
@@ -57,7 +64,7 @@ void Subscriber::receiveThread()
       {
         // We received a whole header and a beginning of frame before finishing
         // reading the previous one
-        std::cout << "UNHANDLED CASE ERROR" << std::endl;
+        std::cout << "libovc: Unhandled packet case" << std::endl;
       }
       else
       {
@@ -70,20 +77,21 @@ void Subscriber::receiveThread()
           cur_off += recv_len;
         }
       }
+
+      ret_imgs[camera_id].t_sec = recv_pkt.frame.t_sec;
+      ret_imgs[camera_id].t_nsec = recv_pkt.frame.t_nsec;
+      ret_imgs[camera_id].frame_id = recv_pkt.frame.frame_id;
+
       frame_size = recv_pkt.frame.height * recv_pkt.frame.step;
       camera_name = recv_pkt.frame.camera_name;
-      // std::cout << "Received a header with frame_id " <<
-      // recv_pkt.frame.frame_id <<
-      //  " height " << recv_pkt.frame.height << " width = " <<
-      //  recv_pkt.frame.width << std::endl;
-      // Allocate CV mat
+
+      // Create ovc buffer for pre-processing (need to convert to 16bit before
+      // publishing).
       ret_imgs[camera_id].image.create(
           recv_pkt.frame.height,
           recv_pkt.frame.width,
           CV_16UC1);  // TODO flexible data type, for now only yuv420
-      std::cout << "Frame has " << recv_pkt.frame.height << " rows and "
-                << recv_pkt.frame.width << " columns and "
-                << recv_pkt.frame.step << " step" << std::endl;
+
       cur_off = 0;
       state_ = ReceiveState::WAIT_PAYLOAD;
     }
@@ -106,12 +114,24 @@ void Subscriber::receiveThread()
       if (frames_received % NUM_IMAGERS == 0)
       {
         // All frames received, notify userspace
-#if LATENCY_TEST
-        tester.frameReceived();
-#endif
         frames_ready_var.notify_all();
       }
       camera_id = (camera_id + 1) % NUM_IMAGERS;
     }
   }
 }
+
+void Server::updateConfig(ether_rx_config_t config)
+{
+  ether_rx_packet_t send_pkt;
+  send_pkt.status = 0;
+  send_pkt.packet_type = RX_PACKET_TYPE_CMD_CONFIG;
+  send_pkt.config = config;
+  size_t io_size = write(recv_sock, send_pkt.data, sizeof(send_pkt));
+  if (io_size != sizeof(send_pkt))
+  {
+    std::cout << "libovc: Failed to write full config packet" << std::endl;
+  }
+}
+
+}  // namespace libovc

@@ -7,8 +7,8 @@
 #include "ovc5_driver/camera_modules.hpp"
 #include "ovc5_driver/i2c_driver.h"
 
-SensorManager::SensorManager(const std::array<int, NUM_CAMERAS>& i2c_devs,
-                             const std::array<int, NUM_CAMERAS>& vdma_devs,
+SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &i2c_devs,
+                             const std::array<int, NUM_CAMERAS> &vdma_devs,
                              int line_counter_dev)
     : line_counter(line_counter_dev)
 {
@@ -54,7 +54,7 @@ SensorManager::SensorManager(const std::array<int, NUM_CAMERAS>& i2c_devs,
 void SensorManager::initCameras()
 {
   bool first_cam_found = false;
-  for (auto& [cam_id, camera] : cameras)
+  for (auto &[cam_id, camera] : cameras)
   {
     // Will initialize to default resolution and frame rate
     if (!camera->initialise())
@@ -72,7 +72,7 @@ void SensorManager::initCameras()
 
 void SensorManager::streamCameras()
 {
-  for (auto& [cam_id, camera] : cameras)
+  for (auto &[cam_id, camera] : cameras)
   {
     std::cout << "Enabling streaming" << std::endl;
     camera->enableStreaming();
@@ -80,9 +80,9 @@ void SensorManager::streamCameras()
 }
 
 // The stereo only waits for a single interrupt from the first camera
-std::map<int, unsigned char*> SensorManager::getFrames()
+std::map<int, unsigned char *> SensorManager::getFrames()
 {
-  std::map<int, unsigned char*> frame_map;
+  std::map<int, unsigned char *> frame_map;
   // Start timer and wait for interrupt
   line_counter.interruptAtLine(LINE_BUFFER_SIZE);
   line_counter.waitInterrupt();
@@ -95,13 +95,27 @@ std::map<int, unsigned char*> SensorManager::getFrames()
   return frame_map;
 }
 
-void SensorManager::publishFrames()
+void SensorManager::sendFrames()
 {
   auto frames = getFrames();
-  for (const auto& [cam_id, frame_ptr] : frames)
+  for (const auto &[cam_id, frame_ptr] : frames)
   {
     cameras[cam_id]->flushCache();
-    pub.publish(frame_ptr, cameras[cam_id]->getCameraParams());
+    client.send(frame_ptr, cameras[cam_id]->getCameraParams());
+  }
+}
+
+void SensorManager::recvCommand()
+{
+  auto pkt = client.recv();
+  if (nullptr == pkt)
+  {
+    return;
+  }
+  if (RX_PACKET_TYPE_CMD_CONFIG == pkt->packet_type)
+  {
+    std::cout << "Received config packet with {exposure: "
+              << pkt->config.exposure << "}" << std::endl;
   }
 }
 
@@ -110,5 +124,5 @@ int SensorManager::getNumCameras() const { return cameras.size(); }
 SensorManager::~SensorManager()
 {
   std::cout << "Resetting sensors" << std::endl;
-  for (const auto& camera : cameras) camera.second->reset();
+  for (const auto &camera : cameras) camera.second->reset();
 }

@@ -111,10 +111,9 @@ unsigned char* VDMADriver::getImage(int frame_offset)
   // Wait until a new frame is generated
   uio.waitInterrupt();
   updateLastFramebuffer(frame_offset);
-  // Flush the cache
-  write(sync_fd[last_fb], "1", 1);
-  std::cout << "last master fb is " << last_fb << std::endl;
+  flushCache();
 
+  std::cout << "last master fb is " << last_fb << std::endl;
   return memory_mmap[last_fb];
 }
 
@@ -131,5 +130,9 @@ unsigned char* VDMADriver::getImageNoInterrupt(int frame_offset)
 void VDMADriver::flushCache()
 {
   // Flush the cache
-  write(sync_fd[last_fb], "1", 1);
+  size_t io_size = write(sync_fd[last_fb], "1", 1);
+  if (io_size != 1)
+  {
+    std::cout << "Failed to flush cache" << std::endl;
+  }
 }

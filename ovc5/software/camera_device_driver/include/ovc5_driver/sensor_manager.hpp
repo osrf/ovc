@@ -10,9 +10,11 @@
 class SensorManager
 {
 private:
-  static constexpr int LINE_BUFFER_SIZE =
-      400;  // Number of lines to wait before tranferring frame
-  EthernetPublisher pub;
+  // Number of lines to wait before tranferring frame
+  static constexpr int LINE_BUFFER_SIZE = 400;
+
+  EthernetClient client;
+
   Timer line_counter;
 
   void initCamera(int cam_id, int sensor_mode, int width, int height, int fps);
@@ -30,7 +32,9 @@ public:
 
   std::map<int, unsigned char*> getFrames();
 
-  void publishFrames();
+  void sendFrames();
+
+  void recvCommand();
 
   int getNumCameras() const;
 

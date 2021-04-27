@@ -1,3 +1,6 @@
+#ifndef __SERVER_HPP
+#define __SERVER_HPP
+
 #include <arpa/inet.h>
 #include <sys/socket.h>
 
@@ -6,10 +9,10 @@
 #include <mutex>
 #include <opencv2/opencv.hpp>
 
-#define LATENCY_TEST 1
+#include "libovc/ethernet_packetdef.hpp"
 
-#include "latency_tester.hpp"
-
+namespace libovc
+{
 enum class ReceiveState
 {
   WAIT_HEADER,
@@ -25,21 +28,21 @@ typedef struct OVCImage
   cv::Mat image;
 } OVCImage;
 
-class Subscriber
+class Server
 {
-private:
-  static constexpr int BASE_PORT = 12345;
+public:
   static constexpr int NUM_IMAGERS = 2;
 
-  ReceiveState state_ = ReceiveState::WAIT_HEADER;
+private:
+  static constexpr int BASE_PORT = 12345;
 
-#if LATENCY_TEST
-  LatencyTester tester;
-#endif
+  ReceiveState state_ = ReceiveState::WAIT_HEADER;
 
   struct sockaddr_in si_self = {0}, si_other = {0};
   int sock;
   int recv_sock;
+
+  bool stop_;
 
   std::array<OVCImage, NUM_IMAGERS> ret_imgs;
 
@@ -50,10 +53,18 @@ private:
   std::unique_lock<std::mutex> frames_ready_guard;
 
 public:
-  Subscriber();
-  ~Subscriber();
+  Server();
+  ~Server();
 
   void receiveThread();
 
+  void stop();
+
   std::array<OVCImage, NUM_IMAGERS> getFrames();
+
+  void updateConfig(ether_rx_config_t config);
 };
+
+}  // namespace libovc
+
+#endif  // SERVER_HPP
