@@ -10,14 +10,16 @@
 1. After assembling OVC5, use the [provisioning script](https://github.com/osrf/ovc/blob/master/ovc5/scripts/install_sd.sh) to generate an SD card image. This can then be loaded into the OVC5 device port.
 2. Connect power and ethernet to the device. The ethernet should be connected to the same LAN as your computer.
 3. Connect the OVC5 to a USB3 Super Speed port. This will provide the correct bandwidth for streaming high resolution/framerate images.
-4. Wait a minute or two and run `ssh root@zynq.local`. You may also attempt to ping it until it responds. The default password, as defined in the provisioning script, is `temppwd`.
+4. Wait a minute or two and run `ssh root@zynq.local`. You may also attempt to ping it until it responds.
+    * The default password, as defined in the provisioning script, is `temppwd`.
 5. Once connected, initialize ethernet over usb using the script located in the home directory [`init_usb_ethernet.sh`](https://github.com/osrf/ovc/blob/master/ovc5/scripts/device_scripts/init_usb_ethernet.sh)
 6. Use `git` to clone in the latest OVC version. Now compile the [camera device driver](https://github.com/osrf/ovc/tree/master/ovc5/software/camera_device_driver).
-7. On the host machine, compile the [camera host driver](https://github.com/osrf/ovc/tree/master/ovc5/software/camera_host_driver).
+7. On the host machine, compile [`libovc`](https://github.com/osrf/ovc/tree/master/ovc5/software/libovc) and the [camera host driver](https://github.com/osrf/ovc/tree/master/ovc5/software/camera_host_driver). This can be accomplished using the [`Makefile`](https://github.com/osrf/ovc/blob/master/ovc5/software/Makefile).
+    * __NOTE__: the makefile `all` target compiles the camera driver as well. This is just to sanity check when not editing on an OVC device. Remove `device_driver` from all or install `i2c-tools` to not fail this build step.
 
 ## Execution
-1. On the host machine, run `ovc5_host_node`. This creates a server for OVC5 to connect to.
-2. On OVC5 (via ssh), run `ovc5_driver`. This connects to the host server and immediately starts streaming sensor data.
+1. On the host machine, run `make run_host`. This creates a server for OVC5 to connect to.
+2. On OVC5 (via ssh), run (from software) `./camera_device_driver/build/ovc5_driver`. This connects to the host server and immediately starts streaming sensor data.
 3. To stop execution, use `ctrl + C`. Always stop execution on the device first otherwise sensors will not be reset properly. This can cause abnormal behavior in the following execution (unless power is reset or the script is properly exited in the following execution).
 
 ## Renders
