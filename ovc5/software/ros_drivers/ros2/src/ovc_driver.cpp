@@ -42,7 +42,8 @@ private:
     {
       RCLCPP_INFO(this->get_logger(),
                   "Averaged %f FPS over the last %f seconds",
-                  (double)(frame_count) / diff, diff);
+                  (double)(frame_count) / diff,
+                  diff);
       frame_count = 0;
       begin_ = cur_time;
     }
@@ -78,7 +79,8 @@ private:
     this->get_parameter("exposure", new_exposure);
     if (new_exposure != exposure_)
     {
-      RCLCPP_INFO(this->get_logger(), "Recevied param update {exposure: %f}",
+      RCLCPP_INFO(this->get_logger(),
+                  "Recevied param update {exposure: %f}",
                   new_exposure);
       exposure_ = new_exposure;
       ovc_->updateConfig(exposure_);

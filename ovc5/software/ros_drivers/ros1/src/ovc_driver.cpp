@@ -85,7 +85,8 @@ int main(int argc, char **argv)
     if (diff >= 5.0f)
     {
       ROS_INFO("Averaged %f FPS over the last %f seconds",
-               (double)(frame_count) / diff, diff);
+               (double)(frame_count) / diff,
+               diff);
       frame_count = 0;
       begin = cur_time;
     }
