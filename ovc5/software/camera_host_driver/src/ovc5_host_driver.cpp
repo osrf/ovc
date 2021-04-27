@@ -9,15 +9,14 @@
 static void dumpFrame(const cv::Mat& frame)
 {
   static bool ran = false;
-  if (ran)
-    return;
+  if (ran) return;
   std::ofstream out_file;
   out_file.open("raw_image");
   for (int r = 0; r < frame.rows; ++r)
   {
     for (int c = 0; c < frame.cols; ++c)
     {
-      int pixel = frame.at<uint16_t>(r,c);
+      int pixel = frame.at<uint16_t>(r, c);
       out_file << pixel << " ";
     }
     out_file << std::endl;
@@ -26,7 +25,7 @@ static void dumpFrame(const cv::Mat& frame)
 }
 */
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
   (void)argc;
   (void)argv;

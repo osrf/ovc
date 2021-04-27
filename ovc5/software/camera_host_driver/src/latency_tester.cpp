@@ -1,8 +1,7 @@
-#include <unistd.h>
+#include "latency_tester.hpp"
+
 #include <fcntl.h>
-
-#include <latency_tester.hpp>
-
+#include <unistd.h>
 
 LatencyTester::LatencyTester(const std::string& file)
 {
@@ -15,5 +14,4 @@ void LatencyTester::frameReceived()
   // Write 'A'
   const char* msg = "a";
   write(serial_port, msg, sizeof(msg));
-
 }

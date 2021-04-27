@@ -1,27 +1,30 @@
-#include <memory>
 #include <map>
+#include <memory>
 
-#include <ovc5_driver/camera.hpp>
-#include <ovc5_driver/ethernet_driver.hpp>
-#include <ovc5_driver/timer_driver.hpp>
+#include "ovc5_driver/camera.hpp"
+#include "ovc5_driver/ethernet_driver.hpp"
+#include "ovc5_driver/timer_driver.hpp"
 
 #define NUM_CAMERAS 2
 
 class SensorManager
 {
 private:
-  static constexpr int LINE_BUFFER_SIZE = 400; // Number of lines to wait before tranferring frame
+  // Number of lines to wait before tranferring frame
+  static constexpr int LINE_BUFFER_SIZE = 400;
+
   EthernetClient client;
+
   Timer line_counter;
 
   void initCamera(int cam_id, int sensor_mode, int width, int height, int fps);
 
   std::map<int, std::unique_ptr<I2CCamera>> cameras;
 
-  
 public:
   SensorManager(const std::array<int, NUM_CAMERAS>& i2c_devs,
-      const std::array<int, NUM_CAMERAS>& vdma_devs, int line_counter_dev);
+                const std::array<int, NUM_CAMERAS>& vdma_devs,
+                int line_counter_dev);
 
   void initCameras();
 
@@ -36,5 +39,4 @@ public:
   int getNumCameras() const;
 
   ~SensorManager();
-
 };

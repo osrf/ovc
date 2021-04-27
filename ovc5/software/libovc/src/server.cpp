@@ -64,14 +64,16 @@ void Server::receiveThread()
       {
         // We received a whole header and a beginning of frame before finishing
         // reading the previous one
-        throw std::runtime_error("UNHANDLED CASE ERROR");
+        std::cout << "libovc: Unhandled packet case" << std::endl;
       }
       else
       {
         while (cur_off < sizeof(recv_pkt))
         {
-          int recv_len = recv(recv_sock, &recv_pkt.data[cur_off],
-                              sizeof(recv_pkt) - cur_off, MSG_WAITALL);
+          int recv_len = recv(recv_sock,
+                              &recv_pkt.data[cur_off],
+                              sizeof(recv_pkt) - cur_off,
+                              MSG_WAITALL);
           cur_off += recv_len;
         }
       }
@@ -86,7 +88,8 @@ void Server::receiveThread()
       // Create ovc buffer for pre-processing (need to convert to 16bit before
       // publishing).
       ret_imgs[camera_id].image.create(
-          recv_pkt.frame.height, recv_pkt.frame.width,
+          recv_pkt.frame.height,
+          recv_pkt.frame.width,
           CV_16UC1);  // TODO flexible data type, for now only yuv420
 
       cur_off = 0;
@@ -97,8 +100,10 @@ void Server::receiveThread()
       frames_lock.lock();
       while (cur_off < frame_size)
       {
-        int recv_len = recv(recv_sock, &ret_imgs[camera_id].image.data[cur_off],
-                            frame_size - cur_off, MSG_WAITALL);
+        int recv_len = recv(recv_sock,
+                            &ret_imgs[camera_id].image.data[cur_off],
+                            frame_size - cur_off,
+                            MSG_WAITALL);
         cur_off += recv_len;
       }
       frames_lock.unlock();

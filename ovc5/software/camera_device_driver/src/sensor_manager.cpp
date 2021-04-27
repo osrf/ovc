@@ -1,9 +1,11 @@
-#include <ovc5_driver/i2c_driver.h>
+#include "ovc5_driver/sensor_manager.hpp"
+
 #include <unistd.h>
 
 #include <iostream>
-#include <ovc5_driver/camera_modules.hpp>
-#include <ovc5_driver/sensor_manager.hpp>
+
+#include "ovc5_driver/camera_modules.hpp"
+#include "ovc5_driver/i2c_driver.h"
 
 SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &i2c_devs,
                              const std::array<int, NUM_CAMERAS> &vdma_devs,
@@ -17,8 +19,9 @@ SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &i2c_devs,
     if (PiCameraV2::probe(i2c))
     {
       cameras.insert(
-          {cam_id, std::make_unique<PiCameraV2>(i2c, vdma_devs[cam_id], cam_id,
-                                                !first_camera_found)});
+          {cam_id,
+           std::make_unique<PiCameraV2>(
+               i2c, vdma_devs[cam_id], cam_id, !first_camera_found)});
       first_camera_found = true;
       continue;
     }
@@ -26,16 +29,18 @@ SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &i2c_devs,
     if (IMX490::probe(i2c))
     {
       cameras.insert(
-          {cam_id, std::make_unique<IMX490>(i2c, vdma_devs[cam_id], cam_id,
-                                            !first_camera_found)});
+          {cam_id,
+           std::make_unique<IMX490>(
+               i2c, vdma_devs[cam_id], cam_id, !first_camera_found)});
       first_camera_found = true;
       continue;
     }
     if (AR0521::probe(i2c))
     {
       cameras.insert(
-          {cam_id, std::make_unique<AR0521>(i2c, vdma_devs[cam_id], cam_id,
-                                            !first_camera_found)});
+          {cam_id,
+           std::make_unique<AR0521>(
+               i2c, vdma_devs[cam_id], cam_id, !first_camera_found)});
       first_camera_found = true;
       continue;
     }
