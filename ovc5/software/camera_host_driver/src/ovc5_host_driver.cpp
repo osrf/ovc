@@ -1,20 +1,19 @@
-#include <thread>
 #include <iostream>
+#include <thread>
 
-#include <subscriber.hpp>
+#include "subscriber.hpp"
 
 static void dumpFrame(const cv::Mat& frame)
 {
   static bool ran = false;
-  if (ran)
-    return;
+  if (ran) return;
   std::ofstream out_file;
   out_file.open("raw_image");
   for (int r = 0; r < frame.rows; ++r)
   {
     for (int c = 0; c < frame.cols; ++c)
     {
-      int pixel = frame.at<uint16_t>(r,c);
+      int pixel = frame.at<uint16_t>(r, c);
       out_file << pixel << " ";
     }
     out_file << std::endl;
@@ -34,7 +33,8 @@ static cv::Mat unpackTo16(const cv::Mat& frame)
     {
       // First pixel
       target_data[r * ret.cols + c] = frame_data[idx];
-      target_data[r * ret.cols + c] |= ((uint16_t)frame_data[idx + 1] & 0xF) << 8;
+      target_data[r * ret.cols + c] |= ((uint16_t)frame_data[idx + 1] & 0xF)
+                                       << 8;
       target_data[r * ret.cols + c] <<= 4;
       // Second pixel
       target_data[r * ret.cols + c + 1] = frame_data[idx + 1] >> 4;
@@ -46,7 +46,7 @@ static cv::Mat unpackTo16(const cv::Mat& frame)
   return ret;
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
   Subscriber sub;
   std::thread thread(&Subscriber::receiveThread, &sub);
@@ -60,7 +60,7 @@ int main(int argc, char **argv)
     cv::cvtColor(shifted1, frame1, cv::COLOR_BayerBG2BGR);
     cv::cvtColor(shifted2, frame2, cv::COLOR_BayerBG2BGR);
     cv::imshow("Right", frame1);
-    //cv::imwrite("frame.png", frame1);
+    // cv::imwrite("frame.png", frame1);
     cv::imshow("Left", frame2);
     cv::waitKey(1);
   }

@@ -1,9 +1,9 @@
 #ifndef VDMA_DRIVER_H
 #define VDMA_DRIVER_H
 
+#include <ovc5_driver/uio_driver.hpp>
 #include <string>
 #include <vector>
-#include <ovc5_driver/uio_driver.hpp>
 
 class VDMADriver
 {
@@ -22,9 +22,9 @@ class VDMADriver
   // UIO is for AXI4 lite configuration, memory is to access DDR and images
   UIODriver uio;
 
-  unsigned char *memory_mmap[NUM_FRAMEBUFFERS];
+  unsigned char* memory_mmap[NUM_FRAMEBUFFERS];
   int sync_fd[NUM_FRAMEBUFFERS];
-  
+
   void startVDMA(int res_y);
   std::pair<size_t, size_t> readFramebuffer(const std::string& buffer_name);
   void sendFramebuffer(int fb_num, uint32_t address);
@@ -34,10 +34,10 @@ class VDMADriver
   int last_fb;
 
 public:
-
   void setHeader(const std::vector<uint8_t>& header, int index = -1);
 
-  void configureVDMA(int res_x, int res_y, int bit_depth, bool enable_interrupt = true);
+  void configureVDMA(int res_x, int res_y, int bit_depth,
+                     bool enable_interrupt = true);
 
   VDMADriver(int uio_num, int cam_id);
   unsigned char* getImage(int frame_offset);

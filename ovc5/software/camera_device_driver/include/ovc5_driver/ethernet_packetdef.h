@@ -5,18 +5,16 @@
 
 // Packet definitions for OVC -> host PC
 
-enum class ether_tx_packet_type_t
-: uint32_t
+enum class ether_tx_packet_type_t : uint32_t
 {
   TX_PACKET_TYPE_FRAME = 1,
-  TX_PACKET_TYPE_IMU = 2, // Packet with IMU data
+  TX_PACKET_TYPE_IMU = 2,  // Packet with IMU data
 };
 
-enum class ether_rx_packet_type_t
-: uint32_t
+enum class ether_rx_packet_type_t : uint32_t
 {
-  RX_PACKET_TYPE_CMD_CONFIG = 1, // TODO implement userspace commands
-}; 
+  RX_PACKET_TYPE_CMD_CONFIG = 1,  // TODO implement userspace commands
+};
 
 typedef struct __attribute__((__packed__))
 {
@@ -38,7 +36,7 @@ typedef struct __attribute__((__packed__))
   uint16_t height;
   uint16_t width;
   uint16_t step;
-  uint32_t frame_size; // in bytes
+  uint32_t frame_size;  // in bytes
   char sensor_name[8];
   char camera_name[8];
   char data_type[8];
@@ -56,7 +54,9 @@ typedef union ether_tx_packet_t
       ether_tx_frame_t frame;
     };
   };
-  uint8_t data[1]; // We don't need to code magic numbers for size, ref  https://electronics.stackexchange.com/questions/296348/union-member-and-size-of-char-array-in-c
+  // We don't need to code magic numbers for size, ref
+  // https://electronics.stackexchange.com/questions/296348/union-member-and-size-of-char-array-in-c
+  uint8_t data[1];
 } ether_tx_packet_t;
 
 // Packet definitions for host PC -> controller board

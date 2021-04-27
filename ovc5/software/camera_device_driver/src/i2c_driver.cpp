@@ -1,18 +1,19 @@
 #include <fcntl.h>
-#include <string>
-#include <iostream>
-#include <vector>
 #include <sys/ioctl.h>
+
+#include <iostream>
+#include <string>
+#include <vector>
 extern "C"
 {
-  #include <linux/i2c.h>
-  #include <linux/i2c-dev.h>
-  #include <i2c/smbus.h>
+#include <i2c/smbus.h>
+#include <linux/i2c-dev.h>
+#include <linux/i2c.h>
 }
 
 #include <cassert>
 
-#include <ovc5_driver/i2c_driver.h>
+#include "ovc5_driver/i2c_driver.h"
 
 I2CDriver::I2CDriver(int i2c_dev)
 {
@@ -32,10 +33,7 @@ void I2CDriver::assignDevice(int i2c_addr, int register_size)
     std::cout << "Couldn't set slave address" << std::endl;
 }
 
-bool I2CDriver::initialized() const
-{
-  return reg_size > 0;
-}
+bool I2CDriver::initialized() const { return reg_size > 0; }
 
 int32_t I2CDriver::readRegister(uint16_t reg_addr)
 {
@@ -44,16 +42,18 @@ int32_t I2CDriver::readRegister(uint16_t reg_addr)
   int32_t ret_val = 0;
   // Data is returned MSB first
   for (int i = reg_size - 1; i >= 0; --i)
-    ret_val |= i2c_smbus_read_byte(i2c_fd) << (i*8); 
+    ret_val |= i2c_smbus_read_byte(i2c_fd) << (i * 8);
   return ret_val;
 }
 
 int I2CDriver::writeRegister(const regop_t& regop)
 {
   assert(initialized());
-  std::vector<uint8_t> payload(reg_size + 1); // We need to add one byte for address
+  // We need to add one byte for address
+  std::vector<uint8_t> payload(reg_size + 1);
   payload[0] = regop.addr & 0xFF;
   for (size_t i = 1; i <= reg_size; ++i)
     payload[i] = regop.i32 >> (8 * (reg_size - i));
-  return i2c_smbus_write_i2c_block_data(i2c_fd, regop.addr >> 8, payload.size(), &payload[0]); 
+  return i2c_smbus_write_i2c_block_data(
+      i2c_fd, regop.addr >> 8, payload.size(), &payload[0]);
 }

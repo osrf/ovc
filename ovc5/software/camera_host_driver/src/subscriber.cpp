@@ -1,11 +1,10 @@
+#include "subscriber.hpp"
+
 #include <unistd.h>
 
-#include <subscriber.hpp>
+#include "ethernet_packetdef.h"
 
-#include <ethernet_packetdef.h>
-
-Subscriber::Subscriber() :
-  frames_ready_guard(frames_ready_mutex)
+Subscriber::Subscriber() : frames_ready_guard(frames_ready_mutex)
 {
   sock = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -13,7 +12,7 @@ Subscriber::Subscriber() :
   si_self.sin_port = htons(BASE_PORT);
   si_self.sin_addr.s_addr = htonl(INADDR_ANY);
 
-  bind(sock, (struct sockaddr *) &si_self, sizeof(si_self));
+  bind(sock, (struct sockaddr *)&si_self, sizeof(si_self));
 }
 
 Subscriber::~Subscriber()
@@ -22,7 +21,8 @@ Subscriber::~Subscriber()
   close(recv_sock);
 }
 
-// TODO atomic to signal from receive thread and mutexes to avoid corrupted frames
+// TODO atomic to signal from receive thread and mutexes to avoid corrupted
+// frames
 std::array<OVCImage, Subscriber::NUM_IMAGERS> Subscriber::getFrames()
 {
   while (frames_received / NUM_IMAGERS == 0)
@@ -38,7 +38,7 @@ std::array<OVCImage, Subscriber::NUM_IMAGERS> Subscriber::getFrames()
 void Subscriber::receiveThread()
 {
   unsigned int si_size = sizeof(si_other);
-  listen(sock,1);
+  listen(sock, 1);
   recv_sock = accept(sock, (struct sockaddr *)&si_other, &si_size);
   std::cout << "Listening" << std::endl;
   // TODO proper while condition
@@ -55,25 +55,35 @@ void Subscriber::receiveThread()
       // Receive a header
       if (cur_off > sizeof(recv_pkt))
       {
-        // We received a whole header and a beginning of frame before finishing reading the previous one
+        // We received a whole header and a beginning of frame before finishing
+        // reading the previous one
         std::cout << "UNHANDLED CASE ERROR" << std::endl;
       }
       else
       {
         while (cur_off < sizeof(recv_pkt))
         {
-          int recv_len = recv(recv_sock, &recv_pkt.data[cur_off], sizeof(recv_pkt) - cur_off, MSG_WAITALL);
+          int recv_len = recv(recv_sock,
+                              &recv_pkt.data[cur_off],
+                              sizeof(recv_pkt) - cur_off,
+                              MSG_WAITALL);
           cur_off += recv_len;
         }
       }
       frame_size = recv_pkt.frame.height * recv_pkt.frame.step;
       camera_name = recv_pkt.frame.camera_name;
-      //std::cout << "Received a header with frame_id " << recv_pkt.frame.frame_id << 
-      //  " height " << recv_pkt.frame.height << " width = " << recv_pkt.frame.width << std::endl;
+      // std::cout << "Received a header with frame_id " <<
+      // recv_pkt.frame.frame_id <<
+      //  " height " << recv_pkt.frame.height << " width = " <<
+      //  recv_pkt.frame.width << std::endl;
       // Allocate CV mat
-      ret_imgs[camera_id].image.create(recv_pkt.frame.height, recv_pkt.frame.width, CV_16UC1); // TODO flexible data type, for now only yuv420
-      std::cout << "Frame has " << recv_pkt.frame.height << " rows and " << recv_pkt.frame.width << " columns and " << 
-        recv_pkt.frame.step << " step" << std::endl;
+      ret_imgs[camera_id].image.create(
+          recv_pkt.frame.height,
+          recv_pkt.frame.width,
+          CV_16UC1);  // TODO flexible data type, for now only yuv420
+      std::cout << "Frame has " << recv_pkt.frame.height << " rows and "
+                << recv_pkt.frame.width << " columns and "
+                << recv_pkt.frame.step << " step" << std::endl;
       cur_off = 0;
       state_ = ReceiveState::WAIT_PAYLOAD;
     }
@@ -82,7 +92,10 @@ void Subscriber::receiveThread()
       frames_lock.lock();
       while (cur_off < frame_size)
       {
-        int recv_len = recv(recv_sock, &ret_imgs[camera_id].image.data[cur_off], frame_size - cur_off, MSG_WAITALL);
+        int recv_len = recv(recv_sock,
+                            &ret_imgs[camera_id].image.data[cur_off],
+                            frame_size - cur_off,
+                            MSG_WAITALL);
         cur_off += recv_len;
       }
       frames_lock.unlock();

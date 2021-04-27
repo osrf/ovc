@@ -1,13 +1,10 @@
-#include <iostream>
+#include "ovc5_driver/timer_driver.hpp"
+
 #include <unistd.h>
 
-#include <ovc5_driver/timer_driver.hpp>
+#include <iostream>
 
-
-Timer::Timer(int uio_num)
-: uio(uio_num, MAP_SIZE)
-{
-}
+Timer::Timer(int uio_num) : uio(uio_num, MAP_SIZE) {}
 
 void Timer::reset()
 {
@@ -28,23 +25,24 @@ void Timer::PWM(double freq, double high_time, bool /*invert_polarity*/)
   uio.writeRegister(TLR1, target_high_register);
 
   uint32_t ctrl_val = 0;
-  ctrl_val |= (1 << 5); // Load TLR value
+  ctrl_val |= (1 << 5);  // Load TLR value
   uio.writeRegister(TCSR0, ctrl_val);
   uio.writeRegister(TCSR1, ctrl_val);
   ctrl_val = 0;
 
-  ctrl_val |= (1 << 9); // Enable PWM
-  ctrl_val |= (1 << 4); // Auto reload
-  ctrl_val |= (1 << 2); // Enable generate output
-  ctrl_val |= (1 << 1); // Count down
+  ctrl_val |= (1 << 9);  // Enable PWM
+  ctrl_val |= (1 << 4);  // Auto reload
+  ctrl_val |= (1 << 2);  // Enable generate output
+  ctrl_val |= (1 << 1);  // Count down
   uio.writeRegister(TCSR0, ctrl_val);
 
   uio.writeRegister(TCSR1, ctrl_val);
-  ctrl_val |= (1 << 10); // Enable all, starts timer
+  ctrl_val |= (1 << 10);  // Enable all, starts timer
   uio.writeRegister(TCSR1, ctrl_val);
 }
 
-// Generates an interrupt every n lines of images received from the MIPI interface
+// Generates an interrupt every n lines of images received from the MIPI
+// interface
 void Timer::interruptAtLine(int n)
 {
   reset();
@@ -56,10 +54,10 @@ void Timer::interruptAtLine(int n)
   ctrl_val = 0;
   uio.writeRegister(TCSR0, ctrl_val);
 
-  ctrl_val |= (1 << 1); // Count down
-  ctrl_val |= (1 << 6); // Interrupt enable
+  ctrl_val |= (1 << 1);  // Count down
+  ctrl_val |= (1 << 6);  // Interrupt enable
   uio.writeRegister(TCSR0, ctrl_val);
-  ctrl_val |= (1 << 7); // Enable
+  ctrl_val |= (1 << 7);  // Enable
 
   // Set interrupt clearing mask, & all 1s (write 1 to reset interrupt)
   uio.setResetRegisterMask(TCSR0, 0);
@@ -67,7 +65,4 @@ void Timer::interruptAtLine(int n)
   uio.writeRegister(TCSR0, ctrl_val);
 }
 
-void Timer::waitInterrupt()
-{
-  uio.waitInterrupt();
-}
+void Timer::waitInterrupt() { uio.waitInterrupt(); }

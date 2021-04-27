@@ -1,42 +1,48 @@
-#include <stdlib.h>
+#include "ovc5_driver/vdma_driver.h"
+
 #include <fcntl.h>
+#include <stdlib.h>
+#include <string.h>
 #include <sys/mman.h>
 #include <unistd.h>
-#include <string.h>
+
+#include <cmath>
 #include <fstream>
 #include <iostream>
-#include <cmath>
 
-#include <ovc5_driver/vdma_driver.h>
-
-VDMADriver::VDMADriver(int uio_num, int cam_id) : uio(UIODriver(uio_num, UIO_SIZE))
+VDMADriver::VDMADriver(int uio_num, int cam_id)
+    : uio(UIODriver(uio_num, UIO_SIZE))
 {
   // Start by resetting the DMA
   uio.writeRegister(VDMACR, uio.readRegister(VDMACR) | (1 << 2));
-  while(uio.readRegister(VDMACR) & (1 << 2));
+  while (uio.readRegister(VDMACR) & (1 << 2))
+    ;
   std::cout << "VDMA Reset" << std::endl;
-  for (int i=0; i<NUM_FRAMEBUFFERS; ++i)
+  for (int i = 0; i < NUM_FRAMEBUFFERS; ++i)
   {
-    std::string camera_name = "cam" + std::to_string(cam_id) + "_" + std::to_string(i);
+    std::string camera_name =
+        "cam" + std::to_string(cam_id) + "_" + std::to_string(i);
     std::string buffer_filename = "/dev/" + camera_name;
     auto fb_data = readFramebuffer(camera_name);
-    std::cout << "Opening file " << buffer_filename << " with size " << std::hex << fb_data.second << std::endl;
+    std::cout << "Opening file " << buffer_filename << " with size " << std::hex
+              << fb_data.second << std::endl;
     int memory_file = open(buffer_filename.c_str(), O_RDWR);
-    std::string sync_filename = "/sys/class/u-dma-buf/" + camera_name + "/sync_for_cpu";
+    std::string sync_filename =
+        "/sys/class/u-dma-buf/" + camera_name + "/sync_for_cpu";
     sync_fd[i] = open(sync_filename.c_str(), O_WRONLY);
-    if (memory_file < 0)
-      std::cout << "fopen failed" << std::endl;
-    memory_mmap[i] = (unsigned char*) mmap(NULL, fb_data.second, PROT_READ, MAP_SHARED, memory_file, 0);
+    if (memory_file < 0) std::cout << "fopen failed" << std::endl;
+    memory_mmap[i] = (unsigned char*)mmap(
+        NULL, fb_data.second, PROT_READ, MAP_SHARED, memory_file, 0);
 
-    if (memory_mmap[i] == MAP_FAILED)
-      std::cout << "mmap failed" << std::endl;
+    if (memory_mmap[i] == MAP_FAILED) std::cout << "mmap failed" << std::endl;
     sendFramebuffer(i, fb_data.first);
   }
 }
 
 // Gets the framebuffer addr from the matching /sys file
 // returns a {address, size} pair for the mmap
-std::pair<size_t, size_t> VDMADriver::readFramebuffer(const std::string& buffer_name)
+std::pair<size_t, size_t> VDMADriver::readFramebuffer(
+    const std::string& buffer_name)
 {
   std::pair<size_t, size_t> ret;
   std::string sys_folder = "/sys/class/u-dma-buf/" + buffer_name + "/";
@@ -60,23 +66,28 @@ void VDMADriver::sendFramebuffer(int fb_num, uint32_t address)
 
 void VDMADriver::setHeader(const std::vector<uint8_t>& header, int index)
 {
-  if (index == -1)
-    index = last_fb;
-  //memcpy((void *)(memory_mmap[index] + misalignment_offset), &header[0], header.size());
+  if (index == -1) index = last_fb;
+  // memcpy((void *)(memory_mmap[index] + misalignment_offset), &header[0],
+  // header.size());
 }
 
-void VDMADriver::configureVDMA(int res_x, int res_y, int bit_depth, bool enable_interrupt)
+void VDMADriver::configureVDMA(int res_x, int res_y, int bit_depth,
+                               bool enable_interrupt)
 {
   // Start by resetting and waiting a bit
   double bytes_per_pixel = bit_depth / 8.0;
-  std::cout << std::dec << "Configuring vdma with res_x = " << res_x << " res_y = " << res_y << " byte depth " << bytes_per_pixel << " interrupt enable is " << (int)enable_interrupt << std::endl;
+  std::cout << std::dec << "Configuring vdma with res_x = " << res_x
+            << " res_y = " << res_y << " byte depth " << bytes_per_pixel
+            << " interrupt enable is " << (int)enable_interrupt << std::endl;
   // Run DMA
   uio.writeRegister(VDMACR, uio.readRegister(VDMACR) | 1);
   // Enable frame interrupt
   if (enable_interrupt)
     uio.writeRegister(VDMACR, uio.readRegister(VDMACR) | (1 << 12));
   // Write stride
-  uio.writeRegister(FRMDLY_STRIDE_REG, uio.readRegister(FRMDLY_STRIDE_REG) | (int)std::round(res_x * bytes_per_pixel));
+  uio.writeRegister(FRMDLY_STRIDE_REG,
+                    uio.readRegister(FRMDLY_STRIDE_REG) |
+                        (int)std::round(res_x * bytes_per_pixel));
   // Horizontal size
   uio.writeRegister(HSIZE_REG, std::round(res_x * bytes_per_pixel));
   // Set the mask we will use to reset the ISR
@@ -84,10 +95,7 @@ void VDMADriver::configureVDMA(int res_x, int res_y, int bit_depth, bool enable_
   startVDMA(res_y);
 }
 
-void VDMADriver::startVDMA(int res_y)
-{
-  uio.writeRegister(VSIZE_REG, res_y);
-}
+void VDMADriver::startVDMA(int res_y) { uio.writeRegister(VSIZE_REG, res_y); }
 
 void VDMADriver::updateLastFramebuffer(int frame_offset)
 {
@@ -113,7 +121,7 @@ unsigned char* VDMADriver::getImage(int frame_offset)
 unsigned char* VDMADriver::getImageNoInterrupt(int frame_offset)
 {
   // Fetch an image without waiting for UIO interrupt
-  //uio.waitInterrupt();
+  // uio.waitInterrupt();
   updateLastFramebuffer(frame_offset);
   std::cout << "last fb is " << last_fb << std::endl;
 

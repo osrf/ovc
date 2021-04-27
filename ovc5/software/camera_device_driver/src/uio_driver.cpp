@@ -1,20 +1,21 @@
-#include <unistd.h>
+#include "ovc5_driver/uio_driver.hpp"
+
 #include <fcntl.h>
 #include <sys/mman.h>
-#include <string>
-#include <iostream>
+#include <unistd.h>
 
-#include <ovc5_driver/uio_driver.hpp>
+#include <iostream>
+#include <string>
 
 UIODriver::UIODriver(int uio_num, size_t map_size)
 {
   std::string uio_filename("/dev/uio" + std::to_string(uio_num));
   uio_file = open(uio_filename.c_str(), O_RDWR);
-  uio_mmap = (unsigned int*) mmap(NULL, map_size, PROT_READ | PROT_WRITE, MAP_SHARED, uio_file, 0);
+  uio_mmap = (unsigned int *)mmap(
+      NULL, map_size, PROT_READ | PROT_WRITE, MAP_SHARED, uio_file, 0);
   if (uio_file < 0)
     std::cout << "Failed in opening uio file " << uio_num << std::endl;
 }
-
 
 void UIODriver::writeRegister(int reg_addr, int value)
 {
@@ -23,7 +24,7 @@ void UIODriver::writeRegister(int reg_addr, int value)
 
 unsigned int UIODriver::readRegister(int reg_addr) const
 {
-  return *(uio_mmap + reg_addr); 
+  return *(uio_mmap + reg_addr);
 }
 
 // Used to reset the interrupt, depends on UIO device
