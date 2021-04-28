@@ -103,4 +103,4 @@ copy_files
 
 umount_devices
 
-echo "Finished. Power off device, remove SD card, and power on."
+echo "Finished. Power off device, remove SD card, change boot mode (DIP switches), and power on."
