@@ -20,6 +20,11 @@ XSA_PATH=$VIVADO_PROJECT/design_1_wrapper.xsa
 PETALINUX_DIR=$FIRMWARE_DIR/petalinux
 BOOT_FILES_DIR=$PETALINUX_DIR/images/linux
 
+# EMMC boot files will be copied into the SD's boot partition under 'emmc'.
+# The eMMC loading script will grab these when run on the board.
+SD_BOOT_FILES_DIR=$DIR/tmp/sd
+EMMC_BOOT_FILES_DIR=$DIR/tmp/sd/emmc
+
 TMP_MOUNT_DIR=/tmp/petalinux_mnt
 
 help () {
@@ -52,6 +57,17 @@ usage: ./install_sd.sh <device>
 EOF
 }
 
+_petalinux_build_ () {
+  petalinux-config --get-hw-description --silentconfig
+  petalinux-build
+  petalinux-package \
+    --boot \
+    --force \
+    --fsbl $BOOT_FILES_DIR/zynqmp_fsbl.elf \
+    --fpga \
+    --u-boot
+}
+
 build_boot_image () {
   
   if ! command -v petalinux-boot &> /dev/null
@@ -74,17 +90,26 @@ EOF
   fi
 
   save_dir=$pwd
-
   cp $XSA_PATH $PETALINUX_DIR/system.xsa
   cd $PETALINUX_DIR
-  petalinux-config --get-hw-description --silentconfig
-  petalinux-build
-  petalinux-package \
-    --boot \
-    --force \
-    --fsbl $BOOT_FILES_DIR/zynqmp_fsbl.elf \
-    --fpga \
-    --u-boot
+
+  # Creating directory for petalinux boot files
+  mkdir -p $SD_BOOT_FILES_DIR
+  mkdir -p $EMMC_BOOT_FILES_DIR
+
+  echo "Building eMMC boot image"
+  sed -i 's/mmcblk1p2/mmcblk0p2/g' $PETALINUX_DIR/project-spec/configs/config
+  _petalinux_build_
+  cp $BOOT_FILES_DIR/BOOT.BIN $EMMC_BOOT_FILES_DIR/boot.bin
+  cp $BOOT_FILES_DIR/image.ub $EMMC_BOOT_FILES_DIR
+  cp $BOOT_FILES_DIR/boot.scr $EMMC_BOOT_FILES_DIR
+
+  echo "Building sd-card boot image"
+  sed -i 's/mmcblk0p2/mmcblk1p2/g' $PETALINUX_DIR/project-spec/configs/config
+  _petalinux_build_
+  cp $BOOT_FILES_DIR/BOOT.BIN $SD_BOOT_FILES_DIR/boot.bin
+  cp $BOOT_FILES_DIR/image.ub $SD_BOOT_FILES_DIR
+  cp $BOOT_FILES_DIR/boot.scr $SD_BOOT_FILES_DIR
 
   cd $save_dir
 }
@@ -157,9 +182,7 @@ mount_drive () {
 }
 
 copy_bin () {
-  sudo cp $BOOT_FILES_DIR/BOOT.BIN $BOOT_DIR/boot.bin
-  sudo cp $BOOT_FILES_DIR/image.ub $BOOT_DIR
-  sudo cp $BOOT_FILES_DIR/boot.scr $BOOT_DIR
+  sudo cp $SD_BOOT_FILES_DIR/* $BOOT_DIR/
 }
 
 install_debian () {
