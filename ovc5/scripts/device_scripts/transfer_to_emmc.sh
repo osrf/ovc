@@ -68,9 +68,9 @@ mount_devices () {
 }
 
 umount_devices () {
-  umount $SD_BOOT $SD_MOUNT_DIR/boot
-  umount $EMMC_BOOT $EMMC_MOUNT_DIR/boot
-  umount $EMMC_ROOT $EMMC_MOUNT_DIR/root
+  umount $SD_MOUNT_DIR/boot
+  umount $EMMC_MOUNT_DIR/boot
+  umount $EMMC_MOUNT_DIR/root
 
   rmdir $SD_MOUNT_DIR/boot
   rmdir $SD_MOUNT_DIR
@@ -81,7 +81,7 @@ umount_devices () {
 
 copy_files () {
   # This will assume the image has been created using install_sd.sh
-  cp --verbose -r $SD_MOUNT_DIR/boot/emmc/ $EMMC_MOUNT_DIR/boot
+  cp --verbose $SD_MOUNT_DIR/boot/emmc/* $EMMC_MOUNT_DIR/boot
   # Referenced: https://tldp.org/HOWTO/Hard-Disk-Upgrade/copy.html
   cp --verbose -ax / $EMMC_MOUNT_DIR/root
 }
