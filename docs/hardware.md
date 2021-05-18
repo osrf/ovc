@@ -4,12 +4,10 @@ layout: default
 
 ## Hardware and Firmware
 
-Hardware details can be found
-[here](https://github.com/osrf/ovc/tree/master/hardware) in the OVC repository.
+The design files for both hardware and firmware can be found in the [main OVC repository](https://github.com/osrf/ovc).
+
+Each OVC version has its own subdirectory with firmware, hardware and software, for example OVC5 files can be found [here](https://github.com/osrf/ovc/tree/master/ovc5).
 
 [KiCad](http://kicad-pcb.org/) is recommended for the hardware schematics files.
-
-Firmware details can be found
-[here](https://github.com/osrf/ovc/tree/master/firmware) in the OVC repository.
 
 [back](./)
