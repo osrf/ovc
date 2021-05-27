@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "uio devices:"
+for uio in /sys/class/uio/*; do
+  echo "$uio -> $(cat $uio/name)"
+done
+
+echo
+echo "i2cdetect -l:"
+i2cdetect -l

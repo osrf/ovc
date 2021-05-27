@@ -50,7 +50,7 @@ NOTE: Before running this you will need to generate the bitstream in vivado and
 
 usage: ./install_sd.sh <device>
 
-  device: /dev/ device to install to. This is likely \"sdX\" where X is a
+  device: /dev/ device to install to. This is likely "sdX" where X is a
     letter. Check with gparted or dmesg to make sure the wrong device is not
     selected (this will re-format the drive so it's preferable to get the right
     device!). Make sure to unmount the drive before running.
@@ -182,7 +182,7 @@ mount_drive () {
 }
 
 copy_bin () {
-  sudo cp $SD_BOOT_FILES_DIR/* $BOOT_DIR/
+  sudo cp -r $SD_BOOT_FILES_DIR/* $BOOT_DIR/
 }
 
 install_debian () {
@@ -239,7 +239,7 @@ $TEMP_PASSWORD
 $TEMP_PASSWORD
 apt update
 apt install -y vim locales openssh-server ifupdown net-tools iputils-ping avahi-autoipd avahi-daemon haveged i2c-tools rsyslog
-apt install -y git cmake libi2c-dev isc-dhcp-server libyaml-cpp-dev
+apt install -y git cmake libi2c-dev isc-dhcp-server libyaml-cpp-dev dosfstools
 grep -qxF 'ttyPS0' /etc/securetty || echo 'ttyPS0' >> /etc/securetty
 grep -qxF '$interfaces_text' /etc/network/interfaces || echo '$interfaces_text' >> /etc/network/interfaces
 grep -qxF '$subnet_text' /etc/dhcp/dhcpd.conf || echo '$subnet_text' >> /etc/dhcp/dhcpd.conf
@@ -247,6 +247,7 @@ egrep -v '^\s*#' /etc/ssh/sshd_config | grep -qxF 'PermitRootLogin yes' || echo 
 egrep -v '^\s*#' /etc/ssh/sshd_config | grep -qxF 'PasswordAuthentication yes' || echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 sed -i 's/INTERFACESv4=\"\"/INTERFACESv4=\"usb0\"/g' /etc/default/isc-dhcp-server
 sed -i 's/#OPTIONS=\"\"/OPTIONS=\"-4 -s\"/g' /etc/default/isc-dhcp-server
+echo \"TERM=xterm-256color\" >> /root/.bashrc
 " | sudo schroot -c arm64-debian -u root
 
   echo "
