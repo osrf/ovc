@@ -1,6 +1,6 @@
 /include/ "system-conf.dtsi"
 / {
-	model = "Enclustra ME-XU9-4CG-1E-D11E SOM";
+	model = "Enclustra ME-XU5-4EV-1I-D11E SOM";
 
   reserved-memory {
     #address-cells = <2>;
@@ -62,11 +62,39 @@
     i2c@1 {
       #address-cells = <1>;
       #size-cells = <0>;
-			//compatible = "cdns,i2c-r1p14\0cdns,i2c-r1p10";
-			//status = "okay";
       reg = <1>;
     };
+
+    // Cam 2
+    i2c@2 {
+      #address-cells = <1>;
+      #size-cells = <0>;
+      reg = <2>;
+    };
+
+    // Cam 3
+    i2c@3 {
+      #address-cells = <1>;
+      #size-cells = <0>;
+      reg = <3>;
+    };
+
+    // Cam 4
+    i2c@4 {
+      #address-cells = <1>;
+      #size-cells = <0>;
+      reg = <4>;
+    };
+
+    // Cam 5
+    i2c@5 {
+      #address-cells = <1>;
+      #size-cells = <0>;
+      reg = <5>;
+    };
+
   };
+
   udmabuf@0 {
     compatible = "ikwzm,u-dma-buf";
     device-name = "cam0_0";
@@ -126,6 +154,134 @@
   udmabuf@7 {
     compatible = "ikwzm,u-dma-buf";
     device-name = "cam1_3";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@8 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam2_0";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@9 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam2_1";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@10 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam2_2";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@11 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam2_3";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@12 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam3_0";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@13 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam3_1";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@14 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam3_2";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@15 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam3_3";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@16 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam4_0";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@17 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam4_1";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@18 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam4_2";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@19 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam4_3";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@20 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam5_0";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@21 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam5_1";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@22 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam5_2";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+  };
+
+  udmabuf@23 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam5_3";
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
@@ -205,17 +361,27 @@
 };
 */
 
-/*
-&axi_vdma_3 {
-  compatible = "generic-uio";  
-};
-*/
-
 &axi_vdma_0 {
   compatible = "generic-uio";  
 };
 
 &axi_vdma_1 {
+  compatible = "generic-uio";  
+};
+
+&axi_vdma_2 {
+  compatible = "generic-uio";  
+};
+
+&axi_vdma_3 {
+  compatible = "generic-uio";  
+};
+
+&axi_vdma_4 {
+  compatible = "generic-uio";  
+};
+
+&axi_vdma_5 {
   compatible = "generic-uio";  
 };
 
