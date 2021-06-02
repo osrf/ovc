@@ -3,6 +3,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 SRC_URI += "file://system-user.dtsi"
 SRC_URI += " file://zynqmp_enclustra_common.dtsi"
 SRC_URI += " file://zynqmp_enclustra_mercury_xu9.dtsi"
+SRC_URI += " file://zynqmp_enclustra_mercury_xu5.dtsi"
 SRC_URI += " file://zynqmp_enclustra_mercury_st1.dtsi"
 SRC_URI += " file://ovc5_overrides.dtsi"
 
