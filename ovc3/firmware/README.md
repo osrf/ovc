@@ -1,7 +1,3 @@
-# OVC 3 overview
-OVC3 includes a Zynq Ultrascale+ SoC, with a quad core ARM application processor, two real time cores and FPGA fabric.
-Currently the real time cores are not used, the quad core processor runs a full Ubuntu 18.04 distribution with ROS melodic and the FPGA fabric runs the interfaces to the imagers (through MIPI / I2C), the IMU (SPI) and the DMA to write data to external memory.
-
 ## Getting started
 In order to get the OVC up and running you will need to set up the boot medium, choosing between eMMC and SD card. We have observed better performance and reliability from the embedded eMMC module so it is suggested. SD boot should be used for the first setup and eventual recovery if it becomes impossible to boot from eMMC.
 
