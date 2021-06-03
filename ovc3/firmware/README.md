@@ -42,3 +42,28 @@ Try one of the following steps (start from 1 and proceed down if they fail):
 This folder contains all the source files needed to build the project, except the root file system itself (which is a custom version of Ubuntu 18.04 for the armv7 architecture and is only available in the shared drive).
 
 The Vivado project including all the FPGA design can be found in the test_board folder, while the Petalinux project containing the kernel and device-tree customizations can be found in the os folder.
+
+## Board version pinout
+**The pinout of the OVC3a is incompatible with the pinout of the OVC3b**. The
+table below explains the differences:
+
+|PIN   |TE0820 PIN|FPGA PIN|OVC 3A        |OVC 3B        |
+|------|----------|--------|--------------|--------------|
+|JB1.69|B66 L24 P |C9      |BONUS1_RESET  |BONUS4_EXTCLK |
+|JB1.71|B66 L24 N |B9      |BONUS1_FLASH  |BONUS4_SCL0   |
+|JB1.79|B66 L21 P |A7      |AUX0          |BONUS4_SDA0   |
+|JB1.81|B66 L21 N |A6      |AUX1          |BONUS4_SCL1   |
+|JB1.85|B66 L19 N |A5      |NC            |BONUS4_SDA1   |
+|JB1.87|B66 L19 P |B5      |NC            |BONUS4_FLASH  |
+|JB1.97|B66 L9 N  |A3      |AUX2          |BONUS4_RESET  |
+|JB1.99|B66 L9P   |B3      |AUX 3         |BONUS4_TRIGGER|
+|JB2.76|B64 L10 P |AG6     |BONUS4_EXTCLK |BONUS1_RESET  |
+|JB2.78|B64 L10 N |AG5     |BONUS4_SCL0   |BONUS1_FLASH  |
+|JB2.85|B64 L6 P  |AB6     |BONUS4_SDA0   |FRONT_AUX0    |
+|JB2.87|B64 L6 N  |AC6     |BONUS4_SCL1   |FRONT_AUX1    |
+|JB2.90|B64 T0    |AD6     |BONUS4_SDA1   |FRONT_AUX5    |
+|JB2.91|B64 L24 P |AF1     |BONUS4_RESET  |FRONT_AUX2    |
+|JB2.93|B64 L24 N |AG1     |BONUS4_FLASH  |FRONT_AUX3    |
+|JB2.99|B64_T1    |AH6     |BONUS4_TRIGGER|FRONT_AUX4    |
+|JB3.41|B65 L5 P  |R7      |NC            |GPIO18        |
+|JB3.43|B65 L5 N  |T7      |NC            |GPIO19        |
