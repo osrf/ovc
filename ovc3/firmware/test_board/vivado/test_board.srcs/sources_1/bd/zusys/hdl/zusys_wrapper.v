@@ -10,8 +10,7 @@
 `timescale 1 ps / 1 ps
 
 module zusys_wrapper
-   (AUX,
-    BONUS1_EXTCLK,
+   (BONUS1_EXTCLK,
     BONUS1_FLASH,
     BONUS1_I2C0_scl_io,
     BONUS1_I2C0_sda_io,
@@ -79,15 +78,18 @@ module zusys_wrapper
     CAM2_NRESET,
     CAM2_TRIG,
     DIP_SWITCH,
+    FRONT_AUX0,
+    FRONT_AUX1,
+    FRONT_AUX2,
+    FRONT_AUX3,
+    FRONT_AUX4,
+    FRONT_AUX5,
     GPIO0,
     GPIO1,
     GPIO10,
     GPIO11,
     GPIO12,
     GPIO13,
-    GPIO14,
-    GPIO15,
-    GPIO16,
     GPIO17,
     GPIO2,
     GPIO3,
@@ -95,8 +97,6 @@ module zusys_wrapper
     GPIO5,
     GPIO6,
     GPIO7,
-    GPIO8,
-    GPIO9,
     ICM_IMU_INT1,
     IMU_CLK,
     IMU_CS,
@@ -104,7 +104,6 @@ module zusys_wrapper
     IMU_MOSI,
     x0,
     x1);
-  inout [3:0]AUX;
   output BONUS1_EXTCLK;
   input BONUS1_FLASH;
   inout BONUS1_I2C0_scl_io;
@@ -173,15 +172,18 @@ module zusys_wrapper
   output [0:0]CAM2_NRESET;
   output [0:0]CAM2_TRIG;
   input DIP_SWITCH;
+  input FRONT_AUX0;
+  output FRONT_AUX1;
+  output FRONT_AUX2;
+  output FRONT_AUX3;
+  input FRONT_AUX4;
+  output [0:0]FRONT_AUX5;
   input GPIO0;
   input GPIO1;
   output [0:0]GPIO10;
   input GPIO11;
   output [0:0]GPIO12;
-  output [0:0]GPIO13;
-  output GPIO14;
-  output GPIO15;
-  output GPIO16;
+  inout [3:0]GPIO13;
   output GPIO17;
   input GPIO2;
   input GPIO3;
@@ -189,8 +191,6 @@ module zusys_wrapper
   output [0:0]GPIO5;
   output [0:0]GPIO6;
   output GPIO7;
-  input GPIO8;
-  input GPIO9;
   input ICM_IMU_INT1;
   output IMU_CLK;
   output IMU_CS;
@@ -199,7 +199,6 @@ module zusys_wrapper
   output [0:0]x0;
   output [0:0]x1;
 
-  wire [3:0]AUX;
   wire BONUS1_EXTCLK;
   wire BONUS1_FLASH;
   wire BONUS1_I2C0_scl_i;
@@ -310,15 +309,18 @@ module zusys_wrapper
   wire [0:0]CAM2_NRESET;
   wire [0:0]CAM2_TRIG;
   wire DIP_SWITCH;
+  wire FRONT_AUX0;
+  wire FRONT_AUX1;
+  wire FRONT_AUX2;
+  wire FRONT_AUX3;
+  wire FRONT_AUX4;
+  wire [0:0]FRONT_AUX5;
   wire GPIO0;
   wire GPIO1;
   wire [0:0]GPIO10;
   wire GPIO11;
   wire [0:0]GPIO12;
-  wire [0:0]GPIO13;
-  wire GPIO14;
-  wire GPIO15;
-  wire GPIO16;
+  wire [3:0]GPIO13;
   wire GPIO17;
   wire GPIO2;
   wire GPIO3;
@@ -326,8 +328,6 @@ module zusys_wrapper
   wire [0:0]GPIO5;
   wire [0:0]GPIO6;
   wire GPIO7;
-  wire GPIO8;
-  wire GPIO9;
   wire ICM_IMU_INT1;
   wire IMU_CLK;
   wire IMU_CS;
@@ -407,8 +407,7 @@ module zusys_wrapper
         .O(CAM2_I2C_sda_i),
         .T(CAM2_I2C_sda_t));
   zusys zusys_i
-       (.AUX(AUX),
-        .BONUS1_EXTCLK(BONUS1_EXTCLK),
+       (.BONUS1_EXTCLK(BONUS1_EXTCLK),
         .BONUS1_FLASH(BONUS1_FLASH),
         .BONUS1_I2C0_scl_i(BONUS1_I2C0_scl_i),
         .BONUS1_I2C0_scl_o(BONUS1_I2C0_scl_o),
@@ -504,15 +503,18 @@ module zusys_wrapper
         .CAM2_NRESET(CAM2_NRESET),
         .CAM2_TRIG(CAM2_TRIG),
         .DIP_SWITCH(DIP_SWITCH),
+        .FRONT_AUX0(FRONT_AUX0),
+        .FRONT_AUX1(FRONT_AUX1),
+        .FRONT_AUX2(FRONT_AUX2),
+        .FRONT_AUX3(FRONT_AUX3),
+        .FRONT_AUX4(FRONT_AUX4),
+        .FRONT_AUX5(FRONT_AUX5),
         .GPIO0(GPIO0),
         .GPIO1(GPIO1),
         .GPIO10(GPIO10),
         .GPIO11(GPIO11),
         .GPIO12(GPIO12),
         .GPIO13(GPIO13),
-        .GPIO14(GPIO14),
-        .GPIO15(GPIO15),
-        .GPIO16(GPIO16),
         .GPIO17(GPIO17),
         .GPIO2(GPIO2),
         .GPIO3(GPIO3),
@@ -520,8 +522,6 @@ module zusys_wrapper
         .GPIO5(GPIO5),
         .GPIO6(GPIO6),
         .GPIO7(GPIO7),
-        .GPIO8(GPIO8),
-        .GPIO9(GPIO9),
         .ICM_IMU_INT1(ICM_IMU_INT1),
         .IMU_CLK(IMU_CLK),
         .IMU_CS(IMU_CS),
