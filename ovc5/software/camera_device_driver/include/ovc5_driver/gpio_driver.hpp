@@ -1,4 +1,6 @@
 // Driver to use the sysfs interface for GPIO.
+#ifndef GPIO_DRIVER_HPP
+#define GPIO_DRIVER_HPP
 #include <unordered_map>
 
 #define DEFAULT_CHIP_ID 338
@@ -12,7 +14,7 @@ struct gpio_pin_config_t
 {
   int valuefd;
   int direction;
-}
+};
 
 class GPIOChip
 {
@@ -32,3 +34,4 @@ private:
 
   bool pinRegistered(int pin_num);
 };
+#endif

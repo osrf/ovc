@@ -1,14 +1,17 @@
-#include "gpio_driver.hpp"
+#include "ovc5_driver/gpio_driver.hpp"
 
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include <iostream>
+#include <string>
+#include <cstring>
 
 bool GPIOChip::pinRegistered(int pin_num)
 {
-  return !(fd_map_active_pins_.find(pin_num) == fd_map_active_pins_.end());
+  return !(pin_map_.find(pin_num) == pin_map_.end());
 }
 
 bool GPIOChip::openPin(int pin_num, int direction)
@@ -22,7 +25,7 @@ bool GPIOChip::openPin(int pin_num, int direction)
   gpio_pin_config_t config;
 
   // The GPIO has to be exported to be able to see it in sysfs.
-  exportfd = open(std::string(GPIO_SYSFS_PATH) + "/export", O_WRONLY);
+  exportfd = open((std::string(GPIO_SYSFS_PATH) + "/export").c_str(), O_WRONLY);
   if (exportfd < 0)
   {
     std::cout << "Cannot open GPIO export fd" << std::endl;
@@ -34,12 +37,12 @@ bool GPIOChip::openPin(int pin_num, int direction)
     std::cout << "Cannot export GPIO, pin number too long" << std::endl;
   }
   // Offset the chip num by the pin number and convert it to a string.
-  itoa(chip_num_ + pin_num, num_buffer, GPIO_NAME_SIZE);
-  write(exportfd, num_buffer, GPIO_NAME_SIZE);
+  sprintf(num_buffer_, "%d", chip_num_ + pin_num);
+  write(exportfd, num_buffer_, GPIO_NAME_SIZE);
   close(exportfd);
 
-  std::string pin_path = std::string(GPIO_SYSFS_PATH) + "/gpio" + num_buffer;
-  directionfd = open(pin_path + "/direction", O_RDWR);
+  std::string pin_path = std::string(GPIO_SYSFS_PATH) + "/gpio" + num_buffer_;
+  directionfd = open((pin_path + "/direction").c_str(), O_RDWR);
   if (directionfd < 0)
   {
     std::cout << "Cannot open GPIO direction fd" << std::endl;
@@ -57,7 +60,7 @@ bool GPIOChip::openPin(int pin_num, int direction)
   }
   close(directionfd);
 
-  config.valuefd = open(pin_path + "/value", O_RDWR);
+  config.valuefd = open((pin_path + "/value").c_str(), O_RDWR);
   if (config.valuefd < 0)
   {
     std::cout << "Cannot open GPIO value" << std::endl;
@@ -106,5 +109,5 @@ bool GPIOChip::getValue(int pin_num)
   read(pin_map_[pin_num].valuefd, num_buffer_, 2);
 
   // If the number is 0 then false. Else, true.
-  return !(num_buffer_[0] == "0");
+  return !strcmp(num_buffer_, "0");
 }
