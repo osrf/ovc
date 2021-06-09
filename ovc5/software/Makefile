@@ -19,3 +19,6 @@ clean:
 	cd libovc/build && make clean
 	cd camera_host_driver/build && make clean
 	cd camera_device_driver/build && make clean
+
+format:
+	find . -iname *.h -o -iname *.cpp -o -iname *.hpp| xargs clang-format -i

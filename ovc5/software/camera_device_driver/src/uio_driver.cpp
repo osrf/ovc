@@ -70,7 +70,8 @@ bool UIODriver::waitInterrupt()
     }
     std::cout << "Received dummy." << std::endl;
   }
-  else {
+  else
+  {
     std::cout << "Timed out or Error." << std::endl;
     return false;
   }
