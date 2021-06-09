@@ -24,7 +24,7 @@ GPIOChip::GPIOChip(int chip_num) : chip_num_(chip_num)
 
   size_t num_chars = read(ngpiofd, num_buffer_, GPIO_NAME_SIZE);
   close(ngpiofd);
-  if (0 <= num_chars)
+  if (0 >= num_chars)
   {
     std::cout << "Failed to read number of pins for chip " << chip_num
               << std::endl;
@@ -79,7 +79,7 @@ bool GPIOChip::openPin(int pin_num, int direction)
   sprintf(num_buffer_, "%d", chip_num_ + pin_num);
   num_chars = write(exportfd, num_buffer_, GPIO_NAME_SIZE);
   close(exportfd);
-  if (GPIO_NAME_SIZE != num_chars)
+  if (0 >= num_chars)
   {
     std::cout << "Failed to export pin " << pin_num << std::endl;
     return false;
@@ -103,7 +103,7 @@ bool GPIOChip::openPin(int pin_num, int direction)
     num_chars = write(directionfd, "in", 3);
   }
   close(directionfd);
-  if (3 != num_chars || 4 != num_chars)
+  if (0 >= num_chars)
   {
     std::cout << "Failed to set direction of pin " << pin_num << std::endl;
     return false;
@@ -147,7 +147,7 @@ void GPIOChip::setValue(int pin_num, bool value)
     num_chars = write(pin_map_[pin_num].valuefd, "0", 2);
   }
 
-  if (2 != num_chars)
+  if (0 >= num_chars)
   {
     std::cout << "Failed to write to pin " << pin_num << std::endl;
   }
@@ -162,7 +162,7 @@ bool GPIOChip::getValue(int pin_num)
   }
 
   size_t num_chars = read(pin_map_[pin_num].valuefd, num_buffer_, 2);
-  if (2 != num_chars)
+  if (0 >= num_chars)
   {
     std::cout << "Failed to read from pin " << pin_num << std::endl;
   }
