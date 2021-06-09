@@ -111,6 +111,13 @@ void SensorManager::streamCameras()
 std::map<int, unsigned char *> SensorManager::getFrames()
 {
   std::map<int, unsigned char *> frame_map;
+
+  // Trigger next frame immediately (circular buffer makes this okay).
+  // The first frame will be available by the trigger in streamCameras.
+  gpio->setValue(GPIO_TRIG_PIN, true);
+  usleep(100);
+  gpio->setValue(GPIO_TRIG_PIN, false);
+
   // Start timer and wait for interrupt
   line_counter.interruptAtLine(LINE_BUFFER_SIZE);
   if (!line_counter.waitInterrupt())
@@ -124,11 +131,6 @@ std::map<int, unsigned char *> SensorManager::getFrames()
     ++cam_it;
   }
 
-  // Trigger next frame after reading in current frame. The first frame will be
-  // available by the trigger in streamCameras.
-  gpio->setValue(GPIO_TRIG_PIN, true);
-  usleep(100);
-  gpio->setValue(GPIO_TRIG_PIN, false);
 
   return frame_map;
 }
