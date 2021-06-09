@@ -104,7 +104,10 @@ std::map<int, unsigned char *> SensorManager::getFrames()
   std::map<int, unsigned char *> frame_map;
   // Start timer and wait for interrupt
   line_counter.interruptAtLine(LINE_BUFFER_SIZE);
-  line_counter.waitInterrupt();
+  if (!line_counter.waitInterrupt())
+  {
+    return frame_map;
+  }
   auto cam_it = cameras.begin();
   while (cam_it != cameras.end())
   {

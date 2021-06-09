@@ -19,6 +19,6 @@ public:
   unsigned int readRegister(int reg_addr) const;
   void writeRegister(int reg_addr, int value);
 
-  void waitInterrupt();
+  bool waitInterrupt();
 };
 #endif
