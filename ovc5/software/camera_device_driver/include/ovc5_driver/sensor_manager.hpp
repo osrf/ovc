@@ -13,7 +13,9 @@
 // Chip number that manages PL GPIO. Find at /sys/class/gpio/
 #define GPIO_CHIP_NUMBER 338
 // EMIO for Blue LED.
-#define GPIO_LED_PIN 7
+#define GPIO_LED_PIN GPIO_EMIO_OFFSET + 7
+// Pin to trigger sensor sampling.
+#define GPIO_TRIG_PIN GPIO_EMIO_OFFSET + 15
 
 class SensorManager
 {
