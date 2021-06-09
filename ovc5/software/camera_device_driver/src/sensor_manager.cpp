@@ -12,6 +12,25 @@ SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &i2c_devs,
                              int line_counter_dev)
     : line_counter(line_counter_dev)
 {
+  // Configure the gpio chip.
+  gpio = std::make_unique<GPIOChip>(GPIO_CHIP_NUMBER);
+
+  int gpio_pin_num;
+  // Turn on the cameras with the enable pins.
+  for (int vdma_dev : vdma_devs)
+  {
+    // This assumes that the enable pins are at EMIO addresses starting at zero
+    // and the index matches the numbering of the vdma devices.
+    gpio_pin_num = GPIO_EMIO_OFFSET + vdma_dev;
+    gpio->openPin(gpio_pin_num, GPIO_OUTPUT);
+    gpio->setValue(gpio_pin_num, true);
+  }
+
+  // Turn on user GPIO to signify that the sensors are on.
+  gpio_pin_num = GPIO_EMIO_OFFSET + GPIO_LED_PIN;
+  gpio->openPin(gpio_pin_num, GPIO_OUTPUT);
+  gpio->setValue(gpio_pin_num, true);
+
   bool first_camera_found = false;
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
   {

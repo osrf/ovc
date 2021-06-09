@@ -3,9 +3,17 @@
 
 #include "ovc5_driver/camera.hpp"
 #include "ovc5_driver/ethernet_driver.hpp"
+#include "ovc5_driver/gpio_driver.hpp"
 #include "ovc5_driver/timer_driver.hpp"
 
 #define NUM_CAMERAS 2
+
+// Number of regular gpio before EMIO.
+#define GPIO_EMIO_OFFSET 78
+// Chip number that manages PL GPIO. Find at /sys/class/gpio/
+#define GPIO_CHIP_NUMBER 338
+// EMIO for Blue LED.
+#define GPIO_LED_PIN 7
 
 class SensorManager
 {
@@ -16,6 +24,8 @@ private:
   EthernetClient client;
 
   Timer line_counter;
+
+  std::unique_ptr<GPIOChip> gpio;
 
   void initCamera(int cam_id, int sensor_mode, int width, int height, int fps);
 

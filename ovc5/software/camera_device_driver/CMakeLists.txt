@@ -9,6 +9,7 @@ include_directories(
 )
 
 add_library(ovc5_library
+  src/gpio_driver.cpp
   src/i2c_driver.cpp
   src/uio_driver.cpp
   src/ethernet_driver.cpp

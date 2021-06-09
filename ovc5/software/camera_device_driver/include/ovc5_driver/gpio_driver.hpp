@@ -19,7 +19,8 @@ struct gpio_pin_config_t
 class GPIOChip
 {
 public:
-  GPIOChip(int chip_num) : chip_num_(chip_num) {}
+  GPIOChip(int chip_num);
+  ~GPIOChip();
 
   bool openPin(int pin_num, int direction);
   void closePin(int pin_num);
@@ -29,6 +30,7 @@ public:
 
 private:
   int chip_num_;
+  int num_managed_pins_;
   char num_buffer_[GPIO_NAME_SIZE];
   std::unordered_map<int, gpio_pin_config_t> pin_map_;
 
