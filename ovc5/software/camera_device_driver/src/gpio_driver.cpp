@@ -8,6 +8,7 @@
 #include <cstring>
 #include <iostream>
 #include <string>
+#include <vector>
 
 GPIOChip::GPIOChip(int chip_num) : chip_num_(chip_num)
 {
@@ -35,6 +36,7 @@ GPIOChip::GPIOChip(int chip_num) : chip_num_(chip_num)
 
 GPIOChip::~GPIOChip()
 {
+  std::vector<int> pins;
   for (const auto &key_value : pin_map_)
   {
     // Turn off any outputs.
@@ -42,7 +44,12 @@ GPIOChip::~GPIOChip()
     {
       setValue(key_value.first, false);
     }
-    closePin(key_value.first);
+    pins.push_back(key_value.first);
+  }
+  // Must store numbers separately as they are removed when the pin closes.
+  for (int pin : pins)
+  {
+    closePin(pin);
   }
 }
 
@@ -53,6 +60,7 @@ bool GPIOChip::pinRegistered(int pin_num)
 
 bool GPIOChip::openPin(int pin_num, int direction)
 {
+  std::cout << "Opening pin " << chip_num_ + pin_num << std::endl;
   if (pinRegistered(pin_num))
   {
     return true;
@@ -121,6 +129,7 @@ bool GPIOChip::openPin(int pin_num, int direction)
 
 void GPIOChip::closePin(int pin_num)
 {
+  std::cout << "Closing pin " << chip_num_ + pin_num << std::endl;
   if (!pinRegistered(pin_num))
   {
     return;
@@ -129,14 +138,14 @@ void GPIOChip::closePin(int pin_num)
   // The GPIO has to be exported to be able to see it in sysfs.
   int unexportfd =
       open((std::string(GPIO_SYSFS_PATH) + "/unexport").c_str(), O_WRONLY);
-  if (exportfd < 0)
+  if (unexportfd < 0)
   {
     std::cout << "Cannot open GPIO unexport fd" << std::endl;
   }
 
   // Offset the chip num by the pin number and convert it to a string.
   sprintf(num_buffer_, "%d", chip_num_ + pin_num);
-  num_chars = write(unexportfd, num_buffer_, GPIO_NAME_SIZE);
+  size_t num_chars = write(unexportfd, num_buffer_, GPIO_NAME_SIZE);
   close(unexportfd);
   if (0 >= num_chars)
   {

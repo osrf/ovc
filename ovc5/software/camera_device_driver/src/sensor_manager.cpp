@@ -28,10 +28,13 @@ SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &i2c_devs,
 
   // Turn on user GPIO to signify that the sensors are on.
   gpio->openPin(GPIO_LED_PIN, GPIO_OUTPUT);
-  gpio->setValue(gpio_pin_num, true);
+  gpio->setValue(GPIO_LED_PIN, true);
 
   // Open pin for triggering samples.
   gpio->openPin(GPIO_TRIG_PIN, GPIO_OUTPUT);
+
+  // Sleep for a bit to allow cameras to boot up.
+  usleep(100000);
 
   bool first_camera_found = false;
   for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
@@ -100,6 +103,7 @@ void SensorManager::streamCameras()
   }
   // Trigger a sampling event to read in the first frame.
   gpio->setValue(GPIO_TRIG_PIN, true);
+  usleep(100);
   gpio->setValue(GPIO_TRIG_PIN, false);
 }
 
@@ -123,6 +127,7 @@ std::map<int, unsigned char *> SensorManager::getFrames()
   // Trigger next frame after reading in current frame. The first frame will be
   // available by the trigger in streamCameras.
   gpio->setValue(GPIO_TRIG_PIN, true);
+  usleep(100);
   gpio->setValue(GPIO_TRIG_PIN, false);
 
   return frame_map;
