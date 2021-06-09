@@ -131,7 +131,6 @@ std::map<int, unsigned char *> SensorManager::getFrames()
     ++cam_it;
   }
 
-
   return frame_map;
 }
 
