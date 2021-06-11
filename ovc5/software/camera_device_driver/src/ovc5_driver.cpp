@@ -19,6 +19,7 @@ void inthandler(int signum)
 
 struct config_t
 {
+  std::array<int, NUM_CAMERAS> cam_nums;
   std::array<int, NUM_CAMERAS> i2c_devs;
   std::array<int, NUM_CAMERAS> vdma_devs;
   int trigger_timer_dev;
@@ -35,6 +36,7 @@ void load_config(config_t &config)
 {
   YAML::Node config_node = YAML::LoadFile("config.yaml");
 
+  store_to(config.cam_nums, config_node["cam_nums"]);
   store_to(config.i2c_devs, config_node["i2c_devs"]);
   store_to(config.vdma_devs, config_node["vdma_devs"]);
   store_to(config.trigger_timer_dev, config_node["trigger_timer_dev"]);
@@ -49,8 +51,10 @@ int main(int argc, char **argv)
   config_t config;
   load_config(config);
 
-  SensorManager sm(
-      config.i2c_devs, config.vdma_devs, config.line_count_timer_dev);
+  SensorManager sm(config.cam_nums,
+                   config.i2c_devs,
+                   config.vdma_devs,
+                   config.line_count_timer_dev);
   Timer trigger_timer(config.trigger_timer_dev);
 
   // Hz, high time

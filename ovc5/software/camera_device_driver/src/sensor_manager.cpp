@@ -7,7 +7,8 @@
 #include "ovc5_driver/camera_modules.hpp"
 #include "ovc5_driver/i2c_driver.h"
 
-SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &i2c_devs,
+SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &cam_nums,
+                             const std::array<int, NUM_CAMERAS> &i2c_devs,
                              const std::array<int, NUM_CAMERAS> &vdma_devs,
                              int line_counter_dev)
     : line_counter(line_counter_dev)
@@ -17,11 +18,11 @@ SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &i2c_devs,
 
   int gpio_pin_num;
   // Turn on the cameras with the enable pins.
-  for (int vdma_dev : vdma_devs)
+  for (int cam_num : cam_nums)
   {
     // This assumes that the enable pins are at EMIO addresses starting at zero
     // and the index matches the numbering of the vdma devices.
-    gpio_pin_num = GPIO_EMIO_OFFSET + vdma_dev;
+    gpio_pin_num = GPIO_EMIO_OFFSET + cam_num;
     gpio->openPin(gpio_pin_num, GPIO_OUTPUT);
     gpio->setValue(gpio_pin_num, true);
   }
@@ -37,34 +38,33 @@ SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &i2c_devs,
   usleep(100000);
 
   bool first_camera_found = false;
-  for (int cam_id = 0; cam_id < NUM_CAMERAS; ++cam_id)
+  for (int index = 0; index < NUM_CAMERAS; ++index)
   {
-    I2CDriver i2c(i2c_devs[cam_id]);
+    int cam_id = cam_nums[index];
+    int vdma_dev = vdma_devs[index];
+    I2CDriver i2c(i2c_devs[index]);
     if (PiCameraV2::probe(i2c))
     {
-      cameras.insert(
-          {cam_id,
-           std::make_unique<PiCameraV2>(
-               i2c, vdma_devs[cam_id], cam_id, !first_camera_found)});
+      cameras.insert({cam_id,
+                      std::make_unique<PiCameraV2>(
+                          i2c, vdma_dev, cam_id, !first_camera_found)});
       first_camera_found = true;
       continue;
     }
 #if PROPRIETARY_SENSORS
     if (IMX490::probe(i2c))
     {
-      cameras.insert(
-          {cam_id,
-           std::make_unique<IMX490>(
-               i2c, vdma_devs[cam_id], cam_id, !first_camera_found)});
+      cameras.insert({cam_id,
+                      std::make_unique<IMX490>(
+                          i2c, vdma_dev, cam_id, !first_camera_found)});
       first_camera_found = true;
       continue;
     }
     if (AR0521::probe(i2c))
     {
-      cameras.insert(
-          {cam_id,
-           std::make_unique<AR0521>(
-               i2c, vdma_devs[cam_id], cam_id, !first_camera_found)});
+      cameras.insert({cam_id,
+                      std::make_unique<AR0521>(
+                          i2c, vdma_dev, cam_id, !first_camera_found)});
       first_camera_found = true;
       continue;
     }

@@ -34,7 +34,8 @@ private:
   std::map<int, std::unique_ptr<I2CCamera>> cameras;
 
 public:
-  SensorManager(const std::array<int, NUM_CAMERAS>& i2c_devs,
+  SensorManager(const std::array<int, NUM_CAMERAS>& cam_nums,
+                const std::array<int, NUM_CAMERAS>& i2c_devs,
                 const std::array<int, NUM_CAMERAS>& vdma_devs,
                 int line_counter_dev);
 
