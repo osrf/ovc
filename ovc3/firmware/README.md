@@ -27,17 +27,18 @@ If the red LED on the trenz module turns off boot was successful and it should b
 Keep an eye on the shared drive for changes in boot images and rootfs for new features!
 
 ## Accessing the board
-If anything goes wrong it might be useful to access the board, this can be done in two ways, through the root linux console (exposed in the expansion pin header in the back of the board) or through ssh.
-Try one of the following steps (start from 1 and proceed down if they fail):
-1. SSH from the usb ethernet interface: `ssh ubuntu@10.0.1.1`
-2. Connect the board to your router and ssh through host name `ssh ubuntu@arm.local`
-3. Same as above but use the IP that you should be able to see in your router control panel.
-4. Use the root console exposed in the pin header behind, useful to debug early boot failures.
+If anything goes wrong it might be useful to access the board, this can be done in two ways: 
+ - Through the root linux console (exposed in the expansion pin header in the back of the board). You may use the `vectornav_carrier` board, which already has a USB-UART bridge.
+ **Important: do not start the OVC with the root console connection enabled. It may halt the FSBL. Connect the USB after booting the OVC**.
+ - Through SSH
+   1. SSH from the usb ethernet interface: `ssh ubuntu@10.0.1.1`
+   2. Connect the board to your router and ssh through host name `ssh ubuntu@arm.local`
+   3. Same as above but use the IP that you should be able to see in your router control panel.
 
 ## Hacking the board
 This folder contains all the source files needed to build the project, except the root file system itself (which is a custom version of Ubuntu 18.04 for the armv7 architecture and is only available in the shared drive).
 
-The Vivado project including all the FPGA design can be found in the test_board folder, while the Petalinux project containing the kernel and device-tree customizations can be found in the os folder.
+The Vivado project including all the FPGA design can be found in the `test_board` folder, while the Petalinux project containing the kernel and device-tree customizations can be found in the os folder.
 
 ## Board version pinout
 **The pinout of the OVC3a is incompatible with the pinout of the OVC3b**. The
