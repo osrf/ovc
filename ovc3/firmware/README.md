@@ -35,10 +35,10 @@ If anything goes wrong it might be useful to access the board, this can be done 
    2. Connect the board to your router and ssh through host name `ssh ubuntu@arm.local`
    3. Same as above but use the IP that you should be able to see in your router control panel.
 
-## Hacking the board
+## Hacking the board and firmware generation
 This folder contains all the source files needed to build the project, except the root file system itself (which is a custom version of Ubuntu 18.04 for the armv7 architecture and is only available in the shared drive).
 
-The Vivado project including all the FPGA design can be found in the `test_board` folder, while the Petalinux project containing the kernel and device-tree customizations can be found in the os folder.
+The Vivado project including all the FPGA design can be found in the `test_board` folder, while the Petalinux project containing the kernel and device-tree customizations can be found in the `os` folder. Follow the instructions in `test_board/README.md` to generate the images.
 
 ## Board version pinout
 **The pinout of the OVC3a is incompatible with the pinout of the OVC3b**. The
