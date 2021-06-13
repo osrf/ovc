@@ -63,3 +63,51 @@ table below explains the differences:
 |JB2.99|B64_T1    |AH6     |BONUS4_TRIGGER|FRONT_AUX4    |
 |JB3.41|B65 L5 P  |R7      |NC            |GPIO18        |
 |JB3.43|B65 L5 N  |T7      |NC            |GPIO19        |
+
+## GPIO exposed in Linux
+GPIO are exposed in Linux, and may be modified using the `/sys/class/gpio/`
+folder. **GPIO start with 338**. See [this
+page](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842398/Linux+GPIO+Driver). 
+There are two GPIOs: MIO and EMIO.
+
+### MIO
+MIO starts at 26. For our board, this corresponds to 364.
+
+The following table provides the mapping between the MIO GPIO and the exposed
+Linux system file.
+
+|ZYNQ PIN|Linux GPIO|I/O       |FPGA PIN             |
+|--------|----------|----------|---------------------|
+|MIO26   |gpio364   |IO Pullup |LED1                 |
+|MIO27   |gpio365   |IO Pullup |LED0                 |
+|MIO28   |gpio366   |IO Pullup |LED3                 |
+|MIO29   |gpio367   |IO Pullup |LED2                 |
+|MIO30   |          |IO Pullup |ROOT RX              |
+|MIO31   |          |IO Pullup |ROOT TX              |
+|MIO32   |          |IO Pullup |USB SCL - STUSB4500  |
+|MIO33   |          |IO Pullup |USB SDA - STUSB4500  |
+|MIO38   |          |IO Pullup |USB SCL - SI5338     |
+|MIO39   |          |IO Pullup |USB SDA - SI5338     |
+
+## EMIO
+EMIO starts at 78. For our board thus, GPIO[0] corresponds to gpio416.
+
+The following table provides the mapping between the EMIO GPIO and the exposed
+Linux system file, as well as the current mapping for OVC3B.
+
+|ZYNQ PIN|Linux GPIO|I/O     |FPGA PIN             |
+|--------|----------|--------|---------------------|
+|EMIO0   |gpio416   |Input   |DIP_SWITCH           |
+|EMIO1   |gpio417   |Input   |FRONT_AUX4 (VN sync) |
+|EMIO2   |gpio418   |Input   |GPIO0                |
+|EMIO3   |gpio419   |Input   |GPIO2                |
+|EMIO4   |gpio420   |Input   |GPIO3                |
+|EMIO5   |gpio421   |Output  |GPIO6                |
+|EMIO6   |gpio422   |Output  |GPIO4                |
+|EMIO7   |gpio423   |Output  |GPIO5                |
+|EMIO8   |gpio424   |Output  |GPIO10               |
+|EMIO9   |gpio425   |Output  |GPIO12               |
+|EMIO10  |gpio426   |Output  |GPIO13[3]            |
+|EMIO11  |gpio427   |Output  |GPIO13[2]            |
+|EMIO12  |gpio428   |Output  |GPIO13[1]            |
+|EMIO13  |gpio428   |Output  |GPIO13[0]            |
