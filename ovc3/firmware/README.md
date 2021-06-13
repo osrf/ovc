@@ -90,7 +90,7 @@ Linux system file.
 |MIO38   |          |IO Pullup |USB SCL - SI5338     |
 |MIO39   |          |IO Pullup |USB SDA - SI5338     |
 
-## EMIO
+### EMIO
 EMIO starts at 78. For our board thus, GPIO[0] corresponds to gpio416.
 
 The following table provides the mapping between the EMIO GPIO and the exposed
