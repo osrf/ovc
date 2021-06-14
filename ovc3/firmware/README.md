@@ -2,7 +2,10 @@
 In order to get the OVC up and running you will need to set up the boot medium, choosing between eMMC and SD card. We have observed better performance and reliability from the embedded eMMC module so it is suggested. SD boot should be used for the first setup and eventual recovery if it becomes impossible to boot from eMMC.
 
 The first step suggested is to create an Ubuntu SD card that can be used to boot the module, and to flash the eMMC and onboard QSPI flash.
-All the necessary files can be found [here](https://drive.google.com/drive/u/0/folders/1-6HdKNJr4VVOgUUyit0nssR-HQKv6Tt5).
+All the necessary files can be found [here](https://drive.google.com/drive/u/0/folders/1-6HdKNJr4VVOgUUyit0nssR-HQKv6Tt5). You will need the files:
+- `SD images/image.ub`
+- `SD images/boot.bin`
+- `Flash images/rootfs.tar.gz`
 
 ### Creating the recovery SD card
 * Follow the [Xilinx guide](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841655/Prepare+Boot+Medium) to partition the SD card, then copy the image.ub and BOOT.bin files in the SD images into the boot partition.
