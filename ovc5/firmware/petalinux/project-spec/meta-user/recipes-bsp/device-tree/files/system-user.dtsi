@@ -1,6 +1,6 @@
 /include/ "system-conf.dtsi"
 / {
-	model = "Enclustra ME-XU5-4EV-1I-D11E SOM";
+    model = "Enclustra ME-XU5-4EV-1I-D11E SOM";
 
   // Reference:
   //   https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841683/Linux+Reserved+Memory
@@ -264,36 +264,70 @@
 #include "zynqmp_enclustra_mercury_st1.dtsi"
 #include "zynqmp_enclustra_mercury_xu5.dtsi"
 
+&interrupts_axi_intc {
+  #interrupt-cells = <2>;
+  clock-names = "s_axi_aclk";
+  clocks = <&zynqmp_clk 72>;
+  compatible = "xlnx,axi-intc-4.1", "xlnx,xps-intc-1.00.a";
+  interrupt-controller ;
+  interrupt-names = "irq";
+  interrupt-parent = <&gic>;
+  interrupts = <0 89 4>;
+  reg = <0x0 0x80150000 0x0 0x10000>;
+  xlnx,kind-of-intr = <0x0>;
+  xlnx,num-intr-inputs = <0xc>;
+};
+
 // Reference:
 //   https://github.com/Xilinx/linux-xlnx/blob/master/Documentation/devicetree/bindings/dma/xilinx/axi-dma.txt
-&axi_vdma_0 {
+&mipi_cam0_axi_vdma {
   compatible = "generic-uio";  
 };
 
-&axi_vdma_1 {
+&mipi_cam1_axi_vdma {
   compatible = "generic-uio";  
 };
 
-&axi_vdma_2 {
+&mipi_cam2_axi_vdma {
   compatible = "generic-uio";  
 };
 
-&axi_vdma_3 {
+&mipi_cam3_axi_vdma {
   compatible = "generic-uio";  
 };
 
-&axi_vdma_4 {
+&mipi_cam4_axi_vdma {
   compatible = "generic-uio";  
 };
 
-&axi_vdma_5 {
+&mipi_cam5_axi_vdma {
   compatible = "generic-uio";  
 };
 
-&trigger_timer_0 {
+&trigger_timer {
   compatible = "generic-uio";  
 };
 
-&main_line_counter_0 {
+&mipi_cam0_line_counter {
+  compatible = "generic-uio";  
+};
+
+&mipi_cam1_line_counter {
+  compatible = "generic-uio";  
+};
+
+&mipi_cam2_line_counter {
+  compatible = "generic-uio";  
+};
+
+&mipi_cam3_line_counter {
+  compatible = "generic-uio";  
+};
+
+&mipi_cam4_line_counter {
+  compatible = "generic-uio";  
+};
+
+&mipi_cam5_line_counter {
   compatible = "generic-uio";  
 };
