@@ -16,6 +16,8 @@
 #define GPIO_LED_PIN GPIO_EMIO_OFFSET + 7
 // Pin to trigger sensor sampling.
 #define GPIO_TRIG_PIN GPIO_EMIO_OFFSET + 15
+// GPIO offset to select for line counter (16-21).
+#define GPIO_SELECT_OFFSET GPIO_EMIO_OFFSET + 16
 
 class SensorManager
 {
@@ -33,11 +35,13 @@ private:
 
   std::map<int, std::unique_ptr<I2CCamera>> cameras;
 
+  int primary_cam_;
+
 public:
   SensorManager(const std::array<int, NUM_CAMERAS>& cam_nums,
                 const std::array<int, NUM_CAMERAS>& i2c_devs,
                 const std::array<int, NUM_CAMERAS>& vdma_devs,
-                int line_counter_dev);
+                int line_counter_dev, int primary_cam);
 
   void initCameras();
 

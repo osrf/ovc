@@ -24,6 +24,7 @@ struct config_t
   std::array<int, NUM_CAMERAS> vdma_devs;
   int trigger_timer_dev;
   int line_count_timer_dev;
+  int primary_cam;
 };
 
 template <typename T>
@@ -41,6 +42,7 @@ void load_config(config_t &config)
   store_to(config.vdma_devs, config_node["vdma_devs"]);
   store_to(config.trigger_timer_dev, config_node["trigger_timer_dev"]);
   store_to(config.line_count_timer_dev, config_node["line_count_timer_dev"]);
+  store_to(config.primary_cam, config_node["primary_cam"]);
 }
 
 int main(int argc, char **argv)
@@ -54,7 +56,8 @@ int main(int argc, char **argv)
   SensorManager sm(config.cam_nums,
                    config.i2c_devs,
                    config.vdma_devs,
-                   config.line_count_timer_dev);
+                   config.line_count_timer_dev,
+                   config.primary_cam);
   Timer trigger_timer(config.trigger_timer_dev);
 
   // Hz, high time

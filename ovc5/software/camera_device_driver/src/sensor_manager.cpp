@@ -10,8 +10,8 @@
 SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &cam_nums,
                              const std::array<int, NUM_CAMERAS> &i2c_devs,
                              const std::array<int, NUM_CAMERAS> &vdma_devs,
-                             int line_counter_dev)
-    : line_counter(line_counter_dev)
+                             int line_counter_dev, int primary_cam)
+    : line_counter(line_counter_dev), primary_cam_(primary_cam)
 {
   // Configure the gpio chip.
   gpio = std::make_unique<GPIOChip>(GPIO_CHIP_NUMBER);
@@ -27,45 +27,49 @@ SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &cam_nums,
     gpio->setValue(gpio_pin_num, true);
   }
 
-  // Turn on user GPIO to signify that the sensors are on.
+  // Enables passing last line trigger from the selected mipi_csi2_rx_subsystem
+  // to the line counter.
+  gpio_pin_num = GPIO_SELECT_OFFSET + primary_cam;
+  gpio->openPin(gpio_pin_num, GPIO_OUTPUT);
+  gpio->setValue(gpio_pin_num, true);
+
+  // Turn on user LED to signify that the sensors are on.
   gpio->openPin(GPIO_LED_PIN, GPIO_OUTPUT);
   gpio->setValue(GPIO_LED_PIN, true);
 
   // Open pin for triggering samples.
   gpio->openPin(GPIO_TRIG_PIN, GPIO_OUTPUT);
+  gpio->setValue(GPIO_LED_PIN, false);
 
   // Sleep for a bit to allow cameras to boot up.
   usleep(100000);
 
-  bool first_camera_found = false;
   for (int index = 0; index < NUM_CAMERAS; ++index)
   {
     int cam_id = cam_nums[index];
     int vdma_dev = vdma_devs[index];
+    bool is_primary = primary_cam == cam_id;
     I2CDriver i2c(i2c_devs[index]);
     if (PiCameraV2::probe(i2c))
     {
-      cameras.insert({cam_id,
-                      std::make_unique<PiCameraV2>(
-                          i2c, vdma_dev, cam_id, !first_camera_found)});
-      first_camera_found = true;
+      cameras.insert(
+          {cam_id,
+           std::make_unique<PiCameraV2>(i2c, vdma_dev, cam_id, is_primary)});
       continue;
     }
 #if PROPRIETARY_SENSORS
     if (IMX490::probe(i2c))
     {
-      cameras.insert({cam_id,
-                      std::make_unique<IMX490>(
-                          i2c, vdma_dev, cam_id, !first_camera_found)});
-      first_camera_found = true;
+      cameras.insert(
+          {cam_id,
+           std::make_unique<IMX490>(i2c, vdma_dev, cam_id, is_primary)});
       continue;
     }
     if (AR0521::probe(i2c))
     {
-      cameras.insert({cam_id,
-                      std::make_unique<AR0521>(
-                          i2c, vdma_dev, cam_id, !first_camera_found)});
-      first_camera_found = true;
+      cameras.insert(
+          {cam_id,
+           std::make_unique<AR0521>(i2c, vdma_dev, cam_id, is_primary)});
       continue;
     }
 #endif
@@ -77,7 +81,6 @@ SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &cam_nums,
 
 void SensorManager::initCameras()
 {
-  bool first_cam_found = false;
   for (auto &[cam_id, camera] : cameras)
   {
     // Will initialize to default resolution and frame rate
@@ -86,11 +89,12 @@ void SensorManager::initCameras()
       std::cout << "Camera initialization failed" << std::endl;
       continue;
     }
-    if (!first_cam_found)
+
+    bool is_primary = cam_id == primary_cam_;
+    if (is_primary)
       camera->setMain();
     else
       camera->setSecondary();
-    first_cam_found = true;
   }
 }
 

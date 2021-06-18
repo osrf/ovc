@@ -24,7 +24,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -34,7 +34,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -44,7 +44,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -54,7 +54,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -64,7 +64,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -74,7 +74,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -84,7 +84,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -94,7 +94,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -104,7 +104,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -114,7 +114,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -124,7 +124,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -134,7 +134,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -144,7 +144,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -154,7 +154,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -164,7 +164,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -174,7 +174,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -184,7 +184,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -194,7 +194,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -204,7 +204,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -214,7 +214,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -224,7 +224,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -234,7 +234,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -244,7 +244,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -254,7 +254,7 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
-    dma-coherent; // Guaranteed cache coherency
+    //dma-coherent; // Guaranteed cache coherency
     memory_region = <&cma_buffer>;
   };
 
@@ -263,20 +263,6 @@
 #include "zynqmp_enclustra_common.dtsi"
 #include "zynqmp_enclustra_mercury_st1.dtsi"
 #include "zynqmp_enclustra_mercury_xu5.dtsi"
-
-&interrupts_axi_intc {
-  #interrupt-cells = <2>;
-  clock-names = "s_axi_aclk";
-  clocks = <&zynqmp_clk 72>;
-  compatible = "xlnx,axi-intc-4.1", "xlnx,xps-intc-1.00.a";
-  interrupt-controller ;
-  interrupt-names = "irq";
-  interrupt-parent = <&gic>;
-  interrupts = <0 89 4>;
-  reg = <0x0 0x80150000 0x0 0x10000>;
-  xlnx,kind-of-intr = <0x0>;
-  xlnx,num-intr-inputs = <0xc>;
-};
 
 // Reference:
 //   https://github.com/Xilinx/linux-xlnx/blob/master/Documentation/devicetree/bindings/dma/xilinx/axi-dma.txt
@@ -308,26 +294,6 @@
   compatible = "generic-uio";  
 };
 
-&mipi_cam0_line_counter {
-  compatible = "generic-uio";  
-};
-
-&mipi_cam1_line_counter {
-  compatible = "generic-uio";  
-};
-
-&mipi_cam2_line_counter {
-  compatible = "generic-uio";  
-};
-
-&mipi_cam3_line_counter {
-  compatible = "generic-uio";  
-};
-
-&mipi_cam4_line_counter {
-  compatible = "generic-uio";  
-};
-
-&mipi_cam5_line_counter {
+&mipi_line_counter {
   compatible = "generic-uio";  
 };

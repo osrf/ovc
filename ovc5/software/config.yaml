@@ -7,3 +7,4 @@ vdma_devs: [0, 1] # direct mapping
 # If cameras are borked this should hang. If it passes straight through, the numbers are backwards.
 trigger_timer_dev: 7
 line_count_timer_dev: 6
+primary_cam: 0
