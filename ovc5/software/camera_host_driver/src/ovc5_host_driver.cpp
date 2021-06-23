@@ -1,9 +1,10 @@
+#include <iomanip>
 #include <iostream>
 #include <libovc/ovc.hpp>
 #include <opencv2/opencv.hpp>
 #include <thread>
 
-#define SCREEN_WIDTH 2560
+#define SCREEN_WIDTH 3840
 
 /*
 static void dumpFrame(const cv::Mat& frame)
@@ -35,8 +36,9 @@ int main(int argc, char** argv)
   while (1)
   {
     auto frames = ovc.getFrames();
+
     cv::Mat frame;
-    cv::hconcat(frames[1].image, frames[2].image, frame);
+    cv::hconcat(frames[0].image, frames[1].image, frame);
     float scale = (float)SCREEN_WIDTH / frame.size().width;
     cv::resize(frame, frame, cv::Size(), scale, scale);
     cv::imshow("ovc", frame);
