@@ -219,7 +219,7 @@ type=directory" | sudo tee /etc/schroot/chroot.d/arm64-debian
   done
 
 interfaces_text="
-auto lo eth0 usb0
+auto lo
 allow-hotplug eth0
 iface lo inet loopback
 iface eth0 inet dhcp
