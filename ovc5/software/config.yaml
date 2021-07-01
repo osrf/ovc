@@ -1,10 +1,14 @@
 # Configuration should match devices in /sys/class/uio/ for dma/timers and
 #   /sys/class/i2c-dev/ for i2c.
 # NOTE: `cat` their `name` file to find the device type.
-cam_nums: [2, 5]
-i2c_devs: [1, 4] # 4->cam5 6->cam0 10->cam1
-vdma_devs: [2, 5] # direct mapping
+cams:
+  - id: 0
+    vdma_dev: 0
+    i2c_dev: 6
+  - id: 1
+    vdma_dev: 1
+    i2c_dev: 10
 # If cameras are borked this should hang. If it passes straight through, the numbers are backwards.
 trigger_timer_dev: 7
 line_count_timer_dev: 6
-primary_cam: 2
+primary_cam: 0

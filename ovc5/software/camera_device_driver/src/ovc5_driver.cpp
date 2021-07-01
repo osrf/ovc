@@ -2,9 +2,9 @@
 #include <unistd.h>
 #include <yaml-cpp/yaml.h>
 
-#include <array>
 #include <iostream>
 #include <memory>
+#include <vector>
 
 #include "ovc5_driver/sensor_manager.hpp"
 #include "ovc5_driver/timer_driver.hpp"
@@ -19,9 +19,7 @@ void inthandler(int signum)
 
 struct config_t
 {
-  std::array<int, NUM_CAMERAS> cam_nums;
-  std::array<int, NUM_CAMERAS> i2c_devs;
-  std::array<int, NUM_CAMERAS> vdma_devs;
+  std::vector<camera_config_t> cams;
   int trigger_timer_dev;
   int line_count_timer_dev;
   int primary_cam;
@@ -37,9 +35,15 @@ void load_config(config_t &config)
 {
   YAML::Node config_node = YAML::LoadFile("config.yaml");
 
-  store_to(config.cam_nums, config_node["cam_nums"]);
-  store_to(config.i2c_devs, config_node["i2c_devs"]);
-  store_to(config.vdma_devs, config_node["vdma_devs"]);
+  // store_to(config.cams, config_node["cams"]);
+  for (auto cam : config_node["cams"])
+  {
+    camera_config_t cam_config;
+    store_to(cam_config.id, cam["id"]);
+    store_to(cam_config.i2c_dev, cam["i2c_dev"]);
+    store_to(cam_config.vdma_dev, cam["vdma_dev"]);
+    config.cams.push_back(cam_config);
+  }
   store_to(config.trigger_timer_dev, config_node["trigger_timer_dev"]);
   store_to(config.line_count_timer_dev, config_node["line_count_timer_dev"]);
   store_to(config.primary_cam, config_node["primary_cam"]);
@@ -53,11 +57,8 @@ int main(int argc, char **argv)
   config_t config;
   load_config(config);
 
-  SensorManager sm(config.cam_nums,
-                   config.i2c_devs,
-                   config.vdma_devs,
-                   config.line_count_timer_dev,
-                   config.primary_cam);
+  SensorManager sm(
+      config.cams, config.line_count_timer_dev, config.primary_cam);
   Timer trigger_timer(config.trigger_timer_dev);
 
   // Hz, high time

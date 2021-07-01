@@ -3,8 +3,6 @@
 
 #include "ovc5_driver/camera.hpp"
 
-#define PROPRIETARY_SENSORS 1
-
 // Append all the camera headers here
 #include "ovc5_driver/cameras/picam_v2.hpp"
 //#include <ovc4_driver/cameras/picam_hq.hpp>

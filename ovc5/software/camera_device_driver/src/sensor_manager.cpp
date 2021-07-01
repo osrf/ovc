@@ -7,9 +7,7 @@
 #include "ovc5_driver/camera_modules.hpp"
 #include "ovc5_driver/i2c_driver.h"
 
-SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &cam_nums,
-                             const std::array<int, NUM_CAMERAS> &i2c_devs,
-                             const std::array<int, NUM_CAMERAS> &vdma_devs,
+SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
                              int line_counter_dev, int primary_cam)
     : line_counter(line_counter_dev), primary_cam_(primary_cam)
 {
@@ -18,11 +16,11 @@ SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &cam_nums,
 
   int gpio_pin_num;
   // Turn on the cameras with the enable pins.
-  for (int cam_num : cam_nums)
+  for (camera_config_t cam : cams)
   {
     // This assumes that the enable pins are at EMIO addresses starting at zero
     // and the index matches the numbering of the vdma devices.
-    gpio_pin_num = GPIO_EMIO_OFFSET + cam_num;
+    gpio_pin_num = GPIO_EMIO_OFFSET + cam.id;
     gpio->openPin(gpio_pin_num, GPIO_OUTPUT);
     gpio->setValue(gpio_pin_num, true);
   }
@@ -44,12 +42,13 @@ SensorManager::SensorManager(const std::array<int, NUM_CAMERAS> &cam_nums,
   // Sleep for a bit to allow cameras to boot up.
   usleep(100000);
 
-  for (int index = 0; index < NUM_CAMERAS; ++index)
+  for (int index = 0; index < cams.size(); ++index)
   {
-    int cam_id = cam_nums[index];
-    int vdma_dev = vdma_devs[index];
+    camera_config_t cam = cams[index];
+    int cam_id = cam.id;
+    int vdma_dev = cam.vdma_dev;
     bool is_primary = primary_cam == cam_id;
-    I2CDriver i2c(i2c_devs[index]);
+    I2CDriver i2c(cam.i2c_dev);
     if (PiCameraV2::probe(i2c))
     {
       cameras.insert(
