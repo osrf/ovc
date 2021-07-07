@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Wed Jun 23 13:58:35 2021
+//Date        : Tue Jul  6 11:46:30 2021
 //Host        : jank-osrf running 64-bit Ubuntu 20.04.2 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -104,8 +104,8 @@ module design_1_wrapper
   input [1:0]mipi_phy_if_2_data_p;
   input mipi_phy_if_3_clk_n;
   input mipi_phy_if_3_clk_p;
-  input [1:0]mipi_phy_if_3_data_n;
-  input [1:0]mipi_phy_if_3_data_p;
+  input [3:0]mipi_phy_if_3_data_n;
+  input [3:0]mipi_phy_if_3_data_p;
   input mipi_phy_if_4_clk_n;
   input mipi_phy_if_4_clk_p;
   input [1:0]mipi_phy_if_4_data_n;
@@ -196,8 +196,8 @@ module design_1_wrapper
   wire [1:0]mipi_phy_if_2_data_p;
   wire mipi_phy_if_3_clk_n;
   wire mipi_phy_if_3_clk_p;
-  wire [1:0]mipi_phy_if_3_data_n;
-  wire [1:0]mipi_phy_if_3_data_p;
+  wire [3:0]mipi_phy_if_3_data_n;
+  wire [3:0]mipi_phy_if_3_data_p;
   wire mipi_phy_if_4_clk_n;
   wire mipi_phy_if_4_clk_p;
   wire [1:0]mipi_phy_if_4_data_n;

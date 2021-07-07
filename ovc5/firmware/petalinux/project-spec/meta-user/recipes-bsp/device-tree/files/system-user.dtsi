@@ -290,7 +290,7 @@
   compatible = "generic-uio";  
 };
 
-&trigger_timer {
+&mipi_trigger_timer {
   compatible = "generic-uio";  
 };
 
