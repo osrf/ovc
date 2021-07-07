@@ -1846,12 +1846,6 @@
     (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/c075cbca-1684-4cc8-ab43-4e10fea2d690"
       (reference "C117") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0402_1005Metric")
     )
-    (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/4c992c40-1f54-4a75-a08d-e93c75888a80"
-      (reference "CONN1") (unit 1) (value "Conn_Dummy") (footprint "")
-    )
-    (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/ae1bb910-9848-44cd-959b-7ec2fc868748"
-      (reference "CONN2") (unit 1) (value "Conn_Dummy") (footprint "")
-    )
     (path "/1a6321be-d76d-4235-a413-9ab1d5258191/138ab96b-293f-4721-8663-06041daa5fb2"
       (reference "D1") (unit 1) (value "LED_Small") (footprint "LED_SMD:LED_0402_1005Metric")
     )
