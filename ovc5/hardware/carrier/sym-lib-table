@@ -8,4 +8,5 @@
   (lib (name "ethernet")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/ethernet.kicad_sym")(options "")(descr ""))
   (lib (name "level_shifter")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/level_shifter.kicad_sym")(options "")(descr ""))
   (lib (name "voltage_translators")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/voltage_translators.kicad_sym")(options "")(descr ""))
+  (lib (name "fan_controllers")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/fan_controllers.kicad_sym")(options "")(descr ""))
 )
