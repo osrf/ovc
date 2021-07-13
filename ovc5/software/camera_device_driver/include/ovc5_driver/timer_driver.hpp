@@ -31,7 +31,7 @@ public:
 
   void interruptAtLine(int n);
 
-  void waitInterrupt();
+  bool waitInterrupt();
 };
 
 #endif

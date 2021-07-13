@@ -65,4 +65,4 @@ void Timer::interruptAtLine(int n)
   uio.writeRegister(TCSR0, ctrl_val);
 }
 
-void Timer::waitInterrupt() { uio.waitInterrupt(); }
+bool Timer::waitInterrupt() { return uio.waitInterrupt(); }

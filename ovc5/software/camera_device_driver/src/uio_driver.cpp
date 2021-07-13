@@ -34,21 +34,46 @@ void UIODriver::setResetRegisterMask(unsigned int reg_addr, unsigned int mask)
   reset_mask = mask;
 }
 
-void UIODriver::waitInterrupt()
+bool UIODriver::waitInterrupt()
 {
   unsigned int dummy;
+  fd_set set;
+  struct timeval timeout;
+  int rv;
+
+  timeout.tv_sec = 1;
+  timeout.tv_usec = 0;
+
+  FD_ZERO(&set);
+  FD_SET(uio_file, &set);
+
   // Start by resetting status register (only the masked bits)
   writeRegister(reset_register, readRegister(reset_register) & (~reset_mask));
   // Reset UIO and blocking read
   size_t io_size;
   io_size = write(uio_file, (char *)&IRQ_RST, sizeof(IRQ_RST));
+  std::cout << "Writing irq_rst... ";
   if (io_size != sizeof(IRQ_RST))
   {
     std::cout << "Failed to write irq_rst" << std::endl;
+    return false;
   }
-  io_size = read(uio_file, &dummy, sizeof(dummy));
-  if (io_size != sizeof(dummy))
+  std::cout << "Waiting for dummy... ";
+  rv = select(uio_file + 1, &set, NULL, NULL, &timeout);
+  std::cout << "Select returned... ";
+  if (0 < rv)
   {
-    std::cout << "Failed to read dummy value" << std::endl;
+    io_size = read(uio_file, &dummy, sizeof(dummy));
+    if (io_size != sizeof(dummy))
+    {
+      std::cout << "Failed to read dummy value" << std::endl;
+    }
+    std::cout << "Received dummy." << std::endl;
   }
+  else
+  {
+    std::cout << "Timed out or Error." << std::endl;
+    return false;
+  }
+  return true;
 }

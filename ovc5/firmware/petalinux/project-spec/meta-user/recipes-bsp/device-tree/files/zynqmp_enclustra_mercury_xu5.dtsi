@@ -1,0 +1,64 @@
+/ {
+    aliases {
+        ethernet0 = &gem0;
+        ethernet1 = &gem1;
+        i2c0 = &i2c0;
+        serial0 = &uart0;
+        spi0 = &qspi;
+    };
+};
+
+// From the Enclustra reference:
+//   https://github.com/enclustra/Mercury_XU5_ST1_Reference_Design/blob/master/petalinux/ME-XU5-4EV-1I-D11E_ST1/sd/project-spec/meta-user/recipes-bsp/device-tree/files/zynqmp_enclustra_mercury_xu5.dtsi
+
+&gem0 {
+    status = "okay";
+    /delete-property/ local-mac-address;
+    phy-mode = "rgmii-id";
+    phy-handle = <&phy0>;
+    phy0: phy@3 {
+        reg = <3>;
+
+        txc-skew-ps = <1800>;
+        txen-skew-ps = <420>;
+
+        txd0-skew-ps = <420>;
+        txd1-skew-ps = <420>;
+        txd2-skew-ps = <420>;
+        txd3-skew-ps = <420>;
+
+        rxc-skew-ps = <900>;
+        rxdv-skew-ps = <420>;
+
+        rxd0-skew-ps = <420>;
+        rxd1-skew-ps = <420>;
+        rxd2-skew-ps = <420>;
+        rxd3-skew-ps = <420>;       
+    };
+};
+
+&gem1 {
+    status = "okay";
+    /delete-property/ local-mac-address;
+    phy-mode = "gmii-id";
+    phy-handle = <&phy1>;
+        phy1: phy@3 {
+        reg = <3>;
+
+        txc-skew-ps = <900>;
+        txen-skew-ps = <420>;
+
+        txd0-skew-ps = <420>;
+        txd1-skew-ps = <420>;
+        txd2-skew-ps = <420>;
+        txd3-skew-ps = <420>;
+
+        rxc-skew-ps = <1680>;
+        rxdv-skew-ps = <420>;
+
+        rxd0-skew-ps = <420>;
+        rxd1-skew-ps = <420>;
+        rxd2-skew-ps = <420>;
+        rxd3-skew-ps = <420>;       
+    };
+};

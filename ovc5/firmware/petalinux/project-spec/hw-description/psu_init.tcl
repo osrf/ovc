@@ -998,6 +998,31 @@ set psu_clock_init_data {
 		# This register controls this reference clock
 		#(OFFSET, MASK, VALUE)      (0XFD1A0080, 0x00003F07U ,0x00000200U)  */
     mask_write 0XFD1A0080 0x00003F07 0x00000200
+		# Register : GPU_REF_CTRL @ 0XFD1A0084</p>
+
+		# 6 bit divider
+		# PSU_CRF_APB_GPU_REF_CTRL_DIVISOR0                                               0x2
+
+		# 000 = IOPLL_TO_FPD; 010 = VPLL; 011 = DPLL; (This signal may only be tog
+    # gled after 4 cycles of the old clock and 4 cycles of the new clock. This
+    #  is not usually an issue, but designers must be aware.)
+		# PSU_CRF_APB_GPU_REF_CTRL_SRCSEL                                                 0x3
+
+		# Clock active signal. Switch to 0 to disable the clock, which will stop c
+    # lock for GPU (and both Pixel Processors).
+		# PSU_CRF_APB_GPU_REF_CTRL_CLKACT                                                 0x1
+
+		# Clock active signal for Pixel Processor. Switch to 0 to disable the cloc
+    # k only to this Pixel Processor
+		# PSU_CRF_APB_GPU_REF_CTRL_PP0_CLKACT                                             0x1
+
+		# Clock active signal for Pixel Processor. Switch to 0 to disable the cloc
+    # k only to this Pixel Processor
+		# PSU_CRF_APB_GPU_REF_CTRL_PP1_CLKACT                                             0x1
+
+		# This register controls this reference clock
+		#(OFFSET, MASK, VALUE)      (0XFD1A0084, 0x07003F07U ,0x07000203U)  */
+    mask_write 0XFD1A0084 0x07003F07 0x07000203
 		# Register : GDMA_REF_CTRL @ 0XFD1A00B8</p>
 
 		# 6 bit divider
@@ -13741,12 +13766,21 @@ set psu_peripherals_init_data {
 		# GDMA block level reset
 		# PSU_CRF_APB_RST_FPD_TOP_GDMA_RESET                                              0
 
+		# Pixel Processor (submodule of GPU) block level reset
+		# PSU_CRF_APB_RST_FPD_TOP_GPU_PP0_RESET                                           0
+
+		# Pixel Processor (submodule of GPU) block level reset
+		# PSU_CRF_APB_RST_FPD_TOP_GPU_PP1_RESET                                           0
+
+		# GPU block level reset
+		# PSU_CRF_APB_RST_FPD_TOP_GPU_RESET                                               0
+
 		# GT block level reset
 		# PSU_CRF_APB_RST_FPD_TOP_GT_RESET                                                0
 
 		# FPD Block level software controlled reset
-		#(OFFSET, MASK, VALUE)      (0XFD1A0100, 0x00000044U ,0x00000000U)  */
-    mask_write 0XFD1A0100 0x00000044 0x00000000
+		#(OFFSET, MASK, VALUE)      (0XFD1A0100, 0x0000007CU ,0x00000000U)  */
+    mask_write 0XFD1A0100 0x0000007C 0x00000000
 		# : RESET BLOCKS
 		# : TIMESTAMP
 		# Register : RST_LPD_IOU2 @ 0XFF5E0238</p>
@@ -16354,6 +16388,15 @@ set psu_afi_config {
 		# Read Channel Control Register
 		#(OFFSET, MASK, VALUE)      (0XFD360000, 0x00000003U ,0x00000000U)  */
     mask_write 0XFD360000 0x00000003 0x00000000
+		# Register : AFIFM_RDCTRL @ 0XFD370000</p>
+
+		# Configures the Read Channel Fabric interface width. 2'b11 : Reserved 2'b
+    # 10 : 32-bit Fabric 2'b01 : 64-bit enabled 2'b00 : 128-bit enabled
+		# PSU_AFIFM1_AFIFM_RDCTRL_FABRIC_WIDTH                                            0x0
+
+		# Read Channel Control Register
+		#(OFFSET, MASK, VALUE)      (0XFD370000, 0x00000003U ,0x00000000U)  */
+    mask_write 0XFD370000 0x00000003 0x00000000
 		# Register : AFIFM_WRCTRL @ 0XFD360014</p>
 
 		# Configures the Write Channel Fabric interface width. 2'b11 : Reserved 2'
@@ -16363,6 +16406,15 @@ set psu_afi_config {
 		# Write Channel Control Register
 		#(OFFSET, MASK, VALUE)      (0XFD360014, 0x00000003U ,0x00000000U)  */
     mask_write 0XFD360014 0x00000003 0x00000000
+		# Register : AFIFM_WRCTRL @ 0XFD370014</p>
+
+		# Configures the Write Channel Fabric interface width. 2'b11 : Reserved 2'
+    # b10 : 32-bit Fabric 2'b01 : 64-bit enabled 2'b00 : 128-bit enabled
+		# PSU_AFIFM1_AFIFM_WRCTRL_FABRIC_WIDTH                                            0x0
+
+		# Write Channel Control Register
+		#(OFFSET, MASK, VALUE)      (0XFD370014, 0x00000003U ,0x00000000U)  */
+    mask_write 0XFD370014 0x00000003 0x00000000
 }
 
 set psu_ps_pl_reset_config_data {

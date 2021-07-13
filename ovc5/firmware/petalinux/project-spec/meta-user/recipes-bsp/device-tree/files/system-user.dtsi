@@ -1,78 +1,31 @@
 /include/ "system-conf.dtsi"
 / {
-	model = "Enclustra ME-XU9-4CG-1E-D11E SOM";
+    model = "Enclustra ME-XU5-4EV-1I-D11E SOM";
 
+  // Reference:
+  //   https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841683/Linux+Reserved+Memory
   reserved-memory {
     #address-cells = <2>;
     #size-cells = <2>;
     ranges;
 
-    reserved: framebuffer@0x70000000 {
-       no-map;
-       reg = <0x0 0x70000000 0x0 0x10000000>;
+    cma_buffer: framebuffer@0 {
+       compatible = "shared-dma-pool";
+       reusable;
+       size = <0x0 0x20000000>;
+       label = "cma_buffer";
+       linux,cma-default;
     };
   };
 
-  reserved-driver@0 {
-    compatible = "xlnx,reserved-memory";
-    memory-region = <&reserved>;
-  };
-
-  // Video pipeline
-  /*
-  axi_video_cap {
-      compatible = "xlnx,video";
-      dmas = <&axi_vdma_2 1>;
-      dma-names = "port0";
-    
-      ports {
-          #address-cells = <1>;
-          #size-cells = <0>;
-    
-          port@0 {
-              reg = <0>;
-              direction = "input";
-              vcap0_in0: endpoint {
-                  remote-endpoint = <&mipi_csi2_rx_subsyst_0>;
-              };
-          };
-      };
-  };
-  */
-
-
-  // I2C mux
-  i2cmux {
-    compatible = "i2c-mux-gpio";
-    #address-cells = <1>;
-    #size-cells = <0>;
-    mux-gpios = <&gpio 78 0>; // pin in index 0
-    i2c-parent = <&i2c1>;
-
-    // Cam 0
-    i2c@0 {
-      #address-cells = <1>;
-      #size-cells = <0>;
-			//compatible = "cdns,i2c-r1p14\0cdns,i2c-r1p10";
-			//status = "okay";
-      reg = <0>;
-    };
-
-    // Cam 1
-    i2c@1 {
-      #address-cells = <1>;
-      #size-cells = <0>;
-			//compatible = "cdns,i2c-r1p14\0cdns,i2c-r1p10";
-			//status = "okay";
-      reg = <1>;
-    };
-  };
   udmabuf@0 {
     compatible = "ikwzm,u-dma-buf";
     device-name = "cam0_0";
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
   };
 
   udmabuf@1 {
@@ -81,6 +34,8 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
   };
 
   udmabuf@2 {
@@ -89,6 +44,8 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
   };
 
   udmabuf@3 {
@@ -97,6 +54,8 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
   };
 
   udmabuf@4 {
@@ -105,6 +64,8 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
   };
 
   udmabuf@5 {
@@ -113,6 +74,8 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
   };
 
   udmabuf@6 {
@@ -121,6 +84,8 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
   };
 
   udmabuf@7 {
@@ -129,106 +94,206 @@
     size = <0x1000000>; // 16 MB
     sync-size = <0x1000000>; // 16 MB
     sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
   };
 
-/*
-  amba {
-
-    timer@ff120000 {
-      status = "okay";
-      compatible = "generic-uio";  
-      /delete-property/power-domains;
-    };
-
+  udmabuf@8 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam2_0";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
   };
-*/
+
+  udmabuf@9 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam2_1";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@10 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam2_2";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@11 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam2_3";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@12 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam3_0";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@13 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam3_1";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@14 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam3_2";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@15 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam3_3";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@16 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam4_0";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@17 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam4_1";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@18 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam4_2";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@19 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam4_3";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@20 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam5_0";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@21 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam5_1";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@22 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam5_2";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
+
+  udmabuf@23 {
+    compatible = "ikwzm,u-dma-buf";
+    device-name = "cam5_3";
+    size = <0x1000000>; // 16 MB
+    sync-size = <0x1000000>; // 16 MB
+    sync-direction = <2>; // From device
+    //dma-coherent; // Guaranteed cache coherency
+    memory_region = <&cma_buffer>;
+  };
 
 };
+
 #include "zynqmp_enclustra_common.dtsi"
 #include "zynqmp_enclustra_mercury_st1.dtsi"
-#include "zynqmp_enclustra_mercury_xu9.dtsi"
+#include "zynqmp_enclustra_mercury_xu5.dtsi"
 
-/*
-&mipi_csi2_rx_subsyst_0
-{
-  mipi_csi_portsmipi_csi2_rx_subsyst_0: ports {
-    #address-cells = <1>;
-    #size-cells = <0>;
-    mipi_csi_port0mipi_csi2_rx_subsyst_0: port@0 {
-      mipi_csirx_outmipi_csi2_rx_subsyst_0: endpoint {
-        // Fix the label being wrong in pl.dtsi
-        remote-endpoint = <&axi_vdma_2>;
-      };
-    };
-  };
-};
-*/
-
-/*
-&v_proc_ss_o
-{
-  csc_portsv_proc_ss_0: ports {
-    #address-cells = <1>;
-    #size-cells = <0>;
-    csc_port1v_proc_ss_0: port@1 {
-      reg = <1>;
-      xlnx,video-format = <3>;
-      xlnx,video-width = <12>;
-      csc_outv_proc_ss_0: endpoint {
-        remote-endpoint = <&axi_vdma_2>;
-      };
-    };
-  };
-};
-
-&v_proc_ss_1
-{
-  csc_portsv_proc_ss_1: ports {
-    #address-cells = <1>;
-    #size-cells = <0>;
-    csc_port1v_proc_ss_1: port@1 {
-      reg = <1>;
-      xlnx,video-format = <3>;
-      xlnx,video-width = <12>;
-      csc_outv_proc_ss_1: endpoint {
-        remote-endpoint = <&axi_vdma_1>;
-      };
-    };
-  };
-};
-*/
-
-/*
-&v_frmbuf_wr_0
-{
-  reset-gpios = <&gpio 79 1>; // pin in index 1
-};
-*/
-
-/*
-&axi_vdma_3 {
-  compatible = "generic-uio";  
-};
-*/
-
-&axi_vdma_0 {
+// Reference:
+//   https://github.com/Xilinx/linux-xlnx/blob/master/Documentation/devicetree/bindings/dma/xilinx/axi-dma.txt
+&mipi_cam0_axi_vdma {
   compatible = "generic-uio";  
 };
 
-&axi_vdma_1 {
+&mipi_cam1_axi_vdma {
   compatible = "generic-uio";  
 };
 
-&trigger_timer_0 {
+&mipi_cam2_axi_vdma {
   compatible = "generic-uio";  
 };
 
-&main_line_counter_0 {
+&mipi_cam3_axi_vdma {
   compatible = "generic-uio";  
 };
 
-/*
-&mipi_csi2_rx_subsyst_0 {
+&mipi_cam4_axi_vdma {
   compatible = "generic-uio";  
 };
-*/
+
+&mipi_cam5_axi_vdma {
+  compatible = "generic-uio";  
+};
+
+&mipi_trigger_timer {
+  compatible = "generic-uio";  
+};
+
+&mipi_line_counter {
+  compatible = "generic-uio";  
+};
