@@ -116,7 +116,8 @@
         "min_through_hole_diameter": 0.15239999999999998,
         "min_track_width": 0.1016,
         "min_via_annular_width": 0.0508,
-        "min_via_diameter": 0.35559999999999997
+        "min_via_diameter": 0.35559999999999997,
+        "use_height_for_length_calcs": true
       },
       "track_widths": [
         0.0,
@@ -501,7 +502,8 @@
       "meta": {
         "version": 0
       },
-      "model_mode": 0
+      "model_mode": 0,
+      "workbook_filename": ""
     },
     "page_layout_descr_file": "",
     "plot_directory": "",
