@@ -1,4 +1,4 @@
-(kicad_sch (version 20210406) (generator eeschema)
+(kicad_sch (version 20210621) (generator eeschema)
 
   (uuid b13b6383-f87c-432c-bd6a-657a03dba990)
 
@@ -741,7 +741,7 @@
           (number "18" (effects (font (size 1.27 1.27))))
         )
         (pin input line (at -20.32 0 0) (length 3.81)
-          (name "~RESET~" (effects (font (size 1.27 1.27))))
+          (name "~{RESET}" (effects (font (size 1.27 1.27))))
           (number "19" (effects (font (size 1.27 1.27))))
         )
         (pin output output_low (at 20.32 7.62 180) (length 3.81)
