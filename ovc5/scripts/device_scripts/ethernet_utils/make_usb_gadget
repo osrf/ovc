@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# go to configfs directory for USB gadgets
+CONFIGFS_ROOT=/sys/kernel/config # adapt to your machine
+cd "${CONFIGFS_ROOT}"/usb_gadget
+
+# create gadget directory and enter it
+mkdir usb1_ethernet
+cd usb1_ethernet
+
+# USB ids
+echo 0x1d6b > idVendor
+echo 0x104 > idProduct
+
+# USB strings, optional
+mkdir strings/0x409 # US English, others rarely seen
+echo "OSRF" > strings/0x409/manufacturer
+echo "ECM" > strings/0x409/product
+
+# create the (only) configuration
+mkdir configs/c.1 # dot and number mandatory
+
+# create the (only) function
+mkdir functions/ecm.usb1 # .
+
+# assign function to configuration
+ln -s functions/ecm.usb1/ configs/c.1/
+
+# bind!
+echo fe300000.dwc3 > UDC # ls /sys/class/udc to see available UDCs

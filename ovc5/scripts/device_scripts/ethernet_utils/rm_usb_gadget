@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# go to configfs directory for USB gadgets
+CONFIGFS_ROOT=/sys/kernel/config # adapt to your machine
+cd "${CONFIGFS_ROOT}"/usb_gadget
+cd usb1_ethernet
+
+# unbind!
+echo "" > UDC # ls /sys/class/udc to see available UDCs
+
+# delete function
+rm configs/c.1/ecm.usb1
+rmdir configs/c.1/
+
+rmdir strings/0x409
+
+# delete the (only) function
+rmdir functions/ecm.usb1
+
+# delete gadget directory
+cd ..
+rmdir usb1_ethernet

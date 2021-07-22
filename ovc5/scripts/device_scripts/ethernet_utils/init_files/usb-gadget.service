@@ -1,0 +1,13 @@
+[Unit]
+Description=Load USB gadget
+Requires=sys-kernel-config.mount
+After=sys-kernel-config.mount
+
+[Service]
+ExecStart=/root/ethernet_utils/make_usb_gadget
+RemainAfterExit=yes
+ExecStop=/root/ethernet_utils/rm_usb_gadget
+Type=simple
+
+[Install]
+WantedBy=usb-gadget.target

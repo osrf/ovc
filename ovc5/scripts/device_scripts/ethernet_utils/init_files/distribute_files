@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp 99-usb-gadget.rules /etc/udev/rules.d/
+cp usb-gadget.service /etc/systemd/system/
+cp usb-gadget.target /etc/systemd/system/
