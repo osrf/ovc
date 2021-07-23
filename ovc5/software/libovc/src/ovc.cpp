@@ -1,5 +1,6 @@
 #include "libovc/ovc.hpp"
 
+#include <iomanip>
 #include <thread>
 
 #include "libovc/ethernet_packetdef.hpp"
@@ -14,7 +15,7 @@ static cv::Mat unpackTo16(const cv::Mat &frame)
   uint16_t *out16 = (uint16_t *)ret.data;
 
   size_t n = frame.cols * frame.rows;
-  unsigned full, half;
+  uint16_t full, half;
 
   for (n /= 2; n--;)
   {
@@ -44,7 +45,6 @@ OVC::~OVC()
 std::array<OVCImage, Server::NUM_IMAGERS> OVC::getFrames()
 {
   frames_ = server_.getFrames();
-
   for (size_t i = 0; i < frames_.size(); i++)
   {
     cv::Mat shifted = unpackTo16(frames_[i].image);

@@ -3,6 +3,7 @@
 echo "uio devices:"
 for uio in /sys/class/uio/*; do
   echo "$uio -> $(cat $uio/name)"
+  cat $uio/device/uevent
 done
 
 echo

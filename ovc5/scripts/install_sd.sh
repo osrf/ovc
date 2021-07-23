@@ -219,15 +219,23 @@ type=directory" | sudo tee /etc/schroot/chroot.d/arm64-debian
   done
 
 interfaces_text="
-auto lo eth0
+auto lo
 allow-hotplug eth0
 iface lo inet loopback
-iface eth0 inet dhcp"
+iface eth0 inet dhcp
 
-subnet_text="subnet 10.0.1.0 netmask 255.255.255.0 {
+allow-hotplug usb0
+iface usb0 inet static
+    address 10.0.1.1
+    netmask 255.255.255.252
+    gateway 10.0.1.0"
+
+subnet_text="subnet 10.0.1.0 netmask 255.255.255.252 {
   interface usb0;
-  range 10.0.1.2 10.0.1.2;
+  range 10.0.1.1 10.0.1.2;
+  option subnet-mask 255.255.255.252;
   option routers 10.0.1.1;
+  option broadcast-address 10.0.1.3;
   option interface-mtu 13500;
 }"
 

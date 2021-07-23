@@ -15,3 +15,5 @@ pre-built/linux/
 
 # This will get pulled in from the vivado export.
 project-spec/hw-description/design_1_wrapper.bit
+project-spec/hw-description/*.c
+project-spec/hw-description/*.h
