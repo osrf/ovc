@@ -1345,6 +1345,9 @@
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/5cb5713d-ce22-49b2-93f0-4aa3ded3d9f3"
       (reference "#PWR?") (unit 1) (value "+3V3") (footprint "")
     )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/630076ac-d718-4b33-8eda-7fbb32128ec9"
+      (reference "#PWR?") (unit 1) (value "+3V3") (footprint "")
+    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/6608035e-9edb-4a25-922a-6c2c4884ac12"
       (reference "#PWR?") (unit 1) (value "+3V3") (footprint "")
     )
@@ -1387,10 +1390,16 @@
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/8ea52646-8991-426f-99a1-666222aecf7d"
       (reference "#PWR?") (unit 1) (value "GND") (footprint "")
     )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/947d0240-9240-4742-a250-07413b34a21d"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/978ac452-f6fb-4909-b75a-ddea59bbbddf"
       (reference "#PWR?") (unit 1) (value "GND") (footprint "")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/9c62ca33-166e-4a42-b539-cef09546d329"
+      (reference "#PWR?") (unit 1) (value "+3V3") (footprint "")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/9d643199-3df3-4c1e-afbe-c083bb8c7ace"
       (reference "#PWR?") (unit 1) (value "+3V3") (footprint "")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/a2e795c0-380c-469a-970c-237c654afed1"
@@ -1417,6 +1426,9 @@
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/ca344d60-16be-47f5-bf99-2badde2037d7"
       (reference "#PWR?") (unit 1) (value "GND") (footprint "")
     )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/cb189570-c45f-4cd1-9103-c1e6fb9b86b9"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/cbf59141-7279-42f5-843f-6c629e2cf436"
       (reference "#PWR?") (unit 1) (value "GND") (footprint "")
     )
@@ -1424,6 +1436,9 @@
       (reference "#PWR?") (unit 1) (value "+1V2") (footprint "")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/d4216252-90ce-4f66-ac27-f483af873624"
+      (reference "#PWR?") (unit 1) (value "+3V3") (footprint "")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/d455c84c-a72a-43a3-bf2f-2e6dd8b69f67"
       (reference "#PWR?") (unit 1) (value "+3V3") (footprint "")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/d6161f07-ab63-4c51-87d2-40e7f4826ae7"
@@ -1644,6 +1659,9 @@
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/554562af-7b6f-477a-8b53-85b4a7ce0625"
       (reference "C?") (unit 1) (value "1n") (footprint "Capacitor_SMD:C_0201_0603Metric")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/6032bf88-a40a-45b0-a5f6-c2c85bb9531d"
+      (reference "C?") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0201_0603Metric")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/665ddac7-ceec-4c2c-9b07-d1934b67d1c4"
       (reference "C?") (unit 1) (value "1n") (footprint "Capacitor_SMD:C_0201_0603Metric")
@@ -1996,6 +2014,9 @@
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/83640b2f-3adc-446a-90ac-5b2c600961bc"
       (reference "R?") (unit 1) (value "12k") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/8907c3a7-296c-455a-9fd2-e6fdb8ffaf08"
+      (reference "R?") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0402_1005Metric")
+    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/8d18c4da-d941-4efe-9124-0c1edaa910dc"
       (reference "R?") (unit 1) (value "4.7k") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
@@ -2076,6 +2097,9 @@
     )
     (path "/1a6321be-d76d-4235-a413-9ab1d5258191/40c53b9f-2607-402b-af04-8c8d1364416f"
       (reference "U25") (unit 1) (value "74LVC2T45DC") (footprint "Package_SO:VSSOP-8_2.3x2mm_P0.5mm")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/4e3f4d23-8206-4514-ad30-e22b74ac6dda"
+      (reference "U?") (unit 1) (value "TS5USBC41") (footprint "Package_BGA:Texas_DSBGA-12_1.36x1.86mm_Layout3x4_P0.5mm")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/600ec93f-c1b2-41ab-9ae0-7d4a97fac3fc"
       (reference "U?") (unit 1) (value "USB7216C") (footprint "USB:Microchip_USB7216C")
