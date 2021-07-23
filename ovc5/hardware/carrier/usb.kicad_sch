@@ -8951,7 +8951,7 @@
     (uuid 4e3f4d23-8206-4514-ad30-e22b74ac6dda)
     (property "Reference" "U20" (id 0) (at 118.11 49.53 0))
     (property "Value" "TS5USBC41" (id 1) (at 106.68 25.4 0))
-    (property "Footprint" "Package_BGA:Texas_DSBGA-12_1.36x1.86mm_Layout3x4_P0.5mm" (id 2) (at 114.3 63.5 0)
+    (property "Footprint" "TI:Texas_DSBGA-12-Flipped_1.36x1.86mm_Layout3x4_P0.5mm" (id 2) (at 114.3 63.5 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://www.ti.com/lit/ds/symlink/ts5usbc41.pdf" (id 3) (at 114.3 66.04 0)

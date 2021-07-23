@@ -778,6 +778,9 @@
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/d6dfdc56-ea1b-4b14-a1b6-1b18b28ed514"
       (reference "#PWR0104") (unit 1) (value "GND") (footprint "")
     )
+    (path "/ba427d65-2361-4ee1-a2dd-d0cbbc094b63/7de23c13-da73-447a-b92e-6a90570116f5"
+      (reference "#PWR0105") (unit 1) (value "+12V") (footprint "")
+    )
     (path "/ba427d65-2361-4ee1-a2dd-d0cbbc094b63/8e684dda-00c5-44af-ae7c-df7132e1c989"
       (reference "#PWR0106") (unit 1) (value "GND") (footprint "")
     )
@@ -1462,9 +1465,6 @@
     (path "/1a6321be-d76d-4235-a413-9ab1d5258191/a2a65d67-137c-40db-b516-50f34f120f64"
       (reference "#PWR0392") (unit 1) (value "+12V") (footprint "")
     )
-    (path "/ba427d65-2361-4ee1-a2dd-d0cbbc094b63/7de23c13-da73-447a-b92e-6a90570116f5"
-      (reference "#PWR?") (unit 1) (value "+12V") (footprint "")
-    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/894641eb-fde2-46f9-aa3a-36aa94c69920"
       (reference "C1") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0201_0603Metric")
     )
@@ -2105,7 +2105,7 @@
       (reference "U19") (unit 1) (value "FUSB301") (footprint "USB:FUSB301")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/4e3f4d23-8206-4514-ad30-e22b74ac6dda"
-      (reference "U20") (unit 1) (value "TS5USBC41") (footprint "Package_BGA:Texas_DSBGA-12_1.36x1.86mm_Layout3x4_P0.5mm")
+      (reference "U20") (unit 1) (value "TS5USBC41") (footprint "TI:Texas_DSBGA-12-Flipped_1.36x1.86mm_Layout3x4_P0.5mm")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/600ec93f-c1b2-41ab-9ae0-7d4a97fac3fc"
       (reference "U21") (unit 1) (value "USB7216C") (footprint "USB:Microchip_USB7216C")
