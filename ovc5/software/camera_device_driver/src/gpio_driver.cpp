@@ -46,6 +46,10 @@ GPIOChip::~GPIOChip()
     }
     pins.push_back(key_value.first);
   }
+
+  // Sleep to give time for the settings to register.
+  usleep(1000);
+
   // Must store numbers separately as they are removed when the pin closes.
   for (int pin : pins)
   {
