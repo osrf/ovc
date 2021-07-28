@@ -763,11 +763,8 @@
     (path "/ba427d65-2361-4ee1-a2dd-d0cbbc094b63/530ec6f2-10fc-4dce-93c6-722871955317"
       (reference "#PWR0108") (unit 1) (value "+1V2") (footprint "")
     )
-    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/9d62f90b-8964-4617-896e-664fd0794595"
-      (reference "#PWR0109") (unit 1) (value "GND") (footprint "")
-    )
-    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/1db6ba14-d36c-4151-ae56-1b4d987e0ad0"
-      (reference "#PWR0110") (unit 1) (value "+3V3") (footprint "")
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/8f3be886-cba3-4309-8919-cbeacae7d204"
+      (reference "#PWR0110") (unit 1) (value "GND") (footprint "")
     )
     (path "/ba427d65-2361-4ee1-a2dd-d0cbbc094b63/29d4efea-28a5-43a6-86fe-9488d1630ac8"
       (reference "#PWR0111") (unit 1) (value "+5V") (footprint "")
@@ -787,8 +784,20 @@
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/a6eea192-dd8c-4142-ba62-17c33c23c1f6"
       (reference "#PWR0116") (unit 1) (value "+3V3") (footprint "")
     )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/fa5be096-ea14-46a6-af3c-ffbe8ce0bdca"
+      (reference "#PWR0117") (unit 1) (value "+3V3") (footprint "")
+    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/046ec275-3b22-4fe1-8e1d-e1ec8c5cee1c"
       (reference "#PWR0118") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/11be80bb-57a8-46b6-93fa-754f5ee98047"
+      (reference "#PWR0119") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/62c3c00c-bf88-4ac0-b575-376c7918110d"
+      (reference "#PWR0120") (unit 1) (value "+3V3") (footprint "")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/6cd2ba73-e4e8-4858-ab53-2fc40d7d2d97"
+      (reference "#PWR0121") (unit 1) (value "+3V3") (footprint "")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/84a67139-ab6d-486c-87f6-c35f8f8942cc"
       (reference "#PWR0122") (unit 1) (value "GND") (footprint "")
@@ -1462,6 +1471,9 @@
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/13ecd615-34c7-4782-8883-ec09a4278f37"
       (reference "C10") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0201_0603Metric")
     )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/64cd71e2-b669-4a37-b6f6-775899ffc102"
+      (reference "C11") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0201_0603Metric")
+    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/6032bf88-a40a-45b0-a5f6-c2c85bb9531d"
       (reference "C15") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0201_0603Metric")
     )
@@ -1575,21 +1587,6 @@
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/3df860bc-ec42-48bf-8f68-14298cd13372"
       (reference "C54") (unit 1) (value "1n") (footprint "Capacitor_SMD:C_0201_0603Metric")
-    )
-    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/5e257d5e-a8b0-493e-846a-6c585143ce40"
-      (reference "C55") (unit 1) (value "10u") (footprint "Capacitor_SMD:C_1206_3216Metric")
-    )
-    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/b98a7fa6-abef-4036-8a3d-8325645e75a6"
-      (reference "C56") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0201_0603Metric")
-    )
-    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/77470854-9856-4888-8dc3-5dc6c87ac47e"
-      (reference "C57") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0201_0603Metric")
-    )
-    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/dce13df7-3ce4-477f-b710-d8ecef43c4db"
-      (reference "C58") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0201_0603Metric")
-    )
-    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/cb1f22b1-11e0-4406-b21e-375afd71118a"
-      (reference "C59") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0201_0603Metric")
     )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/bef76c1d-6aeb-4433-ab47-ddc1d9bd6eaa"
       (reference "C68") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0201_0603Metric")
@@ -2004,6 +2001,9 @@
     )
     (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/9d4e8530-801f-46ea-b39d-766efd6122c0"
       (reference "U1") (unit 2) (value "Mercury_XU5_4CG-4EV-5EV") (footprint "Enclustra:Mercury_XU5")
+    )
+    (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/3932998f-ba53-4cc4-80d8-a9f3409fe94b"
+      (reference "U2") (unit 1) (value "TS5USBC41") (footprint "TI:Texas_DSBGA-12-Flipped_1.36x1.86mm_Layout3x4_P0.5mm")
     )
     (path "/92d08bfd-5b09-42ab-ba86-582fd462a51f/47f350b3-5dd9-493f-800d-676a703702f6"
       (reference "U3") (unit 1) (value "PICAM_Expandable_Reversed") (footprint "Connectors_OSRF:AMPHENOL_SFW22S")
