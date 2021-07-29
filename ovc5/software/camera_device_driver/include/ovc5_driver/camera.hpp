@@ -6,19 +6,13 @@
 #include "ovc5_driver/i2c_driver.h"
 #include "ovc5_driver/vdma_driver.h"
 
-enum class sensor_type_t
-{
-  PiCameraV2,
-  PiCameraHQ,
-  AR0521
-};
-
 typedef struct camera_params_t
 {
   int res_x = -1;
   int res_y = -1;
   int fps = -1;
   int bit_depth = -1;
+  char data_type[8] = "";
 } camera_params_t;
 
 // TODO move to separate shared header if we want to serialize manually
@@ -42,8 +36,6 @@ public:
       : i2c(std::move(i2c_dev)), vdma(vdma_dev, cam_id), main_camera(main_cam)
   {
   }
-
-  // virtual sensor_type_t getType() const = 0;
 
   // TODO add an initialise function with custom sensor mode
   virtual bool initialise(std::string config_name = "__default__") = 0;
