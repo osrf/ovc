@@ -49,29 +49,16 @@ SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
     int vdma_dev = cam.vdma_dev;
     bool is_primary = primary_cam == cam_id;
     I2CDriver i2c(cam.i2c_dev);
-    if (PiCameraV2::probe(i2c))
+    for (auto cam_module : CAMERA_MODULES)
     {
-      cameras.insert(
-          {cam_id,
-           std::make_unique<PiCameraV2>(i2c, vdma_dev, cam_id, is_primary)});
-      continue;
+      if (cam_module.probe(i2c))
+      {
+        cameras.insert(
+            {cam_id,
+             cam_module.constructor(i2c, vdma_dev, cam_id, is_primary)});
+        break;
+      }
     }
-#if PROPRIETARY_SENSORS
-    if (IMX490::probe(i2c))
-    {
-      cameras.insert(
-          {cam_id,
-           std::make_unique<IMX490>(i2c, vdma_dev, cam_id, is_primary)});
-      continue;
-    }
-    if (AR0521::probe(i2c))
-    {
-      cameras.insert(
-          {cam_id,
-           std::make_unique<AR0521>(i2c, vdma_dev, cam_id, is_primary)});
-      continue;
-    }
-#endif
   }
   initCameras();
   usleep(10000);
