@@ -19,11 +19,6 @@ enum class ReceiveState
   WAIT_PAYLOAD,
 };
 
-std::unordered_map<std::string, cv::ColorConversionCodes> = {
-    {"BYR_RGGB", cv::COLOR_BayerBG2BGR},
-    {"BYR_GRGB", cv::COLOR_BayerGR2RGB},
-};
-
 // TODO sensor name / mode?
 typedef struct OVCImage
 {
@@ -41,6 +36,12 @@ public:
 
 private:
   static constexpr int BASE_PORT = 12345;
+
+  const std::unordered_map<std::string, cv::ColorConversionCodes>
+      color_code_map = {
+          {"ByrRGGB", cv::COLOR_BayerBG2BGR},
+          {"ByrGRGB", cv::COLOR_BayerGR2RGB},
+  };
 
   ReceiveState state_ = ReceiveState::WAIT_HEADER;
 

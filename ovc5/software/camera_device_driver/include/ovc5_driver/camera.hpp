@@ -12,7 +12,7 @@ typedef struct camera_params_t
   int res_y = -1;
   int fps = -1;
   int bit_depth = -1;
-  char data_type[8] = "";
+  char data_type[8];
 } camera_params_t;
 
 // TODO move to separate shared header if we want to serialize manually

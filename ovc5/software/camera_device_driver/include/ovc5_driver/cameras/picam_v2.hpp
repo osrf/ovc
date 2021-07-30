@@ -95,6 +95,7 @@ private:
            .res_y = 2564,
            .fps = 21,
            .bit_depth = 10,
+           .data_type = {'B', 'y', 'r', 'R', 'G', 'G', 'B', '\n'},
        }},
       {"1920x1080_30fps",
        {
@@ -102,6 +103,7 @@ private:
            .res_y = 1080,
            .fps = 30,
            .bit_depth = 10,
+           .data_type = {'B', 'y', 'r', 'R', 'G', 'G', 'B', '\n'},
        }},
       {"1280x720_120fps",
        {
@@ -109,6 +111,7 @@ private:
            .res_y = 720,
            .fps = 120,
            .bit_depth = 10,
+           .data_type = {'B', 'y', 'r', 'R', 'G', 'G', 'B', '\n'},
        }},
   };
 
