@@ -37,10 +37,20 @@ public:
 private:
   static constexpr int BASE_PORT = 12345;
 
+  // The Bayer Pattern is as follows:
+  //
+  //     * * * * * * * * * *
+  //     * R G R G R G R G *
+  //     * G B G B G B G B *
+  //     * * * * * * * * * *
+  //
+  // Depending on the direction x and y increment when reading out the data,
+  // the order will change. This order determines the selection within the
+  // color map.
   const std::unordered_map<std::string, cv::ColorConversionCodes>
       color_code_map = {
-          {"ByrRGGB", cv::COLOR_BayerBG2BGR},
-          {"ByrGRGB", cv::COLOR_BayerGR2RGB},
+          {"ByrRGGB", cv::COLOR_BayerBG2BGR},  // Left to Right, Top to Bottom.
+          {"ByrGRBG", cv::COLOR_BayerGR2RGB},  // Right to Left, Top to Bottom.
   };
 
   ReceiveState state_ = ReceiveState::WAIT_HEADER;
