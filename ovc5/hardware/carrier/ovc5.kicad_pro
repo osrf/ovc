@@ -116,7 +116,7 @@
         "allow_blind_buried_vias": false,
         "allow_microvias": false,
         "max_error": 0.005,
-        "min_clearance": 0.1016,
+        "min_clearance": 0.127,
         "min_copper_edge_clearance": 0.01,
         "min_hole_clearance": 0.0,
         "min_hole_to_hole": 0.25,
@@ -124,7 +124,7 @@
         "min_microvia_drill": 0.09999999999999999,
         "min_silk_clearance": 0.0,
         "min_through_hole_diameter": 0.15239999999999998,
-        "min_track_width": 0.1016,
+        "min_track_width": 0.127,
         "min_via_annular_width": 0.0508,
         "min_via_diameter": 0.35559999999999997,
         "use_height_for_length_calcs": true
@@ -132,6 +132,7 @@
       "track_widths": [
         0.0,
         0.1016,
+        0.127,
         0.1524,
         0.1778,
         0.2032,
