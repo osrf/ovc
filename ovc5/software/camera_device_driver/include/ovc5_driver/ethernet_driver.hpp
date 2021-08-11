@@ -3,6 +3,8 @@
 
 #include <arpa/inet.h>
 
+#include <string>
+
 #include "ovc5_driver/camera.hpp"
 #include "ovc5_driver/ethernet_packetdef.hpp"
 
@@ -10,8 +12,6 @@
 class EthernetClient
 {
 private:
-  const char *SERVER_IP = "10.0.1.2";
-
   int base_port;
 
   struct sockaddr_in sock_in = {0};
@@ -24,7 +24,7 @@ private:
   const char *cam_data_type = "rggb16";
 
 public:
-  EthernetClient(int port = 12345);
+  EthernetClient(std::string server_ip, int port = 12345);
 
   // TODO proper timestamping and packet header
   void send(unsigned char *imgdata, const camera_params_t &params);
@@ -33,17 +33,6 @@ public:
   ether_rx_packet_t *recv();
 
   void increaseId();
-};
-
-// Publishes two frames in parallel on different ports
-class StereoEthernetClient
-{
-private:
-  // TODO parametrize num cameras
-  EthernetClient clients[2];
-
-public:
-  StereoEthernetClient();
 };
 
 #endif

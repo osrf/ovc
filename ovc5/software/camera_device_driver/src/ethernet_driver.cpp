@@ -7,7 +7,8 @@
 #include <cmath>
 #include <iostream>
 
-EthernetClient::EthernetClient(int port) : base_port(port)
+EthernetClient::EthernetClient(std::string server_ip, int port)
+    : base_port(port)
 {
   // TODO different ports for different imagers?
   sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -15,7 +16,7 @@ EthernetClient::EthernetClient(int port) : base_port(port)
   sock_in.sin_family = AF_INET;
   sock_in.sin_port = htons(base_port);
 
-  inet_aton(SERVER_IP, &sock_in.sin_addr);
+  inet_aton(server_ip.c_str(), &sock_in.sin_addr);
 
   if (connect(sock, (struct sockaddr *)&sock_in, sizeof(sock_in)) < 0)
     std::cout << "Failed connecting to server" << std::endl;
@@ -79,5 +80,3 @@ ether_rx_packet_t *EthernetClient::recv()
 }
 
 void EthernetClient::increaseId() { tx_pkt.frame.frame_id++; }
-
-StereoEthernetClient::StereoEthernetClient() : clients{12345, 12346} {}

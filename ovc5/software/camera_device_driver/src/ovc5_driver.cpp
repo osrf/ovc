@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <memory>
+#include <string>
 #include <vector>
 
 #include "ovc5_driver/sensor_manager.hpp"
@@ -23,6 +24,7 @@ struct config_t
   int trigger_timer_dev;
   int line_count_timer_dev;
   int primary_cam;
+  std::string server_ip;
 };
 
 template <typename T>
@@ -47,6 +49,7 @@ void load_config(config_t &config)
   store_to(config.trigger_timer_dev, config_node["trigger_timer_dev"]);
   store_to(config.line_count_timer_dev, config_node["line_count_timer_dev"]);
   store_to(config.primary_cam, config_node["primary_cam"]);
+  store_to(config.server_ip, config_node["server_ip"]);
 }
 
 int main(int argc, char **argv)
@@ -58,7 +61,7 @@ int main(int argc, char **argv)
   load_config(config);
 
   SensorManager sm(
-      config.cams, config.line_count_timer_dev, config.primary_cam);
+      config.cams, config.line_count_timer_dev, config.primary_cam, config.server_ip);
   Timer trigger_timer(config.trigger_timer_dev);
 
   // Hz, high time
