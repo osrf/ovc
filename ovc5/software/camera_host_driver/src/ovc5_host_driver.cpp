@@ -39,12 +39,16 @@ int main(int argc, char** argv)
 
     float scale = 1.0;
     cv::Mat frame, img0 = frames[0].image, img1 = frames[1].image;
-    if (img0.rows != img1.rows) {
-      if (img0.rows > img1.rows) {
-        scale = (float) img0.rows / img1.rows;
+    if (img0.rows != img1.rows)
+    {
+      if (img0.rows > img1.rows)
+      {
+        scale = (float)img0.rows / img1.rows;
         cv::resize(img1, img1, cv::Size(), scale, scale);
-      } else {
-        scale = (float) img1.rows / img0.rows;
+      }
+      else
+      {
+        scale = (float)img1.rows / img0.rows;
         cv::resize(img0, img0, cv::Size(), scale, scale);
       }
     }
