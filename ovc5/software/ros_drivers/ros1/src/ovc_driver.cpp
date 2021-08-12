@@ -30,7 +30,7 @@ public:
   {
     (void)level;
     ROS_INFO("Reconfigure Request {exposure: %f}", config.exposure);
-    ovc_.updateConfig(config.exposure);
+    ovc_.updateConfig((float)config.exposure);
   }
 
   void spinOnce()

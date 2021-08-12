@@ -19,7 +19,7 @@ public:
   ~OVC();
 
   std::array<OVCImage, Server::NUM_IMAGERS> getFrames();
-  void updateConfig(double exposure);
+  void updateConfig(float exposure);
 
   int getNumImagers() { return Server::NUM_IMAGERS; }
 };

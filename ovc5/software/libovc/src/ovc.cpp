@@ -54,7 +54,7 @@ std::array<OVCImage, Server::NUM_IMAGERS> OVC::getFrames()
   return frames_;
 }
 
-void OVC::updateConfig(double exposure)
+void OVC::updateConfig(float exposure)
 {
   ether_rx_config_t config;
   config.exposure = exposure;
