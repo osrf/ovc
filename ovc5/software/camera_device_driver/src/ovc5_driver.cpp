@@ -60,8 +60,10 @@ int main(int argc, char **argv)
   config_t config;
   load_config(config);
 
-  SensorManager sm(
-      config.cams, config.line_count_timer_dev, config.primary_cam, config.server_ip);
+  SensorManager sm(config.cams,
+                   config.line_count_timer_dev,
+                   config.primary_cam,
+                   config.server_ip);
   Timer trigger_timer(config.trigger_timer_dev);
 
   // Hz, high time
