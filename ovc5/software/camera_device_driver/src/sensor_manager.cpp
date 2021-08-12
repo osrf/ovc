@@ -148,7 +148,8 @@ void SensorManager::recvCommand()
   }
   for (auto &[cam_id, camera] : cameras)
   {
-    if (camera->getCameraParams().dynamic_configs.exposure) {
+    if (camera->getCameraParams().dynamic_configs.exposure)
+    {
       camera->updateExposure(pkt->config.exposure);
     }
   }
