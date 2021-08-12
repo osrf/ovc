@@ -95,6 +95,10 @@ private:
            .res_y = 2564,
            .fps = 21,
            .bit_depth = 10,
+           // The data type cannot be defined as a string due to a compiler bug
+           // resolved in GCC 11. See:
+           // https://github.com/osrf/ovc/pull/59#discussion_r687052682
+           .data_type = {'B', 'y', 'r', 'R', 'G', 'G', 'B', '\0'},
        }},
       {"1920x1080_30fps",
        {
@@ -102,6 +106,7 @@ private:
            .res_y = 1080,
            .fps = 30,
            .bit_depth = 10,
+           .data_type = {'B', 'y', 'r', 'R', 'G', 'G', 'B', '\0'},
        }},
       {"1280x720_120fps",
        {
@@ -109,6 +114,7 @@ private:
            .res_y = 720,
            .fps = 120,
            .bit_depth = 10,
+           .data_type = {'B', 'y', 'r', 'R', 'G', 'G', 'B', '\0'},
        }},
   };
 
