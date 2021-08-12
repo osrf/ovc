@@ -61,7 +61,7 @@ typedef enum : uint32_t
 
 typedef struct __attribute__((__packed__))
 {
-  double exposure;
+  float exposure;
 } ether_rx_config_t;
 
 typedef union __attribute__((__packed__))

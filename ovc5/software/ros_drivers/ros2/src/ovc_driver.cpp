@@ -20,7 +20,7 @@ public:
     RCLCPP_INFO(this->get_logger(), "Initialize libovc.");
     ovc_ = std::make_shared<libovc::OVC>();
 
-    this->declare_parameter<double>("exposure", exposure_);
+    this->declare_parameter<float>("exposure", exposure_);
     // Create the camera publishers.
     for (size_t i = 0; i < publishers_.size(); i++)
     {
@@ -75,7 +75,7 @@ private:
 
   void updateParams()
   {
-    double new_exposure;
+    float new_exposure;
     this->get_parameter("exposure", new_exposure);
     if (new_exposure != exposure_)
     {
@@ -96,7 +96,7 @@ private:
   rclcpp::Time begin_;
 
   // Camera Params.
-  double exposure_;
+  float exposure_;
 };
 
 int main(int argc, char **argv)

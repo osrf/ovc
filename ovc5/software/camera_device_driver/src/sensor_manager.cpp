@@ -146,6 +146,12 @@ void SensorManager::recvCommand()
     std::cout << "Received config packet with {exposure: "
               << pkt->config.exposure << "}" << std::endl;
   }
+  for (auto &[cam_id, camera] : cameras)
+  {
+    if (camera->getCameraParams().dynamic_configs.exposure) {
+      camera->updateExposure(pkt->config.exposure);
+    }
+  }
 }
 
 int SensorManager::getNumCameras() const { return cameras.size(); }
