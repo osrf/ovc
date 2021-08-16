@@ -31,8 +31,8 @@ public:
     (void)level;
 
     config_t cam_config = {
-        .exposure = (float) config.exposure,
-        .frame_rate = (float) config.frame_rate,
+        .exposure = (float)config.exposure,
+        .frame_rate = (float)config.frame_rate,
     };
     ROS_INFO(
         "Reconfigure Request "

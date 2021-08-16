@@ -14,7 +14,7 @@ public:
   OVCPublisher() : Node("ovc_publisher")
   {
     // Set all default values.
-    config_.exposure = 10;  // ms
+    config_.exposure = 10;    // ms
     config_.frame_rate = 30;  // Hz
     frame_count = 0;
 

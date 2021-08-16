@@ -54,9 +54,6 @@ std::array<OVCImage, Server::NUM_IMAGERS> OVC::getFrames()
   return frames_;
 }
 
-void OVC::updateConfig(config_t config)
-{
-  server_.updateConfig(config);
-}
+void OVC::updateConfig(config_t config) { server_.updateConfig(config); }
 
 }  // namespace libovc

@@ -57,8 +57,10 @@ int main(int argc, char **argv)
   config_t config;
   load_config(config);
 
-  SensorManager sm(
-      config.cams, config.line_count_timer_dev, config.trigger_timer_dev, config.primary_cam);
+  SensorManager sm(config.cams,
+                   config.line_count_timer_dev,
+                   config.trigger_timer_dev,
+                   config.primary_cam);
 
   if (argc > 1)
   {
