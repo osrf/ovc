@@ -78,7 +78,6 @@ int main(int argc, char **argv)
   while (!stop)
   {
     std::cout << "Waiting for frames" << std::endl;
-    // sm.getFramesStereo();
     sm.sendFrames();
     sm.recvCommand();
   }

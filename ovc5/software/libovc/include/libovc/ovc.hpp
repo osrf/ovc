@@ -3,7 +3,10 @@
 
 #include <thread>
 
-#include "server.hpp"
+#include "libovc/ethernet_packetdef.hpp"
+#include "libovc/server.hpp"
+
+#define config_t ether_rx_config_t
 
 namespace libovc
 {
@@ -19,7 +22,7 @@ public:
   ~OVC();
 
   std::array<OVCImage, Server::NUM_IMAGERS> getFrames();
-  void updateConfig(float exposure);
+  void updateConfig(config_t config);
 
   int getNumImagers() { return Server::NUM_IMAGERS; }
 };

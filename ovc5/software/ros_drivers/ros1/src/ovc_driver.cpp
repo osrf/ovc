@@ -29,8 +29,18 @@ public:
   void reconfigure_callback(ovc_driver::ParamsConfig &config, uint32_t level)
   {
     (void)level;
-    ROS_INFO("Reconfigure Request {exposure: %f}", config.exposure);
-    ovc_.updateConfig((float)config.exposure);
+
+    config_t cam_config = {
+        .exposure = (float) config.exposure,
+        .frame_rate = (float) config.frame_rate,
+    };
+    ROS_INFO(
+        "Reconfigure Request "
+        "{exposure: %f}"
+        "{frame_rate: %f}",
+        cam_config.exposure,
+        cam_config.frame_rate);
+    ovc_.updateConfig(cam_config);
   }
 
   void spinOnce()
