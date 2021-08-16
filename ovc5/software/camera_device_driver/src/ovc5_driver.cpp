@@ -58,12 +58,7 @@ int main(int argc, char **argv)
   load_config(config);
 
   SensorManager sm(
-      config.cams, config.line_count_timer_dev, config.primary_cam);
-  Timer trigger_timer(config.trigger_timer_dev);
-
-  // Hz, high time
-  // trigger_timer.PWM(15.0, 0.0001);
-  // trigger_timer.PWM(20.0, 0.001);
+      config.cams, config.line_count_timer_dev, config.trigger_timer_dev, config.primary_cam);
 
   if (argc > 1)
   {
