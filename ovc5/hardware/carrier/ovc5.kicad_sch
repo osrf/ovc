@@ -598,6 +598,12 @@
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/b11321c0-587f-4631-8697-b922c0ad47bd"
       (reference "#PWR016") (unit 1) (value "GND") (footprint "")
     )
+    (path "/1a6321be-d76d-4235-a413-9ab1d5258191/ec3b76e0-0dc0-4654-9a9d-f064824b10f6"
+      (reference "#PWR017") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/1a6321be-d76d-4235-a413-9ab1d5258191/d3875096-d522-4133-b2b4-cef4d89aa3ee"
+      (reference "#PWR018") (unit 1) (value "GND") (footprint "")
+    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/3de3d1a1-8148-4f92-a4a6-22a3f43eb38b"
       (reference "#PWR026") (unit 1) (value "GND") (footprint "")
     )
@@ -1399,6 +1405,9 @@
     (path "/1a6321be-d76d-4235-a413-9ab1d5258191/a2a65d67-137c-40db-b516-50f34f120f64"
       (reference "#PWR0392") (unit 1) (value "+12V") (footprint "")
     )
+    (path "/1a6321be-d76d-4235-a413-9ab1d5258191/cde6487f-2b08-4813-8b73-a84d4b67e12f"
+      (reference "#PWR?") (unit 1) (value "+1V2") (footprint "")
+    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/894641eb-fde2-46f9-aa3a-36aa94c69920"
       (reference "C1") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0201_0603Metric")
     )
@@ -1771,6 +1780,9 @@
     (path "/ba427d65-2361-4ee1-a2dd-d0cbbc094b63/78e8ae34-ede7-4255-9881-39dd29b4abcd"
       (reference "R8") (unit 1) (value "JMP") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
+    (path "/1a6321be-d76d-4235-a413-9ab1d5258191/5fae8375-a1a1-4703-aa6c-1950a6785fe3"
+      (reference "R9") (unit 1) (value "47k") (footprint "Resistor_SMD:R_0402_1005Metric")
+    )
     (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/737a8a1f-2739-40e8-b083-85179b7f0176"
       (reference "R10") (unit 1) (value "4.7k") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
@@ -1944,6 +1956,12 @@
     )
     (path "/1a6321be-d76d-4235-a413-9ab1d5258191/471107c2-f844-405b-9cb4-45f4e1170ea7"
       (reference "SW1") (unit 1) (value "SW_DIP_x03") (footprint "Button_Switch_SMD:SW_DIP_SPSTx03_Slide_6.7x9.18mm_W6.73mm_P2.54mm_LowProfile_JPin")
+    )
+    (path "/1a6321be-d76d-4235-a413-9ab1d5258191/9cb7e76c-b2af-46cd-8fd9-4b170b0c8eda"
+      (reference "SW2") (unit 1) (value "Reset_Hardware") (footprint "Button_Switch_SMD:SW_SPST_EVQP7C")
+    )
+    (path "/1a6321be-d76d-4235-a413-9ab1d5258191/37969b2e-c744-4b2c-94b7-d22c8ea9a85b"
+      (reference "SW3") (unit 1) (value "Reset_Software") (footprint "Button_Switch_SMD:SW_SPST_EVQP7C")
     )
     (path "/f2479ac7-05bb-4709-bcc4-cc20f2c95b97/2891cee4-4fd2-4003-b1f3-0e5e5a44e8d2"
       (reference "U1") (unit 1) (value "Mercury_XU5_4CG-4EV-5EV") (footprint "Enclustra:Mercury_XU5")
