@@ -2273,7 +2273,7 @@
     (property "Footprint" "TI:Texas_VQFN-HR-12_2x2.5_Pitch0.5mm" (id 2) (at 200.66 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "" (id 3) (at 200.66 99.06 0)
+    (property "Datasheet" "~" (id 3) (at 200.66 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "D1N" "Digikey" (id 4) (at 194.31 90.17 0)
