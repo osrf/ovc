@@ -24,7 +24,7 @@ struct config_t
   int trigger_timer_dev;
   int line_count_timer_dev;
   int primary_cam;
-  std::string server_ip;
+  std::vector<std::string> server_ips;
 };
 
 template <typename T>
@@ -37,7 +37,6 @@ void load_config(config_t &config)
 {
   YAML::Node config_node = YAML::LoadFile("config.yaml");
 
-  // store_to(config.cams, config_node["cams"]);
   for (auto cam : config_node["cams"])
   {
     camera_config_t cam_config;
@@ -49,7 +48,10 @@ void load_config(config_t &config)
   store_to(config.trigger_timer_dev, config_node["trigger_timer_dev"]);
   store_to(config.line_count_timer_dev, config_node["line_count_timer_dev"]);
   store_to(config.primary_cam, config_node["primary_cam"]);
-  store_to(config.server_ip, config_node["server_ip"]);
+  for (auto ip : config_node["server_ips"])
+  {
+    config.server_ips.push_back(ip.as<std::string>());
+  }
 }
 
 int main(int argc, char **argv)
@@ -59,11 +61,12 @@ int main(int argc, char **argv)
   // Read in config variables
   config_t config;
   load_config(config);
+  return 0;
 
   SensorManager sm(config.cams,
                    config.line_count_timer_dev,
                    config.primary_cam,
-                   config.server_ip);
+                   config.server_ips[0]);
   Timer trigger_timer(config.trigger_timer_dev);
 
   // Hz, high time
