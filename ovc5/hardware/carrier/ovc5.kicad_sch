@@ -763,6 +763,9 @@
     (path "/1a6321be-d76d-4235-a413-9ab1d5258191/24ed5c29-b5b9-40f0-9e75-de8a47d004fb"
       (reference "#PWR0109") (unit 1) (value "GND") (footprint "")
     )
+    (path "/1a6321be-d76d-4235-a413-9ab1d5258191/cde6487f-2b08-4813-8b73-a84d4b67e12f"
+      (reference "#PWR0110") (unit 1) (value "+1V2") (footprint "")
+    )
     (path "/ba427d65-2361-4ee1-a2dd-d0cbbc094b63/29d4efea-28a5-43a6-86fe-9488d1630ac8"
       (reference "#PWR0111") (unit 1) (value "+5V") (footprint "")
     )
@@ -1405,9 +1408,6 @@
     (path "/1a6321be-d76d-4235-a413-9ab1d5258191/a2a65d67-137c-40db-b516-50f34f120f64"
       (reference "#PWR0392") (unit 1) (value "+12V") (footprint "")
     )
-    (path "/1a6321be-d76d-4235-a413-9ab1d5258191/cde6487f-2b08-4813-8b73-a84d4b67e12f"
-      (reference "#PWR?") (unit 1) (value "+1V2") (footprint "")
-    )
     (path "/97cd8b0a-5a57-42f6-a995-6609484d34c3/894641eb-fde2-46f9-aa3a-36aa94c69920"
       (reference "C1") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0201_0603Metric")
     )
@@ -1993,8 +1993,8 @@
     (path "/1a6321be-d76d-4235-a413-9ab1d5258191/c2f44726-34d7-406c-ae33-7ff0c35d86b5"
       (reference "U11") (unit 1) (value "ARJ11C-MBSAS-A-BA-7MU2") (footprint "Ethernet:ARJ11C-MBSAS-A-BA-7MU2")
     )
-    (path "/1a6321be-d76d-4235-a413-9ab1d5258191/571ea7fd-59b1-4cd7-b988-4e1e0564121e"
-      (reference "U12") (unit 1) (value "FT232RL") (footprint "Package_SO:SSOP-28_5.3x10.2mm_P0.65mm")
+    (path "/1a6321be-d76d-4235-a413-9ab1d5258191/61a7d700-e83b-4bd4-8027-4174ba87feee"
+      (reference "U12") (unit 1) (value "FT231XQ") (footprint "Package_DFN_QFN:QFN-20-1EP_4x4mm_P0.5mm_EP2.5x2.5mm")
     )
     (path "/1a6321be-d76d-4235-a413-9ab1d5258191/3823e8b5-a82c-4cd1-b6aa-d474088c9b14"
       (reference "U13") (unit 1) (value "TXS02612") (footprint "WQFN:TI_RTW0024B")
