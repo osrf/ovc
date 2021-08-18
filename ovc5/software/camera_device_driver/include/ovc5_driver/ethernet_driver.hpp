@@ -8,6 +8,7 @@
 #include "ovc5_driver/camera.hpp"
 #include "ovc5_driver/ethernet_packetdef.hpp"
 
+
 // Publisher for sequential images
 class EthernetClient
 {
@@ -15,7 +16,7 @@ private:
   int base_port;
 
   struct sockaddr_in sock_in = {0};
-  int sock;
+  std::vector<int> socks;
 
   ether_tx_packet_t tx_pkt = {0};
   ether_rx_packet_t rx_pkt = {0};
@@ -24,7 +25,7 @@ private:
   const char *cam_data_type = "rggb16";
 
 public:
-  EthernetClient(std::string server_ip, int port = 12345);
+  EthernetClient(std::vector<std::string> server_ips, int port = 12345);
 
   // TODO proper timestamping and packet header
   void send(unsigned char *imgdata, const camera_params_t &params);

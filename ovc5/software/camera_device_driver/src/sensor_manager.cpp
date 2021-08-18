@@ -9,11 +9,11 @@
 
 SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
                              int line_counter_dev, int primary_cam,
-                             std::string server_ip)
+                             std::vector<std::string> server_ips)
     : line_counter(line_counter_dev), primary_cam_(primary_cam)
 {
   // Configure the ethernet client.
-  client = std::make_unique<EthernetClient>(server_ip);
+  client = std::make_unique<EthernetClient>(server_ips);
   // Configure the gpio chip.
   gpio = std::make_unique<GPIOChip>(GPIO_CHIP_NUMBER);
 

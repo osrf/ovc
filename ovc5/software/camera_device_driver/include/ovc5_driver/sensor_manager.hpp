@@ -44,7 +44,7 @@ private:
 
 public:
   SensorManager(const std::vector<camera_config_t>& cams, int line_counter_dev,
-                int primary_cam, std::string server_ip);
+                int primary_cam, std::vector<std::string> server_ips);
 
   void initCameras();
 

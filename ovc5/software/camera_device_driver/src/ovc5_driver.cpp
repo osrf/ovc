@@ -61,12 +61,11 @@ int main(int argc, char **argv)
   // Read in config variables
   config_t config;
   load_config(config);
-  return 0;
 
   SensorManager sm(config.cams,
                    config.line_count_timer_dev,
                    config.primary_cam,
-                   config.server_ips[0]);
+                   config.server_ips);
   Timer trigger_timer(config.trigger_timer_dev);
 
   // Hz, high time
