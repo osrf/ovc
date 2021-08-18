@@ -8,7 +8,6 @@
 #include "ovc5_driver/camera.hpp"
 #include "ovc5_driver/ethernet_packetdef.hpp"
 
-
 // Publisher for sequential images
 class EthernetClient
 {

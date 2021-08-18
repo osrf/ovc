@@ -26,7 +26,8 @@ EthernetClient::EthernetClient(std::vector<std::string> server_ips, int port)
     socks.push_back(sock);
   }
 
-  if (socks.empty()) {
+  if (socks.empty())
+  {
     throw std::runtime_error("No server connection established.");
   }
   // TODO all those from parameters
