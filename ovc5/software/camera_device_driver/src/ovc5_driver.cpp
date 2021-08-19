@@ -64,13 +64,9 @@ int main(int argc, char **argv)
 
   SensorManager sm(config.cams,
                    config.line_count_timer_dev,
+                   config.trigger_timer_dev,
                    config.primary_cam,
                    config.server_ips);
-  Timer trigger_timer(config.trigger_timer_dev);
-
-  // Hz, high time
-  // trigger_timer.PWM(15.0, 0.0001);
-  // trigger_timer.PWM(20.0, 0.001);
 
   if (argc > 1)
   {
@@ -85,7 +81,6 @@ int main(int argc, char **argv)
   while (!stop)
   {
     std::cout << "Waiting for frames" << std::endl;
-    // sm.getFramesStereo();
     sm.sendFrames();
     sm.recvCommand();
   }

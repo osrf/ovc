@@ -6,6 +6,12 @@
 #include "ovc5_driver/i2c_driver.h"
 #include "ovc5_driver/vdma_driver.h"
 
+typedef struct camera_dynamic_configs_t
+{
+  bool frame_rate : 1;
+  bool exposure : 1;
+} camera_dynamic_configs_t;
+
 typedef struct camera_params_t
 {
   int res_x = -1;
@@ -13,6 +19,7 @@ typedef struct camera_params_t
   int fps = -1;
   int bit_depth = -1;
   char data_type[8];
+  camera_dynamic_configs_t dynamic_configs = {0};
 } camera_params_t;
 
 // TODO move to separate shared header if we want to serialize manually
@@ -63,6 +70,9 @@ public:
   // Triggering main / secondary device settings
   virtual void setMain(){};
   virtual void setSecondary(){};
+
+  // Camera dynamic parameter functions.
+  virtual void updateExposure(float ms){};
 };
 
 #endif

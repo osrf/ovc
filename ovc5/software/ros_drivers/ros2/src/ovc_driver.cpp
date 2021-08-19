@@ -14,13 +14,15 @@ public:
   OVCPublisher() : Node("ovc_publisher")
   {
     // Set all default values.
-    exposure_ = 0.5;
+    config_.exposure = 10;    // ms
+    config_.frame_rate = 30;  // Hz
     frame_count = 0;
 
     RCLCPP_INFO(this->get_logger(), "Initialize libovc.");
     ovc_ = std::make_shared<libovc::OVC>();
 
-    this->declare_parameter<double>("exposure", exposure_);
+    this->declare_parameter<float>("exposure", config_.exposure);
+    this->declare_parameter<float>("frame_rate", config_.frame_rate);
     // Create the camera publishers.
     for (size_t i = 0; i < publishers_.size(); i++)
     {
@@ -75,15 +77,19 @@ private:
 
   void updateParams()
   {
-    double new_exposure;
-    this->get_parameter("exposure", new_exposure);
-    if (new_exposure != exposure_)
+    config_t new_config;
+    this->get_parameter("exposure", new_config.exposure);
+    this->get_parameter("frame_rate", new_config.frame_rate);
+    if (new_config != config_)
     {
       RCLCPP_INFO(this->get_logger(),
-                  "Recevied param update {exposure: %f}",
-                  new_exposure);
-      exposure_ = new_exposure;
-      ovc_->updateConfig(exposure_);
+                  "Recevied param update "
+                  "{exposure: %f}"
+                  "{frame_rate: %f}",
+                  new_config.exposure,
+                  new_config.frame_rate);
+      config_ = new_config;
+      ovc_->updateConfig(config_.exposure);
     }
   }
 
@@ -96,7 +102,7 @@ private:
   rclcpp::Time begin_;
 
   // Camera Params.
-  double exposure_;
+  config_t config_;
 };
 
 int main(int argc, char **argv)

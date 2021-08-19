@@ -8,9 +8,12 @@
 #include "ovc5_driver/i2c_driver.h"
 
 SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
-                             int line_counter_dev, int primary_cam,
+                             int line_counter_dev, int trigger_timer_dev,
+                             int primary_cam,
                              std::vector<std::string> server_ips)
-    : line_counter(line_counter_dev), primary_cam_(primary_cam)
+    : line_counter(line_counter_dev),
+      trigger_timer(trigger_timer_dev),
+      primary_cam_(primary_cam)
 {
   // Configure the ethernet client.
   client = std::make_unique<EthernetClient>(server_ips);
@@ -41,6 +44,9 @@ SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
   // Open pin for triggering samples.
   gpio->openPin(GPIO_TRIG_PIN, GPIO_OUTPUT);
   gpio->setValue(GPIO_LED_PIN, false);
+
+  // Set up trigger timer at the configured frequency.
+  trigger_timer.PWM(DEFAULT_FRAME_RATE, 0.001);
 
   // Sleep for a bit to allow cameras to boot up.
   usleep(100000);
@@ -146,8 +152,22 @@ void SensorManager::recvCommand()
   }
   if (RX_PACKET_TYPE_CMD_CONFIG == pkt->packet_type)
   {
-    std::cout << "Received config packet with {exposure: "
-              << pkt->config.exposure << "}" << std::endl;
+    printf(
+        "Received config packet with "
+        "{exposure: %f}"
+        "{frame_rate: %f}",
+        pkt->config.exposure,
+        pkt->config.frame_rate);
+  }
+
+  trigger_timer.PWM(pkt->config.frame_rate, 0.001);
+
+  for (auto &[cam_id, camera] : cameras)
+  {
+    if (camera->getCameraParams().dynamic_configs.exposure)
+    {
+      camera->updateExposure(pkt->config.exposure);
+    }
   }
 }
 
