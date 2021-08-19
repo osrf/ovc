@@ -31,7 +31,7 @@ private:
   static constexpr int LINE_BUFFER_SIZE = 400;
   static constexpr float DEFAULT_FRAME_RATE = 15.0;
 
-  EthernetClient client;
+  std::unique_ptr<EthernetClient> client;
 
   Timer line_counter;
   Timer trigger_timer;
@@ -46,7 +46,8 @@ private:
 
 public:
   SensorManager(const std::vector<camera_config_t>& cams, int line_counter_dev,
-                int trigger_timer_dev, int primary_cam);
+                int trigger_timer_dev, int primary_cam,
+                std::vector<std::string> server_ips);
 
   void initCameras();
 
