@@ -8,9 +8,12 @@
 #include "ovc5_driver/i2c_driver.h"
 
 SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
-                             int line_counter_dev, int primary_cam)
+                             int line_counter_dev, int primary_cam,
+                             std::vector<std::string> server_ips)
     : line_counter(line_counter_dev), primary_cam_(primary_cam)
 {
+  // Configure the ethernet client.
+  client = std::make_unique<EthernetClient>(server_ips);
   // Configure the gpio chip.
   gpio = std::make_unique<GPIOChip>(GPIO_CHIP_NUMBER);
 
@@ -130,13 +133,13 @@ void SensorManager::sendFrames()
   for (const auto &[cam_id, frame_ptr] : frames)
   {
     cameras[cam_id]->flushCache();
-    client.send(frame_ptr, cameras[cam_id]->getCameraParams());
+    client->send(frame_ptr, cameras[cam_id]->getCameraParams());
   }
 }
 
 void SensorManager::recvCommand()
 {
-  auto pkt = client.recv();
+  auto pkt = client->recv();
   if (nullptr == pkt)
   {
     return;

@@ -30,7 +30,7 @@ private:
   // Number of lines to wait before tranferring frame
   static constexpr int LINE_BUFFER_SIZE = 400;
 
-  EthernetClient client;
+  std::unique_ptr<EthernetClient> client;
 
   Timer line_counter;
 
@@ -44,7 +44,7 @@ private:
 
 public:
   SensorManager(const std::vector<camera_config_t>& cams, int line_counter_dev,
-                int primary_cam);
+                int primary_cam, std::vector<std::string> server_ips);
 
   void initCameras();
 
