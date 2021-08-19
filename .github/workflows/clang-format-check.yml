@@ -1,6 +1,6 @@
 name: clang-format Check
 # See https://docs.github.com/en/actions/reference/events-that-trigger-workflows
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   formatting-check:
     name: Formatting Check
