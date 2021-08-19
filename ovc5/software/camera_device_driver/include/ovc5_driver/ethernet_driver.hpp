@@ -24,7 +24,7 @@ private:
   const char *cam_data_type = "rggb16";
 
 public:
-  EthernetClient(std::vector<std::string> server_ips, int port = 12345);
+  EthernetClient(const std::vector<std::string> &server_ips, int port = 12345);
 
   // TODO proper timestamping and packet header
   void send(unsigned char *imgdata, const camera_params_t &params);

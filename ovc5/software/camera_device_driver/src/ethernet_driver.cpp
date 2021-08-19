@@ -7,7 +7,8 @@
 #include <cmath>
 #include <iostream>
 
-EthernetClient::EthernetClient(std::vector<std::string> server_ips, int port)
+EthernetClient::EthernetClient(const std::vector<std::string> &server_ips,
+                               int port)
     : base_port(port)
 {
   // TODO different ports for different imagers?
