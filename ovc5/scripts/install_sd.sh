@@ -247,7 +247,7 @@ $TEMP_PASSWORD
 $TEMP_PASSWORD
 apt update
 apt install -y vim locales openssh-server ifupdown net-tools iputils-ping avahi-autoipd avahi-daemon haveged i2c-tools rsyslog
-apt install -y git cmake libi2c-dev isc-dhcp-server libyaml-cpp-dev dosfstools
+apt install -y git cmake libi2c-dev isc-dhcp-server libyaml-cpp-dev dosfstools libjsoncpp-dev
 grep -qxF 'ttyPS0' /etc/securetty || echo 'ttyPS0' >> /etc/securetty
 grep -qxF '$interfaces_text' /etc/network/interfaces || echo '$interfaces_text' >> /etc/network/interfaces
 grep -qxF '$subnet_text' /etc/dhcp/dhcpd.conf || echo '$subnet_text' >> /etc/dhcp/dhcpd.conf
