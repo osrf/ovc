@@ -161,6 +161,10 @@ void SensorManager::sendFrames()
 void SensorManager::recvCommand()
 {
   auto node = client->recv_json();
+  if (nullptr == node)
+  {
+    return;
+  }
   auto frame_rate = node->get("frame_rate", Json::Value::null);
   if (Json::Value::null != frame_rate)
   {

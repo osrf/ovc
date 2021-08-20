@@ -5,6 +5,7 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra -O3")
 
 find_package(OpenCV REQUIRED)
 find_package(libovc REQUIRED)
+find_package(jsoncpp REQUIRED)
 
 include_directories(
   include/
@@ -22,4 +23,5 @@ target_link_libraries(${PROJECT_NAME}_node
   ${PROJECT_NAME}
   ${OpenCV_LIBS}
   ${libovc_LIBRARIES}
+  jsoncpp
 )

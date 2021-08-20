@@ -122,7 +122,7 @@ std::shared_ptr<Json::Value> EthernetClient::recv_json() {
 
   std::cout << "Received JSON:" << std::endl << json_string << std::endl;
   std::stringstream ss(json_string);
-  std::shared_ptr<Json::Value> root;
+  auto root = std::shared_ptr<Json::Value>(new Json::Value());
   std::string errs;
   Json::CharReaderBuilder rbuilder;
   Json::parseFromStream(rbuilder, ss, root.get(), &errs);
