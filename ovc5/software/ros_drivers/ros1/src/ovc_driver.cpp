@@ -1,5 +1,6 @@
 #include <cv_bridge/cv_bridge.h>
 #include <dynamic_reconfigure/server.h>
+#include <jsoncpp/json/json.h>
 #include <ovc_driver/ParamsConfig.h>
 #include <ros/ros.h>
 #include <sensor_msgs/Image.h>
@@ -30,16 +31,19 @@ public:
   {
     (void)level;
 
-    config_t cam_config = {
-        .exposure = (float)config.exposure,
-        .frame_rate = (float)config.frame_rate,
-    };
+    Json::Value cam_config;
+    cam_config["fps"] = (float)config.frame_rate;
+    Json::Value cam;
+    cam["id"] = config.id;
+    cam["exposure"] = (float)config.exposure;
+    cam_config["cameras"].append(cam);
+
     ROS_INFO(
         "Reconfigure Request "
         "{exposure: %f}"
         "{frame_rate: %f}",
-        cam_config.exposure,
-        cam_config.frame_rate);
+        config.exposure,
+        config.frame_rate);
     ovc_.updateConfig(cam_config);
   }
 

@@ -1,6 +1,8 @@
 #ifndef __OVC_HPP
 #define __OVC_HPP
 
+#include <jsoncpp/json/json.h>
+
 #include <thread>
 
 #include "libovc/ethernet_packetdef.hpp"
