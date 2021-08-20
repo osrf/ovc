@@ -1,9 +1,9 @@
 #include "ovc5_driver/ethernet_driver.hpp"
 
+#include <jsoncpp/json/json.h>
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
-#include <jsoncpp/json/json.h>
 
 #include <cmath>
 #include <iostream>
@@ -91,7 +91,8 @@ ether_rx_packet_t *EthernetClient::recv()
   return &rx_pkt;
 }
 
-std::shared_ptr<Json::Value> EthernetClient::recv_json() {
+std::shared_ptr<Json::Value> EthernetClient::recv_json()
+{
   // This logic checks if there is data and returns nullptr if no data to recv
   // on the socket.
   struct timeval timeout;
