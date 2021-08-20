@@ -6,8 +6,6 @@
 #include "libovc/ethernet_packetdef.hpp"
 #include "libovc/server.hpp"
 
-#define config_t ether_rx_config_t
-
 namespace libovc
 {
 class OVC
@@ -22,7 +20,7 @@ public:
   ~OVC();
 
   std::array<OVCImage, Server::NUM_IMAGERS> getFrames();
-  void updateConfig(config_t config);
+  void updateConfig(const Json::Value &root);
 
   int getNumImagers() { return Server::NUM_IMAGERS; }
 };

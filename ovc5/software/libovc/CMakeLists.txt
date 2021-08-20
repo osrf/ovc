@@ -7,6 +7,7 @@ add_compile_options(-std=c++11 -Wall -O3)
 ## System dependencies are found with CMake's conventions
 find_package(OpenCV REQUIRED)
 find_package(Threads REQUIRED)
+find_package(jsoncpp REQUIRED)
 
 ###########
 ## Build ##
@@ -15,6 +16,7 @@ find_package(Threads REQUIRED)
 include_directories(
  include/
  ${OpenCV_INCLUDE_DIRS}
+ ${jsoncpp_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library

@@ -1,5 +1,6 @@
 #include "libovc/server.hpp"
 
+#include <jsoncpp/json/json.h>
 #include <unistd.h>
 
 #include <iostream>
@@ -123,16 +124,24 @@ void Server::receiveThread()
   }
 }
 
-void Server::updateConfig(ether_rx_config_t config)
+void Server::updateConfig(const Json::Value &root)
 {
-  ether_rx_packet_t send_pkt;
-  send_pkt.status = 0;
-  send_pkt.packet_type = RX_PACKET_TYPE_CMD_CONFIG;
-  send_pkt.config = config;
-  size_t io_size = write(recv_sock, send_pkt.data, sizeof(send_pkt));
-  if (io_size != sizeof(send_pkt))
+  Json::StreamWriterBuilder builder;
+  builder["indentation"] = "";
+  std::string output = Json::writeString(builder, root);
+
+  uint16_t output_size = output.size();
+
+  size_t io_size = write(recv_sock, &output_size, sizeof(output_size));
+  if (io_size != sizeof(output_size))
   {
-    std::cout << "libovc: Failed to write full config packet" << std::endl;
+    std::cout << "libovc: Failed to write json size" << std::endl;
+  }
+
+  io_size = write(recv_sock, output.c_str(), output_size);
+  if (io_size != output_size)
+  {
+    std::cout << "libovc: Failed to write json" << std::endl;
   }
 }
 
