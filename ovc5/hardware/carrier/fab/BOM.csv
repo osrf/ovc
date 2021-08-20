@@ -1,8 +1,8 @@
 Component,References,Value,Footprint,D1N,D1PN,MFN,MPN,Quantity Per PCB
 1,C1 C8 C10 C18 C19 C25 C26 C27 C32 C33 C34 C35 C40 C41 C42 C43 C44 C49 C50 C51 C68 C70 C74 C75 C76 C77 C78 C79 C80 C81 C82 C83 C84 C85 C86 C87 C88 C89 C91 C92 C98 C101 C107 C116 C118 C119 C120,100n,C_0201_0603Metric,Digikey,1292-1161-1-ND,Walsin,0201X104K160CT,47
 2,C4,10p,C_0402_1005Metric,Digikey,587-1947-1-ND,Taiyo Yuden,UMK105CG100DV-F,1
-3,C93 C94,10u,C_1206_3216Metric,Digikey,1276-2876-1-ND,Samsung,CL31A106KBHNNNE,2
-4,C69 C71,150u,C_Elec_6.3x7.7,Digikey,PCE4401CT-ND,TDK,EEE-FKC151XAP,2
+3,C93 C94,10u,C_1206_3216Metric,Digikey,1276-6736-1-ND,Samsung,CL31A106MBHNNNE,2
+4,C69 C71,150u,C_Elec_6.3x7.7,Digikey,EEE-FN1C151UP,Panasonic,10-EEE-FN1C151UPCT-ND,2
 5,C22 C24 C28 C29 C30 C31 C36 C37 C38 C39 C45 C46 C47 C48 C52 C53 C54,1n,C_0201_0603Metric,Digikey,490-16360-1-ND,Murata Electronics,GRM033R71E102JA01D,17
 6,C2 C9 C90 C121,1u,C_0402_1005Metric,Digikey,1276-1076-1-ND,Samsung,CL05A105KP5NNNC,4
 7,C3 C5 C6 C7 C23 C72 C73 C95 C96 C97,22u,C_0603_1608Metric,Digikey,1276-6504-1-ND,Samsung,CL10A226MPCNUBE,10
@@ -17,11 +17,11 @@ Component,References,Value,Footprint,D1N,D1PN,MFN,MPN,Quantity Per PCB
 16,J2,AUX_PWR,BarrelJack_CUI_PJ-102AH_Horizontal,Digikey,CP-102AH-ND,CUI Devices,PJ-102AH,1
 17,J10,Conn_01x02,ELNA_DSK-3R3H224U-HL,Digikey,604-1020-1-ND,Elna,DSK-3R3H224U-HL,1
 18,J11,Conn_01x03,PinHeader_1x03_P2.54mm_Vertical,Digikey,732-5316-ND,Würth Elektronik,61300311121,1
-19,J9,Conn_01x03,Molex_KK-254_AE-6410-03A_1x03_P2.54mm_Vertical,Digikey,WM4201-ND,Molex,0022232031,1
+19,J9,Conn_01x03,Molex_KK-254_AE-6410-03A_1x03_P2.54mm_Vertical,Digikey,WM4201-ND,Molex,22232031,1
 20,J5 J7 J8,Conn_01x04,JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical,Digikey,455-1790-1-ND,JST,BM04B-SRSS-TB(LF)(SN),3
 21,J6,Conn_02x06_Odd_Even,PinHeader_2x06_P2.54mm_Vertical,DNP,DNP,DNP,DNP,1
 22,J4,JTAG,PinHeader_2x03_P2.54mm_Vertical,Digikey,1849-PR20203VBDN-ND,METZ Connect,PR20203VBDN,1
-23,J3,Micro_SD_Card_Det_Hirose_DM3AT,microSD_HC_Hirose_DM3AT-SF-PEJM5,RS-Online,828-1884,Hirose,DM3AT-SF-PEJM5,1
+23,J3,Micro_SD_Card_Det_Hirose_DM3AT,microSD_HC_Hirose_DM3AT-SF-PEJM5,Mouser,798-DM3AT-SF-PEJM540 ,Hirose,DM3AT-SF-PEJM5(40),1
 24,J1,USB_C_Receptacle,Amphenol_12402056E512A,Digikey,732-9618-1-ND,Wurth,632723300011,1
 25,LOGO1,Logo_Open_Hardware_Large,OSHW-Symbol_13.4x12mm_SilkScreen,DNP,DNP,DNP,DNP,1
 26,Q1,Q_NMOS_GSD,SOT-23,Digikey,SSM3K2615RLFCT-ND,Toshiba Semiconductor and Storage,"SSM3K2615R,LF",1
@@ -57,22 +57,22 @@ Component,References,Value,Footprint,D1N,D1PN,MFN,MPN,Quantity Per PCB
 56,U8,TPS2561,VSON-10-1EP_3x3mm_P0.5mm_EP1.65x2.4mm_ThermalVias,Digikey,296-37670-1-ND,TI,TPS2561DRCR,1
 57,U7,TPSM53604RDA,Texas_B3QFN-14-1EP_5x5.5mm_P0.65mm_ThermalVia,Digikey,296-TPSM53604RDARCT-ND,TI,TPSM53604RDAR,1
 58,U13,TXS02612,TI_RTW0024B,Digikey,296-23869-1-ND,TI,TXS02612RTWR,1
-59,U5,USB3_A_Dual_Stacked,USB3_A_Dual_Stacked,Digikey,WM10420-ND,Molex,0484060003,1
+59,U5,USB3_A_Dual_Stacked,USB3_A_Dual_Stacked,Digikey,WM10420-ND,Molex,484060003,1
 60,U21,USB7216C,Microchip_USB7216C,Digikey,150-USB7216C/KDX-ND,Microchip Technology,USB7216C/KDX,1
 61,X1,ASCO,Oscillator_SMD_Abracon_ASCO-4Pin_1.6x1.2mm,Digikey,535-12075-1-ND,Abracon LLC,ASCO-25.000MHZ-EK-T3,1
-
-
-
-
-
-Component Groups:,61
-Component Count:,200
-Fitted Components:,200
-Number of PCBs:,1
-Total components:,200
-Schematic Version:,
-Schematic Date:,
-PCB Variant:,['default']
-BoM Date:,Wed 18 Aug 2021 02:23:01 PM PDT
-Schematic Source:,ovc5.kicad_sch
-KiCad Version:,Eeschema 5.99.0-unknown-ca42f31bb5~131~ubuntu20.04.1
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+Component Groups:,61,,,,,,,
+Component Count:,200,,,,,,,
+Fitted Components:,200,,,,,,,
+Number of PCBs:,1,,,,,,,
+Total components:,200,,,,,,,
+Schematic Version:,,,,,,,,
+Schematic Date:,,,,,,,,
+PCB Variant:,['default'],,,,,,,
+BoM Date:,Wed 18 Aug 2021 02:23:01 PM PDT,,,,,,,
+Schematic Source:,ovc5.kicad_sch,,,,,,,
+KiCad Version:,Eeschema 5.99.0-unknown-ca42f31bb5~131~ubuntu20.04.1,,,,,,,
