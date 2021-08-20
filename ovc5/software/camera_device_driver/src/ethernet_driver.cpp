@@ -3,9 +3,11 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include <jsoncpp/json/json.h>
 
 #include <cmath>
 #include <iostream>
+#include <sstream>
 
 EthernetClient::EthernetClient(const std::vector<std::string> &server_ips,
                                int port)
@@ -87,6 +89,44 @@ ether_rx_packet_t *EthernetClient::recv()
     std::cout << "RX packet header not received in full" << std::endl;
   }
   return &rx_pkt;
+}
+
+std::shared_ptr<Json::Value> EthernetClient::recv_json() {
+  // This logic checks if there is data and returns nullptr if no data to recv
+  // on the socket.
+  struct timeval timeout;
+  timeout.tv_sec = 0;
+  timeout.tv_usec = 10;
+  fd_set rfds;
+  FD_ZERO(&rfds);
+  FD_SET(socks[0], &rfds);
+  int retval = select(socks[0] + 1, &rfds, NULL, NULL, &timeout);
+  if (0 == retval || -1 == retval)
+  {
+    return nullptr;
+  }
+
+  uint16_t json_size = -1;
+  size_t io_size = read(socks[0], &json_size, sizeof(json_size));
+  if (io_size != sizeof(json_size) && io_size != 0)
+  {
+    std::cout << "RX packet size not received." << std::endl;
+  }
+
+  std::string json_string(json_size, 0);
+  io_size = read(socks[0], &json_string[0], json_size);
+  if (io_size != json_size && io_size != 0)
+  {
+    std::cout << "JSON packet not fully received." << std::endl;
+  }
+
+  std::cout << "Received JSON:" << std::endl << json_string << std::endl;
+  std::stringstream ss(json_string);
+  std::shared_ptr<Json::Value> root;
+  std::string errs;
+  Json::CharReaderBuilder rbuilder;
+  Json::parseFromStream(rbuilder, ss, root.get(), &errs);
+  return root;
 }
 
 void EthernetClient::increaseId() { tx_pkt.frame.frame_id++; }

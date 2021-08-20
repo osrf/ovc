@@ -143,30 +143,60 @@ void SensorManager::sendFrames()
   }
 }
 
+/* JSON Format
+ *
+ * {
+ *  "fps": float   Global capture trigger.
+ *  "cameras": [
+ *    {
+ *      "id": int (Required for all data in this field)
+ *      "exposure": float
+ *    }
+ *  ]
+ * }
+ *
+ * The json message is parsed in an optional fashion to let the user configure
+ * whatever they want to without changing other settings.
+ */
 void SensorManager::recvCommand()
 {
-  auto pkt = client->recv();
-  if (nullptr == pkt)
+  auto node = client->recv_json();
+  auto frame_rate = node->get("frame_rate", Json::Value::null);
+  if (Json::Value::null != frame_rate)
   {
-    return;
-  }
-  if (RX_PACKET_TYPE_CMD_CONFIG == pkt->packet_type)
-  {
-    printf(
-        "Received config packet with "
-        "{exposure: %f}"
-        "{frame_rate: %f}",
-        pkt->config.exposure,
-        pkt->config.frame_rate);
+    trigger_timer.PWM(frame_rate.asFloat(), 0.001);
   }
 
-  trigger_timer.PWM(pkt->config.frame_rate, 0.001);
-
-  for (auto &[cam_id, camera] : cameras)
+  auto camera_node = node->get("cameras", Json::Value::null);
+  if (Json::Value::null != camera_node)
   {
-    if (camera->getCameraParams().dynamic_configs.exposure)
+    for (auto cam : camera_node)
     {
-      camera->updateExposure(pkt->config.exposure);
+      auto id_node = cam["id"];
+      if (Json::Value::null == id_node)
+      {
+        std::cout << "Received command for camera without an id. Unable to "
+                     "apply settings."
+                  << std::endl;
+        continue;
+      }
+
+      int id = id_node.asInt();
+      if (0 == cameras.count(id))
+      {
+        std::cout << "Received command for camera " << id
+                  << " which is not initialized." << std::endl;
+        continue;
+      }
+
+      auto exposure_node = cam["exposure"];
+      if (Json::Value::null != exposure_node &&
+          cameras[id]->getCameraParams().dynamic_configs.exposure)
+      {
+        cameras[id]->updateExposure(exposure_node.asFloat());
+        std::cout << "Updated cam " << id << "'s exposure to "
+                  << exposure_node.asFloat() << std::endl;
+      }
     }
   }
 }
