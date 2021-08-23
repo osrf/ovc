@@ -40,13 +40,15 @@ EthernetClient::EthernetClient(const std::vector<std::string> &server_ips,
   tx_pkt.frame.frame_id = 0;
 }
 
-void EthernetClient::send(unsigned char *imgdata, const camera_params_t &params)
+void EthernetClient::send_image(uint8_t camera_id, unsigned char *imgdata,
+                                const camera_params_t &params)
 {
   /*
   tx_pkt.frame.t_sec = now.sec;
   tx_pkt.frame.t_nsec = now.nsec;
   strncpy(tx_pkt.frame.camera_name, camera_name.c_str(), camera_name.size());
   */
+  tx_pkt.frame.camera_id = camera_id;
   tx_pkt.frame.height = params.res_y;
   tx_pkt.frame.width = params.res_x;
   strncpy(tx_pkt.frame.data_type, params.data_type, sizeof(params.data_type));

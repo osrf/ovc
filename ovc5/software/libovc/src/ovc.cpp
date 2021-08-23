@@ -42,13 +42,13 @@ OVC::~OVC()
   thread_.join();
 }
 
-std::array<OVCImage, Server::NUM_IMAGERS> OVC::getFrames()
+std::unordered_map<uint8_t, OVCImage> OVC::getFrames()
 {
   frames_ = server_.getFrames();
-  for (size_t i = 0; i < frames_.size(); i++)
+  for (auto &[id, frame] : frames_)
   {
-    cv::Mat shifted = unpackTo16(frames_[i].image);
-    cv::cvtColor(shifted, frames_[i].image, frames_[i].color_format);
+    cv::Mat shifted = unpackTo16(frame.image);
+    cv::cvtColor(shifted, frame.image, frame.color_format);
   }
 
   return frames_;

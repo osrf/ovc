@@ -4,6 +4,7 @@
 #include <jsoncpp/json/json.h>
 
 #include <thread>
+#include <unordered_map>
 
 #include "libovc/ethernet_packetdef.hpp"
 #include "libovc/server.hpp"
@@ -13,7 +14,7 @@ namespace libovc
 class OVC
 {
 private:
-  std::array<OVCImage, Server::NUM_IMAGERS> frames_;
+  std::unordered_map<uint8_t, OVCImage> frames_;
   Server server_;
   std::thread thread_;
 
@@ -21,10 +22,8 @@ public:
   OVC();
   ~OVC();
 
-  std::array<OVCImage, Server::NUM_IMAGERS> getFrames();
+  std::unordered_map<uint8_t, OVCImage> getFrames();
   void updateConfig(const Json::Value &root);
-
-  int getNumImagers() { return Server::NUM_IMAGERS; }
 };
 
 }  // namespace libovc

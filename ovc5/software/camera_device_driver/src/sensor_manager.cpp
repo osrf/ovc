@@ -139,7 +139,8 @@ void SensorManager::sendFrames()
   for (const auto &[cam_id, frame_ptr] : frames)
   {
     cameras[cam_id]->flushCache();
-    client->send(frame_ptr, cameras[cam_id]->getCameraParams());
+    client->send_image(
+        (uint8_t)cam_id, frame_ptr, cameras[cam_id]->getCameraParams());
   }
 }
 

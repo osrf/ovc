@@ -28,7 +28,8 @@ public:
   EthernetClient(const std::vector<std::string> &server_ips, int port = 12345);
 
   // TODO proper timestamping and packet header
-  void send(unsigned char *imgdata, const camera_params_t &params);
+  void send_image(uint8_t camera_id, unsigned char *imgdata,
+                  const camera_params_t &params);
 
   // Returns the packet type received.
   ether_rx_packet_t *recv();
