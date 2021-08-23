@@ -3,9 +3,9 @@
     "GenerationSoftware": {
       "Vendor": "KiCad",
       "Application": "Pcbnew",
-      "Version": "5.99.0-unknown-675444a646~125~ubuntu20.04.1"
+      "Version": "5.99.0-unknown-ca42f31bb5~131~ubuntu20.04.1"
     },
-    "CreationDate": "2021-04-13T15:06:49+08:00"
+    "CreationDate": "2021-08-18T11:47:37-07:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
@@ -18,7 +18,7 @@
       "Y": 97.05
     },
     "LayerNumber": 6,
-    "BoardThickness": 7.78,
+    "BoardThickness": 1.57,
     "Finish": "None"
   },
   "DesignRules": [
@@ -27,18 +27,17 @@
       "PadToPad": 0.1016,
       "PadToTrack": 0.1016,
       "TrackToTrack": 0.1016,
-      "MinLineWidth": 0.1016,
-      "TrackToRegion": 0.2032,
-      "RegionToRegion": 0.2032
+      "MinLineWidth": 0.127,
+      "TrackToRegion": 0.127,
+      "RegionToRegion": 0.127
     },
     {
       "Layers": "Inner",
       "PadToPad": 0.0,
       "PadToTrack": 0.0,
       "TrackToTrack": 0.1016,
-      "MinLineWidth": 0.508,
-      "TrackToRegion": 0.127,
-      "RegionToRegion": 0.127
+      "TrackToRegion": 0.1778,
+      "RegionToRegion": 0.1778
     }
   ],
   "FilesAttributes": [
@@ -130,7 +129,7 @@
     },
     {
       "Type": "Dielectric",
-      "Thickness": 1.51,
+      "Thickness": 0.268,
       "Material": "FR4",
       "Name": "F.Cu/In1.Cu",
       "Notes": "Type: dielectric layer 1 (from F.Cu to In1.Cu)"
@@ -142,7 +141,7 @@
     },
     {
       "Type": "Dielectric",
-      "Thickness": 1.51,
+      "Thickness": 0.268,
       "Material": "FR4",
       "Name": "In1.Cu/In2.Cu",
       "Notes": "Type: dielectric layer 2 (from In1.Cu to In2.Cu)"
@@ -154,7 +153,7 @@
     },
     {
       "Type": "Dielectric",
-      "Thickness": 1.51,
+      "Thickness": 0.268,
       "Material": "FR4",
       "Name": "In2.Cu/In3.Cu",
       "Notes": "Type: dielectric layer 3 (from In2.Cu to In3.Cu)"
@@ -166,7 +165,7 @@
     },
     {
       "Type": "Dielectric",
-      "Thickness": 1.51,
+      "Thickness": 0.268,
       "Material": "FR4",
       "Name": "In3.Cu/In4.Cu",
       "Notes": "Type: dielectric layer 4 (from In3.Cu to In4.Cu)"
@@ -178,7 +177,7 @@
     },
     {
       "Type": "Dielectric",
-      "Thickness": 1.51,
+      "Thickness": 0.268,
       "Material": "FR4",
       "Name": "In4.Cu/B.Cu",
       "Notes": "Type: dielectric layer 5 (from In4.Cu to B.Cu)"
@@ -190,7 +189,7 @@
     },
     {
       "Type": "SolderMask",
-      "Color": "Green",
+      "Color": "R128G128B128",
       "Thickness": 0.01,
       "Name": "Bottom Solder Mask"
     },

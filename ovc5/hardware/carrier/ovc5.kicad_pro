@@ -45,7 +45,7 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.0
+          "min_clearance": 0.30479999999999996
         }
       },
       "diff_pair_dimensions": [
@@ -53,6 +53,16 @@
           "gap": 0.0,
           "via_gap": 0.0,
           "width": 0.0
+        },
+        {
+          "gap": 0.1524,
+          "via_gap": 0.1524,
+          "width": 0.127
+        },
+        {
+          "gap": 0.1778,
+          "via_gap": 0.1778,
+          "width": 0.1524
         },
         {
           "gap": 0.2032,
@@ -106,7 +116,7 @@
         "allow_blind_buried_vias": false,
         "allow_microvias": false,
         "max_error": 0.005,
-        "min_clearance": 0.1016,
+        "min_clearance": 0.127,
         "min_copper_edge_clearance": 0.01,
         "min_hole_clearance": 0.0,
         "min_hole_to_hole": 0.25,
@@ -114,18 +124,22 @@
         "min_microvia_drill": 0.09999999999999999,
         "min_silk_clearance": 0.0,
         "min_through_hole_diameter": 0.15239999999999998,
-        "min_track_width": 0.1016,
+        "min_track_width": 0.127,
         "min_via_annular_width": 0.0508,
-        "min_via_diameter": 0.35559999999999997
+        "min_via_diameter": 0.35559999999999997,
+        "use_height_for_length_calcs": true
       },
       "track_widths": [
         0.0,
         0.1016,
+        0.127,
         0.1524,
         0.1778,
         0.2032,
         0.3048,
         0.508,
+        0.5588,
+        0.762,
         1.016
       ],
       "via_dimensions": [
@@ -332,6 +346,7 @@
     ],
     "rule_severities": {
       "bus_definition_conflict": "error",
+      "bus_entry_needed": "error",
       "bus_label_syntax": "error",
       "bus_to_bus_conflict": "error",
       "bus_to_net_conflict": "error",
@@ -397,20 +412,6 @@
         "microvia_drill": 0.1,
         "name": "Diff pairs",
         "nets": [
-          "/USB/USB_DS_D_N",
-          "/USB/USB_DS_D_P",
-          "/USB/USB_DS_RX1_N",
-          "/USB/USB_DS_RX1_P",
-          "/USB/USB_DS_RX2_N",
-          "/USB/USB_DS_RX2_P",
-          "/USB/USB_DS_TX1_CONN_N",
-          "/USB/USB_DS_TX1_CONN_P",
-          "/USB/USB_DS_TX1_N",
-          "/USB/USB_DS_TX1_P",
-          "/USB/USB_DS_TX2_CONN_N",
-          "/USB/USB_DS_TX2_CONN_P",
-          "/USB/USB_DS_TX2_N",
-          "/USB/USB_DS_TX2_P",
           "/USB/USB_H0_D_N",
           "/USB/USB_H0_D_P",
           "/USB/USB_H0_RX_N",
@@ -459,7 +460,7 @@
       }
     ],
     "meta": {
-      "version": 0
+      "version": 1
     },
     "net_colors": null
   },
@@ -475,6 +476,7 @@
     "page_layout_descr_file": ""
   },
   "schematic": {
+    "annotate_start_num": 0,
     "drawing": {
       "default_bus_thickness": 12.0,
       "default_junction_size": 36.0,
@@ -488,20 +490,24 @@
       "intersheets_ref_show": false,
       "intersheets_ref_suffix": "",
       "junction_size_choice": 3,
+      "label_size_ratio": 0.3,
       "pin_symbol_size": 25.0,
       "text_offset_ratio": 0.3
     },
     "legacy_lib_dir": "",
     "legacy_lib_list": [],
     "meta": {
-      "version": 0
+      "version": 1
     },
     "net_format_name": "",
     "ngspice": {
+      "fix_include_paths": true,
+      "fix_passive_vals": false,
       "meta": {
         "version": 0
       },
-      "model_mode": 0
+      "model_mode": 0,
+      "workbook_filename": ""
     },
     "page_layout_descr_file": "",
     "plot_directory": "",
