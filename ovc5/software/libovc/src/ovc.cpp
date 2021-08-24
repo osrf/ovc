@@ -15,16 +15,15 @@ static cv::Mat unpack12To16(const cv::Mat &frame)
   uint16_t *out16 = (uint16_t *)ret.data;
 
   size_t n = frame.cols * frame.rows;
-  uint16_t full, half;
+  uint16_t a, b, split;
 
   for (n /= 2; n--;)
   {
-    full = *in8++;
-    half = *in8++;
-    *out16++ = ((((uint16_t)half & 0xF) << 8) | full) << 4;
-
-    full = *in8++;
-    *out16++ = ((half >> 4) | ((uint16_t)full << 4)) << 4;
+    a = *in8++;
+    b = *in8++;
+    split = *in8++;
+    *out16++ = ((((uint16_t)a) << 4) | (split & 0x0F)) << 4;
+    *out16++ = ((((uint16_t)b) << 4) | ((split >> 4) & 0x0F)) << 4;
   }
 
   return ret;
@@ -38,6 +37,8 @@ static cv::Mat unpack10To16(const cv::Mat &frame)
 
   size_t n = frame.cols * frame.rows;
   uint16_t a, b, c, d, split;
+
+  if (frame.empty()) return ret;
 
   for (n /= 4; n--;)
   {
@@ -63,6 +64,11 @@ static cv::Mat unpackTo16(const cv::Mat &frame, uint8_t bit_depth)
       return unpack10To16(frame);
     case 12:
       return unpack12To16(frame);
+    case 16:
+      return frame;
+    default:
+      throw std::invalid_argument("libovc: Bit depth " + std::to_string(bit_depth) +
+                                  " not supported");
   }
 }
 
