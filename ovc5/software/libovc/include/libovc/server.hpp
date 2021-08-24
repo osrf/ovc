@@ -27,6 +27,7 @@ typedef struct OVCImage
   uint64_t t_sec;
   uint64_t t_nsec;
   uint64_t frame_id;
+  uint8_t bit_depth;
   cv::ColorConversionCodes color_format;
   cv::Mat image;
 } OVCImage;

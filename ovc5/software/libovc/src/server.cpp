@@ -89,6 +89,7 @@ void Server::receiveThread()
       ret_imgs[camera_id].t_sec = recv_pkt.frame.t_sec;
       ret_imgs[camera_id].t_nsec = recv_pkt.frame.t_nsec;
       ret_imgs[camera_id].frame_id = recv_pkt.frame.frame_id;
+      ret_imgs[camera_id].bit_depth = recv_pkt.frame.bit_depth;
       ret_imgs[camera_id].color_format =
           color_code_map.at(recv_pkt.frame.data_type);
 

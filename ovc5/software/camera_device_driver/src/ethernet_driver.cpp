@@ -51,6 +51,7 @@ void EthernetClient::send_image(uint8_t camera_id, unsigned char *imgdata,
   tx_pkt.frame.camera_id = camera_id;
   tx_pkt.frame.height = params.res_y;
   tx_pkt.frame.width = params.res_x;
+  tx_pkt.frame.bit_depth = params.bit_depth;
   strncpy(tx_pkt.frame.data_type, params.data_type, sizeof(params.data_type));
   tx_pkt.frame.step = std::round(params.res_x * (params.bit_depth / 8.0));
   int frame_size = tx_pkt.frame.height * tx_pkt.frame.step;

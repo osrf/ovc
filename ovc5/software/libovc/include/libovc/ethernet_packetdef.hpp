@@ -24,10 +24,11 @@ typedef struct __attribute__((__packed__))
 // Max MTU is 15000 for USB gadget
 typedef struct __attribute__((__packed__))
 {
-  uint8_t camera_id;
   uint64_t t_sec;
   uint64_t t_nsec;
+  uint8_t camera_id;
   uint64_t frame_id;
+  uint8_t bit_depth;
   uint16_t height;
   uint16_t width;
   uint16_t step;
