@@ -67,8 +67,8 @@ static cv::Mat unpackTo16(const cv::Mat &frame, uint8_t bit_depth)
     case 16:
       return frame;
     default:
-      throw std::invalid_argument("libovc: Bit depth " + std::to_string(bit_depth) +
-                                  " not supported");
+      throw std::invalid_argument("libovc: Bit depth " +
+                                  std::to_string(bit_depth) + " not supported");
   }
 }
 
