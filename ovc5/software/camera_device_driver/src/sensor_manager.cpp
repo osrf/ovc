@@ -146,11 +146,12 @@ void SensorManager::sendFrames()
 /* JSON Format
  *
  * {
- *  "fps": float   Global capture trigger.
- *  "cameras": [
+ *  "frame_rate": float     Optional: Global capture trigger in Hz.
+ *  "cameras": [            List of camera-secific configurations.
  *    {
- *      "id": int (Required for all data in this field)
- *      "exposure": float
+ *      "id": int           Required: The hardware ID of the camera to adjust.
+ *      "exposure": float   Optional: Exposure time in milliseconds. Cannot go
+ *                                    higher than 1/frame_rate.
  *    }
  *  ]
  * }
