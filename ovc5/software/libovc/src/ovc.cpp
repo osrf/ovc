@@ -38,8 +38,6 @@ static cv::Mat unpack10To16(const cv::Mat &frame)
   size_t n = frame.cols * frame.rows;
   uint16_t a, b, c, d, split;
 
-  if (frame.empty()) return ret;
-
   for (n /= 4; n--;)
   {
     a = *in8++;
@@ -58,6 +56,11 @@ static cv::Mat unpack10To16(const cv::Mat &frame)
 
 static cv::Mat unpackTo16(const cv::Mat &frame, uint8_t bit_depth)
 {
+  if (frame.empty())
+  {
+    throw std::invalid_argument("libovc: unpackTo16 received empty frame");
+  }
+
   switch (bit_depth)
   {
     case 10:
@@ -86,11 +89,15 @@ OVC::~OVC()
 
 std::unordered_map<uint8_t, OVCImage> OVC::getFrames()
 {
-  frames_ = server_.getFrames();
-  for (auto &[id, frame] : frames_)
+  for (auto &[id, frame] : server_.getFrames())
   {
+    if (frame.image.empty())
+    {
+      continue;
+    }
     cv::Mat shifted = unpackTo16(frame.image, frame.bit_depth);
     cv::cvtColor(shifted, frame.image, frame.color_format);
+    frames_[id] = frame;
   }
 
   return frames_;
