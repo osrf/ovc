@@ -51,9 +51,8 @@ SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
   // Sleep for a bit to allow cameras to boot up.
   usleep(100000);
 
-  for (int index = 0; index < cams.size(); ++index)
+  for (camera_config_t cam : cams)
   {
-    camera_config_t cam = cams[index];
     int cam_id = cam.id;
     int vdma_dev = cam.vdma_dev;
     bool is_primary = primary_cam == cam_id;
