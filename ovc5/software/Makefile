@@ -10,11 +10,11 @@ host_driver: libovc
 
 device_driver_proprietary: libovc
 	mkdir -p camera_device_driver/build
-	cd camera_device_driver/build && cmake ../ && make CXX_FLAGS=-DPROPRIETARY_SENSORS=1
+	cd camera_device_driver/build && cmake -DPROPRIETARY_SENSORS=TRUE ../ && make
 
 device_driver: libovc
 	mkdir -p camera_device_driver/build
-	cd camera_device_driver/build && cmake ../ && make CXX_FLAGS=-DPROPRIETARY_SENSORS=0
+	cd camera_device_driver/build && cmake ../ && make
 
 run_host: camera_host_driver
 	./camera_host_driver/build/ovc5_host_node
