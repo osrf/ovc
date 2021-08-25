@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(ovc5_driver)
 
-option(PROPRIETARY_SENSORS "Whether to include proprietary sensors." 0)
+option(PROPRIETARY_SENSORS "Whether to include proprietary sensors." OFF)
 
 include_directories(
   include
@@ -19,8 +19,9 @@ add_library(ovc5_library
 
 target_compile_features(ovc5_library PUBLIC cxx_std_17)
 target_compile_options(ovc5_library PUBLIC -Wall -O3)
-if(PROPIETARY_SENSORS)
-  target_compile_definitions(ovc5_library PUBLIC -DPROPRITARY_SENSORS)
+if(PROPRIETARY_SENSORS)
+  message("Proprietary Sensors Enabled")
+  target_compile_definitions(ovc5_library PUBLIC -DPROPRIETARY_SENSORS)
 endif()
 
 target_link_libraries(ovc5_library
