@@ -32,13 +32,12 @@ typedef struct camera_init_t
   cameraProbe probe;
 } camera_init_t;
 
-const std::vector<camera_init_t> CAMERA_MODULES
-{
-  {CAM_CONSTRUCTOR(PiCameraV2), &PiCameraV2::probe},
+const std::vector<camera_init_t> CAMERA_MODULES{
+    {CAM_CONSTRUCTOR(PiCameraV2), &PiCameraV2::probe},
 #ifdef PROPRIETARY_SENSORS
-      {CAM_CONSTRUCTOR(AR0234), &AR0234::probe},
-      {CAM_CONSTRUCTOR(AR0521), &AR0521::probe},
-      {CAM_CONSTRUCTOR(IMX490), &IMX490::probe},
+    {CAM_CONSTRUCTOR(AR0234), &AR0234::probe},
+    {CAM_CONSTRUCTOR(AR0521), &AR0521::probe},
+    {CAM_CONSTRUCTOR(IMX490), &IMX490::probe},
 #endif
 };
 
