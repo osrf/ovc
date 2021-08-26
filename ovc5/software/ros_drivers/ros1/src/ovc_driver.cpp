@@ -1,6 +1,5 @@
 #include <cv_bridge/cv_bridge.h>
 #include <dynamic_reconfigure/server.h>
-#include <jsoncpp/json/json.h>
 #include <ovc_driver/ParamsConfig.h>
 #include <ros/ros.h>
 #include <sensor_msgs/Image.h>
@@ -31,12 +30,9 @@ public:
   {
     (void)level;
 
-    Json::Value cam_config;
-    cam_config["fps"] = (float)config.frame_rate;
-    Json::Value cam;
-    cam["id"] = config.id;
-    cam["exposure"] = (float)config.exposure;
-    cam_config["cameras"].append(cam);
+    ovc_.setFrameRate((float)config.frame_rate);
+    ovc_.setExposure(config.id, (float)config.exposure);
+    ovc_.updateConfig();
 
     ROS_INFO(
         "Reconfigure Request "
@@ -44,7 +40,6 @@ public:
         "{frame_rate: %f}",
         config.exposure,
         config.frame_rate);
-    ovc_.updateConfig(cam_config);
   }
 
   void spinOnce()

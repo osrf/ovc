@@ -16,15 +16,19 @@ private:
   std::array<OVCImage, Server::NUM_IMAGERS> frames_;
   Server server_;
   std::thread thread_;
+  Json::Value config_;
 
 public:
   OVC();
   ~OVC();
 
   std::array<OVCImage, Server::NUM_IMAGERS> getFrames();
-  void updateConfig(const Json::Value &root);
 
   int getNumImagers() { return Server::NUM_IMAGERS; }
+
+  void setExposure(int cam_id, float exposure);
+  void setFrameRate(float frame_rate);
+  void updateConfig();
 };
 
 }  // namespace libovc
