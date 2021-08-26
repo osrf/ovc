@@ -33,9 +33,6 @@ EthernetClient::EthernetClient(const std::vector<std::string> &server_ips,
   {
     throw std::runtime_error("No server connection established.");
   }
-  // TODO all those from parameters
-  strncpy(tx_pkt.frame.sensor_name, cam_name, sizeof(*cam_name));
-  strncpy(tx_pkt.frame.data_type, cam_data_type, sizeof(*cam_data_type));
 
   tx_pkt.frame.frame_id = 0;
 }
@@ -46,13 +43,16 @@ void EthernetClient::send_image(uint8_t camera_id, unsigned char *imgdata,
   /*
   tx_pkt.frame.t_sec = now.sec;
   tx_pkt.frame.t_nsec = now.nsec;
-  strncpy(tx_pkt.frame.camera_name, camera_name.c_str(), camera_name.size());
   */
   tx_pkt.frame.camera_id = camera_id;
   tx_pkt.frame.height = params.res_y;
   tx_pkt.frame.width = params.res_x;
   tx_pkt.frame.bit_depth = params.bit_depth;
-  strncpy(tx_pkt.frame.data_type, params.data_type, sizeof(params.data_type));
+  strncpy(
+      tx_pkt.frame.data_type, params.data_type, sizeof(tx_pkt.frame.data_type));
+  strncpy(tx_pkt.frame.sensor_name,
+          params.sensor_name,
+          sizeof(tx_pkt.frame.sensor_name));
   tx_pkt.frame.step = std::round(params.res_x * (params.bit_depth / 8.0));
   int frame_size = tx_pkt.frame.height * tx_pkt.frame.step;
   int cur_off = 0;

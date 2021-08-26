@@ -21,9 +21,6 @@ private:
   ether_tx_packet_t tx_pkt = {0};
   ether_rx_packet_t rx_pkt = {0};
 
-  const char *cam_name = "picamv2";
-  const char *cam_data_type = "rggb16";
-
 public:
   EthernetClient(const std::vector<std::string> &server_ips, int port = 12345);
 

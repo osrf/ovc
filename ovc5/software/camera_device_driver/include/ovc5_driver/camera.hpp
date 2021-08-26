@@ -19,6 +19,7 @@ typedef struct camera_params_t
   int fps = -1;
   int bit_depth = -1;
   char data_type[8];
+  char sensor_name[8] = {0};
   camera_dynamic_configs_t dynamic_configs = {0};
 } camera_params_t;
 

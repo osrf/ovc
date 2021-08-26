@@ -57,7 +57,6 @@ void Server::receiveThread()
   ether_tx_packet_t recv_pkt;
   while (!stop_)
   {
-    std::string camera_name;
     if (state_ == ReceiveState::WAIT_HEADER)
     {
       // Receive a header
@@ -94,7 +93,6 @@ void Server::receiveThread()
           color_code_map.at(recv_pkt.frame.data_type);
 
       frame_size = recv_pkt.frame.height * recv_pkt.frame.step;
-      camera_name = recv_pkt.frame.camera_name;
 
       // Create ovc buffer for pre-processing (need to convert to 16bit before
       // publishing).

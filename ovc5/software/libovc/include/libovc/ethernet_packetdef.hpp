@@ -34,7 +34,6 @@ typedef struct __attribute__((__packed__))
   uint16_t step;
   uint32_t frame_size;  // in bytes
   char sensor_name[8];
-  char camera_name[8];
   char data_type[8];
 } ether_tx_frame_t;
 
