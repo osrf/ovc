@@ -17,7 +17,6 @@ if (catkin_FOUND)
   ## System dependencies are found with CMake's conventions
   find_package(OpenCV)
   find_package(libovc)
-  find_package(jsoncpp)
 
   ################################################
   ## Declare ROS dynamic reconfigure parameters ##
@@ -50,7 +49,6 @@ if (catkin_FOUND)
   catkin_package(
     LIBRARIES ovc_driver
     CATKIN_DEPENDS roscpp sensor_msgs cv_bridge dynamic_reconfigure
-    DEPENDS jsoncpp
   )
 
   ###########
@@ -61,7 +59,6 @@ if (catkin_FOUND)
    ${catkin_INCLUDE_DIRS}
    ${OpenCV_INCLUDE_DIRS}
    ${libovc_INCLUDE_DIRS}
-   ${jsoncpp_INCLUDE_DIRS}
   )
 
   ## Declare a C++ library
@@ -87,7 +84,6 @@ if (catkin_FOUND)
     ${catkin_EXPORTED_TARGETS}
     ${OpenCV_LIBRARIES}
     ${libovc_LIBRARIES}
-    ${jsoncpp_LIBRARIES}
   )
 
   ## Specify libraries to link a library or executable target against
@@ -96,7 +92,6 @@ if (catkin_FOUND)
     ${catkin_LIBRARIES}
     ${OpenCV_LIBRARIES}
     ${libovc_LIBRARIES}
-    jsoncpp
   )
 
   #############

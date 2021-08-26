@@ -57,9 +57,12 @@ configure_package_config_file(${CMAKE_CURRENT_LIST_DIR}/cmake/${PROJECT_NAME}-co
 write_basic_package_version_file(${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake
   VERSION ${PROJECT_VERSION} COMPATIBILITY ExactVersion)
 
+target_link_libraries(${PROJECT_NAME} jsoncpp)
+
 install(FILES
   "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config.cmake"
   "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake"
-  DESTINATION lib/cmake/${PROJECT_NAME})
+  DESTINATION lib/cmake/${PROJECT_NAME}
+)
 
 export(EXPORT ${PROJECT_NAME}-targets FILE ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-targets.cmake) 
