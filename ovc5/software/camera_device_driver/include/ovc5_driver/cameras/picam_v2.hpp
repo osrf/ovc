@@ -65,7 +65,7 @@ private:
   std::vector<regop_t>::const_iterator config_it;
   std::vector<regop_t> config_vec;
 
-  uint32_t frame_length;
+  float t_max_;
 
   bool config_ok = false;
 
@@ -87,7 +87,7 @@ public:
 
   virtual void enableStreaming() override;
 
-  // virtual void updateExposure(usb_txrx_i2c_t& i2c_pkt) override;
+  virtual void updateExposure(float ms) override;
 
   virtual void reset() override;
 };

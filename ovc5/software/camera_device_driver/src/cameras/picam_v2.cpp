@@ -6,6 +6,11 @@
 
 const std::string DEFAULT_CAMERA_CONFIG = "1920x1080_30fps";
 
+const camera_dynamic_configs_t dynamic_configs = {
+    .frame_rate = false,
+    .exposure = true,
+};
+
 const std::unordered_map<std::string, camera_params_t> camera_params_def = {
     {"3263x2564_21fps",
      {
@@ -17,6 +22,7 @@ const std::unordered_map<std::string, camera_params_t> camera_params_def = {
          // resolved in GCC 11. See:
          // https://github.com/osrf/ovc/pull/59#discussion_r687052682
          .data_type = {'B', 'y', 'r', 'R', 'G', 'G', 'B', '\0'},
+         .dynamic_configs = dynamic_configs,
      }},
     {"1920x1080_30fps",
      {
@@ -25,6 +31,7 @@ const std::unordered_map<std::string, camera_params_t> camera_params_def = {
          .fps = 30,
          .bit_depth = 10,
          .data_type = {'B', 'y', 'r', 'R', 'G', 'G', 'B', '\0'},
+         .dynamic_configs = dynamic_configs,
      }},
     {"1280x720_120fps",
      {
@@ -33,6 +40,7 @@ const std::unordered_map<std::string, camera_params_t> camera_params_def = {
          .fps = 120,
          .bit_depth = 10,
          .data_type = {'B', 'y', 'r', 'R', 'G', 'G', 'B', '\0'},
+         .dynamic_configs = dynamic_configs,
      }},
 };
 
@@ -237,13 +245,34 @@ bool PiCameraV2::initialise(std::string config_name)
   {
     i2c.writeRegister(conf);
   }
-  initVDMA(camera_params->at(config_name));
+
+  auto config_struct = camera_params->at(config_name);
+  initVDMA(config_struct);
+
+  t_max_ = 1.0f * config_struct.fps / 1000.0f;
+
   return true;
 }
 
 void PiCameraV2::enableStreaming()
 {
   i2c.writeRegister(enable_streaming_regop);
+}
+
+/* Updates camera exposure time.
+ *
+ * As defined in the datasheet, the following computation is used to determine
+ * exposure time:
+ *
+ */
+void PiCameraV2::updateExposure(float ms)
+{
+  // VMAX is 18 bits starting at byte register 0x0000.
+  uint16_t frame_length = (((uint16_t)i2c.readRegister(0x0160)) << 8 | i2c.readRegister(0x0161);
+  uint16_t integration_time = static_cast<uint16_t>(
+      std::clamp(ms * t_max_ * frame_length, 4.0f, frame_length - 8.0f));
+  i2c.writeRegister(writeRegOp(0x018A, (uint8_t)(integration_time >> 8)));
+  i2c.writeRegister(writeRegOp(0x018B, (uint8_t)integration_time));
 }
 
 void PiCameraV2::reset()
