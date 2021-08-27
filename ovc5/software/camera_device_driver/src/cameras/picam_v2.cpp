@@ -260,21 +260,19 @@ void PiCameraV2::enableStreaming()
   i2c.writeRegister(enable_streaming_regop);
 }
 
-/* Updates camera exposure time.
- *
- * As defined in the datasheet, the following computation is used to determine
- * exposure time:
- *
- */
+/* Updates camera exposure time. */
 void PiCameraV2::updateExposure(float ms)
 {
-  // VMAX is 18 bits starting at byte register 0x0000.
-  uint16_t frame_length =
-      ((uint16_t)i2c.readRegister(0x0160)) << 8 | i2c.readRegister(0x0161);
+  uint16_t frame_length = ((uint16_t)i2c.readRegister(0x0160)) << 8 |
+                          (i2c.readRegister(0x0161) & 0xFF);
   uint16_t integration_time = static_cast<uint16_t>(
       std::clamp(ms * t_max_ * frame_length, 4.0f, frame_length - 8.0f));
-  i2c.writeRegister(writeRegOp(0x018A, (uint8_t)(integration_time >> 8)));
-  i2c.writeRegister(writeRegOp(0x018B, (uint8_t)integration_time));
+
+  i2c.writeRegister(writeRegOp(0x015A, (uint8_t)(integration_time >> 8)));
+  i2c.writeRegister(writeRegOp(0x015B, (uint8_t)integration_time));
+
+  i2c.writeRegister(writeRegOp(0x025A, (uint8_t)(integration_time >> 8)));
+  i2c.writeRegister(writeRegOp(0x025B, (uint8_t)integration_time));
 }
 
 void PiCameraV2::reset()
