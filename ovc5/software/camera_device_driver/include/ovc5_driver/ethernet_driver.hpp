@@ -2,6 +2,7 @@
 #define ETHERNET_DRIVER_INC
 
 #include <arpa/inet.h>
+#include <jsoncpp/json/json.h>
 
 #include <string>
 
@@ -31,6 +32,9 @@ public:
 
   // Returns the packet type received.
   ether_rx_packet_t *recv();
+
+  // Waits to receive a json message.
+  std::shared_ptr<Json::Value> recv_json();
 
   void increaseId();
 };

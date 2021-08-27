@@ -2,6 +2,7 @@
 #define __SERVER_HPP
 
 #include <arpa/inet.h>
+#include <jsoncpp/json/json.h>
 #include <sys/socket.h>
 
 #include <atomic>
@@ -79,7 +80,7 @@ public:
 
   std::array<OVCImage, NUM_IMAGERS> getFrames();
 
-  void updateConfig(ether_rx_config_t config);
+  void updateConfig(const Json::Value &root);
 };
 
 }  // namespace libovc

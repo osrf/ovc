@@ -1,5 +1,7 @@
 #include "libovc/ovc.hpp"
 
+#include <jsoncpp/json/json.h>
+
 #include <iomanip>
 #include <thread>
 
@@ -54,6 +56,21 @@ std::array<OVCImage, Server::NUM_IMAGERS> OVC::getFrames()
   return frames_;
 }
 
-void OVC::updateConfig(config_t config) { server_.updateConfig(config); }
+void OVC::setFrameRate(float frame_rate) { config_["frame_rate"] = frame_rate; }
+
+void OVC::setExposure(int cam_id, float exposure)
+{
+  Json::Value cam_conf;
+  cam_conf["id"] = cam_id;
+  cam_conf["exposure"] = exposure;
+
+  config_["cameras"].append(cam_conf);
+}
+
+void OVC::updateConfig()
+{
+  server_.updateConfig(config_);
+  config_.clear();
+}
 
 }  // namespace libovc

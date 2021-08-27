@@ -26,6 +26,7 @@ endif()
 
 target_link_libraries(ovc5_library
   i2c
+  jsoncpp
 )
 
 # Add all the cameras

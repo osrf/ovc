@@ -49,7 +49,6 @@ if (catkin_FOUND)
   catkin_package(
     LIBRARIES ovc_driver
     CATKIN_DEPENDS roscpp sensor_msgs cv_bridge dynamic_reconfigure
-    #DEPENDS system_lib
   )
 
   ###########

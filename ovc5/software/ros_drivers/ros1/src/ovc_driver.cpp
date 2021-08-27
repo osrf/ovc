@@ -30,17 +30,16 @@ public:
   {
     (void)level;
 
-    config_t cam_config = {
-        .exposure = (float)config.exposure,
-        .frame_rate = (float)config.frame_rate,
-    };
+    ovc_.setFrameRate((float)config.frame_rate);
+    ovc_.setExposure(config.id, (float)config.exposure);
+    ovc_.updateConfig();
+
     ROS_INFO(
         "Reconfigure Request "
         "{exposure: %f}"
         "{frame_rate: %f}",
-        cam_config.exposure,
-        cam_config.frame_rate);
-    ovc_.updateConfig(cam_config);
+        config.exposure,
+        config.frame_rate);
   }
 
   void spinOnce()
