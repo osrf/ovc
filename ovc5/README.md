@@ -24,3 +24,4 @@
 
 ## Renders
 ![ovc5 rendering](./doc/ovc5_rendering.png)
+![ovc5b_rendering](https://user-images.githubusercontent.com/11024792/131198685-8fff7436-3fcd-45d5-9044-f68e6b1f07e1.png)
