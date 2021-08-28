@@ -204,6 +204,9 @@ bool VNAVDriver::readSensors(IMUReading &ret)
   ret.q_y = data_ptr[2];
   ret.q_z = data_ptr[3];
   ret.q_w = data_ptr[4];
+  ret.m_x = data_ptr[5];
+  ret.m_y = data_ptr[6];
+  ret.m_z = data_ptr[7];
   ret.a_x = data_ptr[8];
   ret.a_y = data_ptr[9];
   ret.a_z = data_ptr[10];

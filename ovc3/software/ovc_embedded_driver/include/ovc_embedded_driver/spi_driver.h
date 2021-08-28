@@ -7,6 +7,7 @@
 struct IMUReading
 {
   float q_x, q_y, q_z, q_w;
+  float m_x, m_y, m_z;
   float a_x, a_y, a_z;
   float g_x, g_y, g_z; 
 };
