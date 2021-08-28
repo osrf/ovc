@@ -103,11 +103,12 @@ void publish_imu(ros::NodeHandle nh,
 void publish_vnav(ros::NodeHandle nh, std::shared_ptr<AtomicRosTime> time_ptr)
 {
   VNAVDriver spi(VECTORNAV_SPI_DEVICE, VECTORNAV_FSYNC_GPIO);
-  ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("vectornav_imu", 10);
-  ros::Publisher mag_pub = nh.advertise<sensor_msgs::MagneticField>("vectornav_mag", 10);
+  ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("vectornav/imu", 10);
+  ros::Publisher mag_pub = nh.advertise<sensor_msgs::MagneticField>("vectornav/mag", 10);
   sensor_msgs::Imu imu_msg;
   sensor_msgs::MagneticField mag_msg;
   imu_msg.header.frame_id = "ovc_vnav_link";
+  mag_msg.header.frame_id = "ovc_vnav_link";
   while (ros::ok())
   {
     // Vectornav is not synchronised to anything, just use system time to stamp it
