@@ -5,6 +5,7 @@
 
 #include <ros/ros.h>
 #include <sensor_msgs/Imu.h>
+#include <sensor_msgs/MagneticField.h>
 
 #include <dynamic_reconfigure/server.h>
 #include <ovc_embedded_driver/Ovc3Config.h>
@@ -102,15 +103,19 @@ void publish_imu(ros::NodeHandle nh,
 void publish_vnav(ros::NodeHandle nh, std::shared_ptr<AtomicRosTime> time_ptr)
 {
   VNAVDriver spi(VECTORNAV_SPI_DEVICE, VECTORNAV_FSYNC_GPIO);
-  ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("vectornav", 10);
+  ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("vectornav/imu", 10);
+  ros::Publisher mag_pub = nh.advertise<sensor_msgs::MagneticField>("vectornav/mag", 10);
   sensor_msgs::Imu imu_msg;
+  sensor_msgs::MagneticField mag_msg;
   imu_msg.header.frame_id = "ovc_vnav_link";
+  mag_msg.header.frame_id = "ovc_vnav_link";
   while (ros::ok())
   {
     // Vectornav is not synchronised to anything, just use system time to stamp it
     IMUReading imu;
     spi.waitNewSample();
     imu_msg.header.stamp = ros::Time::now();
+    mag_msg.header.stamp = imu_msg.header.stamp;
     // Skip message filling if communication failed
     if (spi.readSensors(imu))
       continue;
@@ -124,7 +129,11 @@ void publish_vnav(ros::NodeHandle nh, std::shared_ptr<AtomicRosTime> time_ptr)
     imu_msg.linear_acceleration.x = imu.a_x;
     imu_msg.linear_acceleration.y = imu.a_y;
     imu_msg.linear_acceleration.z = imu.a_z;
+    mag_msg.magnetic_field.x = imu.m_x;
+    mag_msg.magnetic_field.y = imu.m_y;
+    mag_msg.magnetic_field.z = imu.m_z;
     imu_pub.publish(imu_msg);
+    mag_pub.publish(mag_msg);
   }
 }
 

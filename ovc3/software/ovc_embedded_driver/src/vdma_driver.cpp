@@ -23,7 +23,7 @@ VDMADriver::VDMADriver(int uio_num, const std::vector<uint8_t>& sample_msg) : ui
   {
     // Start by opening (or creating) the camera dma files
     std::string memory_filename("cam" + std::to_string(uio_num) + "_" + std::to_string(i));
-    int memory_file = open((DMA_FOLDER + memory_filename).c_str(), O_RDWR | O_CREAT);
+    int memory_file = open((DMA_FOLDER + memory_filename).c_str(), O_RDWR | O_CREAT, 777);
     if (memory_file < 0)
       std::cout << "File open failed" << std::endl;
 

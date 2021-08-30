@@ -151,7 +151,7 @@ VNAVDriver::VNAVDriver(int spi_num, int gpio_num) : SPIDriver(spi_num, MAX_SPI_S
   edge_fd << "falling";
   edge_fd.close();
   // Open file that will block until interrupt is received
-  gpio_fd = open((gpio_path + "value").c_str(), 'r');
+  gpio_fd = open((gpio_path + "value").c_str(), O_RDONLY);
   if (gpio_fd < 0)
     std::cout << "Failed in opening Vectornav sync GPIO" << std::endl;
   // TODO Set sample rate to 200Hz (default is 400Hz)
@@ -204,6 +204,9 @@ bool VNAVDriver::readSensors(IMUReading &ret)
   ret.q_y = data_ptr[2];
   ret.q_z = data_ptr[3];
   ret.q_w = data_ptr[4];
+  ret.m_x = data_ptr[5];
+  ret.m_y = data_ptr[6];
+  ret.m_z = data_ptr[7];
   ret.a_x = data_ptr[8];
   ret.a_y = data_ptr[9];
   ret.a_z = data_ptr[10];

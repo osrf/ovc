@@ -3,6 +3,7 @@
 
 #include <mutex>
 #include <atomic>
+#include <condition_variable>
 
 #include <ovc_embedded_driver/sensor_constants.h>
 #include <ros/ros.h>
