@@ -22,6 +22,13 @@
 2. On OVC5 (via ssh), run (from software) `./camera_device_driver/build/ovc5_driver`. This connects to the host server and immediately starts streaming sensor data.
 3. To stop execution, use `ctrl + C`. Always stop execution on the device first otherwise sensors will not be reset properly. This can cause abnormal behavior in the following execution (unless power is reset or the script is properly exited in the following execution).
 
+## Enclosure Design
+Mechanical design is done in OnShape. Designs for the enclosure can be [found here](https://cad.onshape.com/documents/0df2c93d1da3b61c31e23f51/w/e413209eac787b7f7a0c78dd/e/78e699166a01bf07fb4c1f24)!
+
 ## Renders
 ![ovc5 rendering](./doc/ovc5_rendering.png)
 ![ovc5b_rendering](https://user-images.githubusercontent.com/11024792/131198685-8fff7436-3fcd-45d5-9044-f68e6b1f07e1.png)
+
+## Pictures
+![ovc5 enclosure_closed](./doc/enclosure_closed.jpg)
+![ovc5 enclosure_open](./doc/enclosure_open.jpg)
