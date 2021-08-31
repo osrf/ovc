@@ -26,6 +26,9 @@ quadrotor platform. This manuscript can be found on
 ## OVC4
 ![OVC](./assets/images/ovc4-perspective.png)
 
+## OVC5
+![OVC](./assets/images/ovc5-enclosure-open.jpg)
+
 ## [Software Resources](./software.html)
 
 We have made many of our software repositories publicly available, and have been
