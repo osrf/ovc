@@ -51,7 +51,7 @@ SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
   // Sleep for a bit to allow cameras to boot up.
   usleep(100000);
 
-  for (camera_config_t cam : cams)
+  for (const camera_config_t &cam : cams)
   {
     int cam_id = cam.id;
     int vdma_dev = cam.vdma_dev;
