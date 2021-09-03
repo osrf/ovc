@@ -30,9 +30,9 @@ Server::~Server()
 
 // TODO atomic to signal from receive thread and mutexes to avoid corrupted
 // frames
-std::array<OVCImage, Server::NUM_IMAGERS> Server::getFrames()
+std::unordered_map<uint8_t, OVCImage> Server::getFrames()
 {
-  while (frames_received / NUM_IMAGERS == 0)
+  while (frames_received == 0)
   {
     frames_ready_var.wait(frames_ready_guard);
   }
@@ -52,12 +52,11 @@ void Server::receiveThread()
   // TODO proper while condition
   size_t cur_off = 0;
   size_t frame_size = 0;
-  int camera_id = 0;
+  uint8_t camera_id = 0;
   std::unique_lock<std::mutex> frames_lock(frames_mutex, std::defer_lock);
   ether_tx_packet_t recv_pkt;
   while (!stop_)
   {
-    std::string camera_name;
     if (state_ == ReceiveState::WAIT_HEADER)
     {
       // Receive a header
@@ -79,14 +78,21 @@ void Server::receiveThread()
         }
       }
 
+      camera_id = recv_pkt.frame.camera_id;
+      // Create new key/value pair if one does not already exist for this
+      // camera.
+      if (ret_imgs.find(camera_id) == ret_imgs.end())
+      {
+        ret_imgs[camera_id] = OVCImage();
+      }
       ret_imgs[camera_id].t_sec = recv_pkt.frame.t_sec;
       ret_imgs[camera_id].t_nsec = recv_pkt.frame.t_nsec;
       ret_imgs[camera_id].frame_id = recv_pkt.frame.frame_id;
+      ret_imgs[camera_id].bit_depth = recv_pkt.frame.bit_depth;
       ret_imgs[camera_id].color_format =
           color_code_map.at(recv_pkt.frame.data_type);
 
       frame_size = recv_pkt.frame.height * recv_pkt.frame.step;
-      camera_name = recv_pkt.frame.camera_name;
 
       // Create ovc buffer for pre-processing (need to convert to 16bit before
       // publishing).
@@ -114,12 +120,8 @@ void Server::receiveThread()
 
       state_ = ReceiveState::WAIT_HEADER;
       ++frames_received;
-      if (frames_received % NUM_IMAGERS == 0)
-      {
-        // All frames received, notify userspace
-        frames_ready_var.notify_all();
-      }
-      camera_id = (camera_id + 1) % NUM_IMAGERS;
+      // A frame has been received, notify userspace.
+      frames_ready_var.notify_all();
     }
   }
 }

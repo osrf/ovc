@@ -239,6 +239,9 @@ subnet_text="subnet 10.0.1.0 netmask 255.255.255.252 {
   option interface-mtu 13500;
 }"
 
+  # Copy in all scripts that the device will use.
+  sudo cp -r $DIR/device_scripts/* $ROOT_DIR/root/
+
   echo "
 sed -e \"s/$(hostname)/zynq/\" -i /etc/hosts
 echo zynq > /etc/hostname
@@ -249,6 +252,7 @@ apt update
 apt install -y vim locales openssh-server ifupdown net-tools iputils-ping avahi-autoipd avahi-daemon haveged i2c-tools rsyslog
 apt install -y git cmake libi2c-dev isc-dhcp-server libyaml-cpp-dev dosfstools libjsoncpp-dev
 grep -qxF 'ttyPS0' /etc/securetty || echo 'ttyPS0' >> /etc/securetty
+bash /root/device_scripts/ethernet_utils/init_files/distribute_files
 grep -qxF '$interfaces_text' /etc/network/interfaces || echo '$interfaces_text' >> /etc/network/interfaces
 grep -qxF '$subnet_text' /etc/dhcp/dhcpd.conf || echo '$subnet_text' >> /etc/dhcp/dhcpd.conf
 egrep -v '^\s*#' /etc/ssh/sshd_config | grep -qxF 'PermitRootLogin yes' || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
@@ -270,9 +274,6 @@ Execute and run through (likely using \"158. en_US.UTF-8 UTF-8\"):
 "
 
   sudo schroot -c arm64-debian -u root
-
-  # Copy in all scripts that the device will use.
-  sudo cp $DIR/device_scripts/* $ROOT_DIR/root/
 }
 
 if [ -z $1 ] || [ $1 == "-h" ]; then

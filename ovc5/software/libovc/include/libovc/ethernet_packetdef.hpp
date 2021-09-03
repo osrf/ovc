@@ -27,12 +27,13 @@ typedef struct __attribute__((__packed__))
   uint64_t t_sec;
   uint64_t t_nsec;
   uint64_t frame_id;
+  uint8_t camera_id;
+  uint8_t bit_depth;
   uint16_t height;
   uint16_t width;
   uint16_t step;
   uint32_t frame_size;  // in bytes
   char sensor_name[8];
-  char camera_name[8];
   char data_type[8];
 } ether_tx_frame_t;
 

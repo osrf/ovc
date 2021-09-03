@@ -51,9 +51,8 @@ SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
   // Sleep for a bit to allow cameras to boot up.
   usleep(100000);
 
-  for (int index = 0; index < cams.size(); ++index)
+  for (const camera_config_t &cam : cams)
   {
-    camera_config_t cam = cams[index];
     int cam_id = cam.id;
     int vdma_dev = cam.vdma_dev;
     bool is_primary = primary_cam == cam_id;
@@ -139,7 +138,8 @@ void SensorManager::sendFrames()
   for (const auto &[cam_id, frame_ptr] : frames)
   {
     cameras[cam_id]->flushCache();
-    client->send(frame_ptr, cameras[cam_id]->getCameraParams());
+    client->send_image(
+        (uint8_t)cam_id, frame_ptr, cameras[cam_id]->getCameraParams());
   }
 }
 

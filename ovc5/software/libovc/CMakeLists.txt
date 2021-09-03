@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 project(libovc VERSION 0.0.1 LANGUAGES CXX)
 
-## Compile as C++11
-add_compile_options(-std=c++11 -Wall -O3)
+## Compile as C++17
+add_compile_options(-std=c++17 -Wall -O3)
 
 ## System dependencies are found with CMake's conventions
 find_package(OpenCV REQUIRED)

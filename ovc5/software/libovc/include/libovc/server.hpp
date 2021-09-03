@@ -9,6 +9,7 @@
 #include <condition_variable>
 #include <mutex>
 #include <opencv2/opencv.hpp>
+#include <unordered_map>
 
 #include "libovc/ethernet_packetdef.hpp"
 
@@ -26,15 +27,13 @@ typedef struct OVCImage
   uint64_t t_sec;
   uint64_t t_nsec;
   uint64_t frame_id;
+  uint8_t bit_depth;
   cv::ColorConversionCodes color_format;
   cv::Mat image;
 } OVCImage;
 
 class Server
 {
-public:
-  static constexpr int NUM_IMAGERS = 2;
-
 private:
   static constexpr int BASE_PORT = 12345;
 
@@ -62,7 +61,7 @@ private:
 
   bool stop_;
 
-  std::array<OVCImage, NUM_IMAGERS> ret_imgs;
+  std::unordered_map<uint8_t, OVCImage> ret_imgs;
 
   std::atomic<int> frames_received = {0};
   std::condition_variable frames_ready_var;
@@ -78,7 +77,7 @@ public:
 
   void stop();
 
-  std::array<OVCImage, NUM_IMAGERS> getFrames();
+  std::unordered_map<uint8_t, OVCImage> getFrames();
 
   void updateConfig(const Json::Value &root);
 };

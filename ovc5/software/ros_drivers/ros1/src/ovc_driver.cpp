@@ -12,18 +12,21 @@ class OVCNode
 {
 private:
   libovc::OVC ovc_;
-  std::array<ros::Publisher, libovc::Server::NUM_IMAGERS> cam_pubs_;
+  std::unordered_map<uint8_t, ros::Publisher> cam_pubs_;
 
-public:
-  OVCNode(ros::NodeHandle &n)
+  void new_camera(uint8_t camera_id)
   {
-    // Create the camera publishers.
-    for (size_t i = 0; i < cam_pubs_.size(); i++)
+    if (node_handle_ != nullptr)
     {
-      std::string name = std::string("cam") + std::to_string(i);
-      cam_pubs_[i] = n.advertise<sensor_msgs::Image>(name, 1000);
+      std::string name = std::string("ovc_cam") + std::to_string(camera_id);
+      cam_pubs_[camera_id] =
+          node_handle_->advertise<sensor_msgs::Image>(name, 1000);
     }
   }
+  ros::NodeHandle *node_handle_ = nullptr;
+
+public:
+  OVCNode(ros::NodeHandle &n) { node_handle_ = &n; }
   ~OVCNode(){};
 
   void reconfigure_callback(ovc_driver::ParamsConfig &config, uint32_t level)
@@ -45,23 +48,23 @@ public:
   void spinOnce()
   {
     auto frames = ovc_.getFrames();
-    std::array<sensor_msgs::Image, libovc::Server::NUM_IMAGERS> imgs;
-    for (size_t i = 0; i < frames.size(); i++)
+    sensor_msgs::Image img;
+    for (auto &[id, frame] : frames)
     {
+      if (cam_pubs_.find(id) == cam_pubs_.end())
+      {
+        new_camera(id);
+      }
       // Populate header.
-      imgs[i].header.frame_id = frames[i].frame_id;
-      imgs[i].header.stamp.sec = frames[i].t_sec;
-      imgs[i].header.stamp.nsec = frames[i].t_nsec;
+      img.header.frame_id = frame.frame_id;
+      img.header.stamp.sec = frame.t_sec;
+      img.header.stamp.nsec = frame.t_nsec;
 
       cv_bridge::CvImage cv_image(
-          imgs[i].header, sensor_msgs::image_encodings::BGR16, frames[i].image);
+          img.header, sensor_msgs::image_encodings::BGR16, frame.image);
 
-      cv_image.toImageMsg(imgs[i]);
-    }
-
-    for (size_t i = 0; i < cam_pubs_.size(); i++)
-    {
-      cam_pubs_[i].publish(imgs[i]);
+      cv_image.toImageMsg(img);
+      cam_pubs_[id].publish(img);
     }
   }
 };
