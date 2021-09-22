@@ -1,4 +1,6 @@
 (sym_lib_table
   (lib (name "connectors")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/connectors.kicad_sym")(options "")(descr ""))
   (lib (name "DCDC_Converters")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/DCDC_Converters.kicad_sym")(options "")(descr ""))
+  (lib (name "osrf_conn")(type "KiCad")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/osrf_conn.kicad_sym")(options "")(descr ""))
+  (lib (name "voltage_translators")(type "Legacy")(uri "${KIWORKSPACE}/osrf_hw/kicad_libraries/voltage_translators.lib")(options "")(descr ""))
 )
