@@ -1,0 +1,26 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,5.99.0-unknown-a71d856e94~131~ubuntu20.04.1*%
+%TF.CreationDate,2021-09-22T11:48:58-07:00*%
+%TF.ProjectId,mipi_converter,6d697069-5f63-46f6-9e76-65727465722e,rev?*%
+%TF.SameCoordinates,Original*%
+%TF.FileFunction,Profile,NP*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW 5.99.0-unknown-a71d856e94~131~ubuntu20.04.1) date 2021-09-22 11:48:58*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%TA.AperFunction,Profile*%
+%ADD10C,0.100000*%
+%TD*%
+G04 APERTURE END LIST*
+D10*
+X71230000Y-52130000D02*
+X84460000Y-52130000D01*
+X84460000Y-52130000D02*
+X84460000Y-80990000D01*
+X84460000Y-80990000D02*
+X71230000Y-80990000D01*
+X71230000Y-80990000D02*
+X71230000Y-52130000D01*
+M02*
