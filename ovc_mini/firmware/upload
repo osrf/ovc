@@ -1,4 +1,4 @@
 #!/bin/bash
 BUILD_PRJ="${BUILD_PRJ:-build-karo-nxp}"
 
-cd $BUILD_PRJ/tmp/deploy/images/qsxp-ml81/ && uuu -v
+cd $OVC_MINI_DIR/bsp/$BUILD_PRJ/tmp/deploy/images/qsxp-ml81/ && uuu -v
