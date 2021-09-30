@@ -44,7 +44,7 @@ class SSHSession():
     def run(self, cmd: str = "", args: str = "") -> str:
         # If no arguments, do nothing and warn.
         if cmd == "" and args == "":
-            print("ShellSession: run called with no arguments")
+            print("SSHSession: run called with no arguments")
             return ""
 
         final_cmd = self.base_ssh_command
@@ -54,6 +54,7 @@ class SSHSession():
         if cmd != "":
             final_cmd += f" '{cmd}'"
 
+        # rstrip removes the trailing newline on a command's output.
         return subprocess.check_output(final_cmd,
                                        shell=True).decode('utf-8').rstrip()
 
