@@ -9,7 +9,9 @@ import subprocess
 from pathlib import Path
 from typing import Callable, Dict, List
 
-REMOTE_INSTALL_REQUIREMENTS = ["iperf3", "lspci", "ip"]
+# To keep this available to as many systems as possible, this list has been kept
+# extremely brief.
+REMOTE_INSTALL_REQUIREMENTS = ['iperf3', 'lspci', 'ip', 'grep', 'sed', 'cat']
 
 
 class SSHSession():
@@ -130,6 +132,7 @@ def get_machine_configuration(session: SSHSession,
     wireless = dev in session.run("cat /proc/net/wireless")
     wireless_config = None
     if wireless:
+        # `iw` should be installed if there's a wireless device
         out = session.run(f"iw dev {dev} link")
         freq = int(re.search(r'freq:\ ([0-9]*)', out).group(1))
         signal = int(re.search(r'signal:\ ([\-0-9]*)\ dBm', out).group(1))
