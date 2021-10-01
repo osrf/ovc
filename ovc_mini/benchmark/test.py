@@ -189,6 +189,10 @@ if __name__ == "__main__":
                         type=int,
                         default=22,
                         help='Port remote machine is listening on.')
+    parser.add_argument('--iperf_port',
+                        type=int,
+                        default=5201,
+                        help='Port iperf is run on.')
     parser.add_argument('--parallel_streams',
                         type=int,
                         default=2,
@@ -219,28 +223,32 @@ if __name__ == "__main__":
         check_install(session)
         remote_config = get_machine_configuration(session, args.address)
 
-    print("Starting iperf tests.")
-    iperf_results = []
-    for window_size in window_sizes:
-        # Read https://www.cisco.com/c/en/us/support/docs/wireless-mobility/wireless-lan-wlan/212892-802-11ac-wireless-throughput-testing-and.html
-        cmd = (
-            f"iperf3"
-            f" -R"  # Reverses iperf so the server sends to the client
-            f" -J"  # Output in JSON format
-            f" -c {args.address}"
-            f" -p {5201}"
-            f" -i {args.interval}"
-            f" -t {args.time_per_test}"
-            f" -P {args.parallel_streams}"
-            f" -w {window_size}k")
-        print(cmd)
-        out = subprocess.check_output(cmd.split())
-        json_obj = json.loads(out)
-        iperf_results.append(
-            iperfResults(window_size=window_size,
-                         interval=args.interval,
-                         duration=args.time_per_test,
-                         parallel_streams=args.parallel_streams,
-                         **process_data(json_obj)))
+        print("Starting iperf server.")
+        session.run(f"iperf3 -s -p {args.iperf_port} > /dev/null 2>&1 &")
+        print("Starting iperf tests.")
+        iperf_results = []
+        for window_size in window_sizes:
+            # Read https://www.cisco.com/c/en/us/support/docs/wireless-mobility/wireless-lan-wlan/212892-802-11ac-wireless-throughput-testing-and.html
+            cmd = (
+                f"iperf3"
+                f" -R"  # Reverses iperf so the server sends to the client
+                f" -J"  # Output in JSON format
+                f" -c {args.address}"
+                f" -p {args.iperf_port}"
+                f" -i {args.interval}"
+                f" -t {args.time_per_test}"
+                f" -P {args.parallel_streams}"
+                f" -w {window_size}k")
+            print(cmd)
+            out = subprocess.check_output(cmd.split())
+            json_obj = json.loads(out)
+            iperf_results.append(
+                iperfResults(window_size=window_size,
+                             interval=args.interval,
+                             duration=args.time_per_test,
+                             parallel_streams=args.parallel_streams,
+                             **process_data(json_obj)))
+        print("Stopping iperf server.")
+        session.run(f"killall iperf3")
 
     print(Results(remote_config, iperf_results))
