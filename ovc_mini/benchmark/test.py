@@ -7,7 +7,7 @@ import json
 import re
 import subprocess
 from pathlib import Path
-from typing import Callable, Dict, List
+from typing import Any, Callable, Dict, List
 
 # To keep this available to as many systems as possible, this list has been kept
 # extremely brief.
@@ -104,6 +104,64 @@ class Results:
     iperf_results: List[iperfResults]
 
 
+class iperfTest:
+    """Manages an iperf3 test on the remote server."""
+    def __init__(self, session: SSHSession, address: str, port: int):
+        self._session = session
+        self._address = address
+        self._port = port
+
+    def __enter__(self):
+        self._session.run(f"iperf3 -s -p {args.iperf_port} > /dev/null 2>&1 &")
+        return self
+
+    def __exit__(self, exit_type, value, traceback):
+        # Close all iperf3 sessions
+        self._session.run(f"killall iperf3")
+
+    def run_test(self, duration: float, interval: float, parallel_streams: int,
+                 window_size: int) -> iperfResults:
+        # Read https://www.cisco.com/c/en/us/support/docs/wireless-mobility/wireless-lan-wlan/212892-802-11ac-wireless-throughput-testing-and.html
+        cmd = (
+            f"iperf3"
+            f" -R"  # Reverses iperf so the server sends to the client
+            f" -J"  # Output in JSON format
+            f" -c {self._address}"
+            f" -p {self._port}"
+            f" -i {interval}"
+            f" -t {duration}"
+            f" -P {parallel_streams}"
+            f" -w {window_size}k")
+        out = subprocess.check_output(cmd.split())
+        return iperfResults(interval=interval,
+                            duration=duration,
+                            window_size=window_size,
+                            parallel_streams=parallel_streams,
+                            **self.process_results(out))
+
+    @staticmethod
+    def process_results(iperf_output: str) -> Dict[str, Any]:
+        """Processes iperf output."""
+        data = json.loads(iperf_output)
+        bps = []
+        for interval in data['intervals']:
+            bps.append(interval['sum']['bits_per_second'])
+
+        samples = len(data['intervals'])
+        avg = np.average(bps)
+        sigma = np.std(bps)
+        ci_2 = max(0, avg - (2 * sigma))
+        ci_3 = max(0, avg - (3 * sigma))
+
+        return {
+            'sample_count': samples,
+            'average_bandwidth': to_Mbps(avg),
+            'sigma': to_Mbps(sigma),
+            'ci_2': to_Mbps(ci_2),
+            'ci_3': to_Mbps(ci_3),
+        }
+
+
 def check_install(session: SSHSession):
     missing_packages = []
     for app in REMOTE_INSTALL_REQUIREMENTS:
@@ -148,31 +206,6 @@ def get_machine_configuration(session: SSHSession,
 
 def to_Mbps(bps: float) -> float:
     return round(bps * 1e-6, 2)
-
-
-def process_data(data: Dict) -> iperfResults:
-    bps = []
-    for interval in data['intervals']:
-        bps.append(interval['sum']['bits_per_second'])
-
-    samples = len(data['intervals'])
-    avg = np.average(bps)
-    sigma = np.std(bps)
-    ci_2 = max(0, avg - (2 * sigma))
-    ci_3 = max(0, avg - (3 * sigma))
-
-    #print(f"Number of samples: {samples}")
-    #print(f"Average: {to_Mbps(avg)}")
-    #print(f"Sigma: {to_Mbps(sigma)}")
-    #print(f"95% confidence interval: {to_Mbps(ci_2)}")
-    #print(f"99.7% confidence interval: {to_Mbps(ci_3)}")
-    return {
-        'sample_count': samples,
-        'average_bandwidth': to_Mbps(avg),
-        'sigma': to_Mbps(sigma),
-        'ci_2': to_Mbps(ci_2),
-        'ci_3': to_Mbps(ci_3),
-    }
 
 
 if __name__ == "__main__":
@@ -223,32 +256,19 @@ if __name__ == "__main__":
         check_install(session)
         remote_config = get_machine_configuration(session, args.address)
 
-        print("Starting iperf server.")
-        session.run(f"iperf3 -s -p {args.iperf_port} > /dev/null 2>&1 &")
-        print("Starting iperf tests.")
-        iperf_results = []
-        for window_size in window_sizes:
-            # Read https://www.cisco.com/c/en/us/support/docs/wireless-mobility/wireless-lan-wlan/212892-802-11ac-wireless-throughput-testing-and.html
-            cmd = (
-                f"iperf3"
-                f" -R"  # Reverses iperf so the server sends to the client
-                f" -J"  # Output in JSON format
-                f" -c {args.address}"
-                f" -p {args.iperf_port}"
-                f" -i {args.interval}"
-                f" -t {args.time_per_test}"
-                f" -P {args.parallel_streams}"
-                f" -w {window_size}k")
-            print(cmd)
-            out = subprocess.check_output(cmd.split())
-            json_obj = json.loads(out)
-            iperf_results.append(
-                iperfResults(window_size=window_size,
-                             interval=args.interval,
-                             duration=args.time_per_test,
-                             parallel_streams=args.parallel_streams,
-                             **process_data(json_obj)))
-        print("Stopping iperf server.")
-        session.run(f"killall iperf3")
+        # Run iperf3 generic test with variable window size.
+        print("Running iperf3 test.")
+        with iperfTest(session, args.address, args.iperf_port) as iperf:
+            iperf_results = []
+            for window_size in window_sizes:
+                print(f"Running iperf with window size of {window_size}k")
+                iperf_results.append(
+                    iperf.run_test(args.time_per_test, args.interval,
+                                   args.parallel_streams, window_size))
+
+        # Run simulated load test.
+        # This is defined as a fixed size packet queued at a fixed interval.
+        # We are interested if the packets get backed up (meaning bandwidth is
+        # not able to keep up with the packet queue).
 
     print(Results(remote_config, iperf_results))
