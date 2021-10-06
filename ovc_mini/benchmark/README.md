@@ -14,8 +14,6 @@ following command:
 The test should now run for some time. A help menu is available for more 
 detailed control of the test (`./test.py -h`).
 
-__NOTE__: `process.py` and the `output` folder are not yet implemented.
-
 After the test is concluded, a folder labeled `output` should be in the host's 
 current directory. Finally, run the processing script to generate some nice 
 graphs to help visualize the data!
@@ -23,3 +21,6 @@ graphs to help visualize the data!
 ```shell
 ./process.py
 ```
+
+The graphs generate one at a time for results of a given test. Close a graph 
+to see results of the next test.

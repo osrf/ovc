@@ -5,6 +5,7 @@ import os
 import pickle
 import re
 import subprocess
+import time
 from pathlib import Path
 from typing import List
 
@@ -130,8 +131,9 @@ if __name__ == "__main__":
                         help='Payload Bench: size in MB to send.')
     parser.add_argument('--out_file',
                         type=Path,
-                        default="results.pkl",
-                        help='Name of file to write pickled results to.')
+                        default=f"{round(time.time())}.pkl",
+                        help=('Name of file to write pickled results to.'
+                              ' Defaults to saving as integer timestamp.'))
     parser.add_argument('--socket_path',
                         type=Path,
                         default=Path("~/.ssh/test_socket"),
@@ -165,9 +167,11 @@ if __name__ == "__main__":
                                     round(1.0 / args.packets_per_second, 4))
             payload_results.append(results)
 
-            print(f"In {results.duration} seconds,"
-                  f" received {results.sample_count} packets"
-                  f" ({results.packets_per_second} packets per second).")
+            print(
+                f"In {results.duration} seconds,"
+                f" received {results.sample_count} packets"
+                f" ({results.sample_count/results.duration} packets per second)."
+            )
 
     subprocess.check_output(f"mkdir -p {FILE_DIR / 'output'}", shell=True)
     with open(FILE_DIR / 'output' / args.out_file, 'wb') as file:

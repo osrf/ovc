@@ -7,7 +7,7 @@ import os
 import socket
 import subprocess
 import time
-from typing import Any, Dict
+from typing import Any, Dict, List
 from pathlib import Path
 
 from benchmark.ssh_session import SSHSession
@@ -108,9 +108,18 @@ class PayloadBench(Benchmark):
 
     @dataclasses.dataclass
     class Results(Benchmark.Results):
-        """Stores data related to iperf test results."""
+        """
+        Stores data related to iperf test results.
+
+        Attributes:
+            start_time: time that the test started. Does not have to be system
+                time.
+            packet_received: time a packet was received from start of test.
+                The data should only be relative to the start time.
+        """
         packet_size: int  # Megabytes
-        packets_per_second: float
+        start_time: float
+        receive_times: List[float]
 
     def __enter__(self):
         subprocess.check_output(f"cd {FILE_DIR} && make arm", shell=True)
@@ -155,18 +164,20 @@ class PayloadBench(Benchmark):
             start = time.time()
             now = start
             packet_count = 0
+            receive_times = []
             while (now - start < duration):
                 if data_count >= packet_bytes:
+                    receive_times.append(now)
                     packet_count += 1
                     data_count -= packet_bytes
                 data_count += len(s.recv(4096))
                 now = time.time()
 
             total_time = now - start
-            pps = packet_count / total_time
 
             return self.Results(packet_size=packet_size,
                                 interval=interval,
                                 duration=total_time,
                                 sample_count=packet_count,
-                                packets_per_second=pps)
+                                start_time=start,
+                                receive_times=receive_times)
