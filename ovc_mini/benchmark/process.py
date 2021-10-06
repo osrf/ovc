@@ -43,7 +43,8 @@ def window_performance(runs: Dict[str, Results]) -> None:
                 x + width * distribution[idx],
                 values,
                 width,
-                label=f"{file} - {data.machine.name} - {data.machine.dev}")
+                label=(f"{file} - {data.machine.name} - {data.machine.dev} - "
+                      f"{result.duration}s"))
             idx += 1
             #ax.bar_label(rects, padding=3)
 
@@ -74,7 +75,7 @@ def payload_performance(runs: Dict[str, Results]) -> None:
             if result.interval not in intervals:
                 intervals[result.interval] = []
             label = (f"{file} - {data.machine.name} - {data.machine.dev} - "
-                     f"{result.packet_size}Mb - {round(result.duration)}s")
+                     f"{result.packet_size}MB - {round(result.duration)}s")
             intervals[result.interval].append((label, result))
 
     n = 1

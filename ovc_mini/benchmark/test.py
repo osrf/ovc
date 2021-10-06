@@ -138,6 +138,12 @@ if __name__ == "__main__":
                         type=Path,
                         default=Path("~/.ssh/test_socket"),
                         help='Directory to save ssh session.')
+    parser.add_argument('--no_iperf',
+                        action='store_true',
+                        help='Whether to run iperf benchmark.')
+    parser.add_argument('--no_payload',
+                        action='store_true',
+                        help='Whether to run payload benchmark.')
 
     args = parser.parse_args()
     window_sizes = [8, 16, 32, 64, 128, 256]
@@ -148,30 +154,37 @@ if __name__ == "__main__":
         check_install(session)
         remote_config = get_machine_configuration(session, args.address)
 
-        print("Running iperf3 test with variable window size.")
-        with benchmark.IperfBench(session, args.address,
-                                  args.iperf_port) as test:
-            iperf_results = []
-            for window_size in window_sizes:
-                print(f"Running iperf with window size of {window_size}k")
-                iperf_results.append(
-                    test.run_test(args.time_per_test, args.interval,
-                                  args.parallel_streams, window_size))
-        print("Finished iperf3 test.")
+        iperf_results = []
+        if not args.no_iperf:
+            print("Running iperf3 benchmark with variable window size.")
+            with benchmark.IperfBench(session, args.address,
+                                      args.iperf_port) as test:
+                for window_size in window_sizes:
+                    print(f"Running iperf3 with window size of {window_size}k")
+                    iperf_results.append(
+                        test.run_test(args.time_per_test, args.interval,
+                                      args.parallel_streams, window_size))
+            print("Finished iperf3 benchmark.")
+        else:
+            print("Skipped iperf3 benchmark.")
 
-        print("Running payload test.")
         payload_results = []
-        with benchmark.PayloadBench(session, args.address,
-                                    args.payload_port) as test:
-            results = test.run_test(args.packet_size, args.time_per_test,
-                                    round(1.0 / args.packets_per_second, 4))
-            payload_results.append(results)
+        if not args.no_payload:
+            print("Running payload benchmark.")
+            with benchmark.PayloadBench(session, args.address,
+                                        args.payload_port) as test:
+                results = test.run_test(
+                    args.packet_size, args.time_per_test,
+                    round(1.0 / args.packets_per_second, 4))
+                payload_results.append(results)
 
-            print(
-                f"In {results.duration} seconds,"
-                f" received {results.sample_count} packets"
-                f" ({results.sample_count/results.duration} packets per second)."
-            )
+                print(
+                    f"In {results.duration} seconds,"
+                    f" received {results.sample_count} packets"
+                    f" ({results.sample_count/results.duration} packets per second)."
+                )
+        else:
+            print("Skipped payload benchmark.")
 
     subprocess.check_output(f"mkdir -p {FILE_DIR / 'output'}", shell=True)
     with open(FILE_DIR / 'output' / args.out_file, 'wb') as file:
