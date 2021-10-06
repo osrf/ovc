@@ -102,7 +102,7 @@ if __name__ == "__main__":
     parser.add_argument('--iperf_port',
                         type=int,
                         default=5201,
-                        help='Iperf Benche: port test is run on.')
+                        help='Iperf Bench: port test is run on.')
     parser.add_argument('--payload_port',
                         type=int,
                         default=5202,
