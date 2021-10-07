@@ -27,8 +27,11 @@ def window_performance(runs: Dict[str, Results]) -> None:
     labels = window_sizes
 
     x = np.arange(len(labels))  # the label locations
-    distribution = np.linspace(-1, 1, num_results)
-    width = 0.7 / num_results  # the width of the bars
+    print(x)
+    # Only use half of the space between graph points
+    proportion = 0.35
+    distribution = np.linspace(-1, 1, num_results) * proportion
+    width = 2 * proportion / num_results  # the width of the bars
 
     def make_plot(ax, key: str):
         idx = 0
@@ -40,11 +43,11 @@ def window_performance(runs: Dict[str, Results]) -> None:
                     values[window_sizes.index(ws)] = dataclasses.asdict(
                         result)[key]
             rects = ax.bar(
-                x + width * distribution[idx],
+                x + distribution[idx],
                 values,
                 width,
                 label=(f"{file} - {data.machine.name} - {data.machine.dev} - "
-                      f"{result.duration}s"))
+                       f"{result.duration}s"))
             idx += 1
             #ax.bar_label(rects, padding=3)
 
@@ -63,7 +66,6 @@ def window_performance(runs: Dict[str, Results]) -> None:
     ax3.set_title('99.7% Confidence Interval')
     make_plot(ax3, 'ci_3')
 
-    plt.tight_layout(pad=0.4, w_pad=0, h_pad=0)
     plt.show()
 
 
@@ -87,10 +89,11 @@ def payload_performance(runs: Dict[str, Results]) -> None:
         if n == 1:
             plt.title("Payload performance test results")
         n += 1
-        plt.axhline(y=interval,
-                    color='r',
-                    linestyle='-',
-                    label=f"Target interval {interval}")
+        plt.axhline(
+            y=interval,
+            color='r',
+            linestyle='-',
+            label=f"Target interval {interval} ({round(1/interval)}Hz)")
         for label, result in data:
             times = np.array(result.receive_times)
             times = np.diff(times)  # Make relative
@@ -99,7 +102,6 @@ def payload_performance(runs: Dict[str, Results]) -> None:
         ax.set_ylabel('dt since last packet (s)')
         ax.legend()
 
-    plt.tight_layout(pad=0.4, w_pad=0, h_pad=0)
     plt.show()
 
 

@@ -13,6 +13,8 @@ from pathlib import Path
 from benchmark.ssh_session import SSHSession
 
 FILE_DIR = Path(os.path.dirname(os.path.abspath(__file__)))
+# Number of times to retry an unreliable execution before erroring.
+RETRY_COUNT = 5
 
 
 class Benchmark:
@@ -63,7 +65,17 @@ class IperfBench(Benchmark):
             f" -t {duration}"
             f" -P {parallel_streams}"
             f" -w {window_size}k")
-        out = subprocess.check_output(cmd, shell=True)
+        out = None
+        retry = 0
+        while out is None:
+            try:
+                out = subprocess.check_output(cmd, shell=True)
+            except subprocess.CalledProcessError as e:
+                if retry > RETRY_COUNT:
+                    raise e
+                retry += 1
+                time.sleep(1)
+
         return self.Results(interval=interval,
                             duration=duration,
                             window_size=window_size,

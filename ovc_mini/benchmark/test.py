@@ -13,7 +13,7 @@ import benchmark
 
 # To keep this available to as many systems as possible, this list has been kept
 # extremely brief.
-REMOTE_INSTALL_REQUIREMENTS = ['iperf3', 'lspci', 'ip', 'grep', 'sed', 'cat']
+REMOTE_INSTALL_REQUIREMENTS = ['iperf3', 'ip', 'grep', 'sed', 'cat']
 FILE_DIR = Path(os.path.dirname(os.path.abspath(__file__)))
 
 
