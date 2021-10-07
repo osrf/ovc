@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import argparse
 import dataclasses
 import os
 import pickle
@@ -27,7 +28,6 @@ def window_performance(runs: Dict[str, Results]) -> None:
     labels = window_sizes
 
     x = np.arange(len(labels))  # the label locations
-    print(x)
     # Only use half of the space between graph points
     proportion = 0.35
     distribution = np.linspace(-1, 1, num_results) * proportion
@@ -36,6 +36,8 @@ def window_performance(runs: Dict[str, Results]) -> None:
     def make_plot(ax, key: str):
         idx = 0
         for file, data in runs.items():
+            if [] == data.iperf_results:
+                continue
             values = [0] * len(window_sizes)
             for result in data.iperf_results:
                 ws = result.window_size
@@ -52,6 +54,7 @@ def window_performance(runs: Dict[str, Results]) -> None:
             #ax.bar_label(rects, padding=3)
 
         ax.set_ylabel('Mbps')
+        ax.set_xlabel('Window Size (KBytes)')
         ax.set_xticks(x)
         ax.set_xticklabels(labels)
         ax.legend()
@@ -65,8 +68,6 @@ def window_performance(runs: Dict[str, Results]) -> None:
     ax3 = plt.subplot(313)
     ax3.set_title('99.7% Confidence Interval')
     make_plot(ax3, 'ci_3')
-
-    plt.show()
 
 
 def payload_performance(runs: Dict[str, Results]) -> None:
@@ -100,16 +101,36 @@ def payload_performance(runs: Dict[str, Results]) -> None:
             plt.plot(times, label=label)
 
         ax.set_ylabel('dt since last packet (s)')
+        ax.set_xlabel('Packet Count')
         ax.legend()
-
-    plt.show()
 
 
 if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser(
+        description='Network benchmark data processor/visualizer.')
+    parser.add_argument('--wireless_only',
+                        action='store_true',
+                        help='Show only wireless results.')
+    args = parser.parse_args()
+
     runs = {}
     for filename in DATA_DIR.glob('*.pkl'):
         with open(filename, 'rb') as f:
             runs[filename.stem] = pickle.load(f)
 
-    window_performance(runs)
-    payload_performance(runs)
+    filtered_runs = {}
+    for filename, data in runs.items():
+        include = True
+        if args.wireless_only and not data.machine.wireless:
+            include = False
+
+        # Passed all filters.
+        if include == True:
+            filtered_runs[filename] = data
+
+    plt.figure(1)
+    window_performance(filtered_runs)
+    plt.figure(2)
+    payload_performance(filtered_runs)
+    plt.show()
