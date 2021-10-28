@@ -17,8 +17,16 @@ This will automatically set up this directory to be ready to build an image.
 Re-source at the beginning of each shell session to collect the necessary 
 environment variables.
 
-The build script, unfortunately, does not work due to some unknown issues with 
-sourcing karo's scripts from a shell script. The upload script does work.
+After sourcing `setup.sh`, `build` and `upload` should now be available in the
+shell's path.
+
+Calling `build` will build the yocto image in the `bsp` directory. Similarly,
+`upload` will upload the image that was just built to an availabe Ka-Ro
+qsxp/qsxm.
+
+__TODO__: The `build` script, unfortunately, does not work due to some unknown
+issues with sourcing yocto's setup scripts from a shell script. The upload
+script does work.
 
 To build an image, follow karo's guide after changing to the `bsp` directory:
 https://karo-electronics.github.io/docs/yocto-guide/nxp/BuildImages.html

@@ -33,7 +33,7 @@ install_utils () {
 
 install_bsp () {
   mkdir $BSP && cd "$_"
-  repo init -u https://github.com/karo-electronics/karo-nxp-bsp -b hardknott
+  repo init -u https://github.com/gbalke/ovc-mini-bsp -b hardknott
   repo sync
   cd $OVC_MINI_DIR
 }
@@ -48,6 +48,6 @@ if [ ! -d "$BSP" ]; then
   install_bsp
 fi
 
-# Add the universal update utility executable to path.
+# Add utils to the path.
 add_to_path $OVC_MINI_DIR/utils
 add_to_path $OVC_MINI_DIR/utils/mfgtools/build/uuu
