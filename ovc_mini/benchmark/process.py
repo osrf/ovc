@@ -44,12 +44,13 @@ def window_performance(runs: Dict[str, Results]) -> None:
                 if ws in window_sizes:
                     values[window_sizes.index(ws)] = dataclasses.asdict(
                         result)[key]
-            rects = ax.bar(
-                x + distribution[idx],
-                values,
-                width,
-                label=(f"{file} - {data.machine.name} - {data.machine.dev} - "
-                       f"{result.duration}s"))
+            label = (f"{file} - {data.machine.name} - {data.machine.dev} - "
+                     f"{result.duration}s")
+            if data.machine.wireless:
+                label += f" - {data.machine.wifi_config.signal_strength}dB"
+                label += f" - {data.machine.wifi_config.tx_connection}"
+            rects = ax.bar(x + distribution[idx], values, width, label=label)
+
             idx += 1
             #ax.bar_label(rects, padding=3)
 
@@ -79,6 +80,9 @@ def payload_performance(runs: Dict[str, Results]) -> None:
                 intervals[result.interval] = []
             label = (f"{file} - {data.machine.name} - {data.machine.dev} - "
                      f"{result.packet_size}MB - {round(result.duration)}s")
+            if data.machine.wireless:
+                label += f" - {data.machine.wifi_config.signal_strength}dB"
+                label += f" - {data.machine.wifi_config.tx_connection}"
             intervals[result.interval].append((label, result))
 
     n = 1

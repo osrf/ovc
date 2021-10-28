@@ -24,3 +24,7 @@ graphs to help visualize the data!
 
 The graphs generate one at a time for results of a given test. Close a graph 
 to see results of the next test.
+
+## Reference Material
+
+MCS Table: https://semfionetworks.com/blog/mcs-table-updated-with-80211ax-data-rates/
