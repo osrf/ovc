@@ -5,24 +5,19 @@ if [[ -z "${OVC_MINI_DIR}" ]]; then
   exit
 fi
 
-DISTRO="${DISTRO:-karo-minimal}"
+DISTRO="${DISTRO:-ovc-mini}"
 MACHINE="${MACHINE:-qsxp-ml81}"
-BUILD_PRJ="${BUILD_PRJ:-build-karo-nxp}"
-IMAGE="${IMAGE:-karo-image-minimal}"
+BUILD_PRJ="${BUILD_PRJ:-build-ovc}"
+IMAGE="${IMAGE:-ovc-image}"
 
 BSP_DIR=$OVC_MINI_DIR/bsp
 
-# Custom test image:
-# DISTRO=osrf-ovc
-# BUILD_PRJ=build-osrf-ovc
-# IMAGE=osrf-image-ovc
-
 setup_release () {
-  source karo-setup-release.sh -b $BUILD_PRJ
+  source karo-setup-release.sh -b $BUILD_PRJ && bitbake $IMAGE
 }
 
 rebuild () {
-  source setup-environment $BUILD_PRJ
+  source setup-environment $BUILD_PRJ && bitbake $IMAGE
 }
 
 cd $BSP_DIR
@@ -31,7 +26,3 @@ if [[ -z "${BUILD_PRJ}" ]]; then
 else
   rebuild
 fi
-
-echo "Bitbake seems to not like being run from within a shell script."
-echo "Please run the following command to build:"
-echo "    bitbake $IMAGE"
