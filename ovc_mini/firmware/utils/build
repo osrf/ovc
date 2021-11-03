@@ -13,17 +13,21 @@ IMAGE="${IMAGE:-ovc-image}"
 BSP_DIR=$OVC_MINI_DIR/bsp
 
 setup_release () {
+  cd $BSP_DIR
   source karo-setup-release.sh -b $BUILD_PRJ
   echo "BBLAYERS += \"\${BSPDIR}/sources/meta-ovc\"" >> $BSP_DIR/$BUILD_PRJ/conf/bblayers.conf
   bitbake $IMAGE
+  cd $OVC_MINI_DIR
 }
 
 rebuild () {
-  source setup-environment $BUILD_PRJ && bitbake $IMAGE
+  cd $BSP_DIR
+  source setup-environment $BUILD_PRJ
+  bitbake $IMAGE
+  cd $OVC_MINI_DIR
 }
 
-cd $BSP_DIR
-if [[ ! -z "${BUILD_PRJ}" ]]; then
+if [[ ! -d "${BSP_DIR}/${BUILD_PRJ}" ]]; then
   setup_release
 else
   rebuild
