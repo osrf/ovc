@@ -11,22 +11,26 @@ add_to_path () {
 }
 
 install_utils () {
-  mkdir $UTILS && cd "$_"
-  # Download the repo script.
-  curl https://storage.googleapis.com/git-repo-downloads/repo > $UTILS/repo
-  chmod a+rx $UTILS/repo
+  cd $UTILS
+
+  if [ ! -z "$UTILS/repo" ]; then
+    # Download the repo script.
+    curl https://storage.googleapis.com/git-repo-downloads/repo > $UTILS/repo
+    chmod a+rx $UTILS/repo
+  fi
 
   # Download and build nxp mfgtools (along with dependencies).
-  git clone https://github.com/NXPmicro/mfgtools.git mfgtools
-  cd mfgtools
-  sudo apt-get install libusb-1.0-0-dev libzip-dev libbz2-dev pkg-config cmake libssl-dev g++
-  mkdir build && cd "$_"
-  cmake .. && make
-  add_to_path $OVC_MINI_DIR/utils/mfgtools/build/uuu
+  if [ ! -d "$UTILS/mfgtools" ]; then
+    git clone https://github.com/NXPmicro/mfgtools.git mfgtools
+    cd mfgtools
+    sudo apt-get install libusb-1.0-0-dev libzip-dev libbz2-dev pkg-config cmake libssl-dev g++
+    mkdir build && cd "$_"
+    cmake .. && make
 
-  echo "Installing udev rules for uuu."
-  sudo sh -c "uuu -udev >> /etc/udev/rules.d/70-uuu.rules"
-  sudo udevadm control --reload
+    echo "Installing udev rules for uuu."
+    sudo sh -c "sudo $UTILS/mfgtools/build/uuu/uuu -udev >> /etc/udev/rules.d/70-uuu.rules"
+    sudo udevadm control --reload
+  fi
 
   cd $OVC_MINI_DIR
 }
@@ -38,10 +42,8 @@ install_bsp () {
   cd $OVC_MINI_DIR
 }
 
-# Download/install utils if the directory does not exist yet.
-if [ ! -d "$UTILS" ]; then
-  install_utils  
-fi
+# Download/install utils.
+install_utils  
 
 # Install karo-bsp if not already downloaded.
 if [ ! -d "$BSP" ]; then
