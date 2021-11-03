@@ -6,7 +6,7 @@ if [[ -z "${OVC_MINI_DIR}" ]]; then
 fi
 
 DISTRO="${DISTRO:-ovc-mini}"
-MACHINE="${MACHINE:-qsxp-ml81}"
+MACHINE="${MACHINE:-qsxp-ml81-ovc}"
 BUILD_PRJ="${BUILD_PRJ:-build-ovc}"
 IMAGE="${IMAGE:-ovc-image}"
 
