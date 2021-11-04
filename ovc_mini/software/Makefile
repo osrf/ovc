@@ -5,7 +5,7 @@ SRCS= \
 	src/ar0234.cpp \
 	src/i2c_driver.cpp
 
-SYSROOT=../firmware/bsp/build-karo-nxp/tmp/sysroots/qsxp-ml81
+SYSROOT=../firmware/bsp/build-ovc/tmp/sysroots/qsxp-ml81
 
 main:
 	mkdir -p build

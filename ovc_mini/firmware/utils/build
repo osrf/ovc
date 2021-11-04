@@ -16,7 +16,6 @@ setup_release () {
   cd $BSP_DIR
   source karo-setup-release.sh -b $BUILD_PRJ
   echo "BBLAYERS += \"\${BSPDIR}/sources/meta-ovc\"" >> $BSP_DIR/$BUILD_PRJ/conf/bblayers.conf
-  bitbake $IMAGE
   cd $OVC_MINI_DIR
 }
 
@@ -24,11 +23,12 @@ rebuild () {
   cd $BSP_DIR
   source setup-environment $BUILD_PRJ
   bitbake $IMAGE
+  bitbake build-sysroots
   cd $OVC_MINI_DIR
 }
 
 if [[ ! -d "${BSP_DIR}/${BUILD_PRJ}" ]]; then
   setup_release
-else
-  rebuild
 fi
+
+rebuild
