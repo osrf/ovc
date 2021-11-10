@@ -1,8 +1,8 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Mon Oct 18 14:51:09 2021
-//Host        : luca-focal running 64-bit Ubuntu 20.04.3 LTS
+//Date        : Wed Nov 10 11:30:52 2021
+//Host        : jank-osrf running 64-bit Ubuntu 20.04.3 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
 //Purpose     : IP block netlist
@@ -14,6 +14,7 @@ module design_1_wrapper
     FRAME_END_0,
     FRAME_START_0,
     GPIO,
+    SW_RESET,
     TRIG0,
     TRIG1,
     TRIG2,
@@ -71,6 +72,7 @@ module design_1_wrapper
   output [0:0]FRAME_END_0;
   output [0:0]FRAME_START_0;
   inout [5:0]GPIO;
+  input SW_RESET;
   output [0:0]TRIG0;
   output [0:0]TRIG1;
   output [0:0]TRIG2;
@@ -129,6 +131,7 @@ module design_1_wrapper
   wire [0:0]FRAME_END_0;
   wire [0:0]FRAME_START_0;
   wire [5:0]GPIO;
+  wire SW_RESET;
   wire [0:0]TRIG0;
   wire [0:0]TRIG1;
   wire [0:0]TRIG2;
@@ -248,6 +251,7 @@ module design_1_wrapper
         .FRAME_END_0(FRAME_END_0),
         .FRAME_START_0(FRAME_START_0),
         .GPIO(GPIO),
+        .SW_RESET(SW_RESET),
         .TRIG0(TRIG0),
         .TRIG1(TRIG1),
         .TRIG2(TRIG2),
