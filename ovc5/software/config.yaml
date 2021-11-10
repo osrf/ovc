@@ -7,7 +7,7 @@ cams:
     i2c_dev: 6
   - id: 1
     vdma_dev: 1
-    i2c_dev: 10
+    i2c_dev: 11
   - id: 2
     vdma_dev: 2
     i2c_dev: 1
