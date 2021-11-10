@@ -118,3 +118,7 @@ set_property PACKAGE_PIN W12 [get_ports usb_smbus_rtl_0_scl_io]
 set_property IOSTANDARD LVCMOS33 [get_ports usb_smbus_rtl_0_scl_io]
 set_property PACKAGE_PIN W11 [get_ports usb_smbus_rtl_0_sda_io]
 set_property IOSTANDARD LVCMOS33 [get_ports usb_smbus_rtl_0_sda_io]
+
+# Software Reset
+set_property PACKAGE_PIN L2 [get_ports SW_RESET]
+set_property IOSTANDARD LVCMOS12 [get_ports SW_RESET]
