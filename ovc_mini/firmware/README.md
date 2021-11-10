@@ -31,3 +31,8 @@ https://karo-electronics.github.io/docs/hardware-documentation/pinouts/qsbase3.h
 
 The BSP will be downloaded using `repo` on [`ovc-mini-bsp`](https://github.com/gbalke/ovc-mini-bsp).
 This repository is a fork of Ka-Ro's BSP that adds in [`meta-ovc`](https://github.com/gbalke/meta-ovc).
+
+## TODO
+
+Have the selection of QSXP vs QSXM as an argument to `setup.sh` and adjust paths
+via env variables in the build/upload scripts (currently hard-coded for qsxp).
