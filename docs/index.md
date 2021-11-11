@@ -5,29 +5,35 @@ layout: default
 # The Open Vision Computer
 
 The Open Vision Computer (OVC) was designed to support high speed, vision
-guided autonomous drone flight. In particular our aim was to develop a system
+guided autonomous drone flight. In particular, our aim was to develop a system
 that would be suitable for relatively small-scale flying platforms where size,
 weight, power consumption and computational performance were all important
-considerations. Our recently submitted manuscript describes the primary features of our OVC
+considerations. Our submitted manuscript describes the primary features of our OVC
 system and explains how they are used to support fully autonomous indoor
 and outdoor exploration and navigation operations on our Falcon 250
 quadrotor platform. This manuscript can be found on
 [arXiv](https://arxiv.org/abs/1809.07674v1).
 
-## OVC1
-![OVC](./assets/images/ovc1_front_smaller.jpg)
+Since the inception of the project, there has been a shift to a more generalized
+compute module. With the introduction of OVC4, cameras are now modular to allow for
+arbitrary selection and combination. This enables rapid prototyping for
+applications such as robot heads and autonomous vehicles without the need to re-fabricate
+the compute board with every sensor adjustment.
 
-## OVC2
-![OVC](./assets/images/ovc2-img1.png)
-
-## OVC3
-![OVC](./assets/images/ovc3-palm.jpg)
+## OVC5
+![OVC](./assets/images/ovc5-enclosure-open.jpg)
 
 ## OVC4
 ![OVC](./assets/images/ovc4-perspective.png)
 
-## OVC5
-![OVC](./assets/images/ovc5-enclosure-open.jpg)
+## OVC3
+![OVC](./assets/images/ovc3-palm.jpg)
+
+## OVC2
+![OVC](./assets/images/ovc2-img1.png)
+
+## OVC1
+![OVC](./assets/images/ovc1_front_smaller.jpg)
 
 ## [Software Resources](./software.html)
 
