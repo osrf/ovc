@@ -77,18 +77,6 @@ static cv::Mat unpackTo16(const cv::Mat &frame, uint8_t bit_depth)
   }
 }
 
-OVC::OVC()
-{
-  // Start the server thread (collects images).
-  thread_ = std::thread(&Server::receiveThread, &server_);
-}
-
-OVC::~OVC()
-{
-  server_.stop();
-  thread_.join();
-}
-
 std::unordered_map<uint8_t, OVCImage> OVC::getFrames()
 {
   for (auto &[id, frame] : server_.getFrames())

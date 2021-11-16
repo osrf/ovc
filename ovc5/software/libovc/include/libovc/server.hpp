@@ -8,6 +8,7 @@
 #include <atomic>
 #include <condition_variable>
 #include <mutex>
+#include <thread>
 #include <opencv2/opencv.hpp>
 #include <unordered_map>
 
@@ -36,6 +37,7 @@ class Server
 {
 private:
   static constexpr int BASE_PORT = 12345;
+  static constexpr int NUM_INTERFACES = 1; // Two USB ethernets in parallel
 
   // The Bayer Pattern is as follows:
   //
@@ -55,11 +57,8 @@ private:
 
   ReceiveState state_ = ReceiveState::WAIT_HEADER;
 
-  struct sockaddr_in si_self = {0}, si_other = {0};
-  int sock;
-  int recv_sock;
-
-  bool stop_;
+  bool stop_ = false;
+  int param_sock;
 
   std::unordered_map<uint8_t, OVCImage> ret_imgs;
 
@@ -68,14 +67,15 @@ private:
   std::mutex frames_ready_mutex;
   std::mutex frames_mutex;
   std::unique_lock<std::mutex> frames_ready_guard;
+  std::vector<std::thread> threads;
+
+  void receiveThread(int port_offset);
+
+  std::vector<std::thread> createThreads();
 
 public:
   Server();
   ~Server();
-
-  void receiveThread();
-
-  void stop();
 
   std::unordered_map<uint8_t, OVCImage> getFrames();
 

@@ -11,21 +11,17 @@ namespace libovc
 {
 Server::Server() : frames_ready_guard(frames_ready_mutex)
 {
-  stop_ = false;
 
-  sock = socket(AF_INET, SOCK_STREAM, 0);
-
-  si_self.sin_family = AF_INET;
-  si_self.sin_port = htons(BASE_PORT);
-  si_self.sin_addr.s_addr = htonl(INADDR_ANY);
-
-  bind(sock, (struct sockaddr *)&si_self, sizeof(si_self));
+  threads.push_back(std::thread(&Server::receiveThread, this, 0));
 }
 
 Server::~Server()
 {
-  close(sock);
-  close(recv_sock);
+  stop_ = true;
+  for (auto& thread : threads)
+  {
+    thread.join();
+  }
 }
 
 // TODO atomic to signal from receive thread and mutexes to avoid corrupted
@@ -42,13 +38,22 @@ std::unordered_map<uint8_t, OVCImage> Server::getFrames()
   return ret_imgs;
 }
 
-void Server::stop() { stop_ = true; }
-
-void Server::receiveThread()
+void Server::receiveThread(int port_offset)
 {
+  struct sockaddr_in si_self = {0}, si_other = {0};
+  int sock = socket(AF_INET, SOCK_STREAM, 0);
+  si_self.sin_family = AF_INET;
+  si_self.sin_port = htons(BASE_PORT + port_offset);
+  si_self.sin_addr.s_addr = htonl(INADDR_ANY);
+  bind(sock, (struct sockaddr *)&si_self, sizeof(si_self));
+
+  int recv_sock;
   unsigned int si_size = sizeof(si_other);
   listen(sock, 1);
   recv_sock = accept(sock, (struct sockaddr *)&si_other, &si_size);
+  // Socket used for parameters is the first one
+  if (port_offset == 0)
+    param_sock = recv_sock;
   // TODO proper while condition
   size_t cur_off = 0;
   size_t frame_size = 0;
@@ -124,6 +129,8 @@ void Server::receiveThread()
       frames_ready_var.notify_all();
     }
   }
+  close(sock);
+  close(recv_sock);
 }
 
 void Server::updateConfig(const Json::Value &root)
@@ -134,13 +141,13 @@ void Server::updateConfig(const Json::Value &root)
 
   uint16_t output_size = output.size();
 
-  size_t io_size = write(recv_sock, &output_size, sizeof(output_size));
+  size_t io_size = write(param_sock, &output_size, sizeof(output_size));
   if (io_size != sizeof(output_size))
   {
     std::cout << "libovc: Failed to write json size" << std::endl;
   }
 
-  io_size = write(recv_sock, output.c_str(), output_size);
+  io_size = write(param_sock, output.c_str(), output_size);
   if (io_size != output_size)
   {
     std::cout << "libovc: Failed to write json" << std::endl;
