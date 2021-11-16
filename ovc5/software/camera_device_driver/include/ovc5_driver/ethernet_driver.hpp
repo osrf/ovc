@@ -4,6 +4,7 @@
 #include <arpa/inet.h>
 #include <jsoncpp/json/json.h>
 
+#include <unordered_map>
 #include <string>
 
 #include "ovc5_driver/camera.hpp"
@@ -13,13 +14,29 @@
 class EthernetClient
 {
 private:
+  struct Socket
+  {
+    int num;
+    int used_bw = 0;
+
+    Socket(int num_) : num(num_) {}
+  };
+
+  // Max Mbit/s per USB connection (benchmarked)
+  static constexpr int USB_MAX_BW = 3200;
   int base_port;
 
   struct sockaddr_in sock_in = {0};
-  std::vector<int> socks;
+  std::vector<Socket> socks;
 
   ether_tx_packet_t tx_pkt = {0};
   ether_rx_packet_t rx_pkt = {0};
+
+  std::unordered_map<uint8_t, int> imager_to_socket;
+
+  // Calculates how much bandwidth the camera needs and assigns it
+  // to a matching camera interface
+  void assign_to_socket(uint8_t camera_id, const camera_params_t &params);
 
 public:
   EthernetClient(const std::vector<std::string> &server_ips, int port = 12345);
