@@ -24,9 +24,7 @@ private:
 
   // Max Mbit/s per USB connection (benchmarked)
   static constexpr int USB_MAX_BW = 3200;
-  int base_port;
 
-  struct sockaddr_in sock_in = {0};
   std::vector<Socket> socks;
 
   ether_tx_packet_t tx_pkt = {0};

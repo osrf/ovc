@@ -11,17 +11,17 @@
 
 EthernetClient::EthernetClient(const std::vector<std::string> &server_ips,
                                int port)
-    : base_port(port)
 {
   // TODO different ports for different imagers?
-  for (auto ip : server_ips)
+  for (std::size_t i=0; i<server_ips.size(); ++i)
   {
     int sock = socket(AF_INET, SOCK_STREAM, 0);
+    struct sockaddr_in sock_in = {0};
 
     sock_in.sin_family = AF_INET;
-    sock_in.sin_port = htons(base_port);
+    sock_in.sin_port = htons(port + i);
 
-    inet_aton(ip.c_str(), &sock_in.sin_addr);
+    inet_aton(server_ips[i].c_str(), &sock_in.sin_addr);
 
     if (connect(sock, (struct sockaddr *)&sock_in, sizeof(sock_in)) < 0)
       std::cout << "Failed connecting to server" << std::endl;
