@@ -13,6 +13,7 @@ Server::Server() : frames_ready_guard(frames_ready_mutex)
 {
 
   threads.push_back(std::thread(&Server::receiveThread, this, 0));
+  threads.push_back(std::thread(&Server::receiveThread, this, 1));
 }
 
 Server::~Server()
@@ -53,7 +54,9 @@ void Server::receiveThread(int port_offset)
   recv_sock = accept(sock, (struct sockaddr *)&si_other, &si_size);
   // Socket used for parameters is the first one
   if (port_offset == 0)
+  {
     param_sock = recv_sock;
+  }
   // TODO proper while condition
   size_t cur_off = 0;
   size_t frame_size = 0;

@@ -71,8 +71,6 @@ private:
 
   void receiveThread(int port_offset);
 
-  std::vector<std::thread> createThreads();
-
 public:
   Server();
   ~Server();
