@@ -23,6 +23,6 @@ cams:
 # If cameras are borked this should hang. If it passes straight through, the numbers are backwards.
 trigger_timer_dev: 7
 line_count_timer_dev: 6
-primary_cam: 3
+primary_cam: 0
 # Host's IP Address
 server_ips: ["10.0.1.2", "10.0.2.2"]

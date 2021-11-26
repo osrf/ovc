@@ -4,8 +4,11 @@
 #include <arpa/inet.h>
 #include <jsoncpp/json/json.h>
 
+#include <atomic>
+#include <condition_variable>
 #include <unordered_map>
 #include <string>
+#include <thread>
 
 #include "ovc5_driver/camera.hpp"
 #include "ovc5_driver/ethernet_packetdef.hpp"
@@ -25,26 +28,36 @@ private:
   // Max Mbit/s per USB connection (benchmarked)
   static constexpr int USB_MAX_BW = 3200;
 
-  std::vector<Socket> socks;
+  bool stop = false;
 
-  ether_tx_packet_t tx_pkt = {0};
-  ether_rx_packet_t rx_pkt = {0};
+  std::vector<Socket> socks;
+  std::vector<std::mutex> socks_mutexes;
+  std::vector<std::mutex> cond_var_mutexes;
+  std::vector<std::unique_lock<std::mutex>> socks_locks;
+  std::vector<std::condition_variable> socks_condition_variables;
+  std::vector<std::atomic<unsigned char*>> image_ptrs;
+
+  //ether_tx_packet_t tx_pkt = {0};
 
   std::unordered_map<uint8_t, int> imager_to_socket;
+  std::unordered_map<uint8_t, std::thread> imager_threads;
 
   // Calculates how much bandwidth the camera needs and assigns it
   // to a matching camera interface
   void assign_to_socket(uint8_t camera_id, const camera_params_t &params);
 
+  void send_thread(uint8_t camera_id, const camera_params_t &params);
+
 public:
   EthernetClient(const std::vector<std::string> &server_ips, int port = 12345);
+  ~EthernetClient();
 
   // TODO proper timestamping and packet header
   void send_image(uint8_t camera_id, unsigned char *imgdata,
                   const camera_params_t &params);
 
-  // Returns the packet type received.
-  ether_rx_packet_t *recv();
+  // Wait until all the images are sent and threads are idle
+  void wait_done();
 
   // Waits to receive a json message.
   std::shared_ptr<Json::Value> recv_json();

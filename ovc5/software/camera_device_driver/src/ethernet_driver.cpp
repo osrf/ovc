@@ -11,6 +11,10 @@
 
 EthernetClient::EthernetClient(const std::vector<std::string> &server_ips,
                                int port)
+    : socks_mutexes(server_ips.size()),
+      cond_var_mutexes(server_ips.size()),
+      socks_condition_variables(server_ips.size()),
+      image_ptrs(6) // TODO remove hardcoded 6 (num imagers)
 {
   // TODO different ports for different imagers?
   for (std::size_t i=0; i<server_ips.size(); ++i)
@@ -26,6 +30,9 @@ EthernetClient::EthernetClient(const std::vector<std::string> &server_ips,
     if (connect(sock, (struct sockaddr *)&sock_in, sizeof(sock_in)) < 0)
       std::cout << "Failed connecting to server" << std::endl;
 
+    socks_locks.emplace_back(std::unique_lock<std::mutex>(cond_var_mutexes[i], std::defer_lock));
+    image_ptrs[i] = nullptr;
+
     socks.push_back(Socket(sock));
   }
 
@@ -33,8 +40,20 @@ EthernetClient::EthernetClient(const std::vector<std::string> &server_ips,
   {
     throw std::runtime_error("No server connection established.");
   }
+}
 
-  tx_pkt.frame.frame_id = 0;
+EthernetClient::~EthernetClient()
+{
+  stop = true;
+  std::cout << "Stopping ethernet threads" << std::endl;
+  // Notify all condition variables to stop waiting
+  for (auto& cond_var : socks_condition_variables)
+    cond_var.notify_all();
+  for (auto& thread_it : imager_threads)
+  {
+    thread_it.second.join();
+  }
+  std::cout << "Ethernet threads stopped" << std::endl;
 }
 
 void EthernetClient::assign_to_socket(uint8_t camera_id,
@@ -64,6 +83,53 @@ void EthernetClient::assign_to_socket(uint8_t camera_id,
   socks[min_idx].used_bw += needed_bw;
 }
 
+void EthernetClient::send_thread(uint8_t camera_id, const camera_params_t &params)
+{
+  std::cout << "Thread started for camera " << (int)camera_id << std::endl;
+  assign_to_socket(camera_id, params);
+  const std::size_t sock_idx = imager_to_socket[camera_id];
+  // Initialize a tx packet
+  // TODO frame ID
+  ether_tx_packet_t tx_pkt = {0};
+  tx_pkt.frame.camera_id = camera_id;
+  tx_pkt.frame.height = params.res_y;
+  tx_pkt.frame.width = params.res_x;
+  tx_pkt.frame.bit_depth = params.bit_depth;
+  strncpy(
+      tx_pkt.frame.data_type, params.data_type, sizeof(tx_pkt.frame.data_type));
+  tx_pkt.frame.step = std::round(params.res_x * (params.bit_depth / 8.0));
+  const int frame_size = tx_pkt.frame.height * tx_pkt.frame.step;
+  while (!stop)
+  {
+    // Wait for condition variable
+    while (image_ptrs[camera_id] == nullptr)
+    {
+      if (stop)
+      {
+        return;
+      }
+      socks_condition_variables[sock_idx].wait(socks_locks[sock_idx]);
+    }
+    // We are using the socket, lock the mutex
+    std::lock_guard<std::mutex> lock(socks_mutexes[sock_idx]);
+    unsigned char* imgdata = image_ptrs[camera_id].load();
+    int cur_off = 0;
+    // First send the header
+    const size_t io_size = write(socks[sock_idx].num, tx_pkt.data, sizeof(tx_pkt));
+    if (io_size != sizeof(tx_pkt))
+    {
+      std::cout << "TX packet header failed to send" << std::endl;
+    }
+    while (cur_off < frame_size)
+    {
+      cur_off += write(socks[sock_idx].num, imgdata + cur_off, frame_size - cur_off);
+    }
+    // Empty the atomic
+    image_ptrs[camera_id] = nullptr;
+    //socks_condition_variables[sock_idx].notify_all();
+  }
+}
+
 void EthernetClient::send_image(uint8_t camera_id, unsigned char *imgdata,
                                 const camera_params_t &params)
 {
@@ -72,57 +138,29 @@ void EthernetClient::send_image(uint8_t camera_id, unsigned char *imgdata,
   tx_pkt.frame.t_nsec = now.nsec;
   */
   // Make sure a client was a socket was assigned
-  auto sock_it = imager_to_socket.find(camera_id);
-  if (sock_it == imager_to_socket.end())
+  auto thread_it = imager_threads.find(camera_id);
+  if (thread_it == imager_threads.end())
   {
-    assign_to_socket(camera_id, params);
-    sock_it = imager_to_socket.find(camera_id);
+    imager_threads.insert({camera_id,
+        std::thread(&EthernetClient::send_thread, this, camera_id, params)});
+    std::cout << "Creating thread for imager " << (int)camera_id << std::endl;
   }
-  tx_pkt.frame.camera_id = camera_id;
-  tx_pkt.frame.height = params.res_y;
-  tx_pkt.frame.width = params.res_x;
-  tx_pkt.frame.bit_depth = params.bit_depth;
-  strncpy(
-      tx_pkt.frame.data_type, params.data_type, sizeof(tx_pkt.frame.data_type));
-  tx_pkt.frame.step = std::round(params.res_x * (params.bit_depth / 8.0));
-  int frame_size = tx_pkt.frame.height * tx_pkt.frame.step;
-  int cur_off = 0;
-
-  // First send the header
-  size_t io_size = write(socks[sock_it->second].num, tx_pkt.data, sizeof(tx_pkt));
-  if (io_size != sizeof(tx_pkt))
-  {
-    std::cout << "TX packet header failed to send" << std::endl;
-  }
-  while (cur_off < frame_size)
-  {
-    cur_off += write(socks[sock_it->second].num, imgdata + cur_off, frame_size - cur_off);
-  }
+  const std::size_t sock_idx = imager_to_socket[camera_id];
+  image_ptrs[camera_id] = imgdata;
+  socks_condition_variables[sock_idx].notify_all();
+  std::cout << "Notifying imager " << (int)camera_id << " in cond variable " << sock_idx << std::endl;
 }
 
-ether_rx_packet_t *EthernetClient::recv()
+// Wait until all the images have been sent
+void EthernetClient::wait_done()
 {
-  // This logic checks if there is data and returns nullptr if no data to recv
-  // on the socket.
-  struct timeval timeout;
-  timeout.tv_sec = 0;
-  timeout.tv_usec = 10;
-  fd_set rfds;
-  FD_ZERO(&rfds);
-  FD_SET(socks[0].num, &rfds);
-  int retval = select(socks[0].num + 1, &rfds, NULL, NULL, &timeout);
-  if (0 == retval || -1 == retval)
+  for (const auto& [cam_id, sock] : imager_to_socket)
   {
-    return nullptr;
+    while (!stop && image_ptrs[cam_id] != nullptr)
+    {
+      //socks_condition_variables[sock].wait(socks_locks[sock]);
+    }
   }
-
-  size_t io_size = read(socks[0].num, rx_pkt.data, sizeof(rx_pkt));
-  // Do not warn if empty.
-  if (io_size != sizeof(rx_pkt) && io_size != 0)
-  {
-    std::cout << "RX packet header not received in full" << std::endl;
-  }
-  return &rx_pkt;
 }
 
 std::shared_ptr<Json::Value> EthernetClient::recv_json()
@@ -164,4 +202,5 @@ std::shared_ptr<Json::Value> EthernetClient::recv_json()
   return root;
 }
 
-void EthernetClient::increaseId() { tx_pkt.frame.frame_id++; }
+// TODO implement
+void EthernetClient::increaseId() { /*tx_pkt.frame.frame_id++; */}

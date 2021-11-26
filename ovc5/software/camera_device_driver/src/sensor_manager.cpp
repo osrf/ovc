@@ -86,7 +86,7 @@ void SensorManager::initCameras()
 
     bool is_primary = cam_id == primary_cam_;
     if (is_primary)
-      camera->setMain();
+      camera->setSecondary();
     else
       camera->setSecondary();
   }
@@ -100,21 +100,24 @@ void SensorManager::streamCameras()
     camera->enableStreaming();
   }
   // Trigger a sampling event to read in the first frame.
-  gpio->setValue(GPIO_TRIG_PIN, true);
-  usleep(100);
-  gpio->setValue(GPIO_TRIG_PIN, false);
+  //gpio->setValue(GPIO_TRIG_PIN, true);
+  //usleep(100);
+  //gpio->setValue(GPIO_TRIG_PIN, false);
 }
 
 // The stereo only waits for a single interrupt from the first camera
 std::map<int, unsigned char *> SensorManager::getFrames()
 {
   std::map<int, unsigned char *> frame_map;
+  // TEMPORARY HACK wait for some time (1/4th of a frame)
+  //const int us_sleep = (1.0 / DEFAULT_FRAME_RATE) * 1e6 / 4;
+  //usleep(us_sleep);
 
   // Trigger next frame immediately (circular buffer makes this okay).
   // The first frame will be available by the trigger in streamCameras.
-  gpio->setValue(GPIO_TRIG_PIN, true);
-  usleep(100);
-  gpio->setValue(GPIO_TRIG_PIN, false);
+  //gpio->setValue(GPIO_TRIG_PIN, true);
+  //usleep(100);
+  //gpio->setValue(GPIO_TRIG_PIN, false);
 
   // Start timer and wait for interrupt
   line_counter.interruptAtLine(LINE_BUFFER_SIZE);
@@ -141,6 +144,9 @@ void SensorManager::sendFrames()
     client->send_image(
         (uint8_t)cam_id, frame_ptr, cameras[cam_id]->getCameraParams());
   }
+  client->wait_done();
+  // Wait for the main camera DMA to report frame transfer being done
+  //cameras[primary_cam_]->getFrame();
 }
 
 /* JSON Format
