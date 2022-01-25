@@ -12,8 +12,8 @@
 EthernetClient::EthernetClient(const std::vector<std::string> &server_ips,
                                int port)
     : socks_mutexes(server_ips.size()),
-      cond_var_mutexes(server_ips.size()),
-      socks_condition_variables(server_ips.size()),
+      imager_mutexes(6),
+      imager_condition_variables(6),
       image_ptrs(6) // TODO remove hardcoded 6 (num imagers)
 {
   // TODO different ports for different imagers?
@@ -30,7 +30,6 @@ EthernetClient::EthernetClient(const std::vector<std::string> &server_ips,
     if (connect(sock, (struct sockaddr *)&sock_in, sizeof(sock_in)) < 0)
       std::cout << "Failed connecting to server" << std::endl;
 
-    socks_locks.emplace_back(std::unique_lock<std::mutex>(cond_var_mutexes[i], std::defer_lock));
     image_ptrs[i] = nullptr;
 
     socks.push_back(Socket(sock));
@@ -47,7 +46,7 @@ EthernetClient::~EthernetClient()
   stop = true;
   std::cout << "Stopping ethernet threads" << std::endl;
   // Notify all condition variables to stop waiting
-  for (auto& cond_var : socks_condition_variables)
+  for (auto& cond_var : imager_condition_variables)
     cond_var.notify_all();
   for (auto& thread_it : imager_threads)
   {
@@ -56,11 +55,11 @@ EthernetClient::~EthernetClient()
   std::cout << "Ethernet threads stopped" << std::endl;
 }
 
-void EthernetClient::assign_to_socket(uint8_t camera_id,
+std::size_t EthernetClient::assign_to_socket(uint8_t camera_id,
                                       const camera_params_t &params)
 {
   // In Mbit / sec
-  std::size_t needed_bw = params.res_x * params.res_y * params.fps *
+  const std::size_t needed_bw = params.res_x * params.res_y * params.fps *
       params.bit_depth / (1024 * 1024);
   // Find the socket with the most available bandwidth
   int min_usage = socks[0].used_bw, min_idx = 0;
@@ -81,13 +80,13 @@ void EthernetClient::assign_to_socket(uint8_t camera_id,
   }
   imager_to_socket[camera_id] = min_idx;
   socks[min_idx].used_bw += needed_bw;
+  return min_idx;
 }
 
 void EthernetClient::send_thread(uint8_t camera_id, const camera_params_t &params)
 {
   std::cout << "Thread started for camera " << (int)camera_id << std::endl;
-  assign_to_socket(camera_id, params);
-  const std::size_t sock_idx = imager_to_socket[camera_id];
+  const std::size_t sock_idx = assign_to_socket(camera_id, params);
   // Initialize a tx packet
   // TODO frame ID
   ether_tx_packet_t tx_pkt = {0};
@@ -101,17 +100,20 @@ void EthernetClient::send_thread(uint8_t camera_id, const camera_params_t &param
   const int frame_size = tx_pkt.frame.height * tx_pkt.frame.step;
   while (!stop)
   {
-    // Wait for condition variable
+    // Wait for condition variable, image to be ready
     while (image_ptrs[camera_id] == nullptr)
     {
+      std::unique_lock<std::mutex> imager_lock(imager_mutexes[camera_id]);
       if (stop)
       {
         return;
       }
-      socks_condition_variables[sock_idx].wait(socks_locks[sock_idx]);
+      imager_condition_variables[camera_id].wait(imager_lock);
     }
-    // We are using the socket, lock the mutex
-    std::lock_guard<std::mutex> lock(socks_mutexes[sock_idx]);
+    // We are using the socket, wait for available then lock the mutex
+    std::lock_guard<std::mutex> socket_lock(socks_mutexes[sock_idx]);
+    // The image is being sent, lock the image pointer
+    std::lock_guard<std::mutex> imager_lock(imager_mutexes[camera_id]);
     unsigned char* imgdata = image_ptrs[camera_id].load();
     int cur_off = 0;
     // First send the header
@@ -124,9 +126,9 @@ void EthernetClient::send_thread(uint8_t camera_id, const camera_params_t &param
     {
       cur_off += write(socks[sock_idx].num, imgdata + cur_off, frame_size - cur_off);
     }
-    // Empty the atomic
+    // Empty the atomic and notify for completion of image send
     image_ptrs[camera_id] = nullptr;
-    //socks_condition_variables[sock_idx].notify_all();
+    imager_condition_variables[camera_id].notify_all();
   }
 }
 
@@ -137,7 +139,7 @@ void EthernetClient::send_image(uint8_t camera_id, unsigned char *imgdata,
   tx_pkt.frame.t_sec = now.sec;
   tx_pkt.frame.t_nsec = now.nsec;
   */
-  // Make sure a client was a socket was assigned
+  // Make sure a socket was assigned
   auto thread_it = imager_threads.find(camera_id);
   if (thread_it == imager_threads.end())
   {
@@ -145,10 +147,11 @@ void EthernetClient::send_image(uint8_t camera_id, unsigned char *imgdata,
         std::thread(&EthernetClient::send_thread, this, camera_id, params)});
     std::cout << "Creating thread for imager " << (int)camera_id << std::endl;
   }
-  const std::size_t sock_idx = imager_to_socket[camera_id];
+  // Make sure we don't overwrite the pointer while it's being sent
+  std::lock_guard<std::mutex> imager_lock(imager_mutexes[camera_id]);
   image_ptrs[camera_id] = imgdata;
-  socks_condition_variables[sock_idx].notify_all();
-  std::cout << "Notifying imager " << (int)camera_id << " in cond variable " << sock_idx << std::endl;
+  imager_condition_variables[camera_id].notify_all();
+  std::cout << "Notifying imager " << (int)camera_id << std::endl;
 }
 
 // Wait until all the images have been sent
@@ -156,9 +159,10 @@ void EthernetClient::wait_done()
 {
   for (const auto& [cam_id, sock] : imager_to_socket)
   {
+    std::unique_lock<std::mutex> imager_lock(imager_mutexes[cam_id]);
     while (!stop && image_ptrs[cam_id] != nullptr)
     {
-      //socks_condition_variables[sock].wait(socks_locks[sock]);
+      imager_condition_variables[cam_id].wait(imager_lock);
     }
   }
 }

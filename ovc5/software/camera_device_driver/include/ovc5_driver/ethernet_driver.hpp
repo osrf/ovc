@@ -32,9 +32,8 @@ private:
 
   std::vector<Socket> socks;
   std::vector<std::mutex> socks_mutexes;
-  std::vector<std::mutex> cond_var_mutexes;
-  std::vector<std::unique_lock<std::mutex>> socks_locks;
-  std::vector<std::condition_variable> socks_condition_variables;
+  std::vector<std::mutex> imager_mutexes;
+  std::vector<std::condition_variable> imager_condition_variables;
   std::vector<std::atomic<unsigned char*>> image_ptrs;
 
   //ether_tx_packet_t tx_pkt = {0};
@@ -44,7 +43,7 @@ private:
 
   // Calculates how much bandwidth the camera needs and assigns it
   // to a matching camera interface
-  void assign_to_socket(uint8_t camera_id, const camera_params_t &params);
+  std::size_t assign_to_socket(uint8_t camera_id, const camera_params_t &params);
 
   void send_thread(uint8_t camera_id, const camera_params_t &params);
 
