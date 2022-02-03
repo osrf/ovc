@@ -15029,18 +15029,18 @@ set psu_apply_master_tz {
 set psu_serdes_init_data {
 		# : SERDES INITIALIZATION
 		# : GT REFERENCE CLOCK SOURCE SELECTION
-		# Register : PLL_REF_SEL2 @ 0XFD410008</p>
+		# Register : PLL_REF_SEL0 @ 0XFD410000</p>
 
-		# PLL2 Reference Selection. 0x0 - 5MHz, 0x1 - 9.6MHz, 0x2 - 10MHz, 0x3 - 1
+		# PLL0 Reference Selection. 0x0 - 5MHz, 0x1 - 9.6MHz, 0x2 - 10MHz, 0x3 - 1
     # 2MHz, 0x4 - 13MHz, 0x5 - 19.2MHz, 0x6 - 20MHz, 0x7 - 24MHz, 0x8 - 26MHz,
     #  0x9 - 27MHz, 0xA - 38.4MHz, 0xB - 40MHz, 0xC - 52MHz, 0xD - 100MHz, 0xE
     #  - 108MHz, 0xF - 125MHz, 0x10 - 135MHz, 0x11 - 150 MHz. 0x12 to 0x1F - R
     # eserved
-		# PSU_SERDES_PLL_REF_SEL2_PLLREFSEL2                                              0xD
+		# PSU_SERDES_PLL_REF_SEL0_PLLREFSEL0                                              0xD
 
-		# PLL2 Reference Selection Register
-		#(OFFSET, MASK, VALUE)      (0XFD410008, 0x0000001FU ,0x0000000DU)  */
-    mask_write 0XFD410008 0x0000001F 0x0000000D
+		# PLL0 Reference Selection Register
+		#(OFFSET, MASK, VALUE)      (0XFD410000, 0x0000001FU ,0x0000000DU)  */
+    mask_write 0XFD410000 0x0000001F 0x0000000D
 		# Register : PLL_REF_SEL3 @ 0XFD41000C</p>
 
 		# PLL3 Reference Selection. 0x0 - 5MHz, 0x1 - 9.6MHz, 0x2 - 10MHz, 0x3 - 1
@@ -15054,15 +15054,19 @@ set psu_serdes_init_data {
 		#(OFFSET, MASK, VALUE)      (0XFD41000C, 0x0000001FU ,0x0000000DU)  */
     mask_write 0XFD41000C 0x0000001F 0x0000000D
 		# : GT REFERENCE CLOCK FREQUENCY SELECTION
-		# Register : L0_L2_REF_CLK_SEL @ 0XFD402868</p>
+		# Register : L0_L0_REF_CLK_SEL @ 0XFD402860</p>
 
-		# Sel of lane 2 ref clock local mux. Set to 1 to select lane 1 slicer outp
-    # ut. Set to 0 to select lane2 ref clock mux output.
-		# PSU_SERDES_L0_L2_REF_CLK_SEL_L2_REF_CLK_LCL_SEL                                 0x1
+		# Sel of lane 0 ref clock local mux. Set to 1 to select lane 0 slicer outp
+    # ut. Set to 0 to select lane0 ref clock mux output.
+		# PSU_SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_LCL_SEL                                 0x0
 
-		# Lane2 Ref Clock Selection Register
-		#(OFFSET, MASK, VALUE)      (0XFD402868, 0x00000080U ,0x00000080U)  */
-    mask_write 0XFD402868 0x00000080 0x00000080
+		# Bit 2 of lane 0 ref clock mux one hot sel. Set to 1 to select lane 2 sli
+    # cer output from ref clock network
+		# PSU_SERDES_L0_L0_REF_CLK_SEL_L0_REF_CLK_SEL_2                                   0x1
+
+		# Lane0 Ref Clock Selection Register
+		#(OFFSET, MASK, VALUE)      (0XFD402860, 0x00000084U ,0x00000004U)  */
+    mask_write 0XFD402860 0x00000084 0x00000004
 		# Register : L0_L3_REF_CLK_SEL @ 0XFD40286C</p>
 
 		# Sel of lane 3 ref clock local mux. Set to 1 to select lane 3 slicer outp
@@ -15077,14 +15081,14 @@ set psu_serdes_init_data {
 		#(OFFSET, MASK, VALUE)      (0XFD40286C, 0x00000084U ,0x00000004U)  */
     mask_write 0XFD40286C 0x00000084 0x00000004
 		# : ENABLE SPREAD SPECTRUM
-		# Register : L2_TM_PLL_DIG_37 @ 0XFD40A094</p>
+		# Register : L0_TM_PLL_DIG_37 @ 0XFD402094</p>
 
 		# Enable/Disable coarse code satureation limiting logic
-		# PSU_SERDES_L2_TM_PLL_DIG_37_TM_ENABLE_COARSE_SATURATION                         0x1
+		# PSU_SERDES_L0_TM_PLL_DIG_37_TM_ENABLE_COARSE_SATURATION                         0x1
 
 		# Test mode register 37
-		#(OFFSET, MASK, VALUE)      (0XFD40A094, 0x00000010U ,0x00000010U)  */
-    mask_write 0XFD40A094 0x00000010 0x00000010
+		#(OFFSET, MASK, VALUE)      (0XFD402094, 0x00000010U ,0x00000010U)  */
+    mask_write 0XFD402094 0x00000010 0x00000010
 		# Register : L3_TM_PLL_DIG_37 @ 0XFD40E094</p>
 
 		# Enable/Disable coarse code satureation limiting logic
@@ -15093,22 +15097,6 @@ set psu_serdes_init_data {
 		# Test mode register 37
 		#(OFFSET, MASK, VALUE)      (0XFD40E094, 0x00000010U ,0x00000010U)  */
     mask_write 0XFD40E094 0x00000010 0x00000010
-		# Register : L2_PLL_SS_STEPS_0_LSB @ 0XFD40A368</p>
-
-		# Spread Spectrum No of Steps [7:0]
-		# PSU_SERDES_L2_PLL_SS_STEPS_0_LSB_SS_NUM_OF_STEPS_0_LSB                          0x22
-
-		# Spread Spectrum No of Steps bits 7:0
-		#(OFFSET, MASK, VALUE)      (0XFD40A368, 0x000000FFU ,0x00000022U)  */
-    mask_write 0XFD40A368 0x000000FF 0x00000022
-		# Register : L2_PLL_SS_STEPS_1_MSB @ 0XFD40A36C</p>
-
-		# Spread Spectrum No of Steps [10:8]
-		# PSU_SERDES_L2_PLL_SS_STEPS_1_MSB_SS_NUM_OF_STEPS_1_MSB                          0x4
-
-		# Spread Spectrum No of Steps bits 10:8
-		#(OFFSET, MASK, VALUE)      (0XFD40A36C, 0x00000007U ,0x00000004U)  */
-    mask_write 0XFD40A36C 0x00000007 0x00000004
 		# Register : L3_PLL_SS_STEPS_0_LSB @ 0XFD40E368</p>
 
 		# Spread Spectrum No of Steps [7:0]
@@ -15125,44 +15113,60 @@ set psu_serdes_init_data {
 		# Spread Spectrum No of Steps bits 10:8
 		#(OFFSET, MASK, VALUE)      (0XFD40E36C, 0x00000007U ,0x00000004U)  */
     mask_write 0XFD40E36C 0x00000007 0x00000004
-		# Register : L2_PLL_SS_STEP_SIZE_0_LSB @ 0XFD40A370</p>
+		# Register : L0_PLL_SS_STEPS_0_LSB @ 0XFD402368</p>
+
+		# Spread Spectrum No of Steps [7:0]
+		# PSU_SERDES_L0_PLL_SS_STEPS_0_LSB_SS_NUM_OF_STEPS_0_LSB                          0x22
+
+		# Spread Spectrum No of Steps bits 7:0
+		#(OFFSET, MASK, VALUE)      (0XFD402368, 0x000000FFU ,0x00000022U)  */
+    mask_write 0XFD402368 0x000000FF 0x00000022
+		# Register : L0_PLL_SS_STEPS_1_MSB @ 0XFD40236C</p>
+
+		# Spread Spectrum No of Steps [10:8]
+		# PSU_SERDES_L0_PLL_SS_STEPS_1_MSB_SS_NUM_OF_STEPS_1_MSB                          0x4
+
+		# Spread Spectrum No of Steps bits 10:8
+		#(OFFSET, MASK, VALUE)      (0XFD40236C, 0x00000007U ,0x00000004U)  */
+    mask_write 0XFD40236C 0x00000007 0x00000004
+		# Register : L0_PLL_SS_STEP_SIZE_0_LSB @ 0XFD402370</p>
 
 		# Step Size for Spread Spectrum [7:0]
-		# PSU_SERDES_L2_PLL_SS_STEP_SIZE_0_LSB_SS_STEP_SIZE_0_LSB                         0xED
+		# PSU_SERDES_L0_PLL_SS_STEP_SIZE_0_LSB_SS_STEP_SIZE_0_LSB                         0xED
 
 		# Step Size for Spread Spectrum LSB
-		#(OFFSET, MASK, VALUE)      (0XFD40A370, 0x000000FFU ,0x000000EDU)  */
-    mask_write 0XFD40A370 0x000000FF 0x000000ED
-		# Register : L2_PLL_SS_STEP_SIZE_1 @ 0XFD40A374</p>
+		#(OFFSET, MASK, VALUE)      (0XFD402370, 0x000000FFU ,0x000000EDU)  */
+    mask_write 0XFD402370 0x000000FF 0x000000ED
+		# Register : L0_PLL_SS_STEP_SIZE_1 @ 0XFD402374</p>
 
 		# Step Size for Spread Spectrum [15:8]
-		# PSU_SERDES_L2_PLL_SS_STEP_SIZE_1_SS_STEP_SIZE_1                                 0x55
+		# PSU_SERDES_L0_PLL_SS_STEP_SIZE_1_SS_STEP_SIZE_1                                 0x55
 
 		# Step Size for Spread Spectrum 1
-		#(OFFSET, MASK, VALUE)      (0XFD40A374, 0x000000FFU ,0x00000055U)  */
-    mask_write 0XFD40A374 0x000000FF 0x00000055
-		# Register : L2_PLL_SS_STEP_SIZE_2 @ 0XFD40A378</p>
+		#(OFFSET, MASK, VALUE)      (0XFD402374, 0x000000FFU ,0x00000055U)  */
+    mask_write 0XFD402374 0x000000FF 0x00000055
+		# Register : L0_PLL_SS_STEP_SIZE_2 @ 0XFD402378</p>
 
 		# Step Size for Spread Spectrum [23:16]
-		# PSU_SERDES_L2_PLL_SS_STEP_SIZE_2_SS_STEP_SIZE_2                                 0x1
+		# PSU_SERDES_L0_PLL_SS_STEP_SIZE_2_SS_STEP_SIZE_2                                 0x1
 
 		# Step Size for Spread Spectrum 2
-		#(OFFSET, MASK, VALUE)      (0XFD40A378, 0x000000FFU ,0x00000001U)  */
-    mask_write 0XFD40A378 0x000000FF 0x00000001
-		# Register : L2_PLL_SS_STEP_SIZE_3_MSB @ 0XFD40A37C</p>
+		#(OFFSET, MASK, VALUE)      (0XFD402378, 0x000000FFU ,0x00000001U)  */
+    mask_write 0XFD402378 0x000000FF 0x00000001
+		# Register : L0_PLL_SS_STEP_SIZE_3_MSB @ 0XFD40237C</p>
 
 		# Step Size for Spread Spectrum [25:24]
-		# PSU_SERDES_L2_PLL_SS_STEP_SIZE_3_MSB_SS_STEP_SIZE_3_MSB                         0x0
+		# PSU_SERDES_L0_PLL_SS_STEP_SIZE_3_MSB_SS_STEP_SIZE_3_MSB                         0x0
 
 		# Enable/Disable test mode force on SS step size
-		# PSU_SERDES_L2_PLL_SS_STEP_SIZE_3_MSB_FORCE_SS_STEP_SIZE                         0x1
+		# PSU_SERDES_L0_PLL_SS_STEP_SIZE_3_MSB_FORCE_SS_STEP_SIZE                         0x1
 
 		# Enable/Disable test mode force on SS no of steps
-		# PSU_SERDES_L2_PLL_SS_STEP_SIZE_3_MSB_FORCE_SS_NUM_OF_STEPS                      0x1
+		# PSU_SERDES_L0_PLL_SS_STEP_SIZE_3_MSB_FORCE_SS_NUM_OF_STEPS                      0x1
 
 		# Enable force on enable Spread Spectrum
-		#(OFFSET, MASK, VALUE)      (0XFD40A37C, 0x00000033U ,0x00000030U)  */
-    mask_write 0XFD40A37C 0x00000033 0x00000030
+		#(OFFSET, MASK, VALUE)      (0XFD40237C, 0x00000033U ,0x00000030U)  */
+    mask_write 0XFD40237C 0x00000033 0x00000030
 		# Register : L3_PLL_SS_STEP_SIZE_0_LSB @ 0XFD40E370</p>
 
 		# Step Size for Spread Spectrum [7:0]
@@ -15201,28 +15205,28 @@ set psu_serdes_init_data {
 		# Enable force on enable Spread Spectrum
 		#(OFFSET, MASK, VALUE)      (0XFD40E37C, 0x00000033U ,0x00000030U)  */
     mask_write 0XFD40E37C 0x00000033 0x00000030
-		# Register : L2_TM_DIG_6 @ 0XFD40906C</p>
+		# Register : L0_TM_DIG_6 @ 0XFD40106C</p>
 
 		# Bypass Descrambler
-		# PSU_SERDES_L2_TM_DIG_6_BYPASS_DESCRAM                                           0x1
+		# PSU_SERDES_L0_TM_DIG_6_BYPASS_DESCRAM                                           0x1
 
 		# Enable Bypass for <1> TM_DIG_CTRL_6
-		# PSU_SERDES_L2_TM_DIG_6_FORCE_BYPASS_DESCRAM                                     0x1
+		# PSU_SERDES_L0_TM_DIG_6_FORCE_BYPASS_DESCRAM                                     0x1
 
 		# Data path test modes in decoder and descram
-		#(OFFSET, MASK, VALUE)      (0XFD40906C, 0x00000003U ,0x00000003U)  */
-    mask_write 0XFD40906C 0x00000003 0x00000003
-		# Register : L2_TX_DIG_TM_61 @ 0XFD4080F4</p>
+		#(OFFSET, MASK, VALUE)      (0XFD40106C, 0x00000003U ,0x00000003U)  */
+    mask_write 0XFD40106C 0x00000003 0x00000003
+		# Register : L0_TX_DIG_TM_61 @ 0XFD4000F4</p>
 
 		# Bypass scrambler signal
-		# PSU_SERDES_L2_TX_DIG_TM_61_BYPASS_SCRAM                                         0x1
+		# PSU_SERDES_L0_TX_DIG_TM_61_BYPASS_SCRAM                                         0x1
 
 		# Enable/disable scrambler bypass signal
-		# PSU_SERDES_L2_TX_DIG_TM_61_FORCE_BYPASS_SCRAM                                   0x1
+		# PSU_SERDES_L0_TX_DIG_TM_61_FORCE_BYPASS_SCRAM                                   0x1
 
 		# MPHY PLL Gear and bypass scrambler
-		#(OFFSET, MASK, VALUE)      (0XFD4080F4, 0x00000003U ,0x00000003U)  */
-    mask_write 0XFD4080F4 0x00000003 0x00000003
+		#(OFFSET, MASK, VALUE)      (0XFD4000F4, 0x00000003U ,0x00000003U)  */
+    mask_write 0XFD4000F4 0x00000003 0x00000003
 		# Register : L3_TM_DIG_6 @ 0XFD40D06C</p>
 
 		# Bypass Descrambler
@@ -15246,14 +15250,14 @@ set psu_serdes_init_data {
 		#(OFFSET, MASK, VALUE)      (0XFD40C0F4, 0x00000003U ,0x00000003U)  */
     mask_write 0XFD40C0F4 0x00000003 0x00000003
 		# : ENABLE CHICKEN BIT FOR PCIE AND USB
-		# Register : L2_TM_AUX_0 @ 0XFD4090CC</p>
+		# Register : L0_TM_AUX_0 @ 0XFD4010CC</p>
 
 		# Spare- not used
-		# PSU_SERDES_L2_TM_AUX_0_BIT_2                                                    1
+		# PSU_SERDES_L0_TM_AUX_0_BIT_2                                                    1
 
 		# Spare registers
-		#(OFFSET, MASK, VALUE)      (0XFD4090CC, 0x00000020U ,0x00000020U)  */
-    mask_write 0XFD4090CC 0x00000020 0x00000020
+		#(OFFSET, MASK, VALUE)      (0XFD4010CC, 0x00000020U ,0x00000020U)  */
+    mask_write 0XFD4010CC 0x00000020 0x00000020
 		# Register : L3_TM_AUX_0 @ 0XFD40D0CC</p>
 
 		# Spare- not used
@@ -15296,6 +15300,112 @@ set psu_serdes_init_data {
 		#(OFFSET, MASK, VALUE)      (0XFD40D074, 0x00000010U ,0x00000010U)  */
     mask_write 0XFD40D074 0x00000010 0x00000010
 		# : ILL SETTINGS FOR GAIN AND LOCK SETTINGS
+		# Register : L0_TM_MISC2 @ 0XFD40189C</p>
+
+		# ILL calib counts BYPASSED with calcode bits
+		# PSU_SERDES_L0_TM_MISC2_ILL_CAL_BYPASS_COUNTS                                    0x1
+
+		# sampler cal
+		#(OFFSET, MASK, VALUE)      (0XFD40189C, 0x00000080U ,0x00000080U)  */
+    mask_write 0XFD40189C 0x00000080 0x00000080
+		# Register : L0_TM_IQ_ILL1 @ 0XFD4018F8</p>
+
+		# IQ ILL F0 CALCODE bypass value. MPHY : G1a, PCIE : Gen 1, SATA : Gen1 ,
+    # USB3 : SS
+		# PSU_SERDES_L0_TM_IQ_ILL1_ILL_BYPASS_IQ_CALCODE_F0                               0x64
+
+		# iqpi cal code
+		#(OFFSET, MASK, VALUE)      (0XFD4018F8, 0x000000FFU ,0x00000064U)  */
+    mask_write 0XFD4018F8 0x000000FF 0x00000064
+		# Register : L0_TM_IQ_ILL2 @ 0XFD4018FC</p>
+
+		# IQ ILL F1 CALCODE bypass value. MPHY : G1b, PCIE : Gen2, SATA: Gen2
+		# PSU_SERDES_L0_TM_IQ_ILL2_ILL_BYPASS_IQ_CALCODE_F1                               0x64
+
+		# iqpi cal code
+		#(OFFSET, MASK, VALUE)      (0XFD4018FC, 0x000000FFU ,0x00000064U)  */
+    mask_write 0XFD4018FC 0x000000FF 0x00000064
+		# Register : L0_TM_ILL12 @ 0XFD401990</p>
+
+		# G1A pll ctr bypass value
+		# PSU_SERDES_L0_TM_ILL12_G1A_PLL_CTR_BYP_VAL                                      0x10
+
+		# ill pll counter values
+		#(OFFSET, MASK, VALUE)      (0XFD401990, 0x000000FFU ,0x00000010U)  */
+    mask_write 0XFD401990 0x000000FF 0x00000010
+		# Register : L0_TM_E_ILL1 @ 0XFD401924</p>
+
+		# E ILL F0 CALCODE bypass value. MPHY : G1a, PCIE : Gen 1, SATA : Gen1 , U
+    # SB3 : SS
+		# PSU_SERDES_L0_TM_E_ILL1_ILL_BYPASS_E_CALCODE_F0                                 0xFE
+
+		# epi cal code
+		#(OFFSET, MASK, VALUE)      (0XFD401924, 0x000000FFU ,0x000000FEU)  */
+    mask_write 0XFD401924 0x000000FF 0x000000FE
+		# Register : L0_TM_E_ILL2 @ 0XFD401928</p>
+
+		# E ILL F1 CALCODE bypass value. MPHY : G1b, PCIE : Gen2, SATA: Gen2
+		# PSU_SERDES_L0_TM_E_ILL2_ILL_BYPASS_E_CALCODE_F1                                 0x0
+
+		# epi cal code
+		#(OFFSET, MASK, VALUE)      (0XFD401928, 0x000000FFU ,0x00000000U)  */
+    mask_write 0XFD401928 0x000000FF 0x00000000
+		# Register : L0_TM_IQ_ILL3 @ 0XFD401900</p>
+
+		# IQ ILL F2CALCODE bypass value. MPHY : G2a, SATA : Gen3
+		# PSU_SERDES_L0_TM_IQ_ILL3_ILL_BYPASS_IQ_CALCODE_F2                               0x64
+
+		# iqpi cal code
+		#(OFFSET, MASK, VALUE)      (0XFD401900, 0x000000FFU ,0x00000064U)  */
+    mask_write 0XFD401900 0x000000FF 0x00000064
+		# Register : L0_TM_E_ILL3 @ 0XFD40192C</p>
+
+		# E ILL F2CALCODE bypass value. MPHY : G2a, SATA : Gen3
+		# PSU_SERDES_L0_TM_E_ILL3_ILL_BYPASS_E_CALCODE_F2                                 0x0
+
+		# epi cal code
+		#(OFFSET, MASK, VALUE)      (0XFD40192C, 0x000000FFU ,0x00000000U)  */
+    mask_write 0XFD40192C 0x000000FF 0x00000000
+		# Register : L0_TM_ILL8 @ 0XFD401980</p>
+
+		# ILL calibration code change wait time
+		# PSU_SERDES_L0_TM_ILL8_ILL_CAL_ITER_WAIT                                         0xFF
+
+		# ILL cal routine control
+		#(OFFSET, MASK, VALUE)      (0XFD401980, 0x000000FFU ,0x000000FFU)  */
+    mask_write 0XFD401980 0x000000FF 0x000000FF
+		# Register : L0_TM_IQ_ILL8 @ 0XFD401914</p>
+
+		# IQ ILL polytrim bypass value
+		# PSU_SERDES_L0_TM_IQ_ILL8_ILL_BYPASS_IQ_POLYTRIM_VAL                             0xF7
+
+		# iqpi polytrim
+		#(OFFSET, MASK, VALUE)      (0XFD401914, 0x000000FFU ,0x000000F7U)  */
+    mask_write 0XFD401914 0x000000FF 0x000000F7
+		# Register : L0_TM_IQ_ILL9 @ 0XFD401918</p>
+
+		# bypass IQ polytrim
+		# PSU_SERDES_L0_TM_IQ_ILL9_ILL_BYPASS_IQ_POLYTIM                                  0x1
+
+		# enables for lf,constant gm trim and polytirm
+		#(OFFSET, MASK, VALUE)      (0XFD401918, 0x00000001U ,0x00000001U)  */
+    mask_write 0XFD401918 0x00000001 0x00000001
+		# Register : L0_TM_E_ILL8 @ 0XFD401940</p>
+
+		# E ILL polytrim bypass value
+		# PSU_SERDES_L0_TM_E_ILL8_ILL_BYPASS_E_POLYTRIM_VAL                               0xF7
+
+		# epi polytrim
+		#(OFFSET, MASK, VALUE)      (0XFD401940, 0x000000FFU ,0x000000F7U)  */
+    mask_write 0XFD401940 0x000000FF 0x000000F7
+		# Register : L0_TM_E_ILL9 @ 0XFD401944</p>
+
+		# bypass E polytrim
+		# PSU_SERDES_L0_TM_E_ILL9_ILL_BYPASS_E_POLYTIM                                    0x1
+
+		# enables for lf,constant gm trim and polytirm
+		#(OFFSET, MASK, VALUE)      (0XFD401944, 0x00000001U ,0x00000001U)  */
+    mask_write 0XFD401944 0x00000001 0x00000001
 		# Register : L0_TM_ILL13 @ 0XFD401994</p>
 
 		# ILL cal idle val refcnt
@@ -15312,112 +15422,6 @@ set psu_serdes_init_data {
 		# ill cal idle value count
 		#(OFFSET, MASK, VALUE)      (0XFD405994, 0x00000007U ,0x00000007U)  */
     mask_write 0XFD405994 0x00000007 0x00000007
-		# Register : L2_TM_MISC2 @ 0XFD40989C</p>
-
-		# ILL calib counts BYPASSED with calcode bits
-		# PSU_SERDES_L2_TM_MISC2_ILL_CAL_BYPASS_COUNTS                                    0x1
-
-		# sampler cal
-		#(OFFSET, MASK, VALUE)      (0XFD40989C, 0x00000080U ,0x00000080U)  */
-    mask_write 0XFD40989C 0x00000080 0x00000080
-		# Register : L2_TM_IQ_ILL1 @ 0XFD4098F8</p>
-
-		# IQ ILL F0 CALCODE bypass value. MPHY : G1a, PCIE : Gen 1, SATA : Gen1 ,
-    # USB3 : SS
-		# PSU_SERDES_L2_TM_IQ_ILL1_ILL_BYPASS_IQ_CALCODE_F0                               0x64
-
-		# iqpi cal code
-		#(OFFSET, MASK, VALUE)      (0XFD4098F8, 0x000000FFU ,0x00000064U)  */
-    mask_write 0XFD4098F8 0x000000FF 0x00000064
-		# Register : L2_TM_IQ_ILL2 @ 0XFD4098FC</p>
-
-		# IQ ILL F1 CALCODE bypass value. MPHY : G1b, PCIE : Gen2, SATA: Gen2
-		# PSU_SERDES_L2_TM_IQ_ILL2_ILL_BYPASS_IQ_CALCODE_F1                               0x64
-
-		# iqpi cal code
-		#(OFFSET, MASK, VALUE)      (0XFD4098FC, 0x000000FFU ,0x00000064U)  */
-    mask_write 0XFD4098FC 0x000000FF 0x00000064
-		# Register : L2_TM_ILL12 @ 0XFD409990</p>
-
-		# G1A pll ctr bypass value
-		# PSU_SERDES_L2_TM_ILL12_G1A_PLL_CTR_BYP_VAL                                      0x10
-
-		# ill pll counter values
-		#(OFFSET, MASK, VALUE)      (0XFD409990, 0x000000FFU ,0x00000010U)  */
-    mask_write 0XFD409990 0x000000FF 0x00000010
-		# Register : L2_TM_E_ILL1 @ 0XFD409924</p>
-
-		# E ILL F0 CALCODE bypass value. MPHY : G1a, PCIE : Gen 1, SATA : Gen1 , U
-    # SB3 : SS
-		# PSU_SERDES_L2_TM_E_ILL1_ILL_BYPASS_E_CALCODE_F0                                 0xFE
-
-		# epi cal code
-		#(OFFSET, MASK, VALUE)      (0XFD409924, 0x000000FFU ,0x000000FEU)  */
-    mask_write 0XFD409924 0x000000FF 0x000000FE
-		# Register : L2_TM_E_ILL2 @ 0XFD409928</p>
-
-		# E ILL F1 CALCODE bypass value. MPHY : G1b, PCIE : Gen2, SATA: Gen2
-		# PSU_SERDES_L2_TM_E_ILL2_ILL_BYPASS_E_CALCODE_F1                                 0x0
-
-		# epi cal code
-		#(OFFSET, MASK, VALUE)      (0XFD409928, 0x000000FFU ,0x00000000U)  */
-    mask_write 0XFD409928 0x000000FF 0x00000000
-		# Register : L2_TM_IQ_ILL3 @ 0XFD409900</p>
-
-		# IQ ILL F2CALCODE bypass value. MPHY : G2a, SATA : Gen3
-		# PSU_SERDES_L2_TM_IQ_ILL3_ILL_BYPASS_IQ_CALCODE_F2                               0x64
-
-		# iqpi cal code
-		#(OFFSET, MASK, VALUE)      (0XFD409900, 0x000000FFU ,0x00000064U)  */
-    mask_write 0XFD409900 0x000000FF 0x00000064
-		# Register : L2_TM_E_ILL3 @ 0XFD40992C</p>
-
-		# E ILL F2CALCODE bypass value. MPHY : G2a, SATA : Gen3
-		# PSU_SERDES_L2_TM_E_ILL3_ILL_BYPASS_E_CALCODE_F2                                 0x0
-
-		# epi cal code
-		#(OFFSET, MASK, VALUE)      (0XFD40992C, 0x000000FFU ,0x00000000U)  */
-    mask_write 0XFD40992C 0x000000FF 0x00000000
-		# Register : L2_TM_ILL8 @ 0XFD409980</p>
-
-		# ILL calibration code change wait time
-		# PSU_SERDES_L2_TM_ILL8_ILL_CAL_ITER_WAIT                                         0xFF
-
-		# ILL cal routine control
-		#(OFFSET, MASK, VALUE)      (0XFD409980, 0x000000FFU ,0x000000FFU)  */
-    mask_write 0XFD409980 0x000000FF 0x000000FF
-		# Register : L2_TM_IQ_ILL8 @ 0XFD409914</p>
-
-		# IQ ILL polytrim bypass value
-		# PSU_SERDES_L2_TM_IQ_ILL8_ILL_BYPASS_IQ_POLYTRIM_VAL                             0xF7
-
-		# iqpi polytrim
-		#(OFFSET, MASK, VALUE)      (0XFD409914, 0x000000FFU ,0x000000F7U)  */
-    mask_write 0XFD409914 0x000000FF 0x000000F7
-		# Register : L2_TM_IQ_ILL9 @ 0XFD409918</p>
-
-		# bypass IQ polytrim
-		# PSU_SERDES_L2_TM_IQ_ILL9_ILL_BYPASS_IQ_POLYTIM                                  0x1
-
-		# enables for lf,constant gm trim and polytirm
-		#(OFFSET, MASK, VALUE)      (0XFD409918, 0x00000001U ,0x00000001U)  */
-    mask_write 0XFD409918 0x00000001 0x00000001
-		# Register : L2_TM_E_ILL8 @ 0XFD409940</p>
-
-		# E ILL polytrim bypass value
-		# PSU_SERDES_L2_TM_E_ILL8_ILL_BYPASS_E_POLYTRIM_VAL                               0xF7
-
-		# epi polytrim
-		#(OFFSET, MASK, VALUE)      (0XFD409940, 0x000000FFU ,0x000000F7U)  */
-    mask_write 0XFD409940 0x000000FF 0x000000F7
-		# Register : L2_TM_E_ILL9 @ 0XFD409944</p>
-
-		# bypass E polytrim
-		# PSU_SERDES_L2_TM_E_ILL9_ILL_BYPASS_E_POLYTIM                                    0x1
-
-		# enables for lf,constant gm trim and polytirm
-		#(OFFSET, MASK, VALUE)      (0XFD409944, 0x00000001U ,0x00000001U)  */
-    mask_write 0XFD409944 0x00000001 0x00000001
 		# Register : L2_TM_ILL13 @ 0XFD409994</p>
 
 		# ILL cal idle val refcnt
@@ -15759,19 +15763,24 @@ set psu_serdes_init_data {
 		# : SERDES ILL CALIB
 		# : DISABLE ECO FOR PCIE
 		# : GT LANE SETTINGS
-		# Register : ICM_CFG1 @ 0XFD410014</p>
+		# Register : ICM_CFG0 @ 0XFD410010</p>
 
-		# Controls UPHY Lane 2 protocol configuration. 0 - PowerDown, 1 - PCIe.1,
-    # 2 - Sata0, 3 - USB0, 4 - DP.1, 5 - SGMII2, 6 - Unused, 7 - Unused
-		# PSU_SERDES_ICM_CFG1_L2_ICM_CFG                                                  3
+		# Controls UPHY Lane 0 protocol configuration. 0 - PowerDown, 1 - PCIe .0,
+    #  2 - Sata0, 3 - USB0, 4 - DP.1, 5 - SGMII0, 6 - Unused, 7 - Unused
+		# PSU_SERDES_ICM_CFG0_L0_ICM_CFG                                                  3
+
+		# ICM Configuration Register 0
+		#(OFFSET, MASK, VALUE)      (0XFD410010, 0x00000007U ,0x00000003U)  */
+    mask_write 0XFD410010 0x00000007 0x00000003
+		# Register : ICM_CFG1 @ 0XFD410014</p>
 
 		# Controls UPHY Lane 3 protocol configuration. 0 - PowerDown, 1 - PCIe.3,
     # 2 - Sata1, 3 - USB1, 4 - DP.0, 5 - SGMII3, 6 - Unused, 7 - Unused
 		# PSU_SERDES_ICM_CFG1_L3_ICM_CFG                                                  3
 
 		# ICM Configuration Register 1
-		#(OFFSET, MASK, VALUE)      (0XFD410014, 0x00000077U ,0x00000033U)  */
-    mask_write 0XFD410014 0x00000077 0x00000033
+		#(OFFSET, MASK, VALUE)      (0XFD410014, 0x00000070U ,0x00000030U)  */
+    mask_write 0XFD410014 0x00000070 0x00000030
 		# : CHECKING PLL LOCK
 		# : ENABLE SERIAL DATA MUX DEEMPH
 		# : CDR AND RX EQUALIZATION SETTINGS
@@ -16249,12 +16258,12 @@ set psu_resetout_init_data {
 		# ATTR_25
 		#(OFFSET, MASK, VALUE)      (0XFD480064, 0x00000200U ,0x00000200U)  */
     mask_write 0XFD480064 0x00000200 0x00000200
-		# : CHECK PLL LOCK FOR LANE2
-		# Register : L2_PLL_STATUS_READ_1 @ 0XFD40A3E4</p>
+		# : CHECK PLL LOCK FOR LANE0
+		# Register : L0_PLL_STATUS_READ_1 @ 0XFD4023E4</p>
 
 		# Status Read value of PLL Lock
-		# PSU_SERDES_L2_PLL_STATUS_READ_1_PLL_LOCK_STATUS_READ                            1
-    mask_poll 0XFD40A3E4 0x00000010
+		# PSU_SERDES_L0_PLL_STATUS_READ_1_PLL_LOCK_STATUS_READ                            1
+    mask_poll 0XFD4023E4 0x00000010
 		# : CHECK PLL LOCK FOR LANE3
 		# Register : L3_PLL_STATUS_READ_1 @ 0XFD40E3E4</p>
 

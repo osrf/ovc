@@ -1,8 +1,8 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Tue Aug 24 12:08:48 2021
-//Host        : jank-osrf running 64-bit Ubuntu 20.04.3 LTS
+//Date        : Mon Oct 18 14:51:09 2021
+//Host        : luca-focal running 64-bit Ubuntu 20.04.3 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
 //Purpose     : IP block netlist
@@ -64,7 +64,9 @@ module design_1_wrapper
     qwiic_rtl_1_scl_io,
     qwiic_rtl_1_sda_io,
     qwiic_rtl_2_scl_io,
-    qwiic_rtl_2_sda_io);
+    qwiic_rtl_2_sda_io,
+    usb_smbus_rtl_0_scl_io,
+    usb_smbus_rtl_0_sda_io);
   output [5:0]ENABLE;
   output [0:0]FRAME_END_0;
   output [0:0]FRAME_START_0;
@@ -120,6 +122,8 @@ module design_1_wrapper
   inout qwiic_rtl_1_sda_io;
   inout qwiic_rtl_2_scl_io;
   inout qwiic_rtl_2_sda_io;
+  inout usb_smbus_rtl_0_scl_io;
+  inout usb_smbus_rtl_0_sda_io;
 
   wire [5:0]ENABLE;
   wire [0:0]FRAME_END_0;
@@ -230,6 +234,14 @@ module design_1_wrapper
   wire qwiic_rtl_2_sda_io;
   wire qwiic_rtl_2_sda_o;
   wire qwiic_rtl_2_sda_t;
+  wire usb_smbus_rtl_0_scl_i;
+  wire usb_smbus_rtl_0_scl_io;
+  wire usb_smbus_rtl_0_scl_o;
+  wire usb_smbus_rtl_0_scl_t;
+  wire usb_smbus_rtl_0_sda_i;
+  wire usb_smbus_rtl_0_sda_io;
+  wire usb_smbus_rtl_0_sda_o;
+  wire usb_smbus_rtl_0_sda_t;
 
   design_1 design_1_i
        (.ENABLE(ENABLE),
@@ -322,7 +334,13 @@ module design_1_wrapper
         .qwiic_rtl_2_scl_t(qwiic_rtl_2_scl_t),
         .qwiic_rtl_2_sda_i(qwiic_rtl_2_sda_i),
         .qwiic_rtl_2_sda_o(qwiic_rtl_2_sda_o),
-        .qwiic_rtl_2_sda_t(qwiic_rtl_2_sda_t));
+        .qwiic_rtl_2_sda_t(qwiic_rtl_2_sda_t),
+        .usb_smbus_rtl_0_scl_i(usb_smbus_rtl_0_scl_i),
+        .usb_smbus_rtl_0_scl_o(usb_smbus_rtl_0_scl_o),
+        .usb_smbus_rtl_0_scl_t(usb_smbus_rtl_0_scl_t),
+        .usb_smbus_rtl_0_sda_i(usb_smbus_rtl_0_sda_i),
+        .usb_smbus_rtl_0_sda_o(usb_smbus_rtl_0_sda_o),
+        .usb_smbus_rtl_0_sda_t(usb_smbus_rtl_0_sda_t));
   IOBUF iic_rtl_0_scl_iobuf
        (.I(iic_rtl_0_scl_o),
         .IO(iic_rtl_0_scl_io),
@@ -413,4 +431,14 @@ module design_1_wrapper
         .IO(qwiic_rtl_2_sda_io),
         .O(qwiic_rtl_2_sda_i),
         .T(qwiic_rtl_2_sda_t));
+  IOBUF usb_smbus_rtl_0_scl_iobuf
+       (.I(usb_smbus_rtl_0_scl_o),
+        .IO(usb_smbus_rtl_0_scl_io),
+        .O(usb_smbus_rtl_0_scl_i),
+        .T(usb_smbus_rtl_0_scl_t));
+  IOBUF usb_smbus_rtl_0_sda_iobuf
+       (.I(usb_smbus_rtl_0_sda_o),
+        .IO(usb_smbus_rtl_0_sda_io),
+        .O(usb_smbus_rtl_0_sda_i),
+        .T(usb_smbus_rtl_0_sda_t));
 endmodule
