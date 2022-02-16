@@ -4171,8 +4171,17 @@ CONFIG_imagefeature-debug-tweaks=y
 # CONFIG_peekpoke is not set
 
 #
+# modules 
+#
+CONFIG_udmabuf=y
+
+#
 # user packages 
 #
+CONFIG_iperf3=y
+CONFIG_kernel-devsrc=y
+CONFIG_memtester=y
+CONFIG_phytool=y
 
 #
 # PetaLinux RootFS Settings
