@@ -4,10 +4,6 @@
 	status = "okay";
 };
 
-&serdes {
-	status = "okay";
-};
-
 &rtc {
 	status = "okay";
 };

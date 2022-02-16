@@ -3,26 +3,26 @@
 # NOTE: `cat` their `name` file to find the device type.
 cams:
   - id: 0
-    vdma_dev: 0
-    i2c_dev: 6
-  - id: 1
-    vdma_dev: 1
-    i2c_dev: 11
-  - id: 2
-    vdma_dev: 2
-    i2c_dev: 1
-  - id: 3
-    vdma_dev: 3
-    i2c_dev: 2
-  - id: 4
     vdma_dev: 4
-    i2c_dev: 3
-  - id: 5
+    i2c_dev: 1
+  - id: 1
     vdma_dev: 5
-    i2c_dev: 4
+    i2c_dev: 2
+  - id: 2
+    vdma_dev: 6
+    i2c_dev: 5
+  - id: 3
+    vdma_dev: 7
+    i2c_dev: 6
+  - id: 4
+    vdma_dev: 8
+    i2c_dev: 7
+  - id: 5
+    vdma_dev: 9
+    i2c_dev: 8
 # If cameras are borked this should hang. If it passes straight through, the numbers are backwards.
-trigger_timer_dev: 7
-line_count_timer_dev: 6
-primary_cam: 3
+trigger_timer_dev: 11
+line_count_timer_dev: 10
+primary_cam: 1
 # Host's IP Address
 server_ips: ["10.0.1.2"]

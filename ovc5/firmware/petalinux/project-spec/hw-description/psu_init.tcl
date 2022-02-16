@@ -4743,11 +4743,11 @@ set psu_ddr_init_data {
 		# Register : GPR1 @ 0XFD0800C4</p>
 
 		# General Purpose Register 1
-		# PSU_DDR_PHY_GPR1_GPR1                                                           0xe3
+		# PSU_DDR_PHY_GPR1_GPR1                                                           0xe5
 
 		# General Purpose Register 1
-		#(OFFSET, MASK, VALUE)      (0XFD0800C4, 0xFFFFFFFFU ,0x000000E3U)  */
-    mask_write 0XFD0800C4 0xFFFFFFFF 0x000000E3
+		#(OFFSET, MASK, VALUE)      (0XFD0800C4, 0xFFFFFFFFU ,0x000000E5U)  */
+    mask_write 0XFD0800C4 0xFFFFFFFF 0x000000E5
 		# Register : DCR @ 0XFD080100</p>
 
 		# DDR4 Gear Down Timing.
