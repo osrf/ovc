@@ -228,16 +228,37 @@ allow-hotplug usb0
 iface usb0 inet static
     address 10.0.1.1
     netmask 255.255.255.252
-    gateway 10.0.1.0"
+    gateway 10.0.1.0
+    
+allow-hotplug usb1
+iface usb0 inet static
+    address 10.0.2.1
+    netmask 255.255.255.252
+    gateway 10.0.2.0"
 
-subnet_text="subnet 10.0.1.0 netmask 255.255.255.252 {
+subnet_text="
+subnet 10.0.1.0 netmask 255.255.255.252 {
   interface usb0;
   range 10.0.1.1 10.0.1.2;
   option subnet-mask 255.255.255.252;
   option routers 10.0.1.1;
   option broadcast-address 10.0.1.3;
   option interface-mtu 13500;
+}
+
+subnet 10.0.2.0 netmask 255.255.255.252 {
+  interface usb1;
+  range 10.0.2.1 10.0.2.2;
+  option subnet-mask 255.255.255.252;
+  option routers 10.0.2.1;
+  option broadcast-address 10.0.2.3;
+  option interface-mtu 13500;
 }"
+
+# It seems udev rule is not really working
+rclocal_text="
+bash /root/startup.sh
+"
 
   # Copy in all scripts that the device will use.
   sudo cp -r $DIR/device_scripts/* $ROOT_DIR/root/
@@ -249,17 +270,21 @@ passwd
 $TEMP_PASSWORD
 $TEMP_PASSWORD
 apt update
-apt install -y vim locales openssh-server ifupdown net-tools iputils-ping avahi-autoipd avahi-daemon haveged i2c-tools rsyslog
+apt install -y vim locales openssh-server ifupdown net-tools iputils-ping avahi-autoipd avahi-daemon haveged i2c-tools rsyslog iperf3
 apt install -y git cmake libi2c-dev isc-dhcp-server libyaml-cpp-dev dosfstools libjsoncpp-dev
 grep -qxF 'ttyPS0' /etc/securetty || echo 'ttyPS0' >> /etc/securetty
-bash /root/device_scripts/ethernet_utils/init_files/distribute_files
+cd /root/ethernet_utils/init_files
+bash distribute_files
+cd -
 grep -qxF '$interfaces_text' /etc/network/interfaces || echo '$interfaces_text' >> /etc/network/interfaces
-grep -qxF '$subnet_text' /etc/dhcp/dhcpd.conf || echo '$subnet_text' >> /etc/dhcp/dhcpd.conf
+echo '$subnet_text' >> /etc/dhcp/dhcpd.conf
 egrep -v '^\s*#' /etc/ssh/sshd_config | grep -qxF 'PermitRootLogin yes' || echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 egrep -v '^\s*#' /etc/ssh/sshd_config | grep -qxF 'PasswordAuthentication yes' || echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
-sed -i 's/INTERFACESv4=\"\"/INTERFACESv4=\"usb0\"/g' /etc/default/isc-dhcp-server
+sed -i 's/INTERFACESv4=\"\"/INTERFACESv4=\"usb0 usb1\"/g' /etc/default/isc-dhcp-server
 sed -i 's/#OPTIONS=\"\"/OPTIONS=\"-4 -s\"/g' /etc/default/isc-dhcp-server
 echo \"TERM=xterm-256color\" >> /root/.bashrc
+touch /etc/rc.local
+echo "$rclocal_text" >> /etc/rc.local
 " | sudo schroot -c arm64-debian -u root
 
   echo "
