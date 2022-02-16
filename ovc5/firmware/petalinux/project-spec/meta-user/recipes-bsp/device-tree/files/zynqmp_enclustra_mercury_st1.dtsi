@@ -1,4 +1,3 @@
-#include <dt-bindings/clock/clk-si5338.h>
 #include <dt-bindings/phy/phy.h>
 
 &usb0 {
@@ -53,67 +52,4 @@
 		#clock-cells = <0>;
 		clock-frequency = <100000000>;
 	};
-};
-
-&i2c0 {
-	si5338@70 {
-		compatible = "silabs,si5338";
-		reg = <0x70>;
-		#address-cells = <1>;
-		#size-cells = <0>;
-		#clock-cells = <1>;
-
-		clocks = <0>, <0>, <&ref100>, <0>, <0>;
-		clock-names = "xtal", "in12", "in3", "in4", "in56";
-
-		silab,ref-source = <SI5338_REF_SRC_CLKIN3>;
-		silab,fb-source = <SI5338_FB_SRC_NOCLK>;
-		silab,pll-source = <SI5338_PFD_IN_REF_REFCLK>;
-
-		/* output */
-		clkout0 {
-			reg = <0>;
-			silabs,drive-config = "3V3_LVDS";
-			silabs,clock-source = <SI5338_OUT_MUX_MSN>;
-			silabs,disable-state = <SI5338_OUT_DIS_HIZ>;
-			clock-frequency = <125000000>;
-			/* enabled = "okay"; */
-		};
-		clkout1 {
-			reg = <1>;
-			silabs,drive-config = "3V3_LVDS";
-			silabs,clock-source = <SI5338_OUT_MUX_MSN>;
-			silabs,disable-state = <SI5338_OUT_DIS_HIZ>;
-			clock-frequency = <125000000>;
-			/* enabled = "okay"; */
-		};
-		clkout2 {
-			reg = <2>;
-			silabs,drive-config = "3V3_LVDS";
-			silabs,clock-source = <SI5338_OUT_MUX_MSN>;
-			silabs,disable-state = <SI5338_OUT_DIS_HIZ>;
-			clock-frequency = <125000000>;
-			/* enabled = "okay"; */
-		};
-		clkout3 {
-			reg = <3>;
-			silabs,drive-config = "3V3_LVDS";
-			silabs,clock-source = <SI5338_OUT_MUX_MSN>;
-			silabs,disable-state = <SI5338_OUT_DIS_HIZ>;
-			clock-frequency = <125000000>;
-			/* enabled = "okay"; */
-		};
-	};
-};
-
-&xlnx_dpdma {
-	status = "okay";
-};
-
-&zynqmp_dpsub {
-	status = "okay";
-	phy-names = "dp-phy0", "dp-phy1";
-	phys = <&lane1 PHY_TYPE_DP 0x0 0x3 27000000>, <&lane0 PHY_TYPE_DP 0x1 0x3 27000000>;
-	dma-names = "vid0", "vid1", "vid2", "gfx0";
-	dmas = <&xlnx_dpdma 0>, <&xlnx_dpdma 1>, <&xlnx_dpdma 2>, <&xlnx_dpdma 3>;
 };

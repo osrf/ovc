@@ -1,11 +1,12 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/files:${SYSCONFIG_PATH}:"
 
-SRC_URI += "file://system-user.dtsi"
-SRC_URI += " file://zynqmp_enclustra_common.dtsi"
-SRC_URI += " file://zynqmp_enclustra_mercury_xu9.dtsi"
-SRC_URI += " file://zynqmp_enclustra_mercury_xu5.dtsi"
-SRC_URI += " file://zynqmp_enclustra_mercury_st1.dtsi"
-SRC_URI += " file://ovc5_overrides.dtsi"
+SRC_URI_append += " file://config"
+SRC_URI_append += " file://system-user.dtsi"
+SRC_URI_append += " file://zynqmp_enclustra_common.dtsi"
+SRC_URI_append += " file://zynqmp_enclustra_mercury_xu9.dtsi"
+SRC_URI_append += " file://zynqmp_enclustra_mercury_xu5.dtsi"
+SRC_URI_append += " file://zynqmp_enclustra_mercury_st1.dtsi"
+SRC_URI_append += " file://ovc5_overrides.dtsi"
 
 python () {
     if d.getVar("CONFIG_DISABLE"):
