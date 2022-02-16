@@ -3,7 +3,7 @@
 #define GPIO_DRIVER_HPP
 #include <unordered_map>
 
-#define DEFAULT_CHIP_ID 334 // WAS 338 WHY IS IT 334 NOW!!!
+#define DEFAULT_CHIP_ID 334 // WAS 338 in Vivado 2020.2
 #define GPIO_SYSFS_PATH "/sys/class/gpio"
 #define GPIO_OUTPUT 0
 #define GPIO_INPUT 1
