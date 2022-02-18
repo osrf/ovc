@@ -26,6 +26,14 @@ static void dumpFrame(const cv::Mat& frame)
 }
 */
 
+static void saveFrame(const cv::Mat& frame, const std::string& prefix = "_img")
+{
+  static int idx = 0;
+  std::string name = prefix + std::to_string(idx) + ".png";
+  cv::imwrite(name.c_str(), frame);
+  ++idx;
+}
+
 int main(int argc, char** argv)
 {
   (void)argc;
