@@ -28,8 +28,8 @@ class SensorManager
 {
 private:
   // Number of lines to wait before tranferring frame
-  static constexpr int LINE_BUFFER_SIZE = 400; // was 400
-  static constexpr float DEFAULT_FRAME_RATE = 30.0;
+  static constexpr int LINE_BUFFER_SIZE = 1876; // was 400
+  static constexpr float DEFAULT_FRAME_RATE = 15.0;
 
   std::unique_ptr<EthernetClient> client;
 

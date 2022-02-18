@@ -101,8 +101,7 @@ void VDMADriver::updateLastFramebuffer(int frame_offset)
 {
   // TODO check if we can avoid having last_fb global
   last_fb = (uio.readRegister(PARK_PTR_REG) >> 24) & 0b11111;
-  last_fb -= frame_offset;
-  if (last_fb < 0) last_fb = NUM_FRAMEBUFFERS - 1;
+  last_fb = (last_fb - frame_offset) % NUM_FRAMEBUFFERS;
 }
 
 // Return pointer to memory area with image
@@ -111,7 +110,6 @@ unsigned char* VDMADriver::getImage(int frame_offset)
   // Wait until a new frame is generated
   uio.waitInterrupt();
   updateLastFramebuffer(frame_offset);
-  flushCache();
 
   std::cout << "last master fb is " << last_fb << std::endl;
   return memory_mmap[last_fb];

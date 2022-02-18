@@ -7,6 +7,8 @@
 #include "ovc5_driver/camera_modules.hpp"
 #include "ovc5_driver/i2c_driver.h"
 
+using namespace std::chrono_literals;
+
 SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
                              int line_counter_dev, int trigger_timer_dev,
                              int primary_cam,
@@ -49,7 +51,7 @@ SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
   trigger_timer.PWM(DEFAULT_FRAME_RATE, 0.001);
 
   // Sleep for a bit to allow cameras to boot up.
-  usleep(100000);
+  usleep(500000);
 
   for (const camera_config_t &cam : cams)
   {
@@ -99,37 +101,28 @@ void SensorManager::streamCameras()
     std::cout << "Enabling streaming" << std::endl;
     camera->enableStreaming();
   }
-  // Trigger a sampling event to read in the first frame.
-  //gpio->setValue(GPIO_TRIG_PIN, true);
-  //usleep(100);
-  //gpio->setValue(GPIO_TRIG_PIN, false);
 }
 
 // The stereo only waits for a single interrupt from the first camera
 std::map<int, unsigned char *> SensorManager::getFrames()
 {
   std::map<int, unsigned char *> frame_map;
-  // TEMPORARY HACK wait for some time (1/4th of a frame)
-  //const int us_sleep = (1.0 / DEFAULT_FRAME_RATE) * 1e6 / 4;
-  //usleep(us_sleep);
-
-  // Trigger next frame immediately (circular buffer makes this okay).
-  // The first frame will be available by the trigger in streamCameras.
-  //gpio->setValue(GPIO_TRIG_PIN, true);
-  //usleep(100);
-  //gpio->setValue(GPIO_TRIG_PIN, false);
 
   // Start timer and wait for interrupt
+  /*
   line_counter.interruptAtLine(LINE_BUFFER_SIZE);
   if (!line_counter.waitInterrupt())
   {
     return frame_map;
   }
+  */
   auto cam_it = cameras.begin();
-  while (cam_it != cameras.end())
+  frame_map.insert({primary_cam_, cameras[primary_cam_]->getFrame()});
+  for (auto &[cam_id, camera] : cameras)
   {
-    frame_map.insert({cam_it->first, cam_it->second->getFrameNoInterrupt()});
-    ++cam_it;
+    if (cam_id == primary_cam_)
+      continue;
+    frame_map.insert({cam_id, camera->getFrameNoInterrupt(-1)});
   }
 
   return frame_map;

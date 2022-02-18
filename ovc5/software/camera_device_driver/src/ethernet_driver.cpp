@@ -151,12 +151,12 @@ void EthernetClient::send_image(uint8_t camera_id, unsigned char *imgdata,
   std::lock_guard<std::mutex> imager_lock(imager_mutexes[camera_id]);
   image_ptrs[camera_id] = imgdata;
   imager_condition_variables[camera_id].notify_all();
-  std::cout << "Notifying imager " << (int)camera_id << std::endl;
 }
 
 // Wait until all the images have been sent
 void EthernetClient::wait_done()
 {
+  auto t0 = std::chrono::system_clock::now();
   for (const auto& [cam_id, sock] : imager_to_socket)
   {
     std::unique_lock<std::mutex> imager_lock(imager_mutexes[cam_id]);
@@ -165,6 +165,9 @@ void EthernetClient::wait_done()
       imager_condition_variables[cam_id].wait(imager_lock);
     }
   }
+  auto t1 = std::chrono::system_clock::now();
+  std::chrono::duration<double> diff = t1 - t0;
+  std::cout << "sending dt = " << diff.count() << std::endl;
 }
 
 std::shared_ptr<Json::Value> EthernetClient::recv_json()

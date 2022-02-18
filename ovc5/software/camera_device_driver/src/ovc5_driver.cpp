@@ -83,7 +83,7 @@ int main(int argc, char **argv)
   auto t0 = std::chrono::system_clock::now();
   while (!stop)
   {
-    std::cout << "Waiting for frames" << std::endl;
+    //std::cout << "Waiting for frames" << std::endl;
     sm.sendFrames();
     //sm.getFrames();
     auto t1 = std::chrono::system_clock::now();

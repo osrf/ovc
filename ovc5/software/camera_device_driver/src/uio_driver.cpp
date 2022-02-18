@@ -52,15 +52,12 @@ bool UIODriver::waitInterrupt()
   // Reset UIO and blocking read
   size_t io_size;
   io_size = write(uio_file, (char *)&IRQ_RST, sizeof(IRQ_RST));
-  std::cout << "Writing irq_rst... ";
   if (io_size != sizeof(IRQ_RST))
   {
     std::cout << "Failed to write irq_rst" << std::endl;
     return false;
   }
-  std::cout << "Waiting for dummy... ";
   rv = select(uio_file + 1, &set, NULL, NULL, &timeout);
-  std::cout << "Select returned... ";
   if (0 < rv)
   {
     io_size = read(uio_file, &dummy, sizeof(dummy));
@@ -68,7 +65,6 @@ bool UIODriver::waitInterrupt()
     {
       std::cout << "Failed to read dummy value" << std::endl;
     }
-    std::cout << "Received dummy." << std::endl;
   }
   else
   {
