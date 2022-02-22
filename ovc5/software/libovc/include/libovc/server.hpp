@@ -53,6 +53,7 @@ private:
       color_code_map = {
           {"ByrRGGB", cv::COLOR_BayerBG2BGR},  // Left to Right, Top to Bottom.
           {"ByrGRBG", cv::COLOR_BayerGR2RGB},  // Right to Left, Top to Bottom.
+          {"Greyscl", cv::COLOR_GRAY2BGR},  // Right to Left, Top to Bottom.
   };
 
   ReceiveState state_ = ReceiveState::WAIT_HEADER;
