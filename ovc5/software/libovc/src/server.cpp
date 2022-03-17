@@ -97,8 +97,11 @@ void Server::receiveThread(int port_offset)
       ret_imgs[camera_id].t_nsec = recv_pkt.frame.t_nsec;
       ret_imgs[camera_id].frame_id = recv_pkt.frame.frame_id;
       ret_imgs[camera_id].bit_depth = recv_pkt.frame.bit_depth;
-      ret_imgs[camera_id].color_format =
-          color_code_map.at(recv_pkt.frame.data_type);
+      ret_imgs[camera_id].data_type = recv_pkt.frame.data_type;
+      auto data_format = color_code_map.at(recv_pkt.frame.data_type);
+      ret_imgs[camera_id].color_format = data_format.color_code;
+      // TODO arbitrary widths
+      auto bit_type = data_format.is_signed ? CV_16SC1 : CV_16UC1;
 
       frame_size = recv_pkt.frame.height * recv_pkt.frame.step;
 
@@ -107,7 +110,7 @@ void Server::receiveThread(int port_offset)
       ret_imgs[camera_id].image.create(
           recv_pkt.frame.height,
           recv_pkt.frame.width,
-          CV_16UC1);  // TODO flexible data type, for now only yuv420
+          bit_type);
 
       cur_off = 0;
       state_ = ReceiveState::WAIT_PAYLOAD;

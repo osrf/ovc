@@ -63,7 +63,18 @@ int main(int argc, char** argv)
     cv::hconcat(img0, img1, frame);
     scale = (float)SCREEN_WIDTH / frame.size().width;
     cv::resize(frame, frame, cv::Size(), scale, scale);
-    cv::imshow("ovc", frame);
+    */
+    for (const auto& frame : frames)
+    {
+      if (frame.second.image.rows > 0 && frame.second.image.cols > 0)
+        cv::imshow("ovc_" + std::to_string(frame.first), frame.second.image);
+
+    }
+    //cv::imshow("ovc", frames[5].image);
+    //dumpFrame(frames[5].image);
+    //cv::imshow("ovc2", frames[3].image);
+    //saveFrame(frames[0].image, "left_");
+    //saveFrame(frames[3].image, "right_");
     cv::waitKey(1);
   }
   return 0;

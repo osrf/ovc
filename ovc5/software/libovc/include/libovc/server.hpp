@@ -30,6 +30,7 @@ typedef struct OVCImage
   uint64_t frame_id;
   uint8_t bit_depth;
   cv::ColorConversionCodes color_format;
+  std::string data_type;
   cv::Mat image;
 } OVCImage;
 
@@ -38,6 +39,15 @@ class Server
 private:
   static constexpr int BASE_PORT = 12345;
   static constexpr int NUM_INTERFACES = 1; // Two USB ethernets in parallel
+
+  struct ImageDataType
+  {
+    cv::ColorConversionCodes color_code;
+    bool is_signed;
+    ImageDataType(const cv::ColorConversionCodes code, bool sign = false) :
+      color_code(code), is_signed(sign)
+    {}
+  };
 
   // The Bayer Pattern is as follows:
   //
@@ -49,11 +59,12 @@ private:
   // Depending on the direction x and y increment when reading out the data,
   // the order will change. This order determines the selection within the
   // color map.
-  const std::unordered_map<std::string, cv::ColorConversionCodes>
+  const std::unordered_map<std::string, ImageDataType>
       color_code_map = {
-          {"ByrRGGB", cv::COLOR_BayerBG2BGR},  // Left to Right, Top to Bottom.
-          {"ByrGRBG", cv::COLOR_BayerGR2RGB},  // Right to Left, Top to Bottom.
-          {"Greyscl", cv::COLOR_GRAY2BGR},  // Right to Left, Top to Bottom.
+          {"ByrRGGB", {cv::COLOR_BayerBG2BGR, false}},  // Left to Right, Top to Bottom.
+          {"ByrGRBG", {cv::COLOR_BayerGR2RGB, false}},  // Right to Left, Top to Bottom.
+          {"SCGrscl", {cv::COLOR_GRAY2BGR, true}},  // Signed Greyscale
+          {"UCGrscl", {cv::COLOR_GRAY2BGR, false}},  // Unsigned Greyscale
   };
 
   ReceiveState state_ = ReceiveState::WAIT_HEADER;
