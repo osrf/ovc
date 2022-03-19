@@ -32,6 +32,19 @@ typedef struct OVCImage
   cv::ColorConversionCodes color_format;
   std::string data_type;
   cv::Mat image;
+
+  // Override to deep copy the cv mat image
+  OVCImage& operator= (const OVCImage& other)
+  {
+    t_sec = other.t_sec;
+    t_nsec = other.t_nsec;
+    frame_id = other.frame_id;
+    bit_depth = other.bit_depth;
+    color_format = other.color_format;
+    data_type = other.data_type;
+    other.image.copyTo(image);
+    return *this;
+  }
 } OVCImage;
 
 class Server

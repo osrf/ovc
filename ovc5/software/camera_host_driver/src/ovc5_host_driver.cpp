@@ -67,7 +67,10 @@ int main(int argc, char** argv)
     for (const auto& frame : frames)
     {
       if (frame.second.image.rows > 0 && frame.second.image.cols > 0)
+      {
         cv::imshow("ovc_" + std::to_string(frame.first), frame.second.image);
+        //saveFrame(frame.second.image, std::string("cam") + std::to_string(frame.first) + std::string("/img_"));
+      }
 
     }
     //cv::imshow("ovc", frames[5].image);
