@@ -1,8 +1,8 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-//Date        : Fri Jan 28 18:41:22 2022
-//Host        : luca-focal running 64-bit Ubuntu 20.04.3 LTS
+//Date        : Sat Mar 19 16:28:28 2022
+//Host        : luca-focal running 64-bit Ubuntu 20.04.4 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
 //Purpose     : IP block netlist
@@ -98,8 +98,8 @@ module design_1_wrapper
   input [3:0]mipi_phy_if_0_data_p;
   input mipi_phy_if_1_clk_n;
   input mipi_phy_if_1_clk_p;
-  input [3:0]mipi_phy_if_1_data_n;
-  input [3:0]mipi_phy_if_1_data_p;
+  input [1:0]mipi_phy_if_1_data_n;
+  input [1:0]mipi_phy_if_1_data_p;
   input mipi_phy_if_2_clk_n;
   input mipi_phy_if_2_clk_p;
   input [1:0]mipi_phy_if_2_data_n;
@@ -192,8 +192,8 @@ module design_1_wrapper
   wire [3:0]mipi_phy_if_0_data_p;
   wire mipi_phy_if_1_clk_n;
   wire mipi_phy_if_1_clk_p;
-  wire [3:0]mipi_phy_if_1_data_n;
-  wire [3:0]mipi_phy_if_1_data_p;
+  wire [1:0]mipi_phy_if_1_data_n;
+  wire [1:0]mipi_phy_if_1_data_p;
   wire mipi_phy_if_2_clk_n;
   wire mipi_phy_if_2_clk_p;
   wire [1:0]mipi_phy_if_2_data_n;
