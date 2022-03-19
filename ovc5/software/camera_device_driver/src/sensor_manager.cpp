@@ -58,6 +58,7 @@ SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
     int cam_id = cam.id;
     int vdma_dev = cam.vdma_dev;
     bool is_primary = primary_cam == cam_id;
+    is_primary = true;
     I2CDriver i2c(cam.i2c_dev);
     for (auto cam_module : CAMERA_MODULES)
     {
@@ -107,6 +108,7 @@ void SensorManager::streamCameras()
 std::map<int, unsigned char *> SensorManager::getFrames()
 {
   std::map<int, unsigned char *> frame_map;
+  static std::map<int, unsigned char *> last_frames;
 
   // Start timer and wait for interrupt
   /*
@@ -117,12 +119,33 @@ std::map<int, unsigned char *> SensorManager::getFrames()
   }
   */
   auto cam_it = cameras.begin();
-  frame_map.insert({primary_cam_, cameras[primary_cam_]->getFrame()});
+  /*
+  std::cout << "Waiting for primary cam" << std::endl;
+  frame_map.insert({primary_cam_, cameras[primary_cam_]->getFrame(-2)});
+  */
   for (auto &[cam_id, camera] : cameras)
   {
+    /*
     if (cam_id == primary_cam_)
       continue;
-    frame_map.insert({cam_id, camera->getFrameNoInterrupt(-1)});
+    */
+    std::cout << "Waiting for cam" << cam_id << std::endl;
+    // HACK we seem to get spurious interrupts, polling to make sure we have a different framebuf
+    unsigned char* frame_ptr = camera->getFrameNoInterrupt(-1);
+    if (last_frames.find(cam_id) == last_frames.end())
+    {
+      frame_map.insert({cam_id, frame_ptr});
+    }
+    else
+    {
+      while (frame_ptr == last_frames[cam_id])
+      {
+        frame_ptr = camera->getFrameNoInterrupt(-1);
+      }
+      frame_map.insert({cam_id, frame_ptr});
+    }
+    last_frames[cam_id] = frame_ptr;
+    //frame_map.insert({cam_id, camera->getFrameNoInterrupt(-1)});
   }
 
   return frame_map;

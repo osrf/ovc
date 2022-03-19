@@ -111,7 +111,7 @@ unsigned char* VDMADriver::getImage(int frame_offset)
   uio.waitInterrupt();
   updateLastFramebuffer(frame_offset);
 
-  std::cout << "last master fb is " << last_fb << std::endl;
+  //std::cout << "last master fb is " << last_fb << std::endl;
   return memory_mmap[last_fb];
 }
 
@@ -120,7 +120,7 @@ unsigned char* VDMADriver::getImageNoInterrupt(int frame_offset)
   // Fetch an image without waiting for UIO interrupt
   // uio.waitInterrupt();
   updateLastFramebuffer(frame_offset);
-  std::cout << "last fb is " << last_fb << std::endl;
+  //std::cout << "last fb is " << last_fb << std::endl;
 
   return memory_mmap[last_fb];
 }

@@ -38,8 +38,8 @@ const std::vector<camera_init_t> CAMERA_MODULES{
 #ifdef PROPRIETARY_SENSORS
     {CAM_CONSTRUCTOR(AR0234), &AR0234::probe},
     {CAM_CONSTRUCTOR(AR0521), &AR0521::probe},
-    {CAM_CONSTRUCTOR(IMX490), &IMX490::probe},
     {CAM_CONSTRUCTOR(MLX75027), &MLX75027::probe},
+    {CAM_CONSTRUCTOR(IMX490), &IMX490::probe},
 #endif
 };
 
