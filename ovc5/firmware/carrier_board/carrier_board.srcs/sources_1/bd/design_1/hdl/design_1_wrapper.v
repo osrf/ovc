@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-//Date        : Sat Mar 19 16:28:28 2022
+//Date        : Tue Mar 22 17:37:45 2022
 //Host        : luca-focal running 64-bit Ubuntu 20.04.4 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -71,7 +71,7 @@ module design_1_wrapper
   output [0:0]FRAME_END_0;
   output [0:0]FRAME_START_0;
   inout [5:0]GPIO;
-  output [0:0]TRIG0;
+  input TRIG0;
   output [0:0]TRIG1;
   output [0:0]TRIG2;
   output [0:0]TRIG3;
@@ -129,7 +129,7 @@ module design_1_wrapper
   wire [0:0]FRAME_END_0;
   wire [0:0]FRAME_START_0;
   wire [5:0]GPIO;
-  wire [0:0]TRIG0;
+  wire TRIG0;
   wire [0:0]TRIG1;
   wire [0:0]TRIG2;
   wire [0:0]TRIG3;

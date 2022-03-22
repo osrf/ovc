@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xBCE042DB49FD3CF",
+      "boundary_crc": "0x6B70B9E1E594559B",
       "device": "xczu4ev-sfvc784-1-i",
       "name": "design_1",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -113,7 +113,8 @@
         "m15_couplers": {},
         "m16_couplers": {}
       },
-      "zynq_ultra_ps_e_0": ""
+      "zynq_ultra_ps_e_0": "",
+      "mlx_trig_inverter_0": ""
     },
     "interface_ports": {
       "mipi_phy_if_0": {
@@ -371,9 +372,7 @@
         "right": "0"
       },
       "TRIG0": {
-        "direction": "O",
-        "left": "0",
-        "right": "0",
+        "direction": "I",
         "parameters": {
           "POLARITY": {
             "value": "ACTIVE_LOW",
@@ -7884,13 +7883,7 @@
             "value": "RPLL"
           },
           "PSU__CRL_APB__PL1_REF_CTRL__ACT_FREQMHZ": {
-            "value": "166.664993"
-          },
-          "PSU__CRL_APB__PL1_REF_CTRL__FREQMHZ": {
-            "value": "167"
-          },
-          "PSU__CRL_APB__PL1_REF_CTRL__SRCSEL": {
-            "value": "RPLL"
+            "value": "199.998001"
           },
           "PSU__CRL_APB__PL2_REF_CTRL__ACT_FREQMHZ": {
             "value": "199.998001"
@@ -8289,7 +8282,7 @@
             "value": "1"
           },
           "PSU__FPGA_PL1_ENABLE": {
-            "value": "1"
+            "value": "0"
           },
           "PSU__FPGA_PL2_ENABLE": {
             "value": "0"
@@ -8775,9 +8768,6 @@
             "value": "0"
           },
           "PSU__PL_CLK0_BUF": {
-            "value": "TRUE"
-          },
-          "PSU__PL_CLK1_BUF": {
             "value": "TRUE"
           },
           "PSU__PL__POWER__ON": {
@@ -9362,6 +9352,18 @@
             }
           }
         }
+      },
+      "mlx_trig_inverter_0": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "design_1_util_vector_logic_0_0",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "not"
+          },
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -9687,14 +9689,13 @@
       },
       "gpio_trigger_slice_Dout": {
         "ports": [
-          "mipi/TRIG1",
+          "TRIG0",
           "TRIG1",
-          "TRIG5",
           "TRIG4",
           "TRIG3",
           "TRIG2",
-          "TRIG0",
-          "Debug/TRIG0"
+          "Debug/TRIG0",
+          "mlx_trig_inverter_0/Op1"
         ]
       },
       "interrupts_dout": {
@@ -9725,6 +9726,12 @@
         "ports": [
           "mipi/interrupt6",
           "interrupts/In0"
+        ]
+      },
+      "mlx_trig_inverter_0_Res": {
+        "ports": [
+          "mlx_trig_inverter_0/Res",
+          "TRIG5"
         ]
       },
       "rst_ps8_0_49M_peripheral_aresetn": {
@@ -9806,12 +9813,7 @@
       "zynq_ultra_ps_e_0_pl_clk0": {
         "ports": [
           "zynq_ultra_ps_e_0/pl_clk0",
-          "mipi/dphy_clk_200M"
-        ]
-      },
-      "zynq_ultra_ps_e_0_pl_clk1": {
-        "ports": [
-          "zynq_ultra_ps_e_0/pl_clk1",
+          "mipi/dphy_clk_200M",
           "mipi/video_aclk",
           "user_i2c/s_axi_aclk",
           "Debug/CLK",
