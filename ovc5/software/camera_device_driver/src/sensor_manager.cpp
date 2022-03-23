@@ -48,7 +48,8 @@ SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
   gpio->setValue(GPIO_LED_PIN, false);
 
   // Set up trigger timer at the configured frequency.
-  trigger_timer.PWM(DEFAULT_FRAME_RATE, 0.001);
+  // NOT USED FOR NOW, we generate pulses through a main camera
+  // trigger_timer.PWM(DEFAULT_FRAME_RATE, 0.001);
 
   // Sleep for a bit to allow cameras to boot up.
   usleep(500000);
@@ -57,16 +58,15 @@ SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
   {
     int cam_id = cam.id;
     int vdma_dev = cam.vdma_dev;
-    bool is_primary = primary_cam == cam_id;
-    is_primary = true;
     I2CDriver i2c(cam.i2c_dev);
     for (auto cam_module : CAMERA_MODULES)
     {
       if (cam_module.probe(i2c))
       {
+        // Enable interrupts for all cameras
         cameras.insert(
             {cam_id,
-             cam_module.constructor(i2c, vdma_dev, cam_id, is_primary)});
+             cam_module.constructor(i2c, vdma_dev, cam_id, true)});
         break;
       }
     }
@@ -88,8 +88,9 @@ void SensorManager::initCameras()
     }
 
     bool is_primary = cam_id == primary_cam_;
+
     if (is_primary)
-      camera->setSecondary();
+      camera->setMain();
     else
       camera->setSecondary();
   }
@@ -99,9 +100,13 @@ void SensorManager::streamCameras()
 {
   for (auto &[cam_id, camera] : cameras)
   {
+    if (cam_id == primary_cam_)
+      continue;
     std::cout << "Enabling streaming" << std::endl;
     camera->enableStreaming();
   }
+  // Initialise all secondaries before the primary
+  cameras[primary_cam_]->enableStreaming();
 }
 
 // The stereo only waits for a single interrupt from the first camera
@@ -123,29 +128,26 @@ std::map<int, unsigned char *> SensorManager::getFrames()
   std::cout << "Waiting for primary cam" << std::endl;
   frame_map.insert({primary_cam_, cameras[primary_cam_]->getFrame(-2)});
   */
+  bool first_ar_seen = false;
   for (auto &[cam_id, camera] : cameras)
   {
-    /*
-    if (cam_id == primary_cam_)
-      continue;
-    */
+    if (cam_id == 0 || cam_id == 3 || cam_id == 5)
+	    continue;
+    // If first AR we need to wait for an extra interrupt
+    if (first_ar_seen == false)
+      camera->getFrame();
+
+    first_ar_seen = true;
     std::cout << "Waiting for cam" << cam_id << std::endl;
-    // HACK we seem to get spurious interrupts, polling to make sure we have a different framebuf
-    unsigned char* frame_ptr = camera->getFrameNoInterrupt(-1);
-    if (last_frames.find(cam_id) == last_frames.end())
-    {
-      frame_map.insert({cam_id, frame_ptr});
-    }
-    else
-    {
-      while (frame_ptr == last_frames[cam_id])
-      {
-        frame_ptr = camera->getFrameNoInterrupt(-1);
-      }
-      frame_map.insert({cam_id, frame_ptr});
-    }
-    last_frames[cam_id] = frame_ptr;
-    //frame_map.insert({cam_id, camera->getFrameNoInterrupt(-1)});
+    frame_map.insert({cam_id, camera->getFrame(-3)});
+  }
+  for (auto &[cam_id, camera] : cameras)
+  {
+    // SKIP AR0234
+    if (frame_map.find(cam_id) != frame_map.end())
+      continue;
+    std::cout << "Waiting for cam" << cam_id << std::endl;
+    frame_map.insert({cam_id, camera->getFrame(-3)});
   }
 
   return frame_map;

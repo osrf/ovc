@@ -48,7 +48,7 @@ bool UIODriver::waitInterrupt()
   FD_SET(uio_file, &set);
 
   // Start by resetting status register (only the masked bits)
-  writeRegister(reset_register, readRegister(reset_register) & (~reset_mask));
+  writeRegister(reset_register, reset_mask);
   // Reset UIO and blocking read
   size_t io_size;
   io_size = write(uio_file, (char *)&IRQ_RST, sizeof(IRQ_RST));
