@@ -34,7 +34,7 @@ private:
   std::vector<std::mutex> socks_mutexes;
   std::vector<std::mutex> imager_mutexes;
   std::vector<std::condition_variable> imager_condition_variables;
-  std::vector<std::atomic<unsigned char*>> image_ptrs;
+  std::vector<std::atomic<bool>> image_ptrs;
 
   //ether_tx_packet_t tx_pkt = {0};
 
@@ -45,15 +45,14 @@ private:
   // to a matching camera interface
   std::size_t assign_to_socket(uint8_t camera_id, const camera_params_t &params);
 
-  void send_thread(uint8_t camera_id, const camera_params_t &params);
+  void send_thread(I2CCamera* cam, uint8_t camera_id);
 
 public:
   EthernetClient(const std::vector<std::string> &server_ips, int port = 12345);
   ~EthernetClient();
 
   // TODO proper timestamping and packet header
-  void send_image(uint8_t camera_id, unsigned char *imgdata,
-                  const camera_params_t &params);
+  void send_image(I2CCamera *cam, uint8_t camera_id);
 
   // Wait until all the images are sent and threads are idle
   void wait_done();

@@ -155,16 +155,13 @@ std::map<int, unsigned char *> SensorManager::getFrames()
 
 void SensorManager::sendFrames()
 {
-  auto frames = getFrames();
-  for (const auto &[cam_id, frame_ptr] : frames)
+  //auto frames = getFrames();
+  //for (const auto &[cam_id, frame_ptr] : frames)
+  for (const auto &[cam_id, camera] : cameras)
   {
-    cameras[cam_id]->flushCache();
-    client->send_image(
-        (uint8_t)cam_id, frame_ptr, cameras[cam_id]->getCameraParams());
+    client->send_image(camera.get(), cam_id);
   }
   client->wait_done();
-  // Wait for the main camera DMA to report frame transfer being done
-  //cameras[primary_cam_]->getFrame();
 }
 
 /* JSON Format
