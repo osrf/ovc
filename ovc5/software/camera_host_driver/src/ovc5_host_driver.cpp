@@ -17,20 +17,29 @@ static void dumpFrame(const cv::Mat& frame)
   {
     for (int c = 0; c < frame.cols; ++c)
     {
-      int pixel = frame.at<uint16_t>(r, c);
+      int pixel = frame.at<float>(r, c);
       out_file << pixel << " ";
     }
     out_file << std::endl;
   }
   ran = true;
 }
-*/
 
-static void saveFrame(const cv::Mat& frame, const std::string& prefix = "_img")
+static void saveFrame(const cv::Mat& frame, const std::string& prefix, const std::string& data_type)
 {
   static int idx = 0;
   std::string name = prefix + std::to_string(idx) + ".png";
-  cv::imwrite(name.c_str(), frame);
+  // Normalize float greyscale image to 0-255 for displaying purposes
+  if (data_type == "SCGrscl")
+  {
+    cv::Mat normalized;
+    cv::normalize(frame, normalized, 0, 255, cv::NORM_MINMAX, CV_8UC1);
+    cv::imwrite(name.c_str(), normalized);
+  }
+  else
+  {
+    cv::imwrite(name.c_str(), frame);
+  }
   ++idx;
 }
 

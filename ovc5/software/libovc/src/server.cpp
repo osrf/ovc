@@ -11,9 +11,10 @@ namespace libovc
 {
 Server::Server() : frames_ready_guard(frames_ready_mutex)
 {
-
-  threads.push_back(std::thread(&Server::receiveThread, this, 0));
-  threads.push_back(std::thread(&Server::receiveThread, this, 1));
+  for (int i=0; i<6; ++i)
+  {
+    threads.push_back(std::thread(&Server::receiveThread, this, i));
+  }
 }
 
 Server::~Server()
