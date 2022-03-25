@@ -53,8 +53,6 @@ public:
 
   void streamCameras();
 
-  std::map<int, unsigned char*> getFrames();
-
   void sendFrames();
 
   void recvCommand();

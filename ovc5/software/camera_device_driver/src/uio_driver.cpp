@@ -41,7 +41,7 @@ bool UIODriver::waitInterrupt()
   struct timeval timeout;
   int rv;
 
-  timeout.tv_sec = 1;
+  timeout.tv_sec = 2;
   timeout.tv_usec = 0;
 
   FD_ZERO(&set);

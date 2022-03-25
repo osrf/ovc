@@ -31,14 +31,12 @@ private:
   bool stop = false;
 
   std::vector<Socket> socks;
-  std::vector<std::mutex> socks_mutexes;
   std::vector<std::mutex> imager_mutexes;
   std::vector<std::condition_variable> imager_condition_variables;
   std::vector<std::atomic<bool>> image_ptrs;
 
   //ether_tx_packet_t tx_pkt = {0};
 
-  std::unordered_map<uint8_t, int> imager_to_socket;
   std::unordered_map<uint8_t, std::thread> imager_threads;
 
   // Calculates how much bandwidth the camera needs and assigns it

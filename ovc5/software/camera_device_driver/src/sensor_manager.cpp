@@ -47,9 +47,6 @@ SensorManager::SensorManager(const std::vector<camera_config_t> &cams,
   gpio->openPin(GPIO_TRIG_PIN, GPIO_OUTPUT);
   gpio->setValue(GPIO_LED_PIN, false);
 
-  // Set up trigger timer at the configured frequency.
-  // NOT USED FOR NOW, we generate pulses through a main camera
-  // trigger_timer.PWM(DEFAULT_FRAME_RATE, 0.001);
 
   // Sleep for a bit to allow cameras to boot up.
   usleep(500000);
@@ -107,56 +104,13 @@ void SensorManager::streamCameras()
   }
   // Initialise all secondaries before the primary
   cameras[primary_cam_]->enableStreaming();
-}
-
-// The stereo only waits for a single interrupt from the first camera
-std::map<int, unsigned char *> SensorManager::getFrames()
-{
-  std::map<int, unsigned char *> frame_map;
-  static std::map<int, unsigned char *> last_frames;
-
-  // Start timer and wait for interrupt
-  /*
-  line_counter.interruptAtLine(LINE_BUFFER_SIZE);
-  if (!line_counter.waitInterrupt())
-  {
-    return frame_map;
-  }
-  */
-  auto cam_it = cameras.begin();
-  /*
-  std::cout << "Waiting for primary cam" << std::endl;
-  frame_map.insert({primary_cam_, cameras[primary_cam_]->getFrame(-2)});
-  */
-  bool first_ar_seen = false;
-  for (auto &[cam_id, camera] : cameras)
-  {
-    if (cam_id == 0 || cam_id == 3 || cam_id == 5)
-	    continue;
-    // If first AR we need to wait for an extra interrupt
-    if (first_ar_seen == false)
-      camera->getFrame();
-
-    first_ar_seen = true;
-    std::cout << "Waiting for cam" << cam_id << std::endl;
-    frame_map.insert({cam_id, camera->getFrame(-3)});
-  }
-  for (auto &[cam_id, camera] : cameras)
-  {
-    // SKIP AR0234
-    if (frame_map.find(cam_id) != frame_map.end())
-      continue;
-    std::cout << "Waiting for cam" << cam_id << std::endl;
-    frame_map.insert({cam_id, camera->getFrame(-3)});
-  }
-
-  return frame_map;
+  // Set up trigger timer at the configured frequency.
+  // Note skipped for now, using main camera method
+  //trigger_timer.PWM(DEFAULT_FRAME_RATE, 0.01);
 }
 
 void SensorManager::sendFrames()
 {
-  //auto frames = getFrames();
-  //for (const auto &[cam_id, frame_ptr] : frames)
   for (const auto &[cam_id, camera] : cameras)
   {
     client->send_image(camera.get(), cam_id);

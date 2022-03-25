@@ -6,6 +6,11 @@
 
 Timer::Timer(int uio_num) : uio(uio_num, MAP_SIZE) {}
 
+Timer::~Timer()
+{
+  reset();
+}
+
 void Timer::reset()
 {
   uio.writeRegister(TCSR0, 0x00);
