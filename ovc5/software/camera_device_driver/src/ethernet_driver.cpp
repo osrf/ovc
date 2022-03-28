@@ -13,7 +13,7 @@ EthernetClient::EthernetClient(const std::vector<std::string> &server_ips,
                                int port)
     : imager_mutexes(6),
       imager_condition_variables(6),
-      image_ptrs(6) // TODO remove hardcoded 6 (num imagers)
+      image_ready(6) // TODO remove hardcoded 6 (num imagers)
 {
   // TODO different ports for different imagers?
   const int IMAGERS_PER_IP = 6 / server_ips.size();
@@ -34,10 +34,10 @@ EthernetClient::EthernetClient(const std::vector<std::string> &server_ips,
       if (connect(sock, (struct sockaddr *)&sock_in, sizeof(sock_in)) < 0)
         std::cout << "Failed connecting to server" << std::endl;
 
-      socks.push_back(Socket(sock));
+      socks.push_back(sock);
     }
   }
-  for (auto& ptr : image_ptrs)
+  for (auto& ptr : image_ready)
     ptr = false;
 
   if (socks.empty())
@@ -78,7 +78,7 @@ void EthernetClient::send_thread(I2CCamera* cam, uint8_t camera_id)
   while (!stop)
   {
     // Wait for condition variable, image to be ready
-    while (image_ptrs[camera_id] == false)
+    while (image_ready[camera_id] == false)
     {
       std::unique_lock<std::mutex> imager_lock(imager_mutexes[camera_id]);
       if (stop)
@@ -88,20 +88,20 @@ void EthernetClient::send_thread(I2CCamera* cam, uint8_t camera_id)
       imager_condition_variables[camera_id].wait(imager_lock);
     }
     // Now get the frame from the camera
-    unsigned char *imgdata = cam->getFrame(-3);;
+    unsigned char *imgdata = cam->getFrame(-3);
     off_t cur_off = 0;
     // First send the header
-    const size_t io_size = write(socks[camera_id].num, tx_pkt.data, sizeof(tx_pkt));
+    const size_t io_size = write(socks[camera_id], tx_pkt.data, sizeof(tx_pkt));
     if (io_size != sizeof(tx_pkt))
     {
       std::cout << "TX packet header failed to send" << std::endl;
     }
     while (cur_off < frame_size)
     {
-      cur_off += write(socks[camera_id].num, imgdata + cur_off, frame_size - cur_off);
+      cur_off += write(socks[camera_id], imgdata + cur_off, frame_size - cur_off);
     }
     // Empty the atomic and notify for completion of image send
-    image_ptrs[camera_id] = false;
+    image_ready[camera_id] = false;
     imager_condition_variables[camera_id].notify_all();
     ++tx_pkt.frame.frame_id;
   }
@@ -121,7 +121,7 @@ void EthernetClient::send_image(I2CCamera* cam, uint8_t camera_id)
         std::thread(&EthernetClient::send_thread, this, cam, camera_id)});
     std::cout << "Creating thread for imager " << (int)camera_id << std::endl;
   }
-  image_ptrs[camera_id] = true;
+  image_ready[camera_id] = true;
   imager_condition_variables[camera_id].notify_all();
 }
 
@@ -132,7 +132,7 @@ void EthernetClient::wait_done()
   for (std::size_t i = 0; i < socks.size(); ++i)
   {
     std::unique_lock<std::mutex> imager_lock(imager_mutexes[i]);
-    while (!stop && image_ptrs[i] != false)
+    while (!stop && image_ready[i] != false)
     {
       imager_condition_variables[i].wait(imager_lock);
     }
@@ -153,22 +153,22 @@ std::shared_ptr<Json::Value> EthernetClient::recv_json()
   timeout.tv_usec = 10;
   fd_set rfds;
   FD_ZERO(&rfds);
-  FD_SET(socks[0].num, &rfds);
-  int retval = select(socks[0].num + 1, &rfds, NULL, NULL, &timeout);
+  FD_SET(socks[0], &rfds);
+  int retval = select(socks[0] + 1, &rfds, NULL, NULL, &timeout);
   if (0 == retval || -1 == retval)
   {
     return nullptr;
   }
 
   uint16_t json_size = -1;
-  size_t io_size = read(socks[0].num, &json_size, sizeof(json_size));
+  size_t io_size = read(socks[0], &json_size, sizeof(json_size));
   if (io_size != sizeof(json_size) && io_size != 0)
   {
     std::cout << "RX packet size not received." << std::endl;
   }
 
   std::string json_string(json_size, 0);
-  io_size = read(socks[0].num, &json_string[0], json_size);
+  io_size = read(socks[0], &json_string[0], json_size);
   if (io_size != json_size && io_size != 0)
   {
     std::cout << "JSON packet not fully received." << std::endl;

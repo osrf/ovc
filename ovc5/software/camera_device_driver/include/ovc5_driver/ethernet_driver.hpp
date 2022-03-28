@@ -17,23 +17,12 @@
 class EthernetClient
 {
 private:
-  struct Socket
-  {
-    int num;
-    int used_bw = 0;
-
-    Socket(int num_) : num(num_) {}
-  };
-
-  // Max Mbit/s per USB connection (benchmarked)
-  static constexpr int USB_MAX_BW = 3200;
-
   bool stop = false;
 
-  std::vector<Socket> socks;
+  std::vector<int> socks;
   std::vector<std::mutex> imager_mutexes;
   std::vector<std::condition_variable> imager_condition_variables;
-  std::vector<std::atomic<bool>> image_ptrs;
+  std::vector<std::atomic<bool>> image_ready;
 
   //ether_tx_packet_t tx_pkt = {0};
 
