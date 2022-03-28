@@ -20,7 +20,7 @@ Each camera family has its own directory in this repository that contains its re
 # Hardware Design
 
 We are using the very latest KiCAD: the nightly development builds.
-Installation instructions are here: http://kicad-pcb.org/download/ubuntu/
+Installation instructions are here: https://www.kicad.org/download/ubuntu/
 
 Once you have installed `kicad-nightly` on your machine, then you will
 need to set up the repos as follows:
