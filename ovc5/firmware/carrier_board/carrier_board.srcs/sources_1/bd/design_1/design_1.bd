@@ -60,7 +60,9 @@
         "axi_smc": "",
         "axi_smc_1": "",
         "line_counter": "",
-        "trigger_timer": ""
+        "trigger_timer": "",
+        "iic_intc_0": "",
+        "iic_irq_concat_0": ""
       },
       "interrupts": {
         "irq0_concat": "",
@@ -111,7 +113,8 @@
         "m13_couplers": {},
         "m14_couplers": {},
         "m15_couplers": {},
-        "m16_couplers": {}
+        "m16_couplers": {},
+        "m17_couplers": {}
       },
       "zynq_ultra_ps_e_0": "",
       "mlx_trig_inverter_0": ""
@@ -758,6 +761,11 @@
             "mode": "Slave",
             "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+          },
+          "s_axi3": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           }
         },
         "ports": {
@@ -777,15 +785,7 @@
             "type": "intr",
             "direction": "O"
           },
-          "interrupt": {
-            "type": "intr",
-            "direction": "O"
-          },
-          "iic2intc_irpt": {
-            "type": "intr",
-            "direction": "O"
-          },
-          "interrupt1": {
+          "i2c_interrupt": {
             "type": "intr",
             "direction": "O"
           },
@@ -793,39 +793,11 @@
             "type": "intr",
             "direction": "O"
           },
-          "iic2intc_irpt4": {
-            "type": "intr",
-            "direction": "O"
-          },
           "s2mm_introut2": {
             "type": "intr",
             "direction": "O"
           },
-          "interrupt2": {
-            "type": "intr",
-            "direction": "O"
-          },
-          "iic2intc_irpt5": {
-            "type": "intr",
-            "direction": "O"
-          },
           "s2mm_introut3": {
-            "type": "intr",
-            "direction": "O"
-          },
-          "interrupt3": {
-            "type": "intr",
-            "direction": "O"
-          },
-          "iic2intc_irpt6": {
-            "type": "intr",
-            "direction": "O"
-          },
-          "interrupt4": {
-            "type": "intr",
-            "direction": "O"
-          },
-          "iic2intc_irpt7": {
             "type": "intr",
             "direction": "O"
           },
@@ -845,11 +817,7 @@
             "type": "intr",
             "direction": "O"
           },
-          "interrupt5": {
-            "type": "intr",
-            "direction": "O"
-          },
-          "interrupt6": {
+          "line_counter_irq": {
             "type": "intr",
             "direction": "O"
           },
@@ -2580,10 +2548,6 @@
                 "type": "intr",
                 "direction": "O"
               },
-              "interrupt": {
-                "type": "intr",
-                "direction": "O"
-              },
               "video_out_tlast": {
                 "direction": "O"
               }
@@ -3128,6 +3092,36 @@
           "trigger_timer": {
             "vlnv": "xilinx.com:ip:axi_timer:2.0",
             "xci_name": "design_1_trigger_timer_0"
+          },
+          "iic_intc_0": {
+            "vlnv": "xilinx.com:ip:axi_intc:4.1",
+            "xci_name": "design_1_axi_intc_0_0",
+            "parameters": {
+              "C_IRQ_CONNECTION": {
+                "value": "1"
+              },
+              "C_IRQ_IS_LEVEL": {
+                "value": "1"
+              },
+              "C_NUM_SW_INTR": {
+                "value": "0"
+              },
+              "C_PROCESSOR_CLK_FREQ_MHZ": {
+                "value": "200.0"
+              },
+              "C_S_AXI_ACLK_FREQ_MHZ": {
+                "value": "200.0"
+              }
+            }
+          },
+          "iic_irq_concat_0": {
+            "vlnv": "xilinx.com:ip:xlconcat:2.1",
+            "xci_name": "design_1_xlconcat_0_0",
+            "parameters": {
+              "NUM_PORTS": {
+                "value": "5"
+              }
+            }
           }
         },
         "interface_nets": {
@@ -3159,6 +3153,12 @@
             "interface_ports": [
               "S_AXI2",
               "trigger_timer/S_AXI"
+            ]
+          },
+          "Conn6": {
+            "interface_ports": [
+              "s_axi3",
+              "iic_intc_0/s_axi"
             ]
           },
           "axi_iic_0_IIC": {
@@ -3343,12 +3343,6 @@
               "s2mm_introut2"
             ]
           },
-          "axi_vdma_3_s2mm_introut": {
-            "ports": [
-              "cam3/s2mm_introut",
-              "s2mm_introut3"
-            ]
-          },
           "axi_vdma_4_s2mm_introut": {
             "ports": [
               "cam4/s2mm_introut",
@@ -3367,16 +3361,22 @@
               "end_line_concat/In0"
             ]
           },
+          "cam1_iic2intc_irpt": {
+            "ports": [
+              "cam1/iic2intc_irpt",
+              "iic_irq_concat_0/In0"
+            ]
+          },
           "cam1_video_out_tlast": {
             "ports": [
               "cam1/video_out_tlast",
               "end_line_concat/In1"
             ]
           },
-          "cam2_mipi_block_two_lane_iic2intc_irpt": {
+          "cam2_iic2intc_irpt": {
             "ports": [
               "cam2/iic2intc_irpt",
-              "iic2intc_irpt5"
+              "iic_irq_concat_0/In1"
             ]
           },
           "cam2_video_out_tlast": {
@@ -3385,10 +3385,28 @@
               "end_line_concat/In2"
             ]
           },
+          "cam3_iic2intc_irpt": {
+            "ports": [
+              "cam3/iic2intc_irpt",
+              "iic_irq_concat_0/In2"
+            ]
+          },
+          "cam3_s2mm_introut": {
+            "ports": [
+              "cam3/s2mm_introut",
+              "s2mm_introut3"
+            ]
+          },
           "cam3_video_out_tlast": {
             "ports": [
               "cam3/video_out_tlast",
               "end_line_concat/In3"
+            ]
+          },
+          "cam4_iic2intc_irpt": {
+            "ports": [
+              "cam4/iic2intc_irpt",
+              "iic_irq_concat_0/In3"
             ]
           },
           "cam4_video_out_tlast": {
@@ -3397,34 +3415,16 @@
               "end_line_concat/In4"
             ]
           },
+          "cam5_iic2intc_irpt": {
+            "ports": [
+              "cam5/iic2intc_irpt",
+              "iic_irq_concat_0/In4"
+            ]
+          },
           "cam5_video_out_tlast": {
             "ports": [
               "cam5/video_out_tlast",
               "end_line_concat/In5"
-            ]
-          },
-          "cam_iic_1_iic2intc_irpt": {
-            "ports": [
-              "cam1/iic2intc_irpt",
-              "iic2intc_irpt"
-            ]
-          },
-          "cam_iic_3_iic2intc_irpt": {
-            "ports": [
-              "cam3/iic2intc_irpt",
-              "iic2intc_irpt6"
-            ]
-          },
-          "cam_iic_4_iic2intc_irpt": {
-            "ports": [
-              "cam4/iic2intc_irpt",
-              "iic2intc_irpt7"
-            ]
-          },
-          "cam_iic_5_iic2intc_irpt": {
-            "ports": [
-              "cam5/iic2intc_irpt",
-              "iic2intc_irpt4"
             ]
           },
           "end_line_concat_dout": {
@@ -3439,10 +3439,22 @@
               "selector/Op2"
             ]
           },
+          "iic_intc_0_irq": {
+            "ports": [
+              "iic_intc_0/irq",
+              "i2c_interrupt"
+            ]
+          },
+          "iic_irq_concat_0_dout": {
+            "ports": [
+              "iic_irq_concat_0/dout",
+              "iic_intc_0/intr"
+            ]
+          },
           "line_counter_interrupt": {
             "ports": [
               "line_counter/interrupt",
-              "interrupt6"
+              "line_counter_irq"
             ]
           },
           "line_end_inverter_Res": {
@@ -3455,12 +3467,6 @@
             "ports": [
               "cam0/frame_rcvd_pulse_out",
               "frame_rcvd_pulse_out"
-            ]
-          },
-          "mipi_block_four_lane_interrupt": {
-            "ports": [
-              "cam0/interrupt",
-              "interrupt5"
             ]
           },
           "mipi_block_four_lane_s2mm_introut": {
@@ -3509,7 +3515,8 @@
               "axi_smc/aresetn",
               "axi_smc_1/aresetn",
               "line_counter/s_axi_aresetn",
-              "trigger_timer/s_axi_aresetn"
+              "trigger_timer/s_axi_aresetn",
+              "iic_intc_0/s_axi_aresetn"
             ]
           },
           "trigger_timer_pwm0": {
@@ -3580,7 +3587,8 @@
               "axi_smc/aclk",
               "axi_smc_1/aclk",
               "line_counter/s_axi_aclk",
-              "trigger_timer/s_axi_aclk"
+              "trigger_timer/s_axi_aclk",
+              "iic_intc_0/s_axi_aclk"
             ]
           }
         }
@@ -4312,7 +4320,7 @@
             "value": "0"
           },
           "NUM_MI": {
-            "value": "17"
+            "value": "18"
           },
           "NUM_SI": {
             "value": "1"
@@ -4405,6 +4413,11 @@
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           },
           "M16_AXI": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+          },
+          "M17_AXI": {
             "mode": "Master",
             "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
@@ -4711,6 +4724,22 @@
           "M16_ARESETN": {
             "type": "rst",
             "direction": "I"
+          },
+          "M17_ACLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_BUSIF": {
+                "value": "M17_AXI"
+              },
+              "ASSOCIATED_RESET": {
+                "value": "M17_ARESETN"
+              }
+            }
+          },
+          "M17_ARESETN": {
+            "type": "rst",
+            "direction": "I"
           }
         },
         "components": {
@@ -4773,7 +4802,7 @@
             "xci_name": "design_1_tier2_xbar_1_0",
             "parameters": {
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_SI": {
                 "value": "1"
@@ -4790,7 +4819,8 @@
                   "M03_AXI",
                   "M04_AXI",
                   "M05_AXI",
-                  "M06_AXI"
+                  "M06_AXI",
+                  "M07_AXI"
                 ]
               }
             }
@@ -6035,6 +6065,62 @@
                 ]
               }
             }
+          },
+          "m17_couplers": {
+            "interface_ports": {
+              "M_AXI": {
+                "mode": "Master",
+                "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+              },
+              "S_AXI": {
+                "mode": "Slave",
+                "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+              }
+            },
+            "ports": {
+              "M_ACLK": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_BUSIF": {
+                    "value": "M_AXI"
+                  },
+                  "ASSOCIATED_RESET": {
+                    "value": "M_ARESETN"
+                  }
+                }
+              },
+              "M_ARESETN": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "S_ACLK": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_BUSIF": {
+                    "value": "S_AXI"
+                  },
+                  "ASSOCIATED_RESET": {
+                    "value": "S_ARESETN"
+                  }
+                }
+              },
+              "S_ARESETN": {
+                "type": "rst",
+                "direction": "I"
+              }
+            },
+            "interface_nets": {
+              "m17_couplers_to_m17_couplers": {
+                "interface_ports": [
+                  "S_AXI",
+                  "M_AXI"
+                ]
+              }
+            }
           }
         },
         "interface_nets": {
@@ -6158,6 +6244,12 @@
               "m16_couplers/M_AXI"
             ]
           },
+          "m17_couplers_to_ps8_0_axi_periph": {
+            "interface_ports": [
+              "M17_AXI",
+              "m17_couplers/M_AXI"
+            ]
+          },
           "ps8_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
               "S00_AXI",
@@ -6260,16 +6352,22 @@
               "m14_couplers/S_AXI"
             ]
           },
-          "tier2_xbar_2_to_m15_couplers": {
+          "tier2_xbar_1_to_m15_couplers": {
             "interface_ports": [
-              "tier2_xbar_2/M00_AXI",
+              "tier2_xbar_1/M07_AXI",
               "m15_couplers/S_AXI"
             ]
           },
           "tier2_xbar_2_to_m16_couplers": {
             "interface_ports": [
-              "tier2_xbar_2/M01_AXI",
+              "tier2_xbar_2/M00_AXI",
               "m16_couplers/S_AXI"
+            ]
+          },
+          "tier2_xbar_2_to_m17_couplers": {
+            "interface_ports": [
+              "tier2_xbar_2/M01_AXI",
+              "m17_couplers/S_AXI"
             ]
           },
           "xbar_to_i00_couplers": {
@@ -6324,6 +6422,7 @@
               "m14_couplers/M_ACLK",
               "m15_couplers/M_ACLK",
               "m16_couplers/M_ACLK",
+              "m17_couplers/M_ACLK",
               "m00_couplers/S_ACLK",
               "m01_couplers/S_ACLK",
               "m02_couplers/S_ACLK",
@@ -6340,7 +6439,8 @@
               "m13_couplers/S_ACLK",
               "m14_couplers/S_ACLK",
               "m15_couplers/S_ACLK",
-              "m16_couplers/S_ACLK"
+              "m16_couplers/S_ACLK",
+              "m17_couplers/S_ACLK"
             ]
           },
           "ps8_0_axi_periph_ARESETN_net": {
@@ -6375,6 +6475,7 @@
               "m14_couplers/M_ARESETN",
               "m15_couplers/M_ARESETN",
               "m16_couplers/M_ARESETN",
+              "m17_couplers/M_ARESETN",
               "m00_couplers/S_ARESETN",
               "m01_couplers/S_ARESETN",
               "m02_couplers/S_ARESETN",
@@ -6391,7 +6492,8 @@
               "m13_couplers/S_ARESETN",
               "m14_couplers/S_ARESETN",
               "m15_couplers/S_ARESETN",
-              "m16_couplers/S_ARESETN"
+              "m16_couplers/S_ARESETN",
+              "m17_couplers/S_ARESETN"
             ]
           }
         }
@@ -9547,6 +9649,12 @@
           "user_i2c/S_AXI3"
         ]
       },
+      "ps8_0_axi_periph_M17_AXI": {
+        "interface_ports": [
+          "ps8_0_axi_periph/M17_AXI",
+          "mipi/s_axi3"
+        ]
+      },
       "user_i2c_IIC_0": {
         "interface_ports": [
           "usb_smbus_rtl_0",
@@ -9651,40 +9759,10 @@
           "interrupts/In13"
         ]
       },
-      "cam2_mipi_block_two_lane_iic2intc_irpt": {
-        "ports": [
-          "mipi/iic2intc_irpt5",
-          "interrupts/In2"
-        ]
-      },
       "cam_enable_slice_Dout": {
         "ports": [
           "GPIO/ENABLE",
           "ENABLE"
-        ]
-      },
-      "cam_iic_1_iic2intc_irpt": {
-        "ports": [
-          "mipi/iic2intc_irpt",
-          "interrupts/In1"
-        ]
-      },
-      "cam_iic_3_iic2intc_irpt": {
-        "ports": [
-          "mipi/iic2intc_irpt6",
-          "interrupts/In3"
-        ]
-      },
-      "cam_iic_4_iic2intc_irpt": {
-        "ports": [
-          "mipi/iic2intc_irpt7",
-          "interrupts/In4"
-        ]
-      },
-      "cam_iic_5_iic2intc_irpt": {
-        "ports": [
-          "mipi/iic2intc_irpt4",
-          "interrupts/In5"
         ]
       },
       "gpio_trigger_slice_Dout": {
@@ -9695,7 +9773,8 @@
           "TRIG3",
           "TRIG2",
           "Debug/TRIG0",
-          "mlx_trig_inverter_0/Op1"
+          "mlx_trig_inverter_0/Op1",
+          "interrupts/In2"
         ]
       },
       "interrupts_dout": {
@@ -9722,9 +9801,15 @@
           "Debug/Op1"
         ]
       },
+      "mipi_interrupt": {
+        "ports": [
+          "mipi/i2c_interrupt",
+          "interrupts/In1"
+        ]
+      },
       "mipi_interrupt6": {
         "ports": [
-          "mipi/interrupt6",
+          "mipi/line_counter_irq",
           "interrupts/In0"
         ]
       },
@@ -9758,7 +9843,8 @@
           "ps8_0_axi_periph/M13_ARESETN",
           "ps8_0_axi_periph/M14_ARESETN",
           "ps8_0_axi_periph/M15_ARESETN",
-          "ps8_0_axi_periph/M16_ARESETN"
+          "ps8_0_axi_periph/M16_ARESETN",
+          "ps8_0_axi_periph/M17_ARESETN"
         ]
       },
       "trigger_probe_inverter_Res": {
@@ -9839,7 +9925,8 @@
           "ps8_0_axi_periph/M16_ACLK",
           "zynq_ultra_ps_e_0/maxihpm0_lpd_aclk",
           "zynq_ultra_ps_e_0/saxihpc0_fpd_aclk",
-          "zynq_ultra_ps_e_0/saxihpc1_fpd_aclk"
+          "zynq_ultra_ps_e_0/saxihpc1_fpd_aclk",
+          "ps8_0_axi_periph/M17_ACLK"
         ]
       },
       "zynq_ultra_ps_e_0_pl_resetn0": {
@@ -9997,6 +10084,11 @@
         "address_spaces": {
           "Data": {
             "segments": {
+              "SEG_axi_intc_0_Reg": {
+                "address_block": "/mipi/iic_intc_0/S_AXI/Reg",
+                "offset": "0x0080110000",
+                "range": "64K"
+              },
               "SEG_axi_timer_0_Reg": {
                 "address_block": "/mipi/trigger_timer/S_AXI/Reg",
                 "offset": "0x0080020000",
