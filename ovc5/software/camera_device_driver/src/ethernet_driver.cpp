@@ -103,6 +103,7 @@ void EthernetClient::send_thread(I2CCamera* cam, uint8_t camera_id)
     // Empty the atomic and notify for completion of image send
     image_ptrs[camera_id] = false;
     imager_condition_variables[camera_id].notify_all();
+    ++tx_pkt.frame.frame_id;
   }
 }
 
@@ -181,6 +182,3 @@ std::shared_ptr<Json::Value> EthernetClient::recv_json()
   Json::parseFromStream(rbuilder, ss, root.get(), &errs);
   return root;
 }
-
-// TODO implement
-void EthernetClient::increaseId() { /*tx_pkt.frame.frame_id++; */}

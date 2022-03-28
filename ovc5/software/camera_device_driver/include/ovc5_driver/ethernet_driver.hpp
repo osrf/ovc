@@ -57,8 +57,6 @@ public:
 
   // Waits to receive a json message.
   std::shared_ptr<Json::Value> recv_json();
-
-  void increaseId();
 };
 
 #endif
