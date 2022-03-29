@@ -255,13 +255,6 @@ subnet 10.0.2.0 netmask 255.255.255.252 {
   option interface-mtu 15300;
 }"
 
-# It seems udev rule is not really working
-rclocal_text='#!/bin/sh -e
-
-/root/startup.sh &
-exit 0
-'
-
   # Copy in all scripts that the device will use.
   sudo cp -r $DIR/device_scripts/* $ROOT_DIR/root/
 
@@ -285,7 +278,7 @@ egrep -v '^\s*#' /etc/ssh/sshd_config | grep -qxF 'PasswordAuthentication yes' |
 sed -i 's/INTERFACESv4=\"\"/INTERFACESv4=\"usb0 usb1\"/g' /etc/default/isc-dhcp-server
 sed -i 's/#OPTIONS=\"\"/OPTIONS=\"-4 -s\"/g' /etc/default/isc-dhcp-server
 echo \"TERM=xterm-256color\" >> /root/.bashrc
-echo "$rclocal_text" >> /etc/rc.local
+echo -e '#!/bin/sh -e \n/root/startup.sh & \nexit 0' >> /etc/rc.local
 chmod +x /etc/rc.local
 " | sudo schroot -c arm64-debian -u root
 
