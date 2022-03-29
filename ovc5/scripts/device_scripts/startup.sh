@@ -10,5 +10,5 @@ sleep 5;
 /root/ethernet_utils/init_usb_ethernet.sh
 
 # IRQ affinity for USB interrupts on different cores
-echo 8 > /proc/irq/71/smp_affinity
-echo 4 > /proc/irq/68/smp_affinity
+echo 8 > /proc/irq/72/smp_affinity
+echo 4 > /proc/irq/69/smp_affinity
