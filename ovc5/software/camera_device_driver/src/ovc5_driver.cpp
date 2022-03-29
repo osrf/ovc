@@ -2,6 +2,8 @@
 #include <unistd.h>
 #include <yaml-cpp/yaml.h>
 
+#include <chrono>
+#include <ctime>
 #include <iostream>
 #include <memory>
 #include <string>
@@ -78,11 +80,17 @@ int main(int argc, char **argv)
     std::cout << "No cameras detected" << std::endl;
     return 0;
   }
+  auto t0 = std::chrono::system_clock::now();
   while (!stop)
   {
-    std::cout << "Waiting for frames" << std::endl;
+    //std::cout << "Waiting for frames" << std::endl;
     sm.sendFrames();
-    sm.recvCommand();
+    //sm.getFrames();
+    auto t1 = std::chrono::system_clock::now();
+    std::chrono::duration<double> diff = t1 - t0;
+    std::cout << "dt = " << diff.count() << std::endl;
+    t0 = t1;
+    //sm.recvCommand();
   }
   return 0;
 }

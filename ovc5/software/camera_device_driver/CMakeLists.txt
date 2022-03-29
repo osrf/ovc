@@ -3,6 +3,8 @@ project(ovc5_driver)
 
 option(PROPRIETARY_SENSORS "Whether to include proprietary sensors." OFF)
 
+find_package(Threads REQUIRED)
+
 include_directories(
   include
 )
@@ -27,6 +29,7 @@ endif()
 target_link_libraries(ovc5_library
   i2c
   jsoncpp
+  Threads::Threads
 )
 
 # Add all the cameras

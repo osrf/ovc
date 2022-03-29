@@ -29,7 +29,7 @@ TMP_MOUNT_DIR=/tmp/petalinux_mnt
 
 help () {
   cat << EOF
-This script is meant to set up and SD card to load Debian Buster and the latest
+This script is meant to set up and SD card to load Debian Bullseye and the latest
 OVC 5 software/firmware into the eMMC on the OVC 5 hardware.
 
 THIS WILL INSTALL DEPENDENCIES FROM APT AS IT GOES. MAKE SURE TO REVIEW SCRIPT.
@@ -188,11 +188,11 @@ copy_bin () {
 install_debian () {
   sudo apt install qemu-user-static debootstrap debian-archive-keyring schroot
   sudo apt-key add /usr/share/keyrings/debian-archive-keyring.gpg
-  # Sets up debian buster arm port on the sd card
+  # Sets up debian bullseye arm port on the sd card
   sudo qemu-debootstrap \
     --arch=arm64 \
     --keyring /usr/share/keyrings/debian-archive-keyring.gpg \
-    --variant=buildd buster \
+    --variant=buildd bullseye \
     $ROOT_DIR http://ftp.debian.org/debian
 }
 
@@ -206,7 +206,7 @@ copy_petalinux_fs () {
 
 setup_userland () {
   echo "[arm64-debian]
-description=Debian Buster (arm64)
+description=Debian Bullseye (arm64)
 directory=$ROOT_DIR
 root-users=root
 users=root
@@ -243,7 +243,7 @@ subnet 10.0.1.0 netmask 255.255.255.252 {
   option subnet-mask 255.255.255.252;
   option routers 10.0.1.1;
   option broadcast-address 10.0.1.3;
-  option interface-mtu 13500;
+  option interface-mtu 15300;
 }
 
 subnet 10.0.2.0 netmask 255.255.255.252 {
@@ -252,13 +252,8 @@ subnet 10.0.2.0 netmask 255.255.255.252 {
   option subnet-mask 255.255.255.252;
   option routers 10.0.2.1;
   option broadcast-address 10.0.2.3;
-  option interface-mtu 13500;
+  option interface-mtu 15300;
 }"
-
-# It seems udev rule is not really working
-rclocal_text="
-bash /root/startup.sh
-"
 
   # Copy in all scripts that the device will use.
   sudo cp -r $DIR/device_scripts/* $ROOT_DIR/root/
@@ -283,8 +278,8 @@ egrep -v '^\s*#' /etc/ssh/sshd_config | grep -qxF 'PasswordAuthentication yes' |
 sed -i 's/INTERFACESv4=\"\"/INTERFACESv4=\"usb0 usb1\"/g' /etc/default/isc-dhcp-server
 sed -i 's/#OPTIONS=\"\"/OPTIONS=\"-4 -s\"/g' /etc/default/isc-dhcp-server
 echo \"TERM=xterm-256color\" >> /root/.bashrc
-touch /etc/rc.local
-echo "$rclocal_text" >> /etc/rc.local
+echo -e '#!/bin/sh -e \n/root/startup.sh & \nexit 0' >> /etc/rc.local
+chmod +x /etc/rc.local
 " | sudo schroot -c arm64-debian -u root
 
   echo "
@@ -336,7 +331,7 @@ Copy in the boot files.
 copy_bin
 
 echo "
-Install debian buster arm64 to root.
+Install debian bullseye arm64 to root.
 "
 install_debian
 

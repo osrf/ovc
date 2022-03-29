@@ -17,14 +17,31 @@ static void dumpFrame(const cv::Mat& frame)
   {
     for (int c = 0; c < frame.cols; ++c)
     {
-      int pixel = frame.at<uint16_t>(r, c);
+      int pixel = frame.at<float>(r, c);
       out_file << pixel << " ";
     }
     out_file << std::endl;
   }
   ran = true;
 }
-*/
+
+static void saveFrame(const cv::Mat& frame, const std::string& prefix, const std::string& data_type)
+{
+  static int idx = 0;
+  std::string name = prefix + std::to_string(idx) + ".png";
+  // Normalize float greyscale image to 0-255 for displaying purposes
+  if (data_type == "SCGrscl")
+  {
+    cv::Mat normalized;
+    cv::normalize(frame, normalized, 0, 255, cv::NORM_MINMAX, CV_8UC1);
+    cv::imwrite(name.c_str(), normalized);
+  }
+  else
+  {
+    cv::imwrite(name.c_str(), frame);
+  }
+  ++idx;
+}
 
 int main(int argc, char** argv)
 {
@@ -55,7 +72,21 @@ int main(int argc, char** argv)
     cv::hconcat(img0, img1, frame);
     scale = (float)SCREEN_WIDTH / frame.size().width;
     cv::resize(frame, frame, cv::Size(), scale, scale);
-    cv::imshow("ovc", frame);
+    */
+    for (const auto& frame : frames)
+    {
+      if (frame.second.image.rows > 0 && frame.second.image.cols > 0)
+      {
+        cv::imshow("ovc_" + std::to_string(frame.first), frame.second.image);
+        //saveFrame(frame.second.image, std::string("cam") + std::to_string(frame.first) + std::string("/img_"));
+      }
+
+    }
+    //cv::imshow("ovc", frames[5].image);
+    //dumpFrame(frames[5].image);
+    //cv::imshow("ovc2", frames[3].image);
+    //saveFrame(frames[0].image, "left_");
+    //saveFrame(frames[3].image, "right_");
     cv::waitKey(1);
   }
   return 0;

@@ -118,3 +118,6 @@ set_property PACKAGE_PIN W12 [get_ports usb_smbus_rtl_0_scl_io]
 set_property IOSTANDARD LVCMOS33 [get_ports usb_smbus_rtl_0_scl_io]
 set_property PACKAGE_PIN W11 [get_ports usb_smbus_rtl_0_sda_io]
 set_property IOSTANDARD LVCMOS33 [get_ports usb_smbus_rtl_0_sda_io]
+
+set_property PACKAGE_PIN AE10 [get_ports TRIG0]
+set_property IOSTANDARD LVCMOS18 [get_ports TRIG0]

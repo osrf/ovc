@@ -12,6 +12,7 @@
 #include "ovc5_driver/cameras/ar0234.hpp"
 #include "ovc5_driver/cameras/ar0521.hpp"
 #include "ovc5_driver/cameras/imx490.hpp"
+#include "ovc5_driver/cameras/mlx75027.hpp"
 #endif
 
 #define CAM_CONSTRUCTOR(cam_class)                                           \
@@ -37,6 +38,7 @@ const std::vector<camera_init_t> CAMERA_MODULES{
 #ifdef PROPRIETARY_SENSORS
     {CAM_CONSTRUCTOR(AR0234), &AR0234::probe},
     {CAM_CONSTRUCTOR(AR0521), &AR0521::probe},
+    {CAM_CONSTRUCTOR(MLX75027), &MLX75027::probe},
     {CAM_CONSTRUCTOR(IMX490), &IMX490::probe},
 #endif
 };

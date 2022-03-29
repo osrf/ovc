@@ -14,10 +14,10 @@ typedef struct camera_dynamic_configs_t
 
 typedef struct camera_params_t
 {
-  int res_x = -1;
-  int res_y = -1;
-  int fps = -1;
-  int bit_depth = -1;
+  long res_x = -1;
+  long res_y = -1;
+  long fps = -1;
+  long bit_depth = -1;
   char data_type[8];
   camera_dynamic_configs_t dynamic_configs = {0};
 } camera_params_t;

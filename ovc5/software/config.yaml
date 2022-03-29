@@ -10,19 +10,19 @@ cams:
     i2c_dev: 2
   - id: 2
     vdma_dev: 6
-    i2c_dev: 5
+    i2c_dev: 3
   - id: 3
     vdma_dev: 7
-    i2c_dev: 6
+    i2c_dev: 4
   - id: 4
     vdma_dev: 8
-    i2c_dev: 7
+    i2c_dev: 5
   - id: 5
     vdma_dev: 9
-    i2c_dev: 8
+    i2c_dev: 6
 # If cameras are borked this should hang. If it passes straight through, the numbers are backwards.
 trigger_timer_dev: 11
 line_count_timer_dev: 10
-primary_cam: 1
+primary_cam: 0
 # Host's IP Address
-server_ips: ["10.0.1.2"]
+server_ips: ["10.0.1.2", "10.0.2.2"]

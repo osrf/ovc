@@ -884,25 +884,6 @@ set psu_clock_init_data {
 		# This register controls this reference clock
 		#(OFFSET, MASK, VALUE)      (0XFF5E00C0, 0x013F3F07U ,0x01010502U)  */
     mask_write 0XFF5E00C0 0x013F3F07 0x01010502
-		# Register : PL1_REF_CTRL @ 0XFF5E00C4</p>
-
-		# Clock active signal. Switch to 0 to disable the clock
-		# PSU_CRL_APB_PL1_REF_CTRL_CLKACT                                                 0x1
-
-		# 6 bit divider
-		# PSU_CRL_APB_PL1_REF_CTRL_DIVISOR1                                               0x1
-
-		# 6 bit divider
-		# PSU_CRL_APB_PL1_REF_CTRL_DIVISOR0                                               0xa
-
-		# 000 = IOPLL; 010 = RPLL; 011 = DPLL; (This signal may only be toggled af
-    # ter 4 cycles of the old clock and 4 cycles of the new clock. This is not
-    #  usually an issue, but designers must be aware.)
-		# PSU_CRL_APB_PL1_REF_CTRL_SRCSEL                                                 0x2
-
-		# This register controls this reference clock
-		#(OFFSET, MASK, VALUE)      (0XFF5E00C4, 0x013F3F07U ,0x01010A02U)  */
-    mask_write 0XFF5E00C4 0x013F3F07 0x01010A02
 		# Register : AMS_REF_CTRL @ 0XFF5E0108</p>
 
 		# 6 bit divider

@@ -27,6 +27,8 @@ private:
 public:
   Timer(int uio_num);
 
+  ~Timer();
+
   void PWM(double freq, double high_time, bool invert_polarity = false);
 
   void interruptAtLine(int n);
