@@ -188,11 +188,11 @@ copy_bin () {
 install_debian () {
   sudo apt install qemu-user-static debootstrap debian-archive-keyring schroot
   sudo apt-key add /usr/share/keyrings/debian-archive-keyring.gpg
-  # Sets up debian buster arm port on the sd card
+  # Sets up debian bullseye arm port on the sd card
   sudo qemu-debootstrap \
     --arch=arm64 \
     --keyring /usr/share/keyrings/debian-archive-keyring.gpg \
-    --variant=buildd buster \
+    --variant=buildd bullseye \
     $ROOT_DIR http://ftp.debian.org/debian
 }
 
@@ -336,7 +336,7 @@ Copy in the boot files.
 copy_bin
 
 echo "
-Install debian buster arm64 to root.
+Install debian bullseye arm64 to root.
 "
 install_debian
 
