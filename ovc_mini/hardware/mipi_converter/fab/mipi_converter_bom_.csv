@@ -1,0 +1,22 @@
+Component,Description,Part,References,Value,Footprint,Quantity Per PCB,Datasheet,D1N,D1PN,MFN,MPN
+1,Unpolarized capacitor,C,C1 C3,4.7u,C_0603_1608Metric,2,Unpolarized capacitor,Digikey,1276-1044-1-ND,Samsung Electro-Mechanics,CL10A475KP8NNNC
+2,"Generic connector, single row, 01x28, script generated (kicad-library-utils/schlib/autogen/connector/)",Conn_01x28_Male,J1,Conn_01x28_Male,,1,"Generic connector, single row, 01x28, script generated (kicad-library-utils/schlib/autogen/connector/)",,,,
+3,,BU33SD5WG-TR,U2,BU33SD5WG-TR,SOT-753,1,https://fscdn.rohm.com/en/products/databook/datasheet/ic/power/linear_regulator/buxxsd5wg-e.pdf,Digikey,BU33SD5WG-TRCT-ND,Rohm Semiconductor,BU33SD5WG-TR
+4,,MIPI_Custom_28Pin,U1,MIPI_Custom_28Pin,HIROSE_TF31-28S-0.5SH,1,,Digikey,26-TF31-28S-0.5SH(800)CT-ND,Hirose Electric Co Ltd,TF31-28S-0.5SH(800)
+5,,PICAM_Expandable_Reversed,U3,PICAM_Expandable_Reversed,AMPHENOL_SFW15R+SFW21R,1,,Digikey,609-1158-1-ND,Amphenol,SFW22S-2STE1LF
+
+
+
+
+
+Component Groups:,5
+Component Count:,6
+Fitted Components:,6
+Number of PCBs:,1
+Total components:,6
+Schematic Version:,
+Schematic Date:,
+PCB Variant:,default
+BoM Date:,Thu 23 Sep 2021 10:34:11 AM PDT
+Schematic Source:,mipi_converter.kicad_sch
+KiCad Version:,Eeschema 5.99.0-unknown-a71d856e94~131~ubuntu20.04.1

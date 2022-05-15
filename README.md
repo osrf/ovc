@@ -12,6 +12,7 @@ the art open hardware with open firmware and software. There are a few revs:
  * ovc3: three ON Semi AR0144CS imagers, USB Type-C peripheral, Trenz TE0820 module with Xilinx Zynq UltraScale+, RAM, flash, etc. Up to four optional external camera boards, each of which add a pair of AR0144CS imagers.
  * ovc4: A Jetson Xavier NX carrier board with an NXP MCU, USB Type-C interface and six Picam compatible connectors.
  * ovc5 (current work): based on Zynq UltraScale+ modules from Enclustra, with up to six external MIPI camera boards. Both Zynq USB SuperSpeed (5 Gbps) transceivers connect to an onboard USB-SS+ (10 Gbps) hub controller IC, which multiplexes them upstream via a USB type-C connector. Also has three Qwiic/STEMMA connectors and some random FPGA GPIO for low-speed expansion.
+ * ovc-mini (current work): based on the Ka-Ro QSXM/QSXP modules, this project is attempting to push the limits of the modular camera system in terms of size. The module will have the same footprint as one of the MIPI camera modules (36x36mm) and be able to stream a single imager's output up to the limits of the IMX8M(M/P) chipset's capabilities.
 
 # Where do I find stuff
 

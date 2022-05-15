@@ -1,0 +1,34 @@
+#!/bin/bash
+
+if [[ -z "${OVC_MINI_DIR}" ]]; then
+  echo "Source setup.sh before running this script."
+  exit
+fi
+
+DISTRO="${DISTRO:-ovc-mini}"
+MACHINE="${MACHINE:-qsxp-ml81-ovc}"
+BUILD_PRJ="${BUILD_PRJ:-build-ovc}"
+IMAGE="${IMAGE:-ovc-image}"
+
+BSP_DIR=$OVC_MINI_DIR/bsp
+
+setup_release () {
+  cd $BSP_DIR
+  source karo-setup-release.sh -b $BUILD_PRJ
+  echo "BBLAYERS += \"\${BSPDIR}/sources/meta-ovc\"" >> $BSP_DIR/$BUILD_PRJ/conf/bblayers.conf
+  cd $OVC_MINI_DIR
+}
+
+rebuild () {
+  cd $BSP_DIR
+  source setup-environment $BUILD_PRJ
+  bitbake $IMAGE
+  bitbake build-sysroots
+  cd $OVC_MINI_DIR
+}
+
+if [[ ! -d "${BSP_DIR}/${BUILD_PRJ}" ]]; then
+  setup_release
+fi
+
+rebuild

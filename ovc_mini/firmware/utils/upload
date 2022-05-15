@@ -1,0 +1,4 @@
+#!/bin/bash
+BUILD_PRJ="${BUILD_PRJ:-build-ovc}"
+
+cd $OVC_MINI_DIR/bsp/$BUILD_PRJ/tmp/deploy/images/qsxp-ml81-ovc/ && uuu -v
